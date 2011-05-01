@@ -1,0 +1,179 @@
+---
+_id: !id '4da9b91bb44a97246500006e'
+key: line.de.10200
+type: line
+events:
+    -   date: !!null
+        country: de
+    -   date: !!null
+        ref:
+            de.VzG: 1232
+        locations: [ "1,479", "8,670" ]
+        sources:
+            - !keyref src.de.VzG
+    -   date: !!null
+        category: de.Hauptbahn
+        tracks: 2
+        owner: !keyref org.de.KPEV.Alt
+        operator: !keyref org.de.KPEV.Alt
+    -   date: !date 1889-04-08
+        concession:
+            by: !keyref org.de.Preussen
+        sources:
+            - !keyref src.de.DRG.1935
+            - !keyref src.de.Preussen.1889.9.13
+    -   date: !date 1893-05-01
+        end: !keyref point.de.Hamburg-Langenfelde-Bbf
+        status: open
+        sources:
+            - !keyref src.de.DRG.1935
+    -   date: !date c1900
+        start: !keyref point.de.Hamburg-Langenfelde-Bbf
+        status: open
+    -   date: !date c1990
+        electrified:
+            overhead: !voltage 15kV 16.7Hz
+points:
+    - !keyref point.de.Rainweg
+    - !keyref point.de.Hamburg-Altona-An
+    - !keyref point.de.Hamburg-Langenfelde-Bbf
+    - !keyref point.de.Hamburg-Langenfelde-Abzw
+    - !keyref point.de.Hamburg-Eidelstedt
+
+---
+_id: !id '4da9b91bb44a97246500006f'
+key: point.de.Rainweg
+type: point
+events:
+    -   date: !!null
+        category: de.Abzw
+        location:
+            - !keyloc line.de.10200 1,5
+        name: Rainweg
+    -   date: !!null
+        ref:
+            de.DS100: AAR
+        sources:
+            - !keyref src.de.TPP.2006
+    -   date: !!null
+        coords: !geopoint 53.562938 9.941651
+        sources:
+            - !keyref src.GoogleMaps
+
+---
+_id: !id '4da9b91bb44a972465000070'
+key: point.de.Hamburg-Altona-An
+type: point
+events:
+    -   date: !!null
+        category: de.Bft
+        name: Hamburg-Altona An
+        master: !keyref point.de.Hamburg-Altona
+        ref:
+            de.DS100: "AA  N"
+    -   date: !!null
+        coords: !geopoint 53.565828 9.934001
+        sources:
+            - !keyref src.GoogleMaps
+    -   date: !date c2005
+        merged: !keyref point.de.Hamburg-Altona
+
+---
+_id: !id '4da9b91bb44a972465000071'
+key: point.de.Hamburg-Langenfelde-Bbf
+type: point
+events:
+    -   date: !!null
+        location:
+            - !keyloc line.de.10200 4,1
+            - !keyloc line.de.11000 4,1
+        sources:
+            - !keyref src.de.SuW.2005
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: I
+        name: Langenfelde Vbf
+        ref:
+            de.lknr: 01 278
+        service: de.o
+        sources:
+            - !keyref src.de.Bfv.1933
+    -   date: !!null
+        ref:
+            de.DS100: ALA
+        sources:
+            - !keyref src.de.TPP.2006
+    -   date: !!null
+        coords: !geopoint 53.581436 9.923562
+        sources:
+            - !keyref src.GoogleMaps
+    -   date: !date c1940
+        name: Hamburg-Langenfelde
+        sources:
+            - !keyref src.de.Bfv.1944
+    -   date: !date c1970
+        name: Hamburg-Langenfelde Bbf
+        sources:
+            - !keyref src.de.SuW.2005
+
+---
+_id: !id '4da9b91bb44a972465000074'
+key: point.de.Hamburg-Langenfelde-Abzw
+type: point
+events:
+    -   date: !!null
+        location:
+            - !keyloc line.de.10200 4,8
+        sources:
+            - !keyref src.de.SuW.2005
+    -   date: !!null
+        name: Hamburg-Langenfelde Abzw
+        ref:
+            de.DS100: ALAA
+        sources:
+            - !keyref src.de.TPP.2006
+    -   date: !!null
+        coords: !geopoint 53.595431 9.907055
+        sources:
+            - !keyref src.GoogleMaps
+
+---
+_id: !id '4da9b91bb44a972465000072'
+key: point.de.Hamburg-Eidelstedt
+type: point
+events:
+    -   date: !!null
+        location:
+            - !keyloc line.de.10200 7,38
+            - !keyloc line.de.11000 7,38
+        sources:
+            - !keyref src.de.DRG.Alt.Karte.1949
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: I
+        name: Eidelstedt Vbf
+        ref:
+            de.lknr: 01 280
+        service: de.o
+        sources:
+            - !keyref src.de.Bfv.1933
+    -   date: !!null
+        location:
+            - !keyloc line.de.10300 0,0
+        ref:
+            de.DS100: AE
+        sources:
+            - !keyref src.de.SuW.2005
+    -   date: !!null
+        coords: !geopoint 53.603564 9.889294
+        sources:
+            - !keyref src.GoogleMaps
+    -   date: !date c1940
+        name: Hamburg-Eidelstedt Vbf
+        sources:
+            - !keyref src.de.Bfv.1944
+    -   date: !date c1970
+        name: Hamburg-Eidelstedt
+        sources:
+            - !keyref src.de.TPP.2006
+

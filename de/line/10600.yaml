@@ -1,0 +1,87 @@
+---
+_id: !id '4da9b91bb44a9724650000b5'
+key: line.de.10600
+type: line
+events:
+    -   date: !!null
+        ref:
+            de.VzG: 1252
+        locations: [ "-0,113", "2,981" ]
+        sources:
+            - !keyref src.de.VzG
+    -   date: !!null
+        owner: !keyref org.de.KPEV.Alt
+        operator: !keyref org.de.KPEV.Alt
+        sources:
+            - !keyref src.de.DRG.1935
+    -   date: !date 1898-11-01
+        status: open
+        service: freight
+        sources:
+            - !keyref src.de.DRG.1935
+    -   date: !date c1970
+        electrified:
+            overhead: !voltage 15kV 16.7Hz
+points:
+    - !keyref point.de.Hamburg-Unterelbe
+    - !keyref point.de.Hamburg-Unterelbe-Seehafen
+
+---
+_id: !id '4da9b91bb44a9724650000b6'
+key: point.de.Hamburg-Unterelbe
+type: point
+events:
+    -   date: !!null
+        location:
+            - !keyloc line.de.10600 0,0
+    -   date: !!null
+        location:
+            - !keyloc line.de.13000 170,78
+        sources:
+            - !keyref src.de.DRG.Alt.Karte.1945
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: I
+        name: Harburg-Wilhelmsburg U E
+        ref:
+            de.lknr: 01 138
+        service: de.b
+        sources:
+            - !keyref src.de.Bfv.1933
+    -   date: !!null
+        ref:
+            de.DS100: AHB
+        sources:
+            - !keyref src.de.TPP.2006
+    -   date: !!null
+        coords: !geopoint 53.465164 9.977823
+        sources:
+            - !keyref src.GoogleMaps
+    -   date: !date 1938
+        name: Hamburg Unterelbe
+        sources:
+            - !keyref src.de.Bfv.1944
+
+---
+_id: !id '4da9b91bb44a9724650000b7'
+key: point.de.Hamburg-Unterelbe-Seehafen
+type: point
+events:
+    -   date: !!null
+        category: de.Bf
+        location:
+            - !keyloc line.de.10600 3,0
+        sources:
+            - !keyref src.de.SuW.2005
+    -   date: !!null
+        name: Hamburg Unterelbe Seehafen
+        ref:
+            de.DS100: AHO
+        sources:
+            - !keyref src.de.TPP.2006
+    -   date: !!null
+        coords: !geopoint 53.474681 9.946682
+        sources:
+            - !keyref src.de.SuW.2005
+            - !keyref src.GoogleMaps
+

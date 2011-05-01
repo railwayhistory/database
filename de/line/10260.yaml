@@ -1,0 +1,102 @@
+---
+_id: !id '4da9b91bb44a972465000077'
+key: line.de.10260
+type: line
+events:
+    -   date: !!null
+        country: de
+    -   date: !!null
+        ref:
+            de.VzG: 1222
+        sources:
+            - !keyref src.de.VzG
+    -   date: !!null
+        owner: !keyref org.de.AKE
+        operator: !keyref org.de.AKE
+        sources:
+            - !keyref src.de.DRG.1935
+    -   date: !!null
+        category: de.Nebenbahn
+    -   date: !date 1874-04-01
+        start: !keyref point.de.Hamburg-Altona-Kai
+        concession:
+            by: !keyref org.de.Preussen
+        sources:
+            - !keyref src.de.DRG.1935
+            - !keyref src.de.Preussen.1874.24.313
+    -   date: !date 1876-01-18
+        start: !keyref point.de.Hamburg-Altona-Kai
+        end: !keyref point.de.Altona-Palmaille
+        service: freight
+        status: open
+        sources:
+            - !keyref src.de.DRG.1935
+    -   date: !date 1886-07-01
+        owner: !keyref org.de.KPEV.Alt
+        operator: !keyref org.de.KPEV.Alt
+        sources:
+            - !keyref src.de.DRG.1935
+    -   date: !date 1895-11-16?
+        start: !keyref point.de.Altona-Palmaille
+        service: freight
+        status: open
+    -   date: !date 1911
+        electrified:
+            overhead: !voltage 6300V 25Hz
+        sources:
+            - !keyref src.de.WP.Schellfischtunnel
+    -   date: !date 1954
+        electrified:
+            overhead: !!null
+        sources:
+            - !keyref src.de.WP.Schellfischtunnel
+    -   date: !date 1992
+        status: closed
+        sources:
+            - !keyref src.de.WP.Schellfischtunnel
+points:
+    - !keyref point.de.Hamburg-Altona-Kai
+    - !keyref point.de.Altona-Palmaille
+    - !keyref point.de.Hamburg-Altona       # line.de.10050
+
+---
+_id: !id '4da9b91bb44a972465000078'
+key: point.de.Hamburg-Altona-Kai
+type: point
+events:
+    -   date: !!null
+        category: de.Ldst
+        name: Altona Hgbf Kai
+        ref:
+            de.lknr: 01 096
+        service: de.b
+        sources:
+            - !keyref src.de.Bfv.1933
+    -   date: !!null
+        ref:
+            de.DS100: "AA  W"
+    -   date: !date c1940
+        category: de.LdstAhst
+        name: Hamburg-Altona Kai
+        sources:
+            - !keyref src.de.Bfv.1944
+    -   date: !date c1970
+        category: de.Bft
+
+---
+_id: !id '4da9b91bb44a972465000079'
+key: point.de.Altona-Palmaille
+type: point
+events:
+    -   date: !!null
+        category: de.Bf
+        location:
+            - !keyloc line.de.11000 0,000
+        name: Altona (Pamlaille)
+    -   date: !!null
+        coords: !geopoint 53.546925 9.935353
+        sources:
+            - !keyref src.GoogleMaps
+    -   date: !date 1895?
+        status: closed
+
