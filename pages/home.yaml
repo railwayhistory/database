@@ -15,7 +15,14 @@ content:
               {% for page in pages %}
                 <div class="message">
                   <h3>{{ page.local_content.title }}</h3>
-                  {{ page.local_content.body|safe }}
+                  {{ page.local_content.teaser|safe }}
+                  {% if page.local_content.body %}
+                    <p class="more">
+                      <a href="{% url page_details path=page.path %}">
+                        More ...
+                      </a>
+                    </p>
+                  {% endif %}
                 </div>
               {% endfor %}
             {% endtagindex %}
@@ -32,7 +39,14 @@ content:
               {% for page in pages %}
                 <div class="message">
                   <h3>{{ page.local_content.title }}</h3>
-                  {{ page.local_content.body|safe }}
+                  {{ page.local_content.teaser|safe }}
+                  {% if page.local_content.body %}
+                    <p class="more">
+                      <a href="{% url page_details path=page.path %}
+                        Mehr ...
+                      </a>
+                    </p>
+                  {% endif %}
                 </div>
               {% endfor %}
             {% endtagindex %}
