@@ -2,5 +2,77 @@
 _id: !id 4dba878c5bbaf72ad046655a
 key: line.de.11220
 type: line
-events: []
-points: []
+events:
+    -   date: !!null
+        region:
+            - !keyref org.de
+            - !keyref org.de.sh
+    -   date: !!null
+        ref:
+            de.VzG: 1033
+        locations: [ "100,951", "103,853" ]
+        sources: !keyref src.de.VzG
+    -   date: !!null
+        category: de.Hauptbahn
+        sources: !keyref src.de.DRG.1927
+    -   date: !date 1909-05-15
+        concession:
+            by: !keyref org.de.Preussen
+        owner: !keyref org.de.Preussen
+        operator: !keyref org.de.KPEV.Alt
+        sources:
+            - !keyref src.de.DRG.1935
+            - !keyref src.de.Preussen.1909.5905
+    -   date: !date 1925-09-25
+        status: open
+        service: freight
+        sources: !keyref src.de.DRG.1935
+points: 
+    - !keyref point.de.Meimersdorf-Rbf
+    - !keyref point.de.Meimersdorf-Mitte
+    - !keyref point.de.Meimersdorf-Ost
+    - !keyref point.de.Kiel-Hbf-Ss
+
+---
+_id: !id '4da9b91bb44a9724650001b5'
+key: point.de.Meimersdorf-Mitte
+type: point
+events:
+    -   date: !!null
+        subtype: signalbox
+        category: de.Stw
+        name: Meimersdorf Meg
+    -   date: !!null
+        coords: !geopoint 54.285117 10.10828
+        sources:
+            - !keyref src.de.web.Butenschoen
+            - !keyref src.GoogleMaps
+    -   date: !date c1970
+        category: de.Bft
+        name: Meimersdorf (Mitte)
+        ref:
+            de.DS100: AMR M
+    -   date: !date 2001-10
+        status: closed
+        sources: !keyref src.de.web.Butenschoen
+
+---
+_id: !id '4da9b91bb44a9724650001b6'
+key: point.de.Meimersdorf-Ost
+type: point
+events:
+    -   date: !!null
+        category: de.Bk
+        location:
+            - !keyloc line.de.11220 102,90
+            - !keyloc line.de.11260 102,90
+        name: Meimersdorf Mb
+        sources: !keyref src.de.DRG.Alt.Karte.1931
+    -   date: !date c1980
+        category: de.AbzwAwanst
+        name: Meimersdorf Ost
+        ref:
+            de.lknr: AMRO
+    -   date: !date c2000
+        category: de.Awanst
+        sources: !keyref src.de.SuW.2005

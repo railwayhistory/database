@@ -2,5 +2,91 @@
 _id: !id 4dba86e05bbaf72ad0466557
 key: line.de.11240
 type: line
-events: []
-points: []
+events:
+    -   date: !!null
+        region:
+            - !keyref org.de
+            - !keyref org.de.sh
+    -   date: !!null
+        ref:
+            de.VzG: 1031
+        locations: [ "99,913", "106,525" ]
+        sources: !keyref src.de.VzG
+    -   date: !!null
+        category: de.Hauptbahn
+        sources: !keyref src.de.DRG.1927
+    -   date: !date 1909-05-15
+        end: !keyref point.de.Kiel-Hg
+        concession:
+            by: !keyref org.de.Preussen
+        owner: !keyref org.de.Preussen
+        operator: !keyref org.de.KPEV.Alt
+        sources:
+            - !keyref src.de.DRG.1935
+            - !keyref src.de.Preussen.1909.5905
+    -   date: !date 1025-09-25
+        end: !keyref point.de.Kiel-Hg
+        status: open
+        service: freight
+        sources: !keyref src.de.DRG.1935
+    -   date: !date 1981?
+        start: !keyref point.de.Kiel-Hg
+        status: open
+        service: freight
+points:
+    - !keyref point.de.Meimersdorf.Mf
+    - !keyref point.de.Meimersdorf-Rbf
+    - !keyref point.de.Meimersdorf-Mitte
+    - !keyref point.de.Kiel-Hbf.Ko
+    - !keyref point.de.Kiel-Hg
+    - !keyref point.de.Kiel-Hassee
+
+---
+_id: !id '4da9b91bb44a9724650001b8'
+key: point.de.Kiel-Hg
+type: point
+events:
+    -   date: !!null
+        category: de.Abzw
+        name: Hg
+        sources: !keyref src.de.DRG.Alt.Karte.1931
+    -   date: !!null
+        location: !keyloc line.de.11240 1,53
+        sources: !keyref src.de.DRG.Alt.Karte.1945
+    -   date: !date 1981?
+        status: closed
+
+---
+_id: !id '4da9b91bb44a9724650001b9'
+key: point.de.Kiel-Hassee
+type: point
+events:
+    -   date: !!null
+        location:
+            - !keyloc line.de.12800 2,90
+            - !keyloc line.de.12820 0,00
+            - !keyloc line.de.12900 2,90
+        sources: !keyref src.de.DRG.Alt.Karte.1945
+    -   date: !!null
+        name: Hassee
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: IV
+        ref:
+            de.lknr: 01 376
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        ref:
+            de.DS100: AKH
+        sources: !keyref src.de.TPP.2006
+    -   date: !date c1920
+        name: Kiel-Hassee
+        sources: !keyref src.de.Bfv.1933
+    -   date: !date c1940
+        de.Rangklasse: III
+        sources: !keyref src.de.Bfv.1944
+    -   date: !date 1981-05-31
+        service: de.op
+    -   date: !date 2007-12-09
+        service: full
