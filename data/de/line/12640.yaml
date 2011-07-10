@@ -2,5 +2,139 @@
 _id: !id 4e18a68da21f1e5f2e88afdf
 key: line.de.12640
 type: line
-events: []
-points: []
+events:
+    -   date: !!null
+        region:
+            - !keyref org.de
+            - !keyref org.de.sh
+    -   date: !!null
+        category: de.Hauptbahn
+        sources: !keyref src.de.DRG.1927
+    -   date: !!null
+        ref:
+            de.VzG: 1000
+        locations: [ "170,815", "179,781" ]
+        sources: !keyref src.de.VzG
+    -   date: !!null
+        concession:
+            by: !keyref org.dk
+        owner: !keyref org.gb.Morton-Peto
+        operator: !keyref org.gb.Morton-Peto
+        sources: !keyref src.de.DRG.1935
+    -   date: !date 1863-04-26
+        owner: !keyref org.de.NSEG
+        operator: !keyref org.de.NSEG
+        sources: !keyref src.de.DRG.1935
+    -   date: !date 1864-04-15
+        status: open
+        sources: !keyref src.de.DRG.1935
+    -   date: !date 1865-03-20?
+        concession:
+            by: !keyref org.de.Preussen
+        owner: !keyref org.de.SEG
+        operator: !keyref org.de.SEG
+    -   date: !date 1865-08-04
+        operator: !keyref org.de.AKE
+        sources: !keyref src.de.DRG.1935
+    -   date: !date 1885-03-01
+        owner: !keyref org.de.Preussen
+        operator: !keyref org.de.KPEV.Alt
+        sources: !keyref src.de.DRG.1935
+    -   date: !date c1900
+        tracks: 2
+    -   date: !var org.de.DRG.start
+        owner: !keyref org.de.DRG
+        operator: !keyref org.de.DRG.Alt
+    -   date: !var org.de.DB.start
+        owner: !keyref org.de.DB
+        operator: !keyref org.de.DB.Hmb
+    -   date: !var org.de.DBAG.start
+        owner: !keyref org.de.DBAG
+        operator: !keyref org.de.DBAG
+    -   date: !date 1995
+        electrified:
+            overhead: !voltage 15kV 16.7Hz
+    -   date: !var org.de.DBNetz.start
+        owner: !keyref org.de.DBNetz
+        operator: !keyref org.de.DBNetz
+points:
+    - !keyref point.de.Flensburg-Weiche         # line.de.12400
+    - !keyref point.de.Flensburg-Friedensweg
+    - !keyref point.de.Harrislee
+    - !keyref point.de.Flensburg-Grenze
+
+---
+_id: !id '4da9b91bb44a9724650004ae'
+key: point.de.Flensburg-Friedensweg
+type: point
+events:
+    -   date: !!null
+        location:
+            - !keyloc line.de.12640 168,75
+            - !keyloc line.de.12643 5,49
+        name: Np
+        sources: !keyref src.de.DRG.Alt.Karte.1931
+    -   date: !!null
+        ref:
+            de.DS100: AFR
+        sources: !keyref src.de.TPP.2006
+    -   date: !date c1940
+        name: Friedensweg
+        sources: !keyref src.de.DRG.Alt.Karte.1949
+    -   date: !date 1981
+        location: !keyloc line.de.12640 174,57
+    -   date: !date c2000
+        name: Flensburg Friedensweg
+        sources: !keyref src.de.TPP.2006
+
+---
+_id: !id '4da9b91bb44a9724650004af'
+key: point.de.Harrislee
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.12640 171,87
+        sources: !keyref src.de.DRG.Alt.Karte.1949
+    -   date: !!null
+        name: Harrislee
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: IV
+        ref:
+            de.lknr: 01 434
+        service: de.b
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        ref:
+            de.DS100: AHAL
+    -   date: !date c1940
+        service: full
+        sources: !keyref src.de.Bfv.1944
+    -   date: !date 1981
+        location: !keyloc line.de.12540 177,43
+    -   date: !date c1995
+        status: closed
+
+---
+_id: !id '4da9b91bb44a9724650004b0'
+key: point.de.Flensburg-Grenze
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.12640 174,21
+        sources: !keyref src.de.DRG.Alt.Karte.1949
+    -   date: !!null
+        category: de.Gr
+        name: Flensburg Grenze
+        ref:
+            de.lknr: 01 430
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        ref:
+            de.DS100: AXFW
+        sources: !keyref src.de.TPP.2006
+    -   date: !date 1981
+        location: !keyloc line.de.12640 179,784
+        sources: !keyref src.de.VzG
+
