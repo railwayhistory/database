@@ -2,5 +2,60 @@
 _id: !id 4e18a70ba21f1e5f2e88afe1
 key: line.de.12643
 type: line
-events: []
-points: []
+events:
+    -   date: !!null
+        region:
+            - !keyref org.de
+            - !keyref org.de.sh
+    -   date: !!null
+        category: de.Hauptbahn
+    -   date: !!null
+        ref:
+            de.VzG: 1005
+        locations: [ "-0,001", "5,666" ]
+        sources: !keyref src.de.VzG
+    -   date: !date 1913-05-28
+        concession:
+            by: !keyref org.de.Preussen
+        owner: !keyref org.de.Preussen
+        operator: !keyref org.de.KPEV.Alt
+        sources:
+            - !keyref src.de.DRG.1935
+            - !keyref src.de.Preussen.1913.26.277
+    -   date: !var org.de.DRG.start
+        owner: !keyref org.de.DRG
+        operator: !keyref org.de.DRG.Alt
+    -   date: !date 1927-12-01
+        status: open
+        sources: !keyref src.de.DRG.1935
+    -   date: !var org.de.DB.start
+        owner: !keyref org.de.DB
+        operator: !keyref org.de.DB.Hmb
+    -   date: !date 1996-03-03
+        electrified:
+            overhead: !voltage 15kV 16.7Hz
+        sources: !keyref src.de.WP.Chronik-Streckenelektrifizierung-DBAG
+    -   date: !var org.de.DBNetz.start
+        owner: !keyref org.de.DBNetz
+        operator: !keyref org.de.DBNetz
+points:
+    - !keyref point.de.Flensburg                # line.de.12400
+    - !keyref point.de.Flensburg-Sued
+    - !keyref point.de.Flensburg-Friedensweg    # line.de.12640
+
+---
+_id: !id '4da9b91bb44a9724650004b3'
+key: point.de.Flensburg-Sued
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.12643 1,67
+    -   date: !!null
+        category: de.Awanst
+        sources: !keyref src.de.SuW.2005
+    -   date: !!null
+        name: Flensburg Süd
+        ref:
+            de.DS100: AFS
+        sources: !keyref src.de.TPP.2006
+
