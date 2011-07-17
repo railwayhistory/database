@@ -2,6 +2,58 @@
 _id: !id 4dcaacc2353e7d596f80e692
 key: line.de.12820
 type: line
-title: Kiel-Hassee - Kiel West
-events: []
-points: []
+events:
+    -   date: !!null
+        region:
+            - !keyref org.de
+            - !keyref org.de.sh
+    -   date: !!null
+        category: de.Nebenbahn
+    -   date: !!null
+        ref:
+            de.VzG: 1021
+        locations: [ "0,010", "4,390" ]
+        sources: !keyref src.de.VzG
+    -   date: !date 1904-06-25
+        concession:
+            by: !keyref org.de.Preussen
+        owner: !keyref org.de.Preussen
+        operator: !keyref org.de.KPEV.Alt
+        sources:
+            - !keyref src.de.DRG.1935
+            - !keyref src.de.Preussen.1904.16.113
+    -   date: !var org.de.DRG.start
+        owner: !keyref org.de.DRG
+        operator: !keyref org.de.DRG.Alt
+    -   date: !date 1924-01-02
+        status: open
+        service: freight
+        sources: !keyref src.de.DRG.1935
+    -   date: !var org.de.DB.start
+        owner: !keyref org.de.DB
+        operator: !keyref org.de.DB.Hmb
+    -   date: !date c1990
+        status: closed
+points:
+    - !keyref point.de.Kiel-Hassee
+    - !keyref point.de.Kiel-West
+
+---
+_id: !id '4da9b91bb44a97246500050a'
+key: point.de.Kiel-West
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.12820 3,46
+        sources: !keyref src.de.DRG.Alt.Karte.1949
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: II
+        name: Kiel West
+        ref:
+            de.lknr: 01 307
+        service: [ de.b, de.op ]
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        ref:
+            de.DS100: AKW
