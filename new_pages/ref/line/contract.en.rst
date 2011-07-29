@@ -12,7 +12,7 @@ between two or more parties. Thus, it also contains treaties between
 countries.
 
 The value of the *contract* attribute is a :ref:`~base.mapping`
-containing two optional key:
+containing two optional keys:
 
 The key *partners*, if present, contains a :ref:`~base.list` of
 :ref:`references <~base.reference>` to the
