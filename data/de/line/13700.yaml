@@ -1,0 +1,153 @@
+---
+key: line.de.13700
+type: line
+events:
+    -   date: !!null
+        region:
+            - !keyref org.de
+            - !keyref org.de.l.ni
+    -   date: !!null
+        category: de.Hauptbahn
+        sources: !keyref src.de.SuW.2005
+    -   date: !!null
+        owner: !keyref org.de
+        operator: !keyref org.de.e.DRG
+    -   date: !date 1938-05-15
+        status: open
+        sources: !keyref src.de.WP.Bahnstrecke-Hannover-Hamburg
+    -   date: !var org.de.DB.start
+        operator: !keyref org.de.e.DB
+    -   date: !date 1964-11-02
+        tracks: 2
+        sources: !keyref src.de.WP.Bahnstrecke-Hannover-Hamburg
+    -   date: !date 1965-04-03
+        electrified:
+            overhead: !voltage 15kV 16.7Hz
+        sources: !keyref src.de.WP.Bahnstrecke-Hannover-Hamburg
+    -   date: !var org.de.DBAG.start
+        owner: !keyref org.de.e.DBAG
+        operator: !keyref org.de.e.DBAG
+    -   date: !var org.de.DBNetz.start
+        owner: !keyref org.de.e.DBNetz
+        operator: !keyref org.de.e.DBNetz
+points:
+    - !keyref point.de.Hannover-Hbf                 # line.de.13600
+    - !keyref point.de.Hannover-Hainholz            # line.de.13600
+    - !keyref point.de.Hannover-Herrenhausen        # line.de.13600
+    - !keyref point.de.Hannover-Vinnhorst           # line.de.13600
+    - !keyref point.de.Langenhagen-Mitte
+    - !keyref point.de.Langenhagen                  # line.de.13600
+    - !keyref point.de.Isernhagen
+    - !keyref point.de.Grossburgwedel
+    - !keyref point.de.Moor-Burgwedel
+    - !keyref point.de.Hasenwechsel
+    - !keyref point.de.Dasselsbruch
+    - !keyref point.de.Celle                        # line.de.13000
+
+---
+key: point.de.Langenhagen-Mitte
+type: point
+events:
+    -   date: !date c2000
+        status: open
+        location:
+            - !keyloc line.de.13700 9,9
+            - !keyloc line.de.13710 9,9
+        category: de.Hp
+        name: Langenhagen Mitte
+        ref:
+            de.DS100: HLGM
+        service: [ de.u, de.p ]
+        category: de.Hp
+        sources: !keyref src.de.SuW.2005
+
+---
+key: point.de.Isernhagen
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.13700 17,50
+        sources: !keyref src.de.DRG.Han.1945
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: III
+        name: Isernhagen
+        ref:
+            de.DS100: 13 691
+        sources: !keyref src.de.Bfv.1944
+    -   date: !!null
+        ref:
+            de.DS100: HIHG
+        sources: !keyref src.de.SuW.2005
+
+---
+key: point.de.Grossburgwedel
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.13700 22,00
+        sources: !keyref src.de.DRG.Han.1945
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: III
+        name: Großburgwedel
+        ref:
+            de.DS100: 13 692
+        sources: !keyref src.de.Bfv.1944
+    -   date: !!null
+        ref:
+            de.DS100: HGBW
+        sources: !keyref src.de.SuW.2005
+    -   date: !date c2000
+        category: de.Hp
+        sources: !keyref src.de.SuW.2005
+ 
+---
+key: point.de.Moor-Burgwedel
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.13700 27,82
+        category: de.Kr
+        name: Moor
+        sources: !keyref src.de.DRG.Han.1945
+    -   date: !date 1964
+        status: closed
+        sources: !keyref src.de.WP.Bahnstrecke-Hannover-Hamburg
+
+---
+key: point.de.Hasenwechsel
+type: point
+events:
+    -   date: !date c1960
+        status: open
+    -   date: !!null
+        location: !keyloc line.de.13700 31,1
+        category: de.Uest
+        ref:
+            de.DS100: HHSW
+        sources: !keyref src.de.SuW.2005
+    -   date: !!null
+        name: Hasenwechsel
+    -   date: !date c2000
+        name: Burgwedel Hasenwechsel
+        sources: !keyref src.de.SuW.2005
+
+---
+key: point.de.Dasselsbruch
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.13700 33,69
+        sources: !keyref src.de.DRG.Han.1945
+    -   date: !!null
+        category: de.Hp
+        service: de.b
+        ref:
+            de.lknr: 13 808
+        sources: !keyref src.de.Bfv.1944
+    -   date: !date c1945
+        category: de.Bf
+        sources: !keyref src.de.DRG.Han.1945
+    -   date: !date c1970
+        status: closed
