@@ -2,20 +2,20 @@
 :lang: en
 :title: Documentation
 
-Documentation
-=============
+.. title:: Documentation
+
 
 The Railways of Various Countries
 ---------------------------------
 
-*  `Germany <de>`
+*  `Germany <de>`_
 
 
 Project Documentation
 ---------------------
 
-*  `Introduction to the data <base/data>`
+*  `Introduction to the data <base/data>`_
       
-*  `Editing guidelines <base/guidelines>`
+*  `Editing guidelines <base/guidelines>`_
 
-*  `Reference <ref>`
+*  `Reference <ref>`_
