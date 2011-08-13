@@ -1,0 +1,61 @@
+---
+key: line.de.14120
+type: line
+events:
+    -   date: !!null
+        region:
+            - !keyref org.de
+            - !keyref org.de.l.ni
+
+    -   date: !!null
+        category: de.Anschl
+        ref:
+            de.VzG: 1264
+        locations: [ "-0,033", "3,260" ]
+        sources: !keyref src.de.VzG
+
+    -   date: !!null
+        owner: !keyref org.de.l.pre
+        operator: !keyref org.de.e.KPEV.Alt
+    -   date: !date c1900
+        status: open
+
+    -   date: !date 1920-04-01
+        owner: !keyref org.de
+        operator: !keyref org.de.r.RVM.PH
+    -   date: !date 1924-02-12
+        operator: !keyref org.de.e.DREb
+    -   date: !date 1924-08-30
+        operator: !keyref org.de.e.DRG
+    -   date: !var org.de.DBAG.start
+        owner: !keyref org.de.e.DBAG
+        operator: !keyref org.de.e.DBAG
+    -   date: !var org.de.DBNetz.start
+        owner: !keyref org.de.e.DBNetz
+        operator: !keyref org.de.e.DBNetz
+
+points:
+    - !keyref point.de.Cuxhaven-CF              # line.de.13000
+
+---
+key: point.de.Cuxhaven-Amerika-Bahnhof
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.14120 3,0
+        sources: !keyref src.de.SuW.2005
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: I
+        name: Cuxhaven Hafen
+        service: de.og
+        sources: !keyref src.de.Bfv.1944
+    -   date: !!null
+        ref:
+            de.DS100: ACV M
+        sources: !keyref src.de.TPP.2006
+
+    -   date: !date c1970
+        category: de.Bft
+        name: Cuxhaven Amerika Bahnhof
+        sources: !keyref src.de.TPP.2006
