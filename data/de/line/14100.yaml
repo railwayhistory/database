@@ -12,6 +12,10 @@ events:
         region: !keyref org.de.l.ni
 
     -   date: !!null
+        category: de.Nebenbahn
+        sources: !keyref src.de.DRG.1927
+
+    -   date: !!null
         start: !keyref point.de.Bremerhaven-Speckenbuettel
         ref:
             de.VzG: 1310
@@ -33,9 +37,271 @@ events:
         status: closed
         reused: !keyref line.de.14000
 
-points: []
+    -   date: !date 1920-04-01
+        owner: !keyref org.de
+        operator: !keyref org.de.r.RVM.PH
+    -   date: !date 1924-02-12
+        operator: !keyref org.de.e.DREb
+    -   date: !date 1924-08-30
+        operator: !keyref org.de.e.DRG
+    -   date: !var org.de.DB.start
+        operator: !keyref org.de.e.DB
+    -   date: !var org.de.DBAG.start
+        owner: !keyref org.de.e.DBAG
+        operator: !keyref org.de.e.DBAG
+    -   date: !var org.de.DBNetz.start
+        owner: !keyref org.de.e.DBNetz
+        operator: !keyref org.de.e.DBNetz
+
+points:
+    - !keyref point.de.Bremerhaven-Lehe             # line.de.14000
+    - !keyref point.de.Bremerhaven-Speckenbuettel   # line.de.14000
+    - !keyref point.de.Wremen-LGr
+    - !keyref point.de.Imsum
+    - !keyref point.de.Wremen
+    - !keyref point.de.Mulsum
+    - !keyref point.de.Dorum
+    - !keyref point.de.Cappel-Midlum
+    - !keyref point.de.Spieka
+    - !keyref point.de.Nordholz
+    - !keyref point.de.Nordholz-Bundeswehr
+    - !keyref point.de.Altenwalde
+    - !keyref point.de.Cuxhaven                     # line.de.13000
 
 ---
 key: point.de.Wremen-LGr
 type: point
-events: []
+events:
+    -   date: !!null
+        subtype: border
+        category: de.LGr
+        name: Wremen NI/HB
+        ref:
+            de.DS100: AQWR
+    -   date: !!null
+        location: !keyloc line.de.14100 191,83
+        sources: !keyref src.de.TPP.2006
+ 
+---
+key: point.de.Imsum
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.14100 195,50
+        sources: !keyref src.de.DRG.Alt.Karte.1945
+    -   date: !!null
+        name: Imsum
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: IV
+        ref:
+            de.lknr: 13 809
+        sources: !keyref src.de.Bfv.1933
+    -   date: !date c1940
+        ref:
+            de.lknr: 01 590
+        sources: !keyref src.de.Bfv.1944
+    -   date: !date c1980
+        status: closed
+
+---
+key: point.de.Wremen
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.14100 199,43
+        sources: !keyref src.de.DRG.Alt.Karte.1945
+    -   date: !!null
+        name: Wremen
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: IV
+        ref:
+            de.lknr: 13 810
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        ref:
+            de.DS100: AWRE
+        sources: !keyref src.de.TPP.2006
+    -   date: !date c1940
+        ref:
+            de.lknr: 01 591
+        sources: !keyref src.de.Bfv.1944
+    -   date: !date c1980
+        category: de.Hp
+        sources: !keyref src.de.SuW.2005
+
+---
+key: point.de.Mulsum
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.14100 202,50
+        sources: !keyref src.de.DRG.Alt.Karte.1945
+    -   date: !!null
+        name: Mulsum
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        category: de.Hp
+        service: de.u
+        master: !keyref point.de.Dorum
+        ref:
+            de.lknr: 13 811
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        ref:
+            de.DS100: AMSM
+    -   date: !date c1940
+        ref:
+            de.lknr: 01 592
+        master: !keyref point.de.Bremerhaven-Hbf
+        sources: !keyref src.de.Bfv.1944
+    -   date: !date c2000
+        status: closed
+
+---
+key: point.de.Dorum
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.14100 205,37
+        sources: !keyref src.de.DRG.Alt.Karte.1945
+    -   date: !!null
+        name: Dorum
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: III
+        ref:
+            de.lknr: 13 812
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        ref:
+            de.DS100: ADO
+        sources: !keyref src.de.TPP.2006
+    -   date: !date c1940
+        name: Dorum (Kr Wesermünde)
+        ref:
+            de.lknr: 01 593
+        sources: !keyref src.de.Bfv.1944
+    -   date: !date c1970
+        name: Dorum
+        sources: !keyref src.de.TPP.2006
+
+---
+key: point.de.Cappel-Midlum
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.14100 209,75
+        sources: !keyref src.de.DRG.Alt.Karte.1945
+    -   date: !!null
+        name: Cappel-Midlum
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: IV
+        ref:
+            de.lknr: 13 813
+        sources: !keyref src.de.Bfv.1933
+    -   date: !date c1940
+        ref:
+            de.lknr: 01 594
+        sources: !keyref src.de.Bfv.1944
+    -   date: !date c1980
+        status: closed
+
+---
+key: point.de.Spieka
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.14100 213,31
+        sources: !keyref src.de.DRG.Alt.Karte.1945
+    -   date: !!null
+        name: Spieka
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: IV
+        ref:
+            de.lknr: 13 814
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        ref:
+            de.DS100: ASKA
+    -   date: !date c1940
+        ref:
+            de.lknr: 01 595
+        sources: !keyref src.de.Bfv.1944
+    -   date: !date c2000
+        status: closed
+
+---
+key: point.de.Nordholz
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.14100 216,10
+        sources: !keyref src.de.DRG.Alt.Karte.1945
+    -   date: !!null
+        name: Nordholz
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: IV
+        ref:
+            de.lknr: 13 815
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        ref:
+            de.DS100: ANZ
+        sources: !keyref src.de.TPP.2006
+    -   date: !date c1940
+        ref:
+            de.lknr: 01 596
+        sources: !keyref src.de.Bfv.1944
+
+---
+key: point.de.Nordholz-Bundeswehr
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.14100 219,7
+        category: de.Awanst
+        name: Nordholz Bundeswehr
+        ref:
+            de.DS100: ANZA
+        sources: !keyref src.de.SuW.2005
+    -   date: !date c2005
+        status: closed
+
+---
+key: point.de.Altenwalde
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.14100 222,29
+        sources: !keyref src.de.DRG.Alt.Karte.1945
+    -   date: !!null
+        name: Altenwalde
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: IV
+        service: de.Agent
+        ref:
+            de.lknr: 13 816
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        ref:
+            de.DS100: AALW
+    -   date: !date c1940
+        ref:
+            de.lknr: 01 597
+        service: full
+        sources: !keyref src.de.Bfv.1944
+    -   date: !date c2000
+        status: closed
