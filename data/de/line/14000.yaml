@@ -146,6 +146,8 @@ points:
     - !keyref point.de.Bremen-Mahndorf
     - !keyref point.de.Bremen-Sebaldsbrueck-Werkbf-Hp
     - !keyref point.de.Bremen-Sebaldsbrueck
+    - !keyref point.de.Bremen-Hastedt
+    - !keyref point.de.Bremen-Vahr
     - !keyref point.de.Bremen-Hbf
     - !keyref point.de.Bremen-Walle
     - !keyref point.de.Bremen-Rbf-Abzw-Bve
@@ -527,8 +529,8 @@ key: point.de.Bremen-Sebaldsbrueck
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.14000 116,7
-        sources: !keyref src.de.SuW.2005
+        location: !keyloc line.de.14000 116,70
+        sources: !keyref src.de.DRG.Han.1938
     -   date: !!null
         name: Sebaldsbrück
         sources: !keyref src.de.Kb.1914
@@ -544,15 +546,59 @@ events:
         sources: !keyref src.de.SuW.2005
     -   date: !date c1920
         name: Bremen-Sebaldsbrück
-        sources: !keyref src.de.Bfv.1933
+        sources: !keyref src.de.DRG.Han.1938
+
+---
+key: point.de.Bremen-Hastedt
+type: point
+junction: True
+events:
+    -   date: !!null
+        location:
+            - !keyloc line.de.14000 117,45
+            - !keyloc line.de.15000 234,82
+            #- !keyloc line.de.16510 0,20
+        category: de.Abzw
+        name: Hastedt
+        sources: !keyref src.de.DRG.Han.1938
+    -   date: !!null
+        ref:
+            de.DS100: HHAT
+        sources: !keyref src.de.TPP.2006
+    -   date: !date c1970
+        name: Bremen-Hastedt
+
+---
+key: point.de.Bremen-Vahr
+type: point
+junction: True
+events:
+    -   date: !!null
+        location:
+            - !keyloc line.de.14000 119,07
+            - !keyloc line.de.15000 236,55
+            #- !keyloc line.de.XXXXX 1,90
+        category: de.Abzw
+        name: Vahr
+        sources: !keyref src.de.DRG.Han.1938
+    -   date: !!null
+        ref:
+            de.DS100: HVAH
+        sources: !keyref src.de.TPP.2006
+    -   date: !date c1970
+        name: Bremen-Vahr
+
 
 ---
 key: point.de.Bremen-Hbf
 type: point
+junction: True
 events:
     -   date: !!null
         location:
-            - !keyloc line.de.14000 122,3
+            - !keyloc line.de.14000 122,28
+            - !keyloc line.de.15000 238,115
+            # 120,64/42,62
         sources: !keyref src.de.SuW.2005
     -   date: !!null
         name: Bremen Hbf
