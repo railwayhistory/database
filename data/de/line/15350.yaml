@@ -47,8 +47,12 @@ events:
         status: open
         sources: !keyref src.de.web.StMB
     -   date: !date 1906-01-23
-        note: "Stillegung der Schmalspurstrecke im Stadtgebiet Wunstorf"
+        end: !keyref point.de.Wunstorf-Stadt
+        status: closed
         sources: !keyref src.de.web.StMB
+    -   date: !date c1910
+        end: !keyref point.de.Wunstorf-Stadt
+        status: removed
     -   date: !date 1923-11-01
         operator: !keyref org.de.e.NLEA
         sources: !keyref src.de.web.StMB
@@ -65,14 +69,17 @@ events:
         operator: !keyref org.de.e.OHE
         sources: !keyref src.de.WP.Steinhuder-Meer-Bahn
     -   date: !date 1964-01-18
+        start: !keyref point.de.Wunstorf-Stadt
         end: !keyref point.de.Rehburg-Stadt
         service: no-passenger
         sources: !keyref src.de.web.StMB
     -   date: !date 1970-08-18
+        start: !keyref point.de.Wunstorf-Stadt
         end: !keyref point.de.Rehburg-Stadt
         status: closed
         sources: !keyref src.de.WP.Steinhuder-Meer-Bahn
     -   date: !date c1975
+        start: !keyref point.de.Wunstorf-Stadt
         end: !keyref point.de.Rehburg-Stadt
         status: removed
         
@@ -128,7 +135,9 @@ type: point
 junction: True
 events:
     -   date: !!null
-        location: !keyloc line.de.15350 2,0
+        location:
+            - !keyloc line.de.15350 2,0
+            - !keyloc line.de.15360 2,0
         name: Wunstorf Stadt
         sources: !keyref src.de.Kb.1914
     -   date: !!null
