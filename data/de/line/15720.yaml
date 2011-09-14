@@ -68,7 +68,6 @@ events:
         status: removed
 
 points:
-    - !keyref point.de.Minden-Friedr-Wilhelm-Str
     - !keyref point.de.Minden-Stadt
     - !keyref point.de.Minden-Oberstadt
     - !keyref point.de.Bierpohl
@@ -92,33 +91,16 @@ points:
 
 
 ---
-key: point.de.Minden-Friedr-Wilhelm-Str
-type: point
-events:
-    -   date: !!null
-        location: !keyloc line.de.15720 0,0
-        name: Minden Stsbf
-        sources: !keyref src.de.Kb.1914
-    -   date: !date c1925
-        name: Minden (Westf) Reichsbf
-        sources: !keyref src.de.Bfv.1933
-    -   date: !!null
-        category: de.Bf
-        de.DS100: HMNF
-        sources: !keyref src.de.SuW.2005
-    -   date: !var lknr.kb
-        de.lknr: 45 109
-        sources: !keyref src.de.Bfv.1944
-    -   date: !date c1970
-        name: Minden Friedr-Wilhelm-Str
-        sources: !keyref src.de.SuW.2005
-
----
 key: point.de.Minden-Stadt
 type: point
+junction: True
 events:
     -   date: !!null
-        location: !keyloc line.de.15720 1,2
+        location:
+            - !keyloc line.de.15720 0,0
+            - !keyloc line.de.15760 0,0
+        sources: !keyref src.de.WP.Mindener-Kreisbahnen
+    -   date: !!null
         name: Minden Stadt
         sources: !keyref src.de.Kb.1914
     -   date: !date c1925
