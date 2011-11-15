@@ -47,7 +47,9 @@ points:
     - !keyref point.de.Bremen-Vahr                  # line.de.14000
     - !keyref point.de.Bremen-Hbf                   # line.de.14000
     - !keyref point.de.Bremen-Rbf-Baf
+    - !keyref point.de.Bremen-Rbf-Bvp
     - !keyref point.de.Bremen-Rbf
+    - !keyref point.de.Bremen-Rbf-Bvf
     - !keyref point.de.Bremen-Rbf-Bve
     - !keyref point.de.Bremen-Rbf-Abzw-Bve          # line.de.14000
 
@@ -99,6 +101,19 @@ events:
     -   date: !date c1970
         name: Bremen Rbf
         sources: !keyref src.de.TPP.2006
+
+---
+key: point.de.Bremen-Rbf-Bvf
+type: point
+events:
+    -   date: !!null
+        category: de.Bft
+        name: Bremen Rbf Bvf
+        master: !keyref point.de.Bremen-Rbf
+        de.DS100: HBR F
+    -   date: !date c2005
+        category: de.Stw
+        subtype: signalbox
 
 ---
 key: point.de.Bremen-Rbf-Bve
