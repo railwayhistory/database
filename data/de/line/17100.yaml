@@ -1,0 +1,171 @@
+---
+key: line.de.17100
+type: line
+events:
+    -   date: !!null
+        region:
+            - !keyref org.de
+            - !keyref org.de.l.ni
+
+    -   date: !!null
+        de.VzG: 2026
+        locations: ["0,007", "21,782"]
+        sources: !keyref src.de.VzG
+
+    -   date: !!null
+        category: de.Hauptbahn
+
+    -   date: !date 1862-12-18
+        concession:
+            by: !keyref org.de.l.han
+            document: !keyref src.de.l.han.1862.I.393
+        owner: !keyref org.nl.s.AS
+        operator: !keyref org.nl.s.AS
+        sources: !keyref src.de.DRG.1935
+    -   date: !date 1865-10-18
+        status: open
+        sources: !keyref src.de.DRG.1935
+    
+    -   date: !date c1900
+        tracks: 2
+    
+    -   date: !date 1923-12-30
+        owner: !keyref org.de
+        operator: !keyref org.de.r.RVM.PH
+        sources: !keyref src.de.DRG.1935
+    -   date: !date 1924-02-12
+        operator: !keyref org.de.e.DREb
+    -   date: !date 1924-08-30
+        operator: !keyref org.de.e.DRG
+    -   date: !var org.de.DB.start
+        operator: !keyref org.de.e.DB
+
+    -   date: !date 1976-05-30
+        end: !keyref point.de.Bad-Bentheim
+        electrified:
+            overhead: !voltage 15kV 16.7Hz
+        sources: !keyref src.ch.Schwach.1989
+    -   date: !date 1976?
+        start: !keyref point.de.Bad-Bentheim
+        electrified:
+            overhead: !voltage 1500V DC
+
+    -   date: !var org.de.DBAG.start
+        owner: !keyref org.de.e.DBAG
+        operator: !keyref org.de.e.DBAG
+    -   date: !var org.de.DBNetz.start
+        owner: !keyref org.de.e.DBNetz
+        operator: !keyref org.de.e.DBNetz
+
+points:
+    - !keyref point.de.Salzbergen                   # line.de.17000
+    - !keyref point.de.Streide
+    - !keyref point.de.Schuettorf
+    - !keyref point.de.Bad-Bentheim
+    - !keyref point.de.Gildehaus
+    - !keyref point.de.Bad-Bentheim-Grenze
+
+---
+key: point.de.Streide
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.17100 4,87
+        category: de.Bk
+        name: Streide
+        sources: !keyref src.de.DRG.Mst.1946
+    -   date: !date c1975
+        status: closed
+
+---
+key: point.de.Schuettorf
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.17100 9,28
+        sources: !keyref src.de.DRG.Mst.1946
+    -   date: !!null
+        name: Schüttorf
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: III
+        de.lknr: 21 157
+        sources: !keyref src.de.Bfv.1933
+    -   date: !date c1940
+        de.Rangklasse: II
+        sources: !keyref src.de.Bfv.1944
+    -   date: !!null
+        de.DS100: HSTT
+        sources: !keyref src.de.TPP.2006
+
+---
+key: point.de.Bad-Bentheim
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.17100 13,87
+        sources: !keyref src.de.DRG.Mst.1946
+    -   date: !!null
+        name: Bentheim
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: I
+        de.lknr: 21 155
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        de.DS100: HBTH
+        sources: !keyref src.de.TPP.2006
+    -   date: !date 1979?
+        name: Bad Bentheim
+
+---
+key: point.de.Gildehaus
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.17100 16,64
+        sources: !keyref src.de.DRG.Mst.1946
+    -   date: !!null
+        name: Gildehaus
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: III
+        de.lknr: 21 154
+        sources: !keyref src.de.Bfv.1933
+    -   date: !date c1975
+        status: closed
+
+---
+key: point.de.Springbiel
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.17100 21,33
+        category: de.Bk
+        name: Springbiel
+        sources: !keyref src.de.DRG.Mst.1946
+    -   date: !date c1975
+        status: closed
+
+---
+key: point.de.Bad-Bentheim-Grenze
+type: point
+events:
+    -   date: !!null
+        subtype: border
+    -   date: !!null
+        location: !keyloc line.de.17100 21,782
+        sources: !keyref src.de.VzG
+    -   date: !!null
+        name: Bentheim Grenze
+        category: de.Tp
+        de.lknr: 21 153
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        de.DS100: HXB
+        sources: !keyref src.de.TPP.2006
+    -   date: !date 1979?
+        name: Bad Bentheim Grenze
