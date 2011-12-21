@@ -1,0 +1,316 @@
+---
+key: line.de.18600
+type: line
+events:
+    -   date: !!null
+        region:
+            - !keyref org.de
+            - !keyref org.de.l.ni
+
+    -   date: !!null
+        de.VzG: 1570
+        sources: !keyref src.de.VzG
+
+    -   date: !!null
+        category: de.Hauptbahn
+        sources: !keyref src.de.DRG.1927
+    -   date: !!null
+        owner: !keyref org.de.l.pre
+        operator: !keyref org.de.e.KPEV.Mst
+    -   date: !date 1906-08-01
+        status: open
+        sources: !keyref src.de.DRG.1935
+
+    -   date: !date 1920-04-01
+        owner: !keyref org.de
+        operator: !keyref org.de.r.RVM.PH
+    -   date: !date 1924-02-12
+        operator: !keyref org.de.e.DREb
+    -   date: !date 1924-08-30
+        operator: !keyref org.de.e.DRG
+    -   date: !var org.de.DB.start
+        operator: !keyref org.de.e.DB
+
+    -   date: !date 1980-09-28
+        electrified:
+            overhead: !voltage 15kV 16.7Hz
+        sources: !keyref src.ch.Schwach.1989
+
+    -   date: !var org.de.DBAG.start
+        owner: !keyref org.de.e.DBAG
+        operator: !keyref org.de.e.DBAG
+    -   date: !var org.de.DBNetz.start
+        owner: !keyref org.de.e.DBNetz
+        operator: !keyref org.de.e.DBNetz
+
+points:
+    - !keyref point.de.Emden-Sued-Es                # line.de.18600
+    - !keyref point.de.Emden-Rbf
+    - !keyref point.de.Emden-Hbf
+    - !keyref point.de.Hinte-Harsweg
+    - !keyref point.de.Suurhusen
+    - !keyref point.de.Loppersum
+    - !keyref point.de.Abelitz
+    - !keyref point.de.Engerhafe
+    - !keyref point.de.Marienhafe
+    - !keyref point.de.Osteel
+    - !keyref point.de.Nadoerst
+    - !keyref point.de.Norden
+
+---
+key: point.de.Emden-Rbf
+type: point
+events:
+    -   date: !date c1975
+        status: open
+    -   date: !!null
+        location: !keyloc line.de.18600 0,9
+        sources: !keyref src.de.SuW.2005
+    -   date: !!null
+        category: de.Bf
+        service: no-passenger
+        name: Emden Rbf
+        de.DS100: HE R
+    -   date: !date c2000
+        de.DS100: HER
+
+---
+key: point.de.Emden-Hbf
+type: point
+junction: True
+events:
+    -   date: !!null
+        location: !keyloc line.de.18600 2,05
+        sources: !keyref src.de.DRG.Mst.1946
+    -   date: !!null
+        name: Larrelterstraße
+        sources: !keyref src.de.Kb.1914
+    -   date: !date 1931-05-15
+        name: Emden West
+        sources: !keyref src.de.web.Nosske
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: III
+        de.lknr: 21 099
+        sources: !keyref src.de.Bfv.1933
+    -   date: !date c1940
+        tags: de.b
+        sources: !keyref src.de.Bfv.1933
+    -   date: !date 1971-09-26?
+        location: !keyloc line.de.18600 2,2
+        sources: !keyref src.de.SuW.2005
+    -   date: !date 1971-09-26
+        name: Emden Hbf
+        sources: !keyref src.de.web.Feldmann
+    -   date: !!null    
+        de.DS100: HE
+        sources: !keyref src.de.TPP.2006
+
+---
+key: point.de.Hinte-Harsweg
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.18600 5,72
+        sources: !keyref src.de.DRG.Mst.1946
+    -   date: !!null
+        name: Hinte-Harsweg
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: IV
+        service: no-freight
+        tags: [ de.e, de.og ]
+        de.lknr: 21 100
+        sources: !keyref src.de.Bfv.1933
+    -   date: !date c1950
+        name: Emden-Harsweg
+        note: Handschriftliche Eintragung in src.de.DRG.Mst.1946
+    -   date: !date c1975
+        status: closed
+
+---
+key: point.de.Suurhusen
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.18600 7,39
+        sources: !keyref src.de.DRG.Mst.1946
+    -   date: !!null
+        name: Suurhusen
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: IV
+        service: no-freight
+        tags: de.og
+        de.lknr: 21 101
+        sources: !keyref src.de.Bfv.1933
+    -   date: !date c1940
+        service: freight
+        tags: []
+        sources: !keyref src.de.Bfv.1944
+    -   date: !date c1975
+        status: closed
+
+---
+key: point.de.Loppersum
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.18600 9,55
+        sources: !keyref src.de.DRG.Mst.1946
+    -   date: !!null
+        name: Loppersum
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: III
+        de.lknr: 21 102
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        de.DS100: HLOP
+    -   date: !date c2000
+        status: closed
+
+---
+key: point.de.Abelitz
+type: point
+junction: True
+events:
+    -   date: !!null
+        location: !keyloc line.de.18600 14,78
+        sources: !keyref src.de.DRG.Mst.1946
+    -   date: !!null
+        name: Finkenkrug
+        sources: !keyref src.de.web.Feldmann
+    -   date: !date c1908
+        name: Abelitz
+        sources:
+            - !keyref src.de.Kb.1914
+            - !keyref src.de.web.Feldmann
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: III
+        service: no-freight
+        tags: [ de.e, de.og ]
+        de.lknr: 21 103
+        sources: !keyref src.de.Bfv.1933
+    -   date: !date c1940
+        service: freight
+        tags: []
+        sources: !keyref src.de.Bfv.1944
+    -   date: !!null
+        de.DS100: HABZ
+        sources: !keyref src.de.TPP.2006
+    -   date: !date c1980
+        service: no-passenger
+
+---
+key: point.de.Engerhafe
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.18600 17,69
+        sources: !keyref src.de.DRG.Mst.1946
+    -   date: !!null
+        name: Engerhafe
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: IV
+        tags: de.b
+        de.lknr: 21 104
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        de.DS100: HENG
+    -   date: !date c2000
+        status: closed
+
+---
+key: point.de.Marienhafe
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.18600 22,18
+        sources: !keyref src.de.DRG.Mst.1946
+    -   date: !!null
+        name: Marienhafe
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: III
+        de.lknr: 21 105
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        de.DS100: HMAR
+        sources: !keyref src.de.TPP.2006
+
+---
+key: point.de.Osteel
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.18600 25,82
+        sources: !keyref src.de.DRG.Mst.1946
+    -   date: !!null
+        name: Osteel
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: IV
+        service: no-freight
+        tags: de.og
+        de.lknr: 21 106
+        sources: !keyref src.de.Bfv.1933
+    -   date: !date c1940
+        service: freight
+        tags: []
+        sources: !keyref src.de.Bfv.1944
+    -   date: !date 1978-12-07
+        status: closed
+        sources: !keyref src.de.Raveling.1987
+
+---
+key: point.de.Nadoerst
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.18600 27,77
+        sources: !keyref src.de.DRG.Mst.1946
+    -   date: !!null
+        name: Nadörst
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: IV
+        service: no-freight
+        tags: de.og
+        de.lknr: 21 107
+        sources: !keyref src.de.Bfv.1933
+    -   date: !date c1940
+        service: freight
+        tags: []
+        sources: !keyref src.de.Bfv.1944
+    -   date: !date c1975
+        status: closed
+
+---
+key: point.de.Norden
+type: point
+junction: True
+events:
+    -   date: !!null
+        location: !keyloc line.de.18600 30,47
+        sources: !keyref src.de.DRG.Mst.1946
+    -   date: !!null
+        name: Norden
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: II
+        de.lknr: 21 108
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        de.DS100: HNN
+        sources: !keyref src.de.TPP.2006
