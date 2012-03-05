@@ -1,0 +1,163 @@
+---
+key: line.de.11720
+type: line
+events:
+    -   date: !!null
+        region:
+            - !keyref org.de
+            - !keyref org.de.l.sh
+
+    -   date: !!null
+        start: !keyref point.de.Strecknitz
+        de.VzG: 1131
+        sources: !keyref src.de.VzG
+
+    -   date: !!null
+        category: de.Nebenbahn
+        sources: !keyref src.de.DRG.1927
+
+    -   date: !date 1902-01-11
+        concession:
+            by: !keyref org.de.l.lbk
+        owner: !keyref org.de.e.LBE
+        operator: !keyref org.de.e.LBE
+        sources: !keyref src.de.DRG.1935
+    -   date: !date 1902-08-20
+        start: !keyref point.de.Strecknitz-LBE
+        status: open
+        sources: !keyref src.de.DRG.1935
+    -   date: !date 1908-05-01
+        end: !keyref point.de.Strecknitz-LBE
+        status: open
+        sources: !keyref src.de.DRG.1935
+    -   date: !date 1914
+        service: no-passenger
+        sources: !keyref src.de.Hecht.2001
+    -   date: !date 1938-01-01
+        owner: !keyref org.de
+        operator: !keyref org.de.e.DRG
+        sources: !keyref src.de.WP.Luebeck-Buechener-Eisenbahn
+    -   date: !var org.de.DB.start
+        operator: !keyref org.de.e.DB
+    -   date: !date c1950
+        end: !keyref point.de.Strecknitz
+        status: removed
+    -   date: !var org.de.DBAG.start
+        owner: !keyref org.de.e.DBAG
+        operator: !keyref org.de.e.DBAG
+    -   date: !var org.de.DBNetz.start
+        owner: !keyref org.de.e.DBNetz
+        operator: !keyref org.de.e.DBNetz
+
+points:
+    - !keyref point.de.Luebeck-Hgbf                 # line.de.11600
+    - !keyref point.de.Strecknitz-LBE
+    - !keyref point.de.Strecknitz
+    - !keyref point.de.Brandenbaum
+    - !keyref point.de.Luebeck-Kirschenallee
+    - !keyref point.de.Luebeck-Schlutuper-Tannen
+    - !keyref point.de.Luebeck-Schlutup-W31
+    - !keyref point.de.Luebeck-Schlutup
+
+---
+key: point.de.Strecknitz-LBE
+type: point
+events:
+    -   date: !!null
+        subtype: point
+        name: Abzw von alten LBE-Bahnhof
+
+---
+key: point.de.Strecknitz
+type: point
+junction: True
+events:
+    -   date: !!null
+        location:
+            - !keyloc line.de.11720 4,4
+        category: de.Abzw
+        sources: !keyref src.de.SuW.2005
+    -   date: !!null
+        name: Strecknitz
+        de.DS100: ASTR
+        sources: !keyref src.de.TPP.2006
+
+---
+key: point.de.Brandenbaum
+type: point
+junction: True
+events:
+    -   date: !!null
+        location:
+            - !keyloc line.de.11720 8,5
+        category: de.Abzw
+        sources: !keyref src.de.SuW.2005
+    -   date: !!null
+        name: Brandenbaum
+        de.DS100: ABRM
+        sources: !keyref src.de.TPP.2006
+
+---
+key: point.de.Luebeck-Kirschenallee
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.11720 9,8
+        category: de.Anst
+        sources: !keyref src.de.SuW.2005
+    -   date: !!null
+        name: Lübeck Kirschenallee
+        de.DS100: ALRK
+        sources: !keyref src.de.TPP.2006
+
+---
+key: point.de.Luebeck-Schlutuper-Tannen
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.11720 11,3
+        category: de.Anst
+        sources: !keyref src.de.SuW.2005
+    -   date: !!null
+        name: Lübeck Schlutuper Tannen
+        de.DS100: ALRT
+        sources: !keyref src.de.TPP.2006
+
+---
+key: point.de.Luebeck-Schlutup-W31
+type: point
+events:
+    -   date: !!null
+        location:
+            - !keyloc line.de.11720 13,6
+        sources: !keyref src.de.SuW.2005
+    -   date: !!null
+        subtype: point
+        name: Lübeck-Schlutup W31
+
+---
+key: point.de.Luebeck-Schlutup
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.11720 14,1
+        sources: !keyref src.de.SuW.2005
+    -   date: !!null
+        name: Schlutup
+        de.lknr: 55 869
+        tags: de.op
+        service: no-passenger
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        category: de.Bf
+        sources: !keyref src.de.Bfv.1944
+    -   date: !date 1938-01-01
+        name: Lübeck-Schlutup
+        tags: [ de.e, de.op ]
+        de.Rangklasse: II
+        de.lknr: 27 292
+        sources: !keyref src.de.Bfv.1944
+    -   date: !!null
+        de.DS100: ALSC
+        sources: !keyref src.de.TPP.2006
+        
