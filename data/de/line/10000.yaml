@@ -17,7 +17,6 @@ events:
 
     -   date: !!null
         de.VzG: 1270
-        locations: [ "0,000", "7,830" ]
         sources: !keyref src.de.VzG
 
     -   date: !date 1967-10
@@ -33,15 +32,23 @@ events:
         service: passenger
         status: open
         sources: !keyref src.de.web.Matthaei
+
+    -   date: !var org.de.DBAG.start
+        owner: !keyref org.de.e.DBAG
+        operator: !keyref org.de.e.DBAG
+    -   date: !var org.de.DBNetz.start
+        owner: !keyref org.de.e.DBNetz
+        operator: !keyref org.de.e.DBNetz
+
 points:
     -   !keyref point.de.Hamburg-Hbf-S-Bahn
-    -   !keyref point.de.Jungfernstieg
-    -   !keyref point.de.Stadthausbruecke
-    -   !keyref point.de.Landungsbruecken
-    -   !keyref point.de.Reeperbahn
-    -   !keyref point.de.Koenigstrasse
+    -   !keyref point.de.Hamburg-Jungfernstieg
+    -   !keyref point.de.Hamburg-Stadthausbruecke
+    -   !keyref point.de.Hamburg-Landungsbruecken
+    -   !keyref point.de.Hamburg-Reeperbahn
+    -   !keyref point.de.Hamburg-Koenigstrasse
     -   !keyref point.de.Hamburg-Altona-S-Bahn
-    -   !keyref point.de.Diebsteich
+    -   !keyref point.de.Hamburg-Diebsteich
 
 ---
 key: point.de.Hamburg-Hbf-S-Bahn
@@ -54,9 +61,6 @@ events:
         de.DS100: AHS
         sources: !keyref src.de.SuW.2005
     -   date: !!null
-        coords: !geopoint 53.552827 10.007483
-        sources: !keyref src.GoogleMaps
-    -   date: !!null
         location:
             -   !keyloc line.de.10000 0,000
             -   !keyloc line.de.10100 286,672
@@ -68,89 +72,74 @@ events:
         service: passenger
 
 ---
-key: point.de.Jungfernstieg
+key: point.de.Hamburg-Jungfernstieg
 type: point
 events:
     -   date: !!null
         category: de.Hp
-        location:
-            - !keyloc line.de.10000 1,3
+        location: !keyloc line.de.10000 1,3
         name: Jungfernstieg
         de.DS100: AJUS
-        sources:
-            - !keyref src.de.SuW.2005
-    -   date: !!null
-        coords: !geopoint 53.552674 9.993095
-        sources:
-            -   !keyref src.GoogleMaps
+        sources: !keyref src.de.SuW.2005
+    -   date: !date c2000
+        name: Hamburg Jungfernstieg
+        sources: !keyref src.de.TPP.2007
 
 ---
-key: point.de.Stadthausbruecke
+key: point.de.Hamburg-Stadthausbruecke
 type: point
 events:
     -   date: !!null
         category: de.Bft
-        location:
-            - !keyloc line.de.10000  2,0
+        location: !keyloc line.de.10000  2,0
         name: Stadthausbrücke
         de.DS100: ASHS
-        sources:
-            - !keyref src.de.SuW.2005
-    -   date: !!null
-        coords: !geopoint 53.549615 9.986401
-        sources:
-            - !keyref src.GoogleMaps
+        sources: !keyref src.de.SuW.2005
+    -   date: !date c2000
+        name: Hamburg-Stadthausbrücke
+        sources: !keyref src.de.TPP.2007
 
 ---
-key: point.de.Landungsbruecken
+key: point.de.Hamburg-Landungsbruecken
 type: point
 events:
     -   date: !!null
         category: de.Bf
-        location:
-            - !keyloc line.de.10000  3,0
+        location: !keyloc line.de.10000  3,0
         name: Landungsbrücken
         de.DS100: ALAS
-        sources:
-            - !keyref src.de.SuW.2005
-    -   date: !!null
-        coords: !geopoint 53.54602 9.970694
-        sources:
-            - !keyref src.GoogleMaps
+        sources: !keyref src.de.SuW.2005
+    -   date: !date c2000
+        name: Hamburg Landungsbrücken
+        sources: !keyref src.de.TPP.2007
 
 ---
-key: point.de.Reeperbahn
+key: point.de.Hamburg-Reeperbahn
 type: point
 events:
     -   date: !!null
         category: de.Hp
-        location:
-            - !keyloc line.de.10000 4,0
+        location: !keyloc line.de.10000 4,0
         name: Reeperbahn
         de.DS100: ARES
-        sources:
-            - !keyref src.de.SuW.2005
-    -   date: !!null
-        coords: !geopoint 53.54936 9.95571
-        sources:
-            - !keyref src.GoogleMaps
+        sources: !keyref src.de.SuW.2005
+    -   date: !date c2000
+        name: Hamburg Reeperbahn
+        sources: !keyref src.de.TPP.2007
 
 ---
-key: point.de.Koenigstrasse
+key: point.de.Hamburg-Koenigstrasse
 type: point
 events:
     -   date: !!null
         category: de.Hp
-        location:
-            - !keyloc line.de.10000 4,9
+        location: !keyloc line.de.10000 4,9
         name: Königstraße
         de.DS100: AKS
-        sources:
-            - !keyref src.de.SuW.2005
-    -   date: !!null
-        coords: !geopoint 53.548187 9.945331
-        sources:
-            - !keyref src.GoogleMaps
+        sources: !keyref src.de.SuW.2005
+    -   date: !date c2000
+        name: Hamburg Königstraße
+        sources: !keyref src.de.TPP.2007
 
 ---
 key: point.de.Hamburg-Altona-S-Bahn
@@ -165,17 +154,12 @@ events:
             - !keyloc line.de.10100 292,9
         name: Hamburg-Altona (S-Bahn)
         de.DS100: AAS
-        sources:
-            - !keyref src.de.SuW.2005
+        sources: !keyref src.de.SuW.2005
     -   date: !date 1960
         status: open
-    -   date: !!null
-        coords: !geopoint 53.552445 9.934387
-        sources:
-            - !keyref src.GoogleMaps
 
 ---
-key: point.de.Diebsteich
+key: point.de.Hamburg-Diebsteich
 type: point
 junction: True
 events:
@@ -198,4 +182,7 @@ events:
         category: de.Bf
         sources:
             - !keyref src.de.SuW.2005
+    -   date: !date c2000
+        name: Hamburg Diebsteich
+        sources: !keyref src.de.TPP.2007
 

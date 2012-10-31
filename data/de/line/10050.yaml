@@ -88,18 +88,18 @@ events:
 points:
     - !keyref point.de.Hamburg-Altona
     - !keyref point.de.Hamburg-Altona-S-Bahn
-    - !keyref point.de.Bahrenfeld-Abzw
-    - !keyref point.de.Bahrenfeld
-    - !keyref point.de.Othmarschen
-    - !keyref point.de.Klein-Flottbek
-    - !keyref point.de.Hochkamp
-    - !keyref point.de.Blankenese
-    - !keyref point.de.Iserbrook
-    - !keyref point.de.Suelldorf
-    - !keyref point.de.Rissen
-    - !keyref point.de.Rissen-Landesgrenze
-    - !keyref point.de.Rissen-Oelweiche
-    - !keyref point.de.Rissen-Oelweiche-Uest
+    - !keyref point.de.Hamburg-Bahrenfeld-Abzw
+    - !keyref point.de.Hamburg-Bahrenfeld
+    - !keyref point.de.Hamburg-Othmarschen
+    - !keyref point.de.Hamburg-Klein-Flottbek
+    - !keyref point.de.Hamburg-Hochkamp
+    - !keyref point.de.Hamburg-Blankenese
+    - !keyref point.de.Hamburg-Iserbrook
+    - !keyref point.de.Hamburg-Suelldorf
+    - !keyref point.de.Hamburg-Rissen
+    - !keyref point.de.Hamburg-Rissen-Landesgrenze
+    - !keyref point.de.Hamburg-Rissen-Oelweiche
+    - !keyref point.de.Hamburg-Rissen-Oelweiche-Uest
     - !keyref point.de.Wedel
 
 ---
@@ -139,25 +139,21 @@ events:
             - !keyloc line.de.10050 -
 
 ---
-key: point.de.Bahrenfeld-Abzw
+key: point.de.Hamburg-Bahrenfeld-Abzw
 type: point
 events:
     -   date: !!null
         category: de.Abzw
-        name: Bahrenfeld Abzw
+        name: Hamburg-Bahrenfeld Abzw
         de.DS100: ABAH
         sources:
             - !keyref src.de.SuW.2005
-    -   date: !!null
-        coords: !geopoint 53.560007 9.91562
-        sources:
-            - !keyref src.GoogleMaps
     -   date: !date 2000
         status: open
-        split_from: !keyref point.de.Bahrenfeld
+        split_from: !keyref point.de.Hamburg-Bahrenfeld
 
 ---
-key: point.de.Bahrenfeld
+key: point.de.Hamburg-Bahrenfeld
 type: point
 junction: True
 events:
@@ -176,17 +172,16 @@ events:
             - !keyref src.de.Bfv.1933
     -   date: !!null
         de.DS100: ABAF
-    -   date: !!null
-        coords: !geopoint 53.560018 9.910143
-        sources:
-            - !keyref src.GoogleMaps
     -   date: !date 1970
         category: de.HpAbzw
     -   date: !date 2000
         category: de.Hp
+    -   date: !date c2000
+        name: Hamburg-Bahrenfeld
+        sources: !keyref src.de.TPP.2007
 
 ---
-key: point.de.Othmarschen
+key: point.de.Hamburg-Othmarschen
 type: point
 events:
     -   date: !!null
@@ -199,60 +194,49 @@ events:
         de.Rangklasse: IV
         name: Groß Flottbek-Othmarschen
         de.lknr: 01 104
-        service: de.og
-        sources:
-            - !keyref src.de.Bfv.1933
-    -   date: !!null
-        coords: !geopoint 53.559218 9.886601
-        sources:
-            - !keyref src.GoogleMaps
+        service: passenger
+        tags: de.og
+        sources: !keyref src.de.Bfv.1933
     -   date: !!null
         de.DS100: AOH
-        sources:
-            - !keyref src.de.SuW.2005
+        sources: !keyref src.de.TPP.2007
     -   date: !date 1882-08-01
         status: open
-        sources:
-            - !keyref src.de.WP.Altona-Blankeneser-Eisenbahn
+        sources: !keyref src.de.WP.Altona-Blankeneser-Eisenbahn
     -   date: 1940
         name: Othmarschen
-        sources:
-            - !keyref src.de.Bfv.1944
+        sources: !keyref src.de.Bfv.1944
+    -   date: !date c2000
+        name: Hamburg-Othmarschen
+        sources: !keyref src.de.TPP.2007
 
 ---
-key: point.de.Klein-Flottbek
+key: point.de.Hamburg-Klein-Flottbek
 type: point
 events:
     -   date: !!null
-        location:
-            - !keyloc line.de.10050 6,19
-        sources:
-            - !keyref src.de.DRG.Alt.Karte.1945
+        location: !keyloc line.de.10050 6,19
+        sources: !keyref src.de.DRG.Alt.Karte.1945
     -   date: !!null
         category: de.Bf
         de.Rangklasse: III
         name: Klein Flottbek
         de.lknr: 01 105
-        sources:
-            - !keyref src.de.Bfv.1933
+        sources: !keyref src.de.Bfv.1933
     -   date: !!null
         de.DS100: AFB
-        sources:
-            - !keyref src.de.SuW.2005
-    -   date: !!null
-        coords: !geopoint 53.558171 9.86142
-        sources:
-            - !keyref src.GoogleMaps
+        sources: !keyref src.de.TPP.2007
+    -   date: !date c2000
+        name: Hamburg-Klein Flottbek
+        sources: !keyref src.de.TPP.2007
 
 ---
-key: point.de.Hochkamp
+key: point.de.Hamburg-Hochkamp
 type: point
 events:
     -   date: !!null
-        location:
-            - !keyloc line.de.10050 7,52
-        sources:
-            - !keyref src.de.DRG.Alt.Karte.1945
+        location: !keyloc line.de.10050 7,52
+        sources: !keyref src.de.DRG.Alt.Karte.1945
     -   date: !!null
         category: de.HpBk
         sources:
@@ -261,122 +245,97 @@ events:
     -   date: !!null
         name: Hochkamp
         de.lknr: 01 106
-        sources:
-            - !keyref src.de.Bfv.1933
+        sources: !keyref src.de.Bfv.1933
     -   date: !!null
         de.DS100: AHPS
-        sources:
-            - !keyref src.de.SuW.2005
-    -   date: !!null
-        coords: !geopoint 53.561168 9.84235
-        sources:
-            - !keyref src.GoogleMaps
+        sources: !keyref src.de.TPP.2007
     -   date: !date 1897?
         status: open
         sources:
             - !keyref src.de.WP.Altona-Blankeneser-Eisenbahn
+    -   date: !date c2000
+        name: Hamburg Hochkamp
+        sources: !keyref src.de.TPP.2007
 
 ---
-key: point.de.Blankenese
+key: point.de.Hamburg-Blankenese
 type: point
+junction: True
 events:
     -   date: !!null
-        location:
-            - !keyloc line.de.10050 9,57
-        sources:
-            - !keyref src.de.DRG.Alt.Karte.1945
+        location: !keyloc line.de.10050 9,57
+        sources: !keyref src.de.DRG.Alt.Karte.1945
     -   date: !!null
         category: de.Bf
         de.Rangklasse: II
         name: Blankenese
         de.lknr: 01 107
-        sources:
-            - !keyref src.de.Bfv.1933
+        sources: !keyref src.de.Bfv.1933
     -   date: !!null
         de.DS100: AB
-        sources:
-            - !keyref src.de.SuW.2005
-    -   date: !!null
-        coords: !geopoint 53.564114 9.813741
-        sources:
-            - !keyref src.GoogleMaps
+        sources: !keyref src.de.TPP.2007
+    -   date: !date c2000
+        name: Hamburg-Blankenese
+        sources: !keyref src.de.TPP.2007
 
 ---
-key: point.de.Iserbrook
+key: point.de.Hamburg-Iserbrook
 type: point
 events:
     -   date: !!null
         category: de.Hp
-        location:
-            - !keyloc line.de.10050 11,3
+        location: !keyloc line.de.10050 11,3
         name: Iserbrook
         de.DS100: AIS
-        sources:
-            - !keyref src.de.SuW.2005
-    -   date: !!null
-        coords: !geopoint 53.576111 9.815115
-        sources:
-            - !keyref src.GoogleMaps
+        sources: !keyref src.de.SuW.2005
     -   date: !date 1950-05-14
         status: open
-        sources:
-            - !keyref src.de.WP.Altona-Blankeneser-Eisenbahn
+        sources: !keyref src.de.WP.Altona-Blankeneser-Eisenbahn
+    -   date: !date c2000
+        name: Hamburg-Iserbrook
+        sources: !keyref src.de.TPP.2007
 
 ---
-key: point.de.Suelldorf
+key: point.de.Hamburg-Suelldorf
 type: point
 events:
     -   date: !!null
-        location:
-            - !keyloc line.de.10050 12,62
-        sources:
-            - !keyref src.de.DRG.Alt.Karte.1945
+        location: !keyloc line.de.10050 12,62
+        sources: !keyref src.de.DRG.Alt.Karte.1945
     -   date: !!null
         category: de.Bf
         de.Rangklasse: IV
         name: Sülldorf
         de.lknr: 01 108
         tags: de.b
-        sources:
-            - !keyref src.de.Bfv.1933
+        sources: !keyref src.de.Bfv.1933
     -   date: !!null
         de.DS100: ASDF
-        sources:
-            - !keyref src.de.SuW.2005
-    -   date: !!null
-        coords: !geopoint 53.581102 9.796789
-        sources:
-            - !keyref src.GoogleMaps
+        sources: !keyref src.de.TPP.2007
     -   date: !date c1940
         tags: []
-        sources:
-            - !keyref src.de.Bfv.1944
+        sources: !keyref src.de.Bfv.1944
+    -   date: !date c2000
+        name: Hamburg-Sülldorf
+        sources: !keyref src.de.TPP.2007
 
 ---
-key: point.de.Rissen
+key: point.de.Hamburg-Rissen
 type: point
 events:
     -   date: !!null
-        location:
-            - !keyloc line.de.10050 15,35
-        sources:
-            - !keyref src.de.DRG.Alt.Karte.1945
+        location: !keyloc line.de.10050 15,35
+        sources: !keyref src.de.DRG.Alt.Karte.1945
     -   date: !!null
         category: de.Bf
         de.Rangklasse: IV
         name: Rissen
         de.lknr: 01 109
         tags: de.b
-        sources:
-            - !keyref src.de.Bfv.1933
+        sources: !keyref src.de.Bfv.1933
     -   date: !!null
         de.DS100: ARI
-        sources:
-            - !keyref src.de.SuW.2005
-    -   date: !!null
-        coords: !geopoint 53.583044 9.758536
-        sources:
-            - !keyref src.GoogleMaps
+        sources: !keyref src.de.TPP.2007
     -   date: c1940
         tags: []
         sources:
@@ -385,9 +344,12 @@ events:
         category: de.HpUest
         sources:
             - !keyref src.de.SuW.2005
+    -   date: !date c2000
+        name: Hamburg-Rissen
+        sources: !keyref src.de.TPP.2007
 
 ---
-key: point.de.Rissen-Landesgrenze
+key: point.de.Hamburg-Rissen-Landesgrenze
 type: point
 events:
     -   date: !!null
@@ -395,81 +357,64 @@ events:
         subtype: border
         name: Hamburg-Rissen HH/SH
         de.DS100: AQRI
-    -   date: !!null
-        coords: !geopoint 53.585907 9.742727
-        sources:
-            - !keyref src.GoogleMaps
 
 ---
-key: point.de.Rissen-Oelweiche
+key: point.de.Hamburg-Rissen-Oelweiche
 type: point
 events:
     -   date: !!null
-        location:
-            - !keyloc line.de.10050 17,05
-        sources:
-            - !keyref src.de.DRG.Alt.Karte.1945
+        location: !keyloc line.de.10050 17,05
+        sources: !keyref src.de.DRG.Alt.Karte.1945
     -   date: !!null
         category: de.LdstAhst
         name: Hamburg-Rissen Ölweiche
         de.lknr: 01 110
         service: freight
         tags: de.op
-        sources:
-            - !keyref src.de.Bfv.1944
+        sources: !keyref src.de.Bfv.1944
     -   date: !!null
         de.DS100: AROE
-    -   date: !!null
-        coords: !geopoint 53.585153 9.727763
-        sources:
-            - !keyref src.GoogleMaps
     -   date: c1970
         category: de.Bf
-        sources:
-            - !keyref src.de.SuW.2005
+        sources: !keyref src.de.TPP.2007
+    -   date: !date c2000
+        name: Hamburg-Rissen Ölweiche
+        sources: !keyref src.de.TPP.2007
+    -   date: !date 2008
+        status: closed
+        sources: !keyref src.de.TPP.2009
 
 ---
-key: point.de.Rissen-Oelweiche-Uest
+key: point.de.Hamburg-Rissen-Oelweiche-Uest
 type: point
 events:
     -   date: !!null
         category: de.Uest
-        location:
-            - !keyloc line.de.10050 17,2
+        location: !keyloc line.de.10050 17,2
         name: Hamburg-Rissen Ölweiche Üst
         de.DS100: AROW
-        sources:
-            - !keyref src.de.SuW.2005
-    -   date: !!null
-        coords: !geopoint 53.585105 9.723799
-        sources:
-            - !keyref src.GoogleMaps
+        sources: !keyref src.de.SuW.2005
+    -   date: !date c2000
+        name: Hamburg-Rissen Ölweiche Üst
+        sources: !keyref src.de.TPP.2007
 
 ---
 key: point.de.Wedel
 type: point
+junction: True
 events:
     -   date: !!null
-        location:
-            - !keyloc line.de.10050 18,98
-        sources:
-            - !keyref src.de.DRG.Alt.Karte.1945
+        location: !keyloc line.de.10050 18,98
+        sources: !keyref src.de.DRG.Alt.Karte.1945
     -   date: !!null
         category: de.Bf
         de.Rangklasse: III
         name: Wedel
         de.lknr: 01 111
-        sources:
-            - !keyref src.de.Bfv.1933
+        sources: !keyref src.de.Bfv.1933
     -   date: !!null
         de.DS100: AWL
-        sources:
-            - !keyref src.de.SuW.2005
-    -   date: !!null
-        coords: !geopoint 53.581739 9.704959
-        sources:
-            - !keyref src.GoogleMaps
+        sources: !keyref src.de.SuW.2005
     -   date: !date c1940
         name: Wedel (Holst)
-        sources:
-            - !keyref src.de.Bfv.1944
+        sources: !keyref src.de.Bfv.1944

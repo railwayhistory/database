@@ -39,14 +39,23 @@ events:
         status: open
         sources:
             - !keyref src.de.web.Matthaei
+
+    -   date: !var org.de.DBAG.start
+        owner: !keyref org.de.e.DBAG
+        operator: !keyref org.de.e.DBAG
+    -   date: !var org.de.DBNetz.start
+        owner: !keyref org.de.e.DBNetz
+        operator: !keyref org.de.e.DBNetz
+
+
 points:
-    - !keyref point.de.Holstenstrasse
-    - !keyref point.de.Diebsteich
-    - !keyref point.de.Langenfelde-S-Bahn
-    - !keyref point.de.Stellingen-S-Bahn
-    - !keyref point.de.Eidelstedt-S-Bahn
-    - !keyref point.de.Elbgaustrasse
-    - !keyref point.de.Elbgaustrasse-Landesgrenze
+    - !keyref point.de.Hamburg-Holstenstrasse
+    - !keyref point.de.Hamburg-Diebsteich
+    - !keyref point.de.Hamburg-Langenfelde-S-Bahn
+    - !keyref point.de.Hamburg-Stellingen-S-Bahn
+    - !keyref point.de.Hamburg-Eidelstedt-S-Bahn
+    - !keyref point.de.Hamburg-Elbgaustrasse
+    - !keyref point.de.Hamburg-Elbgaustrasse-Landesgrenze
     - !keyref point.de.Krupunder
     - !keyref point.de.Bickbargen
     - !keyref point.de.Halstenbek
@@ -54,7 +63,7 @@ points:
     - !keyref point.de.Pinneberg-S-Bahn
 
 ---
-key: point.de.Holstenstrasse
+key: point.de.Hamburg-Holstenstrasse
 type: point
 junction: True
 events:
@@ -67,10 +76,6 @@ events:
         tags: de.og
         sources:
             - !keyref src.de.Bfv.1933
-    -   date: !!null
-        coords: !geopoint 53.561803 9.94941
-        sources:
-            - !keyref src.GoogleMaps
     -   date: !!null
         location:
             - !keyloc line.de.10020 0,1
@@ -89,9 +94,12 @@ events:
         name: Holstenstraße
         sources:
             - !keyref src.de.SuW.2005
+    -   date: !date c2000
+        name: Hamburg Holstenstraße
+        sources: !keyref src.de.TPP.2007
 
 ---
-key: point.de.Langenfelde-S-Bahn
+key: point.de.Hamburg-Langenfelde-S-Bahn
 type: point
 events:
     -   date: !!null
@@ -102,14 +110,13 @@ events:
         de.DS100: ALST
         sources:
             - !keyref src.de.SuW.2005
-    -   date: !!null
-        coords: !geopoint 53.57964 9.93082
-        sources:
-            - !keyref src.GoogleMaps
+    -   date: !date c2000
+        name: Hamburg-Langenfelde (S-Bahn)
+        sources: !keyref src.de.TPP.2007
 
 ---
 type: point
-key: point.de.Stellingen-S-Bahn
+key: point.de.Hamburg-Stellingen-S-Bahn
 events:
     -   date: !!null
         category: de.Hp
@@ -119,14 +126,14 @@ events:
         de.DS100: ASTS
         sources:
             - !keyref src.de.SuW.2005
-    -   date: !!null
-        coords: !geopoint 53.589658 9.918412
-        sources:
-            - !keyref src.GoogleMaps
+    -   date: !date c2000
+        name: Hamburg-Stellingen (S-Bahn)
+        sources: !keyref src.de.TPP.2007
 
 ---
 type: point
-key: point.de.Eidelstedt-S-Bahn
+key: point.de.Hamburg-Eidelstedt-S-Bahn
+junction: True
 events:
     -   date: !!null
         category: de.Bf
@@ -136,15 +143,13 @@ events:
         de.DS100: AEST
         sources:
             - !keyref src.de.SuW.2005
-    -   date: !!null
-        coords: !geopoint 53.595975 9.90675
-        sources:
-            - !keyref src.GoogleMaps
+    -   date: !date c2000
+        name: Hamburg-Eidelstedt (S-Bahn)
+        sources: !keyref src.de.TPP.2007
 
 ---
-key: point.de.Elbgaustrasse
+key: point.de.Hamburg-Elbgaustrasse
 type: point
-junction: True
 events:
     -   date: !!null
         location:
@@ -161,10 +166,6 @@ events:
         sources:
             - !keyref src.de.Bfv.1944
     -   date: !!null
-        coords: !geopoint 53.602704 9.893278
-        sources:
-            - !keyref src.GoogleMaps
-    -   date: !!null
         location:
             - !keyloc line.de.11000 7,51
         sources:
@@ -179,21 +180,19 @@ events:
     -   date: !date 1970
         location:
             - !keyloc line.de.11000 -
+    -   date: !date c2000
+        name: Hamburg Elbgaustraße
+        sources: !keyref src.de.TPP.2007
 
 ---
-key: point.de.Elbgaustrasse-Landesgrenze
+key: point.de.Hamburg-Elbgaustrasse-Landesgrenze
 type: point
 events:
     -   date: !!null
         category: de.LGr
         subtype: border
-        name: Elbgaustraße HH/SH
+        name: Hamburg Elbgaustraße HH/SH
         de.DS100: AQEG
-    -   date: !!null
-        coords: !geopoint 53.614398 9.870384
-        sources:
-            - !keyref src.GoogleMaps
-
 
 ---
 key: point.de.Krupunder
@@ -207,10 +206,6 @@ events:
         de.DS100: AKRS
         sources:
             - !keyref src.de.SuW.2005
-    -   date: !!null
-        coords: !geopoint 53.61604 9.867268
-        sources:
-            - !keyref src.GoogleMaps
 
 ---
 key: point.de.Bickbargen
@@ -222,10 +217,6 @@ events:
             - !keyloc line.de.10020 11,0
         name: Bickbargen
         de.DS100: ABB
-    -   date: !!null
-        coords: !geopoint 53.623012 9.853739
-        sources:
-            - !keyref src.GoogleMaps
 
 ---
 key: point.de.Halstenbek
@@ -274,10 +265,6 @@ events:
     -   date: !!null
         category: de.Bk
     -   date: !!null
-        coords: !geopoint 53.644414 9.813723
-        sources:
-            - !keyref src.GoogleMaps
-    -   date: !!null
         location:
             - !keyloc line.de.11000 13,81
         sources:
@@ -303,7 +290,3 @@ events:
         connection: !keyref point.de.Pinneberg
         sources:
             - !keyref src.de.SuW.2005
-    -   date: !!null
-        coords: !geopoint 53.655169 9.797882
-        sources:
-            - !keyref src.GoogleMaps
