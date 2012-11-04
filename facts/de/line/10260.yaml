@@ -1,5 +1,4 @@
 ---
-
 key: line.de.10260
 type: line
 events:
@@ -7,16 +6,15 @@ events:
         region:
             - !keyref org.de
             - !keyref org.de.l.hh
+
     -   date: !!null
-        ref:
-            de.VzG: 1222
-        sources:
-            - !keyref src.de.VzG
+        de.VzG: 1222
+        sources: !keyref src.de.VzG
+
     -   date: !!null
         owner: !keyref org.de.e.AKE
         operator: !keyref org.de.e.AKE
-        sources:
-            - !keyref src.de.DRG.1935
+        sources: !keyref src.de.DRG.1935
     -   date: !!null
         category: de.Nebenbahn
     -   date: !date 1874-04-01
@@ -31,13 +29,11 @@ events:
         end: !keyref point.de.Altona-Palmaille
         service: freight
         status: open
-        sources:
-            - !keyref src.de.DRG.1935
+        sources: !keyref src.de.DRG.1935
     -   date: !date 1886-07-01
-        owner: !keyref org.de.e.KPEV.Alt
+        owner: !keyref org.de.l.pre
         operator: !keyref org.de.e.KPEV.Alt
-        sources:
-            - !keyref src.de.DRG.1935
+        sources: !keyref src.de.DRG.1935
     -   date: !date 1895-11-16?
         start: !keyref point.de.Altona-Palmaille
         service: freight
@@ -45,48 +41,53 @@ events:
     -   date: !date 1911
         electrified:
             overhead: !voltage 6300V 25Hz
-        sources:
-            - !keyref src.de.WP.Schellfischtunnel
+        sources: !keyref src.de.WP.Schellfischtunnel
+
+    -   date: !date 1920-04-01
+        owner: !keyref org.de
+        operator: !keyref org.de.r.RVM.PH
+    -   date: !date 1924-02-12
+        operator: !keyref org.de.e.DREb
+    -   date: !date 1924-08-30
+        operator: !keyref org.de.e.DRG
+    -   date: !var org.de.DB.start
+        operator: !keyref org.de.e.DB
+
     -   date: !date 1954
         electrified:
             overhead: !!null
-        sources:
-            - !keyref src.de.WP.Schellfischtunnel
+        sources: !keyref src.de.WP.Schellfischtunnel
     -   date: !date 1992
         status: closed
-        sources:
-            - !keyref src.de.WP.Schellfischtunnel
+        sources: !keyref src.de.WP.Schellfischtunnel
+    -   date: !date c2000
+        status: removed
+
 points:
     - !keyref point.de.Hamburg-Altona-Kai
     - !keyref point.de.Altona-Palmaille
     - !keyref point.de.Hamburg-Altona       # line.de.10050
 
 ---
-
 key: point.de.Hamburg-Altona-Kai
 type: point
 events:
     -   date: !!null
         category: de.Ldst
         name: Altona Hgbf Kai
-        ref:
-            de.lknr: 01 096
-        service: de.b
-        sources:
-            - !keyref src.de.Bfv.1933
+        de.lknr: 01 096
+        tags: de.b
+        sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        ref:
-            de.DS100: "AA  W"
+        de.DS100: AA W
     -   date: !date c1940
         category: de.LdstAhst
         name: Hamburg-Altona Kai
-        sources:
-            - !keyref src.de.Bfv.1944
+        sources: !keyref src.de.Bfv.1944
     -   date: !date c1970
         category: de.Bft
 
 ---
-
 key: point.de.Altona-Palmaille
 type: point
 events:
@@ -94,11 +95,7 @@ events:
         category: de.Bf
         location:
             - !keyloc line.de.11000 0,000
-        name: Altona (Pamlaille)
-    -   date: !!null
-        coords: !geopoint 53.546925 9.935353
-        sources:
-            - !keyref src.GoogleMaps
+        name: Altona (Palmaille)
     -   date: !date 1895?
         status: closed
 
