@@ -121,6 +121,7 @@ points:
     - !keyref point.de.Humboldt
     - !keyref point.de.Bk-11-Stadtbahn
     - !keyref point.de.Brueckenallee
+    - !keyref point.de.Berlin-Bachstrasse
     - !keyref point.de.Berlin-Zoologischer-Garten-Zoo
     - !keyref point.de.Berlin-Zoologischer-Garten
     - !keyref point.de.Berlin-Zoologischer-Garten-Zow
@@ -141,6 +142,7 @@ events:
     -   date: !!null
         location:
             - !keyloc line.de.20000 0,000
+            - !keyloc line.de.20800 0,000
         category: de.Bf
         de.Rangklasse: I
         sources: !keyref src.de.DRG.Bln.1932
@@ -178,6 +180,9 @@ events:
     -   date: !var ds100.dr
         de.DS100: BHF
         sources: !keyref src.de.TPP.2006
+    -   date: !date c2007
+        location:
+            - !keyloc line.de.20800 -
 
 ---
 key: point.de.Holzmarkt
@@ -214,6 +219,7 @@ events:
     -   date: !!null
         location:
             - !keyloc line.de.20000 2,17
+            - !keyloc line.de.20000 2,18
         category: de.Bf
         de.Rangklasse: I
         name: Berlin Alexanderplatz
@@ -236,6 +242,12 @@ events:
     -   date: !var ds100.dr
         de.DS100: BALE
         sources: !keyref src.de.TPP.2006
+    -   date: !date 1998
+        location: !keyloc line.de.20000 -
+    -   date: !date c2007
+        location:
+            - !keyloc line.de.20000 2,17
+            - !keyloc line.de.20800 -
 
 ---
 key: point.de.Berlin-Alexanderplatz-Hp
@@ -243,11 +255,15 @@ type: point
 events:
     -   date: !date 1998
         status: open
+        split_from: !keyref point.de.Berlin-Alexanderplatz
         location: !keyloc line.de.20000 2,17
     -   date: !!null
         name: Berlin Alexanderplatz (Hp)
         de.DS100: BALEF
         sources: !keyref src.de.TPP.2006
+    -   date: !date c2007
+        status: closed
+        merged: !keyref point.de.Berlin-Alexanderplatz
 
 ---
 key: point.de.Berlin-Alexanderplatz-Aw
@@ -324,7 +340,9 @@ key: point.de.Berlin-Friedrichstrasse
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.20000 3,97
+        location:
+            - !keyloc line.de.20000 3,97
+            - !keyloc line.de.20800 3,97
         category: de.Bf
         de.Rangklasse: I
         name: Berlin Friedrichstraße
@@ -343,6 +361,8 @@ events:
     -   date: !var ds100.dr
         de.DS100: BFRI
         sources: !keyref src.de.TPP.2006
+    -   date: !date c2007
+        location: !keyloc line.de.20800 -
 
 ---
 key: point.de.Berlin-Friedrichstrasse-Friw
@@ -372,6 +392,7 @@ events:
     -   date: !!null
         location:
             - !keyloc line.de.20000 5,127
+            - !keyloc line.de.20800 5,127
         sources: !keyref src.dd.DR.Bln.1959
 
 ---
@@ -447,6 +468,23 @@ events:
         status: closed
 
 ---
+key: point.de.Berlin-Bachstrasse
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.20000 8,105
+        category: de.Bk
+        name: Bk 15
+        sources: !keyref src.de.DRG.Bln.1932
+    -   date: !date c1940
+        location: !keyloc line.de.20000 8,058
+        name: Bachstraße
+        sources: !keyref src.de.DRG.Bln.1943
+    -   date: !date c1950
+        status: closed
+        sources: !keyref src.dd.DR.Bln.1959
+
+---
 key: point.de.Berlin-Zoologischer-Garten-Zoo
 type: point
 events:
@@ -467,6 +505,7 @@ events:
     -   date: !!null
         location:
             - !keyloc line.de.20000 9,01
+            - !keyloc line.de.20800 9,01
         category: de.Bf
         de.Rangklasse: II
         name: Berlin Zoologischer Garten
@@ -482,6 +521,8 @@ events:
     -   date: !var ds100.dr
         de.DS100: BZOO
         sources: !keyref src.de.TPP.2006
+    -   date: !date c2007
+        location: !keyloc line.de.20800 -
 
 ---
 key: point.de.Berlin-Zoologischer-Garten-Zow
@@ -542,6 +583,7 @@ events:
     -   date: !!null
         location:
             - !keyloc line.de.20000 11,26
+            - !keyloc line.de.20800 11,26
         category: de.Bf
         de.Rangklasse: I
         sources: !keyref src.de.DRG.Bln.1932
@@ -563,6 +605,8 @@ events:
     -   date: !var ds100.dr
         de.DS100: BCHB
         sources: !keyref src.de.TPP.2006
+    -   date: !date c2007
+        location: !keyloc line.de.20800 -
 
 ---
 key: point.de.Berlin-Charlottenburg-Chab
