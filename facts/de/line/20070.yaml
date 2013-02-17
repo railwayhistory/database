@@ -1,0 +1,77 @@
+---
+key: line.de.20070
+type: line
+label: connection
+events:
+    -   date: !!null
+        region:
+            - !keyref org.de
+            - !keyref org.de.l.be
+
+    -   date: !!null
+        de.VzG: 6045
+        sources: !keyref src.de.VzG
+
+    -   date: !date 1890-05-10
+        concession:
+            by: !keyref org.de.l.pre
+            document: !keyref src.de.l.pre.1890.19.90
+        owner: !keyref org.de.l.pre
+        operator: !keyref org.de.e.KPEV.Bln
+        sources: !keyref src.de.DRG.1935
+    -   date: !date 1896-06-08
+        status: open
+        service: freight
+        sources: !keyref src.de.DRG.1935
+    -   date: !!null
+        category: de.Hauptbahn
+        sources: !keyref src.de.DRG.1927
+
+    -   date: !date 1920-04-01
+        owner: !keyref org.de
+        operator: !keyref org.de.r.RVM.PH
+    -   date: !date 1924-02-12
+        operator: !keyref org.de.e.DREb
+    -   date: !date 1924-08-30
+        operator: !keyref org.de.e.DRG
+    -   date: !date 1949-10-07
+        start: !keyref point.de.Berlin-Baumschulenweg-Gr
+        owner: !keyref org.dd
+    -   date: !var org.de.DR.start
+        operator: !keyref org.dd.DR
+
+    -   date: !date c1961
+        start: !keyref point.de.Berlin-Baumschulenweg-Gr
+        status: removed
+        sources: !keyref src.dd.DR.Bln.1968
+    -   date: !date 1990-10-03
+        start: !keyref point.de.Berlin-Baumschulenweg-Gr
+        owner: !keyref org.de
+    -   date: !var org.de.DBAG.start
+        owner: !keyref org.de.e.DBAG
+        operator: !keyref org.de.e.DBAG
+    -   date: !date 1995-08-18
+        start: !keyref point.de.Berlin-Baumschulenweg-Gr
+        status: open
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !var org.de.DBNetz.start
+        owner: !keyref org.de.e.DBNetz
+        operator: !keyref org.de.e.DBNetz
+
+points:
+    - !keyref point.de.Berlin-Neukoelln                     # line.de.20050
+    - !keyref point.de.Berlin-Baumschulenweg-Gr
+    - !keyref point.de.Berlin-Baumschulenweg                # line.de.28000
+
+---
+key: point.de.Berlin-Baumschulenweg-Gr
+type: point
+events:
+    -   date: !!null
+        subtype: border
+        name: Berlin Baumschulenweg Grenze
+    -   date: !!null
+        location:
+            - !keyloc line.de.20070 2,11
+            - !keyloc line.de.20930 2,11
+        sources: !keyref src.dd.DR.Bln.1953
