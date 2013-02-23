@@ -47,36 +47,45 @@ events:
         operator: !keyref org.de.e.DBNetz
 
 points:
-    - !keyref point.de.Hamburg-Hbf-S-Bahn       # s. 10000
+    - !keyref point.de.Hamburg-Hbf-S-Bahn                   # line.de.10000
+    - !keyref point.de.Hamburg-Dammtor                      # line.de.21000
     - !keyref point.de.Hamburg-Dammtor-S-Bahn
+    - !keyref point.de.Hamburg-Sternschanze                 # line.de.21000
     - !keyref point.de.Hamburg-Sternschanze-S-Bahn
-    - !keyref point.de.Hamburg-Holstenstrasse           # s. 10020
-    - !keyref point.de.Hamburg-Altona-S-Bahn    # s. 10000
+    - !keyref point.de.Hamburg-Holstenstrasse               # line.de.21000
+    - !keyref point.de.Hamburg-Altona                       # line.de.11000
+    - !keyref point.de.Hamburg-Altona-S-Bahn                # line.de.10000
 
 ---
 key: point.de.Hamburg-Dammtor-S-Bahn
 type: point
 events:
+    -   date: !date c1970
+        status: open
+        split_from: !keyref point.de.Hamburg-Dammtor
     -   date: !!null
+        location: !keyloc line.de.10100 288,110
         category: de.Hp
-        location: !keyloc line.de.10100 288,7
-        name: Dammtor (S-Bahn)
-        de.DS100: ADST
-        sources: !keyref src.de.SuW.2005
-    -   date: !date c2000
+        sources: !keyref src.de.DBAG.ISR
+    -   date: !!null
         name: Hamburg Dammtor (S-Bahn)
+        public_name: Hamburg Dammtor
+        de.DS100: ADST
         sources: !keyref src.de.TPP.2007
 
 ---
 key: point.de.Hamburg-Sternschanze-S-Bahn
 type: point
 events:
+    -   date: !date c1970
+        status: open
+        split_from: !keyref point.de.Hamburg-Sternschanze
     -   date: !!null
         category: de.Bf
-        location: !keyloc line.de.10100 289,8
-        name: Sternschanze (S-Bahn)
-        de.DS100: ASST
-        sources: !keyref src.de.SuW.2005
-    -   date: !date c2000
+        location: !keyloc line.de.10100 289,817
+        sources: !keyref src.de.DBAG.ISR
+    -   date: !!null
         name: Hamburg Sternschanze (S-Bahn)
+        public_name: Hamburg Sternschanze
+        de.DS100: ASST
         sources: !keyref src.de.TPP.2007

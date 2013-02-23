@@ -7,11 +7,8 @@ events:
             - !keyref org.de
             - !keyref org.de.l.hh
     -   date: !!null
-        ref:
-            de.VzG: 1245
-        locations: [ "0,226", "2,874" ]
-        sources:
-            - !keyref src.de.VzG
+        de.VzG: 1245
+        sources: !keyref src.de.VzG
     -   date: !!null
         category: de.Hauptbahn
         sources:
@@ -20,12 +17,11 @@ events:
         status: open
         note: vormals Teil Strecke Hamburg – Berlin
 points:
-    - !keyref point.de.Hamburg-Rothenburgsort   # line.de.10300
+    - !keyref point.de.Hamburg-Rothenburgsort           # line.de.10300
     - !keyref point.de.Hamburg-Berl
-    - !keyref point.de.Hamburg-Hbf
+    - !keyref point.de.Hamburg-Hbf                      # line.de.21000
 
 ---
-
 key: point.de.Hamburg-Berl
 type: point
 events:
@@ -51,34 +47,3 @@ events:
     -   date: !date c1970
         status: closed
 
----
-
-key: point.de.Hamburg-Hbf
-type: point
-junction: True
-events:
-    -   date: !!null
-        location:
-            - !keyloc line.de.10400 ??
-            - !keyloc line.de.11600 63,86
-            - !keyloc line.de.15000 355,31
-        sources:
-            - !keyref src.de.DRG.Alt.Karte.1945
-    -   date: !!null
-        category: de.Bf
-        de.Rangklasse: I
-        name: Hamburg Hbf
-        ref:
-            de.lknr: 01 071
-        service: de.og
-        sources:
-            - !keyref src.de.Bfv.1933
-    -   date: !!null
-        ref:
-            de.DS100: AH
-        sources:
-            - !keyref src.de.TPP.2006
-    -   date: !!null
-        coords: !geopoint 53.5527 10.006769
-        sources:
-            - !keyref src.GoogleMaps

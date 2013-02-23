@@ -5,10 +5,10 @@ events:
     -   date: !!null
         region: !keyref org.de
     -   date: !!null
-        end: !keyref point.de.Reinbek-Landesgrenze-S-Bahn
+        end: !keyref point.de.Reinbek-LGr-S-Bahn
         region: !keyref org.de.l.hh
     -   date: !!null
-        start: !keyref point.de.Reinbek-Landesgrenze-S-Bahn
+        start: !keyref point.de.Reinbek-LGr-S-Bahn
         region: !keyref org.de.l.sh
 
     -   date: !!null
@@ -64,21 +64,22 @@ events:
         electrified:
             rail: !voltage 1200V DC
 points:
-    - !keyref point.de.Hamburg-Hbf-S-Bahn           # line.de.10000
+    - !keyref point.de.Hamburg-Hbf-S-Bahn                   # line.de.10000
     - !keyref point.de.Hamburg-Berliner-Tor-Bergedorf
-    - !keyref point.de.Hamburg-Anckelmannsplatz
-    - !keyref point.de.Hamburg-Rothenburgsort-S-Bahn
-    - !keyref point.de.Hamburg-Tiefstack-S-Bahn
-    - !keyref point.de.Hamburg-Billwerder-Moorfleet
+    - !keyref point.de.Hamburg-Anckelmannsplatz             # line.de.21000
+    - !keyref point.de.Hamburg-Rothenburgsort-S-Bahn        # line.de.21000
+    - !keyref point.de.Hamburg-Tiefstack                    # line.de.21000
+    - !keyref point.de.Hamburg-Billwerder-Moorfleet         # line.de.21000
     - !keyref point.de.Hamburg-Billwerder-Uest
-    - !keyref point.de.Hamburg-Mittlerer-Landweg
+    - !keyref point.de.Hamburg-Mittlerer-Landweg            # line.de.21000
     - !keyref point.de.Hamburg-Allermoehe-S-Bahn
     - !keyref point.de.Hamburg-Nettelnburg
     - !keyref point.de.Hamburg-Bergedorf-S-Bahn
-    - !keyref point.de.Reinbek-Landesgrenze-S-Bahn
-    - !keyref point.de.Reinbek
-    - !keyref point.de.Wohltorf
+    - !keyref point.de.Reinbek-LGr-S-Bahn
+    - !keyref point.de.Reinbek                              # line.de.21000
+    - !keyref point.de.Wohltorf                             # line.de.21000
     - !keyref point.de.Aumuehle-S-Bahn
+    - !keyref point.de.Aumuehle-Abzw                        # line.de.21000
 
 ---
 key: point.de.Hamburg-Berliner-Tor-Bergedorf
@@ -91,76 +92,7 @@ events:
         de.DS100: ABTSB
         sources: !keyref src.de.SuW.2005
 
----
-key: point.de.Hamburg-Anckelmannsplatz
-type: point
-events:
-    -   date: !!null
-        category: de.Uest
-        name: Anckelmannsplatz
-        de.DS100: AAMP
-        sources: !keyref src.de.SuW.2005
-    -   date: !!null    
-        location:
-            - !keyloc line.de.10160 ??
-    -   date: !date 2002-05-26
-        location:
-            - !keyloc line.de.10160 -
-            
----
-key: point.de.Hamburg-Rothenburgsort-S-Bahn
-type: point
-events:
-    -   date: !!null
-        location:
-            - !keyloc line.de.10160 3,7
-        de.DS100: AROP
-        sources: !keyref src.de.SuW.2005
-    -   date: !!null
-        category: de.Hp
-        name: Rothenburgsort
-        de.lknr: 01 068
-        sources: !keyref src.de.Bfv.1933
-    -   date: !date 2002-05-26?
-        name: Hamburg-Rothenburgsort (S-Bahn)
-        sources: !keyref src.de.TPP.2006
-
----
-key: point.de.Hamburg-Tiefstack-S-Bahn
-type: point
-events:
-    -   date: !!null
-        category: de.Hp
-        name: Tiefstack
-        de.lknr: 01 067
-        sources: !keyref src.de.Bfv.1933
-    -   date: !!null
-        location:
-            - !keyloc line.de.10160 5,4
-        de.DS100: ATK
-        sources: !keyref src.de.SuW.2005
-
----
-key: point.de.Hamburg-Billwerder-Moorfleet
-type: point
-events:
-    -   date: !!null
-        category: de.Hp
-        name: Billwärder-Moorfleth
-        de.lknr: 01 065
-        sources: !keyref src.de.Bfv.1933
-    -   date: !!null
-        location:
-            - !keyloc line.de.10160 8,0
-        de.DS100: ABWM
-        sources: !keyref src.de.SuW.2005
-    -   date: !date c1945
-        name: Billwerder-Moorfleth
-        sources: !keyref src.de.DRG.Alt.Karte.1949
-    -   date: !date c1970
-        name: Billwerder-Moorfleet
-        sources: !keyref src.de.SuW.2005
-
+       
 ---
 key: point.de.Hamburg-Billwerder-Uest
 type: point
@@ -170,21 +102,6 @@ events:
         name: Hamburg-Billwerder (Üst)
         de.DS100: ABS
         location: !keyloc line.de.10160 9,4
-        sources: !keyref src.de.SuW.2005
-
----
-key: point.de.Hamburg-Mittlerer-Landweg
-type: point
-events:
-    -   date: !!null
-        category: de.Hp
-        name: Mittlerer Landweg
-        de.lknr: 01 064
-        sources: !keyref src.de.Bfv.1933
-    -   date: !!null
-        location:
-            - !keyloc line.de.10160 11,0
-        de.DS100: AML
         sources: !keyref src.de.SuW.2005
 
 ---
@@ -231,7 +148,7 @@ events:
         sources: !keyref src.de.TPP.2006
 
 ---
-key: point.de.Reinbek-Landesgrenze-S-Bahn
+key: point.de.Reinbek-LGr-S-Bahn
 type: point
 events:
     -   date: !!null
@@ -241,60 +158,21 @@ events:
         de.DS100: AQRBK
 
 ---
-key: point.de.Reinbek
-type: point
-events:
-    -   date: !!null
-        category: de.Bf
-        de.Rangklasse: III
-        name: Reinbek
-        de.lknr: 01 061
-        sources: !keyref src.de.Bfv.1933
-    -   date: !!null
-        location:
-            - !keyloc line.de.10160 20,1
-        sources: !keyref src.de.SuW.2005
-    -   date: !!null
-        de.DS100: ARBK
-        sources: !keyref src.de.TPP.2006
-
----
-key: point.de.Wohltorf
-type: point
-events:
-    -   date: !!null
-        name: Wohltorf
-        de.lknr: 01 060
-        sources: !keyref src.de.Bfv.1933
-    -   date: !!null
-        category: [de.Hp, de.Bk]
-        sources: !keyref src.de.DRG.Alt.Karte.1949
-    -   date: !!null
-        location:
-            - !keyloc line.de.10160 22,4
-        sources: !keyref src.de.Bfv.1933
-    -   date: !!null
-        de.DS100: AWLF
-        sources: !keyref src.de.TPP.2006
-    -   date: !date 2002-05-26?
-        category: [de.Hp, de.Uest]
-        sources: !keyref src.de.SuW.2005
-    -   date: !date c2010
-        category: de.Bf
-        sources: !keyref src.de.DBAG.ISR
-
----
 key: point.de.Aumuehle-S-Bahn
 type: point
 junction: True
 events:
     -   date: !!null
+        split_from: !keyref point.de.Aumuehle
+    -   date: !!null
         category: de.Bf
-        location:
-            - !keyloc line.de.10160 25,2
-        sources: !keyref src.de.SuW.2005
+        location: !keyloc line.de.10160 25,093
+        sources: !keyref src.de.DBAG.ISR
     -   date: !!null
         name: Aumühle (S-Bahn)
         de.DS100: AAMS
         sources: !keyref src.de.TPP.2006
-
+    -   date: !date c2012
+        name: Aumühle
+        de.DS100: AAH
+        sources: !keyref src.de.TPP.2012
