@@ -290,6 +290,7 @@ points:
     - !keyref point.de.Berlin-Potsd-Gbf
     - !keyref point.de.Berlin-Potsd-Bf-Pos
     - !keyref point.de.Berlin-Kolonnenstrasse               # line.de.20950
+    - !keyref point.de.Berlin-Schoeneberg-Bk-7
     - !keyref point.de.Berlin-Rathaus-Steglitz
     - !keyref point.de.Berlin-Lichterfelde-West
     - !keyref point.de.Berlin-Zehlendorf
@@ -449,6 +450,20 @@ events:
         status: closed
 
 ---
+key: point.de.Berlin-Schoeneberg-Bk-7
+type: point
+events:
+    -   date: !!null
+        location:
+            - !keyloc line.de.20780 3,04
+            - !keyloc line.de.46000 3,20
+        category: de.Bk
+        name: Bk 7
+        sources: !keyref src.de.DRG.Bln.1932
+    -   date: !date c1935
+        status: closed
+
+---
 key: point.de.Berlin-Steglitz-Gbf
 type: point
 junction: True
@@ -511,11 +526,15 @@ events:
             - !keyref src.de.DRG.Bln.1927
     -   date: !!null
         location:
+            - !keyloc line.de.20780 9,14
             - !keyloc line.de.46000 9,40
         category: de.Bf
         de.Rangklasse: II
         sources: !keyref src.de.DRG.Bln.1927
     -   date: !!null
+        de.lknr: 03 124
+        sources: !keyref src.de.Bfv.1928
+    -   date: !var lknr.30
         de.lknr: 03 131
         sources: !keyref src.de.Bfv.1933
     -   date: !date c1940
@@ -536,6 +555,8 @@ events:
     -   date: !var ds100.dr
         de.DS100: BLIW
         sources: !keyref src.de.TPP.2006
+    -   date: !date c2010
+        location: !keyloc line.de.20780 -
 
 ---
 key: point.de.Berlin-Zehlendorf
@@ -550,11 +571,17 @@ events:
         sources: !keyref src.de.Kuhlmann.2000
     -   date: !!null
         location:
+            - !keyloc line.de.20780 11,89
             - !keyloc line.de.46000 12,06
         category: de.Bf
         de.Rangklasse: II
         sources: !keyref src.de.DRG.Bln.1927
     -   date: !!null
+        location: !keyloc line.de.20170 11,89
+    -   date: !!null
+        de.lknr: 03 125
+        sources: !keyref src.de.Bfv.1928
+    -   date: !var lknr.30
         de.lknr: 03 133
         sources: !keyref src.de.Bfv.1933
     -   date: !date 1938-10-01
