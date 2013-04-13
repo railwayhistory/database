@@ -137,7 +137,7 @@ events:
             - !keyloc line.de.20800 -
 
 ---
-key: point.de.Kohlhasenbrücke
+key: point.de.Kohlhasenbruecke
 type: point
 events:
     -   date: !date 1909-05-01
@@ -149,7 +149,8 @@ events:
         name: Bot
         sources: !keyref src.de.web.Krebs
     -   date: !date c1940
-        location: !keyloc line.de.20790 28,12
+        location:
+            - !keyloc line.de.20790 28,12
         sources: !keyref src.de.DRG.Bln.1943
     -   date: !date 1949-04-01
         name: Kohlhasenbrücke
@@ -157,3 +158,26 @@ events:
     -   date: !date 1961-12-10
         status: closed
         sources: !keyref src.de.web.Krebs
+
+---
+key: point.de.Potsdam-Griebnitzsee-Gbo
+type: point
+junction: True
+events:
+    -   date: !date 1983-11-28
+        status: open
+        sources: !keyref src.de.web.Krebs
+    -   date: !!null
+        location:
+            - !keyloc line.de.20178 21,20
+        sources: !keyref src.dd.DR.Bln.1991
+    -   date: !!null
+        category: de.Abzw
+        name: Gbo
+    -   date: !date c1995
+        category: de.Bft
+        name: Postdam Griebnitzsee (Gbo)
+        master: !keyref point.de.Potsdam-Griebnitzsee
+    -   date: !!null
+        de.DS100: BGBSO
+        sources: !keyref src.de.TPP.2006
