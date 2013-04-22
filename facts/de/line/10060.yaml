@@ -5,10 +5,10 @@ events:
     -   date: !!null
         region: !keyref org.de
     -   date: !!null
-        end: !keyref point.de.Hamburg-Rissen-Landesgrenze
+        end: !keyref point.de.Hamburg-Rissen-LGr
         region: !keyref org.de.l.hh
     -   date: !!null
-        start: !keyref point.de.Hamburg-Rissen-Landesgrenze
+        start: !keyref point.de.Hamburg-Rissen-LGr
         region: !keyref org.de.l.sh
 
     -   date: !!null
@@ -43,11 +43,11 @@ events:
         tracks: 2
 
 points:
-    - !keyref point.de.Hamburg-Blankenese
+    - !keyref point.de.Hamburg-Blankenese                   # line.de.10050
     - !keyref point.de.Hamburg-Iserbrook
     - !keyref point.de.Hamburg-Suelldorf
     - !keyref point.de.Hamburg-Rissen
-    - !keyref point.de.Hamburg-Rissen-Landesgrenze
+    - !keyref point.de.Hamburg-Rissen-LGr
     - !keyref point.de.Hamburg-Rissen-Oelweiche
     - !keyref point.de.Hamburg-Rissen-Oelweiche-Uest
     - !keyref point.de.Wedel
@@ -56,15 +56,18 @@ points:
 key: point.de.Hamburg-Iserbrook
 type: point
 events:
-    -   date: !!null
-        category: de.Hp
-        location: !keyloc line.de.10060 11,3
-        name: Iserbrook
-        de.DS100: AIS
-        sources: !keyref src.de.SuW.2005
     -   date: !date 1950-05-14
         status: open
         sources: !keyref src.de.WP.Altona-Blankeneser-Eisenbahn
+    -   date: !!null
+        category: de.Hp
+        name: Iserbrook
+        de.DS100: AIS
+        de.dstnr: 011015
+        sources: !keyref src.de.DS100.1982
+    -   date: !!null
+        location: !keyloc line.de.10060 11,3
+        sources: !keyref src.de.SuW.2005
     -   date: !date c2000
         name: Hamburg-Iserbrook
         sources: !keyref src.de.TPP.2007
@@ -74,21 +77,25 @@ key: point.de.Hamburg-Suelldorf
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.10060 12,62
-        sources: !keyref src.de.DRG.Alt.Karte.1945
+        name: Sülldorf
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        de.lknr: 01 047
+        sources: !keyref src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
         de.Rangklasse: IV
-        name: Sülldorf
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 01 108
-        tags: de.b
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
+        location: !keyloc line.de.10060 12,62
+        sources: !keyref src.de.DRG.Alt.Karte.1945
+    -   date: !!null
         de.DS100: ASDF
-        sources: !keyref src.de.TPP.2007
-    -   date: !date c1940
-        tags: []
-        sources: !keyref src.de.Bfv.1944
+        de.dstnr: 011080
+        sources: !keyref src.de.DS100.1982
     -   date: !date c2000
         name: Hamburg-Sülldorf
         sources: !keyref src.de.TPP.2007
@@ -98,32 +105,36 @@ key: point.de.Hamburg-Rissen
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.10060 15,35
-        sources: !keyref src.de.DRG.Alt.Karte.1945
+        name: Rissen
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        de.lknr: 01 048
+        sources: !keyref src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
         de.Rangklasse: IV
-        name: Rissen
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 01 109
-        tags: de.b
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
+        location: !keyloc line.de.10060 15,35
+        sources: !keyref src.de.DRG.Alt.Karte.1945
+    -   date: !!null
         de.DS100: ARI
-        sources: !keyref src.de.TPP.2007
-    -   date: !date c1940
-        tags: []
-        sources:
-            - !keyref src.de.Bfv.1944
+        de.dstnr: 011098
+        sources: !keyref src.de.DS100.1982
     -   date: !date c1970
         category: [de.Hp, de.Uest]
         sources:
             - !keyref src.de.SuW.2005
+            - !keyref !keyref src.de.DS100.1982
     -   date: !date c2000
         name: Hamburg-Rissen
         sources: !keyref src.de.TPP.2007
 
 ---
-key: point.de.Hamburg-Rissen-Landesgrenze
+key: point.de.Hamburg-Rissen-LGr
 type: point
 events:
     -   date: !!null
@@ -140,17 +151,28 @@ events:
         location: !keyloc line.de.10060 17,05
         sources: !keyref src.de.DRG.Alt.Karte.1945
     -   date: !!null
+        de.lknr: 01 427
+        category: de.Ahst
+        sources: !keyref src.de.Bfv.1928
+    -   date: !var lknr.30
+        de.lknr: 01 110
+        sources: !keyref src.de.Bfv.1933
+    -   date: !date c1930
+        name: Altona-Rissen Ölweiche
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        service: freight
+        sources: !keyref src.de.Bfv.1938
+    -   date: !date c1938
         category: [de.Ldst, de.Ahst]
         name: Hamburg-Rissen Ölweiche
-        de.lknr: 01 110
-        service: freight
-        tags: de.op
-        sources: !keyref src.de.Bfv.1944
+        sources: !keyref src.de.Bfv.1938
     -   date: !!null
         de.DS100: AROE
+        sources: !keyref src.de.DS100.1982
     -   date: !date c1970
         category: de.Bf
-        sources: !keyref src.de.TPP.2007
+        sources: !keyref src.de.DS100.1982
     -   date: !date c2000
         name: Hamburg-Rissen Ölweiche
         sources: !keyref src.de.TPP.2007
@@ -168,9 +190,6 @@ events:
         name: Hamburg-Rissen Ölweiche Üst
         de.DS100: AROW
         sources: !keyref src.de.SuW.2005
-    -   date: !date c2000
-        name: Hamburg-Rissen Ölweiche Üst
-        sources: !keyref src.de.TPP.2007
 
 ---
 key: point.de.Wedel
@@ -178,17 +197,25 @@ type: point
 junction: True
 events:
     -   date: !!null
-        location: !keyloc line.de.10060 18,98
-        sources: !keyref src.de.DRG.Alt.Karte.1945
+        name: Wedel
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        de.lknr: 01 049
+        sources: !keyref src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
         de.Rangklasse: III
-        name: Wedel
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.de
         de.lknr: 01 111
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        de.DS100: AWL
-        sources: !keyref src.de.SuW.2005
-    -   date: !date c1940
+        location: !keyloc line.de.10060 18,98
+        sources: !keyref src.de.DRG.Alt.Karte.1945
+    -   date: !date c1938
         name: Wedel (Holst)
-        sources: !keyref src.de.Bfv.1944
+        sources: !keyref src.de.Bfv.1938
+    -   date: !!null
+        de.DS100: AWL
+        de.dstnr: 011114
+        sources: !keyref src.de.DS100.1982
