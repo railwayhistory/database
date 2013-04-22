@@ -20,7 +20,7 @@ events:
         category: de.Hauptbahn
         tracks: 2
         electrified:
-            rail: !voltage 1200V DC
+            rail: !var el.de.hmb
         service: passenger
         owner: !keyref org.de
         operator: !keyref org.de.e.DB
@@ -69,15 +69,16 @@ type: point
 events:
     -   date: !!null
         category: de.Hp
-        location:
-            - !keyloc line.de.10020 2,6
-        name: Langenfelde (S-Bahn)
-        public_name: Langenfelde
+        name: Langenfelde
         de.DS100: ALST
-        sources:
-            - !keyref src.de.SuW.2005
+        de.dstnr: 012898
+        sources: !keyref src.de.DS100.1982
+    -   date: !!null
+        location: !keyloc line.de.10020 2,6
+        sources: !keyref src.de.SuW.2005
     -   date: !date c2000
         name: Hamburg-Langenfelde (S-Bahn)
+        public_name: Hamburg-Langenfelde
         sources: !keyref src.de.TPP.2007
 
 ---
@@ -86,13 +87,13 @@ key: point.de.Hamburg-Stellingen-S-Bahn
 events:
     -   date: !!null
         category: de.Hp
-        location:
-            - !keyloc line.de.10020 4,1
-        name: Stellingen (S-Bahn)
-        public_name: Stellingen
+        name: Hamburg-Stellingen
         de.DS100: ASTS
-        sources:
-            - !keyref src.de.SuW.2005
+        de.dstnr: 012971
+        sources: !keyref src.de.DS100.1982
+    -   date: !!null
+        location: !keyloc line.de.10020 4,1
+        sources: !keyref src.de.SuW.2005
     -   date: !date c2000
         name: Hamburg-Stellingen (S-Bahn)
         sources: !keyref src.de.TPP.2007
@@ -104,12 +105,13 @@ junction: True
 events:
     -   date: !!null
         category: de.Bf
-        location:
-            - !keyloc line.de.10020 6,1
         name: Eidelstedt (S-Bahn)
         de.DS100: AEST
-        sources:
-            - !keyref src.de.SuW.2005
+        de.dstnr: 012799
+        sources: !keyref src.de.DS100.1982
+    -   date: !!null
+        location: !keyloc line.de.10020 6,1
+        sources: !keyref src.de.SuW.2005
     -   date: !date c2000
         name: Hamburg-Eidelstedt (S-Bahn)
         sources: !keyref src.de.TPP.2007
@@ -119,11 +121,8 @@ key: point.de.Hamburg-Elbgaustrasse
 type: point
 events:
     -   date: !!null
-        location:
-            - !keyloc line.de.10020 7,4
-        de.DS100: AEGS
-        sources:
-            - !keyref src.de.SuW.2005
+        location: !keyloc line.de.10020 7,4
+        sources: !keyref src.de.SuW.2005
     -   date: !!null
         category: de.Hp
         name: Elbgaustraße
@@ -142,11 +141,13 @@ events:
         note: nicht in src.de.Bfv.1933, neu?
     -   date: !date 1970
         category: de.Bf
-        sources:
-            - !keyref src.de.SuW.2005
+        sources: !keyref src.de.DS100.1982
     -   date: !date 1970
-        location:
-            - !keyloc line.de.11000 -
+        location: !keyloc line.de.11000 -
+    -   date: !!null
+        de.DS100: AEGS
+        de.dstnr: 012773
+        sources: !keyref src.de.DS100.1982
     -   date: !date c2000
         name: Hamburg Elbgaustraße
         sources: !keyref src.de.TPP.2007
@@ -167,12 +168,16 @@ type: point
 events:
     -   date: !!null
         category: de.Hp
-        location:
-            - !keyloc line.de.10020 9,6
         name: Krupunder
+        de.DS100: AKST
+        de.dstnr: 012989
+        sources: !keyref src.de.DS100.1982
+    -   date: !!null
+        location: !keyloc line.de.10020 9,6
+        sources: !keyref src.de.SuW.2005
+    -   date: !date c1990
         de.DS100: AKRS
-        sources:
-            - !keyref src.de.SuW.2005
+        sources: !keyref src.de.SuW.2005
 
 ---
 key: point.de.Bickbargen
@@ -180,70 +185,66 @@ type: point
 events:
     -   date: !!null
         category: de.Uest
-        location:
-            - !keyloc line.de.10020 11,0
+        location: !keyloc line.de.10020 11,0
         name: Bickbargen
         de.DS100: ABB
+        sources: !keyref src.de.SuW.2005
 
 ---
 key: point.de.Halstenbek
 type: point
 events:
     -   date: !!null
+        name: Halstenbek
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        de.lknr: 01 051
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: II
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 01 283
-        sources:
-            - !keyref src.de.Bfv.1933
+        sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        location:
-            - !keyloc line.de.10020 12,0
-        de.DS100: AHKS
-        sources:
-            - !keyref src.de.SuW.2005
+        location: !keyloc line.de.11000 11,98
+        sources: !keyref src.de.DRG.Alt.Karte.1949
     -   date: !!null
-        coords: !geopoint 53.630866 9.838176
-        sources:
-            - !keyref src.GoogleMaps
-    -   date: !!null
-        location:
-            - !keyloc line.de.11000 11,98
-        sources:
-            - !keyref src.de.DRG.Alt.Karte.1949
-    -   date: !!null
-        name: Halstenbek
-        sources:
-            - !keyref src.de.Kb.1914
+        location: !keyloc line.de.10020 12,0
+        sources: !keyref src.de.SuW.2005
     -   date: !date 1970
-        location:
-            - !keyloc line.de.11000 -
+        location: !keyloc line.de.11000 -
+    -   date: !date c1970
+        category: de.Hp
+        sources: !keyref src.de.DS100.1982
+    -   date: !!null
+        de.DS100: AHKS
+        de.dstnr: 012831
+        sources: !keyref src.de.DS100.1982
 
 ---
 type: point
 key: point.de.Thesdorf
 events:
     -   date: !!null
-        location:
-            - !keyloc line.de.10020 14,3
-        name: Thesdorf
-        de.DS100: ATHS
-        sources:
-            - !keyref src.de.SuW.2005
-    -   date: !!null
         category: de.Bk
+        location: !keyloc line.de.11000 13,81
+        name: Thesdorf
+        sources: !keyref src.de.DRG.Alt.Karte.1949
     -   date: !!null
-        location:
-            - !keyloc line.de.11000 13,81
-        sources:
-            - !keyref src.de.DRG.Alt.Karte.1949
+        location: !keyloc line.de.10020 14,3
+        sources: !keyref src.de.SuW.2005
+    -   date: !date 1970
+        location: !keyloc line.de.11000 -
+    -   date: !!null
+        de.DS100: ATHS
+        de.dstnr: 013094
+        sources: !keyref src.de.DS100.1982
     -   date: !date 1967?
         category: de.Hp
-        sources:
-            - !keyref src.de.SuW.2005
-    -   date: !date 1970
-        location:
-            - !keyloc line.de.11000 -
-        
+        sources: !keyref src.de.DS100.1982
+
 ---
 type: point
 key: point.de.Pinneberg-S-Bahn
@@ -251,10 +252,8 @@ junction: True
 events:
     -   date: !!null
         category: de.Bf
-        location:
-            - !keyloc line.de.10020 15,9
+        location: !keyloc line.de.10020 15,9
         name: Pinneberg (S-Bahn)
         de.DS100: APS
         connection: !keyref point.de.Pinneberg
-        sources:
-            - !keyref src.de.SuW.2005
+        sources: !keyref src.de.SuW.2005
