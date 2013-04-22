@@ -43,7 +43,7 @@ events:
     -   date: !date 1955
         electrified:
             overhead: !!null
-            rail: !voltage 1200V DC
+            rail: !var el.de.hmb
         note: Umstellung schrittweise zwischen 1940 und 1955
         sources: !keyref src.de.WP.Altona-Blankeneser-Eisenbahn
 
@@ -68,15 +68,19 @@ points:
 key: point.de.Hamburg-Bahrenfeld-Abzw
 type: point
 events:
+    -   date: !date 2000
+        status: open
+        split_from: !keyref point.de.Hamburg-Bahrenfeld
     -   date: !!null
         category: de.Abzw
         name: Hamburg-Bahrenfeld Abzw
         de.DS100: ABAH
-        sources:
-            - !keyref src.de.SuW.2005
-    -   date: !date 2000
-        status: open
-        split_from: !keyref point.de.Hamburg-Bahrenfeld
+        sources: !keyref src.de.SuW.2005
+    -   date: !!null
+        location:
+            - !keyloc line.de.10050 2,533
+            - !keyloc line.de.10200 0,348
+        sources: !keyref src.de.DBAG.ISR
 
 ---
 key: point.de.Hamburg-Bahrenfeld
@@ -84,21 +88,30 @@ type: point
 junction: True
 events:
     -   date: !!null
-        location:
-            - !keyloc line.de.10050 2,91
-        sources:
-            - !keyref src.de.DRG.Alt.Karte.1945
+        name: Bahrenfeld
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        de.lknr: 01 421
+        service: no-freight
+        sources: !keyref src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
         de.Rangklasse: II
-        name: Bahrenfeld
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 01 103
-        tags: de.b
-        sources:
-            - !keyref src.de.Bfv.1933
+        sources: !keyref src.de.Bfv.1933
+    -   date: !date c1930
+        service: full
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location: !keyloc line.de.10050 2,91
+        sources: !keyref src.de.DRG.Alt.Karte.1945
     -   date: !!null
         de.DS100: ABAF
-    -   date: !date 1970
+        de.dstnr: 011031
+        sources: !keyref src.de.DS100.1982
+    -   date: !date 1990
         category: [de.Hp, de.Abzw]
     -   date: !date 2000
         category: de.Hp
@@ -110,28 +123,33 @@ events:
 key: point.de.Hamburg-Othmarschen
 type: point
 events:
-    -   date: !!null
-        location:
-            - !keyloc line.de.10050 4,44
-        sources:
-            - !keyref src.de.DRG.Alt.Karte.1945
-    -   date: !!null
-        category: de.Bf
-        de.Rangklasse: IV
-        name: Groß Flottbek-Othmarschen
-        de.lknr: 01 104
-        service: passenger
-        tags: de.og
-        sources: !keyref src.de.Bfv.1933
-    -   date: !!null
-        de.DS100: AOH
-        sources: !keyref src.de.TPP.2007
     -   date: !date 1882-08-01
         status: open
         sources: !keyref src.de.WP.Altona-Blankeneser-Eisenbahn
-    -   date: !date 1940
+    -   date: !!null
+        name: Groß Flottbek-Othmarschen
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        de.lknr: 01 399
+        service: no-freight
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: IV
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 01 104
+        sources: !keyref src.de.Bfv.1933
+    -   date: !date c1938
         name: Othmarschen
-        sources: !keyref src.de.Bfv.1944
+        sources: !keyref src.de.Bfv.1938
+    -   date: !!null
+        location: !keyloc line.de.10050 4,44
+        sources: !keyref src.de.DRG.Alt.Karte.1945
+    -   date: !!null
+        de.DS100: AOH
+        de.dstnr: 011049
+        sources: !keyref src.de.DS100.1982
     -   date: !date c2000
         name: Hamburg-Othmarschen
         sources: !keyref src.de.TPP.2007
@@ -141,17 +159,25 @@ key: point.de.Hamburg-Klein-Flottbek
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.10050 6,19
-        sources: !keyref src.de.DRG.Alt.Karte.1945
+        name: Klein Flottbek
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        de.lknr: 01 045
+        sources: !keyref src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
         de.Rangklasse: III
-        name: Klein Flottbek
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 01 105
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
+        location: !keyloc line.de.10050 6,19
+        sources: !keyref src.de.DRG.Alt.Karte.1945
+    -   date: !!null
         de.DS100: AFB
-        sources: !keyref src.de.TPP.2007
+        de.dstnr: 011056
+        sources: !keyref src.de.DS100.1982
     -   date: !date c2000
         name: Hamburg-Klein Flottbek
         sources: !keyref src.de.TPP.2007
@@ -160,6 +186,19 @@ events:
 key: point.de.Hamburg-Hochkamp
 type: point
 events:
+    -   date: !date 1897?
+        status: open
+        sources: !keyref src.de.WP.Altona-Blankeneser-Eisenbahn
+    -   date: !!null
+        name: Hochkamp
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        de.lknr: 01 400
+        service: no-freight
+        sources: !keyref src.de.Bfv.1928
+    -   date: !var lknr.30
+        de.lknr: 01 106
+        sources: !keyref src.de.Bfv.1933
     -   date: !!null
         location: !keyloc line.de.10050 7,52
         sources: !keyref src.de.DRG.Alt.Karte.1945
@@ -169,16 +208,9 @@ events:
             - !keyref src.de.Bfv.1933
             - !keyref src.de.DRG.Alt.Karte.1945
     -   date: !!null
-        name: Hochkamp
-        de.lknr: 01 106
-        sources: !keyref src.de.Bfv.1933
-    -   date: !!null
         de.DS100: AHPS
-        sources: !keyref src.de.TPP.2007
-    -   date: !date 1897?
-        status: open
-        sources:
-            - !keyref src.de.WP.Altona-Blankeneser-Eisenbahn
+        de.dstnr: 011064
+        sources: !keyref src.de.DS100.1982
     -   date: !date c2000
         name: Hamburg Hochkamp
         sources: !keyref src.de.TPP.2007
@@ -189,19 +221,27 @@ type: point
 junction: True
 events:
     -   date: !!null
+        name: Blankenese
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        de.lknr: 01 046
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: II
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 01 107
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
         location:
             - !keyloc line.de.10050 9,57
             - !keyloc line.de.10060 9,57
         sources: !keyref src.de.DRG.Alt.Karte.1945
     -   date: !!null
-        category: de.Bf
-        de.Rangklasse: II
-        name: Blankenese
-        de.lknr: 01 107
-        sources: !keyref src.de.Bfv.1933
-    -   date: !!null
         de.DS100: AB
-        sources: !keyref src.de.TPP.2007
+        de.dstnr: 011072
+        sources: !keyref src.de.DS100.1982
     -   date: !date c2000
         name: Hamburg-Blankenese
         sources: !keyref src.de.TPP.2007
