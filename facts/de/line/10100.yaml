@@ -21,8 +21,7 @@ events:
     -   date: !date 1907-10-01
         electrified:
             overhead: !voltage 6300V 25Hz
-        sources:
-            - !keyref src.de.WP.S-Bahn-Hamburg
+        sources: !keyref src.de.WP.S-Bahn-Hamburg
 
     -   date: !date 1920-04-01
         owner: !keyref org.de
@@ -37,7 +36,7 @@ events:
     -   date: !date c1950
         electrified:
             overhead: !!null
-            rail: !voltage 1200V DC
+            rail: !var el.de.hmb
 
     -   date: !var org.de.DBAG.start
         owner: !keyref org.de.e.DBAG
@@ -64,13 +63,17 @@ events:
         status: open
         split_from: !keyref point.de.Hamburg-Dammtor
     -   date: !!null
-        location: !keyloc line.de.10100 288,110
         category: de.Hp
-        sources: !keyref src.de.DBAG.ISR
+        name: Dammtor (S-Bahn)
+        de.DS100: ADST
+        de.dstnr: 010299
+        sources: !keyref src.de.DS100.1982
     -   date: !!null
+        location: !keyloc line.de.10100 288,110
+        sources: !keyref src.de.DBAG.ISR
+    -   date: !date c2000
         name: Hamburg Dammtor (S-Bahn)
         public_name: Hamburg Dammtor
-        de.DS100: ADST
         sources: !keyref src.de.TPP.2007
 
 ---
@@ -82,10 +85,14 @@ events:
         split_from: !keyref point.de.Hamburg-Sternschanze
     -   date: !!null
         category: de.Bf
+        name: Sternschanze (S-Bahn)
+        de.DS100: ASST
+        de.dstnr: 010256
+        sources: !keyref src.de.DS100.1982
+    -   date: !!null
         location: !keyloc line.de.10100 289,817
         sources: !keyref src.de.DBAG.ISR
     -   date: !!null
         name: Hamburg Sternschanze (S-Bahn)
         public_name: Hamburg Sternschanze
-        de.DS100: ASST
         sources: !keyref src.de.TPP.2007
