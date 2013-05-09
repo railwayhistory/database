@@ -87,7 +87,7 @@ events:
     -   date: !date c1950
         electrified:
             overhead: !!null
-            rail: !voltage 1200V DC
+            rail: !var el.de.hmb
 
     -   date: !var org.de.DBAG.start
         owner: !keyref org.de.e.DBAG
@@ -97,18 +97,16 @@ events:
         operator: !keyref org.de.e.DBNetz
 
 points:
-    -   !keyref point.de.Hamburg-Altona-S-Bahn
+    -   !keyref point.de.Hamburg-Hbf-S-Bahn                 # line.de.10000
     -   !keyref point.de.Hamburg-Berliner-Tor-Landwehr
     -   !keyref point.de.Hamburg-Landwehr
-    -   !keyref point.de.Hamburg-Hasselbrook
     -   !keyref point.de.Hamburg-Hasselbrook-S-Bahn
-    -   !keyref point.de.Hamburg-Hasselbrook-S-Bahn-Hsb
     -   !keyref point.de.Hamburg-Wandsbeker-Chaussee
     -   !keyref point.de.Hamburg-Friedrichsberg
     -   !keyref point.de.Hamburg-Barmbek-S-Bahn
-    -   !keyref point.de.Hamburg-Barmbek
     -   !keyref point.de.Hamburg-Alte-Woehr
     -   !keyref point.de.Hamburg-Ruebenkamp
+    -   !keyref point.de.Hamburg-Ohlsdorf
     -   !keyref point.de.Hamburg-Ohlsdorf-S-Bahn
     -   !keyref point.de.Hamburg-Kornweg-Klein-Borstel
     -   !keyref point.de.Hamburg-Hoheneichen
@@ -119,465 +117,413 @@ points:
 key: point.de.Hamburg-Berliner-Tor-Landwehr
 type: point
 events:
-    -   date: !!null   
-        location:
-            - !keyloc line.de.10120 1,53
+    -   date: !date c1970
+        status: open
+        split_from: !keyref point.de.Hamburg-Berliner-Tor
     -   date: !!null
         category: de.Bf
-        de.Rangklasse: II
-        name: Berliner Tor
-        de.lknr: 01 070
-        service: passenger
-        tags: de.p
-        sources:
-            - !keyref src.de.Bfv.1933
+        name: Berliner Tor (S-Bahn)
+        de.dstnr: !!str 010702
+        de.DS100: ABTR
+        sources: !keyref src.de.DS100.1982
     -   date: !!null
-        de.DS100: ABTSL
-        sources:
-            - !keyref src.de.SuW.2005
-    -   date: !!null
-        coords: !geopoint 53.552904 10.024595
-        sources:
-            - !keyref src.GoogleMaps
-    -   date: !date c1970
+        sources: !keyref src.de.SuW.2005
+    -   date: !date c1995
         category: [de.Hp, de.Bft]
-        name: Berliner Tor (Landwehr)
-        sources:
-            - !keyref src.de.SuW.2005
+        de.DS100: ABTSL
+        name: Hamburg Berliner Tor (Landwehr)
+        sources: !keyref src.de.SuW.2005
+    -   date: !!null
+        location: !keyloc line.de.10120 1,530
+        sources: !keyref src.de.DBAG.ISR
 
 ---
 key: point.de.Hamburg-Landwehr
 type: point
 events:
     -   date: !!null
-        location:
-            - !keyloc line.de.10120 2,86
-        sources:
-            - !keyref src.de.DRG.Alt.Karte.1945
+        name: Landwehr
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        de.lknr: 01 388
+        service: passenger
+        sources: !keyref src.de.Bfv.1928
     -   date: !!null
         category: de.Hp
-        name: Landwehr
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 01 125
-        service: passenger
-        tags: de.p
-        sources:
-            - !keyref src.de.Bfv.1933
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location: !keyloc line.de.10120 2,86
+        sources: !keyref src.de.DRG.Alt.Karte.1945
     -   date: !!null
         de.DS100: ALAN
-        sources:
-            - !keyref src.de.SuW.2005
-    -   date: !!null
-        coords: !geopoint 53.561135 10.03787
-        sources:
-            - !keyref src.GoogleMaps
-
----
-key: point.de.Hamburg-Hasselbrook
-type: point
-junction: True
-events:
-    -   date: !!null
-        location:
-            - !keyloc line.de.10120 4,17
-        sources:
-            - !keyref src.de.DRG.Alt.Karte.1945
-    -   date: !!null
-        location:
-            - !keyloc line.de.11600 59,7
-        sources:
-            - !keyref src.de.SuW.2005
-    -   date: !!null
-        de.DS100: AHSF
-        sources:
-            - !keyref src.de.TPP.2006
-    -   date: !!null
-        name: Hasselbrook
-        sources:
-            - !keyref src.de.Kb.1914
-    -   date: !!null
-        category: de.Bf
-        de.Rangklasse: III
-        de.lknr: 01 124
-        service: passenger
-        tags: de.p
-        sources:
-            - !keyref src.de.Bfv.1933
-    -   date: !!null
-        coords: !geopoint 53.564724 10.056444
-        sources:
-            - !keyref src.GoogleMaps
-    -   date: !date c1970
-        category: [de.Hp, de.Bk]
-        location:
-            - !keyloc line.de.10120 -
+        de.dstnr: !!str 011254
+        sources: !keyref src.de.DS100.1982
     -   date: !date c2000
-        name: Hamburg-Hasselbrook
-        sources:
-            - !keyref src.de.TPP.2006
+        name: Hamburg Landwehr
+        sources: !keyref src.de.TPP.2007
 
 ---
 key: point.de.Hamburg-Hasselbrook-S-Bahn
 type: point
+junction: True
 events:
     -   date: !!null
-        location:
-            - !keyloc line.de.10120 4,17
-    -   date: !!null
-        category: de.Bf
-        name: Hasselbrook (S-Bahn)
-        de.DS100: AHSB
-        sources:
-            - !keyref src.de.SuW.2005
+        name: Hasselbrook
+        sources: !keyref src.de.Kb.1914
     -   date: !!null
         service: passenger
+        de.lknr: 01 389
+        sources: !keyref src.de.Bfv.1928
     -   date: !!null
-        coords: !geopoint 53.564808 10.05639
-        sources:
-            - !keyref src.GoogleMaps
-
----
-key: point.de.Hamburg-Hasselbrook-S-Bahn-Hsb
-type: point
-events:
+        category: de.Bf
+        de.Rangklasse: III
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 01 124
+        sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        category: de.Stw
-        subtype: signalbox
-        location:
-            - !keyloc line.de.10120 4,17?
+        location: !keyloc line.de.10120 4,17
+        sources: !keyref src.de.DRG.Alt.Karte.1945
     -   date: !!null
-        coords: !geopoint 53.564808 10.05639
-        sources:
-            - !keyref src.GoogleMaps
-    -   date: !date 1912
-        model: de.E-43
-        sources:
-            - !keyref src.de.DBAG.SNB.2008
+        location: !keyloc line.de.11600 59,7
+        sources: !keyref src.de.SuW.2005
+    -   date: !!null
+        de.DS100: AHSB
+        de.dstnr: !!str 0112447
+        sources: !keyref src.de.DS100.1982
+    -   date: !date c1970
+        location: !keyloc line.de.11600 -
+        name: Hasselbrook (S-Bahn)
+        sources: !keyref src.de.DS100.1982
+    -   date: !date c2000
+        name: Hamburg Hasselbrook (S-Bahn)
+        sources: !keyref src.de.TPP.2007
 
 ---
 key: point.de.Hamburg-Wandsbeker-Chaussee
 type: point
-junction: True
 events:
     -   date: !!null
-        location:
-            - !keyloc line.de.10120 4,92
-        sources:
-            - !keyref src.de.DRG.Alt.Karte.1945
+        name: Wandsbeker Chaussee
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        service: passenger
+        de.lknr: 01 390
+        sources: !keyref src.de.Bfv.1928
     -   date: !!null
         category: de.Hp
+        sources: !keyref src.de.Bfv.1933
+    -   date: !date c1925
         name: Wandsbekerchaussee
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 01 123
-        service: passenger
-        tags: de.p
-        sources:
-            - !keyref src.de.Bfv.1933
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location: !keyloc line.de.10120 4,92
+        sources: !keyref src.de.DRG.Alt.Karte.1945
+    -   date: !!null
+        location: !keyloc line.de.10300 13,8?
+    -   date: !date 1941?
+        location: !keyloc line.de.10300 -
     -   date: !!null
         de.DS100: AWCH
-        sources:
-            - !keyref src.de.SuW.2005
-    -   date: !!null
-        coords: !geopoint 53.569707 10.059955
-        sources:
-            - !keyref src.GoogleMaps
-    -   date: !!null
-        location:
-            - !keyloc line.de.10300 13,8?
-    -   date: !date 1941?
-        location:
-            - !keyloc line.de.10300 -
+        de.dstnr: !!str 011239
+        sources: !keyref src.de.DS100.1982
     -   date: !date c1970
         name: Wandsbeker Chaussee
-        sources:
-            - !keyref src.de.SuW.2005
+        sources: !keyref src.de.DS100.1982
+    -   date: !date c2000
+        name: Hamburg Wandsbeker Chausee
+        sources: !keyref src.de.TPP.2007
 
 ---
 key: point.de.Hamburg-Friedrichsberg            
 type: point
 events:
     -   date: !!null
-        location:
-            - !keyloc line.de.10120 5,61
-        sources:
-            - !keyref src.de.DRG.Alt.Karte.1945
+        name: Friedrichsberg
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        service: passenger
+        de.lknr: 01 391
+        sources: !keyref src.de.Bfv.1928
     -   date: !!null
         category: de.Hp
-        name: Friedrichsberg
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 01 122
-        tags: de.b
-        sources:
-            - !keyref src.de.Bfv.1933
+        sources: !keyref src.de.Bfv.1933
     -   date: !!null
+        location: !keyloc line.de.10120 5,61
+        sources: !keyref src.de.DRG.Alt.Karte.1945
+    -   date: !!null
+        de.DS100: AF
+        de.dstnr: !!str 011221
+        sources: !keyref src.de.DS100.1982
+    -   date: !date c1990
         de.DS100: AFBG
-        sources:
-            - !keyref src.de.SuW.2005
-    -   date: !!null
-        coords: !geopoint 53.576195 10.057423
-        sources:
-            - !keyref src.GoogleMaps
+        sources: !keyref src.de.TPP.2007
+    -   date: !date c2000
+        name: Hamburg Friedrichsberg
+        sources: !keyref src.de.TPP.2007
 
 ---
 key: point.de.Hamburg-Barmbek-S-Bahn
 type: point
 events:
     -   date: !!null
-        location:
-            - !keyloc line.de.10120 7,13
-        sources:
-            - !keyref src.de.DRG.Alt.Karte.1945
+        name: Barmbeck
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        de.lknr: 01 037
+        sources: !keyref src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
         de.Rangklasse: III
-        name: Barmbeck
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 10 120
+        sources: !keyref src.de.Bfv.1933
+    -   date: !date c1930
         service: passenger
-        tags: de.p
-        sources:
-            - !keyref src.de.Bfv.1933
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location: !keyloc line.de.10120 7,13
+        sources: !keyref src.de.DRG.Alt.Karte.1945
     -   date: !!null
         de.DS100: ABAP
-        sources:
-            - !keyref src.de.SuW.2005
-    -   date: !!null
-        coords: !geopoint 53.587235 10.045707
-        sources:
-            - !keyref src.GoogleMaps
+        de.dstnr: !!str 010231
+        sources: !keyref src.de.DS100.1982
     -   date: !date c1970
         name: Barmbek (S-Bahn)
-        sources:
-            - !keyref src.de.SuW.2005
+        sources: !keyref src.de.DS100.1982
+    -   date: !date c2000
+        name: Hamburg-Barmbek (S-Bahn)
+        sources: !keyref src.de.TPP.2007
     
----
-key: point.de.Hamburg-Barmbek
-type: point
-junction: True
-events:
-    -   date: !!null
-        location:
-            - !keyloc line.de.10120 8,33
-            - !keyloc line.de.10350 8,33
-        sources:
-            - !keyref src.de.DRG.Alt.Karte.1945
-    -   date: !!null
-        location:
-            - !keyloc line.de.10300 11,6
-        sources:
-            - !keyref src.de.SuW.2005
-    -   date: !!null
-        de.DS100: ABAG
-        sources:
-            - !keyref src.de.TPP.2006
-    -   date: !date c1940
-        category: de.Bf
-        de.Rangklasse: I
-        service: freight
-        tags: de.op
-        sources:
-            - !keyref src.de.Bfv.1944
-    -   date: !date 1941?
-        location:
-            - !keyloc line.de.10120 -
-    -   date: !date c1970
-        name: Hamburg-Barmbek
-        sources:
-            - !keyref src.de.TPP.2006
-
 ---
 key: point.de.Hamburg-Alte-Woehr
 type: point
 events:
-    -   date: !!null
-        location:
-            - !keyloc line.de.10120 8,64
-        sources:
-            - !keyref src.de.DRG.Alt.Karte.1945
+    -   date: !date 1931-04-29
+        status: open
+        sources: !keyref src.de.WP.Hamburg-Altonaer-Verbindungsbahn
     -   date: !!null
         category: de.Hp
         name: Alte Wöhr Stadtpark
         de.lknr: 01 119
         service: passenger
-        tags: de.p
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        de.DS100: AAW
-        sources:
-            - !keyref src.de.SuW.2005
-    -   date: !!null
-        coords: !geopoint 53.597411 10.035512
-        sources:
-            - !keyref src.GoogleMaps
-    -   date: !date 1931-04-29
-        status: open
-        sources:
-            - !keyref src.de.WP.Hamburg-Altonaer-Verbindungsbahn
+        location: !keyloc line.de.10120 8,64
+        sources: !keyref src.de.DRG.Alt.Karte.1945
     -   date: !date c1940
         name: Stadtpark
         sources: !keyref src.de.Bfv.1944
     -   date: !date c1970
         name: Alte Wöhr
-        sources:
-            - !keyref src.de.web.Matthaei
+        sources: !keyref src.de.web.Matthaei
+    -   date: !!null
+        de.DS100: AAW
+        de.dstnr: !!str 011197
+        sources: !keyref src.de.SuW.2005
+    -   date: !date c2000
+        name: Hamburg Alte Wöhr
+        sources: !keyref src.de.TPP.2007
 
 ---
 key: point.de.Hamburg-Ruebenkamp
 type: point
 events:
-    -   date: !!null
-        location:
-            - !keyloc line.de.10120 9,67
-        sources:
-            - !keyref src.de.DRG.Alt.Karte.1945
-    -   date: !!null
-        category: de.Hp
-        name: Rübenkamp
-        de.lknr: 01 118
-        service: passenger
-        tags: de.p
-        sources:
-            - !keyref src.de.Bfv.1933
-    -   date: !!null
-        de.DS100: ARP
-        sources:
-            - !keyref src.de.SuW.2005
-    -   date: !!null
-        coords: !geopoint 53.606563 10.032867
-        sources:
-            - !keyref src.GoogleMaps
     -   date: !date 1913-10-01
         status: open
-        sources:
-            - !keyref src.de.WP.Hamburg-Altonaer-Verbindungsbahn
+        sources: !keyref src.de.WP.Hamburg-Altonaer-Verbindungsbahn
+    -   date: !!null
+        name: Rübenkamp
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        de.lknr: 01 393
+        service: passenger
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Hp
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 01 118
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location: !keyloc line.de.10120 9,67
+        sources: !keyref src.de.DRG.Alt.Karte.1945
+    -   date: !!null
+        de.DS100: ARP
+        de.dstnr: !!str 011189
+        sources: !keyref src.de.DS100.1982
+    -   date: !date c2000
+        name: Hamburg-Rübenkamp
+        sources: !keyref src.de.TPP.2007
+
+---
+key: point.de.Hamburg-Ohlsdorf
+type: point
+junction: True
+events:
+    -   date: !!null
+        name: Ohlsdorf
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        de.lknr: 01 038
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: II
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 01 117
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location:
+            - !keyloc line.de.10350 10,52
+            - !keyloc line.de.10370 0,00
+            - !keyloc line.de.10120 11,28
+        sources: !keyref src.de.DRG.Alt.Karte.1945
+    -   date: !!null
+        de.DS100: AOP
+        de.dstnr: !!str 011262
+        sources: !keyref src.de.DS100.1982
+    -   date: !date c1990
+        location: !keyloc line.de.10120 -
+    -   date: !date c2000
+        name: Hamburg-Ohlsdorf
+    -   date: !date c2005
+        status: closed
 
 ---
 key: point.de.Hamburg-Ohlsdorf-S-Bahn
 type: point
 junction: True
 events:
+    -   date: !date c1990
+        status: open
+        split_from: !keyref point.de.Hamburg-Ohlsdorf
     -   date: !!null
         location:
-            - !keyloc line.de.10120 11,28
-        sources:
-            - !keyref src.de.DRG.Alt.Karte.1945
-    -   date: !!null
+            - !keyloc line.de.10120 11,283
         category: de.Bf
-        name: Ohlsdorf (S-Bahn)
+        name: Hamburg-Ohlsdorf (S-Bahn)
         de.DS100: AOPS
-        sources:
-            - !keyref src.de.SuW.2005
-    -   date: !!null
-        coords: !geopoint 53.620947 10.031859
-        sources:
-            - !keyref src.GoogleMaps
-    -   date: !!null
-        location:
-            - !keyloc line.de.10180 11,28
+        sources: !keyref src.de.DBAG.ISR
 
 ---
 key: point.de.Hamburg-Kornweg-Klein-Borstel
 type: point
 events:
     -   date: !!null
-        location:
-            - !keyloc line.de.10120 13,45
-        sources:
-            - !keyref src.de.DRG.Alt.Karte.1945
+        name: Kornweg
+        de.lknr: 01 350
+        service: passenger
+        sources: !keyref src.de.Bfv.1928
     -   date: !!null
         category: de.Hp
+        sources: !keyref src.de.Bfv.1933
+    -   date: !date c1930
         name: Kornweg (Klein Borstel)
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 01 116
-        service: passenger
-        tags: de.p
-        sources:
-            - !keyref src.de.Bfv.1933
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location: !keyloc line.de.10120 13,45
+        sources: !keyref src.de.DRG.Alt.Karte.1945
     -   date: !!null
         de.DS100: AKWS
-        sources:
-            - !keyref src.de.SuW.2005
-    -   date: !!null
-        coords: !geopoint 53.63252 10.054625
-        sources:
-            - !keyref src.GoogleMaps
+        de.dstnr: !!str 011163
+        sources: !keyref src.de.DS100.1982
+    -   date: !date c2000
+        name: Hamburg Kornweg (Klein Borstel)
+        sources: !keyref src.de.TPP.2007
 
 ---
 key: point.de.Hamburg-Hoheneichen
 type: point
 events:
     -   date: !!null
-        location:
-            - !keyloc line.de.10120 14,42
-        sources:
-            - !keyref src.de.DRG.Alt.Karte.1945
+        name: Hoheneichen
+        de.lknr: 01 351
+        service: passenger
+        sources: !keyref src.de.Bfv.1928
     -   date: !!null
         category: de.Hp
-        name: Hoheneichen
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 01 115
-        service: passenger
-        tags: de.p
-        sources:
-            - !keyref src.de.Bfv.1933
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location: !keyloc line.de.10120 14,42
+        sources: !keyref src.de.DRG.Alt.Karte.1945
     -   date: !!null
         de.DS100: AHCH
-        sources:
-            - !keyref src.de.SuW.2005
-    -   date: !!null
-        coords: !geopoint 53.635599 10.068176
-        sources:
-            - !keyref src.GoogleMaps
+        de.dstnr: !!str 011155
+        sources: !keyref src.de.DS100.1982
+    -   date: !date c2000
+        name: Hamburg Hoheneichen
+        sources: !keyref src.de.TPP.2007
 
 ---
 key: point.de.Hamburg-Wellingsbuettel
 type: point
 events:
     -   date: !!null
-        location:
-            - !keyloc line.de.10120 15,56
-        sources:
-            - !keyref src.de.DRG.Alt.Karte.1945
+        name: Wellingsbüttel
+        de.lknr: 01 352
+        service: passenger
+        sources: !keyref src.de.Bfv.1928
     -   date: !!null
         category: de.Hp
-        name: Wellingsbüttel
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 01 114
-        service: passenger
-        tags: de.p
-        sources:
-            - !keyref src.de.Bfv.1933
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location: !keyloc line.de.10120 15,56
+        sources: !keyref src.de.DRG.Alt.Karte.1945
     -   date: !!null
         de.DS100: AWBS
-        sources:
-            - !keyref src.de.SuW.2005
-    -   date: !!null
-        coords: !geopoint 53.640965 10.082268
-        sources:
-            - !keyref src.GoogleMaps
+        de.dstnr: !!str 011148
+        sources: !keyref src.de.DS100.1982
+    -   date: !date c2000
+        name: Hamburg-Wellingsbüttel
+        sources: !keyref src.de.TPP.2007
 
 ---
 key: point.de.Hamburg-Poppenbuettel
 type: point
+junction: True
 events:
     -   date: !!null
-        location:
-            - !keyloc line.de.10120 17,01
-        sources:
-            - !keyref src.de.DRG.Alt.Karte.1945
+        name: Poppenbüttel
+        de.lknr: 01 039
+        sources: !keyref src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
         de.Rangklasse: IV
-        name: Poppenbüttel
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 01 113
-        service: passenger
-        tags: [ de.b, de.oe, de.og ]
-        sources:
-            - !keyref src.de.Bfv.1933
+        sources: !keyref src.de.Bfv.1933
+    -   date: !date c1935
+        de.Rangklasse: III
+        sources: !keyref src.de.Bfv.1938
+    -   date: !!null
+        location: !keyloc line.de.10120 17,01
+        sources: !keyref src.de.DRG.Alt.Karte.1945
     -   date: !!null
         de.DS100: APB
-        sources:
-            - !keyref src.de.SuW.2005
-    -   date: !!null
-        coords: !geopoint 53.651646 10.093684
-        sources:
-            - !keyref src.GoogleMaps
-    -   date: !date c1940
-        category: de.Bf
-        de.Rangklasse: III
-        tags: [ de.oe, de.og ]
-        sources:
-            - !keyref src.de.Bfv.1944
+        de.dstnr: !!str 011130
+        sources: !keyref src.de.DS100.1982
+    -   date: !date c2000
+        name: Hamburg-Poppenbüttel
+        sources: !keyref src.de.TPP.2007

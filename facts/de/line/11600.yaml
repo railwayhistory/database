@@ -87,8 +87,9 @@ points:
     - !keyref point.de.Hamburg-Tonndorf
     - !keyref point.de.Hamburg-Wandsbek-Gbf # line.de.11305
     - !keyref point.de.Hamburg-Wandsbek     # line.de.11305
-    - !keyref point.de.Hamburg-Hasselbrook  # line.de.10120
-    - !keyref point.de.Berliner-Tor
+    - !keyref point.de.Hamburg-Hasselbrook-S-Bahn           # line.de.10120
+    - !keyref point.de.Hamburg-Hasselbrook
+    - !keyref point.de.Hamburg-Berliner-Tor
     - !keyref point.de.Hamburg-Luebecker-Bf
     - !keyref point.de.Hamburg-Hbf          # line.de.21000
 
@@ -467,7 +468,27 @@ events:
         name: Hamburg-Tonndorf
 
 ---
-key: point.de.Berliner-Tor
+key: point.de.Hamburg-Hasselbrook
+type: point
+events:
+    -   date: !date c1970
+        status: open
+        split_from: !keyref point.de.Hamburg-Hasselbrook-S-Bahn
+    -   date: !!null
+        category: de.Hp
+        de.DS100: AHSF
+        de.dstnr: !!str 011270
+        sources: !keyref src.de.DS100.1982
+    -   date: !!null
+        location: !keyloc line.de.11600 59,7
+        sources: !keyref src.de.SuW.2005
+    -   date: !date c2000
+        name: Hamburg-Hasselbrook
+        sources: !keyref src.de.TPP.2006
+
+
+---
+key: point.de.Hamburg-Berliner-Tor
 type: point
 events:
     -   date: !!null    

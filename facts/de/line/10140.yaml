@@ -15,7 +15,7 @@ events:
         category: de.Hauptbahn
         tracks: 2
         electrified:
-            rail: !voltage 1200V DC
+            rail: !var el.de.hmb
         owner: !keyref org.de
         operator: !keyref org.de.e.DB
         sources: !keyref src.de.SuW.2005
@@ -53,130 +53,161 @@ key: point.de.Hamburg-Hammerbrook
 type: point
 events:
     -   date: !!null
-        category: de.Bft
-        location: !keyloc line.de.10140 1,6
         name: Hammerbrook
         de.DS100: AHAB
-        sources: !keyref src.de.SuW.2005
+        category: de.Hp
+        sources: !keyref src.de.DS100.1982
     -   date: !!null
         service: passenger
+    -   date: !!null
+        location: !keyloc line.de.10140 1,637
+        sources: !keyref src.de.DBAG.ISR
+    -   date: !date c1995
+        category: de.Bft
+        sources: !keyref src.de.DBAG.ISR
+    -   date: !date c2000
+        name: Hamburg-Hammerbrook
+        sources: !keyref src.de.TPP.2007
 
 ---
 key: point.de.Hamburg-Veddel-S-Bahn
 type: point
 events:
     -   date: !!null
-        category: de.Hp
-        location: !keyloc line.de.10140 4,6
         name: Veddel (S-Bahn)
         de.DS100: AVLS
-        sources: !keyref src.de.SuW.2005
+        category: de.Hst
+        sources: !keyref src.de.DS100.1982
     -   date: !!null
         service: passenger
+    -   date: !!null
+        location: !keyloc line.de.10140 4,620
+        sources: !keyref src.de.DBAG.ISR
+    -   date: !date c2000
+        name: Hamburg-Veddel (S-Bahn)
+        sources: !keyref src.de.TPP.2007
 
 ---
 key: point.de.Hamburg-Wilhelmsburg-S-Bahn
 type: point
 events:
     -   date: !!null
-        category: de.Bf
-        location: !keyloc line.de.10140 7,2
-        name: Wilhelmsburg (S-Bahn)
+        name: Hamburg-Wilhelmsburg (S-Bahn)
         de.DS100: AWFS
-        sources: !keyref src.de.SuW.2005
+        category: de.Hp
+        sources: !keyref src.de.DS100.1982
     -   date: !!null
         service: passenger
+    -   date: !!null
+        location: !keyloc line.de.10140 7,232
+        sources: !keyref src.de.DBAG.ISR
+    -   date: !date c1990
+        category: de.Bf
+        sources: !keyref src.de.DBAG.ISR
 
 ---
 key: point.de.Hamburg-Wilhelmsburg-Abzw-S-Bahn
 type: point
 events:
+    -   date: !date c1995
+        status: open
     -   date: !!null
         location:
             - !keyloc line.de.10140 6,9??
             - !keyloc line.de.13500 33,2
+        category: de.Abzw
         sources: !keyref src.de.SuW.2005
     -   date: !!null
         name: Hamburg-Wilhelmsburg Abzw S-Bahn
         de.DS100: AWLBS
-        category: de.Abzw
+        sources: !keyref src.de.TPP.2007
 
 ---
 key: point.de.Hamburg-Harburg-S-Bahn
 type: point
 events:
     -   date: !!null
-        category: de.Hp
-        location: !keyloc line.de.10140 12,3
-        name: Harburg (S-Bahn)
+        name: Hamburg-Harburg (S-Bahn)
         de.DS100: AHRS
-        sources: !keyref src.de.SuW.2005
+        category: de.Hst
+        sources: !keyref src.de.DS100.1982
     -   date: !!null
         service: passenger
+    -   date: !!null
+        location: !keyloc line.de.10140 12,330
+        sources: !keyref src.de.DBAG.ISR
+    -   date: !date c1995
+        category: de.Hp
+        sources: !keyref src.de.DBAG.ISR
 
 ---
 key: point.de.Hamburg-Harburg-Rathaus
 type: point
-junction: True
 events:
     -   date: !!null
-        category: de.Hp
-        location: !keyloc line.de.10140 13,2
-        name: Harburg Rathaus
+        name: Hamburg-Harburg Rathaus
         de.DS100: AHRF
-        sources: !keyref src.de.SuW.2005
+        category: de.Hp
+        sources: !keyref src.de.DS100.1982
     -   date: !!null
         service: passenger
+    -   date: !!null
+        location: !keyloc line.de.10140 13,231
+        sources: !keyref src.de.DBAG.ISR
 
 ---
 key: point.de.Hamburg-Heimfeld
 type: point
 events:
     -   date: !!null
-        category: de.Hp
-        location:
-            - !keyloc line.de.10140 14,5
         name: Heimfeld
         de.DS100: AHFS
-        sources:
-            - !keyref src.de.SuW.2005
+        category: de.Hp
+        sources: !keyref src.de.DS100.1982
     -   date: !!null
         service: passenger
     -   date: !!null
-        coords: !geopoint 53.465455 9.962497
-        sources:
-            - !keyref src.GoogleMaps
+        location: !keyloc line.de.10140 14,503
+        sources: !keyref src.de.DBAG.ISR
+    -   date: !date c2000
+        name: Hamburg-Heimfeld
+        sources: !keyref src.de.TPP.2007
 
 ---
 key: point.de.Hamburg-Hausbruch-S-Bahn
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.10140 17,6
-        name: Hausbruch (S-Bahn)
-        de.DS100: AHRBS
-        service: none
-        tags: de.o
-        sources: !keyref src.de.SuW.2005
-    -   date: !!null
         category: [de.Hp, de.Bft]
-    -   date: !date c1990
-        category: de.Hp
-        note: Lt. Luftbild kein Bahnsteig, aber eine Gleisverbindung
-        sources: !keyref src.de.SuW.2005
+        service: none
+    -   date: !!null
+        name: Hamburg-Hausbruch (S-Bahn)
+        de.DS100: AHRBS
+        sources: !keyref src.de.TPP.2009
+    -   date: !!null
+        location: !keyloc line.de.10140 17,618
+        sources: !keyref src.de.DBAG.ISR
+    -   date: !date c2010
+        category: de.Uest
+        sources: !keyref src.de.DBAG.ISR
 
 ---
 key: point.de.Hamburg-Neuwiedenthal
 type: point
 events:
     -   date: !!null
-        category: de.Hp
-        location: !keyloc line.de.10140 20,4
         name: Neuwiedenthal
+        category: de.Hp
         de.DS100: ANWS
-        sources: !keyref src.de.SuW.2005
+        sources: !keyref src.de.DS100.1982
     -   date: !!null
         service: passenger
+    -   date: !!null
+        location: !keyloc line.de.10140 20,433
+        sources: !keyref src.de.DBAG.ISR
+    -   date: !date c2000
+        name: Hamburg-Neuwiedenthal
+        sources: !keyref src.de.TPP.2007
 
 ---
 key: point.de.Hamburg-Neugraben-S-Bahn
@@ -184,12 +215,14 @@ type: point
 junction: True
 events:
     -   date: !!null
-        category: de.Bf
-        location: !keyloc line.de.10140 22,1
-        name: Neugraben (S-Bahn)
+        name: Hamburg-Neugraben (S-Bahn)
         de.DS100: ANRS
-        connection: !keyref point.de.Hamburg-Neugraben
-        sources: !keyref src.de.SuW.2005
+        category: de.Bf
+        sources: !keyref src.de.DS100.1982
     -   date: !!null
         service: passenger
+        connection: !keyref point.de.Hamburg-Neugraben
+    -   date: !!null
+        location: !keyloc line.de.10140 22,127
+        sources: !keyref src.de.DBAG.ISR
        
