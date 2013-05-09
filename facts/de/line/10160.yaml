@@ -29,7 +29,7 @@ events:
     -   date: !date 1969-06-01
         end: !keyref point.de.Hamburg-Anckelmannsplatz
         electrified:
-            rail: !voltage 1200V DC
+            rail: !var el.de.hmb
         sources: !keyref src.de.web.Matthaei
 
     -   date: !date 1920-04-01
@@ -62,18 +62,18 @@ events:
         start: !keyref point.de.Hamburg-Anckelmannsplatz
         status: open
         electrified:
-            rail: !voltage 1200V DC
+            rail: !var el.de.hmb
 points:
     - !keyref point.de.Hamburg-Hbf-S-Bahn                   # line.de.10000
+    - !keyref point.de.Hamburg-Berliner-Tor-S-Bahn          # line.de.10120
     - !keyref point.de.Hamburg-Berliner-Tor-Bergedorf
-    - !keyref point.de.Hamburg-Anckelmannsplatz             # line.de.21000
     - !keyref point.de.Hamburg-Rothenburgsort-S-Bahn        # line.de.21000
     - !keyref point.de.Hamburg-Tiefstack                    # line.de.21000
     - !keyref point.de.Hamburg-Billwerder-Moorfleet         # line.de.21000
     - !keyref point.de.Hamburg-Billwerder-Uest
     - !keyref point.de.Hamburg-Mittlerer-Landweg            # line.de.21000
-    - !keyref point.de.Hamburg-Allermoehe-S-Bahn
-    - !keyref point.de.Hamburg-Nettelnburg
+    - !keyref point.de.Hamburg-Allermoehe-S-Bahn            # line.de.21000
+    - !keyref point.de.Hamburg-Nettelnburg                  # line.de.21000
     - !keyref point.de.Hamburg-Bergedorf-S-Bahn
     - !keyref point.de.Reinbek-LGr-S-Bahn
     - !keyref point.de.Reinbek                              # line.de.21000
@@ -85,12 +85,17 @@ points:
 key: point.de.Hamburg-Berliner-Tor-Bergedorf
 type: point
 events:
-    -   date: !!null
+    -   date: !date c1995
+        status: open
+        split_from: !keyref point.de.Hamburg-Berliner-Tor-S-Bahn
         category: [de.Hp, de.Bft]
         location: !keyloc line.de.10160 1,5
         name: Berliner Tor (Bergedorf)
         de.DS100: ABTSB
         sources: !keyref src.de.SuW.2005
+    -   date: !!null
+        location: !keyloc line.de.10120 1,528
+        sources: !keyref src.de.DBAG.ISR
 
        
 ---
@@ -105,43 +110,17 @@ events:
         sources: !keyref src.de.SuW.2005
 
 ---
-key: point.de.Hamburg-Allermoehe-S-Bahn
-type: point
-events:
-    -   date: !!null
-        category: de.Hp
-        location:
-            - !keyloc line.de.10160 13,1
-        sources: !keyref src.de.SuW.2005
-    -   date: !!null
-        name: Hamburg-Allermöhe (S-Bahn)
-        de.DS100: AALH
-        sources: !keyref src.de.TPP.2006
-
----
-key: point.de.Hamburg-Nettelnburg
-type: point
-events:
-    -   date: !!null
-        category: de.Hp
-        location:
-            - !keyloc line.de.10160 14,6
-        sources: !keyref src.de.SuW.2005
-    -   date: !!null
-        name: Hamburg-Nettelnburg
-        de.DS100: ANTB
-        sources: !keyref src.de.TPP.2006
-
----
 key: point.de.Hamburg-Bergedorf-S-Bahn
 type: point
 junction: True
 events:
+    -   date: !date 2002-05-26?
+        status: open
+        split_from: !keyref point.de.Hamburg-Bergedorf
     -   date: !!null
         category: de.Bft
-        location:
-            - !keyloc line.de.10160 16,3
-        sources: !keyref src.de.SuW.2005
+        location: !keyloc line.de.10160 16,345
+        sources: !keyref src.de.DBAG.ISR
     -   date: !!null
         name: Hamburg-Bergedorf (S-Bahn)
         de.DS100: ABG S
@@ -166,7 +145,7 @@ events:
         split_from: !keyref point.de.Aumuehle
     -   date: !!null
         category: de.Bf
-        location: !keyloc line.de.10160 25,093
+        location: !keyloc line.de.10160 25,015
         sources: !keyref src.de.DBAG.ISR
     -   date: !!null
         name: Aumühle (S-Bahn)

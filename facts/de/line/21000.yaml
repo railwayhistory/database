@@ -384,6 +384,8 @@ points:
     - !keyref point.de.Hamburg-Bergedorf-Gbf-Bk
     - !keyref point.de.Hamburg-Bergedorf-Gbf
     - !keyref point.de.Hamburg-Bergedorf-Gbf-Ba
+    - !keyref point.de.Hamburg-Nettelnburg
+    - !keyref point.de.Hamburg-Allermoehe-S-Bahn
     - !keyref point.de.Hamburg-Allermoehe
     - !keyref point.de.Hamburg-Mittlerer-Landweg
     - !keyref point.de.Hamburg-Billwerder-Moorfleet
@@ -1790,10 +1792,20 @@ events:
         name: Aumühle
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 01 343
+        service: no-freight
+        sources: !keyref src.de.Bfv.1928
+    -   date: !date c1920
+        name: Aumühle b Friedrichsruh
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: III
-        service: passenger
-        tags: de.og
+        sources: !keyref src.de.Bfv.1933
+    -   date: !date c1930
+        name: Aumühle
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 01 059
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
@@ -1801,6 +1813,8 @@ events:
         sources: !keyref src.de.DRG.Alt.Karte.1949
     -   date: !!null    
         de.DS100: AAH
+        de.dstnr: !!str 010595
+        sources: !keyref src.de.DS100.1982
     -   date: !date c2002
         name: Aumühle Fernbahn
         de.DS100: AAHF
@@ -1816,6 +1830,9 @@ events:
         name: Wohltorf
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 01 344
+        sources: !keyref src.de.Bfv.1928
+    -   date: !var lknr.30
         de.lknr: 01 060
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
@@ -1824,7 +1841,11 @@ events:
         sources: !keyref src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.DS100: AWLF
-        sources: !keyref src.de.TPP.2006
+        de.dstnr: !!str 010603
+        sources: !keyref src.de.DS100.1982
+    -   date: !date c1970
+        category: de.Hp
+        sources: !keyref src.de.DS100.1982
     -   date: !date 2002-05-26?
         category: [de.Hp, de.Uest]
         sources: !keyref src.de.SuW.2005
@@ -1845,8 +1866,13 @@ events:
         name: Reinbek
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 01 030
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: III
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 01 061
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
@@ -1854,7 +1880,8 @@ events:
         sources: !keyref src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.DS100: ARBK
-        sources: !keyref src.de.TPP.2006
+        de.dstnr: !!str 010611
+        sources: !keyref src.de.DS100.1982
     -   date: !date c2002
         location:
             - !keyloc line.de.10160 20,090
@@ -1965,6 +1992,47 @@ events:
         status: closed
 
 ---
+key: point.de.Hamburg-Nettelnburg
+type: point
+events:
+    -   date: !date 1970-06-01
+        status: open
+        sources: !keyref src.de.Heinsohn.2006
+    -   date: !!null
+        de.dstnr: !!str 010629
+        name: Nettelnburg
+        de.DS100: ANTB
+        category: de.Hp
+        sources: !keyref src.de.DS100.1982
+    -   date: !date c2002
+        location: !keyloc line.de.21000 -
+    -   date: !date c2000
+        name: Hamburg-Nettelnburg
+        sources: !keyref src.de.TPP.2006
+    -   date: !!null
+        location: !keyloc line.de.10160 14,590
+        sources: !keyref src.de.DBAG.ISR
+
+---
+key: point.de.Hamburg-Allermoehe-S-Bahn
+type: point
+events:
+    -   date: !date 1999-05-30
+        status: open
+        sources: !keyref src.de.Heinsohn.2006
+    -   date: !date c2002
+        location: !keyloc line.de.21000 -
+    -   date: !!null
+        name: Hamburg-Allermöhe (S-Bahn)
+        de.DS100: AALH
+        sources: !keyref src.de.TPP.2006
+    -   date: !!null
+        category: de.Hp
+        location: !keyloc line.de.10160 13,064
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
 key: point.de.Hamburg-Allermoehe
 type: point
 junction: True
@@ -1990,7 +2058,13 @@ events:
         name: Mittlerer Landweg
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 01 345
+        service: no-freight
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Hp
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 01 064
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
@@ -1998,7 +2072,8 @@ events:
         sources: !keyref src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.DS100: AML
-        sources: !keyref src.de.TPP.2006
+        de.dstnr: !!str 010645
+        sources: !keyref src.de.DS100.1982
     -   date: !date c2000
         name: Hamburg Mittlerer Landweg
         sources: !keyref src.de.TPP.2006
@@ -2016,22 +2091,33 @@ events:
         name: Billwärder-Moorfleth
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 01 346
+        service: no-freight
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Hp
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 01 065
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
         location: !keyloc line.de.21000 278,48
         sources: !keyref src.de.DRG.Alt.Karte.1949
-    -   date: !!null
-        de.DS100: ABWM
-        sources: !keyref src.de.TPP.2006
     -   date: !date c1945
         name: Billwerder-Moorfleth
         sources: !keyref src.de.DRG.Alt.Karte.1949
+    -   date: !!null
+        de.DS100: AMB
+        de.dstnr: !!str 010652
+        sources: !keyref src.de.DS100.1982
     -   date: !date c1970
         name: Billwerder-Moorfleet
+        sources: !keyref src.de.DS100.1982
+    -   date: !date c2000
+        name: Hamburg-Billwerder-Moorfleet
         sources: !keyref src.de.TPP.2006
     -   date: !date c2002
+        de.DS100: ABWM
         location:
             - !keyloc line.de.10160 8,031
             - !keyloc line.de.21000 -
@@ -2065,18 +2151,29 @@ events:
         name: Tiefstack
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 01 347
+        service: no-freight
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Hp
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 01 067
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
         location: !keyloc line.de.21000 ??
     -   date: !!null
         de.DS100: ATK
-        sources: !keyref src.de.SuW.2005
+        de.dstnr: !!str 010678
+        sources: !keyref src.de.DS100.1982
+    -   date: !date c1970
+        category: de.Hst
+        sources: !keyref src.de.DS100.1982
     -   date: !date c2000
         name: Hamburg-Tiefstack
         sources: !keyref src.de.TPP.2006
     -   date: !date c2002
+        category: de.Hp
         location:
             - !keyloc line.de.10160 5,382
             - !keyloc line.de.21000 -
@@ -2122,7 +2219,13 @@ events:
         name: Rothenburgsort
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 01 348
+        service: no-freight
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Hp
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 01 068
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
@@ -2130,10 +2233,10 @@ events:
         sources: !keyref src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.DS100: AROP
-        sources: !keyref src.de.SuW.2005
-    -   date: !date c2002
+        de.dstnr: !!str 010686
+        sources: !keyref src.de.DS100.1982
+    -   date: !date c2000
         name: Hamburg-Rothenburgsort (S-Bahn)
-        public_name: Hamburg-Rothenburgsort
         sources: !keyref src.de.TPP.2006
     -   date: !date c2002
         location:
@@ -2150,10 +2253,8 @@ events:
         category: de.Abzw
         name: Anckelmannsplatz
     -   date: !!null
-        location:
-            - !keyloc line.de.10160 ??
-            - !keyloc line.de.21000 284,7
-        sources: !keyref src.de.SuW.2005
+        location: !keyloc line.de.21000 284,663
+        sources: !keyref src.de.DBAG.ISR
     -   date: !!null
         de.DS100: AAMP
         sources: !keyref src.de.TPP.2006

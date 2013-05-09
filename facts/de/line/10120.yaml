@@ -98,6 +98,7 @@ events:
 
 points:
     -   !keyref point.de.Hamburg-Hbf-S-Bahn                 # line.de.10000
+    -   !keyref point.de.Hamburg-Berliner-Tor-S-Bahn
     -   !keyref point.de.Hamburg-Berliner-Tor-Landwehr
     -   !keyref point.de.Hamburg-Landwehr
     -   !keyref point.de.Hamburg-Hasselbrook-S-Bahn
@@ -114,8 +115,9 @@ points:
     -   !keyref point.de.Hamburg-Poppenbuettel
 
 ---
-key: point.de.Hamburg-Berliner-Tor-Landwehr
+key: point.de.Hamburg-Berliner-Tor-S-Bahn
 type: point
+junction: True
 events:
     -   date: !date c1970
         status: open
@@ -127,8 +129,21 @@ events:
         de.DS100: ABTR
         sources: !keyref src.de.DS100.1982
     -   date: !!null
-        sources: !keyref src.de.SuW.2005
+        location:
+            - !keyloc line.de.10120 1,530
+            - !keyloc line.de.10160 1,528
+        sources: !keyref src.de.DBAG.ISR
     -   date: !date c1995
+        status: closed
+
+---
+key: point.de.Hamburg-Berliner-Tor-Landwehr
+type: point
+events:
+    -   date: !date c1995
+        status: open
+        split_from: !keyref point.de.Hamburg-Berliner-Tor-S-Bahn
+    -   date: !!null
         category: [de.Hp, de.Bft]
         de.DS100: ABTSL
         name: Hamburg Berliner Tor (Landwehr)
