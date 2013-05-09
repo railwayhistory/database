@@ -311,7 +311,7 @@ events:
         sources: !keyref src.de.Kuhlmann.2000
 
 points:
-    - !keyref point.de.Berlin-Spandau
+    - !keyref point.de.Berlin-Spandau                   # line.de.45000
     - !keyref point.de.Berlin-Spandau-West
     - !keyref point.de.Berlin-Spandau-Bk-27
     - !keyref point.de.Berlin-Albrechtshof-Gr
@@ -328,6 +328,7 @@ points:
     - !keyref point.de.Berger-Damm
     - !keyref point.de.Paulinenaue
     - !keyref point.de.Vietznitz
+    - !keyref point.de.Friesack
     - !keyref point.de.Segeletz
     - !keyref point.de.Neustadt-Dosse
     - !keyref point.de.Plaenitz
@@ -364,7 +365,6 @@ points:
     - !keyref point.de.Brahlstorf
     - !keyref point.de.Kuhlenfeld
     - !keyref point.de.Boizenburg
-    - !keyref point.de.Boizenburg-Stadt-Anst
     - !keyref point.de.Schwanheide
     - !keyref point.de.Schwanheide-LGr
     - !keyref point.de.Buechen
@@ -379,23 +379,23 @@ points:
     - !keyref point.de.Wohltorf
     - !keyref point.de.Reinbek
     - !keyref point.de.Reinbek-LGr
-    - !keyref point.de.Hamburg-Bergedorf-Moe
+    - !keyref point.de.Hamburg-Moerkenweg
     - !keyref point.de.Hamburg-Bergedorf
-    - !keyref point.de.Hamburg-Bergedorf-Gbf-Bk
+    - !keyref point.de.Hamburg-Bergedorf-Bk
     - !keyref point.de.Hamburg-Bergedorf-Gbf
-    - !keyref point.de.Hamburg-Bergedorf-Gbf-Ba
     - !keyref point.de.Hamburg-Nettelnburg
+    - !keyref point.de.Hamburg-Bergedorf-Ba
     - !keyref point.de.Hamburg-Allermoehe-S-Bahn
     - !keyref point.de.Hamburg-Allermoehe
     - !keyref point.de.Hamburg-Mittlerer-Landweg
-    - !keyref point.de.Hamburg-Billwerder-Moorfleet
     - !keyref point.de.Hamburg-Billwerder-Moorfleet-Abzw
+    - !keyref point.de.Hamburg-Billwerder-Moorfleet
     - !keyref point.de.Hamburg-Tiefstack
     - !keyref point.de.Hamburg-Rothenburgsort-Tk
     - !keyref point.de.Hamburg-Rothenburgsort-Rop
     - !keyref point.de.Hamburg-Rothenburgsort-S-Bahn
     - !keyref point.de.Hamburg-Anckelmannsplatz
-    - !keyref point.de.Hamburg-Berliner-Tor-Bk
+    - !keyref point.de.Hamburg-Berliner-Tor             # line.de.11600
     - !keyref point.de.Hamburg-Hbf
     - !keyref point.de.Hamburg-Dammtor
     - !keyref point.de.Hamburg-Sternschanze
@@ -539,6 +539,9 @@ events:
         name: Falkensee
         sources: !keyref src.de.Kuhlmann.2000
     -   date: !!null
+        de.lknr: 03 002
+        sources: !keyref src.de.Bfv.1928
+    -   date: !var lknr.30
         de.lknr: 03 367
         sources: !keyref src.de.Bfv.1933
     -   date: !date c1944
@@ -570,13 +573,15 @@ events:
         de.Rangklasse: IV
         name: Finkenkrug
         sources: !keyref src.de.DRG.Bln.1927
+    -   date: !!null
+        de.lknr: 03 201
+        service: no-freight
+        sources: !keyref src.de.Bfv.1928
     -   date: !date c1930
         de.Rangklasse: III
         sources: !keyref src.de.DRG.Bln.1932
-    -   date: !!null
+    -   date: !var lknr.30
         de.lknr: 03 366
-        service: passenger
-        tags: de.og
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
         de.VBL: Fin
@@ -631,12 +636,18 @@ events:
         de.Rangklasse: IV
         name: Brieselang
         sources: !keyref src.de.DRG.Bln.1927
+    -   date: !!null
+        de.lknr: 03 200
+        service: no-freight
+        sources: !keyref src.de.Bfv.1928
     -   date: !date c1930
         de.Rangklasse: III
         sources: !keyref src.de.DRG.Bln.1932
-    -   date: !!null
+    -   date: !date c1930
+        service: freight
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 03 365
-        tags: de.b
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
         de.VBL: Bri
@@ -684,10 +695,13 @@ events:
         de.Rangklasse: I
         name: Nauen
         sources: !keyref src.de.DRG.Bln.1927
+    -   date: !!null
+        de.lknr: 03 001
+        sources: !keyref src.de.Bfv.1928
     -   date: !date c1930
         de.Rangklasse: II
         sources: !keyref src.de.DRG.Bln.1932
-    -   date: !!null
+    -   date: !var lknr.30
         de.lknr: 03 363
         sources: !keyref src.de.Bfv.1933
     -   date: !date c1940
@@ -711,9 +725,11 @@ events:
         name: Berger Damm
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 01 001
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: IV
-        de.lknr: 01 001
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
         location: !keyloc line.de.21000 42,21
@@ -745,11 +761,13 @@ events:
         sources: !keyref src.de.Kb.1914
     -   date: !date c1925
         name: Paulinenaue
-        sources: !keyref src.de.Bfv.1933
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        de.lknr: 01 002
+        sources: !keyref src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
         de.Rangklasse: II
-        de.lknr: 01 002
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
         location:
@@ -775,9 +793,10 @@ events:
         sources: !keyref src.de.Kb.1914
     -   date: !!null
         de.lknr: 01 003
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: IV
-        tags: de.b
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
         location: !keyloc line.de.21000 57,15
@@ -808,9 +827,11 @@ events:
         name: Friesack
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 01 004
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: III
-        de.lknr: 01 004
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
         location: !keyloc line.de.21000 61,67
@@ -857,11 +878,13 @@ events:
         sources: !keyref src.de.Kb.1914
     -   date: !date c1925
         name: Neustadt (Dosse) Reichsb
-        sources: !keyref src.de.Bfv.1933
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        de.lknr: 01 005
+        sources: !keyref src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
         de.Rangklasse: I
-        de.lknr: 01 005
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
         de.VBL: Nst
@@ -901,9 +924,11 @@ events:
         name: Zernitz
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 01 006
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: III
-        de.lknr: 03 006
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
         location: !keyloc line.de.21000 83,50
@@ -927,9 +952,11 @@ events:
         name: Stüdenitz
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 01 007
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: IV
-        de.lknr: 01 007
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
         location: !keyloc line.de.21000 88,83
@@ -953,9 +980,11 @@ events:
         name: Breddin Stsbf
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 01 008
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: III
-        de.lknr: 01 008
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
         location: !keyloc line.de.21000 92,12
@@ -995,9 +1024,11 @@ events:
         name: Glöwen Stsbf
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 01 009
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: II
-        de.lknr: 01 009
         sources: !keyref src.de.Bfv.1933
     -   date: !date c1925
         name: Glöwen
@@ -1036,8 +1067,13 @@ events:
         name: Wilsnack
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 01 012
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: III
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 01 011
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
@@ -1062,7 +1098,13 @@ events:
         name: Kuhblank
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 01 341
+        service: no-freight
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Hp
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 01 010
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
@@ -1108,8 +1150,13 @@ events:
         name: Wittenberge
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 01 013
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: I
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 01 012
         sources: !keyref src.de.Bfv.1933
     -   date: !!null    
@@ -1158,18 +1205,19 @@ events:
         name: Dergenthin
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 01 014
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: IV
-        tags: de.b
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 01 039
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
         location: !keyloc line.de.21000 135,78
         de.VBL: Dn
         sources: !keyref src.dd.DR.1976
-    -   date: !date c1940
-        tags: []
-        sources: !keyref src.de.Bfv.1944
     -   date: !var ds100.dr
         de.DS100: WDN
         sources: !keyref src.de.TPP.2006
@@ -1196,8 +1244,13 @@ events:
         name: Karstädt
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 01 015
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: III
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 01 040
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
@@ -1232,8 +1285,13 @@ events:
         name: Wendisch Warnow
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 01 016
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: IV
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 01 041
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
@@ -1279,8 +1337,13 @@ events:
         name: Grabow (Meckl)
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 01 017
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: II
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 01 042
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
@@ -1316,8 +1379,13 @@ events:
         name: Ludwigslust
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 01 018
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: I
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 01 043
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
@@ -1372,18 +1440,19 @@ events:
         name: Jasnitz
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 01 019
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: IV
-        tags: de.b
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 01 045
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
         location: !keyloc line.de.21000 180,63
         de.VBL: Jas
         sources: !keyref src.dd.DR.1976
-    -   date: !date c1940
-        tags: []
-        sources: !keyref src.de.Bfv.1944
     -   date: !date c1965
         de.Rangklasse: V
         sources: !keyref src.dd.DR.1976
@@ -1399,6 +1468,10 @@ events:
         name: Strohkirchen
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 01 342
+        service: no-freight
+        sources: !keyref src.de.Bfv.1928
+    -   date: !var lknr.30
         de.lknr: 01 046
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
@@ -1406,10 +1479,6 @@ events:
         category: [ de.Hp, de.Bk ]
         de.VBL: Str
         sources: !keyref src.dd.DR.1976
-    -   date: !date c1940
-        service: no-freight
-        tags: de.og
-        sources: !keyref src.de.Bfv.1944
     -   date: !var ds100.dr
         de.DS100: WSTK
         sources: !keyref src.de.TPP.2006
@@ -1426,8 +1495,13 @@ events:
         name: Hagenow Land
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 01 020
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: I
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 01 048
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
@@ -1438,6 +1512,9 @@ events:
     -   date: !date c1965
         de.Rangklasse: II
         sources: !keyref src.dd.DR.1976
+    -   date: !!null
+        de.DS100: XRHL
+        sources: !keyref src.de.DS100.1982
     -   date: !var ds100.dr
         de.DS100: WHL
         sources: !keyref src.de.TPP.2006
@@ -1465,8 +1542,13 @@ events:
         name: Pritzier
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 01 021
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: III
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 01 049
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
@@ -1502,8 +1584,13 @@ events:
         name: Brahlstorf
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 01 022
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: III
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 01 050
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
@@ -1525,9 +1612,13 @@ events:
         name: Kuhlenfeld
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 01 023
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: IV
-        tags: de.b
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 01 051
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
@@ -1553,8 +1644,13 @@ events:
         name: Boizenburg Stsbf
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 01 024
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: II
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 01 052
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
@@ -1575,18 +1671,6 @@ events:
         sources: !keyref src.de.TPP.2006
 
 ---
-key: point.de.Boizenburg-Stadt-Anst
-type: point
-events:
-    -   date: !!null
-        category: de.Anst
-        sources: !keyref src.dd.DR.1976
-    -   date: !!null
-        name: Boizenburg (Elbe) Stadt
-    -   date: !var ds100.dr
-        de.DS100: WBZS
-
----
 key: point.de.Schwanheide
 type: point
 events:
@@ -1594,8 +1678,13 @@ events:
         name: Schwanheide
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 01 025
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: IV
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 01 053
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
@@ -1605,6 +1694,9 @@ events:
     -   date: !date c1965
         de.Rangklasse: III
         sources: !keyref src.dd.DR.1976
+    -   date: !!null
+        de.DS100: XRSH
+        sources: !keyref src.de.DS100.1982
     -   date: !var ds100.dr
         de.DS100: WSAH
         sources: !keyref src.de.TPP.2006
@@ -1622,11 +1714,17 @@ events:
     -   date: !!null
         subtype: border
     -   date: !!null
+        name: Büchen Grenze
+        de.DS100: AGRS
+        de.dstnr: !!str 010553
+        category: de.Tp
+        sources: !keyref src.de.DS100.1982
+    -   date: !date c1995
         name: Schwanheide MV/SH
         de.DS100: WQSA
         sources: !keyref src.de.TPP.2006
     -   date: !!null
-        location: !keyloc line.de.21000 239,475
+        location: !keyloc line.de.21000 236,475
         sources: !keyref src.dd.DR.1989
 
 ---
@@ -1638,8 +1736,13 @@ events:
         name: Büchen
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 01 026
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: I
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 01 054
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
@@ -1650,13 +1753,14 @@ events:
         sources: !keyref src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.DS100: ABCH
+        de.dstnr: !!str 010546
         sources: !keyref src.de.TPP.2006
 
 ---
 key: point.de.Buechen-Bbf
 type: point
 events:
-    -   date: !date c1965
+    -   date: !date c1990
         status: open
         split_from: !keyref point.de.Buechen
     -   date: !!null
@@ -1678,9 +1782,13 @@ events:
         name: Müssen
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 01 027
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: IV
-        tags: de.b
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 01 056
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
@@ -1688,11 +1796,9 @@ events:
         sources: !keyref src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.DS100: AMUE
-        sources: !keyref src.de.TPP.2006
-    -   date: !date c1940
-        tags: []
-        sources: !keyref src.de.Bfv.1944
-    -   date: !date c1970
+        de.dstnr: !!str 010561
+        sources: !keyref src.de.DS100.1982
+    -   date: !date c1990
         category: de.Hp
         sources: !keyref src.de.DBAG.ISR
 
@@ -1705,8 +1811,13 @@ events:
         name: Schwarzenbek
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 01 028
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: II
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 01 057
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
@@ -1714,7 +1825,8 @@ events:
         sources: !keyref src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.DS100: ASWA
-        sources: !keyref src.de.TPP.2006
+        de.dstnr: !!str 010579
+        sources: !keyref src.de.DS100.1982
 
 ---
 key: point.de.Radekamp
@@ -1725,7 +1837,9 @@ events:
         category: de.Bk
         name: Radekamp
         sources: !keyref src.de.DRG.Alt.Karte.1949
-    -   date: !date c1970
+    -   date: !!null
+        de.DS100: ARAP
+    -   date: !date c1990
         status: closed
 
 ---
@@ -1737,7 +1851,10 @@ events:
         category: de.Bk
         name: Sachsenwald
         sources: !keyref src.de.DRG.Alt.Karte.1949
-    -   date: !date c1940
+    -   date: !!null
+        de.DS100: ASAD
+        sources: !keyref src.de.DS100.1982
+    -   date: !date c1990
         status: closed
 
 ---
@@ -1748,8 +1865,13 @@ events:
         name: Friedrichsruh
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 01 029
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: III
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 01 058
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
@@ -1757,10 +1879,11 @@ events:
         sources: !keyref src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.DS100: AFRD
-        sources: !keyref src.de.TPP.2006
+        de.dstnr: !!str 010587
+        sources: !keyref src.de.DS100.1982
     -   date: !date c1970
         category: de.Hp
-        sources: !keyref src.de.DBAG.ISR
+        sources: !keyref src.de.DS100.1982
 
 ---
 key: point.de.Aumuehle-Abzw
@@ -1821,6 +1944,7 @@ events:
         sources: !keyref src.de.TPP.2006
     -   date: !date c2012
         status: closed
+        sources: !keyref src.de.TPP.2012
 
 ---
 key: point.de.Wohltorf
@@ -1902,7 +2026,7 @@ events:
         de.DS100: AQRB
 
 ---
-key: point.de.Hamburg-Bergedorf-Moe
+key: point.de.Hamburg-Moerkenweg
 type: point
 events:
     -   date: !!null
@@ -1910,7 +2034,13 @@ events:
         category: de.Bk
         name: Mö
         sources: !keyref src.de.DRG.Alt.Karte.1949
-    -   date: !date c1970
+    -   date: !!null
+        de.DS100: AMG
+        sources: !keyref src.de.DS100.1982
+    -   date: !date c1950
+        name: Mörkenweg
+        sources: !keyref src.de.DS100.1982
+    -   date: !date c1990
         status: closed
 
 ---
@@ -1922,33 +2052,42 @@ events:
         name: Bergedorf
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 01 031
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: II
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 01 062
         sources: !keyref src.de.Bfv.1933
+    -   date: !date 1938-05-15
+        name: Hamburg-Bergedorf
+        sources: !keyref src.de.web.Nosske
     -   date: !!null
         location:
             - !keyloc line.de.21000 270,08
         sources: !keyref src.de.DRG.Alt.Karte.1949
     -   date: !!null
+        de.DS100: ABGF
+        de.dstnr: !!str 010637
+    -   date: !date c1990
         de.DS100: ABG
         sources: !keyref src.de.TPP.2006
-    -   date: !date 1938-05-15
-        name: Hamburg-Bergedorf
-        sources: !keyref src.de.web.Nosske
 
 ---
-key: point.de.Hamburg-Bergedorf-Gbf-Bk
+key: point.de.Hamburg-Bergedorf-Bk
 type: point
 events:
     -   date: !!null
         location: !keyloc line.de.21000 271,18
-        subtype: signalbox
-        name: Bk
-        master: !keyref point.de.Hamburg-Bergedorf
         sources: !keyref src.de.DRG.Alt.Karte.1949
-    -   date: !date c1970
-        subtype: post
+    -   date: !!null
+        master: !keyref point.de.Hamburg-Bergedorf
+        category: de.Glgr
+        name: Hamburg-Bergedorf (Bk)
+        de.DS100: ABGFK
+    -   date: !date c1990
         category: de.Bft
         name: Hamburg-Bergedorf Gbf Stw BK
         de.DS100: ABGK
@@ -1960,6 +2099,8 @@ key: point.de.Hamburg-Bergedorf-Gbf
 type: point
 junction: True
 events:
+    -   date: !date c1990
+        status: open
     -   date: !!null
         location:
             - !keyloc line.de.10800 0,0
@@ -1972,24 +2113,6 @@ events:
         sources: !keyref src.de.TPP.2006
     -   date: !!null
         master: !keyref point.de.Hamburg-Bergedorf
-
----
-key: point.de.Hamburg-Bergedorf-Gbf-Ba
-type: point
-events:
-    -   date: !!null
-        location: !keyloc line.de.21000 272,44
-        subtype: signalbox
-        name: Ba
-        master: !keyref point.de.Hamburg-Bergedorf
-        sources: !keyref src.de.DRG.Alt.Karte.1949
-    -   date: !date c1970
-        subtype: post
-        category: de.Bft
-        name: Hamburg-Bergedorf Gbf Stw BA
-        de.DS100: ABG A
-    -   date: !date c2000
-        status: closed
 
 ---
 key: point.de.Hamburg-Nettelnburg
@@ -2012,6 +2135,26 @@ events:
     -   date: !!null
         location: !keyloc line.de.10160 14,590
         sources: !keyref src.de.DBAG.ISR
+
+---
+key: point.de.Hamburg-Bergedorf-Ba
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.21000 272,44
+        sources: !keyref src.de.DRG.Alt.Karte.1949
+    -   date: !!null
+        category: de.Glgr
+        name: Hamburg-Bergedorf (Ba)
+        de.DS100: ABGFA
+        master: !keyref point.de.Hamburg-Bergedorf
+        sources: !keyref src.de.DS100.1982
+    -   date: !date c1990
+        category: de.Bft
+        name: Hamburg-Bergedorf Gbf Stw BA
+        de.DS100: ABG A
+    -   date: !date c2000
+        status: closed
 
 ---
 key: point.de.Hamburg-Allermoehe-S-Bahn
@@ -2084,6 +2227,27 @@ events:
         sources: !keyref src.de.DBAG.ISR
 
 ---
+key: point.de.Hamburg-Billwerder-Moorfleet-Abzw
+type: point
+events:
+    -   date: !date 1996?
+        status: open
+    -   date: !!null
+        name: Hamburg-Billwerder-Moorfleet
+        de.DS100: AHBIA
+        sources: !keyref src.de.TPP.2006
+    -   date: !!null
+        location:
+            - !keyloc line.de.13500 44,620
+            - !keyloc line.de.21000 278,320
+        category: de.Abzw
+        sources: !keyref src.de.DBAG.ISR
+    -   date: !date c2007
+        name: Hamburg-Billwerder-Moorfleth (Abzw)
+        sources: !keyref src.de.TPP.2006
+
+
+---
 key: point.de.Hamburg-Billwerder-Moorfleet
 type: point
 events:
@@ -2122,26 +2286,6 @@ events:
             - !keyloc line.de.10160 8,031
             - !keyloc line.de.21000 -
         sources: !keyref src.de.DBAG.ISR
-
----
-key: point.de.Hamburg-Billwerder-Moorfleet-Abzw
-type: point
-events:
-    -   date: !date 1996?
-        status: open
-    -   date: !!null
-        name: Hamburg-Billwerder-Moorfleet
-        de.DS100: AHBIA
-        sources: !keyref src.de.TPP.2006
-    -   date: !!null
-        location:
-            - !keyloc line.de.13500 44,620
-            - !keyloc line.de.21000 278,320
-        category: de.Abzw
-        sources: !keyref src.de.DBAG.ISR
-    -   date: !date c2007
-        name: Hamburg-Billwerder-Moorfleth (Abzw)
-        sources: !keyref src.de.TPP.2006
 
 ---
 key: point.de.Hamburg-Tiefstack
@@ -2183,6 +2327,8 @@ events:
 key: point.de.Hamburg-Rothenburgsort-Tk
 type: point
 events:
+    -   date: !date c1995
+        status: open
     -   date: !!null
         location:
             - !keyloc line.de.13500 41,9
@@ -2198,6 +2344,8 @@ events:
 key: point.de.Hamburg-Rothenburgsort-Rop
 type: point
 events:
+    -   date: !date c1995
+        status: open
     -   date: !!null
         category: de.Bft
         location:
@@ -2248,37 +2396,42 @@ events:
 key: point.de.Hamburg-Anckelmannsplatz
 type: point
 events:
-    -   date: !date 1906-12-05?
+    -   date: !date c2005
         status: open
-        category: de.Abzw
-        name: Anckelmannsplatz
     -   date: !!null
         location: !keyloc line.de.21000 284,663
+        category: de.Uest
         sources: !keyref src.de.DBAG.ISR
     -   date: !!null
+        name: Hamburg Anckelmannsplatz
         de.DS100: AAMP
         sources: !keyref src.de.TPP.2006
-    -   date: !date c2000
-        name: Hamburg Anckelmannsplatz
-        sources: !keyref src.de.TPP.2006
-    -   date: !date 2002-05-26
-        location:
-            - !keyloc line.de.10160 -
-    -   date: !date 2002-05-26?
-        category: de.Uest
-        sources: !keyref src.de.SuW.2005
 
 ---
-key: point.de.Hamburg-Berliner-Tor-Bk
+key: point.de.Hamburg-Berliner-Tor-Bergedorf
 type: point
 events:
-    -   date: !!null
-        location: !keyloc line.de.21000 285,13
-        category: de.Bk
-        name: Berliner Tor
-        sources: !keyref src.de.DRG.Alt.Karte.1949
     -   date: !date c1970
-        status: closed
+        status: open
+        split_from: !keyref point.de.Hamburg-Berliner-Tor
+    -   date: !!null
+        de.dstnr: !!str 010264
+        name: Berliner Tor
+        de.DS100: ABTB
+        category: de.Bf
+        sources: !keyref src.de.DS100.1982
+    -   date: !!null
+        location:
+            - !keyloc line.de.10160 1,53
+            - !keyloc line.de.21000 285,13
+        sources: !keyref src.de.DRG.Alt.Karte.1949
+    -   date: !date c1995
+        category: [de.Hp, de.Bft]
+        name: Hammburg Berliner Tor (Bergedorf)
+        de.DS100: ABTSB
+        sources: !keyref src.de.SuW.2005
+    -   date: !date c2005
+        location: !keyloc line.de.21000 -
 
 ---
 key: point.de.Hamburg-Hbf
@@ -2401,9 +2554,12 @@ events:
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
         location:
+            - !keyloc line.de.10100 291,02
+            - !keyloc line.de.21000 291,02
+        sources: !keyref src.de.DRG.Alt.Karte.1949
+    -   date: !!null
+        location:
             - !keyloc line.de.10020 0,1
-            - !keyloc line.de.10100 290,9
-            - !keyloc line.de.21000 290,9
         sources: !keyref src.de.SuW.2005
     -   date: !date 1938-05-15
         name: Hamburg Holstenstraße
@@ -2422,14 +2578,14 @@ key: point.de.Hamburg-Rainweg
 type: point
 events:
     -   date: !!null
-        category: de.Abzw
-        location:
-            - !keyloc line.de.10200 1,5
-            - !keyloc line.de.21000 291,5
-        sources: !keyref src.de.SuW.2005
-    -   date: !!null
-        name: Hamburg Rainweg
+        de.dstnr: !!str 017129
+        name: Rainweg
         de.DS100: AAR
-        sources: !keyref src.de.TPP.2006
-
+        category: de.Abzw
+        sources: !keyref src.de.DS100.1982
+    -   date: !!null
+        location:
+            - !keyloc line.de.10200 1,481
+            - !keyloc line.de.21000 291,503
+        sources: !keyref src.de.DBAG.ISR
 

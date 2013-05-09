@@ -490,20 +490,29 @@ events:
 ---
 key: point.de.Hamburg-Berliner-Tor
 type: point
+junction: True
 events:
     -   date: !!null    
         name: Berliner Tor
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 01 387
+        service: passenger
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: II
-        ref:
-            de.lknr: 01 070
-        service: de.p
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 01 070
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        location: !keyloc line.de.11600 62,32
-        sources: !keyref src.de.DRG.Alt.Karte.1945
+        location:
+            - !keyloc line.de.10120 1,53
+            - !keyloc line.de.10160 1,53
+            - !keyloc line.de.11600 62,32
+            - !keyloc line.de.21000 285,13
+        sources: !keyref src.de.DRG.Alt.Karte.1949
     -   date: !date c1970
         status: closed
 
