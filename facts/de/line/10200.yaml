@@ -41,7 +41,7 @@ events:
 
     -   date: !date c1990
         electrified:
-            overhead: !voltage 15kV 16.7Hz
+            overhead: !var el.de
 
     -   date: !var org.de.DBAG.start
         owner: !keyref org.de.e.DBAG
@@ -49,6 +49,12 @@ events:
     -   date: !var org.de.DBNetz.start
         owner: !keyref org.de.e.DBNetz
         operator: !keyref org.de.e.DBNetz
+
+    -   date: !!null
+        course:
+            - !pathref path.de.21000 arw arw
+            - !pathref path.de.10200 a f
+            - !pathref path.de.11000 fbah eid
 
 points:
     - !keyref point.de.Hamburg-Rainweg                      # line.de.21000
@@ -70,6 +76,9 @@ events:
     -   date: !date c2005
         merged: !keyref point.de.Hamburg-Altona
 
+    -   date: !!null
+        site: !noderef path.de.11000 aan
+
 ---
 
 key: point.de.Hamburg-Langenfelde-Bbf
@@ -77,9 +86,9 @@ type: point
 events:
     -   date: !!null
         location:
-            - !keyloc line.de.10200 4,1
-            - !keyloc line.de.11000 4,1
-        sources: !keyref src.de.SuW.2005
+            - !keyloc line.de.10200 4,149
+            - !keyloc line.de.11000 4,149
+        sources: !keyref src.de.DBAG.ISR
     -   date: !!null
         category: de.Bf
         de.Rangklasse: I
@@ -98,6 +107,9 @@ events:
         name: Hamburg-Langenfelde Bbf
         sources: !keyref src.de.SuW.2005
 
+    -   date: !!null
+        site: !noderef path.de.11000 ala
+
 ---
 
 key: point.de.Hamburg-Langenfelde-Abzw
@@ -105,13 +117,16 @@ type: point
 events:
     -   date: !!null
         location:
-            - !keyloc line.de.10200 4,8
-            - !keyloc line.de.11000 4,8
-        sources: !keyref src.de.SuW.2005
+            - !keyloc line.de.10200 4,765
+            - !keyloc line.de.11000 4,765
+        sources: !keyref src.de.DBAG.ISR
     -   date: !!null
         name: Hamburg-Langenfelde Abzw
         de.DS100: ALAA
         sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.11000 laa
 
 ---
 
@@ -143,4 +158,7 @@ events:
     -   date: !date c1970
         name: Hamburg-Eidelstedt
         sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.11000 eid
 
