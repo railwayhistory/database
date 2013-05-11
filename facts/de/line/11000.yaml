@@ -74,14 +74,19 @@ events:
     -   date: !var org.de.DBNetz.start
         owner: !keyref org.de.e.DBNetz
         operator: !keyref org.de.e.DBNetz
+
+    -   date: !!null
+        course:
+            - !pathref path.de.11000 pal kia
+
 points:
-    - !keyref point.de.Altona-Palmaille                     # line.de.10260
+    - !keyref point.de.Altona-Palmaille
     - !keyref point.de.Hamburg-Altona
-    - !keyref point.de.Hamburg-Altona-An                    # line.de.10200
-    - !keyref point.de.Hamburg-Langenfelde-Bbf              # line.de.10200
-    - !keyref point.de.Hamburg-Langenfelde-Abzw             # line.de.10200
+    - !keyref point.de.Hamburg-Altona-An
+    - !keyref point.de.Hamburg-Langenfelde-Bbf
+    - !keyref point.de.Hamburg-Langenfelde-Abzw
     - !keyref point.de.Hamburg-Eidelstedt-AKN               
-    - !keyref point.de.Hamburg-Eidelstedt                   # line.de.10200
+    - !keyref point.de.Hamburg-Eidelstedt
     - !keyref point.de.Hamburg-Elbgaustrasse                # line.de.10020
     - !keyref point.de.Hamburg-Elbgaustrasse-Landesgrenze   # line.de.10020
     - !keyref point.de.Halstenbek                           # line.de.10020
@@ -91,9 +96,10 @@ points:
     - !keyref point.de.Tornesch
     - !keyref point.de.Himmel
     - !keyref point.de.Lieth
-    - !keyref point.de.Elmshorn.Els
+    - !keyref point.de.Elmshorn-Els
     - !keyref point.de.Elmshorn
-    - !keyref point.de.Elmshorn.Nord
+    - !keyref point.de.Elmshorn-Nord
+    - !keyref point.de.Horst-in-Holstein
     - !keyref point.de.Horst-Holst
     - !keyref point.de.Dauenhof
     - !keyref point.de.Siebenecksknoell
@@ -103,18 +109,34 @@ points:
     - !keyref point.de.Arpsdorf
     - !keyref point.de.Padenstedt
     - !keyref point.de.Neumuenster
-    - !keyref point.de.Neumuenster.Ngn
+    - !keyref point.de.Neumuenster-Ngn
     - !keyref point.de.Einfeld
     - !keyref point.de.Bordesholm
     - !keyref point.de.Techelsdorf
     - !keyref point.de.Flintbek
     - !keyref point.de.Meimersdorf
-    - !keyref point.de.Meimersdorf.Mf
+    - !keyref point.de.Meimersdorf-Mf
     - !keyref point.de.Meimersdorf-Rbf
-    - !keyref point.de.Kiel-Hbf.Ko
-    - !keyref point.de.Kiel-Hbf.Kp
+    - !keyref point.de.Kiel-Hbf-Ko
     - !keyref point.de.Kiel-Hbf
     - !keyref point.de.Kiel-Altonaer-Bf
+
+
+---
+key: point.de.Altona-Palmaille
+type: point
+events:
+    -   date: !!null
+        category: de.Bf
+        location:
+            - !keyloc line.de.11000 0,000
+        name: Altona (Palmaille)
+    -   date: !date 1895?
+        status: closed
+    
+    -   date: !!null
+        site: !noderef path.de.11000 pal
+
 
 ---
 key: point.de.Hamburg-Altona
@@ -127,10 +149,18 @@ events:
         name: Altona Hbf
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 01 041
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: I
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 01 093
         sources: !keyref src.de.Bfv.1933
+    -   date: !date 1938-05-15
+        name: Hamburg-Altona
+        sources: !keyref src.de.web.Nosske
     -   date: !!null
         location:
             - !keyloc line.de.10050 0,66
@@ -140,59 +170,187 @@ events:
         sources: !keyref src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.DS100: AA
-        sources: !keyref src.de.TPP.2006
-    -   date: !date 1938-05-15
-        name: Hamburg-Altona
-        sources: !keyref src.de.web.Nosske
+        de.dstnr: !!str 010934
+        sources: !keyref src.de.DS100.1982
     -   date: !date 1965
         location:
             - !keyloc line.de.10050 -
             - !keyloc line.de.10100 -
+
+    -   date: !!null
+        site: !noderef path.de.11000 alt
+
+
+---
+key: point.de.Hamburg-Altona-An
+type: point
+events:
+    -   date: !!null
+        name: Hamburg-Altona (An)
+        de.DS100: "AA  N"
+        category: de.Glgr
+        master: !keyref point.de.Hamburg-Altona
+        sources: !keyref src.de.DS100.1982
+    -   date: !date c1990
+        category: de.Bft
+    -   date: !date c2005
+        merged: !keyref point.de.Hamburg-Altona
+
+    -   date: !!null
+        site: !noderef path.de.11000 aan
+
+
+---
+key: point.de.Hamburg-Langenfelde-Bbf
+type: point
+events:
+    -   date: !!null
+        name: Langenfelde Verschbf
+        de.lknr: 01 353
+        service: none
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: I
+        sources: !keyref src.de.Bfv.1933
+    -   date: !date c1930
+        name: Langenfelde Vbf
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 01 278
+        sources: !keyref src.de.Bfv.1933
+    -   date: !date 1938
+        name: Hamburg-Langenfelde
+        sources: !keyref src.de.Bfv.1938
+    -   date: !!null
+        de.dstnr: !!str 010975
+        de.DS100: ALA
+        sources: !keyref src.de.DS100.1982
+    -   date: !date c1995
+        name: Hamburg-Langenfelde Bbf
+        sources: !keyref src.de.SuW.2005
+    -   date: !!null
+        location:
+            - !keyloc line.de.10200 4,149
+            - !keyloc line.de.11000 4,149
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.11000 ala
+
+
+---
+key: point.de.Hamburg-Langenfelde-Abzw
+type: point
+events:
+    -   date: !date c1995
+        status: open
+        category: Abzw
+    -   date: !!null
+        location:
+            - !keyloc line.de.10200 4,765
+            - !keyloc line.de.11000 4,765
+        sources: !keyref src.de.DBAG.ISR
+    -   date: !!null
+        name: Hamburg-Langenfelde Abzw
+        de.DS100: ALAA
+        sources: !keyref src.de.TPP.2006
+    -   date: !date c2010
+        category: [de.Bft, de.Abzw]
+        sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.11000 laa
 
 
 ---
 key: point.de.Hamburg-Eidelstedt-AKN
 type: point
 events:
+    -   date: !!nul
+        name: Eidelstedt Stsbf
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        de.lknr: 01 050
+        sources: !keyref src.de.Bfv.1928
+    -   date: !date c1925
+        name: Eidelstedt
+        sources: !keyref src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
         de.Rangklasse: I
         name: Eidelstedt
-        ref:
-            de.lknr: 01 279
-        sources:
-            - !keyref src.de.Bfv.1933
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 01 279
+        sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        ref:
-            de.DS100: AEN
-        sources:
-            - !keyref src.de.SuW.2005
+        location: !keyloc line.de.11000 6,16
+        sources: !keyref src.de.DRG.Alt.Karte.1949
     -   date: !!null
-        coords: !geopoint 53.597102 9.904212
-        note: approximately
-        sources:
-            - !keyref src.GoogleMaps
+        de.DS100: AEN
+        sources: !keyref src.de.SuW.2005
     -   date: !!null
-        location:
-            - !keyloc line.de.11000 6,16
-        sources:
-            - !keyref src.de.DRG.Alt.Karte.1945
-    -   date: !!null
-        location:
-            - !keyloc line.de.11100 4,3
-        sources:
-            - !keyref src.de.SuW.2005
+        location: !keyloc line.de.11100 4,3
+        sources: !keyref src.de.SuW.2005
     -   date: !date 1938
         name: Hamburg-Eidelstedt
-        sources:
-            - !keyref src.de.Bfv.1944
+        sources: !keyref src.de.Bfv.1938
     -   date: !date c1970
-        location:
-            - !keyloc line.de.11000 -
+        location: !keyloc line.de.11000 -
     -   date: !date c2000
         name: Hamburg-Eidelstedt AKN
-        sources:
-            - !keyref src.de.SuW.2005
+        sources: !keyref src.de.SuW.2005
+
+    -   date: !!null
+        site: !noderef path.de.11000 est
+
+---
+key: point.de.Hamburg-Eidelstedt
+type: point
+junction: True
+events:
+    -   date: !!null
+        name: Eidelstedt Verschbf
+        de.lknr: 01 354
+        service: none
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: I
+        sources: !keyref src.de.Bfv.1933
+    -   date: !date c1930
+        name: Eidelstedt Vbf
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 01 280
+        sources: !keyref src.de.Bfv.1933
+    -   date: !date 1938
+        name: Hamburg-Eidelstedt Vbf
+        sources: !keyref src.de.Bfv.1938
+    -   date: !!null
+        location:
+            - !keyloc line.de.10200 7,38
+            - !keyloc line.de.11000 7,38
+        sources: !keyref src.de.DRG.Alt.Karte.1949
+    -   date: !!null
+        location:
+            - !keyloc line.de.10300 0,0
+        sources: !keyref src.de.SuW.2005
+    -   date: !!null
+        de.DS100: AEID
+        de.dstnr: !!str 012807
+        sources: !keyref src.de.DS100.1982
+    -   date: !date c1970
+        name: Hamburg-Eidelstedt Gbf
+        sources: !keyref src.de.DS100.1982
+    -   date: !date c1990
+        name: Hamburg-Eidelstedt
+        de.DS100: AE
+        sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.11000 eid
 
 ---
 key: point.de.Pinneberg
@@ -203,16 +361,26 @@ events:
         name: Pinneberg
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 01 052
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: II
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 01 284
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
         location: !keyloc line.de.11000 15,95
-        sources: !keyref src.de.DRG.Alt.Karte.1945
+        sources: !keyref src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.DS100: AP
-        sources: !keyref src.de.TPP.2006
+        de.dstnr: !!str 012849
+        sources: !keyref src.de.DS100.1982
+
+    -   date: !!null
+        site: !noderef path.de.11000 pin
+
 
 ---
 key: point.de.Prisdorf
@@ -222,25 +390,30 @@ events:
         name: Prisdorf
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 01 053
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: IV
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 01 285
-        tags: de.b
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        de.DS100: APD
-        sources: !keyref src.de.TPP.2006
-    -   date: !!null
         location: !keyloc line.de.11000 19,27
-        sources: !keyref src.de.DRG.Alt.Karte.1945
-    -   date: !date c1940
-        tags: []
-        sources: !keyref src.de.Bfv.1944
+        sources: !keyref src.de.DRG.Alt.Karte.1949
+    -   date: !!null
+        de.DS100: APD
+        de.dstnr: !!str 012856
+        sources: !keyref src.de.DS100.1982
     -   date: !date 1989-11-26
         category: de.Hp
 
----
+    -   date: !!null
+        site: !noderef path.de.11000 pri
 
+
+---
 key: point.de.Tornesch
 type: point
 events:
@@ -248,70 +421,93 @@ events:
         name: Tornesch
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 01 054
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: II
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 01 286
         sources: !keyref src.de.Bfv.1933
     -   date: !!null    
         location: !keyloc line.de.11000 23,17
-        sources: !keyref src.de.DRG.Alt.Karte.1945
+        sources: !keyref src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.DS100: ATM
-        sources: !keyref src.de.TPP.2006
+        de.dstnr: !!str 012864
+        sources: !keyref src.de.DS100.1982
     -   date: !!null
         location: !keyloc line.de.11010 0,0
 
----
+    -   date: !!null
+        site: !noderef path.de.11000 tor
 
+
+---
 key: point.de.Himmel
 type: point
 events:
+    -   date: !date c1940
+        status: open
     -   date: !!null
         category: de.Bk
         location: !keyloc line.de.11000 25,46
         name: Himmel
-        sources: !keyref src.de.DRG.Alt.Karte.1945
+        sources: !keyref src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.DS100: AHIM
-    -   date: !date c1940
-        status: open
-    -   date: !date c1980
+        sources: !keyref src.de.DS100.1982
+    -   date: !date c1985
         status: closed
 
----
+    -   date: !!null
+        site: !noderef path.de.11000 him
 
+
+---
 key: point.de.Lieth
 type: point
 events:
     -   date: !!null
-        category: de.Bk
-        location: !keyloc line.de.11000 27,20
-        sources: !keyref src.de.DRG.Alt.Karte.1945
-    -   date: !!null
         name: Liether Weiche
     -   date: !!null
-        de.DS100: ALI
+        category: de.Bk
+        location: !keyloc line.de.11000 27,20
+        sources: !keyref src.de.DRG.Alt.Karte.1949
     -   date: !date c1940
         name: Lieth
-        sources: !keyref src.de.DRG.Alt.Karte.1945
-    -   date: !date c1980
+        sources: !keyref src.de.DRG.Alt.Karte.1949
+    -   date: !!null
+        de.DS100: ALI
+        sources: !keyref src.de.DS100.1982
+    -   date: !date c1990
         status: closed
 
+    -   date: !!null
+        site: !noderef path.de.11000 lie
+
+
 ---
-key: point.de.Elmshorn.Els
+key: point.de.Elmshorn-Els
 type: point
 events:
     -   date: !!null
         location: !keyloc line.de.11000 29,70
-        name: Elmshorn Els
-        sources: !keyref src.de.DRG.Alt.Karte.1945
+        sources: !keyref src.de.DRG.Alt.Karte.1949
     -   date: !!null
-        subtype: signalbox
-        category: de.Stw
+        name: Elmshorn (Els)
+        category: de.Glgr
+        de.DS100: AELMS
         master: !keyref point.de.Elmshorn
+        sources: !keyref src.de.DS100.1982
     -   date: !date 1992?
         status: closed
         note: mit Inbetriebnahme Estw Elmshorn?
+
+    -   date: !!null
+        site: !noderef path.de.11000 els
+
 
 ---
 key: point.de.Elmshorn
@@ -322,42 +518,78 @@ events:
         name: Elmshorn
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 01 055
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: II
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 01 287
         sources: !keyref src.de.Bfv.1933
-    -   date: !!null
-        de.DS100: AEL
-        sources: !keyref src.de.TPP.2006
     -   date: !!null
         location:
             - !keyloc line.de.11000 30,69
             - !keyloc line.de.12000 0,07
-        sources: !keyref src.de.DRG.Alt.Karte.1945
+        sources: !keyref src.de.DRG.Alt.Karte.1949
+    -   date: !!null
+        de.DS100: AELM
+        de.dstnr: !!str 012880
+        sources: !keyref src.de.TPP.2006
     -   date: !!null
         location: !keyloc line.de.11150 0,0
         sources: !keyref src.de.SuW.2005
     -   date: !date 1981
         location: !keyloc line.de.12000 30,69
+    -   date: !date c1995
+        de.DS100: AEL
+        sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.11000 elm
+
 
 ---
-key: point.de.Elmshorn.Nord
+key: point.de.Elmshorn-Nord
 type: point
 events:
     -   date: !!null
         location: !keyloc line.de.11000 32,05
-        name: Elmshorn Eln
-        sources: !keyref src.de.DRG.Alt.Karte.1945
+        sources: !keyref src.de.DRG.Alt.Karte.1949
     -   date: !!null
-        category: de.Stw
-        subtype: signalbox
+        name: Elmshorn (Eln)
+        category: de.Glgr
+        de.DS100: AELMN
         master: !keyref point.de.Elmshorn
-    -   date: !date 1992?
+        sources: !keyref src.de.DS100.1982
+    -   date: !date 1995
         category: de.Bft
-        subtype: post
         name: Elmshorn Nord
         de.DS100: AEL N
-        sources: !keyref src.de.SuW.2005
+        sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.11000 eln
+
+
+---
+key: point.de.Horst-in-Holstein
+type: point
+events:
+    -   date: !date 2003-12-14
+        status: open
+    -   date: !!null
+        name: Horst in Holstein
+        de.DS100: AHOT
+        sources: !keyref src.de.TPP.2006
+    -   date: !!null
+        location: !keyloc line.de.11000 36,236
+        category: de.Hp
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.11000 hot
+
 
 ---
 key: point.de.Horst-Holst
@@ -367,28 +599,30 @@ events:
         name: Horst (Holst)
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 01 056
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: III
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 01 290
-        tags: de.b
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        de.DS100: AHOT
-        sources: !keyref src.de.TPP.2006
+        location: !keyloc line.de.11000 37,43
+        sources: !keyref src.de.DRG.Alt.Karte.1949
     -   date: !!null
-        location: !keyloc line.de.11000 37,433
-    -   date: !date c1940
-        tags: []
-        sources: !keyref src.de.Bfv.1944
+        de.DS100: AHRT
+        de.dstnr: !!str 012906
+        sources: !keyref src.de.DS100.1982
     -   date: !date 1987-05-30
-        service: freight
+        service: no-passenger
     -   date: !date 1992
         status: closed
-    -   date: !date 2003-12-14
-        status: open
-        category: de.Hp
-        location: !keyloc line.de.11000 36,2
-        name: Horst in Holstein
+
+    -   date: !!null
+        site: !noderef path.de.11000 hrt
+
 
 ---
 key: point.de.Dauenhof
@@ -398,20 +632,26 @@ events:
         name: Dauenhof
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 01 057
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: III
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 01 291
-        tags: de.b
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
         location: !keyloc line.de.11000 42,36
-        sources: !keyref src.de.DRG.Alt.Karte.1945
+        sources: !keyref src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.DS100: ADH
-        sources: !keyref src.de.TPP.2006
-    -   date: !date c1940
-        tags: []
-        sources: !keyref src.de.Bfv.1944
+        de.dstnr: !!str 012914
+        sources: !keyref src.de.DS100.1982
+
+    -   date: !!null
+        site: !noderef path.de.11000 dhf
+
 
 ---
 key: point.de.Siebenecksknoell
@@ -421,9 +661,16 @@ events:
         category: de.Bk
         location: !keyloc line.de.11000 47,74
         name: Siebenecksknöll
-        sources: !keyref src.de.DRG.Alt.Karte.1945
-    -   date: !date c1980
+        sources: !keyref src.de.DRG.Alt.Karte.1949
+    -   date: !!null
+        de.DS100: ASIE
+        sources: !keyref src.de.DS100.1982
+    -   date: !date c1990
         status: closed
+
+    -   date: !!null
+        site: !noderef path.de.11000 sie
+
 
 ---
 key: point.de.Wrist
@@ -434,25 +681,30 @@ events:
         name: Wrist
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 01 058
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: II
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 01 292
-        tags: de.b
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
         location:
             - !keyloc line.de.11000 52,23
             - !keyloc line.de.11030 52,23
-        sources: !keyref src.de.DRG.Alt.Karte.1945
+        sources: !keyref src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.DS100: AWST
-        sources: !keyref src.de.TPP.2006
-    -   date: !date c1940
-        tags: []
-        sources: !keyref src.de.Bfv.1944
+        de.dstnr: !!str 012922
+        sources: !keyref src.de.DS100.1982
+
+    -   date: !!null
+        site: !noderef path.de.11000 wst
+
 
 ---
-
 key: point.de.Quarnstedt
 type: point
 events:
@@ -460,12 +712,15 @@ events:
         category: de.Bk
         location: !keyloc line.de.11000 56,46
         name: Quarnstedt
-        sources: !keyref src.de.DRG.Alt.Karte.1945
-    -   date: !date c1980
+        sources: !keyref src.de.DRG.Alt.Karte.1949
+    -   date: !date c1970
         status: closed
 
----
+    -   date: !!null
+        site: !noderef path.de.11000 qua
 
+
+---
 key: point.de.Brokstedt
 type: point
 events:
@@ -473,19 +728,28 @@ events:
         name: Brokstedt
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 01 059
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: III
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 01 293
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
         location: !keyloc line.de.11000 60,51
-        sources: !keyref src.de.DRG.Alt.Karte.1945
+        sources: !keyref src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.DS100: ABRS
-        sources: !keyref src.de.TPP.2006
+        de.dstnr: !!str 012930
+        sources: !keyref src.de.DS100.1982
+
+    -   date: !!null
+        site: !noderef path.de.11000 brs
+
 
 ---
-
 key: point.de.Arpsdorf
 type: point
 events:
@@ -493,23 +757,32 @@ events:
         name: Arpsdorf
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 01 060
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: IV
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 01 294
-        tags: de.b
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
         location: !keyloc line.de.11000 65,62
-        sources: !keyref src.de.DRG.Alt.Karte.1945
-    -   date: !!null
-        de.DS100: AAD
+        sources: !keyref src.de.DRG.Alt.Karte.1949
     -   date: !date c1970
         category: de.Bk
-    -   date: !date c1980
+        sources: !keyref src.de.DS100.1982
+    -   date: !!null
+        de.DS100: AAD
+        sources: !keyref src.de.DS100.1982
+    -   date: !date c1990
         status: closed
 
----
+    -   date: !!null
+        site: !noderef path.de.11000 arp
 
+
+---
 key: point.de.Padenstedt
 type: point
 events:
@@ -517,14 +790,18 @@ events:
         category: de.Bk
         location: !keyloc line.de.11000 70,58
         name: Padenstedt
-        sources: !keyref src.de.DRG.Alt.Karte.1945
+        sources: !keyref src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.DS100: APA
+        sources: !keyref src.de.DS100.1982
     -   date: !date c1995
         status: closed
 
----
+    -   date: !!null
+        site: !noderef path.de.11000 pad
 
+
+---
 key: point.de.Neumuenster
 type: point
 junction: True
@@ -533,13 +810,15 @@ events:
         name: Neumünster
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 01 061
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: I
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 01 295
         sources: !keyref src.de.Bfv.1933
-    -   date: !!null
-        de.DS100: AN
-        sources: !keyref src.de.TPP.2006
     -   date: !!null
         location:
             - !keyloc line.de.12400 74,66
@@ -548,30 +827,37 @@ events:
             - !keyloc line.de.11060 74,66
             - !keyloc line.de.11320 74,66
         sources: !keyref src.de.DRG.Alt.Karte.1945
+    -   date: !!null
+        de.DS100: AN
+        de.dstnr: !!str 012955
+        sources: !keyref src.de.DS100.1982
+
+    -   date: !!null
+        site: !noderef path.de.11000 neu
+
         
 ---
-
-key: point.de.Neumuenster.Ngn
+key: point.de.Neumuenster-Ngn
 type: point
 events:
     -   date: !!null
-        category: de.Bk
+        category: de.Glgr
+        master: !keyref point.de.Neumuenster
+    -   date: !!null
         location: !keyloc line.de.11000 76,16
         name: NG
         sources: !keyref src.de.DRG.Alt.Karte.1931
     -   date: !date c1940
         name: Ngn
-        sources: !keyref src.de.DRG.Alt.Karte.1945
-    -   date: !date c1970
-        category: de.Stw
-        subtype: signalbox
-        name: Neumünster Ngn
-    -   date: !date 1994-10
-        note: mit Inbetriebnahme EStw
+        sources: !keyref src.de.DRG.Alt.Karte.1949
+    -   date: !date c1950
         status: closed
 
----
+    -   date: !!null
+        site: !noderef path.de.11000 ngn
 
+
+---
 key: point.de.Einfeld
 type: point
 events:
@@ -579,22 +865,31 @@ events:
         name: Einfeld
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 01 199
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: IV
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 01 299
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        de.DS100: AEF
-        sources: !keyref src.de.TPP.2006
-    -   date: !!null
         location: !keyloc line.de.11000 80,71
-        sources: !keyref src.de.DRG.Alt.Karte.1945
-    -   date: !date c1970
+        sources: !keyref src.de.DRG.Alt.Karte.1949
+    -   date: !!null
+        de.DS100: AEF
+        de.dstnr: !!str 012997
+        sources: !keyref src.de.DS100.1982
+    -   date: !date c1990
         category: de.Hp
         sources: !keyref src.de.SuW.2005
 
----
+    -   date: !!null
+        site: !noderef path.de.11000 ein
 
+
+---
 key: point.de.Bordesholm
 type: point
 events:
@@ -602,19 +897,28 @@ events:
         name: Bordesholm
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 01 198
+        sources: !keyref src.de.Bfv.1982
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: III
-        de.lknr: 01 400
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 01 300
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
         location: !keyloc line.de.11000 86,63
-        sources: !keyref src.de.DRG.Alt.Karte.1945
+        sources: !keyref src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.DS100: ABRD
-        sources: !keyref src.de.TPP.2006
+        de.dstnr: !!str 013003
+        sources: !keyref src.de.DS100.1982
+
+    -   date: !!null
+        site: !noderef path.de.11000 bor
+
 
 ---
-
 key: point.de.Techelsdorf
 type: point
 events:
@@ -622,9 +926,13 @@ events:
         category: de.Bk
         location: !keyloc line.de.11000 91,61
         name: Techelsdorf
-        sources: !keyref src.de.DRG.Alt.Karte.1945
-    -   date: !date c1980
+        sources: !keyref src.de.DRG.Alt.Karte.1949
+    -   date: !date c1970
         status: closed
+
+    -   date: !!null
+        site: !noderef path.de.11000 tec
+
 
 ---
 key: point.de.Flintbek
@@ -634,72 +942,112 @@ events:
         name: Voorde
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 01 197
+        sources: !keyref src.de.Bfv.1982
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: IV
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 01 301
         sources: !keyref src.de.Bfv.1933
-    -   date: !!null
-        de.DS100: AFT
-        sources: !keyref src.de.TPP.2006
     -   date: !!null
         location: !keyloc line.de.11000 95,31
         sources: !keyref src.de.DRG.Alt.Karte.1945
     -   date: !date c1940
         name: Flintbek
         sources: !keyref src.de.Bfv.1944
-    -   date: !date c1970
+    -   date: !!null
+        de.DS100: AFT
+        de.dstnr: !!str 013011
+        sources: !keyref src.de.TPP.2006
+    -   date: !date c1990
         category: de.Hp
         sources: !keyref src.de.SuW.2005
+
+    -   date: !!null
+        site: !noderef path.de.11000 fli
 
 ---
 key: point.de.Meimersdorf
 type: point
 events:
-    -   date: !!null    
-        location: !keyloc line.de.11000 100,0
-        sources: !keyref src.de.DRG.Alt.Karte.1945
+    -   date: !date c1920
+        status: open
+    -   date: !!nul
+        de.lknr: 01 368
+        service: no-freight
+        sources: !keyref src.de.Bfv.1928
     -   date: !!null
         category: de.Hp
         name: Meimersdorf
-        de.lknr: 01 302
-        tags: de.Agent
         sources: !keyref src.de.Bfv.1933
-    -   date: !date c1940
-        tags: []
-        sources: !keyref src.de.Bfv.1944
+    -   date: !var lknr.30
+        de.lknr: 01 302
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location: !keyloc line.de.11000 100,0
+        sources: !keyref src.de.DRG.Alt.Karte.1949
     -   date: !date c1950
         status: closed
 
----
+    -   date: !!null
+        site: !noderef path.de.11000 mei
 
-key: point.de.Meimersdorf.Mf
+
+---
+key: point.de.Meimersdorf-Mf
 type: point
 events:
+    -   date: !date 1915-12-13
+        status: open
+        sources: !keyref src.de.web.Butenschoen
     -   date: !!null
-        category: de.Bk
+        category: de.Glgr
+        master: !keyref point.de.Meimersdorf-Rbf
+    -   date: !!null
         location:
             - !keyloc line.de.11000 101,17
             - !keyloc line.de.11240 101,17
             - !keyloc line.de.11260 101,17
         name: Meimersdorf Mw
         sources: !keyref src.de.DRG.Alt.Karte.1931
-    -   date: !date 1915-12-13
-        status: open
-        sources: !keyref src.de.web.Butenschoen
-    -   date: !date c1070
-        category: de.Bft
+    -   date: !date c1970
+        category: de.Glgr
         name: Meimersdorf (Mf)
         de.DS100: AMR F
+        sources: !keyref src.de.DS100.1982
     -   date: !date 2001-10
         note: Schließung Stellwerk Mf
         status: closed
         sources: !keyref src.de.web.Butenschoen
+
+    -   date: !!null
+        site: !noderef path.de.11000 mef
+
 
 ---
 key: point.de.Meimersdorf-Rbf
 type: point
 junction: True
 events:
+    -   date: !date 1925-09-15
+        status: open
+    -   date: !!null
+        name: Meimersdorf Vschbf
+        de.lknr: 01 404
+        service: none
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: II
+        sources: !keyref src.de.Bfv.1933
+    -   date: !date c1930
+        name: Meimersdorf Vbf
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 01 303
+        sources: !keyref src.de.Bfv.1933
     -   date: !!null
         location:
             - !keyloc line.de.11000 101,95
@@ -707,45 +1055,36 @@ events:
             - !keyloc line.de.11240 101,95
             - !keyloc line.de.11260 101,95
             - !keyloc line.de.11280 101,95
-        sources: !keyref src.de.DRG.Alt.Karte.1945
-    -   date: !!null
-        category: de.Bf
-        de.Rangklasse: II
-        name: Meimersdorf Vbf
-        de.lknr: 01 303
-        tags: de.o
-        service: none
-        sources: !keyref src.de.Bfv.1933
-    -   date: !!null
-        de.DS100: AMR
-        sources: !keyref src.de.TPP.2006
-    -   date: !date 1925-09-15
-        status: open
+        sources: !keyref src.de.DRG.Alt.Karte.1949
     -   date: !date c1950
         name: Meimersdorf
+        sources: !keyref src.de.DS100.1982
+    -   date: !!null
+        de.DS100: AMR
+        de.dstnr: !!str 013037
+        sources: !keyref src.de.DS100.1982
+
+    -   date: !!null
+        site: !noderef path.de.11000 mer
+
 
 ---
-key: point.de.Kiel-Hbf.Ko
+key: point.de.Kiel-Hbf-Ko
 type: point
 events:
-    -   date: !!null
-        category: de.Bft
-        sources: !keyref src.de.SuW.2005
     -   date: !!null
         name: Kiel Hbf (Ko)
-        de.DS100: AK O
-        sources: !keyref src.de.TPP.2006
+        de.DS100: "AK  O"
+        category: de.Glgr
+        master: !keyref point.de.Kiel-Hbf
+        sources: !keyref src.de.DS100.1982
+    -   date: !date c1990
+        category: de.Bft
+        sources: !keyref src.de.SuW.2005
 
----
-key: point.de.Kiel-Hbf.Kp
-type: point
-events:
     -   date: !!null
-        category: de.Stw
-        subtype: signalbox
-        name: Kiel Hbf Kp
-    -   date: !date c2000
-        status: closed
+        site: !noderef path.de.11000 kko
+
 
 ---
 key: point.de.Kiel-Hbf
@@ -756,8 +1095,16 @@ events:
         name: Kiel
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 01 175
+        sources: !keyref src.de.Bfv.1928
+    -   date: !date c1925
+        name: Kiel Hbf
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: I
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 01 304
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
@@ -765,16 +1112,18 @@ events:
             - !keyloc line.de.12900 0,00
             - !keyloc line.de.11000 105,60
             - !keyloc line.de.11200 126,81
-        sources: !keyref src.de.DRG.Alt.Karte.1945
+        sources: !keyref src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.DS100: AK
-        sources: !keyref src.de.TPP.2006
-    -   date: !date c1920
-        name: Kiel Hbf
-        sources: !keyref src.de.Bfv.1933
+        de.dstnr: !!str 013045
+        sources: !keyref src.de.DS100.1982
     -   date: !date c1970
         location:
             - !keyloc line.de.11200 0,00
+
+    -   date: !!null
+        site: !noderef path.de.11000 kie
+
 
 ---
 key: point.de.Kiel-Altonaer-Bf
@@ -785,3 +1134,7 @@ events:
         name: Kiel Altonaer Bf
     -   date: !date c1900
         status: closed
+
+    -   date: !!null
+        site: !noderef path.de.11000 kia
+
