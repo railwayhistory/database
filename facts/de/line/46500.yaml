@@ -197,9 +197,14 @@ events:
         owner: !keyref org.de.e.DBNetz
         operator: !keyref org.de.e.DBNetz
 
+    -   date: !!null
+        course:
+            - !pathref path.de.20000 cha agru
+            - !pathref path.de.46500 a f
+            - !pathref path.de.38000 fklo blt
+
 points:
     - !keyref point.de.Berlin-Charlottenburg                # line.de.20000
-    - !keyref point.de.Berlin-Grunewald-Gdn
     - !keyref point.de.Berlin-Grunewald
     - !keyref point.de.Berlin-Grunewald-Gds
     - !keyref point.de.Berlin-Grosser-Stern
@@ -208,8 +213,8 @@ points:
     - !keyref point.de.Berlin-Havelchaussee
     - !keyref point.de.Berlin-Nikolassee                    # line.de.20780
     - !keyref point.de.Berlin-Wannsee
-    - !keyref point.de.Kohlhasenbruecke
     - !keyref point.de.Potsdam-Griebnitzsee-Gbo
+    - !keyref point.de.Kohlhasenbruecke
     - !keyref point.de.Potsdam-Griebnitzsee-LGr-46500
     - !keyref point.de.Potsdam-Drewitz
     - !keyref point.de.Potsdam-Rehbruecke
@@ -274,23 +279,6 @@ points:
     - !keyref point.de.Blankenheim-Trennungsbf              # line.de.38000
 
 ---
-key: point.de.Berlin-Grunewald-Gdn
-type: point
-events:
-    -   date: !!null
-        subtype: signalbox
-        location: !keyloc line.de.46500 1,61
-        name: Gdn
-        master: !keyref point.de.Berlin-Grunewald
-        sources: !keyref src.de.DRG.Bln.1943
-    -   date: !date c1995
-        subtype: post
-        category: de.Bft
-        name: Berlin-Grunewald Gdn
-        de.DS100: BGD N
-        sources: !keyref src.de.TPP.2006
-
----
 key: point.de.Berlin-Grunewald
 type: point
 junction: True
@@ -300,8 +288,10 @@ events:
         name: Halensee-Hundekehle
         sources: !keyref src.de.Kuhlmann.2000
     -   date: !date 1884-05-20
-        name: Grunewald
-        sources: !keyref src.de.Kuhlmann.2000
+        name: Grunewald Pers Bf
+        sources:
+            - !keyref src.de.Kuhlmann.2000
+            - !keyref src.de.Bfv.1928
     -   date: !!null
         location:
             - !keyloc line.de.20080 0,00
@@ -312,8 +302,15 @@ events:
         de.Rangklasse: I
         sources: !keyref src.de.DRG.Bln.1927
     -   date: !!null
+        de.lknr: 03 223
+        service: no-freight
+        sources: !keyref src.de.Bfv.1928
+    -   date: !date c1930
+        name: Grunewald
+        service: freight
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 03 052
-        tags: de.b
         sources: !keyref src.de.Bfv.1933
     -   date: !date 1938-10-01
         name: Berlin-Grunewald
@@ -334,6 +331,10 @@ events:
     -   date: !date c2007
         location: !keyloc line.de.20800 -
 
+    -   date: !!null
+        site: !noderef path.de.46500 gru
+
+
 ---
 key: point.de.Berlin-Grunewald-Gds
 type: point
@@ -342,17 +343,18 @@ events:
         status: open
         sources: !keyref src.de.DRG.Bln.1943
     -   date: !!null
-        subtype: signalbox
         location: !keyloc line.de.46500 4,04
         name: Gds
         master: !keyref point.de.Berlin-Grunewald
         sources: !keyref src.de.DRG.Bln.1943
     -   date: !date c1995
-        subtype: post
         category: de.Bft
         name: Berlin-Grunewald Gds
         de.DS100: BGD S
         sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.46500 gds
         
 
 ---
@@ -378,6 +380,10 @@ events:
         status: closed
         sources: !keyref src.dd.DR.Bln.1968
 
+    -   date: !!null
+        site: !noderef path.de.46500 gst
+        
+
 ---
 key: point.de.Berlin-Grunewald-Bk-3
 type: point
@@ -390,6 +396,10 @@ events:
     -   date: !date 1937
         status: closed
         sources: !keyref src.de.web.Krebs
+
+    -   date: !!null
+        site: !noderef path.de.46500 iii
+        
 
 ---
 key: point.de.Berlin-Grunewald-Bk-4
@@ -404,6 +414,10 @@ events:
         status: closed
         sources: !keyref src.de.web.Krebs
 
+    -   date: !!null
+        site: !noderef path.de.46500 biv
+        
+
 ---
 key: point.de.Berlin-Havelchaussee
 type: point
@@ -416,7 +430,9 @@ events:
         name: Havelchaussee
         sources: !keyref src.de.DRG.Bln.1943
     -   date: !!null
-        location: !keyloc line.de.20800 20,88
+        location:
+            - !keyloc line.de.20800 20,88
+            - !keyloc line.de.46500 9,49
         sources: !keyref src.de.DRG.Bln.1943
     -   date: !!null
         de.VBL: Hc
@@ -424,6 +440,10 @@ events:
     -   date: !date c1970
         status: closed
         sources: !keyref src.dd.DR.Bln.1978
+
+    -   date: !!null
+        site: !noderef path.de.46500 hav
+        
 
 ---
 key: point.de.Berlin-Wannsee
@@ -478,29 +498,9 @@ events:
             - !keyloc line.de.20790 -
             - !keyloc line.de.20800 -
 
----
-key: point.de.Kohlhasenbruecke
-type: point
-events:
-    -   date: !date 1909-05-01
-        status: open
-        category: de.Abzw
-        name: Not
-        sources: !keyref src.de.web.Krebs
-    -   date: !date 1938-04-01
-        name: Bot
-        sources: !keyref src.de.web.Krebs
-    -   date: !date c1940
-        location:
-            - !keyloc line.de.20790 28,12
-            - !keyloc line.de.46500 16,72
-        sources: !keyref src.de.DRG.Bln.1943
-    -   date: !date 1949-04-01
-        name: Kohlhasenbrücke
-        sources: !keyref src.de.web.Krebs
-    -   date: !date 1961-12-10
-        status: closed
-        sources: !keyref src.de.web.Krebs
+    -   date: !!null
+        site: !noderef path.de.46500 wan
+        
 
 ---
 key: point.de.Potsdam-Griebnitzsee-Gbo
@@ -526,6 +526,38 @@ events:
         de.DS100: BGBSO
         sources: !keyref src.de.TPP.2006
 
+    -   date: !!null
+        site: !noderef path.de.46500 gbo
+
+
+---
+key: point.de.Kohlhasenbruecke
+type: point
+events:
+    -   date: !date 1909-05-01
+        status: open
+        category: de.Abzw
+        name: Not
+        sources: !keyref src.de.web.Krebs
+    -   date: !date 1938-04-01
+        name: Bot
+        sources: !keyref src.de.web.Krebs
+    -   date: !date c1940
+        location:
+            - !keyloc line.de.20790 28,12
+            - !keyloc line.de.46500 16,72
+        sources: !keyref src.de.DRG.Bln.1943
+    -   date: !date 1949-04-01
+        name: Kohlhasenbrücke
+        sources: !keyref src.de.web.Krebs
+    -   date: !date 1961-12-10
+        status: closed
+        sources: !keyref src.de.web.Krebs
+
+    -   date: !!null
+        site: !noderef path.de.46500 koh
+
+
 ---
 key: point.de.Potsdam-Griebnitzsee-LGr-46500
 type: point
@@ -538,6 +570,10 @@ events:
     -   date: !!null
         name: Potsdam Griebnitzsee BE/BB 6118
         de.DS100: BQGB
+
+    -   date: !!null
+        site: !noderef path.de.46500 ggri
+
 
 ---
 key: point.de.Potsdam-Drewitz
@@ -586,6 +622,10 @@ events:
         category: [ de.Hp, de.Bft ]
         sources: !keyref src.de.DBAG.ISR
 
+    -   date: !!null
+        site: !noderef path.de.46500 dre
+
+
 ---
 key: point.de.Potsdam-Rehbruecke
 type: point
@@ -627,6 +667,10 @@ events:
         name: Potsdam-Rehbrücke
         sources: !keyref src.de.web.Krebs
 
+    -   date: !!null
+        site: !noderef path.de.46500 reh
+
+
 ---
 key: point.de.Bergholz-Potsdam
 type: point
@@ -653,6 +697,10 @@ events:
         status: closed
         sources: !keyref src.de.web.Krebs
 
+    -   date: !!null
+        site: !noderef path.de.46500 ber
+
+
 ---
 key: point.de.Bergholz-Potsdam-unten
 type: point
@@ -670,6 +718,10 @@ events:
         status: closed
         sources: !keyref src.de.web.Krebs
 
+    -   date: !!null
+        site: !noderef path.de.46500 ber
+
+
 ---
 key: point.de.Wilhelmshorst-Abzw
 type: point
@@ -679,13 +731,16 @@ events:
         status: open
         sources: !keyref src.de.web.Krebs
     -   date: !!null
-        location:
-            - !keyloc line.de.46500 25,340
-    -   date: !!null
         category: de.Abzw
+        location:
+            - !keyloc line.de.46500 25,054
         name: Wilhelmshorst (Abzw)
         de.DS100: BWHA
-        sources: !keyref src.de.SuW.2005
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.46500 wia
+
 
 ---
 key: point.de.Wilhelmshorst
@@ -718,6 +773,10 @@ events:
         de.DS100: BWHO
         sources: !keyref src.de.TPP.2006
 
+    -   date: !!null
+        site: !noderef path.de.46500 wil
+
+
 ---
 key: point.de.Michendorf-Bude-18
 type: point
@@ -730,6 +789,10 @@ events:
     -   date: !date c1935
         status: closed
         sources: !keyref src.de.DRG.Bln.1943
+
+    -   date: !!null
+        site: !noderef path.de.46500 mib
+
 
 ---
 key: point.de.Michendorf
@@ -764,6 +827,10 @@ events:
     -   date: !var ds100.dr
         de.DS100: BMIP
         sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.46500 mic
+
 
 ---
 key: point.de.Seddin
@@ -803,6 +870,10 @@ events:
         de.DS100: BSE
         sources: !keyref src.de.TPP.2006
 
+    -   date: !!null
+        site: !noderef path.de.46500 sed
+
+
 ---
 key: point.de.Seddin-Hp
 type: point
@@ -827,6 +898,10 @@ events:
     -   date: !date c1965
         status: closed
         merged: !keyref point.de.Seddin
+
+    -   date: !!null
+        site: !noderef path.de.46500 seh
+
 
 ---
 key: point.de.Beelitz-Heilstaetten
@@ -875,6 +950,10 @@ events:
         de.DS100: BBEL
         sources: !keyref src.de.TPP.2006
 
+    -   date: !!null
+        site: !noderef path.de.46500 bee
+
+
 # 39,00 Dir-Gr Bln/Mg bis 1931-09-30
 # 39,20 Dir-Gr Bln/Mg c1955 bis c1980
 
@@ -904,6 +983,10 @@ events:
     -   date: !date 1963-11-22
         status: closed
         sources: !keyref src.de.web.Krebs
+
+    -   date: !!null
+        site: !noderef path.de.46500 rae
+
 
 ---
 key: point.de.Borkheide
@@ -947,6 +1030,10 @@ events:
         de.DS100: BBK
         sources: !keyref src.de.TPP.2006
 
+    -   date: !!null
+        site: !noderef path.de.46500 bor
+
+
 ---
 key: point.de.Neuendorf
 type: point
@@ -970,6 +1057,10 @@ events:
     -   date: !date c1977
         status: closed
         sources: !keyref src.de.web.Krebs
+
+    -   date: !!null
+        site: !noderef path.de.46500 nef
+
 
 ---
 key: point.de.Brueck-Mark
@@ -1004,6 +1095,10 @@ events:
         de.DS100: BBRK
         sources: !keyref src.de.TPP.2006
 
+    -   date: !!null
+        site: !noderef path.de.46500 brk
+
+
 ---
 key: point.de.Trebitz-Mark
 type: point
@@ -1025,6 +1120,10 @@ events:
     -   date: !date 1975-12
         status: closed
         sources: !keyref src.de.web.Krebs
+
+    -   date: !!null
+        site: !noderef path.de.46500 tre
+
 
 ---
 key: point.de.Baitz
@@ -1069,6 +1168,10 @@ events:
         category: de.Hp
         sources: !keyref src.de.DBAG.ISR
 
+    -   date: !!null
+        site: !noderef path.de.46500 bai
+
+
 ---
 key: point.de.Luesse
 type: point
@@ -1092,6 +1195,10 @@ events:
     -   date: !date 1967
         status: closed
         sources: !keyref src.de.web.Krebs
+
+    -   date: !!null
+        site: !noderef path.de.46500 lue
+
 
 ---
 key: point.de.Bad-Belzig
@@ -1140,6 +1247,10 @@ events:
     -   date: !date 2011
         name: Bad Belzig
 
+    -   date: !!null
+        site: !noderef path.de.46500 bel
+
+
 # 68,32 Dir-Gr Bln/Mg 1945-08-18 bis c1950
 
 ---
@@ -1166,6 +1277,10 @@ events:
         status: closed
         sources: !keyref src.de.web.Krebs
 
+    -   date: !!null
+        site: !noderef path.de.46500 beb
+
+
 ---
 key: point.de.Borne-Bk-50
 type: point
@@ -1181,6 +1296,10 @@ events:
         sources: !keyref src.de.web.Krebs
     -   date: !date c1990
         status: closed
+
+    -   date: !!null
+        site: !noderef path.de.46500 bob
+
 
 ---
 key: point.de.Borne
@@ -1232,6 +1351,10 @@ events:
     -   date: !date c2000
         status: closed
 
+    -   date: !!null
+        site: !noderef path.de.46500 bon
+
+
 # 76,20 Dir-Gr Bln/Hl 1931-10-01 bis 1945-08-18
 
 ---
@@ -1279,6 +1402,10 @@ events:
         de.DS100: BWG
         sources: !keyref src.de.TPP.2006
 
+    -   date: !!null
+        site: !noderef path.de.46500 wib
+
+
 # 78,51 Dir-Gr Bln/Mg c1950 bis c1955
 
 ---
@@ -1299,6 +1426,10 @@ events:
     -   date: !date c1980
         status: closed
 
+    -   date: !!null
+        site: !noderef path.de.46500 sme
+
+
 ---
 key: point.de.Reetz
 type: point
@@ -1318,6 +1449,10 @@ events:
     -   date: !var ds100.dr
         de.DS100: BREE
 
+    -   date: !!null
+        site: !noderef path.de.46500 sme
+
+
 ---
 key: point.de.Wiesenburg-LGr
 type: point
@@ -1330,6 +1465,10 @@ events:
     -   date: !!null
         name: Wiesenburg (Mark) BB/ST
         de.DS100: BQWG
+
+    -   date: !!null
+        site: !noderef path.de.46500 gwib
+
 
 ---
 key: point.de.Reuden-Mark
@@ -1349,6 +1488,10 @@ events:
     -   date: !date 1979-02-01
         status: closed
         sources: !keyref src.de.web.Krebs
+
+    -   date: !!null
+        site: !noderef path.de.46500 reu
+
 
 ---
 key: point.de.Nedlitz
@@ -1382,6 +1525,10 @@ events:
     -   date: !var ds100.dr
         de.DS100: LNE
         sources: !keyref src.de.SuW.2005
+
+    -   date: !!null
+        site: !noderef path.de.46500 ned
+
 
 ---
 key: point.de.Deetz
@@ -1423,6 +1570,10 @@ events:
         category: de.Hp
         sources: !keyref src.de.web.Krebs
 
+    -   date: !!null
+        site: !noderef path.de.46500 dee
+
+
 ---
 key: point.de.Lindau-Anh
 type: point
@@ -1462,6 +1613,10 @@ events:
         de.DS100: LLIU
         sources: !keyref src.de.SuW.2005
 
+    -   date: !!null
+        site: !noderef path.de.46500 ned
+
+
 ---
 key: point.de.Buhlendorf
 type: point
@@ -1483,6 +1638,10 @@ events:
         status: closed
         sources: !keyref src.de.web.Krebs
 
+    -   date: !!null
+        site: !noderef path.de.46500 buh
+
+
 ---
 key: point.de.Gueterglueck-Gbf
 type: point
@@ -1497,6 +1656,10 @@ events:
         sources: !keyref src.de.SuW.2005
     -   date: !!null
         master: !keyref point.de.Gueterglueck
+
+    -   date: !!null
+        site: !noderef path.de.46500 gug
+
 
 ---
 key: point.de.Gueterglueck
@@ -1530,6 +1693,10 @@ events:
     -   date: !!null
         master: !keyref point.de.Gueterglueck
 
+    -   date: !!null
+        site: !noderef path.de.46500 guk
+
+
 ---
 key: point.de.Gueterglueck-Pbf-ob-Bf
 type: point
@@ -1544,6 +1711,10 @@ events:
         sources: !keyref src.de.SuW.2005
     -   date: !!null
         master: !keyref point.de.Gueterglueck
+
+    -   date: !!null
+        site: !noderef path.de.46500 guk
+
 
 ---
 key: point.de.Gueterglueck-Gkw
@@ -1565,6 +1736,10 @@ events:
     -   date: !date c1990
         master: !keyref point.de.Gueterglueck
 
+    -   date: !!null
+        site: !noderef path.de.46500 gkw
+
+
 ---
 key: point.de.Floetz
 type: point
@@ -1582,6 +1757,10 @@ events:
         sources: !keyref src.dd.DR.1976
     -   date: !var ds100.dr
         de.DS100: LFT
+
+    -   date: !!null
+        site: !noderef path.de.46500 flo
+
 
 ---
 key: point.de.Barby
@@ -1618,6 +1797,10 @@ events:
         de.DS100: LBY
         sources: !keyref src.de.TPP.2006
 
+    -   date: !!null
+        site: !noderef path.de.46500 bar
+
+
 ---
 key: point.de.Werkleitz
 type: point
@@ -1637,6 +1820,10 @@ events:
         de.DS100: LWT
         sources: !keyref src.de.TPP.2006
 
+    -   date: !!null
+        site: !noderef path.de.46500 wer
+
+
 ---
 key: point.de.Tornitz
 type: point
@@ -1655,6 +1842,10 @@ events:
     -   date: !var ds100.dr
         de.DS100: LTN
         sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.46500 tor
+
 
 ---
 key: point.de.Calbe-Saale-West
@@ -1694,6 +1885,10 @@ events:
         de.DS100: LCBW
         sources: !keyref src.de.TPP.2006
 
+    -   date: !!null
+        site: !noderef path.de.46500 cal
+
+
 ---
 key: point.de.Brumby
 type: point
@@ -1709,6 +1904,10 @@ events:
     -   date: !date c1950
         status: closed
         sources: !keyref src.de.web.Krebs
+
+    -   date: !!null
+        site: !noderef path.de.46500 bry
+
 
 ---
 key: point.de.Neugattersleben
@@ -1736,7 +1935,7 @@ events:
         de.lknr: 12 263
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        location: !keyloc line.de.46500 131,60
+        location: !keyloc line.de.46500 137,60
         de.VBL: Ngl
         sources: !keyref src.dd.DR.1976
     -   date: !date c1965
@@ -1750,6 +1949,10 @@ events:
         sources: !keyref src.de.web.Krebs
     -   date: !var ds100.dr
         de.DS100: LNGL
+
+    -   date: !!null
+        site: !noderef path.de.46500 neg
+
 
 ---
 key: point.de.Hohenerxleben
@@ -1776,6 +1979,10 @@ events:
     -   date: !date 1993
         status: closed
         sources: !keyref src.de.web.Krebs
+
+    -   date: !!null
+        site: !noderef path.de.46500 hoh
+
 
 ---
 key: point.de.Rathmannsdorf-Stassfurt
@@ -1805,6 +2012,10 @@ events:
         service: no-passenger
         sources: !keyref src.de.web.Krebs
 
+    -   date: !!null
+        site: !noderef path.de.46500 rat
+
+
 ---
 key: point.de.Guesten
 type: point
@@ -1832,6 +2043,10 @@ events:
         de.DS100: LGT
         sources: !keyref src.de.TPP.2006
 
+    -   date: !!null
+        site: !noderef path.de.46500 gun
+
+
 ---
 key: point.de.Guesten-Gbf-Ostseite
 type: point
@@ -1843,6 +2058,10 @@ events:
         category: de.Bft
         name: Güsten Gbf Ostseite
         de.DS100: LGT O
+
+    -   date: !!null
+        site: !noderef path.de.46500 guo
+
 
 ---
 key: point.de.Giersleben-Abzw
@@ -1859,6 +2078,10 @@ events:
         de.DS100: LGIA
         sources: !keyref src.de.DBAG.ISR
 
+    -   date: !!null
+        site: !noderef path.de.46500 gia
+
+
 ---
 key: point.de.Giersleben-Go
 type: point
@@ -1872,6 +2095,10 @@ events:
         de.DS100: LGI O
     -   date: !date c2010
         status: closed
+
+    -   date: !!null
+        site: !noderef path.de.46500 gio
+
 
 ---
 key: point.de.Heidelberg-Guesten
@@ -1895,6 +2122,10 @@ events:
     -   date: !date c1995
         status: closed
 
+    -   date: !!null
+        site: !noderef path.de.46500 hei
+
+
 ---
 key: point.de.Bk-121-Guesten
 type: point
@@ -1908,6 +2139,10 @@ events:
     -   date: !date c1916
         status: closed
 
+    -   date: !!null
+        site: !noderef path.de.46500 gub
+
+
 ---
 key: point.de.Wickenhof
 type: point
@@ -1916,7 +2151,7 @@ events:
         status: open
         sources: !keyref src.de.web.Krebs
     -   date: !!null
-        location: !keyloc line.de.46500 156,65
+        location: !keyloc line.de.46500 158,65
         category: de.Bk
         de.VBL: Wkf
         sources: !keyref src.dd.DR.1976
@@ -1925,6 +2160,10 @@ events:
         sources: !keyref src.dd.DR.1976
     -   date: !date c1985
         status: closed
+
+    -   date: !!null
+        site: !noderef path.de.46500 wic
+
 
 ---
 key: point.de.Wiederstedt
@@ -1944,6 +2183,10 @@ events:
     -   date: !date 1996
         status: closed
         sources: !keyref src.de.web.Krebs
+
+    -   date: !!null
+        site: !noderef path.de.46500 wie
+
 
 ---
 key: point.de.Hettstedt
@@ -1981,6 +2224,10 @@ events:
     -   date: !var ds100.dr
         de.DS100: LHE
         sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.46500 het
+
 
 ---
 key: point.de.Siersleben
@@ -2022,6 +2269,10 @@ events:
     -   date: !date c1995
         status: closed
 
+    -   date: !!null
+        site: !noderef path.de.46500 sie
+
+
 ---
 key: point.de.Thondorf
 type: point
@@ -2040,6 +2291,10 @@ events:
     -   date: !date c1990
         status: closed
 
+    -   date: !!null
+        site: !noderef path.de.46500 tho
+
+
 ---
 key: point.de.Klostermansfeld-Umspannwerk
 type: point
@@ -2055,6 +2310,10 @@ events:
     -   date: !date c2000
         name: Klostermansfeld Umspannwerk VEAG Dessau
         sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.46500 klu
+
 
 ---
 key: point.de.Klostermansfeld
@@ -2097,6 +2356,10 @@ events:
         de.DS100: LKM
         sources: !keyref src.de.TPP.2006
 
+    -   date: !!null
+        site: !noderef path.de.46500 klo
+
+
 ---
 key: point.de.Helbra
 type: point
@@ -2123,6 +2386,10 @@ events:
         service: none
         name: Helbra
         sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.46500 hel
+
 
 ---
 key: point.de.Hergisdorf
@@ -2154,6 +2421,10 @@ events:
         de.DS100: LGHF
     -   date: !date c1995
         status: closed
+
+    -   date: !!null
+        site: !noderef path.de.46500 her
+
 
 # km 185,40 ab c1965 Dir-Gr Md/Erf [src.dd.DR.Erf.1967]
 # km 186,50 c1945 bis c1965 Dir-Gr Md/Erf [src.dd.DR.Erf.1953]
