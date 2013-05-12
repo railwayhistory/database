@@ -121,17 +121,17 @@ events:
         operator: !keyref org.de.e.DBNetz
 
 points:
-    - !keyref point.de.Berlin-Ostbf
+    - !keyref point.de.Berlin-Ostbf                         # line.de.20000
     - !keyref point.de.Berlin-Ostbf-S-Bahn
     - !keyref point.de.Berlin-Jannowitzbruecke
-    - !keyref point.de.Berlin-Alexanderplatz
+    - !keyref point.de.Berlin-Alexanderplatz                # line.de.20000
     - !keyref point.de.Berlin-Alexanderplatz-S-Bahn
     - !keyref point.de.Berlin-Hackescher-Markt
-    - !keyref point.de.Berlin-Friedrichstrasse
+    - !keyref point.de.Berlin-Friedrichstrasse              # line.de.20000
     - !keyref point.de.Berlin-Friedrichstrasse-S-Bahn
-    - !keyref point.de.Berlin-Friedrichstrasse-Gr
-    - !keyref point.de.Berlin-Lehrter-Stadtbf
+    - !keyref point.de.Berlin-Friedrichstrasse-Gr           # line.de.20000
     - !keyref point.de.Berlin-Hbf-Lehrter-Bf-S-Bahn
+    - !keyref point.de.Berlin-Lehrter-Stadtbf
     - !keyref point.de.Berlin-Bellevue
     - !keyref point.de.Berlin-Tiergarten
     - !keyref point.de.Berlin-Zoologischer-Garten
@@ -170,6 +170,10 @@ events:
         category: de.Bf
         sources: !keyref src.de.DBAG.ISR
 
+    -   date: !!null
+        site: !noderef path.de.20000 ost
+
+
 ---
 key: point.de.Berlin-Jannowitzbruecke
 type: point
@@ -181,8 +185,10 @@ events:
         de.Rangklasse: III
         sources: !keyref src.de.DRG.Bln.1927
     -   date: !!null
+        de.lknr: 03 289
         service: passenger
-        tags: de.p
+        sources: !keyref src.de.Bfv.1928
+    -   date: !var lknr.30
         de.lknr: 03 281
         sources: !keyref src.de.Bfv.1933
     -   date: !date c1950
@@ -200,8 +206,11 @@ events:
         sources: !keyref src.de.TPP.2006
     -   date: !date c2000
         name: Berlin Jannowitzbrücke
-        public_name: Jannowitzbrücke
         sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.20000 jan
+
 
 ---
 key: point.de.Berlin-Alexanderplatz-S-Bahn
@@ -220,6 +229,10 @@ events:
         category: de.Bf
         sources: !keyref src.de.DBAG.ISR
 
+    -   date: !!null
+        site: !noderef path.de.20000 ale
+
+
 ---
 key: point.de.Berlin-Hackescher-Markt
 type: point
@@ -230,13 +243,15 @@ events:
         de.Rangklasse: III
         name: Börse
         sources: !keyref src.de.DRG.Bln.1927
+    -   date: !!null
+        de.lknr: 03 281
+        service: passenger
+        sources: !keyref src.de.Bfv.1928
     -   date: !date c1930
         location: !keyloc line.de.20800 2,86
         sources: !keyref src.de.DRG.Bln.1932
-    -   date: !!null
+    -   date: !var lknr.30
         de.lknr: 03 279
-        service: passenger
-        tags: de.p
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
         de.VBL: Bör
@@ -256,10 +271,13 @@ events:
         sources: !keyref src.de.Kuhlmann.2000
     -   date: !date c2000
         name: Berlin Hackescher Markt
-        public_name: Hackescher Markt
     -   date: !var ds100.dr
         de.DS100: BHKM
         sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.20000 hac
+
 
 ---
 key: point.de.Berlin-Friedrichstrasse-S-Bahn
@@ -280,42 +298,9 @@ events:
         category: de.Bf
         sources: !keyref src.de.DBAG.ISR
 
----
-key: point.de.Berlin-Lehrter-Stadtbf
-type: point
-events:
     -   date: !!null
-        name: Lehrter Bahnhof
-        sources: !keyref src.de.Kuhlmann.2000
-    -   date: !!null
-        location: !keyloc line.de.20800 5,41
-        category: de.Bf
-        de.Rangklasse: III
-        sources: !keyref src.de.DRG.Bln.1927
-    -   date: !date 1911-05-01
-        name: Lehrter Stadtbahnhof
-        sources: !keyref src.de.Kuhlmann.2000
-    -   date: !date c1930
-        name: Berlin Lehrter Stadtbf
-        sources: !keyref src.de.DRG.Bln.1932
-    -   date: !!null
-        de.lknr: 03 277
-        service: passenger
-        tags: de.p
-    -   date: !!null
-        de.VBL: Leh
-        sources: !keyref src.de.DRG.Bln.1946
-    -   date: !date c1950
-        de.Rangklasse: U
-        master: !keyref point.de.Berlin-Zoologischer-Garten
-        sources: !keyref src.dd.DR.Bln.1953
-    -   date: !date c1970
-        category: de.Hp
-        sources: !keyref src.dd.DR.Bln.1978
-    -   date: !var ds100.dr
-        de.DS100: BLEH
-    -   date: !date 2002-06-22
-        status: closed
+        site: !noderef path.de.20000 fri
+
 
 ---
 key: point.de.Berlin-Hbf-Lehrter-Bf-S-Bahn
@@ -332,6 +317,54 @@ events:
         sources: src.de.DBAG.ISR
     -   date: !!null
         public_name: Berlin Hauptbahnhof
+
+    -   date: !!null
+        site: !noderef path.de.20000 hbf
+
+
+---
+key: point.de.Berlin-Lehrter-Stadtbf
+type: point
+events:
+    -   date: !!null
+        name: Lehrter Bahnhof
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !!null
+        location: !keyloc line.de.20800 5,41
+        category: de.Bf
+        de.Rangklasse: III
+        sources: !keyref src.de.DRG.Bln.1927
+    -   date: !date 1911-05-01
+        name: Lehrter Stadtbahnhof
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !!null
+        de.lknr: 03 293
+        service: passenger
+        sources: !keyref src.de.Bfv.1928
+    -   date: !date c1925
+        name: Berlin Lehrter Stadtbf
+        sources: !keyref src.de.Bfv.1928
+    -   date: !var lknr.30
+        de.lknr: 03 277
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        de.VBL: Leh
+        sources: !keyref src.de.DRG.Bln.1946
+    -   date: !date c1950
+        de.Rangklasse: U
+        master: !keyref point.de.Berlin-Zoologischer-Garten
+        sources: !keyref src.dd.DR.Bln.1953
+    -   date: !date c1970
+        category: de.Hp
+        sources: !keyref src.dd.DR.Bln.1978
+    -   date: !var ds100.dr
+        de.DS100: BLEH
+    -   date: !date 2002-06-22
+        status: closed
+
+    -   date: !!null
+        site: !noderef path.de.20000 leh
+
 
 ---
 key: point.de.Berlin-Bellevue
@@ -369,6 +402,10 @@ events:
         public_name: Bellevue
         sources: !keyref src.de.TPP.2006
 
+    -   date: !!null
+        site: !noderef path.de.20000 bel
+
+
 ---
 key: point.de.Berlin-Tiergarten
 type: point
@@ -386,9 +423,11 @@ events:
         de.Rangklasse: III
         sources: !keyref src.de.DRG.Bln.1927
     -   date: !!null
-        de.lknr: 03 275
+        de.lknr: 03 295
         service: passenger
-        tags: de.p
+        sources: !keyref src.de.Bfv.1928
+    -   date: !var lknr.30
+        de.lknr: 03 275
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
         de.VBL: Tg
@@ -420,7 +459,6 @@ events:
     -   date: !date c2007
         status: open
         split_from: !keyref point.de.Berlin-Zoologischer-Garten
-        location: !keyloc line.de.20800 9,01
         public_name: Zoologischer Garten
     -   date: !!null
         name: Berlin Zoologischer Garten S-Bahn
@@ -428,7 +466,12 @@ events:
         sources: !keyref src.de.TPP.2007
     -   date: !!null
         category: de.Bf
+        location: !keyloc line.de.20800 9,128
         sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.20000 zos
+
 
 ---
 key: point.de.Berlin-Savignyplatz
@@ -444,9 +487,11 @@ events:
         name: Savignyplatz
         sources: !keyref src.de.DRG.Bln.1927
     -   date: !!null
-        de.lknr: 03 273
+        de.lknr: 03 297
         service: passenger
-        tags: de.p
+        sources: !keyref src.de.Bfv.1928
+    -   date: !var lknr.30
+        de.lknr: 03 273
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
         de.VBL: Sap
@@ -461,11 +506,15 @@ events:
         category: de.Hp
         sources: !keyref src.dd.DR.Bln.1978
     -   date: !var ds100.dr
-        de.DS100: BASP
+        de.DS100: BSAP
         sources: !keyref src.de.TPP.2006
     -   date: !date c2000
         name: Berlin Savignyplatz
         public_name: Savignyplatz
+
+    -   date: !!null
+        site: !noderef path.de.20000 sav
+
 
 ---
 key: point.de.Berlin-Charlottenburg-S-Bahn
@@ -484,6 +533,10 @@ events:
     -   date: !!null
         category: de.Bf
         sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.20000 cha
+
 
 ---
 key: point.de.Berlin-Westkreuz

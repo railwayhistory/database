@@ -99,36 +99,30 @@ events:
         electrified:
             overhead: !voltage 15kV 16.7Hz
         sources: !keyref src.de.Kuhlmann.2000
-    -   date: !date 1997-05-23?
-        start: !keyref point.de.Berlin-Stresow
-        status: removed
-        note: reused line de.45200
+
+    -   date: !!null
+        course:
+            - !pathref path.de.20000 ost f
+            - !pathref path.de.45000 fosa spd
 
 points:
     - !keyref point.de.Berlin-Ostbf
-    - !keyref point.de.Holzmarkt
+    - !keyref point.de.Berlin-Holzmarkt
     - !keyref point.de.Bk-4-Stadtbahn
     - !keyref point.de.Berlin-Alexanderplatz
     - !keyref point.de.Berlin-Alexanderplatz-Hp
-    - !keyref point.de.Berlin-Alexanderplatz-Aw
     - !keyref point.de.Bk-6-Stadtbahn
-    - !keyref point.de.Busch
-    - !keyref point.de.Berlin-Friedrichstrasse-Frio
+    - !keyref point.de.Berlin-Busch
     - !keyref point.de.Berlin-Friedrichstrasse
-    - !keyref point.de.Berlin-Friedrichstrasse-Friw
     - !keyref point.de.Berlin-Friedrichstrasse-Gr
     - !keyref point.de.Berlin-Hbf-Stadtb
-    - !keyref point.de.Humboldt
+    - !keyref point.de.Berlin-Humboldt
     - !keyref point.de.Bk-11-Stadtbahn
-    - !keyref point.de.Brueckenallee
+    - !keyref point.de.Berlin-Brueckenallee
     - !keyref point.de.Berlin-Bachstrasse
-    - !keyref point.de.Berlin-Zoologischer-Garten-Zoo
     - !keyref point.de.Berlin-Zoologischer-Garten
-    - !keyref point.de.Berlin-Zoologischer-Garten-Zow
     - !keyref point.de.Berlin-Knesebeck
-    - !keyref point.de.Berlin-Charlottenburg-Cho
     - !keyref point.de.Berlin-Charlottenburg
-    - !keyref point.de.Berlin-Charlottenburg-Chab
     - !keyref point.de.Berlin-Heerstrasse
     - !keyref point.de.Berlin-Olympiastadion-Abzw
     - !keyref point.de.Berlin-Spandau-Ost
@@ -140,13 +134,6 @@ type: point
 junction: True
 events:
     -   date: !!null
-        location:
-            - !keyloc line.de.20000 0,000
-            - !keyloc line.de.20800 0,000
-        category: de.Bf
-        de.Rangklasse: I
-        sources: !keyref src.de.DRG.Bln.1932
-    -   date: !!null
         name: Berlin Frankfurter Bf
         sources: !keyref src.de.Kuhlmann.2000
     -   date: !date 1845-08-01
@@ -155,28 +142,38 @@ events:
     -   date: !date 1881-10-15
         name: Berlin Schles Bf
         sources: !keyref src.de.Kuhlmann.2000
-    -   date: !date 1950-12-01
-        name: Berlin Ostbahnhof
-        sources: !keyref src.de.Kuhlmann.2000
-    -   date: !date 1987-12-15
-        name: Berlin Hbf
-        sources: !keyref src.de.Kuhlmann.2000
-    -   date: !date 1998-05-24
-        name: Berlin Ostbahnhof
-        sources: !keyref src.de.Kuhlmann.2000
     -   date: !!null
+        de.lknr: 03 288
         service: no-freight
-        tags: de.og
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        location:
+            - !keyloc line.de.20000 0,000
+            - !keyloc line.de.20800 0,000
+        category: de.Bf
+        de.Rangklasse: I
+        sources: !keyref src.de.DRG.Bln.1932
+    -   date: !var lknr.30
         de.lknr: 03 283
+        sources: !keyref srce.de.Bfv.1933
     -   date: !!null
         de.VBL: Schl
         sources: !keyref src.de.DRG.Bln.1946
     -   date: !date 1950-12-01
+        name: Berlin Ostbahnhof
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !date 1950-12-01
         de.VBL: Osb
         sources: !keyref src.dd.DR.Bln.1953
     -   date: !date 1987-12-15
+        name: Berlin Hbf
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !date 1987-12-15
         de.VBL: Bhf
         sources: !keyref src.dd.DR.1989
+    -   date: !date 1998-05-24
+        name: Berlin Ostbahnhof
+        sources: !keyref src.de.Kuhlmann.2000
     -   date: !var ds100.dr
         de.DS100: BHF
         sources: !keyref src.de.TPP.2006
@@ -184,8 +181,12 @@ events:
         location:
             - !keyloc line.de.20800 -
 
+    -   date: !!null
+        site: !noderef path.de.20000 ost
+
+
 ---
-key: point.de.Holzmarkt
+key: point.de.Berlin-Holzmarkt
 type: point
 events:
     -   date: !!null
@@ -200,6 +201,10 @@ events:
         status: closed
         sources: !keyref src.dd.DR.Bln.1953
 
+    -   date: !!null
+        site: !noderef path.de.20000 hol
+
+
 ---
 key: point.de.Bk-4-Stadtbahn
 type: point
@@ -211,6 +216,10 @@ events:
     -   date: !date c1940
         status: closed
         sources: !keyref src.de.DRG.Bln.1943
+
+    -   date: !!null
+        site: !noderef path.de.20000 biv
+
 
 ---
 key: point.de.Berlin-Alexanderplatz
@@ -226,19 +235,20 @@ events:
         sources: !keyref src.de.DRG.Bln.1932
     -   date: !!null
         service: no-freight
-        tags: de.og
+        de.lknr: 03 290
+        sources: !keyref src.de.Bfv.1928
+    -   date: !var lknr.30
         de.lknr: 03 280
         sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        de.VBL: Ale
+        sources: !keyref src.de.DRG.Bln.1946
     -   date: !date c1950
-        location: !keyloc line.de.20000 -
         de.Rangklasse: II
         sources: !keyref src.dd.DR.Bln.1953
     -   date: !date c1960
         de.Rangklasse: III
         sources: !keyref src.dd.DR.Bln.1968
-    -   date: !!null
-        de.VBL: Ale
-        sources: !keyref src.de.DRG.Bln.1946
     -   date: !var ds100.dr
         de.DS100: BALE
         sources: !keyref src.de.TPP.2006
@@ -248,6 +258,10 @@ events:
         location:
             - !keyloc line.de.20000 2,17
             - !keyloc line.de.20800 -
+
+    -   date: !!null
+        site: !noderef path.de.20000 ale
+
 
 ---
 key: point.de.Berlin-Alexanderplatz-Hp
@@ -265,27 +279,9 @@ events:
         status: closed
         merged: !keyref point.de.Berlin-Alexanderplatz
 
----
-key: point.de.Berlin-Alexanderplatz-Aw
-type: point
-events:
     -   date: !!null
-        subtype: signalbox
-        name: Aw
-        master: !keyref point.de.Berlin-Alexanderplatz
-        location:
-            - !keyloc line.de.20000 2,249
-        sources: !keyref src.de.DRG.Bln.1932
-    -   date: !date c1940
-        location:
-            - !keyloc line.de.20000 2,251
-        sources: !keyref src.de.DRG.Bln.1943
-    -   date: !date c1950
-        location:
-            - !keyloc line.de.20000 -
-        sources: !keyref src.dd.DR.Bln.1953
-    -   date: !date c2000
-        status: closed
+        site: !noderef path.de.20000 ale
+
 
 ---
 key: point.de.Bk-6-Stadtbahn
@@ -300,8 +296,12 @@ events:
         status: closed
         sources: !keyref src.de.DRG.Bln.1943
 
+    -   date: !!null
+        site: !noderef path.de.20000 bvi
+
+
 ---
-key: point.de.Busch
+key: point.de.Berlin-Busch
 type: point
 events:
     -   date: !date c1940
@@ -317,28 +317,18 @@ events:
         status: closed
         sources: !keyref src.dd.DR.Bln.1953
 
----
-key: point.de.Berlin-Friedrichstrasse-Frio
-type: point
-events:
     -   date: !!null
-        subtype: signalbox
-        location:
-            - !keyloc line.de.20000 3,842
-        name: Frio
-        master: !keyref point.de.Berlin-Friedrichstrasse
-        sources: !keyref src.de.DRG.Bln.1932
-    -   date: !date c1950
-        location:
-            - !keyloc line.de.20000 3,841
-        sources: !keyref src.dd.DR.Bln.1959
-    -   date: !date c2000
-        status: closed
+        site: !noderef path.de.20000 bus
+
 
 ---
 key: point.de.Berlin-Friedrichstrasse
 type: point
 events:
+    -   date: !!null
+        service: no-freight
+        de.lknr: 03 292
+        sources: !keyref src.de.Bfv.1928
     -   date: !!null
         location:
             - !keyloc line.de.20000 3,97
@@ -347,9 +337,7 @@ events:
         de.Rangklasse: I
         name: Berlin Friedrichstraße
         sources: !keyref src.de.DRG.Bln.1932
-    -   date: !!null
-        service: no-freight
-        tags: de.og
+    -   date: !var lknr.30
         de.lknr: 03 278
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
@@ -364,23 +352,9 @@ events:
     -   date: !date c2007
         location: !keyloc line.de.20800 -
 
----
-key: point.de.Berlin-Friedrichstrasse-Friw
-type: point
-events:
     -   date: !!null
-        subtype: signalbox
-        location:
-            - !keyloc line.de.20000 4,177
-        name: Friw
-        master: !keyref point.de.Berlin-Friedrichstrasse
-        sources: !keyref src.de.DRG.Bln.1932
-    -   date: !date c1950
-        location:
-            - !keyloc line.de.20000 4,178
-        sources: !keyref src.dd.DR.Bln.1959
-    -   date: !date c2000
-        status: closed
+        site: !noderef path.de.20000 fri
+
 
 ---
 key: point.de.Berlin-Friedrichstrasse-Gr
@@ -394,6 +368,10 @@ events:
             - !keyloc line.de.20000 5,127
             - !keyloc line.de.20800 5,127
         sources: !keyref src.dd.DR.Bln.1959
+
+    -   date: !!null
+        site: !noderef path.de.20000 gfri
+
 
 ---
 key: point.de.Berlin-Hbf-Stadtb
@@ -409,9 +387,15 @@ events:
         name: Berlin Hauptbahnhof-Lehrter Bf (Stadtb)
         de.DS100: BLS
         sources: !keyref src.de.TPP.2011
+    -   date: !!null
+        public_name: Berlin Hauptbahnhof
+
+    -   date: !!null
+        site: !noderef path.de.20000 hbf
+
 
 ---
-key: point.de.Humboldt
+key: point.de.Berlin-Humboldt
 type: point
 events:
     -   date: !!null
@@ -430,6 +414,10 @@ events:
         status: closed
         sources: !keyref src.dd.DR.Bln.1953
 
+    -   date: !!null
+        site: !noderef path.de.20000 hum
+
+
 ---
 key: point.de.Bk-11-Stadtbahn
 type: point
@@ -443,8 +431,12 @@ events:
         status: closed
         sources: !keyref src.de.DRG.Bln.1943
 
+    -   date: !!null
+        site: !noderef path.de.20000 bxi
+
+
 ---
-key: point.de.Brueckenallee
+key: point.de.Berlin-Brueckenallee
 type: point
 events:
     -   date: !!null
@@ -467,6 +459,10 @@ events:
     -   date: !date c1990
         status: closed
 
+    -   date: !!null
+        site: !noderef path.de.20000 bru
+
+
 ---
 key: point.de.Berlin-Bachstrasse
 type: point
@@ -484,35 +480,27 @@ events:
         status: closed
         sources: !keyref src.dd.DR.Bln.1959
 
----
-key: point.de.Berlin-Zoologischer-Garten-Zoo
-type: point
-events:
     -   date: !!null
-        subtype: signalbox
-        location:
-            - !keyloc line.de.20000 8,8
-        name: Zoo
-        master: !keyref point.de.Berlin-Zoologischer-Garten
-        sources: !keyref src.dd.DR.Bln.1959
-    -   date: !date c2000
-        status: closed
+        site: !noderef path.de.20000 bac
+
 
 ---
 key: point.de.Berlin-Zoologischer-Garten
 type: point
 events:
     -   date: !!null
+        service: no-freight
+        de.lknr: 03 296
+        name: Berlin Zoologischer Garten
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         location:
             - !keyloc line.de.20000 9,01
             - !keyloc line.de.20800 9,01
         category: de.Bf
         de.Rangklasse: II
-        name: Berlin Zoologischer Garten
         sources: !keyref src.de.DRG.Bln.1932
-    -   date: !!null
-        service: no-freight
-        tags: de.og
+    -   date: !var lknr.30
         de.lknr: 03 274
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
@@ -524,19 +512,9 @@ events:
     -   date: !date c2007
         location: !keyloc line.de.20800 -
 
----
-key: point.de.Berlin-Zoologischer-Garten-Zow
-type: point
-events:
     -   date: !!null
-        subtype: signalbox
-        location:
-            - !keyloc line.de.20000 9,2
-        name: Zow
-        master: !keyref point.de.Berlin-Zoologischer-Garten
-        sources: !keyref src.dd.DR.Bln.1959
-    -   date: !date c2000
-        status: closed
+        site: !noderef path.de.20000 zoo
+
 
 ---
 key: point.de.Berlin-Knesebeck
@@ -558,28 +536,20 @@ events:
         status: closed
         sources: !keyref src.dd.DR.Bln.1953
 
----
-key: point.de.Berlin-Charlottenburg-Cho
-type: point
-events:
     -   date: !!null
-        subtype: signalbox
-        location:
-            - !keyloc line.de.20000 10,994
-        name: Cho
-        master: !keyref point.de.Berlin-Charlottenburg
-    -   date: !date c1950
-        location:
-            - !keyloc line.de.20000 10,9
-        sources: !keyref src.dd.DR.Bln.1959
-    -   date: !date c2000
-        status: closed
+        site: !noderef path.de.20000 kne
+
 
 ---
 key: point.de.Berlin-Charlottenburg
 type: point
 junction: True
 events:
+    -   date: !!null
+        name: Charlottenburg Personenbf
+        de.lknr: 03 298
+        service: no-freight
+        sources: !keyref src.de.Bfv.1928
     -   date: !!null
         location:
             - !keyloc line.de.20000 11,26
@@ -588,10 +558,10 @@ events:
         category: de.Bf
         de.Rangklasse: I
         sources: !keyref src.de.DRG.Bln.1932
-    -   date: !!null
+    -   date: !date c1930
         name: Charlottenburg
-        service: no-freight
-        tags: de.og
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 03 001
         sources: !keyref src.de.Bfv.1933
     -   date: !date 1936-05-15
@@ -609,22 +579,9 @@ events:
     -   date: !date c2007
         location: !keyloc line.de.20800 -
 
----
-key: point.de.Berlin-Charlottenburg-Chab
-type: point
-events:
     -   date: !!null
-        subtype: signalbox
-        location:
-            - !keyloc line.de.20000 11,580
-        name: Chab
-        master: !keyref point.de.Berlin-Charlottenburg
-    -   date: !date c1950
-        location:
-            - !keyloc line.de.20000 12,58
-        sources: !keyref src.dd.DR.Bln.1959
-    -   date: !date c2000
-        status: closed
+        site: !noderef path.de.20000 cha
+
 
 ---
 key: point.de.Berlin-Heerstrasse
@@ -642,8 +599,10 @@ events:
     -   date: !date 1928-03-23?
         location: !keyloc line.de.20000 -
     -   date: !!null
+        de.lknr: 03 233
         service: no-freight
-        tags: de.og
+        sources: !keyref src.de.Bfv.1928
+    -   date: !var lknr.30
         de.lknr: 03 269
         sources: !keyref src.de.Bfv.1933
     -   date: !date c1940
@@ -671,6 +630,10 @@ events:
     -   date: !date c2000
         name: Berlin Heerstraße
         sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.20000 hee
+
 
 ---
 key: point.de.Berlin-Olympiastadion-Abzw
@@ -708,6 +671,10 @@ events:
     -   date: !var ds100.dr
         de.DS100: BOSA
         sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.20000 osa
+
 
 ---
 key: point.de.Berlin-Spandau-Ost
