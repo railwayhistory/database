@@ -227,11 +227,22 @@ events:
         reused: !keyref line.de.20100
         sources: !keyref src.de.DBAG.ISR
 
+    -   date: !!null
+        course:
+            - !pathref path.de.45000 leb f
+            - !pathref path.de.44500 agif leh
+    -   date: !!null
+        course:
+            - !pathref path.de.45000 leb auch
+            - !pathref path.de.45000.uch a f
+            - !pathref path.de.45000 fuch f
+            - !pathref path.de.44500 agif leh
+
 points:
     - !keyref point.de.Berlin-Lehrter-Bf
-    - !keyref point.de.Berlin-Westhafen
-    - !keyref point.de.Berlin-Moabit
-    - !keyref point.de.Berlin-Jungfernheide
+    - !keyref point.de.Berlin-Westhafen                     # line.de.20050
+    - !keyref point.de.Berlin-Moabit                        # line.de.20050
+    - !keyref point.de.Berlin-Jungfernheide                 # line.de.20900
     - !keyref point.de.Berlin-Jungfernheide-DB-Netz
     - !keyref point.de.Berlin-Vlr
     - !keyref point.de.Berlin-Siemensstadt-Fuerstenbrunn
@@ -307,7 +318,7 @@ points:
     - !keyref point.de.Fallersleben-152
     - !keyref point.de.Calberlah
     - !keyref point.de.Gifhorn
-    - !keyref point.de.Gifhorn-162
+    - !keyref point.de.Winkel
     - !keyref point.de.Leiferde-Gifhorn-Uest
     - !keyref point.de.Leiferde-Gifhorn
     - !keyref point.de.Meinersen-169
@@ -344,6 +355,10 @@ events:
         status: closed
         sources: !keyref src.de.Kuhlmann.2000
 
+    -   date: !!null
+        site: !noderef path.de.45000 leb
+
+
 ---
 key: point.de.Berlin-Jungfernheide-DB-Netz
 type: point
@@ -358,6 +373,10 @@ events:
         sources: !keyref src.de.DBAG.ISR
     -   date: !!null
         public_name: Berlin Jungfernheide
+
+    -   date: !!null
+        site: !noderef path.de.45000 jun
+
 
 ---
 key: point.de.Berlin-Vlr
@@ -376,6 +395,10 @@ events:
         sources: !keyref src.dd.DR.Bln.1953
     -   date: !date c2000
         location: !keyloc line.de.20090 7,38
+
+    -   date: !!null
+        site: !noderef path.de.45000 vlr
+
 
 ---
 key: point.de.Berlin-Siemensstadt-Fuerstenbrunn
@@ -425,6 +448,10 @@ events:
     -   date: !date c2000
         status: closed
 
+    -   date: !!null
+        site: !noderef path.de.45000 fub
+
+
 ---
 key: point.de.Berlin-Wiesendamm
 type: point
@@ -439,6 +466,10 @@ events:
         name: Berlin Wiesendamm
         de.DS100: BWD
         sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.45000 wdm
+
 
 ---
 key: point.de.Berlin-Spree
@@ -461,6 +492,10 @@ events:
         status: closed
         sources: !keyref src.dd.DR.Bln.1953
 
+    -   date: !!null
+        site: !noderef path.de.45000 sre
+
+
 ---
 key: point.de.Berlin-Spandau
 type: point
@@ -479,10 +514,13 @@ events:
             - !keyloc line.de.45000 13,05
         category: de.Bf
         de.Rangklasse: IV
+        sources: !keyref src.de.DRG.Bln.1927
     -   date: !!null
-        de.lknr: 03 171
+        de.lknr: 03 222
         service: passenger
-        tags: de.p
+        sources: !keyref src.de.Bfv.1928
+    -   date: !var lknr.30
+        de.lknr: 03 171
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
         de.VBL: Spw
@@ -507,6 +545,10 @@ events:
         de.DS100: BSPD
         sources: !keyref src.de.DBAG.ISR
 
+    -   date: !!null
+        site: !noderef path.de.45000 sdu
+
+
 ---
 key: point.de.Berlin-Hamburg-Lehrte
 type: point
@@ -526,6 +568,10 @@ events:
         status: closed
         sources: !keyref src.dd.DR.Bln.1953
 
+    -   date: !!null
+        site: !noderef path.de.45000 hal
+
+
 ---
 key: point.de.Berlin-Staaken-Bk-14
 type: point
@@ -538,6 +584,10 @@ events:
     -   date: !date c1940
         status: closed
         sources: !keyref src.de.DRG.Bln.1943
+
+    -   date: !!null
+        site: !noderef path.de.45000 hal
+
 
 ---
 key: point.de.Berlin-Nennhauser-Damm
@@ -557,6 +607,10 @@ events:
         category: de.Abzw
         sources: !keyref src.de.DBAG.ISR
 
+    -   date: !!null
+        site: !noderef path.de.45000 ned
+
+
 ---
 key: point.de.Berlin-Staaken-alt
 type: point
@@ -573,7 +627,9 @@ events:
         name: Staaken
         sources: !keyref src.de.DRG.Bln.1927
     -   date: !!null
-        tags: de.b
+        de.lknr: 03 046
+        sources: !keyref src.de.Bfv.1928
+    -   date: !var lknr.30
         de.lknr: 03 175
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
@@ -596,6 +652,10 @@ events:
         sources: !keyref src.dd.DR.Bln.1968
     -   date: !date c1990
         status: closed
+
+    -   date: !!null
+        site: !noderef path.de.45000 sta
+
 
 ---
 key: point.de.Berlin-Staaken-Bstg
@@ -620,6 +680,10 @@ events:
         category: de.Hp
         sources: !keyref src.de.DBAG.ISR
 
+    -   date: !!null
+        site: !noderef path.de.45000 stb
+
+
 ---
 key: point.de.Berlin-Staaken-Gr
 type: point
@@ -633,6 +697,10 @@ events:
             - !keyloc line.de.45000 16,600
         sources: !keyref src.dd.DR.Bln.1953
 
+    -   date: !!null
+        site: !noderef path.de.45000 gsts
+
+
 ---
 key: point.de.Berlin-Staaken-LGr-45000
 type: point
@@ -642,6 +710,10 @@ events:
         name: Berlin-Staaken BE/BB 6107
         de.DS100: BQST
         sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.45000 gstl
+
 
 ---
 key: point.de.Berlin-Staaken
@@ -675,6 +747,12 @@ events:
         location: !keyloc line.de.20100 18,396
         sources: !keyref src.de.DBAG.ISR
 
+    -   date: !!null
+        site: !noderef path.de.45000 stk
+    -   date: !date c2010
+        site: !noderef path.de.45000 stw
+
+
 ---
 key: point.de.Berlin-Staaken-West
 type: point
@@ -691,6 +769,10 @@ events:
         status: closed
         merged: !keyref point.de.Berlin-Staaken
         sources: !keyref src.de.TPP.2011
+
+    -   date: !!null
+        site: !noderef path.de.45000 stw
+
 
 ---
 key: point.de.Staaken-Flugplatz
@@ -712,6 +794,10 @@ events:
     -   date: !date c1950
         status: closed
 
+    -   date: !!null
+        site: !noderef path.de.45000 flu
+
+
 ---
 key: point.de.Dallgow-Doeberitz
 type: point
@@ -730,6 +816,9 @@ events:
         name: Dallgow-Döberitz
         sources: !keyref src.de.DRG.Bln.1927
     -   date: !!null
+        de.lknr: 03 045
+        sources: !keyref src.de.Bfv.1928
+    -   date: !var lknr.30
         de.lknr: 03 176
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
@@ -759,6 +848,10 @@ events:
         name: Dallgow-Döberitz
         sources: !keyref src.de.Kuhlmann.2000
 
+    -   date: !!null
+        site: !noderef path.de.45000 dal
+
+
 ---
 key: point.de.Wustermark-Rbf-Wot
 type: point
@@ -783,6 +876,10 @@ events:
         category: de.Bft
         sources: !keyref src.de.DBAG.ISR
 
+    -   date: !!null
+        site: !noderef path.de.45000 wot
+
+
 ---
 key: point.de.Wustermark-Rbf
 type: point
@@ -800,7 +897,10 @@ events:
         de.Rangklasse: I
         sources: !keyref src.de.DRG.Bln.1927
     -   date: !!null
-        tags: de.b
+        name: Wustermark Vschbf
+        de.lknr: 03 037
+        sources: !keyref src.de.Bfv.1928
+    -   date: !var lknr.30
         de.lknr: 03 178
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
@@ -812,6 +912,10 @@ events:
     -   date: !var ds100.dr
         de.DS100: BWUR
         sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.45000 wur
+
 
 ---
 key: point.de.Elstal
@@ -830,6 +934,10 @@ events:
         master: !keyref point.de.Wustermark-Rbf
         sources: !keyref src.de.DBAG.ISR
 
+    -   date: !!null
+        site: !noderef path.de.45000 wur
+
+
 ---
 key: point.de.Wustermark-Rbf-Wwb
 type: point
@@ -840,11 +948,15 @@ events:
         location:
             - !keyloc line.de.45000 28,10
             - !keyloc line.de.20110 28,10
-        category: de.Stw
+        category: de.Glgr
         name: Wwb
         master: !keyref point.de.Wustermark-Rbf
     -   date: !date 1955-10-02?
         status: closed
+
+    -   date: !!null
+        site: !noderef path.de.45000 wwb
+
 
 ---
 key: point.de.Wustermark
@@ -860,10 +972,13 @@ events:
         category: de.Bf
         de.Rangklasse: II
         sources: !keyref src.de.DRG.Bln.1927
+    -   date: !!null
+        de.lknr: 03 038
+        sources: !keyref src.de.Bfv.1928
     -   date: !date c1930
         location: !keyloc line.de.45000 30,46
         sources: !keyref src.de.DRG.Bln.1932
-    -   date: !!null
+    -   date: !var lknr.30
         de.lknr: 03 180
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
@@ -877,6 +992,10 @@ events:
     -   date: !var ds100.dr
         de.DS100: BWUS
         sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.45000 wus
+
 
 ---
 key: point.de.Wustermark-Awn
@@ -896,6 +1015,10 @@ events:
         de.DS100: BWUSN
         sources: !keyref src.de.DBAG.ISR
 
+    -   date: !!null
+        site: !noderef path.de.45000 awn
+
+
 ---
 key: point.de.Wernitz
 type: point
@@ -914,26 +1037,31 @@ events:
     -   date: !date c1960
         status: closed
 
+    -   date: !!null
+        site: !noderef path.de.45000 wer
+
+
 ---
 key: point.de.Neugarten
 type: point
 junction: True
 events:
     -   date: !!null
+        name: Neugarten
+        service: none
+        de.lknr: 03 320
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         location:
             - !keyloc line.de.45000 35,29
         category: de.Bf
         de.Rangklasse: III
-        name: Neugarten
         sources: !keyref src.de.DRG.Bln.1932
-    -   date: !!null
-        service: none
-        tags: de.o
+    -   date: !var lknr.30
         de.lknr: 03 181
         sources: !keyref src.de.Bfv.1933
     -   date: !date c1935
         service: passenger
-        tags: de.og
         sources:
             - !keyref src.de.Kb.W1937
             - !keyref src.de.Bfv.1944
@@ -946,6 +1074,10 @@ events:
     -   date: !date c1995
         category: de.Abzw
         sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.45000 nga
+
 
 ---
 key: point.de.Schwanebeck
@@ -962,6 +1094,10 @@ events:
         sources: !keyref src.de.DRG.Bln.1946
     -   date: !date c1960
         status: closed
+
+    -   date: !!null
+        site: !noderef path.de.45000 sbk
+
 
 ---
 key: point.de.Gross-Behnitz
@@ -988,6 +1124,10 @@ events:
         de.DS100: LGBZ
         sources: !keyref src.de.TPP.2006
 
+    -   date: !!null
+        site: !noderef path.de.45000 gbn
+
+
 ---
 key: point.de.Ribbeck-Bk
 type: point
@@ -1004,6 +1144,10 @@ events:
     -   date: !date c1960
         status: closed
 
+    -   date: !!null
+        site: !noderef path.de.45000 rib
+
+
 ---
 key: point.de.Ribbeck-Abzw
 type: point
@@ -1018,6 +1162,10 @@ events:
         name: Ribbeck
         de.DS100: LRIK
         sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.45000 ria
+
 
 ---
 key: point.de.Heineberg
@@ -1035,6 +1183,10 @@ events:
     -   date: !date c1960
         status: closed
 
+    -   date: !!null
+        site: !noderef path.de.45000 hei
+
+
 ---
 key: point.de.Buschow
 type: point
@@ -1043,11 +1195,14 @@ events:
         name: Buschow
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 13 318
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         location: !keyloc line.de.45000 52,45
         category: de.Bf
         de.Rangklasse: III
         sources: !keyref src.de.DRG.Bln.1932
-    -   date: !!null
+    -   date: !var lknr.30
         de.lknr: 03 183
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
@@ -1056,6 +1211,10 @@ events:
     -   date: !var ds100.dr
         de.DS100: LBOW
         sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.45000 bus
+
 
 ---
 key: point.de.Bukow
@@ -1073,6 +1232,10 @@ events:
     -   date: !date c1960
         status: closed
 
+    -   date: !!null
+        site: !noderef path.de.45000 buk
+
+
 ---
 key: point.de.Nennhausen
 type: point
@@ -1081,11 +1244,14 @@ events:
         name: Nennhausen
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 03 317
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         location: !keyloc line.de.45000 60,45
         category: de.Bf
         de.Rangklasse: III
         sources: !keyref src.de.DRG.Bln.1932
-    -   date: !!null
+    -   date: !var lknr.30
         de.lknr: 03 184
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
@@ -1097,6 +1263,10 @@ events:
     -   date: !var ds100.dr
         de.DS100: LNS
         sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.45000 nen
+
 
 ---
 key: point.de.Bamme
@@ -1127,6 +1297,12 @@ events:
         category: de.Abzw
         sources: !keyref src.de.DBAG.ISR
 
+    -   date: !!null
+        site: !noderef path.de.45000 bab
+    -   date: !date c1995
+        site: !noderef path.de.45000 baa
+
+
 ---
 key: point.de.Friedrichsdorf-Rathenow
 type: point
@@ -1143,6 +1319,10 @@ events:
     -   date: !date c1960
         status: closed
 
+    -   date: !!null
+        site: !noderef path.de.45000 fri
+
+
 ---
 key: point.de.Rathenow
 type: point
@@ -1152,15 +1332,18 @@ events:
         name: Rathenow Stsbf
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 13 316
+        sources: !keyref src.de.Bfv.1928
+    -   date: !date c1925
+        name: Rathenow Reichsb
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         location:
             - !keyloc line.de.45000 70,87
         category: de.Bf
         de.Rangklasse: II
         sources: !keyref src.de.DRG.Bln.1932
-    -   date: !date c1925
-        name: Rathenow Reichsb
-        sources: !keyref src.de.DRG.Bln.1932
-    -   date: !!null
+    -   date: !var lknr.30
         de.lknr: 03 186
         sources: !keyref src.de.Bfv.1933
     -   date: !date c1940
@@ -1175,6 +1358,10 @@ events:
     -   date: !var ds100.dr
         de.DS100: LRW
         sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.45000 rat
+
 
 ---
 key: point.de.Wilhelminenhof
@@ -1191,6 +1378,10 @@ events:
     -   date: !date c1960
         status: closed
 
+    -   date: !!null
+        site: !noderef path.de.45000 wil
+
+
 ---
 key: point.de.Grosswudicke
 type: point
@@ -1199,11 +1390,14 @@ events:
         name: Großwudicke
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 13 135
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         location: !keyloc line.de.45000 79,37
         category: de.Bf
         de.Rangklasse: III
         sources: !keyref src.de.DRG.Bln.1932
-    -   date: !!null
+    -   date: !var lknr.30
         de.lknr: 03 188
         sources: !keyref src.de.Bfv.1933
     -   date: !date c1965
@@ -1216,6 +1410,10 @@ events:
         de.DS100: LGWU
         sources: !keyref src.de.TPP.2006
 
+    -   date: !!null
+        site: !noderef path.de.45000 wud
+
+
 ---
 key: point.de.Grosswudicke-LGr
 type: point
@@ -1225,6 +1423,10 @@ events:
         name: Großwudicke BB/ST
         de.DS100: LQGW
         sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.45000 gwud
+
 
 ---
 key: point.de.Schmetzdorf
@@ -1244,6 +1446,10 @@ events:
     -   date: !date c1995
         status: closed
 
+    -   date: !!null
+        site: !noderef path.de.45000 sme
+
+
 ---
 key: point.de.Schoenhauser-Damm
 type: point
@@ -1252,20 +1458,19 @@ events:
         name: Schönhauserdamm
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 13 314
+        sources: !keyref src.de.DRG.Bln.1928
+    -   date: !date c1925
+        name: Schönhauser Damm
+        sources: !keyref src.de.DRG.Bln.1928
+    -   date: !!null
         location: !keyloc line.de.45000 86,47
         category: de.Bf
         de.Rangklasse: III
         sources: !keyref src.de.DRG.Bln.1932
-    -   date: !date c1925
-        name: Schönhauser Damm
-        sources: !keyref src.de.DRG.Bln.1932
-    -   date: !!null
-        tags: de.b
+    -   date: !var lknr.30
         de.lknr: 03 189
         sources: !keyref src.de.Bfv.1933
-    -   date: !date c1940
-        tags: []
-        sources: !keyref src.de.Bfv.1944
     -   date: !!null
         de.VBL: Sm
         sources: !keyref src.dd.DR.1976
@@ -1273,6 +1478,10 @@ events:
         location: !keyloc line.de.45000 86,50
         de.Rangklasse: U
         sources: !keyref src.dd.DR.1976
+
+    -   date: !!null
+        site: !noderef path.de.45000 sod
+
 
 ---
 key: point.de.Goehrener-Damm
@@ -1301,6 +1510,10 @@ events:
     -   date: !date c1995
         status: closed
 
+    -   date: !!null
+        site: !noderef path.de.45000 goh
+
+
 ---
 key: point.de.Schoenhausen
 type: point
@@ -1310,11 +1523,14 @@ events:
         name: Schönhausen (Elbe)
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 13 313
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         location: !keyloc line.de.45000 92,33
         category: de.Bf
         de.Rangklasse: III
         sources: !keyref src.de.DRG.Bln.1932
-    -   date: !!null
+    -   date: !var lknr.30
         de.lknr: 03 190
         sources: !keyref src.de.Bfv.1933
     -   date: !date c1940
@@ -1327,6 +1543,10 @@ events:
         de.DS100: LSH
         sources: !keyref src.de.TPP.2006
 
+    -   date: !!null
+        site: !noderef path.de.45000 soe
+
+
 ---
 key: point.de.Haemerten
 type: point
@@ -1335,8 +1555,12 @@ events:
         name: Hämerten
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 13 312
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: III
+    -   date: !var lknr.30
         de.lknr: 13 001
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
@@ -1356,6 +1580,10 @@ events:
         category: de.Hp
         sources: !keyref src.de.DBAG.ISR
 
+    -   date: !!null
+        site: !noderef path.de.45000 hae
+
+
 ---
 key: point.de.Bindfelde-Abzw
 type: point
@@ -1370,6 +1598,10 @@ events:
         name: Bindfelde Abzw
         de.DS100: LBIN
         sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.45000 bia
+
 
 ---
 key: point.de.Bindfelde-Bk
@@ -1386,6 +1618,10 @@ events:
     -   date: !date c1995
         status: closed
 
+    -   date: !!null
+        site: !noderef path.de.45000 bib
+
+
 ---
 key: point.de.Stendal
 type: point
@@ -1395,12 +1631,17 @@ events:
         name: Stendal Stsbf
         sources: !keyref src.de.Kb.1914
     -   date: !!null
-        category: de.Bf
-        de.Rangklasse: I
-        de.lknr: 13 002
-        sources: !keyref src.de.Bfv.1933
+        de.lknr: 13 310
+        sources: !keyref src.de.Bfv.1928
     -   date: !date c1925
         name: Stendal
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: I
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 13 002
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
         location:
@@ -1410,6 +1651,10 @@ events:
     -   date: !var ds100.dr
         de.DS100: LS
         sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.45000 ste
+
 
 ---
 key: point.de.Stendal-Gbf
@@ -1424,6 +1669,10 @@ events:
             - !keyref src.de.TPP.2006
             - !keyref src.de.DBAG.ISR
 
+    -   date: !!null
+        site: !noderef path.de.45000 stg
+
+
 ---
 key: point.de.Moehringen
 type: point
@@ -1432,10 +1681,15 @@ events:
         name: Groß Möringen
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 13 309
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: III
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 13 004
-        sources: !keyref src.de.Bfv.1944
+        sources: !keyref src.de.Bfv.1933
     -   date: !!null
         de.VBL: Grm
         location: !keyloc line.de.45000 112,44
@@ -1455,6 +1709,9 @@ events:
         category: de.Hp
         sources: !keyref src.de.DBAG.ISR
 
+    -   date: !!null
+        site: !noderef path.de.45000 moe
+
 ---
 key: point.de.Nahrstedt-91
 type: point
@@ -1467,6 +1724,10 @@ events:
         sources: !keyref src.dd.DR.1976
     -   date: !date c1995
         status: closed
+
+    -   date: !!null
+        site: !noderef path.de.45000 nab
+
 
 ---
 key: point.de.Nahrstedt
@@ -1483,6 +1744,10 @@ events:
         de.DS100: LMGA
         sources: !keyref src.de.DBAG.ISR
 
+    -   date: !!null
+        site: !noderef path.de.45000 naa
+
+
 ---
 key: point.de.Vinzelberg
 type: point
@@ -1491,13 +1756,18 @@ events:
     -   date: !!null
         name: Vinzelberg Stsbf
         sources: !keyref src.de.Kb.1914
+    -   date: !date c1925
+        name: Vinzelberg
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        de.lknr: 13 308
+        sources: !keyref src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
         de.Rangklasse: III
-        de.lknr: 13 005
         sources: !keyref src.de.Bfv.1933
-    -   date: !date c1925
-        name: Vinzelberg
+    -   date: !var lknr.30
+        de.lknr: 13 005
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
         location: !keyloc line.de.45000 117,83
@@ -1509,6 +1779,9 @@ events:
     -   date: !var ds100.dr
         de.DS100: LVG
         sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.45000 vin
 
 ---
 key: point.de.Uchtspringe-96
@@ -1525,6 +1798,10 @@ events:
         sources: !keyref src.dd.DR.1989
     -   date: !date c1995
         status: closed
+
+    -   date: !!null
+        site: !noderef path.de.45000 kbe
+
 
 ---
 key: point.de.Uchtspringe
@@ -1552,6 +1829,15 @@ events:
     -   date: !var ds100.dr
         de.DS100: LUS
         sources: !keyref src.de.TPP.2006
+    -   date: !date c1995
+        location: !keyloc line.de.45000 123,959
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.45000 uch
+    -   date: !date c1995
+        site: !noderef path.de.45000.uch uch
+
 
 ---
 key: point.de.Jaevenitz-101
@@ -1566,6 +1852,10 @@ events:
     -   date: !date c1995
         status: closed
 
+    -   date: !!null
+        site: !noderef path.de.45000 jab
+
+
 ---
 key: point.de.Jaevenitz
 type: point
@@ -1574,8 +1864,13 @@ events:
         name: Jävenitz
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 13 306
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: III
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 13 007
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
@@ -1588,6 +1883,10 @@ events:
     -   date: !var ds100.dr
         de.DS100: LJV
         sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.45000 jae
+
 
 ---
 key: point.de.Gardelegen-107
@@ -1602,6 +1901,10 @@ events:
     -   date: !date c1995
         status: closed
 
+    -   date: !!null
+        site: !noderef path.de.45000 gab
+
+
 ---
 key: point.de.Gardelegen
 type: point
@@ -1610,13 +1913,18 @@ events:
     -   date: !!null
         name: Gardelegen Stsbf
         sources: !keyref src.de.Kb.1914
+    -   date: !date c1925
+        name: Gardelegen
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        de.lknr: 13 305
+        sources: !keyref src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
         de.Rangklasse: II
-        de.lknr: 13 008
         sources: !keyref src.de.Bfv.1933
-    -   date: !date c1925
-        name: Gardelegen
+    -   date: !var lknr.30
+        de.lknr: 13 008
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
         location: !keyloc line.de.45000 137,45
@@ -1629,6 +1937,10 @@ events:
         de.DS100: LGA
         sources: !keyref src.de.TPP.2006
 
+    -   date: !!null
+        site: !noderef path.de.45000 gar
+
+
 ---
 key: point.de.Solpke
 type: point
@@ -1637,8 +1949,13 @@ events:
         name: Solpke
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 13 304
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: III
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 13 009
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
@@ -1655,6 +1972,10 @@ events:
         de.DS100: LSK
         sources: !keyref src.de.TPP.2006
 
+    -   date: !!null
+        site: !noderef path.de.45000 sol
+
+
 ---
 key: point.de.Solpke-117
 type: point
@@ -1668,6 +1989,10 @@ events:
     -   date: !date c1995
         status: closed
 
+    -   date: !!null
+        site: !noderef path.de.45000 sob
+
+
 ---
 key: point.de.Mieste
 type: point
@@ -1676,8 +2001,13 @@ events:
         name: Mieste
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 13 303
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: III
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 13 010
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
@@ -1690,6 +2020,10 @@ events:
     -   date: !var ds100.dr
         de.DS100: LMST
         sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.45000 mie
+
 
 ---
 key: point.de.Mieste-122
@@ -1704,6 +2038,10 @@ events:
     -   date: !date c1995
         status: closed
 
+    -   date: !!null
+        site: !noderef path.de.45000 mib
+
+
 ---
 key: point.de.Miesterhorst
 type: point
@@ -1712,8 +2050,13 @@ events:
         name: Miesterhorst
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 13 302
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: III
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 13 011
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
@@ -1727,6 +2070,10 @@ events:
         de.DS100: LMT
         sources: !keyref src.de.TPP.2006
 
+    -   date: !!null
+        site: !noderef path.de.45000 mih
+
+
 ---
 key: point.de.Bergfriede
 type: point
@@ -1736,7 +2083,6 @@ events:
         category: de.Bf
         de.Rangklasse: U
         name: Bergfriede
-        tags: [de.u, de.o]
         service: none
         de.VBL: Bef
         sources: !keyref src.dd.DR.1976
@@ -1744,6 +2090,10 @@ events:
         de.DS100: LBEF
     -   date: !date c1995
         status: closed
+
+    -   date: !!null
+        site: !noderef path.de.45000 ber
+
 
 ---
 key: point.de.Oebisfelde
@@ -1754,8 +2104,13 @@ events:
         name: Oebisfelde Stsbf
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 13 301
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: II
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 13 012
         sources: !keyref src.de.Bfv.1933
     -   date: !date c1925
@@ -1769,9 +2124,16 @@ events:
             - !keyloc line.de.45000 167,33
         de.VBL: Oe
         sources: !keyref src.dd.DR.1976
+    -   date: !!null
+        de.DS100: XROE
+        sources: !keyref src.de.DS100.1982
     -   date: !var ds100.dr
         de.DS100: LOE
         sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.45000 oeb
+
 
 ---
 key: point.de.Oebisfelde-LGr
@@ -1779,12 +2141,23 @@ type: point
 events: 
     -   date: !!null
         subtype: border
+    -   date: !!null
+        de.dstnr: !!str 130153
+        name: Vorsfelde Grenze
+        de.DS100: HXV
+        category: de.Tp
+        sources: !keyref src.de.DS100.1982
+    -   date: !date c1995
         name: Oebisfelde ST/NI 6107
         de.DS100: LQOE
         sources: !keyref src.de.TPP.2006
     -   date: !!null
         location: !keyloc line.de.45000 168,938
         sources: !keyref src.dd.DR.1989
+
+    -   date: !!null
+        site: !noderef path.de.45000 goeb
+
 
 ---
 key: point.de.Grafhorst-Abzw
@@ -1798,6 +2171,10 @@ events:
     -   date: !date 1992?
         status: closed
 
+    -   date: !!null
+        site: !noderef path.de.45000 gra
+
+
 ---
 key: point.de.Vorsfelde-135
 type: point
@@ -1810,6 +2187,10 @@ events:
     -   date: !date c1970
         status: closed
 
+    -   date: !!null
+        site: !noderef path.de.45000 vob
+
+
 ---
 key: point.de.Vorsfelde
 type: point
@@ -1818,18 +2199,28 @@ events:
         name: Vorsfelde
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 13 300
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: III
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 13 016
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
         de.DS100: HVOR
-        sources: !keyref src.de.TPP.2006
+        de.dstnr: !!str 130161
+        sources: !keyref src.de.DS100.1982
     -   date: !!null
         location: !keyloc line.de.45000 176,461
         sources: !keyref src.de.DBAG.ISR
     -   date: !date c1975
         service: none
+
+    -   date: !!null
+        site: !noderef path.de.45000 vor
+
 
 ---
 key: point.de.Wolfsburg-Hbf
@@ -1839,24 +2230,35 @@ events:
         status: open
         sources: !keyref src.de.WP.Wolfsburg-Hauptbahnhof
     -   date: !!null
+        name: Rothenfelde-Wolfsburg
+        de.lknr: 13 299
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         location: !keyloc line.de.45000 181,28
         sources: src.de.DRG.Han.1931
     -   date: !!null
         category: de.Bf
         de.Rangklasse: III
-        name: Rothenfelde-Wolfsburg
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 13 017
         sources: !keyref src.de.Bfv.1933
     -   date: !date c1950
         name: Wolfsburg
+        sources: !keyref src.de.DS100.1982
     -   date: !!null
         de.DS100: HWOB
-        sources: !keyref src.de.TPP.2006
+        de.dstnr: !!str 130179
+        sources: !keyref src.de.DS100.1982
     -   date: !date 2007-08-25
         name: Wolfsburg Hbf
         sources:
             - !keyref src.de.WP.Wolfsburg-Hauptbahnhof
             - !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.45000 wol
+
 
 ---
 key: point.de.Fallersleben
@@ -1867,22 +2269,32 @@ events:
         name: Fallersleben Stsbf
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 13 298
+        sources: !keyref src.de.Bfv.1928
+    -   date: !date c1925
+        name: Fallersleben
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         location: !keyloc line.de.45000 185,60
         sources: src.de.DRG.Han.1931
     -   date: !!null
         category: de.Bf
         de.Rangklasse: III
-        de.lknr: 13 018
         sources: !keyref src.de.Bfv.1933
-    -   date: !date c1925
-        name: Fallersleben
+    -   date: !var lknr.30
+        de.lknr: 13 018
         sources: !keyref src.de.Bfv.1933
     -   date: !date c1940
         de.Rangklasse: II
         sources: !keyref src.de.Bfv.1944
     -   date: !!null
         de.DS100: HF
-        sources: !keyref src.de.TPP.2006
+        de.dstnr: !!str 130187
+        sources: !keyref src.de.DS100.1982
+
+    -   date: !!null
+        site: !noderef path.de.45000 fal
+
 
 ---
 key: point.de.Fallersleben-152
@@ -1896,6 +2308,10 @@ events:
     -   date: !date c1970
         status: closed
 
+    -   date: !!null
+        site: !noderef path.de.45000 fab
+
+
 ---
 key: point.de.Calberlah
 type: point
@@ -1904,19 +2320,29 @@ events:
         name: Calberlah
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 13 297
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         location: !keyloc line.de.45000 192,07
         sources: src.de.DRG.Han.1931
     -   date: !!null
         category: de.Bf
         de.Rangklasse: III
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 13 019
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
         de.DS100: HCAL
-        sources: !keyref src.de.TPP.2006
-    -   date: !date c1975
+        de.dstnr: !!str 130195
+        sources: !keyref src.de.DS100.1982
+    -   date: !date c1990
         category: de.Hp
         sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.45000 cal
+
 
 ---
 key: point.de.Gifhorn
@@ -1927,24 +2353,35 @@ events:
         name: Isenbüttel-Gifhorn
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 13 296
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: II
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 13 020
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
         location:
             - !keyloc line.de.45000 198,35
             - !keyloc line.de.13100 0,00
         sources: src.de.DRG.Han.1945
     -   date: !!null
-        category: de.Bf
-        de.Rangklasse: II
-        de.lknr: 13 020
-        sources: !keyref src.de.Bfv.1933
-    -   date: !!null
+        de.DS100: HISG
+        de.dstnr: !!str 130203
+        sources: !keyref src.de.DS100.1982
+    -   date: !date c1990
         de.DS100: HGI
-        sources: !keyref src.de.TPP.2006
-    -   date: !date c1975
         name: Gifhorn
         sources: !keyref src.de.TPP.2006
 
+    -   date: !!null
+        site: !noderef path.de.45000 gif
+
+
 ---
-key: point.de.Gifhorn-162
+key: point.de.Winkel
 type: point
 events:
     -   date: !!null
@@ -1952,8 +2389,18 @@ events:
         category: de.Bk
         name: 162
         sources: src.de.DRG.Han.1931
-    -   date: !date c1970
+    -   date: !date c1970   
+        name: Winkel
+        sources: !keyref src.de.DS100.1982
+    -   date: !!null
+        de.DS100: HWKL
+        sources: !keyref src.de.DS100.1982
+    -   date: !date c1990
         status: closed
+
+    -   date: !!null
+        site: !noderef path.de.45000 win
+
 
 ---
 key: point.de.Leiferde-Gifhorn-Uest
@@ -1971,6 +2418,10 @@ events:
         location: !keyloc line.de.45000 205,7
         sources: !keyref src.de.SuW.2005
 
+    -   date: !!null
+        site: !noderef path.de.45000 leu
+
+
 ---
 key: point.de.Leiferde-Gifhorn
 type: point
@@ -1979,19 +2430,34 @@ events:
         name: Leiferde b Gifhorn
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 13 295
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         location: !keyloc line.de.45000 206,34
         sources: src.de.DRG.Han.1931
     -   date: !!null
         category: de.Bf
         de.Rangklasse: III
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 13 023
         sources: !keyref src.de.Bfv.1933
+    -   date: !date c1938
+        name: Leiferde (b Gifhorn)
+        sources:
+            - !keyref src.de.Kb.W1937
+            - !keyref src.de.Bfv.1938
     -   date: !!null
         de.DS100: HLFG
-        sources: !keyref src.de.TPP.2006
+        de.dstnr: !!str 010237
+        sources: !keyref src.de.DS100.1982
     -   date: !date c1995
         category: de.Hp
         sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.45000 lei
+
 
 ---
 key: point.de.Meinersen-169
@@ -2005,6 +2471,10 @@ events:
     -   date: !date c1970
         status: closed
 
+    -   date: !!null
+        site: !noderef path.de.45000 meb
+
+
 ---
 key: point.de.Meinersen
 type: point
@@ -2013,16 +2483,26 @@ events:
         name: Meinersen
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 13 294
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         location: !keyloc line.de.45000 213,69
         sources: src.de.DRG.Han.1931
     -   date: !!null
         category: de.Bf
         de.Rangklasse: III
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 13 024
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
         de.DS100: HMRS
-        sources: !keyref src.de.TPP.2006
+        de.dstnr: !!str 130245
+        sources: !keyref src.de.DS100.1982
+
+    -   date: !!null
+        site: !noderef path.de.45000 mei
+
 
 ---
 key: point.de.Plockhorst
@@ -2032,22 +2512,34 @@ events:
     -   date: !date c1920
         status: open
     -   date: !!null
+        de.lknr: 13 293
+        name: Plockhorst
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         location:
             - !keyloc line.de.45000 216,97
             # 27,80/0,00
-        name: Plockhorst
         sources: src.de.DRG.Han.1931
     -   date: !!null
         category: de.Bf
         de.Rangklasse: III
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 13 025
         sources: !keyref src.de.Bfv.1933
     -   date: !date c1975
         category: de.Hp
+        sources: !keyref src.de.DS100.1982
     -   date: !!null
         de.DS100: HPLH
+        de.dstnr: !!str 130252
+        sources: !keyref src.de.DS100.1982
     -   date: !date c1995
         status: closed
+
+    -   date: !!null
+        site: !noderef path.de.45000 plo
+
 
 ---
 key: point.de.Dedenhausen
@@ -2057,19 +2549,29 @@ events:
         name: Dedenhausen
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 13 292
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         location: !keyloc line.de.45000 219,67
         sources: src.de.DRG.Han.1945
     -   date: !!null
         category: de.Bf
         de.Rangklasse: III
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 13 026
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
         de.DS100: HDEH
-        sources: !keyref src.de.TPP.2006
+        de.dstnr: !!str 130260
+        sources: !keyref src.de.DS100.1982
     -   date: !date c1985
         category: de.Hp
         sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.45000 ded
+
 
 ---
 key: point.de.Dollbergen
@@ -2078,6 +2580,9 @@ events:
     -   date: !!null
         name: Dollbergen
         sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        de.lknr: 13 291
+        sources: !keyref src.de.Bfv.1928
     -   date: !!null
         location: !keyloc line.de.45000 223,90
         sources: src.de.DRG.Han.1931
@@ -2088,7 +2593,12 @@ events:
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
         de.DS100: HDOG
-        sources: !keyref src.de.TPP.2006
+        de.dstnr: !!str 130278
+        sources: !keyref src.de.DS100.1982
+
+    -   date: !!null
+        site: !noderef path.de.45000 dol
+
 
 ---
 key: point.de.Schwueblingsen
@@ -2099,8 +2609,15 @@ events:
         category: de.Bk
         name: Schwüblingsen
         sources: !keyref src.de.DRG.Han.1945
-    -   date: !date c1970
+    -   date: !!null
+        de.DS100: HSBL
+        sources: !keyref src.de.DS100.1982
+    -   date: !date c1990
         status: closed
+
+    -   date: !!null
+        site: !noderef path.de.45000 swu
+
 
 ---
 key: point.de.Immensen-Arpke
@@ -2110,8 +2627,13 @@ events:
         name: Immensen-Arpke
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 13 290
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: III
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 13 028
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
@@ -2119,7 +2641,12 @@ events:
         sources: src.de.DRG.Han.1945
     -   date: !!null
         de.DS100: HIMS
-        sources: !keyref src.de.TPP.2006
+        de.dstnr: !!str 130286
+        sources: !keyref src.de.DS100.1982
+
+    -   date: !!null
+        site: !noderef path.de.45000 imm
+
 
 ---
 key: point.de.Immensen-189
@@ -2133,6 +2660,10 @@ events:
     -   date: !date c1970
         status: closed
 
+    -   date: !!null
+        site: !noderef path.de.45000 imb
+
+
 ---
 key: point.de.Lehrte-191
 type: point
@@ -2144,3 +2675,7 @@ events:
         sources: src.de.DRG.Han.1945
     -   date: !date c1970
         status: closed
+
+    -   date: !!null
+        site: !noderef path.de.45000 lbk
+
