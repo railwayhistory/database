@@ -1,0 +1,252 @@
+---
+key: line.de.20740
+type: line
+label: de.S-Bahn
+events:
+    -   date: !!null
+        region: !keyref org.de
+        region: !keyref org.de.l.be
+
+    -   date: !var vzg.dr
+        start: !keyref point.de.Berlin-Yorckstrasse-Strw
+        de.VzG: 6035
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        category: de.Hauptbahn
+        tracks: 2
+
+    # Konzessionen
+    #
+
+    # Eröffnungen
+    #
+    -   date: !date 1901-12-01
+        status: open
+        service: passenger
+        sources: !keyref src.de.DRG.1935
+
+    # Elektrifizierung
+    #
+    -   date: !date 1903-06-15
+        electrified:
+            rail:
+                type: DC
+                voltage: 500
+                rails: 1
+                contact: bottom
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !date 1929-07-02
+        electrified:
+            rail: !var el.de.bln
+    -   date: !date 1939-11-06?
+        end: !keyref point.de.Berlin-Yorkstrasse-Strw
+        status: closed
+    -   date: !date c1950
+        end: !keyref point.de.Berlin-Yorkstrasse-Strw
+        status: removed
+
+    # Eigentümer und Betreiber
+    #
+    -   date: !!null
+        owner: !keyref org.de.l.pre
+        operator: !keyref org.de.e.KPEV.Bln
+        sources: !keyref src.de.DRG.1935
+    
+    -   date: !date 1920-04-01
+        owner: !keyref org.de
+        operator: !keyref org.de.r.RVM.PH
+    -   date: !date 1924-02-12
+        operator: !keyref org.de.e.DREb
+    -   date: !date 1924-08-30
+        operator: !keyref org.de.e.DRG
+
+    -   date: !var org.de.DR.start
+        operator: !keyref org.dd.DR
+    -   date: !date 1984-01-09
+        operator: !keyref org.de.e.BVG
+
+    -   date: !var org.de.DBAG.start
+        owner: !keyref org.de.e.DBAG
+        operator: !keyref org.de.e.DBAG
+    -   date: !var org.de.DBNetz.start
+        owner: !keyref org.de.e.DBNetz
+        operator: !keyref org.de.e.DBNetz
+
+    # Verlauf
+    # 
+    -   date: !!null
+        course:
+            - !pathref path.de.46000 bwa  apap
+            - !pathref path.de.20740 a    f
+            - !pathref path.de.20010 fahu f
+            - !pathref path.de.31000 fhbf apri
+            - !pathref path.de.20750 a    pri
+            
+
+points:
+    - !keyref point.de.Berlin-Potsd-Ringbf                  # line.de.20760
+    - !keyref point.de.Berlin-Yorckstrasse-Strw
+    - !keyref point.de.Berlin-Yorckstrasse
+    - !keyref point.de.Berlin-Suedkreuz-Vorortbahn
+    - !keyref point.de.Berlin-Priesterweg
+
+---
+key: point.de.Berlin-Yorckstrasse-Strw
+type: point
+events:
+    -   date: !!null
+        subtype: point
+        name: Berlin Yorckstraße Strw 6034/6035
+        de.DS100: YBBYO
+        sources: !keyref src.de.TPP.2006
+    -   date: !!null
+        location:
+            - !keyloc line.de.20750 1,093
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.20010 fahu
+
+
+---
+key: point.de.Berlin-Yorckstrasse
+type: point
+events:
+    -   date: !date 1903-05-01
+        status: open
+        name: Yorkstraße
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !date 1909-11
+        name: Yorckstraße
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !!null
+        location: !keyloc line.de.20750 1,43
+        category: de.Hp
+        sources: !keyref src.de.DRG.Bln.1927
+    -   date: !!null
+        de.lknr: 03 271
+        service: no-freight
+        sources: !keyref src.de.Bfv.1928
+    -   date: !date c1930
+        category: de.Bf
+        de.Rangklasse: IV
+        sources: !keyref src.de.DRG.Bln.1932
+    -   date: !var lknr.30
+        de.lknr: 03 099
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        de.VBL: Yor
+        sources: !keyref src.de.DRG.Bln.1946
+    -   date: !date c1985
+        category: de.Hp
+        sources: !keyref src.dd.DR.Bln.1991
+    -   date: !var ds100.dr
+        name: BYOR
+        sources: !keyref src.de.TPP.2006
+    -   date: !date c2010
+        category: [ de.Hp, de.Bft ]
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !mapref path.de.20010 yor
+
+
+---
+key: point.de.Berlin-Suedkreuz-Vorortbahn
+type: point
+events:
+    -   date: !date 1901-12-01
+        status: open
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !!null
+        name: Papestraße
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        location: !keyloc line.de.20750 3,48
+        category: de.Hp
+        sources: !keyref src.de.DRG.Bln.1927
+    -   date: !!null
+        de.lknr: 03 216
+        service: no-freight
+        sources: !keyref src.de.Bfv.1928
+    -   date: !date c1930
+        category: de.Bf
+        de.Rangklasse: IV
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 03 039
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        de.VBL: Par
+        sources: !keyref src.de.DRG.Bln.1946
+    -   date: !date c1950
+        de.Rangklasse: U
+        master: !keyref point.de.Berlin-Tempelhof
+        sources: !keyref src.dd.DR.Bln.1959
+    -   date: !date c1995
+        category: de.Bft
+        name: Berlin Papestraße (Vorortbahn)
+        de.DS100: BPAPV
+    -   date: !date 2006-05-27?
+        category: de.Bf
+        name: Berlin Südkreuz (Vorortbahn)
+        de.DS100: BSKV
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !mapref path.de.31000 skr
+
+
+---
+key: point.de.Berlin-Priesterweg
+type: point
+junction: True
+events:
+    -   date: !!null
+        location:
+            - !keyloc line.de.20740 5,04
+            - !keyloc line.de.20750 4,97
+            - !keyloc line.de.20760 5,04
+        category: de.Abzw
+        name: Zga
+        note: Zossener Gabelung
+        sources: !keyref src.de.DRG.Bln.1927
+    -   date: !date 1928-10-07
+        location:
+            - !keyloc line.de.20740 5,19
+            - !keyloc line.de.20750 5,19
+            - !keyloc line.de.20760 5,19
+        category: de.Bf
+        de.Rangklasse: IV
+        name: Priesterweg
+        sources:
+            - !keyref src.de.DRG.Bln.1932
+            - !keyref src.de.Kuhlmann.2000
+    -   date: !date 1928-10-07
+        service: passenger
+        sources: !keyrey src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 03 076
+        sources: !keyref src.de.Bfv.1933
+    -   date: !date 1928-10-07
+        de.VBL: Pr
+        sources: !keyref src.de.DRG.Bln.1946
+    -   date: !date c1950
+        de.Rangklasse: U
+        master: !keyref point.de.Berlin-Tempelhof-Rbf
+        sources:
+            - !keyref src.dd.DR.Bln.1953
+            - !keyref src.dd.DR.Bln.1959
+    -   date: !date c1965
+        master: !keyref point.de.Berlin-Tempelhof
+        sources: !keyref src.dd.DR.Bln.1965
+    -   date: !var ds100.dr
+        de.DS100: BPRS
+        sources: !keyref src.de.TPP.2006
+
+    -   date: !!nul
+        site: !noderef path.de.20750 pri
+
+
+

@@ -1,0 +1,412 @@
+# S-Bahn Priesterweg - Lichterfelde Süd - Ludwigsfelde
+#
+---
+key: line.de.20760
+type: line
+label: de.S-Bahn
+events:
+    -   date: !!null
+        region: !keyref org.de
+    -   date: !!null
+        end: !keyref point.de.Berlin-Lichterfelde-Sued-LGr
+        region: !keyref org.de.l.be
+    -   date: !!null
+        start: !keyref point.de.Berlin-Lichterfelde-Sued-LGr
+        region: !keyref org.de.l.bb
+
+    -   date: !var vzg.dr
+        de.VzG: 6036
+        sources: !keyref src.de.VzG
+
+    -   date: !!null
+        category: de.Hauptbahn
+        tracks: 2
+
+    # Konzessionen
+    #
+
+    # Eröffnungen und Elektrifizierung
+    #
+    -   date: !date 1901-12-01
+        end: !keyref point.de.Berlin-Lichterfelde-Ost
+        status: open
+        service: passenger
+        sources: !keyref src.de.DRG.1935
+
+    -   date: !date 1903-06-15
+        end: !keyref point.de.Berlin-Lichterfelde-Ost
+        electrified:
+            rail:
+                type: DC
+                voltage: 500
+                rails: 1
+                contact: bottom
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !date 1929-07-02
+        end: !keyref point.de.Berlin-Lichterfelde-Ost
+        electrified:
+            rail: !var el.de.bln
+
+    -   date: !date 1943-08-09
+        start: !keyref point.de.Berlin-Lichterfelde-Ost
+        status: open
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !date 1943-08-09
+        start: !keyref point.de.Berlin-Lichterfelde-Ost
+        end: !keyref point.de.Berlin-Lichterfelde-Sued
+        electrified:
+            rail: !var el.de.bln
+        sources: !keyref src.de.Kuhlmann.2000
+
+    # Nach 1945
+    #
+    -   date: !date c1945
+        start: !keyref point.de.Teltow
+        status: removed
+    -   date: !date 1951-07-07
+        start: !keyref point.de.Berlin-Lichterfelde-Sued
+        end: !keyref point.de.Teltow
+        electrified:
+            rail: !var el.de.bln
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !date 1961-08-13
+        start: !keyref point.de.Berlin-Lichterfelde-Sued
+        end: !keyref point.de.Teltow
+        status: closed
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !date c1962
+        start: !keyref point.de.Berlin-Lichterfelde-Sued
+        end: !keyref point.de.Teltow
+        status: removed
+    -   date: !date 1984-09-01
+        end: !keyref point.de.Berlin-Lichterfelde-Sued
+        status: suspended
+        sources: !keyref src.de.Kuhlmann.2000
+
+    #   Nach 1989
+    #
+    -   date: !date 1995-05-28
+        end: !keyref point.de.Berlin-Lichterfelde-Ost
+        status: open
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !date 1998-09-25
+        start: !keyref point.de.Berlin-Lichterfelde-Ost
+        end: !keyref point.de.Berlin-Lichterfelde-Sued
+        status: open
+        sources: !keyref src.de.Kuhlmann.2000
+
+    # Eigentümer und Betreiber
+    #
+    -   date: !!null
+        end: !keyref point.de.Berlin-Lichterfelde-Ost
+        owner: !keyref org.de.l.pre
+        operator: !keyref org.de.e.KPEV.Bln
+        sources: !keyref src.de.DRG.1935
+    
+    -   date: !date 1920-04-01
+        end: !keyref point.de.Berlin-Lichterfelde-Ost
+        owner: !keyref org.de
+        operator: !keyref org.de.r.RVM.PH
+    -   date: !date 1924-02-12
+        end: !keyref point.de.Berlin-Lichterfelde-Ost
+        operator: !keyref org.de.e.DREb
+    -   date: !date 1924-08-30
+        end: !keyref point.de.Berlin-Lichterfelde-Ost
+        operator: !keyref org.de.e.DRG
+
+    -   date: !!null
+        start: !keyref point.de.Berlin-Lichterfelde-Ost
+        owner: !keyref org.de
+        operator: !keyref org.de.e.DRG
+
+    -   date: !date 1949-10-07
+        start: !keyref point.de.Berlin-Lichterfelde-Sued-LGr
+        owner: !keyref org.dd
+    -   date: !var org.de.DR.start
+        operator: !keyref org.dd.DR
+    -   date: !date 1990-10-03
+        start: !keyref point.de.Berlin-Lichterfelde-Sued-LGr
+        owner: !keyref org.de
+    -   date: !date 1984-01-09
+        operator: !keyref org.de.e.BVG
+
+    -   date: !var org.de.DBAG.start
+        owner: !keyref org.de.e.DBAG
+        operator: !keyref org.de.e.DBAG
+    -   date: !var org.de.DBNetz.start
+        owner: !keyref org.de.e.DBNetz
+        operator: !keyref org.de.e.DBNetz
+
+    # Verlauf
+    #
+    -   date: !!null
+        course:
+            - !pathref path.de.20750 pri  alic
+            - !pathref path.de.31000 fpri lud
+
+points:
+    - !keyref point.de.Berlin-Priesterweg                   # line.de.20740
+    - !keyref point.de.Berlin-Suedende                      # line.de.31000
+    - !keyref point.de.Berlin-Lankwitz
+    - !keyref point.de.Berlin-Lichterfelde-Ost
+    - !keyref point.de.Berlin-Osdorfer-Strasse
+    - !keyref point.de.Berlin-Lichterfelde-Sued
+    - !keyref point.de.Berlin-Lichterfelde-Sued-LGr
+    - !keyref point.de.Teltow                               # line.de.31000
+    - !keyref point.de.Grossbeeren-Nord
+    - !keyref point.de.Birkengrund                          # line.de.31000
+    - !keyref point.de.Birkengrund-Sued-Hp
+    - !keyref point.de.Ludwigsfelde                         # line.de.31000
+
+
+---
+key: point.de.Berlin-Lankwitz
+type: point
+events:
+    -   date: !date 1895-12-01
+        status: open
+        name: Lankwitz Victoriastraße
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !date 1899-10-01
+        name: Lankwitz
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !!null
+        location: !keyloc line.de.31000 7,8
+    -   date: !date 1901-12-01
+        location: !keyloc line.de.31000 -
+    -   date: !!null
+        location: !keyloc line.de.20760 7,93
+        category: de.Hp
+        sources: !keyref src.de.DRG.Bln.1927
+    -   date: !!null
+        de.lknr: 03 277
+        service: no-freight
+        sources: !keyref src.de.Bfv.1928
+    -   date: !var lknr.30
+        de.lknr: 03 101
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        de.VBL: Lak
+        sources: !keyref src.de.DRG.Bln.1946
+    -   date: !date c1950
+        de.Rangklasse: U
+        master: !keyref point.de.Berlin-Lichterfelde-Ost
+        sources:
+            - !keyref src.dd.DR.Bln.1953
+            - !keyref src.dd.DR.Bln.1959
+    -   date: !date 1984-01-09
+        service: none
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !var ds100.dr
+        de.DS100: BLAK
+        sources: !keyref src.de.TPP.2006
+    -   date: !date 1995-05-28
+        service: passenger
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !date c2000
+        name: Berlin-Lankwitz
+        sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.31000 lan
+
+
+---
+key: point.de.Berlin-Lichterfelde-Ost
+type: point
+events:
+    -   date: !date 1986-09-20
+        status: open
+        name: Lichterfelde
+        sources: !keyref src.de.web.Stadtschnellbahn-Berlin
+    -   date: !date 1884-07-15
+        name: Groß-Lichterfelde
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !date 1886-09-01
+        name: Groß-Lichterfelde B.H.
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !date 1889-01-01
+        name: Groß-Lichterfelde Ost
+        sources: !keyref src.de.web.Dudczak
+    -   date: !date 1925-03-01
+        name: Lichterfelde Ost
+        sources: !keyref src.de.web.Dudczak
+    -   date: !!null
+        location:
+            - !keyloc line.de.20200 9,21
+            - !keyloc line.de.20760 9,32
+            - !keyloc line.de.31000 9,21
+        category: de.Bf
+        de.Rangklasse: II
+        sources: !keyref src.de.DRG.Bln.1927
+    -   date: !!null
+        de.lknr: 03 118
+        sources: !keyref src.de.Bfv.1928
+    -   date: !var lknr.30
+        de.lknr: 03 102
+        sources: !keyref src.de.Bfv.1933
+    -   date: !date 1936-05-15
+        name: Berlin-Lichterfelde Ost
+        sources: !keyref src.de.web.Dudczak
+    -   date: !!null
+        de.VBL: Lio
+        sources: !keyref src.de.DRG.Bln.1946
+    -   date: !date c1965
+        de.Rangklasse: III
+        sources: !keyref src.dd.DR.Bln.1968
+    -   date: !date 1984-01-09
+        service: no-passenger
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !var ds100.dr
+        de.DS100: BLIO
+        sources: !keyref src.de.TPP.2006
+    -   date: !date 1995-05-28
+        service: passenger
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !date c1995
+        location: !keyloc line.de.31000 -
+    -   date: !date c2005
+        name: Berlin-Lichterfelde Ost (S-Bahn)
+        sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.31000 lio
+
+
+---
+key: point.de.Berlin-Osdorfer-Strasse
+type: point
+events:
+    -   date: !date 1998-09-25
+        status: open
+        sources: !keyref src.de.web.Dudczak
+    -   date: !!null
+        location: !keyloc line.de.20760 10,740
+        category: de.Hp
+        name: Berlin Osdorfer Straße
+        de.DS100: BOSS
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.31000 osd
+
+
+---
+key: point.de.Berlin-Lichterfelde-Sued
+type: point
+junction: True
+events:
+    -   date: !date 1893-08-01
+        status: open
+        name: Groß-Lichterfelde Süd
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !date 1925-03-21
+        name: Lichterfelde Süd
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !!null
+        location: !keyloc line.de.31000 11,61
+        category: de.Hp
+        sources: !keyref src.de.DRG.Bln.1927
+    -   date: !!null
+        de.lknr: 03 278
+        service: no-freight
+        sources: !keyref src.de.Bfv.1928
+    -   date: !var lknr.30
+        de.lknr: 03 104
+        sources: !keyref src.de.Bfv.1933
+    -   date: !date 1943-08-09?
+        location:
+            - !keyloc line.de.31000 -
+    -   date: !!null
+        de.VBL: Lis
+        sources: !keyref src.de.DRG.Bln.1946
+    -   date: !!null
+        location: !keyloc line.de.20760 11,7
+        sources: !keyref src.dd.DR.Bln.1959
+    -   date: !date c1950
+        category: de.Bf
+        de.Rangklasse: U
+        master: !keyref point.de.Berlin-Lichterfelde-Ost
+        sources:
+            - !keyref src.dd.DR.Bln.1953
+            - !keyref src.dd.DR.Bln.1959
+    -   date: !date 1984-01-09
+        service: no-passenger
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !var ds100.dr
+        de.DS100: BLIS
+        sources: !keyref src.de.TPP.2006
+    -   date: !date 1998-09-25
+        service: passenger
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !date 1998-09-25
+        category: de.Hp
+    -   date: !date 2005-02-24?
+        category: de.Bf
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.31000 lis
+
+---
+key: point.de.Berlin-Lichterfelde-Sued-LGr
+type: point
+events:
+    -   date: !!null
+        subtype: border
+    -   date: !!null
+        name: Berlin-Lichterfelde Süd BE/BB
+        de.DS100: BQLI
+        sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.31000 gtel
+
+
+---
+key: point.de.Grossbeeren-Nord
+type: point
+events:
+    -   date: !date 1943-08-09?
+        status: open
+        name: Großbeeren Nord
+        category: de.Hp
+        sources: !keyref src.de.DRG.Bln.1943
+
+    -   date: !!null
+        site: !noderef path.de.31000 gbn
+
+
+---
+key: point.de.Birkengrund-Sued-Hp
+type: point
+events:
+    -   date: !date 1938-12-01
+        status: open
+        name: Birkengrund
+        category: de.Hp
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !!null
+        location: !keyloc line.de.31000 22,5
+    -   date: !date 1943-08-09
+        name: Birkengrund Süd
+        location:
+            - !keyloc line.de.20760 22,5
+            - !keyloc line.de.31000 -
+        sources:
+            - !keyref src.de.Kuhlmann.2000
+            - !keyref src.de.DRG.Bln.1943
+    -   date: !!null
+        de.lknr: 03 117
+        service: passenger
+        sources: !keyref src.de.Bfv.1944
+    -   date: !!null
+        de.VBL: Bg
+        sources: !keyref src.de.DRG.Bln.1946
+    -   date: !date c1950
+        de.VBL: Bgs
+        sources: !keyref src.dd.DR.Bln.1953
+
+    -   date: !!null
+        site: !noderef path.de.31000 bis
+

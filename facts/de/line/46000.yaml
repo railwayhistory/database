@@ -283,12 +283,14 @@ events:
         owner: !keyref org.de.e.DBNetz
         operator: !keyref org.de.e.DBNetz
 
+    -   date: !!null
+        course:
+            - !pathref path.de.46000 bpo f
+            - !pathref path.de.44000 feis soe
+
 points:
     - !keyref point.de.Berlin-Potsd-Bf
-    - !keyref point.de.Berlin-Potsd-Bf-Poo
-    - !keyref point.de.Berlin-Potsd-Bf-Pom
     - !keyref point.de.Berlin-Potsd-Gbf
-    - !keyref point.de.Berlin-Potsd-Bf-Pos
     - !keyref point.de.Berlin-Kolonnenstrasse               # line.de.20950
     - !keyref point.de.Berlin-Schoeneberg-Bk-7
     - !keyref point.de.Berlin-Rathaus-Steglitz
@@ -300,11 +302,11 @@ points:
     - !keyref point.de.Berlin-Stolperweg
     - !keyref point.de.Potsdam-Griebnitzsee-LGr-46000
     - !keyref point.de.Potsdam-Griebnitzsee
-    - !keyref point.de.Potsdam-Babelsberg
+    - !keyref point.de.Potsdam-Babelsberg                   # line.de.20790
     - !keyref point.de.Potsdam-Hbf
     - !keyref point.de.Potsdam-Charlottenhof
-    - !keyref Potsdam-Wildpark-Ost
-    - !keyref Potsdam-Park-Sanssouci
+    - !keyref point.de.Potsdam-Wildpark-Ost
+    - !keyref point.de.Potsdam-Park-Sanssouci
     - !keyref point.de.Kuhfort
     - !keyref point.de.Werder-Havel
     - !keyref point.de.Kemnitz-Werder
@@ -368,12 +370,18 @@ events:
         de.Rangklasse: I
         sources: !keyref src.de.DRG.Bln.1927
     -   date: !!null
-        tags: de.b
+        de.lknr: 03 279
+        service: no-freight
+        sources: !keyref src.de.Bfv.1928
+    -   date: !date c1925
+        name: Berlin Potsdamer Bf
+        sources: !keyref src.de.Bfv.1928
+    -   date: !date c1930
+        service: freight
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 03 119
         sources: !keyref src.de.Bfv.1933
-    -   date: !date c1940
-        tags: []
-        sources: !keyref src.de.Bfv.1944
     -   date: !!null
         de.VBL: Pof
         sources: !keyref src.de.DRG.Bln.1946
@@ -381,33 +389,9 @@ events:
         status: closed
         sources: !keyref src.de.Kuhlmann.2000
 
----
-key: point.de.Berlin-Potsd-Bf-Poo
-type: point
-events:
     -   date: !!null
-        location: !keyloc line.de.46000 0,5
-        category: de.Stw
-        subtype: signalbox
-        name: Poo
-        master: !keyref point.de.Berlin-Potsd-Bf
-        sources: !keyref src.de.DRG.Bln.1943
-    -   date: !date c1945
-        status: closed
+        site: !noderef path.de.46000 bpo
 
----
-key: point.de.Berlin-Potsd-Bf-Pom
-type: point
-events:
-    -   date: !!null
-        location: !keyloc line.de.46000 0,88
-        category: de.Stw
-        subtype: signalbox
-        name: Pom
-        master: !keyref point.de.Berlin-Potsd-Bf
-        sources: !keyref src.de.DRG.Bln.1943
-    -   date: !date c1945
-        status: closed
 
 ---
 key: point.de.Berlin-Potsd-Gbf
@@ -422,9 +406,15 @@ events:
         de.Rangklasse: I
         sources: !keyref src.de.DRG.Bln.1927
     -   date: !!null
+        de.lknr: 03 121
+        service: no-passenger
+        sources: !keyref src.de.Bfv.1928
+    -   date: !date c1930
         category: de.Ga
-        de.lknr: 03 122
         master: !keyref point.de.Berlin-Potsd-Bf
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 03 122
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
         de.VBL: Pog
@@ -433,21 +423,9 @@ events:
         service: none
         sources: !keyref src.de.Kuhlmann.2000
 
----
-key: point.de.Berlin-Potsd-Bf-Pos
-type: point
-events:
     -   date: !!null
-        location:
-            - !keyloc line.de.20150 1,8
-            - !keyloc line.de.46000 1,8
-        category: de.Stw
-        subtype: signalbox
-        name: Pos
-        master: !keyref point.de.Berlin-Potsd-Bf
-        sources: !keyref src.de.DRG.Bln.1943
-    -   date: !date c1945
-        status: closed
+        site: !noderef path.de.46000 bpg
+
 
 ---
 key: point.de.Berlin-Schoeneberg-Bk-7
@@ -462,6 +440,10 @@ events:
         sources: !keyref src.de.DRG.Bln.1932
     -   date: !date c1935
         status: closed
+
+    -   date: !!null
+        site: !noderef path.de.46000 vii
+
 
 ---
 key: point.de.Berlin-Steglitz-Gbf
@@ -501,6 +483,10 @@ events:
     -   date: !var ds100.dr
         de.DS100: BSTZ
         sources: !keyref src.de.SuW.2005
+
+    -   date: !!null
+        site: !noderef path.de.46000 stg
+
 
 ---
 key: point.de.Berlin-Lichterfelde-West
@@ -558,6 +544,10 @@ events:
     -   date: !date c2010
         location: !keyloc line.de.20780 -
 
+    -   date: !!null
+        site: !noderef path.de.46000 lic
+
+
 ---
 key: point.de.Berlin-Zehlendorf
 type: point
@@ -598,6 +588,10 @@ events:
         de.DS100: BZD
         sources: !keyref src.de.TPP.2006
 
+    -   date: !!null
+        site: !noderef path.de.46000 zeh
+
+
 ---
 key: point.de.Berlin-Zehlendorf-Sued
 type: point
@@ -613,6 +607,10 @@ events:
         sources: !keyref src.dd.DR.Bln.1973
     -   date: !var ds100.dr
         de.DS100: BZFS
+
+    -   date: !!null
+        site: !noderef path.de.46000 zes
+
 
 ---
 key: point.de.Berlin-Dueppel
@@ -651,6 +649,25 @@ events:
     -   date: !var ds100.dr
         de.DS100: BDP
 
+    -   date: !!null
+        site: !noderef path.de.46000 due
+
+
+---
+key: point.de.Berlin-Dueppel-LGr
+type: point
+events:
+    -   date: !!null
+        subtype: border
+        name: Düppel LGr
+    -   date: !!null
+        location: !keyloc line.de.46500 46,624
+        sources: !keyref src.dd.DR.Bln.1978
+
+    -   date: !!null
+        site: !noderef path.de.46000 gdue
+
+
 ---
 key: point.de.Machnow
 type: point
@@ -666,6 +683,22 @@ events:
     -   date: !date c1940
         de.VBL: Mch
         sources: !keyref src.de.DRG.Bln.1946
+
+    -   date: !!null
+        site: !noderef path.de.46000 mac
+
+
+---
+key: point.de.Berlin-Stolperweg-LGr
+type: point
+events:
+    -   date: !!null
+        subtype: border
+        name: Stolperweg LGr
+
+    -   date: !!null
+        site: !noderef path.de.46000 gsto
+
 
 ---
 key: point.de.Berlin-Stolperweg
@@ -683,6 +716,10 @@ events:
         de.VBL: Sw
         sources: !keyref src.de.DRG.Bln.1946
 
+    -   date: !!null
+        site: !noderef path.de.46000 sto
+
+
 ---
 key: point.de.Potsdam-Griebnitzsee-LGr-46000
 type: point
@@ -692,9 +729,10 @@ events:
     -   date: !!null
         location: !keyloc line.de.46000 20,84
         sources: !keyref src.dd.DR.Bln.1953
+
     -   date: !!null
-        name: Potsdam Griebnitzsee BE/BB 6177
-        de.DS100: BQGBZ
+        site: !noderef path.de.46000 ggri
+
 
 ---
 key: point.de.Potsdam-Griebnitzsee
@@ -714,8 +752,10 @@ events:
         name: Neubabelsberg
         sources: !keyref src.de.DRG.Bln.1927
     -   date: !!null
+        de.lknr: 03 032
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 03 137
-        tags: de.b
         sources: !keyref src.de.Bfv.1933
     -   date: !date 1938-04-01
         name: Babelsberg-Ufastadt
@@ -744,6 +784,10 @@ events:
     -   date: !date c2007
         location: !keyloc line.de.20790 -
 
+    -   date: !!null
+        site: !noderef path.de.46000 gri
+
+
 ---
 key: point.de.Potsdam-Hbf
 type: point
@@ -758,6 +802,9 @@ events:
         name: Potsdam
         sources: !keyref src.de.DRG.Bln.1927
     -   date: !!null
+        de.lknr: 03 031
+        sources: !keyref src.de.Bfv.1928
+    -   date: !var lknr.30
         de.lknr: 03 139
         sources: !keyref src.de.Bfv.1933
     -   date: !date c1940
@@ -781,6 +828,10 @@ events:
     -   date: !date c2007
         location: !keyloc line.de.20790 -
 
+    -   date: !!null
+        site: !noderef path.de.46000 pot
+
+
 ---
 key: point.de.Potsdam-Charlottenhof
 type: point
@@ -794,13 +845,15 @@ events:
         de.Rangklasse: IV
         name: Charlottenhof b Potsdam
         sources: !keyref src.de.DRG.Bln.1927
+    -   date: !!null
+        de.lknr: 03 228
+        service: no-freight
+        sources: !keyref src.de.Bfv.1928
     -   date: !date c1930
         de.Rangklasse: III
         sources: !keyref src.de.DRG.Bln.1932
-    -   date: !!null
+    -   date: !var lknr.30
         de.lknr: 03 141
-        service: no-freight
-        tags: de.og
         sources: !keyref src.de.Bfv.1933
     -   date: !date c1944
         category: de.Hp
@@ -824,8 +877,12 @@ events:
         de.DS100: BPDC
         sources: !keyref src.de.TPP.2006
 
+    -   date: !!null
+        site: !noderef path.de.46000 cha
+
+
 ---
-key: Potsdam-Wildpark-Ost
+key: point.de.Potsdam-Wildpark-Ost
 type: point
 junction: True
 events:
@@ -846,9 +903,12 @@ events:
         de.DS100: BWPO
         sources: !keyref src.de.TPP.2006
 
+    -   date: !!null
+        site: !noderef path.de.46000 wpo
+
 
 ---
-key: Potsdam-Park-Sanssouci
+key: point.de.Potsdam-Park-Sanssouci
 type: point
 junction: True
 events:
@@ -865,6 +925,9 @@ events:
         de.Rangklasse: II
         sources: !keyref src.de.DRG.Bln.1927
     -   date: !!null
+        de.lknr: 03 030
+        sources: !keyref src.de.Bfv.1928
+    -   date: !var lknr.30
         de.lknr: 03 142
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
@@ -882,6 +945,10 @@ events:
     -   date: !date 1999-05-30
         name: Potsdam Park Sanssouci
         sources: !keyref src.de.Kuhlmann.2000
+
+    -   date: !!null
+        site: !noderef path.de.46000 san
+
 
 ---
 key: point.de.Kuhfort
@@ -903,6 +970,10 @@ events:
     -   date: !date 1959-02-06
         status: closed
 
+    -   date: !!null
+        site: !noderef path.de.46000 kuh
+
+
 ---
 key: point.de.Werder-Havel
 type: point
@@ -920,6 +991,9 @@ events:
         de.Rangklasse: II
         sources: !keyref src.de.DRG.Bln.1927
     -   date: !!null
+        de.lknr: 03 033
+        sources: !keyref src.de.Bfv.1928
+    -   date: !var lknr.30
         de.lknr: 03 143
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
@@ -931,6 +1005,10 @@ events:
     -   date: !var ds100.dr
         de.DS100: BWE
         sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.46000 wer
+
 
 # 36,60 Dir-Gr Bln/Mg bis 1931-09-30
 
@@ -962,6 +1040,9 @@ events:
     -   date: !date c1995
         status: closed
 
+    -   date: !!null
+        site: !noderef path.de.46000 kem
+
 ---
 key: point.de.Gross-Kreutz
 type: point
@@ -990,6 +1071,10 @@ events:
     -   date: !var ds100.dr
         de.DS100: LGZ
         sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.46000 gkr
+
 
 ---
 key: point.de.Goetz
@@ -1028,6 +1113,10 @@ events:
         category: de.Hp
         sources: !keyref src.de.DBAG.ISR
 
+    -   date: !!null
+        site: !noderef path.de.46000 goe
+
+
 ---
 key: point.de.Gollwitz
 type: point
@@ -1055,6 +1144,10 @@ events:
         de.DS100: LGWZ
     -   date: !date c1995
         status: closed
+
+    -   date: !!null
+        site: !noderef path.de.46000 gol
+
 
 ---
 key: point.de.Brandenburg-Hbf
@@ -1095,6 +1188,10 @@ events:
         de.DS100: LB
         sources: !keyref src.de.TPP.2006
 
+    -   date: !!null
+        site: !noderef path.de.46000 bra
+
+
 ---
 key: point.de.Wilhelmsdorf-Brandenburg
 type: point
@@ -1109,6 +1206,10 @@ events:
         sources: !keyref src.de.DRG.Bln.1946
     -   date: !date c1950
         status: closed
+
+    -   date: !!null
+        site: !noderef path.de.46000 wil
+
 
 ---
 key: point.de.Malge
@@ -1135,6 +1236,10 @@ events:
     -   date: !date c1995
         status: closed
 
+    -   date: !!null
+        site: !noderef path.de.46000 mal
+
+
 ---
 key: point.de.Graenert
 type: point
@@ -1149,6 +1254,10 @@ events:
         sources: !keyref src.de.Kb.1914
     -   date: !date 1916?
         status: closed
+
+    -   date: !!null
+        site: !noderef path.de.46000 gra
+
 
 
 ---
@@ -1186,6 +1295,10 @@ events:
         de.DS100: LKIM
         sources: !keyref src.de.TPP.2006
 
+    -   date: !!null
+        site: !noderef path.de.46000 kir
+
+
 ---
 key: point.de.Wusterwitz
 type: point
@@ -1219,6 +1332,10 @@ events:
         de.DS100: LWUZ
         sources: !keyref src.de.TPP.2006
 
+    -   date: !!null
+        site: !noderef path.de.46000 wus
+
+
 ---
 key: point.de.Herrenhoelzer
 type: point
@@ -1240,6 +1357,10 @@ events:
     -   date: !date c1995
         status: closed
 
+    -   date: !!null
+        site: !noderef path.de.46000 heh
+
+
 ---
 key: point.de.Wusterwitz-LGr
 type: point
@@ -1248,6 +1369,10 @@ events:
         subtype: border
         name: Wusterwitz BB/ST
         de.DS100: LQWU
+
+    -   date: !!null
+        site: !noderef path.de.46000 wus
+
 
 ---
 key: point.de.Kade
@@ -1292,6 +1417,10 @@ events:
         de.DS100: LKE
         sources: !keyref src.de.TPP.2006
 
+    -   date: !!null
+        site: !noderef path.de.46000 kad
+
+
 ---
 key: point.de.Belicke
 type: point
@@ -1318,6 +1447,10 @@ events:
         sources: !keyref src.dd.DR.1989
     -   date: !date c1995
         status: closed
+
+    -   date: !!null
+        site: !noderef path.de.46000 bel
+
 
 ---
 key: point.de.Genthin
@@ -1348,6 +1481,10 @@ events:
         de.DS100: LGN
         sources: !keyref src.de.TPP.2006
 
+    -   date: !!null
+        site: !noderef path.de.46000 gen
+
+
 ---
 key: point.de.Altenplathow
 type: point
@@ -1365,6 +1502,10 @@ events:
         sources: !keyref src.dd.DR.1989
     -   date: !date c1995
         status: closed
+
+    -   date: !!null
+        site: !noderef path.de.46000 alt
+
 
 ---
 key: point.de.Bergzow-Parchen
@@ -1384,12 +1525,6 @@ events:
     -   date: !date 1931-10-01
         de.lknr: 03 153
         sources: !keyref src.de.Bfv.1933
-    -   date: !date c1930
-        tags: de.b
-        sources: !keyref src.de.Bfv.1933
-    -   date: !date c1940
-        tags: []
-        sources: !keyref src.de.Bfv.1944
     -   date: !!null
         de.VBL: Pn
         sources: !keyref src.dd.DR.1976
@@ -1402,6 +1537,10 @@ events:
         category: de.Hp
     -   date: !date c2000
         status: closed
+
+    -   date: !!null
+        site: !noderef path.de.46000 ber
+
 
 ---
 key: point.de.Parey-Bk
@@ -1420,6 +1559,10 @@ events:
         sources: !keyref src.dd.DR.1989
     -   date: !date c1995
         status: closed
+
+    -   date: !!null
+        site: !noderef path.de.46000 pab
+
 
 ---
 key: point.de.Guesen
@@ -1457,6 +1600,10 @@ events:
         de.DS100: LGSN
         sources: !keyref src.de.TPP.2006
 
+    -   date: !!null
+        site: !noderef path.de.46000 gue
+
+
 ---
 key: point.de.Parchau
 type: point
@@ -1479,6 +1626,10 @@ events:
         sources: !keyref src.dd.DR.1989
     -   date: !date c1995
         status: closed
+
+    -   date: !!null
+        site: !noderef path.de.46000 pau
+
 
 ---
 key: point.de.Burg-Magdeburg
@@ -1518,6 +1669,10 @@ events:
         de.DS100: LBU
         sources: !keyref src.de.TPP.2006
 
+    -   date: !!null
+        site: !noderef path.de.46000 bur
+
+
 ---
 key: point.de.Detershagen
 type: point
@@ -1532,6 +1687,10 @@ events:
         sources: !keyref src.dd.DR.1976
     -   date: !date c1995
         status: closed
+
+    -   date: !!null
+        site: !noderef path.de.46000 det
+
 
 ---
 key: point.de.Moeser
@@ -1561,6 +1720,10 @@ events:
         de.DS100: LMOS
         sources: !keyref src.de.TPP.2006
 
+    -   date: !!null
+        site: !noderef path.de.46000 moe
+
+
 ---
 key: point.de.Gerwisch
 type: point
@@ -1588,6 +1751,10 @@ events:
     -   date: !var ds100.dr
         de.DS100: LGWS
         sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.46000 ger
+
 
 
 # 132,20: Dir-Gr Bln/Han 1931-10-01 bis 1945-08-17
@@ -1621,6 +1788,10 @@ events:
         de.DS100: LBZ
         sources: !keyref src.de.TPP.2006
 
+    -   date: !!null
+        site: !noderef path.de.46000 bie
+
+
 ---
 key: point.de.Magdeburg-Herrenkrug-Bk
 type: point
@@ -1635,6 +1806,10 @@ events:
         status: closed
         sources: !keyref src.dd.DR.1989
 
+    -   date: !!null
+        site: !noderef path.de.46000 heb
+
+
 ---
 key: point.de.Magdeburg-Herrenkrug
 type: point
@@ -1647,6 +1822,10 @@ events:
         name: Magdeburg-Herrenkrug
         de.DS100: LMHR
         sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.46000 her
+
 
 ---
 key: point.de.Magdeburg-Bruecke
@@ -1669,6 +1848,10 @@ events:
     -   date: !var ds100.dr
         de.DS100: LBRC
         sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.46000 bru
+
 
 ---
 key: point.de.Magdeburg-Neustadt
@@ -1706,6 +1889,10 @@ events:
         de.DS100: LMN
         sources: !keyref src.de.TPP.2006
 
+    -   date: !!null
+        site: !noderef path.de.46000 neu
+
+
 ---
 key: point.de.Magdeburg-Hbf
 type: point
@@ -1732,6 +1919,10 @@ events:
     -   date: !var ds100.dr
         de.DS100: LM
         sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.46000 mag
+
 
 ---
 key: point.de.Magdeburg-Sudenburg
@@ -1765,6 +1956,10 @@ events:
     -   date: !var ds100.dr
         de.DS100: LMS
         sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.46000 sud
+
         
 ---
 key: point.de.Diesdorf
@@ -1777,6 +1972,10 @@ events:
         sources: !keyref src.dd.DR.1976
     -   date: !date c1995
         status: closed
+
+    -   date: !!null
+        site: !noderef path.de.46000 die
+
 
 ---
 key: point.de.Niederndodeleben
@@ -1805,6 +2004,10 @@ events:
     -   date: !var ds100.dr
         de.DS100: LNR
         sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.46000 nie
+
 
 ---
 key: point.de.Wellen-Magdeburg
@@ -1845,6 +2048,10 @@ events:
         category: [ de.Hp, de.Uest ]
         sources: !keyref src.de.DBAG.ISR
 
+    -   date: !!null
+        site: !noderef path.de.46000 wel
+
+
 ---
 key: point.de.Ochtmersleben
 type: point
@@ -1876,6 +2083,10 @@ events:
         category: de.Hp
         sources: !keyref src.de.SuW.2005
 
+    -   date: !!null
+        site: !noderef path.de.46000 och
+
+
 ---
 key: point.de.Dreileben-Drakenstedt
 type: point
@@ -1904,6 +2115,10 @@ events:
         de.DS100: LDD
         sources: !keyref src.de.TPP.2006
 
+    -   date: !!null
+        site: !noderef path.de.46000 dre
+
+
 ---
 key: point.de.Ovelguenne-Bk
 type: point
@@ -1915,6 +2130,10 @@ events:
         sources: !keyref src.dd.DR.1976
     -   date: !date c1995
         status: closed
+
+    -   date: !!null
+        site: !noderef path.de.46000 ovb
+
 
 ---
 key: point.de.Ovelguenne
@@ -1930,6 +2149,10 @@ events:
     -   date: !var ds100.dr
         de.DS100: LOV
         sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.46000 ove
+
 
 ---
 key: point.de.Eilsleben
@@ -1964,6 +2187,10 @@ events:
         de.DS100: LEI
         sources: !keyref src.de.TPP.2006
 
+    -   date: !!null
+        site: !noderef path.de.46000 eil
+
+
 ---
 key: point.de.Badeleben
 type: point
@@ -1974,6 +2201,10 @@ events:
         name: Badeleben
     -   date: !date c1950
         status: closed
+
+    -   date: !!null
+        site: !noderef path.de.46000 bad
+
 
 ---
 key: point.de.Voelpke
@@ -2010,6 +2241,10 @@ events:
         de.DS100: LVL
         sources: !keyref src.de.SuW.2005
 
+    -   date: !!null
+        site: !noderef path.de.46000 voe
+
+
 ---
 key: point.de.Voelpke-Kohlensammelbf
 type: point
@@ -2037,6 +2272,10 @@ events:
     -   date: !date c1950
         status: closed
 
+    -   date: !!null
+        site: !noderef path.de.46000 vok
+
+
 ---
 key: point.de.Voelpke-Streckenende
 type: point
@@ -2050,6 +2289,10 @@ events:
         location: !keyloc line.de.46000 181,902
         sources: !keyref src.dd.DR.1989
 
+    -   date: !!null
+        site: !noderef path.de.46000 vox
+
+
 ---
 key: point.de.Offleben-LGr
 type: point
@@ -2058,6 +2301,10 @@ events:
         subtype: border
         location: !keyloc line.de.46000 184,96
         name: Offleben LGr
+
+    -   date: !!null
+        site: !noderef path.de.46000 goff
+
 
 ---
 key: point.de.Offleben
@@ -2079,6 +2326,10 @@ events:
     -   date: !!null
         location: !keyloc line.de.46000 184,96
 
+    -   date: !!null
+        site: !noderef path.de.46000 off
+
+
 ---
 key: point.de.Offleben-Kohlensammelbf
 type: point
@@ -2097,6 +2348,10 @@ events:
     -   date: !date 1931-10-01
         de.lknr: 13 272
         sources: !keyref src.de.Bfv.1933
+
+    -   date: !!null
+        site: !noderef path.de.46000 ofk
+
 
 ---
 key: point.de.Schoeningen
@@ -2126,4 +2381,8 @@ events:
         name: Schöningen
     -   date: !!null
         de.DS100: HSGN
+
+    -   date: !!null
+        site: !noderef path.de.44000 soe
+
 

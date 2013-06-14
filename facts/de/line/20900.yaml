@@ -483,7 +483,7 @@ events:
         split_from: !keyref point.de.Berlin-Tempelhof
 
 ---
-key: point.de.Berlin-Papestrasse
+key: point.de.Berlin-Suedkreuz-Ringbahn
 type: point
 events:
     -   date: !date 1901-01-01
@@ -493,15 +493,20 @@ events:
         name: Papestraße
         sources: !keyref src.de.Kb.1914
     -   date: !!null
-        location:
-            - !keyloc line.de.20900 23,31
-        category: de.Bf
-        de.Rangklasse: IV
-        sources: !keyref src.de.DRG.Bln.1932
+        location: !keyloc line.de.20900 23,31
+        category: de.Hp
+        sources: !keyref src.de.DRG.Bln.1927
     -   date: !!null
+        de.lknr: 03 216
         service: passenger
+        sources: !keyref src.de.Bfv.1928
+    -   date: !var lknr.30
         de.lknr: 03 039
         sources: !keyref src.de.Bfv.1933
+    -   date: !date c1935
+        category: de.Bf
+        de.Rangklasse: IV
+        sources: !keyref src.de.Bfv.1938
     -   date: !!null
         de.VBL: Par
         sources: !keyref src.de.DRG.Bln.1946
@@ -509,29 +514,10 @@ events:
         de.Rangklasse: U
         master: !keyref point.de.Berlin-Tempelhof
         sources: !keyref src.dd.DR.Bln.1959
-    -   date: !!null
-        de.DS100: BPAP
-    -   date: !date c2000
-        name: Berlin Papestraße
-    -   date: !date 2006-05-27?
-        status: closed
-
----
-key: point.de.Berlin-Suedkreuz-Ringbahn
-type: point
-events:
     -   date: !date c1995
-        status: open
-    -   date: !!null
-        name: Berlin Papestraße (Ringbahn)
-        de.DS100: BPAPR
-        sources: !keyref src.de.TPP.2006
-    -   date: !!null
         category: de.Bft
-        sources: !keyref src.de.SuW.2005
-    -   date: !!null
-        master: !keyref point.de.Berlin-Papestrasse
-        location: !keyloc line.de.20900 23,31
+        de.DS100: BPAPR
+        name: Berlin Papestraße (Ringbahn)
     -   date: !date 2006-05-27?
         category: de.Bf
         name: Berlin Südkreuz (Ringbahn)
