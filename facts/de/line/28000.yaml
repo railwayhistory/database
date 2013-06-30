@@ -1,4 +1,328 @@
+---
+key: line.de.28000
+type: line
+events:
+    -   date: !!null
+        region: !keyref org.de
+    -   date: !!null
+        end: !keyref point.de.Berlin-Gruenau-LGr-28000
+        region: !keyref org.de.l.be
+    -   date: !!null
+        start: !keyref point.de.Berlin-Gruenau-LGr-28000
+        end: !keyref point.de.Graustein-LGr
+        region: !keyref org.de.l.bb
+    -   date: !!null
+        start: !keyref point.de.Graustein-LGr
+        region: !keyref org.de.l.sn
 
+    -   date: !var vzg.dr
+        end: !keyref point.de.Goerlitz
+        de.VzG: 6142
+        sources: !keyref src.de.VzG
+    -   date: !var vzg.dr
+        start: !keyref point.de.Goerlitz
+        end: !keyref point.de.Hagenwerder
+        de.VzG: 6590
+        sources: !keyref src.de.VzG
+
+    -   date: !!null
+        category: de.Hauptbahn
+        sources: !keyref src.de.DR.1927
+    -   date: !!null
+        end: !keyref point.de.Hagenwerder
+        tracks: 2
+        sources: !keyref src.de.DR.1927
+
+    # Konzessionen
+    #
+    -   date: !date 1864-05-18
+        end: !keyref point.de.Goerlitz
+        concession:
+            by: !keyref org.de.l.pre
+            for: !keyref org.de.e.BGE
+            document: !keyref src.de.l.pre.1864.31.485
+        sources: !keyref src.de.DRG.1935
+    -   date: !date 1871-10-09
+        start: !keyref point.de.Goerlitz
+        concession:
+            by: !keyref org.de.l.pre
+            for: !keyref org.de.e.BGE
+            document: !keyref src.de.l.pre.1871.34.485
+    
+    # Eröffnungen
+    #
+    -   date: !date 1866-09-13
+        end: !keyref point.de.Cottbus
+        status: open
+        sources: !keyref src.de.DRG.1935
+    -   date: !date 1867-12-31
+        start: !keyref point.de.Cottbus
+        end: !keyref point.de.Goerlitz
+        status: open
+        sources: !keyref src.de.DRG.1935
+    -   date: !date 1875-07-01
+        start: !keyref point.de.Goerlitz
+        status: open
+        sources: !keyref src.de.DRG.1935
+
+    # Reparation 1945
+    #
+    -   date: !date c1945
+        end: !keyref point.de.Hagenwerder
+        tracks: 1
+
+    # Abschnitt bis Vtw nach 1945
+    #
+    -   date: !date c1975
+        start: !keyref point.de.Berlin-Treptow-Vrf
+        end: !keyref point.de.Berlin-Treptow-Vtw
+        status: removed
+        sources:
+            - !keyref src.dd.DR.Bln.1973
+            - !keyref src.dd.DR.Bln.1978
+    -   date: !date 1985-06-30
+        end: !keyref point.de.Berlin-Treptow-Vrf
+        status: closed
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !date c1987
+        end: !keyref point.de.Berlin-Treptow-Vrf
+        status: removed
+
+    # Abschnitt Vtw--Cottbus nach 1945
+    #
+    -   date: !date c1980
+        start: !keyref point.de.Berlin-Treptow-Vtw
+        end: !keyref point.de.Luebbenau
+        tracks: 2
+    -   date: !date 1984-06-02
+        start: !keyref point.de.Berlin-Schoeneweide
+        end: !keyref point.de.Berlin-Gruenau
+        electrified:
+            overhead: !var el.de
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !date 1984-09-30
+        start: !keyref point.de.Berlin-Treptow-Vtw
+        end: !keyref point.de.Berlin-Schoeneweide
+        electrified:
+            overhead: !var el.de
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !date 1987-10-16
+        start: !keyref point.de.Berlin-Gruenau
+        end: !keyref point.de.Koenigs-Wusterhausen
+        electrified:
+            overhead: !var el.de
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !date 1987-11-07
+        start: !keyref point.de.Koenigs-Wusterhausen
+        end: !keyref point.de.Halbe
+        electrified:
+            overhead: !var el.de
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !date 1988-12-17
+        start: !keyref point.de.Halbe
+        end: !keyref point.de.Luebbenau
+        electrified:
+            overhead: !var el.de
+        sources: !keyref src.de.Hafner.1989
+    -   date: !date 1989-09-30
+        start: !keyref point.de.Luebbenau
+        end: !keyref point.de.Cottbus
+        electrified:
+            overhead: !var el.de
+        sources: !keyref src.de.WP.Chronik-Streckenelektrifizierung-DR
+
+    # Abschnitt ab Görlitz nach 1945
+    #
+    -   date: !date c1945
+        start: !keyref point.de.Hagenwerder
+        status: removed
+    -   date: !date 1948-11-01
+        start: !keyref point.de.Goerlitz
+        end: !keyref point.de.Hagenwerder
+        category: de.Nebenbahn
+        sources: !keyref src.de.WP.Bahnstrecke-Goerlitz-Seidenberg
+
+    # Eigentümer und Betreiber
+    #
+    -   date: !!null
+        owner: !keyref org.de.e.BGE
+        operator: !keyref org.de.e.BGE
+        sources: !keyref src.de.DRG.1935
+    -   date: !date 1882-05-01
+        owner: !keyref org.de.l.pre
+        sources: !keyref src.de.DRG.1935
+    -   date: !date 1882-05-01
+        operator: !keyref org.de.e.KPEV.Bln
+    -   date: !date 1895-04-01?
+        end: !keyref point.de.Koenigs-Wusterhausen
+        operator: !keyref org.de.e.KPEV.Bln
+        sources: !keyref src.de.Kb.1914
+    -   date: !date 1895-04-01?
+        start: !keyref point.de.Koenig-Wusterhausen
+        end: !keyref point.de.Goerlitz
+        operator: !keyref org.de.e.KPEV.Hl
+    -   date: !date 1895-04-01?
+        start: !keyref point.de.Goerlitz
+        operator: !keyref org.de.e.KPEV.Bsl
+
+    -   date: !date 1920-04-01
+        owner: !keyref org.de
+        operator: !keyref org.de.r.RVM.PH
+    -   date: !date 1924-02-12
+        operator: !keyref org.de.e.DREb
+    -   date: !date 1924-08-30
+        operator: !keyref org.de.e.DRG
+
+    -   date: !date 1949-10-07
+        start: !keyref point.de.Berlin-Goerl-Bf-Gr
+        owner: !keyref org.dd
+    -   date: !var org.de.DR.start
+        operator: !keyref org.dd.DR
+    -   date: !date 1990-10-03
+        start: !keyref point.de.Berlin-Goerl-Bf-Gr
+        owner: !keyref org.de
+
+    -   date: !var org.de.DBAG.start
+        owner: !keyref org.de.e.DBAG
+        operator: !keyref org.de.e.DBAG
+    -   date: !var org.de.DBNetz.start
+        owner: !keyref org.de.e.DBNetz
+        operator: !keyref org.de.e.DBNetz
+    
+    # Verlauf
+    #
+    -   date: !!null
+        course:
+            - !pathref path.de.28000 bgo ghag
+    -   date: !date c1985
+        course:
+            - !pathref path.de.28000     bgo  adeu
+            - !pathref path.de.28000.deu a    f
+            - !pathref path.de.28000     fdeu ghag
+
+points:
+    - !keyref point.de.Berlin-Goerl-Bf
+    - !keyref point.de.Berlin-Treptow-Vrf
+    - !keyref point.de.Berlin-Treptow-Vtw
+    - !keyref point.de.Berlin-Treptow-Ausstellung
+    - !keyref point.de.Berlin-Eichbusch
+    - !keyref point.de.Berlin-Baumschulenweg
+    - !keyref point.de.Berlin-Schoeneweide-Pbf
+    - !keyref point.de.Berlin-Schoeneweide
+    - !keyref point.de.Berlin-Adlershof                     # line.de.20850
+    - !keyref point.de.Berlin-Schoeneweide-Sad
+    - !keyref point.de.Gruenauer-Kreuz-West
+    - !keyref point.de.Berlin-Gruenau-Bk-7
+    - !keyref point.de.Berlin-Gruenau
+    - !keyref point.de.Bohnsdorf
+    - !keyref point.de.Bohnsdorf-Sued
+    - !keyref point.de.Berlin-Gruenau-LGr-28000
+    - !keyref point.de.Eichwalde                            # line.de.20850
+    - !keyref point.de.Zeuthen
+    - !keyref point.de.Wildgarten
+    - !keyref point.de.Wildau                               # line.de.20850
+    - !keyref point.de.Wildau-Uest
+    - !keyref point.de.Koenigs-Wusterhausen
+    - !keyref point.de.Koenigs-Wusterhausen-Sued
+    - !keyref point.de.Zeesen
+    - !keyref point.de.Bestensee
+    - !keyref point.de.Motzen
+    - !keyref point.de.Gross-Koeris
+    - !keyref point.de.Halbe
+    - !keyref point.de.Oderin
+    - !keyref point.de.Brand-Niederlausitz
+    - !keyref point.de.Schoenwalde-Spreewald
+    - !keyref point.de.Lubolz
+    - !keyref point.de.Luebben
+    - !keyref point.de.Ragow
+    - !keyref point.de.Ragow-Umspannwerk
+    - !keyref point.de.Luebbenau
+    - !keyref point.de.Raddusch
+    - !keyref point.de.Vetschau
+    - !keyref point.de.Vetschau-Kraftwerk
+    - !keyref point.de.Kunersdorf
+    - !keyref point.de.Kolkwitz
+    - !keyref point.de.Cottbus-Cbn
+    - !keyref point.de.Cottbus-W9
+    - !keyref point.de.Cottbus
+    - !keyref point.de.Madlow
+    - !keyref point.de.Kiekebusch
+    - !keyref point.de.Neuhausen-Cottbus
+    - !keyref point.de.Bagenz
+    - !keyref point.de.Spremberg
+    - !keyref point.de.Graustein
+    - !keyref point.de.Graustein-LGr
+    - !keyref point.de.Graustein-Ost
+    - !keyref point.de.Schleife-Lager
+    - !keyref point.de.Schleife
+    - !keyref point.de.Weisswasser
+    - !keyref point.de.Weisskeissel
+    - !keyref point.de.Rietschen
+    - !keyref point.de.Haehnichen
+    - !keyref point.de.Uhsmannsdorf
+    - !keyref point.de.Horka-Pbf
+    - !keyref point.de.Mueckenhain
+    - !keyref point.de.Kodersdorf
+    - !keyref point.de.Kodersdorf-Sandberg
+    - !keyref point.de.Charlottenhof-Oberlausitz
+    - !keyref point.de.Goerlitz-Abzw-Svt
+    - !keyref point.de.Goerlitz
+    - !keyref point.de.Goerlitz-Weinhuebel
+    - !keyref point.de.Deutsch-Ossig
+    - !keyref point.de.Hagenwerder
+    - !keyref point.de.Hagenwerder-Gr-Ost
+
+
+---
+key: point.de.Berlin-Goerl-Bf
+type: point
+junction: True
+events:
+    -   date: !date 1866-09-13
+        status: open
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !!null
+        name: Berlin Görl Bf
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        location: !keyloc line.de.28000 0,00
+        category: de.Bf
+        de.Rangklasse: I
+        sources: !keyref src.de.DRG.Bln.1927
+    -   date: !!null
+        de.lknr: 03 095
+        sources: !keyref src.de.Bfv.1928
+    -   date: !var lknr.30
+        de.lknr: 03 313
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        de.VBL: Gzb
+        sources: !keyref src.de.DRG.Bln.1946
+    -   date: !date 1951-04-30
+        service: no-passenger
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !date c1952
+        de.Rangklasse: II
+        sources: !keyref src.dd.DR.Bln.1953
+    -   date: !date c1955
+        name: Berlin Görlitzer Bf
+        sources: !keyref src.dd.DR.Bln.1959
+    -   date: !date c1965
+        de.Rangklasse: U
+        master: !keyref point.de.Berlin-Neukoelln
+        sources: !keyref src.dd.DR.Bln.1968
+    -   date: !date c1970
+        category: de.Ldst
+        name: Berlin Görlittzer Gbf
+        sources: !keyref src.dd.DR.Bln.1973
+    -   date: !date 1985-06-30
+        status: closed
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !var ds100.dr
+        de.DS100: BZGB
+
+    -   date: !!null
+        site: !noderef path.de.28000 bgo
 
 
 ---
@@ -9,6 +333,7 @@ events:
     -   date: !!null
         location:
             - !keyloc line.de.20060 1,83
+            - !keyloc line.de.28000 1,83
         name: Vrf
         sources: !keyref src.de.DRG.Bln.1927
     -   date: !!null
@@ -16,11 +341,88 @@ events:
     -   date: !date c1955
         location:
             - !keyloc line.de.20060 1,788
+            - !keyloc line.de.28000 1,788
         sources: src.dd.DR.Bln.1959
     -   date: !date c1960
         status: closed
         sources: src.dd.DR.Bln.1968
 
+    -   date: !!null
+        site: !noderef path.de.28000 vrf
+
+
+---
+key: point.de.Berlin-Treptow-Vtw
+type: point
+junction: True
+events:
+    -   date: !!null
+        category: de.Abzw
+        name: Vtw
+        sources: !keyref src.de.DRG.Bln.1927
+    -   date: !!null
+        location: !keyloc line.de.28000 2,803
+        sources: !keyref src.dd.DR.Bln.1959
+    -   date: !var ds100.dr
+        de.DS100: BVTW
+        sources: !keyref src.de.TPP.2006
+    -   date: !date c2000
+        name: Berlin-Treptow Vtw
+        sources: !keyref src.de.TPP.2006
+    -   date: !date 2008
+        status: closed
+        sources:
+            - !keyref src.de.TPP.2008
+            - !keyref src.de.TPP.2009
+    -   date: !date 2008
+        category: de.Strw
+        name: Berlin-Treptow Streckenwechsel 6164/6142
+        sources: !keyref src.de.TPP.2009
+
+    -   date: !!null
+        site: !noderef path.de.28000 vtw
+
+
+---
+key: point.de.Berlin-Treptow-Ausstellung
+type: point
+events:
+    -   date: !date 1896-04-20
+        status: open
+        name: Ausstellungsbahnof
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !!null
+        category: de.Bf
+    -   date: !date 1896-10-15
+        status: closed
+        sources: !keyref src.de.Kuhlmann.2000
+
+    -   date: !!null
+        site: !noderef path.de.28000 aus
+
+---
+key: point.de.Berlin-Eichbusch
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.28000 4,275
+        category: de.Bk
+        name: Bk 5
+        sources: !keyref src.de.DRG.Bln.1932
+    -   date: !date c1935
+        name: Eichbusch
+        sources: !keyref src.de.DRG.Bln.1943
+    -   date: !date c1935
+        de.VBL: Es
+        sources: !keyref src.de.DRG.Bln.1946
+    -   date: !date c1950
+        status: closed
+        sources:
+            - !keyref src.de.DRG.Bln.1946
+            - !keyref src.dd.DR.Bln.1959
+
+    -   date: !!null
+        site: !noderef path.de.28000 eic
 
 
 ---
@@ -34,7 +436,9 @@ events:
     -   date: !!null
         location:
             - !keyloc line.de.20070 3,53
+            - !keyloc line.de.20850 5,28
             - !keyloc line.de.20930 3,53
+            - !keyloc line.de.28000 5,28
         category: de.Bf
         de.Rangklasse: III
         name: Baumschulenweg
@@ -72,15 +476,1928 @@ events:
         sources: !keyref src.de.TPP.2006
     -   date: !date c2007
         location:
+            - !keyloc line.de.20850 -
             - !keyloc line.de.20930 -
     -   date: !date c2007
         category: de.Abzw
         sources: !keyref src.de.DBAG.ISR
 
+    -   date: !!null
+        site: !noderef path.de.28000 bau
+
+
+---
+key: point.de.Berlin-Schoeneweide-Pbf
+type: point
+junction: True
+events:
+    -   date: !date 1868-05-24
+        status: open
+        name: Neuer Krug
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !date 1876-05-15
+        name: Bude 7 Johannisthal Neuer Krug
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !date 1879-05-15
+        name: Johannisthal Neuer Krug
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !date 1880-10-15
+        name: Johannisthal (Nieder Schöneweide)
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !date 1895-10-01
+        name: Nieder Schöneweide-Johannisthal
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !!null
+        location:
+            - !keyloc line.de.20850 7,12
+            - !keyloc line.de.28000 7,12
+        category: de.Bf
+        de.Rangklasse: I
+        sources: !keyref src.de.DRG.Bln.1927
+    -   date: !!null
+        de.lknr: 03 096
+        sources: !keyref src.de.Bfv.1928
+    -   date: !date 1929-10-06
+        name: Berlin-Schöneweide
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !var lknr.30
+        de.lknr: 03 316
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        de.VBL: Swp
+        sources: !keyref src.de.DRG.Bln.1946
+    -   date: !date c1950
+        master: !keyref point.de.Berlin-Schöneweide
+        sources: !keyref src.dd.DR.Bln.1959
+    -   date: !date c1975
+        category: de.Hp
+        sources: !keyref src.dd.DR.Bln.1978
+    -   date: !var ds100.dr
+        de.DS100: BSWP
+        sources: !keyref src.de.TPP.2006
+    -   date: !date c2000
+        category: de.Bf
+        sources: !keyref src.de.DBAG.ISR
+    -   date: !date 2006
+        location: !keyloc line.de.20850 -
+        sources:
+            - !keyref src.de.TPP.2006
+            - !keyref src.de.TPP.2007
+
+    -   date: !!null
+        site: !noderef path.de.28000 swp
+
+
 ---
 key: point.de.Berlin-Schoeneweide
 type: point
+events:
+    -   date: !date 1889
+        status: open
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !!null
+        location: !keyloc line.de.28000 8,16
+        category: de.Bf
+        de.Rangklasse: I
+        name: NWR
+        sources: !keyref src.de.DRG.Bln.1927
+    -   date: !date 1929-10-06
+        name: Berlin-Schöneweide Vbf
+        sources:
+            - !keyref src.de.Kuhlmann.2000
+            - !keyref src.de.DRG.Bln.1932
+    -   date: !!null
+        de.VBL: Swv
+        sources: !keyref src.de.DRG.Bln.1946
+    -   date: !date c1965
+        name: Berlin-Schöneweide
+        sources: !keyref src.dd.DR.Bln.1968
+    -   date: !date c1975
+        de.Rangklasse: S
+        sources: !keyref src.dd.DR.Bln.1978
+    -   date: !date c1980
+        de.VBL: Sw
+        sources: !keyref src.dd.DR.Bln.1983
+    -   date: !var ds100.dr
+        de.DS100: BSWV
+        sources: !keyref src.de.TPP.2006
+    -   date: !date c2000
+        category: de.Bft
+        master: !keyref point.de.Berlin-Schoeneweide-Pbf
+
+    -   date: !!null
+        site: !noderef path.de.28000 swv
+
+
+---
+key: point.de.Berlin-Schoeneweide-Sad
+type: point
 junction: True
-progress: stub
-events: []
+events:
+    -   date: !!null
+        location:
+            - !keyloc line.de.28000 10,202
+        category: de.Bft
+        name: Berlin-Schöneweide Sad
+        de.DS100: BSAD
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.28000 sad
+
+
+---
+key: point.de.Gruenauer-Kreuz-West
+type: point
+junction: True
+events:
+    -   date: !date 1941-01-01?
+        status: open
+    -   date: !!null
+        location:
+            - !keyloc line.de.28000 11,7
+        category: de.Abzw
+        name: Kanne
+        sources: !keyref src.de.DRG.Bln.1943
+    -   date: !!null
+        de.VBL: Ka
+        sources: !keyref src.de.DRG.Bln.1946
+    -   date: !date 1951-11
+        name: Grünauer Kreuz West
+        de.VBL: Grkw
+    -   date: !date c1970
+        master: !keyref point.de.Schoenefeld
+        sources: !keyref src.dd.DR.Bln.1991
+    -   date: !var ds100.dr
+        de.DS100: BGK W
+        sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.28000 gkw
+
+
+---
+key: point.de.Berlin-Gruenau-Bk-7
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.28000 12,100
+        category: de.Bk
+        name: Bk 7
+        sources: !keyref src.de.DRG.Bln.1932
+    -   date: !date c1940
+        status: closed
+        sources: !keyref src.de.DRG.Bln.1943
+
+    -   date: !!null
+        site: !noderef path.de.28000 vii
+
+
+---
+key: point.de.Berlin-Gruenau
+type: point
+junction: True
+events:
+    -   date: !date 1866-09-13
+        status: open
+        name: Grünau
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !date 1911-05-01
+        name: Grünau (Mark)
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !!null
+        location:
+            - !keyloc line.de.20850 13,59
+            - !keyloc line.de.28000 13,59
+        category: de.Bf
+        de.Rangklasse: I
+        sources: !keyref src.de.DRG.Bln.1927
+    -   date: !!null
+        de.lknr: 03 099
+        sources: !keyref src.de.Bfv.1928
+    -   date: !date 1929-10-01
+        name: Berlin-Grünau
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !date c1930
+        de.Rangklasse: II
+        sources: !keyref src.de.DRG.Bln.1932
+    -   date: !var lknr.30
+        de.lknr: 03 324
+        sources: !keyref src.de.Bfv.1933
+    -   date: !date c1940
+        de.Rangklasse: I
+        sources:
+            - !keyref src.de.Bfv.1938
+            - !keyref src.de.Bfv.1944
+    -   date: !!null
+        de.VBL: Ga
+        sources: !keyref src.de.DRG.Bln.1946
+    -   date: !date c1965
+        de.Rangklasse: II
+        sources: !keyref src.dd.DR.Bln.1968
+    -   date: !var ds100.dr
+        de.DS100: BGA
+        sources: !keyref src.de.TPP.2006
+    -   date: !date c2005
+        location: !keyloc line.de.20850 -
+
+    -   date: !!null
+        site: !noderef path.de.28000 gru
+
+
+---
+key: point.de.Bohnsdorf
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.28000 16,47
+        category: de.Bk
+        name: Bk 10
+        sources: !keyref src.de.DRG.Bln.1932
+    -   date: !date c1935
+        name: Bohnsdorf
+        sources: !keyref src.de.DRG.Bln.1943
+    -   date: !date c1935
+        de.VBL: Bns
+        sources: !keyref src.de.DRG.Bln.1946
+    -   date: !date c1950
+        status: closed
+        sources: !keyref src.dd.DR.Bln.1959
+
+    -   date: !!null
+        site: !noderef path.de.28000 boh
+
+
+---
+key: point.de.Bohnsdorf-Sued
+type: point
+junction: True
+events:
+    -   date: !date 2012
+        status: open
+    -   date: !!null
+        location:
+            - !keyloc line.de.28000 17,042
+        category: de.Abzw
+        name: Bohnsdorf Süd
+        de.DS100: BBDS
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.28000 bos
+
+
+---
+key: point.de.Berlin-Gruenau-LGr-28000
+type: point
+events:
+    -   date: !!null
+        subtype: border
+    -   date: !!null
+        name: Berlin-Grünau BE/BB 6142
+        de.DS100: BQGA
+        sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.28000 ggru
+
+
+---
+key: point.de.Zeuthen
+type: point
+events:
+    -   date: !date 1868-05-24
+        status: open
+        name: Hankels Ablage Bude 21
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !date 1892
+        name: Hankels Ablage
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !date 1897-11-01
+        name: Zeuthen
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !!null
+        location:
+            - !keyloc line.de.20850 21,62
+            - !keyloc line.de.28000 21,62
+        category: de.Bf
+        de.Rangklasse: II
+        sources: !keyref src.de.DRG.Bln.1927
+    -   date: !!null
+        de.lknr: 03 101
+        sources: !keyref src.de.Bfv.1928
+    -   date: !var lknr.30
+        de.lknr: 03 326
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        de.VBL: Zn
+        sources: !keyref src.de.DRG.Bln.1946
+    -   date: !date c1950
+        de.Rangklasse: III
+        sources: !keyref src.dd.DR.Bln.1953
+    -   date: !var ds100.dr
+        de.DS100: BZN
+        sources: !keyref src.de.TPP.2006
+    -   date: !date 2006
+        location: !keyloc line.de.20850 -
+    -   date: !date 2008
+        status: closed
+        sources:
+            - !keyref src.de.TPP.2008
+            - !keyref src.de.TPP.2009
+
+    -   date: !!null
+        site: !noderef path.de.28000 zeu
+
+
+---
+key: point.de.Wildgarten
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.28000 23,74
+        category: de.Bk
+        name: He
+        sources: !keyref src.de.DRG.Bln.1927
+    -   date: !date c1930
+        location: !keyloc line.de.28000 23,73
+        name: Bk 16
+        sources: !keyref src.de.DRG.Bln.1932
+    -   date: !date c1935
+        location: !keyloc line.de.28000 23,75
+        name: Wildgarten
+        sources: !keyref src.de.DRG.Bln.1943
+    -   date: !date c1935
+        de.VBL: Wig
+        sources: !keyref src.de.DRG.Bln.1946
+    -   date: !date c1950
+        status: closed
+        sources: !keyref src.de.DRG.Bln.1959
+
+    -   date: !!null
+        site: !noderef path.de.28000 wig
+
+
+---
+key: point.de.Wildau-Uest
+type: point
+events:
+    -   date: !date c1995
+        status: open
+        split_from: !keyref point.de.Wildau
+    -   date: !!null
+        location: !keyloc line.de.28000 24,40
+        category: de.Uest
+        name: Wildau (Üst)
+        de.DS100: BWIF
+        sources: !keyref src.de.TPP.2006
+    -   date: !date 2008
+        status: closed
+        sources:
+            - !keyref src.de.TPP.2008
+            - !keyref src.de.TPP.2009
+
+    -   date: !!null
+        site: !noderef path.de.28000 wil
+
+
+---
+key: point.de.Koenigs-Wusterhausen
+type: point
+junction: True
+events:
+    -   date: !date 1866-09-13
+        status: open
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !!null
+        name: Könisgwusterhausen
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        location:
+            - !keyloc line.de.20850 27,67
+            - !keyloc line.de.28000 27,67
+        category: de.Bf
+        de.Rangklasse: II
+        sources: !keyref src.de.DRG.Bln.1927
+    -   date: !!null
+        de.lknr: 03 102
+        sources: !keyref src.de.Bfv.1928
+    -   date: !var lknr.30
+        de.lknr: 03 328
+        sources: !keyref src.de.Bfv.1933
+    -   date: !date c1935
+        name: Königs Wusterhausen
+        sources:
+            - !keyref src.de.Bfv.1933
+            - !keyref src.de.Kb.W1937
+    -   date: !date c1945
+        de.Rangklasse: I
+        sources: !keyref src.de.DRG.Bln.1946
+    -   date: !!null
+        de.VBL: Kw
+        sources: !keyref src.de.DRG.Bln.1946
+    -   date: !date c1965
+        de.Rangklasse: II
+        sources: !keyref src.dd.DR.Bln.1968
+    -   date: !var ds100.dr
+        de.DS100: BKW
+        sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.28000 kon
+
+
+# 29,10 Dir-Gr Bln/Hl src.de.DRG.Bln.1927
+
+---
+key: point.de.Koenigs-Wusterhausen-Sued
+type: point
+events:
+    -   date: !date c1935
+        status: open
+        sources:
+            - !keyref src.de.DRG.Bln.1932
+            - !keyref src.de.DRG.Bln.1943
+    -   date: !!null
+        location: !keyloc line.de.28000 29,68
+        category: de.Bk
+        name: Funk
+        sources: !keyref src.de.DRG.Bln.1943
+    -   date: !!null
+        de.VBL: Fn
+        sources: !keyref src.de.DRG.Bln.1946
+    -   date: !date c1950
+        status: closed
+        sources: !keyref src.dd.DR.Bln.1959
+    -   date: !date c1965
+        status: open
+        location: !keyloc line.de.28000 29,678
+        category: de.Stw
+        name: Königs Wusterhausen Kws
+        de.VBL: !!null
+        sources: !keyref src.dd.DR.Bln.1968
+    -   date: !date c1995
+        category: de.Bft
+        name: Königs Wusterhausen Süd
+        de.DS100: BKW S
+        sources: !keyref src.de.TPP.2006
+    -   date: !date 2006
+        status: closed
+        sources: !keyref src.de.TPP.2007
+
+    -   date: !!null
+        site: !noderef path.de.28000 kws
+
+
+# 30,700 Dir-Gr Bln/Cs src.dd.DR.Bln.1959 bis src.de.DR.1989
+
+---
+key: point.de.Zeesen
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.28000 31,20
+        category: de.Bk
+        name: Zeesen
+        sources: !keyref src.de.DRG.Bln.1932
+    -   date: !date c1935
+        category: de.Hp
+        sources: !keyref src.de.Kb.W1937
+    -   date: !date c1935
+        service: no-freight
+        de.lknr: 03 334
+        sources: !keyref src.de.Bfv.1938
+    -   date: !!null
+        de.VBL: Ze
+        sources: !keyref src.de.DRG.Bln.1946
+    -   date: !date c1950
+        master: !keyref point.de.Bestensee
+        sources: !keyref src.dd.DR.Bln.1959
+    -   date: !var ds100.dr
+        de.DS100: BZS
+        sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.28000 zee
+
+
+---
+key: point.de.Bestensee
+type: point
+events:
+    -   date: !!null
+        name: Groß Besten
+        sources: !keyref src.de.Kb.1914
+    -   date: !!nul
+        de.lknr: 12 238
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        location: !keyloc line.de.28000 33,77
+        category: de.Bf
+        de.Rangklasse: III
+        sources: !keyref src.de.DRG.Bln.1932
+    -   date: !var lknr.30
+        de.lknr: 03 330
+        sources: !keyref src.de.Bfv.1933
+    -   date: !date 1938
+        name: Bestensee
+        sources:
+            - !keyref src.de.Kb.W1937
+            - !keyref src.de.Bfv.1938
+    -   date: !date 1938
+        de.VBL: Bst
+        sources: !keyref src.de.DRG.Bln.1946
+    -   date: !date c1965
+        de.Rangklasse: IV
+        sources: !keyref src.dd.DR.1976
+    -   date: !var ds100.dr
+        de.DS100: BBST
+        sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.28000 bes
+
+
+---
+key: point.de.Motzen
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.28000 39,38
+        category: de.Bk
+        name: Motzen
+        sources: !keyref src.de.DRG.Bln.1932
+    -   date: !!null
+        de.VBL: M
+        sources: !keyref src.de.DRG.Bln.1946
+    -   date: !date c1955
+        category: de.Bf
+        service: none
+        location: !keyloc line.de.28000 39,358
+        de.VBL: Mt
+        sources: !keyref src.dd.DR.1976
+    -   date: !date c1955
+        master: !keyref point.de.Gross-Koeris
+        sources: !keyref src.dd.DR.Bln.1991
+    -   date: !date c1985
+        category: de.Bk
+        sources: !keyref src.dd.DR.1989
+    -   date: !var ds100.dr
+        de.DS100: BMT
+        sources: !keyref src.de.TPP.2006
+    -   date: !date 2006
+        status: closed
+        sources: !keyref src.de.TPP.2007
+
+    -   date: !!null
+        site: !noderef path.de.28000 mot
+
+
+---
+key: point.de.Gross-Koeris
+type: point
+events:
+    -   date: !!null
+        name: Teupitz-Groß Köris
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        de.lknr: 12 237
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        location: !keyloc line.de.28000 43,80
+        category: de.Bf
+        de.Rangklasse: III
+        sources: !keyref src.de.DRG.Bln.1932
+    -   date: !var lknr.30
+        de.lknr: 03 331
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        de.VBL: Tpi
+        sources: !keyref src.de.DRG.Bln.1946
+    -   date: !date c1965
+        de.Rangklasse: IV
+        sources: !keyref src.dd.DR.1976
+    -   date: !var ds100.dr
+        de.DS100: BTPI
+        sources: !keyref src.de.TPP.2006
+    -   date: !date c2000
+        name: Groß Köris
+        sources: !keyref src.de.TPP.2006
+    -   date: !date c2010
+        category: de.Hp
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.28000 gko
+
+
+---
+key: point.de.Halbe
+type: point
+events:
+    -   date: !!null
+        name: Halbe
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        de.lknr: 12 236
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        location: !keyloc line.de.28000 50,41
+        category: de.Bf
+        de.Rangklasse: III
+        sources: !keyref src.de.DRG.Bln.1932
+    -   date: !var lknr.30
+        de.lknr: 03 332
+        sources: !keyref src.de.Bfv.1933
+    -   date: !date c1940
+        de.Rangklasse: III
+        sources: !keyref src.de.Bfv.1944
+    -   date: !!null
+        de.VBL: Hb
+        sources: !keyref src.de.DRG.Bln.1946
+    -   date: !date c1965
+        de.Rangklasse: IV
+        sources: !keyref src.dd.DR.1976
+    -   date: !var ds100.dr
+        de.DS100: BHB
+        sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.28000 hal
+
+
+---
+key: point.de.Oderin
+type: point
+events:
+    -   date: !!null
+        name: Oderin
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        de.lknr: 12 235
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        location: !keyloc line.de.28000 54,65
+        category: de.Hp
+        sources: !keyref src.de.DRG.Bln.1932
+    -   date: !var lknr.30
+        de.lknr: 03 333
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        de.VBL: Od
+        sources: !keyref src.de.DRG.Bln.1946
+    -   date: !date c1950
+        category: de.Bf
+        de.Rangklasse: U
+        sources: !keyref src.dd.DR.Bln.1953
+    -   date: !date c1980
+        category: [de.Hp, de.Bk]
+        sources: !keyref src.dd.DR.1989
+    -   date: !var ds100.dr
+        de.DS100: BOD
+        sources: !keyref src.de.TPP.2006
+    -   date: !date c2010
+        category: de.Hp
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.28000 ode
+
+
+# 58,30 Dir-Gr Bln/Hl src.de.DRG.Bln.1932
+# 58,30 Dir-Gr Bln/Cs src.de.DRG.Bln.1946, src.dd.DR.Bln.1953
+
+---
+key: point.de.Brand-Niederlausitz
+type: point
+events:
+    -   date: !!null
+        name: Brand (Bez Frankfurt Oder)
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        de.lknr: 12 234
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: III
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 12 734
+        sources: !keyref src.de.Bfv.1933
+    -   date: !date c1930
+        name: Brand (Niederlaus)
+        sources: !keyref src.de.Bfv.1933
+    -   date: !date c1935
+        name: Brand (Niederlausitz)
+        sources: !keyref src.de.Kb.W1937
+    -   date: !!null
+        location: !keyloc line.de.28000 59,74
+        de.VBL: Br
+        sources: !keyref src.dd.DR.1976
+    -   date: !date c1965
+        de.Rangklasse: IV
+        sources: !keyref src.dd.DR.1976
+    -   date: !var ds100.dr
+        de.DS100: BBRA
+        sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.28000 bra
+
+
+---
+key: point.de.Schoenwalde-Spreewald
+type: point
+events:
+    -   date: !!null
+        name: Schönwalde (Spreew)
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        de.lknr: 12 233
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: IV
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 12 733
+        sources: !keyref src.de.Bfv.1933
+    -   date: !date c1950
+        name: Schönwalde (Spreewald)
+        sources: !keyref src.dd.DR.1976
+    -   date: !!null
+        location: !keyloc line.de.28000 65,58
+        de.VBL: Sch
+        sources: !keyref src.dd.DR.1976
+    -   date: !date c1965
+        de.Rangklasse: U
+        sources: !keyref src.dd.DR.1976
+    -   date: !date c1965
+        master: !keyref point.de.Brand-Niederlausitz
+        sources: !keyref src.dd.DR.Bln.1991
+    -   date: !var ds100.dr
+        de.DS100: BSCH
+        sources: !keyref src.de.TPP.2006
+    -   date: !date c2010
+        category: de.Hp
+        sources:
+            - !keyref src.de.SuW.2005
+            - !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.28000 son
+
+
+---
+key: point.de.Lubolz
+type: point
+events:
+    -   date: !!null
+        name: Lubolz
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        de.lknr: 12 232
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: IV
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 12 732
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location: !keyloc line.de.28000 69,94
+        de.VBL: Lu
+        sources: !keyref src.dd.DR.1976
+    -   date: !date c1965
+        de.Rangklasse: U
+        sources: !keyref src.dd.DR.1976
+    -   date: !date c1965
+        master: !keyref point.de.Luebben
+        sources: !keyref src.dd.DR.Bln.1991
+    -   date: !var ds100.dr
+        de.DS100: BLU
+        sources: !keyref src.de.TPP.2006
+    -   date: !date c1995
+        category: [de.Hp, de.Bk]
+        sources: !keyref src.de.SuW.2005
+    -   date: !date c2010
+        category: de.Hp
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.28000 luz
+
+
+---
+key: point.de.Luebben
+type: point
+junction: True
+events:
+    -   date: !!null
+        name: Lübben
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        de.lknr: 12 231
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: II
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 12 731
+        sources: !keyref src.de.Bfv.1933
+    -   date: !date c1930
+        name: Lübben Reichsb
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location: !keyloc line.de.28000 74,63
+        de.VBL: Lb
+        sources: !keyref src.dd.DR.1976
+    -   date: !date c1965
+        name: Lübben Hbf
+        sources: !keyref src.dd.DR.1976
+    -   date: !var ds100.dr
+        de.DS100: BLB
+        sources: !keyref src.de.TPP.2006
+    -   date: !date c1995
+        name: Lübben (Spreewald)
+        sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.28000 lub
+
+
+---
+key: point.de.Ragow
+type: point
+events:
+    -   date: !!null
+        name: Ragow
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        de.lknr: 12 230
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: IV
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 12 730
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location: !keyloc line.de.28000 80,63
+        de.VBL: R
+        sources: !keyref src.dd.DR.1976
+    -   date: !date c1965
+        de.Rangklasse: U
+        sources: !keyref src.dd.DR.1976
+    -   date: !date c1985
+        category: de.Bk
+        sources: !keyref src.dd.DR.1989
+    -   date: !var ds100.dr
+        de.DS100: BRG
+        sources: !keyref src.de.TPP.2006
+    -   date: !date 2009
+        status: closed
+        sources:
+            - !keyref src.de.TPP.2009
+            - !keyref src.de.TPP.2010
+
+    -   date: !!null
+        site: !noderef path.de.28000 rag
+
+
+---
+key: point.de.Ragow-Umspannwerk
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.28000 81,5
+        category: de.Awanst
+        sources: !keyref src.de.SuW.2005
+    -   date: !!null
+        name: Ragow Umspannwerk
+        de.DS100: BRA
+        sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.28000 rau
+
+---
+key: point.de.Luebbenau
+type: point
+junction: True
+events:
+    -   date: !!null
+        name: Lübbenau
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        de.lknr: 12 229
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: II
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 12 725
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location:
+            - !keyloc line.de.28000 85,61
+        de.VBL: Lü
+        sources: !keyref src.dd.DR.1976
+    -   date: !date c1965
+        name: Lübben (Spreewald)
+        sources: !keyref src.dd.DR.1976
+    -   date: !date c1985
+        de.VBL: Ln
+        sources: !keyref src.dd.DR.1989
+    -   date: !var ds100.dr
+        de.DS100: BLN
+        sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.28000 lbu
+
+
+---
+key: point.de.Raddusch
+type: point
+events:
+    -   date: !!null
+        name: Raddusch
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        de.lknr: 12 275
+        sources: !keyref src.de.Bfv.1928
+    -   date: !var lknr.30
+        de.lknr: 12 722
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        category: [de.Hp, de.Bk]
+        location: !keyloc line.de.28000 92,77
+        de.VBL: Rd
+        sources: !keyref src.dd.DR.1976
+    -   date: !var ds100.dr
+        de.DS100: BRAD
+        sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.28000 rad
+
+
+---
+key: point.de.Vetschau
+type: point
+events:
+    -   date: !!null
+        name: Vetschau
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        de.lknr: 12 274
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: III
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 12 721
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location:
+            - !keyloc line.de.28000 97,45
+        de.VBL: V
+        sources: !keyref src.dd.DR.1976
+    -   date: !var ds100.dr
+        de.DS100: BV
+        sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.28000 vet
+
+
+---
+key: point.de.Vetschau-Kraftwerk
+type: point
+events:
+    -   date: !date c1960
+        status: open
+    -   date: !!null
+        location: !keyloc line.de.28000 99,18
+        category: de.Hp
+        name: Vetschau Kraftwerk
+        de.VBL: Ve
+        sources: !keyref src.dd.DR.1976
+    -   date: !date c1985
+        de.VBL: Vc
+        sources: !keyref src.dd.DR.1989
+    -   date: !var ds100.dr
+        de.DS100: BVC
+    -   date: !date c1995
+        status: closed
+
+    -   date: !!null
+        site: !noderef path.de.28000 vek
+
+
+---
+key: point.de.Kunersdorf
+type: point
+events:
+    -   date: !!null
+        name: Kunersdorf b Cottbus
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        de.lknr: 12 273
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: IV
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 12 720
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location: !keyloc line.de.28000 105,04
+        sources: !keyref src.dd.DR.1976
+    -   date: !date c1960
+        name: Papitz
+        de.VBL: Pa
+        sources: !keyref src.dd.DR.1976
+    -   date: !date c1965
+        de.Rangklasse: IV
+        sources: !keyref src.dd.DR.1976
+    -   date: !date c1985
+        category: de.Hp
+        sources: !keyref src.dd.DR.1989
+    -   date: !var ds100.dr
+        de.DS100: BPA
+        sources: !keyref src.de.TPP.2006
+    -   date: !date c1995
+        category: de.Bf
+        sources: !keyref src.de.SuW.2005
+    -   date: !date c2000
+        name: Kunersdorf
+        sources: !keyref src.de.TPP.2006
+    -   date: !date c2010
+        category: de.Hp
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.28000 kun
+
+
+---
+key: point.de.Kolkwitz
+type: point
+events:
+    -   date: !!null
+        name: Kolkwitz Bf
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        de.lknr: 12 386
+        service: no-freight
+        sources: !keyref src.de.Bfv.1928
+    -   date: !date c1920
+        name: Kolkwitz
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Hp
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 12 716
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location: !keyloc line.de.28000 109,62
+        de.VBL: Kow
+        sources: !keyref src.dd.DR.1976
+    -   date: !var ds100.dr
+        de.DS100: BKOW
+        sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.28000 kol
+
+
+---
+key: point.de.Cottbus-Cbn
+type: point
+junction: True
+events:
+    -   date: !!null
+        category: de.Abzw
+        name: Cbn
+        sources: !keyref src.dd.DR.1976
+    -   date: !var ds100.dr
+        de.DS100: BCS B
+        name: Cottbus Cbn Abzw
+    -   date: !date c2005
+        de.DS100: BCSB
+        sources: !keyref src.de.TPP.2006
+    -   date: !!null
+        location:
+            - !keyloc line.de.28000 111,824
+        sources: !keyref src.de.DBAG.ISR
+    -   date: !date c2010
+        category: de.Bft
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.28000 cbn
+
+
+---
+key: point.de.Cottbus-W9
+type: point
+junction: True
+events:
+    -   date: !!null
+        name: Cottbus W 9
+        de.DS100: BCS W
+        sources: !keyref src.de.TPP.2006
+    -   date: !!null
+        category: de.Bft
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.28000 cow
+
+
+---
+key: point.de.Cottbus
+type: point
+junction: True
+events:
+    -   date: !!null
+        name: Cottbus
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        de.lknr: 12 184
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: I
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 12 700
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location:
+            - !keyloc line.de.28000 114,74
+        de.VBL: Cs
+        sources: !keyref src.dd.DR.1976
+    -   date: !date c1965
+        de.Rangklasse: S
+        sources: !keyref src.dd.DR.1976
+    -   date: !var ds100.dr
+        de.DS100: BCS
+        sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.28000 cot
+
+
+---
+key: point.de.Madlow
+type: point
+sources:
+    -   date: !!null
+        location: !keyloc line.de.28000 117,1
+        category: [de.Awanst, de.Bk]
+        name: Madlow
+        de.VBL: Ma
+        sources: !keyref src.dd.DR.1976
+    -   date: !date c1990
+        status: closed
+
+    -   date: !!null
+        site: !noderef path.de.28000 mad
+
+
+---
+key: point.de.Kiekebusch
+type: point
+events:
+    -   date: !!null
+        name: Kiekebusch
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        de.lknr: 12 272
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: IV
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 12 697
+        sources: !keyref src.de.Bfv.1933
+    -   date: !date c1940
+        name: Kiekebusch (b Cottbus)
+        sources:
+            - !keyref src.de.Bfv.1938
+            - !keyref src.de.Bfv.1944
+    -   date: !!null
+        location: !keyloc line.de.28000 119,86
+        de.VBL: Ki
+        sources: !keyref src.dd.DR.1976
+    -   date: !date c1960
+        category: [de.Hp, de.Bk]
+        sources: !keyref src.dd.DR.1976
+    -   date: !var ds100.dr
+        de.DS100: BKI
+        sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.28000 kie
+
+
+---
+key: point.de.Neuhausen-Cottbus
+type: point
+events:
+    -   date: !!null
+        name: Neuhausen b Cottbus
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        de.lknr: 12 271
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: III
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 12 696
+        sources: !keyref src.de.Bfv.1933
+    -   date: !date c1935
+        name: Neuhausen (b Cottbus)
+        sources: !keyref src.de.Kb.W1937
+    -   date: !!null
+        location: !keyloc line.de.28000 124,64
+        de.VBL: Nh
+        sources: !keyref src.dd.DR.1976
+    -   date: !date c1965
+        de.Rangklasse: IV
+        sources: !keyref src.dd.DR.1976
+    -   date: !var ds100.dr
+        de.DS100: BNH
+        sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.28000 nha
+
+
+---
+key: point.de.Bagenz
+type: point
+events:
+    -   date: !!null
+        name: Bagenz
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        de.lknr: 12 270
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: IV
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 12 695
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location: !keyloc line.de.28000 128,39
+        de.VBL: B
+        sources: !keyref src.dd.DR.1976
+    -   date: !date c1965
+        de.Rangklasse: U
+        sources: !keyref src.dd.DR.1976
+    -   date: !var ds100.dr
+        de.DS100: BBG
+        sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.28000 bag
+
+
+---
+key: point.de.Spremberg
+type: point
+junction: True
+events:
+    -   date: !!null
+        name: Spremberg Ost
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        de.lknr: 12 269
+        sources: !keyref src.de.Bfv.1928
+    -   date: !date c1920
+        name: Spremberg Hbf
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: II
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 12 694
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location: !keyloc line.de.28000 138,42
+        de.VBL: Sp
+        sources: !keyref src.dd.DR.1976
+    -   date: !date c1965
+        name: Spremberg
+        de.Rangklasse: III
+        sources: !keyref src.dd.DR.1976
+    -   date: !var ds100.dr
+        de.DS100: BSP
+        sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.28000 spr
+
+
+---
+key: point.de.Graustein
+type: point
+junction: True
+events:
+    -   date: !!null
+        location:
+            - !keyloc line.de.28000 143,53
+        category: de.Bf
+        de.Rangklasse: U
+        service: none
+        name: Graustein
+        de.VBL: Gra
+        sources: !keyref src.dd.DR.1976
+    -   date: !date c1985
+        location: !keyloc line.de.28000 142,28
+        sources: !keyref src.dd.DR.1989
+    -   date: !var ds100.dr 
+        de.DS100: BGRA
+        sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.28000 gra
+
+
+-----
+key: point.de.Graustein-LGr
+type: point
+events:
+    -   date: !!null
+        subtype: border
+    -   date: !!null
+        name: Graustein BB/SN
+        de.DS100: BQGR
+        sources: !keyref src.de.TPP.2006
+
+
+-
+key: point.de.Graustein-Ost
+type: point
+junction: True
+events:
+    -   date: !!null
+        location: !keyloc path.de.28000 145,37
+        category: de.Awanst
+        name: Graustein Ost
+        sources: !keyref src.dd.DR.1976
+    -   date: !!null
+        de.VBL: Ago
+        sources: !keyref src.dd.DR.1989
+    -   date: !var ds100.dr
+        de.DS100: BGRO
+    -   date: !date c1990
+        category: de.Abzw
+    -   date: !date c2000
+        status: closed
+
+    -   date: !!null
+        site: !noderef path.de.28000 gro
+
+
+---
+key: point.de.Schleife-Lager
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.28000 147,42
+        category: de.Awanst
+        name: Schleife Lager
+        sources: !keyref src.dd.DR.1976
+    -   date: !!null
+        de.VBL: Sfl
+        sources: !keyref src.dd.DR.1989
+    -   date: !var ds100.dr
+        de.DS100: BSFA
+    -   date: !date c2000
+        status: closed
+
+    -   date: !!null
+        site: !noderef path.de.28000 sll
+
+
+---
+key: point.de.Schleife
+type: point
+events:
+    -   date: !!null
+        name: Schleife
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        de.lknr: 12 268
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: III
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 12 693
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location: !keyloc line.de.28000 148,89
+        de.VBL: Sfe
+        sources: !keyref src.dd.DR.1976
+    -   date: !date c1965
+        de.Rangklasse: U
+        sources: !keyref src.dd.DR.1976
+    -   date: !var ds100.dr
+        de.DS100: BSFE
+        sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.28000 sle
+
+
+---
+key: point.de.Weisswasser
+type: point
+junction: True
+events:
+    -   date: !!null
+        name: Weißwasser
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        de.lknr: 12 267
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: II
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 12 684
+        sources: !keyref src.de.Bfv.1933
+    -   date: !date c1940
+        name: Weißwasser (Oberlausitz)
+        sources:
+            - !keyref src.de.Bfv.1938
+            - !keyref src.de.Bfv.1944
+    -   date: !!null
+        location:
+            - !keyloc line.de.28000 157,14
+        de.VBL: W
+        sources: !keyref src.dd.DR.1976
+    -   date: !var ds100.dr
+        de.DS100: BWW
+        sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.28000 wei
+
+
+---
+key: point.de.Weisskeissel
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.28000 165,71
+        category: de.Bf
+        de.Rangklasse: U
+        service: none
+        name: Weißkeißel
+        de.VBL: Wl
+        sources: !keyref src.dd.DR.1976
+    -   date: !var ds100.dr
+        de.DS100: BWKL
+        sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.28000 wek
+
+
+---
+key: point.de.Rietschen
+type: point
+events:
+    -   date: !!null
+        name: Rietschen
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        de.lknr: 12 266
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: III
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 12 683
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location: !keyloc line.de.28000 173,06
+        de.VBL: Ri
+        sources: !keyref src.dd.DR.1976
+    -   date: !date c1965
+        de.Rangklasse: IV
+        sources: !keyref src.dd.DR.1976
+    -   date: !var ds100.dr
+        de.DS100: BRI
+        sources: !keyref src.de.TPP.2006
+    -   date: !date c2010
+        category: de.Hp
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.28000 rie
+
+
+---
+key: point.de.Haehnichen
+type: point
+events:
+    -   date: !!null
+        name: Hähnichen
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        de.lknr: 12 265
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: IV
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 12 682
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location: !keyloc line.de.28000 179,46
+        de.VBL: H
+        sources: !keyref src.dd.DR.1976
+    -   date: !date c1965
+        de.Rangklasse: U
+        sources: !keyref src.dd.DR.1976
+    -   date: !var ds100.dr
+        de.DS100: BHAH
+        sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.28000 hah
+
+
+---
+key: point.de.Uhsmannsdorf
+type: point
+events:
+    -   date: !!null
+        name: Uhsmannsdorf
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        de.lknr: 12 264
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: IV
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 12 681
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location: !keyloc line.de.28000 184,29
+        de.VBL: Ud
+        sources: !keyref src.dd.DR.1976
+    -   date: !var ds100.dr
+        de.DS100: BUD
+        sources: !keyref src.de.TPP.2006
+    -   date: !date c1995
+        category: de.Hp
+        sources: !keyref src.de.SuW.2005
+
+    -   date: !!null
+        site: !noderef path.de.28000 uhs
+
+
+---
+key: point.de.Horka-Pbf
+type: point
+junction: True
+events:
+    -   date: !!null
+        name: Horka (Laus) Stsbf
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        de.lknr: 12 205
+        sources: !keyref src.de.Bfv.1928
+    -   date: !date c1920
+        name: Horka (Laus)
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: II
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 12 673
+        sources: !keyref src.de.Bfv.1933
+    -   date: !date c1937
+        name: Wehrkirch
+        sources: !keyref src.de.Kb.W1937
+    -   date: !!null
+        location: !keyloc line.de.28000 187,04
+        de.VBL: Hr
+        sources: !keyref src.dd.DR.1976
+    -   date: !date c1950
+        name: Horka
+        sources: !keyref src.dd.DR.1976
+    -   date: !date c1965
+        de.Rangklasse: I
+        sources: !keyref src.dd.DR.1976
+    -   date: !var ds100.dr
+        de.DS100: BHR
+        sources: !keyref src.de.TPP.2006
+    -   date: !date c1995
+        category: Horka Pbf
+        sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.28000 hor
+
+
+---
+key: point.de.Mueckenhain
+type: point
+junction: True
+events:
+    -   date: !!null
+        location:
+            - !keyloc line.de.28000 188,26
+        category: de.Abzw
+        name: Mückenhain
+        de.VBL: Mh
+        sources: !keyref src.dd.DR.1976
+    -   date: !var ds100.dr
+        de.DS100: BMH
+        sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.28000 muc
+
+
+---
+key: point.de.Kodersdorf
+type: point
+events:
+    -   date: !!null
+        name: Kodersdorf
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        de.lknr: 12 263
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: IV
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 12 680
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location: !keyloc line.de.28000 192,24
+        de.VBL: Kod
+        sources: !keyref src.dd.DR.1976
+    -   date: !var ds100.dr
+        de.DS100: BKOD
+        sources: !keyref src.de.TPP.2006
+    -   date: !date c1995
+        category: de.Hp
+        sources: !keyref src.de.SuW.2005
+
+    -   date: !!null
+        site: !noderef path.de.28000 kod
+
+
+---
+key: point.de.Kodersdorf-Sandberg
+type: point
+events:
+    -   date: !date c2010
+        status: open
+    -   date: !!null
+        category: de.Awanst
+        name: Kodersdorf Sandberg
+        de.DS100: BKSB
+
+    -   date: !!null
+        site: !noderef path.de.28000 kos
+
+
+---
+key: point.de.Charlottenhof-Oberlausitz
+type: point
+events:
+    -   date: !!null
+        name: Charlottenhof (Oberlaus)
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        de.lknr: 12 262
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: IV
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 12 679
+        sources: !keyref src.de.Bfv.1933
+    -   date: !date c1935
+        name: Charlottenhof (Oberlausitz)
+        sources: !keyref src.de.Kb.W1937
+    -   date: !!null
+        location: !keyloc line.de.28000 198,47
+        de.VBL: Cf
+        sources: !keyref src.dd.DR.1976
+    -   date: !var ds100.dr
+        de.DS100: BCL
+        sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.28000 cha
+
+
+---
+key: point.de.Goerlitz-Abzw-Svt
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.28000 205,89
+        category: de.Abzw
+        name: Svt
+        sources: !keyref src.dd.DR.1976
+    -   date: !var ds100.dr
+        de.DS100: DSVT
+        name: Görlitz Abzw Svt
+        sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.28000 svt
+
+
+---
+key: point.de.Goerlitz
+type: point
+junction: True
+events:
+    -   date: !!null
+        name: Görlitz
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        de.lknr: 04 062
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: I
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 04 088
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location:
+            - !keyloc line.de.28000 207,9
+        de.VBL: Gö
+        sources: !keyref src.dd.DR.1976
+    -   date: !date c1985
+        de.VBL: Goe
+        sources: !keyref src.dd.DR.1989
+    -   date: !var ds100.dr
+        de.DS100: DG
+        sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.28000 gor
+
+
+---
+key: point.de.Goerlitz-Weinhuebel
+type: point
+events:
+    -   date: !!null
+        name: Posottendorf-Leschwitz
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        de.lknr: 04 064
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: III
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 04 094
+        sources: !keyref src.de.Bfv.1933
+    -   date: !date c1936
+        name: Weinhübel
+        sources: !keyref src.de.Kb.W1937
+    -   date: !!null
+        location: !keyloc line.de.28000 210,76
+        sources: !keyref src.dd.DR.1976
+    -   date: !date c1936
+        de.VBL: Weil
+        sources: !keyref src.dd.DR.1976
+    -   date: !date c1965
+        de.Rangklasse: U
+        name: Görlitz-Weinhübel
+        sources: !keyref src.dd.DR.1976
+    -   date: !var ds100.dr
+        de.DS100: DGWH
+        sources: !keyref src.de.TPP.2006
+    -   date: !date c1995
+        category: de.Hp
+        sources: !keyref src.de.SuW.2005
+
+    -   date: !!null
+        site: !noderef path.de.28000 gwe
+
+
+---
+key: point.de.Deutsch-Ossig
+type: point
+events:
+    -   date: !!null
+        name: Deutsch Ossig
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        de.lknr: 04 506
+        service: no-freight
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Hp
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 04 095
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location: !keyloc line.de.28000 214,04
+        de.VBL: Dos
+        sources: !keyref src.dd.DR.1976
+    -   date: !var ds100.dr
+        de.DS100: DDOS
+    -   date: !date c1995
+        status: closed
+
+    -   date: !!null
+        site: !noderef path.de.28000 deu
+    -   date: !date c1985
+        site: !noderef path.de.28000.deu deu
+        
+
+---
+key: point.de.Hagenwerder
+type: point
+events:
+    -   date: !!null
+        name: Nikrisch
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        de.lknr: 04 065
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: III
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 04 096
+        sources: !keyref src.de.Bfv.1933
+    -   date: !date c1936
+        name: Hagenwerder
+        sources: !keyref src.de.Kb.W1937
+    -   date: !!null
+        location: !keyloc line.de.28000 217,42
+        sources: !keyref src.dd.DR.1976
+    -   date: !date c1936
+        de.VBL: Hwe
+        sources: !keyref src.dd.DR.1976
+    -   date: !date c1985
+        de.VBL: Hwb
+        sources: !keyref src.dd.DR.1989
+    -   date: !var ds100.dr
+        de.DS100: DHW
+
+    -   date: !!null
+        site: !noderef path.de.28000 hag
+
+
+---
+key: point.de.Hagenwerder-Gr-Ost
+type: point
+events:
+    -   date: !!null
+        subtype: border
+
+    -   date: !!null
+        site: !noderef path.de.28000 ghag
+
 

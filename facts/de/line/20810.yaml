@@ -1,0 +1,39 @@
+
+
+---
+key: point.de.Berlin-Ostkreuz-Stadtbahn
+type: point
+junction: True
+events:
+    -   date: !date c1995
+        status: open
+        name: Berlin Ostkreuz (Stadtbahn)
+        ds.DS100: BOK V
+        sources: !keyref src.de.TPP.2006
+    -   date: !!null
+        location:
+            - !keyloc line.de.20850 0,00
+        category: de.Bft
+        master: !keyref point.de.Berlin-Ostkreuz
+    -   date: !date c2012
+        status: closed
+        merged: !keyref point.de.Berlin-Ostkreuz-S-Bahn
+
+
+---
+key: point.de.Berlin-Ostkreuz-S-Bahn
+type: point
+junction: True
+events:
+    -   date: !date c2012
+        status: open
+        name: Berlin Ostkreuz (S-Bahn)
+        de.DS100: BOKS
+        sources:
+            - !keyref src.de.TPP.2012
+            - !keyref src.de.TPP.2013
+    -   date: !!null
+        location:
+            - !keyloc line.de.20850 0,00
+            - !keyloc line.de.20900 13,13
+        category: de.Bf
