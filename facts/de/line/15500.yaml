@@ -8,8 +8,7 @@ events:
             - !keyref org.de.l.ni
 
     -   date: !!null
-        de.VzG: 1744
-        locations: [ "0,011", "62,700" ]
+        de.VzG: !!str 1744
         sources: !keyref src.de.VzG
 
     -   date: !!null
@@ -59,15 +58,15 @@ events:
 
     -   date: !date 1966-09-25
         start: !keyref point.de.Sulingen
-        service: no-passenger
+        service: freight
         sources: !keyref src.de.WP.Bahnstrecke-Nienburg-Diepholz
     -   date: !date 1969-09-27
         end: !keyref point.de.Sulingen
-        service: no-passenger
+        service: freight
         sources: !keyref src.de.WP.Bahnstrecke-Nienburg-Diepholz
     -   date: !date 1990-09-30
         end: !keyref point.de.Sulingen
-        service: no-freight
+        service: none
         sources: !keyref src.de.Bundestag.14.200
 
     -   date: !var org.de.DBAG.start
@@ -111,7 +110,7 @@ events:
         category: de.Bf
         de.Rangklasse: IV
         name: Mehlbergen
-        tags: de.Agent
+        staff: agent
         de.lknr: 21 531
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
@@ -129,12 +128,9 @@ events:
     -   date: !!null
         category: de.Hp
         name: Blenhorst
-        tags: [ de.Agent, de.e ]
+        staff: agent
         de.lknr: 21 532
         sources: !keyref src.de.Bfv.1933
-    -   date: !date c1940
-        tags: [ de.Agent ]
-        sources: !keyref src.de.Bfv.1944
     -   date: !date c1970
         status: closed
 
@@ -168,12 +164,11 @@ events:
         category: de.Bf
         de.Rangklasse: IV
         name: Harbergen-Staffhorst
-        tags: de.Agent
+        staff: agent
         de.lknr: 21 534
         sources: !keyref src.de.Bfv.1933
     -   date: !date c1940
         category: de.Hst
-        tags: [ de.Agent, de.vg ]
         sources: !keyref src.de.Bfv.1944
     -   date: !date c1970
         status: closed
@@ -225,12 +220,11 @@ events:
         category: de.Bf
         de.Rangklasse: IV
         name: Groß Lessen
-        tags: de.Agent
+        staff: agent
         de.lknr: 21 537
         sources: !keyref src.de.Bfv.1933
     -   date: !date c1940
         category: de.Hst
-        tags: [ de.Agent, de.vg ]
         sources: !keyref src.de.Bfv.1944
     -   date: !!null
         de.DS100: HGL
@@ -250,12 +244,11 @@ events:
         category: de.Bf
         de.Rangklasse: IV
         name: Wehrbleck
-        tags: de.Agent
+        staff: agent
         de.lknr: 21 538
         sources: !keyref src.de.Bfv.1933
     -   date: !date c1940
         category: de.Hst
-        tags: [ de.Agent ]
         sources: !keyref src.de.Bfv.1944
     -   date: !!null
         de.DS100: HWCK
@@ -274,7 +267,7 @@ events:
     -   date: !!null
         category: de.Hp
         name: Freistatt
-        tags: [ de.e, de.e, de.u ]
+        staff: none
         master: !keyref point.de.Diepholz
         de.lknr: 21 539
         sources: !keyref src.de.Bfv.1933
@@ -299,11 +292,11 @@ events:
         category: de.Bf
         de.Rangklasse: IV
         name: Barver
-        tags: de.Agent
+        staff: agent
         de.lknr: 21 540
         sources: !keyref src.de.Bfv.1933
     -   date: !date c1940
-        tags: []
+        staff: full
         sources: !keyref src.de.Bfv.1944
     -   date: !!null
         de.DS100: HBAV
@@ -321,11 +314,11 @@ events:
     -   date: !!null
         category: de.Hp
         name: Hemsloh
-        tags: [ de.Agent, de.e ]
+        staff: agent
         de.lknr: 21 541
         sources: !keyref src.de.Bfv.1933
     -   date: !date c1940
-        tags: [ de.e ]
+        staff: full
         sources: !keyref src.de.Bfv.1944
     -   date: !date c1970
         status: closed
@@ -341,11 +334,11 @@ events:
         category: de.Bf
         de.Rangklasse: IV
         name: Rehden-Wetschen
-        tags: de.Agent
+        staff: agent
         de.lknr: 21 542
         sources: !keyref src.de.Bfv.1933
     -   date: !date c1940
-        tags: []
+        staff: full
         sources: !keyref src.de.Bfv.1944
     -   date: !!null
         de.DS100: HRWE
@@ -363,18 +356,10 @@ events:
     -   date: !!null
         category: de.Hp
         name: St Hülfe
-        tags: [ de.Agent, de.e ]
+        staff: agent
         de.lknr: 21 543
         sources: !keyref src.de.Bfv.1933
     -   date: !date c1970
         status: closed
 
 
----
-key: src.de.WP.Bahnstrecke-Nienburg-Diepholz
-type: source
-subtype: inonline
-series: Wikipedia, Die freie Enzyklopädie
-title: Bahnstrecke Nienburg–Diepholz
-revision: 30. Dezember 2010, 10:27 UTC
-url: http://de.wikipedia.org/w/index.php?title=Bahnstrecke_Nienburg%E2%80%93Diepholz&oldid=83226177

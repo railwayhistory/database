@@ -1,5 +1,4 @@
 ---
-
 key: line.de.12040
 type: line
 events:
@@ -11,9 +10,7 @@ events:
         category: de.Nebenbahn
         sources: !keyref src.de.DRG.1927
     -   date: !!null
-        ref:
-            de.VzG: 1215
-        locations: [ "-0,416", "12,279" ]
+        de.VzG: !!str 1215
         sources: !keyref src.de.VzG
     -   date: !date 1907-11-17
         start: !keyref point.de.Eddelak
@@ -26,7 +23,7 @@ events:
         status: open
         sources: !keyref src.de.DRG.1935
     -   date: !date 1969-09-27
-        service: no-passenger
+        service: freight
         sources: !keyref src.de.web.Dammbrueck.News
 points:
     - !keyref point.de.St-Michaelisdonn     # line.de.12000
@@ -40,7 +37,6 @@ points:
     - !keyref point.de.Brunsbuettel-Nord
 
 ---
-
 key: point.de.Dingerdonn
 type: point
 events:
@@ -49,12 +45,12 @@ events:
         category: de.Hp
         location: !keyloc line.de.12040 2,8
         name: Dingerdonn
-        service: [ de.p, de.u ]
+        service: passenger
+        staff: none
     -   date: !date 1969-09-27?
         status: closed
 
 ---
-
 key: point.de.Averlak
 type: point
 events:
@@ -63,12 +59,12 @@ events:
         category: de.Hp
         location: !keyloc line.de.12040 5,8
         name: Averlak
-        service: [ de.p, de.u ]
+        service: passenger
+        staff: none
     -   date: !date 1969-09-27?
         status: closed
 
 ---
-
 key: point.de.Blangenmoor
 type: point
 events:
@@ -79,18 +75,13 @@ events:
         category: de.Bf
         de.Rangklasse: IV
         name: Blangenmoor
-        ref:
-            de.lknr: 01 508
-        service: [ de.b, de.Agent ]
+        de.lknr: 01 508
+        staff: agent
         sources: !keyref src.de.Bfv.1933
-    -   date: !date c1940
-        service: de.Agent
-        sources: !keyref src.de.Bfv.1944
     -   date: !date c1970
         status: closed
 
 ---
-
 key: point.de.Blangenmoor-Lehe
 type: point
 events:
@@ -99,12 +90,12 @@ events:
         category: de.Hp
         location: !keyloc line.de.12040 8,7
         name: Blangenmoor-Lehe
-        service: [ de.p, de.u ]
+        service: passenger
+        staff: none
     -   date: !date 1969-09-27?
         status: closed
 
 ---
-
 key: point.de.Josenburg
 type: point
 events:
@@ -114,18 +105,17 @@ events:
     -   date: !!null
         category: de.Hp
         name: Josenburg
-        ref:
-            de.lknr: 01 509
+        de.lknr: 01 509
         sources: !keyref src.de.Bfv.1933
     -   date: !date c1940
-        service: [ de.p, de.u ]
+        service: passenger
+        staff: none
         master: !keyref point.de.Brunsbuettel-Nord
         sources: !keyref src.de.Bfv.1944
     -   date: !date 1969-09-27?
         status: closed
 
 ---
-
 key: point.de.Condea
 type: point
 events:
@@ -133,8 +123,7 @@ events:
         category: de.Anst
         location: !keyloc line.de.12040 10,2
         name: Brunsbüttel Condea
-        ref:
-            de.DS100: ASDC
+        de.DS100: ASDC
         sources:
             - !keyref src.de.SuW.2005
             - !keyref src.de.TPP.2006
@@ -142,7 +131,6 @@ events:
         status: open
 
 ---
-
 key: point.de.Brunsbuettel-Nord
 type: point
 events:
@@ -153,12 +141,10 @@ events:
         category: de.Bf
         de.Rangklasse: IV
         name: Brunsbüttelkoog Nord
-        ref:
-            de.lknr: 01 510
+        de.lknr: 01 510
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        ref:
-            de.DS100: ABKN
+        de.DS100: ABKN
     -   date: !date c1970
         name: Brunsbüttel Nord
     -   date: !date c2000

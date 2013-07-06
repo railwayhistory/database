@@ -1,5 +1,4 @@
 ---
-
 key: line.de.12220
 type: line
 events:
@@ -10,9 +9,7 @@ events:
     -   date: !!null
         category: de.Nebenbahn
     -   date: !!null
-        ref:
-            de.VzG: 1205
-        locations: [ "21,075", "43,724" ]
+        de.VzG: !!str 1205
         sources: !keyref src.de.VzG
     -   date: !date 1890-05-10
         end: !keyref point.de.Garding
@@ -69,7 +66,7 @@ events:
     -   date: !var org.de.DB.start
         operator: !keyref org.de.e.DB
     -   date: !date 1992-09-27
-        service: no-freight
+        service: passenger
 points:
     - !keyref point.de.Toenning     # line.de.12200
     - !keyref point.de.Kating
@@ -82,7 +79,6 @@ points:
     - !keyref point.de.Bad-St-Peter-Ording
 
 ---
-
 key: point.de.Kating
 type: point
 events:
@@ -94,24 +90,22 @@ events:
         sources: !keyref src.de.Kb.1914
     -   date: !!null
         category: de.Hp
-        ref:
-            de.lknr: 01 560
-        service: de.u
+        de.lknr: 01 560
+        staff: none
         master: !keyref point.de.Husum
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        ref:
-            de.DS100: AKTO
+        de.DS100: AKTO
         sources: !keyref src.de.TPP.2006
     -   date: !date c1940
-        service: [ de.p, de.u ]
+        service: passenger
+        staff: none
         sources: !keyref src.de.Bfv.1944
     -   date: !date c1980
         location: !keyloc line.de.12220 25,6
         sources: !keyref src.de.SuW.2005
 
 ---
-
 key: point.de.Katharinenheerd
 type: point
 events:
@@ -124,17 +118,13 @@ events:
     -   date: !!null
         category: de.Bf
         de.Rangklasse: IV
-        ref:
-            de.lknr: 01 561
-        service: de.b
+        de.lknr: 01 561
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        ref:
-            de.DS100: AKAD
+        de.DS100: AKAD
         sources: !keyref src.de.TPP.2006
     -   date: !date c1940
         category: de.Hst
-        service: de.vg
         sources: !keyref src.de.Bfv.1944
     -   date: !date c1980
         location: !keyloc line.de.12220 28,4
@@ -143,7 +133,6 @@ events:
         category: de.Hp
 
 ---
-
 key: point.de.Garding
 type: point
 events:
@@ -156,12 +145,10 @@ events:
     -   date: !!null
         category: de.Bf
         de.Rangklasse: III
-        ref:
-            de.lknr: 01 562
+        de.lknr: 01 562
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        ref:
-            de.DS100: AGD
+        de.DS100: AGD
         sources: !keyref src.de.TPP.2006
     -   date: !date c1980
         location: !keyloc line.de.12220 31,5
@@ -170,17 +157,15 @@ events:
         category: de.Hp
 
 ---
-
 key: point.de.Sandwehle
 type: point
 events:
     -   date: !!null
         location: !keyloc line.de.12220 13,4
-        service: de.u
+        staff: none
     -   date: !!null
         name: Sandwehle
-        ref:
-            de.DS100: ASDW
+        de.DS100: ASDW
         sources: !keyref src.de.TPP.2006
     -   date: !!null
         category: de.Hp
@@ -192,7 +177,6 @@ events:
         sources: !keyref src.de.SuW.2005
 
 ---
-
 key: point.de.Heisternest
 type: point
 events:
@@ -202,19 +186,15 @@ events:
     -   date: !!null
         category: de.Hp
         name: Heisternest
-        ref:
-            de.lknr: 01 573
-        service: [ de.e, de.p, de.u ]
+        de.lknr: 01 573
+        service: passenger
+        staff: none
         master: !keyref point.de.Garding
         sources: !keyref src.de.Bfv.1933
-    -   date: !date c1940
-        service: [ de.p, de.u ]
-        sources: !keyref src.de.Bfv.1944
     -   date: !date c1950
         status: closed
 
 ---
-
 key: point.de.Tating
 type: point
 events:
@@ -223,16 +203,14 @@ events:
         sources: !keyref src.de.DRG.Alt.Karte.1949
     -   date: !!null
         name: Tating
-        ref:
-            de.lknr: 01 563
-        service: de.Agent
+        de.lknr: 01 563
+        staff: agent
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
         category: de.Hst
         sources: !keyref src.de.Bfv.1944
     -   date: !!null
-        ref:
-            de.DS100: ATAT
+        de.DS100: ATAT
         sources: !keyref src.de.TPP.2006
     -   date: !date c1980
         location: !keyloc line.de.12220 36,5
@@ -242,7 +220,6 @@ events:
         sources: !keyref src.de.SuW.2005
 
 ---
-
 key: point.de.Bad-St-Peter-Sued
 type: point
 events:
@@ -251,20 +228,15 @@ events:
         sources: !keyref src.de.DRG.Alt.Karte.1949
     -   date: !!null
         name: Bad St Peter Süd
-        ref:
-            de.lknr: 01 564
-        service: [ de.b, de.Agent ]
+        de.lknr: 01 564
+        staff: agent
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
         category: de.Hst
         sources: !keyref src.de.Bfv.1944
     -   date: !!null
-        ref:
-            de.DS100: APSD
+        de.DS100: APSD
         sources: !keyref src.de.SuW.2005
-    -   date: !date c1940
-        service: [ de.vg, de.Agent ]
-        sources: !keyref src.de.Bfv.1944
     -   date: !date c1980
         location: !keyloc line.de.12220 40,9
         sources: !keyref src.de.SuW.2005
@@ -273,7 +245,6 @@ events:
         sources: !keyref src.de.SuW.2005
 
 ---
-
 key: point.de.Bad-St-Peter-Ording
 type: point
 events:
@@ -284,17 +255,14 @@ events:
         category: de.Bf
         de.Rangklasse: IV
         name: Bad St Peter-Ording
-        ref:
-            de.lknr: 01 565
-        service: de.Agent
+        de.lknr: 01 565
+        staff: agent
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        ref:
-            de.DS100: APO
+        de.DS100: APO
         sources: !keyref src.de.SuW.2005
     -   date: !date c1940
         category: de.Hst
-        service: [ de.vg, de.Agent ]
         sources: !keyref src.de.Bfv.1944
     -   date: !date c1950
         category: de.Bf

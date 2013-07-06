@@ -4,12 +4,13 @@ type: line
 label: de.S-Bahn
 events:
     -   date: !!null
-        region: !keyref org.de
-        region: !keyref org.de.l.be
+        region:
+            - !keyref org.de
+            - !keyref org.de.l.be
 
     -   date: !var vzg.dr
         start: !keyref point.de.Berlin-Yorckstrasse-Strw
-        de.VzG: 6035
+        de.VzG: !!str 6035
         sources: !keyref src.de.DBAG.ISR
 
     -   date: !!null
@@ -40,10 +41,10 @@ events:
         electrified:
             rail: !var el.de.bln
     -   date: !date 1939-11-06?
-        end: !keyref point.de.Berlin-Yorkstrasse-Strw
+        end: !keyref point.de.Berlin-Yorckstrasse-Strw
         status: closed
     -   date: !date c1950
-        end: !keyref point.de.Berlin-Yorkstrasse-Strw
+        end: !keyref point.de.Berlin-Yorckstrasse-Strw
         status: removed
 
     # Eigentümer und Betreiber
@@ -126,7 +127,7 @@ events:
         sources: !keyref src.de.DRG.Bln.1927
     -   date: !!null
         de.lknr: 03 271
-        service: no-freight
+        service: passenger
         sources: !keyref src.de.Bfv.1928
     -   date: !date c1930
         category: de.Bf
@@ -149,7 +150,7 @@ events:
         sources: !keyref src.de.DBAG.ISR
 
     -   date: !!null
-        site: !mapref path.de.20010 yor
+        site: !noderef path.de.20010 yor
 
 
 ---
@@ -168,7 +169,7 @@ events:
         sources: !keyref src.de.DRG.Bln.1927
     -   date: !!null
         de.lknr: 03 216
-        service: no-freight
+        service: passenger
         sources: !keyref src.de.Bfv.1928
     -   date: !date c1930
         category: de.Bf
@@ -195,7 +196,7 @@ events:
         sources: !keyref src.de.DBAG.ISR
 
     -   date: !!null
-        site: !mapref path.de.31000 skr
+        site: !noderef path.de.31000 skr
 
 
 ---
@@ -225,7 +226,7 @@ events:
             - !keyref src.de.Kuhlmann.2000
     -   date: !date 1928-10-07
         service: passenger
-        sources: !keyrey src.de.Bfv.1933
+        sources: !keyref src.de.Bfv.1933
     -   date: !var lknr.30
         de.lknr: 03 076
         sources: !keyref src.de.Bfv.1933
@@ -240,12 +241,12 @@ events:
             - !keyref src.dd.DR.Bln.1959
     -   date: !date c1965
         master: !keyref point.de.Berlin-Tempelhof
-        sources: !keyref src.dd.DR.Bln.1965
+        sources: !keyref src.dd.DR.Bln.1968
     -   date: !var ds100.dr
         de.DS100: BPRS
         sources: !keyref src.de.TPP.2006
 
-    -   date: !!nul
+    -   date: !!null
         site: !noderef path.de.20750 pri
 
 

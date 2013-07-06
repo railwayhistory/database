@@ -1,5 +1,4 @@
 ---
-
 key: line.de.12400
 type: line
 events:
@@ -11,9 +10,7 @@ events:
         category: de.Hauptbahn
         sources: !keyref src.de.DRG.1927
     -   date: !!null
-        ref:
-            de.VzG: 1040
-        locations: [ "74,163", "176,230" ]
+        de.VzG: !!str 1040
         sources: !keyref src.de.VzG
     -   date: !date 1845-04-04
         end: !keyref point.de.Rendsburg-RNE
@@ -177,7 +174,7 @@ events:
         operator: !keyref org.de.e.DBAG
     -   date: !date 1996-03-03
         electrified:
-            overhead: !voltage 15kV 16.7Hz
+            overhead: !var el.de
         sources: !keyref src.de.WP.Chronik-Streckenelektrifizierung-DBAG
     -   date: !var org.de.DBNetz.start
         owner: !keyref org.de.e.DBNetz
@@ -196,7 +193,7 @@ points:
     - !keyref point.de.Osterroenfeld-Bruecke
     - !keyref point.de.Hochbruecke
     - !keyref point.de.Rendsburg-Bruecke
-    - !keyref point.de.Schleife
+    - !keyref point.de.Rendsburg-Schleife
     - !keyref point.de.Rendsburg
     - !keyref point.de.Rendsburg-FHT
     - !keyref point.de.Buedelsdorf
@@ -218,8 +215,8 @@ points:
     - !keyref point.de.Flensburg
 
 # Überlänge 750m zwischen Neumünster und Aspe
----
 
+---
 key: point.de.Stover
 type: point
 events:
@@ -234,7 +231,6 @@ events:
         status: closed
 
 ---
-
 key: point.de.Aspe
 type: point
 events:
@@ -247,25 +243,21 @@ events:
     -   date: !!null
         category: de.Bf
         de.Rangklasse: IV
-        ref:
-            de.lknr: 01 404
-        service: de.b
+        de.lknr: 01 404
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        ref:
-            de.DS100: AASP
+        de.DS100: AASP
     -   date: !date c1940
         service: full
         sources: !keyref src.de.Bfv.1944
     -   date: !date 1981
         location: !keyloc line.de.12400 84,13
     -   date: !date 1987-05-30
-        service: de.op
+        service: freight
     -   date: !date c1995
         status: closed
 
 ---
-
 key: point.de.Nortorf
 type: point
 events:
@@ -278,19 +270,16 @@ events:
     -   date: !!null
         category: de.Bf
         de.Rangklasse: II
-        ref:
-            de.lknr: 01 405
+        de.lknr: 01 405
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        ref:
-            de.DS100: ANF
+        de.DS100: ANF
         sources: !keyref src.de.TPP.2006
     -   date: !date 1981
         location: !keyloc line.de.12400 88,87
         sources: !keyref src.de.SuW.2005
 
 ---
-
 key: point.de.Bokel
 type: point
 events:
@@ -303,9 +292,7 @@ events:
     -   date: !!null
         category: de.Bf
         de.Rangklasse: IV
-        ref:
-            de.lknr: 01 406
-        service: de.b
+        de.lknr: 01 406
         sources: !keyref src.de.Bfv.1933
     -   date: !date c1940
         category: de.Hst
@@ -313,12 +300,11 @@ events:
     -   date: !date 1981
         location: !keyloc line.de.12400 95,12
     -   date: !date 1987-05-31
-        service: de.op
+        service: freight
     -   date: !date c1995
         status: closed
 
 ---
-
 key: point.de.Bokelholm-Sued
 type: point
 events:
@@ -327,12 +313,10 @@ events:
         category: de.Bk
     -   date: !!null
         name: Bokelholm Süd
-        ref:
-            de.DS100: ABM S
+        de.DS100: ABM S
         sources: !keyref src.de.TPP.2006
 
 ---
-
 key: point.de.Bokelholm
 type: point
 events:
@@ -345,39 +329,30 @@ events:
     -   date: !!null
         category: de.Bf
         de.Rangklasse: IV
-        ref:
-            de.lknr: 01 407
-        service: de.b
+        de.lknr: 01 407
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        ref:
-            de.DS100: ABM
-    -   date: !date c1940
-        service: full
-        sources: !keyref src.de.Bfv.1944
+        de.DS100: ABM
     -   date: !date 1981
         location: !keyloc line.de.12400 99,19
     -   date: !date 1987-05-30
-        service: de.op
+        service: freight
     -   date: !date c1955
         status: closed
 
 ---
-
 key: point.de.Bokelholm-Nord
 type: point
 events:
     -   date: !!null
         name: Bokelholm Nord
-        ref:
-            de.DS100: ABM N
+        de.DS100: ABM N
         sources: !keyref src.de.TPP.2006
     -   date: !date c1995
         status: open
         category: de.Bk
 
 ---
-
 key: point.de.Osterroenfeld
 type: point
 events:
@@ -390,12 +365,10 @@ events:
         category: de.Bf
         de.Rangklasse: IV
         name: Osterrönfeld
-        ref:
-            de.lknr: 01 408
+        de.lknr: 01 408
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        ref:
-            de.DS100: AON
+        de.DS100: AON
         sources: !keyref src.de.TPP.2006
     -   date: !date 1913?
         status: open
@@ -403,7 +376,7 @@ events:
         location: !keyloc line.de.12800 31,08
         sources: !keyref src.de.DRG.Alt.Karte.1949
     -   date: !date c1960
-        service: de.op
+        service: freight
     -   date: !date 1981
         location: !keyloc line.de.12400 105,2
         sources: !keyref src.de.SuW.2005 
@@ -411,7 +384,6 @@ events:
 # Überlänge 4813 m; km 104,40 + 4913 m = 104,50
 
 ---
-
 key: point.de.Rendsburg-RNE
 type: point
 events:
@@ -422,7 +394,6 @@ events:
         status: closed
 
 ---
-
 key: point.de.Osterroenfeld-Bruecke
 type: point
 events:
@@ -430,8 +401,7 @@ events:
         category: de.Uest
         location: !keyloc line.de.12400 106,5
         name: Osterrönfeld Brücke
-        ref:
-            de.DS100: AONB
+        de.DS100: AONB
         sources: !keyref src.de.SuW.2005
     -   date: !date c1990
         status: open
@@ -439,7 +409,6 @@ events:
         status: closed
 
 ---
-
 key: point.de.Hochbruecke
 type: point
 events:
@@ -454,7 +423,6 @@ events:
         location: !keyloc line.de.12400 108,01
 
 ---
-
 key: point.de.Rendsburg-Bruecke
 type: point
 events:
@@ -462,8 +430,7 @@ events:
         category: de.Uest
         location: !keyloc line.de.12400 109,8
         name: Rendsburg Brücke
-        ref:
-            de.DS100: ARDB
+        de.DS100: ARDB
         sources: !keyref src.de.SuW.2005
     -   date: !date c1990
         status: open
@@ -471,8 +438,7 @@ events:
         status: closed
 
 ---
-
-key: point.de.Schleife
+key: point.de.Rendsburg-Schleife
 type: point
 events:
     -   date: !!null
@@ -486,7 +452,6 @@ events:
         location: !keyloc line.de.12400 110,678
 
 ---
-
 key: point.de.Rendsburg
 type: point
 events:
@@ -497,12 +462,10 @@ events:
         category: de.Bf
         de.Rangklasse: II
         name: Rendsburg
-        ref:
-            de.lknr: 01 409
+        de.lknr: 01 409
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        ref:
-            de.DS100: AR
+        de.DS100: AR
         sources: !keyref src.de.TPP.2006
     -   date: !date 1860
         status: open
@@ -511,7 +474,6 @@ events:
         sources: !keyref src.de.web.Erbeck
 
 ---
-
 key: point.de.Rendsburg-FHT
 type: point
 events:
@@ -522,7 +484,6 @@ events:
         status: closed
 
 ---
-
 key: point.de.Buedelsdorf
 type: point
 events:
@@ -537,12 +498,10 @@ events:
     -   date: !!null
         category: de.Bf
         de.Rangklasse: IV
-        ref:
-            de.lknr: 01 452
+        de.lknr: 01 452
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        ref:
-            de.DS100: ABUE
+        de.DS100: ABUE
     -   date: !date 1981
         location: !keyloc line.de.12400 115,35
         sources: !keyref src.de.web.Erbeck
@@ -550,7 +509,6 @@ events:
         status: closed
 
 ---
-
 key: point.de.Alt-Duvenstedt
 type: point
 events:
@@ -563,16 +521,13 @@ events:
     -   date: !!null
         category: de.Bf
         de.Rangklasse: IV
-        ref:
-            de.lknr: 01 412
-        service: de.b
+        de.lknr: 01 412
         sources: !keyref src.de.Bfv.1933
     -   date: !date c1920
         name: Alt Duvenstedt
         sources: !keyref src.de.Bfv.1933
     -   date: !date c1940
         category: de.Hst
-        service: de.vg
         sources: !keyref src.de.Bfv.1944
     -   date: !date 1981
         location: !keyloc line.de.12400 120,74
@@ -581,7 +536,6 @@ events:
         status: closed
 
 ---
-
 key: point.de.Owschlag
 type: point
 events:
@@ -594,23 +548,16 @@ events:
     -   date: !!null
         category: de.Bf
         de.Rangklasse: III
-        ref:
-            de.lknr: 01 413
-        service: de.b
+        de.lknr: 01 413
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        ref:
-            de.DS100: AOS
+        de.DS100: AOS
         sources: !keyref src.de.TPP.2006
-    -   date: !date c1940
-        service: full
-        sources: !keyref src.de.Bfv.1944
     -   date: !date 1981
         location: !keyloc line.de.12400 125,41
         sources: !keyref src.de.web.Erbeck
 
 ---
-
 key: point.de.Lottorf
 type: point
 events:
@@ -623,13 +570,10 @@ events:
     -   date: !!null
         category: de.Bf
         de.Rangklasse: IV
-        ref:
-            de.lknr: 01 414
-        service: de.b
+        de.lknr: 01 414
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        ref:
-            de.DS100: ALOT
+        de.DS100: ALOT
         sources: !keyref src.de.SuW.2005
     -   date: !date 1981
         location: !keyloc line.de.12400 132,5
@@ -641,7 +585,6 @@ events:
         status: closed
 
 ---
-
 key: point.de.Klosterkrug
 type: point
 events:
@@ -652,7 +595,6 @@ events:
         status: closed
 
 ---
-
 key: point.de.Schleswig
 type: point
 events:
@@ -669,12 +611,10 @@ events:
     -   date: !!null
         category: de.Bf
         de.Rangklasse: II
-        ref:
-            de.lknr: 01 415
+        de.lknr: 01 415
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        ref:
-            de.DS100: ASW
+        de.DS100: ASW
         sources: !keyref src.de.TPP.2006
     -   date: !date c1940
         de.Rangklasse: I
@@ -684,7 +624,6 @@ events:
         sources: !keyref src.de.web.Erbeck
 
 ---
-
 key: point.de.Schuby
 type: point
 events:
@@ -697,12 +636,10 @@ events:
     -   date: !!null
         category: de.Bf
         de.Rangklasse: IV
-        ref:
-            de.lknr: 01 419
+        de.lknr: 01 419
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        ref:
-            de.DS100: ASY
+        de.DS100: ASY
         sources: !keyref src.de.TPP.2006
     -   date: !date c1920
         name: Schuby (Kr Schleswig)
@@ -720,7 +657,6 @@ events:
         sources: !keyref src.de.TPP.2006
 
 ---
-
 key: point.de.Juebek
 type: point
 events:
@@ -735,19 +671,16 @@ events:
     -   date: !!null
         category: de.Bf
         de.Rangklasse: III
-        ref:
-            de.lknr: 01 420
+        de.lknr: 01 420
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        ref:
-            de.DS100: AJ
+        de.DS100: AJ
         sources: !keyref src.de.TPP.2006
     -   date: !date 1981
         location: !keyloc line.de.12400 149,43
         sources: !keyref src.de.web.Erbeck
 
 ---
-
 key: point.de.Eggebek
 type: point
 events:
@@ -760,28 +693,21 @@ events:
     -   date: !!null
         category: de.Bf
         de.Rangklasse: IV
-        ref:
-            de.lknr: 01 421
-        service: de.b
+        de.lknr: 01 421
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        ref:
-            de.DS100: AEG
-    -   date: !date c1940
-        service: full
-        sources: !keyref src.de.Bfv.1944
+        de.DS100: AEG
     -   date: !date 1981
         location: !keyloc line.de.12400 156,75
         sources: !keyref src.de.web.Erbeck
     -   date: !date 1987-05-30
-        service: de.op
+        service: freight
     -   date: !date c1990
         category: de.Anst
     -   date: !date c2000
         status: closed
 
 ---
-
 key: point.de.Tarp
 type: point
 events:
@@ -794,17 +720,11 @@ events:
     -   date: !!null
         category: de.Bf
         de.Rangklasse: III
-        ref:
-            de.lknr: 01 422
-        service: de.b
+        de.lknr: 01 422
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        ref:
-            de.DS100: ATP
+        de.DS100: ATP
         sources: !keyref src.de.TPP.2006
-    -   date: !date c1940
-        service: full
-        sources: !keyref src.de.Bfv.1944
     -   date: !date 1981
         location: !keyloc line.de.12400 161,97
         sources: !keyref src.de.web.Erbeck
@@ -812,7 +732,6 @@ events:
         category: de.Hp
 
 ---
-
 key: point.de.Barderup
 type: point
 events:
@@ -824,8 +743,7 @@ events:
         sources: !keyref src.de.Kb.1914
     -   date: !!null
         category: de.Hp
-        ref:
-            de.lknr: 01 423
+        de.lknr: 01 423
         sources: !keyref src.de.Bfv.1933
     -   date: !date 1981
         location: !keyloc line.de.12400 167,71
@@ -834,7 +752,6 @@ events:
         note: Einstellung PV-Halte
 
 ---
-
 key: point.de.Holzkrug
 type: point
 events:
@@ -845,7 +762,6 @@ events:
         status: closed
 
 ---
-
 key: point.de.Flensburg-Weiche-Wa
 type: point
 events:
@@ -855,8 +771,7 @@ events:
         name: Wa
         sources: !keyref src.de.DRG.Alt.Karte.1931
     -   date: !!null
-        ref:
-            de.DS100: AFW A
+        de.DS100: AFW A
     -   date: !date c1970
         category: de.Bft
         name: Flensburg Weiche Wa
@@ -867,21 +782,18 @@ events:
         status: closed
 
 ---
-
 key: point.de.Flensburg-Weiche-Sued
 type: point
 events:
     -   date: !!null
         name: Flensburg Weiche Süd
-        ref:
-            de.DS100: AFW S
+        de.DS100: AFW S
         sources: !keyref src.de.TPP.2006
     -   date: !!null
         category: de.Bft
         master: !keyref point.de.Flensburg-Weiche
         
 ---
-
 key: point.de.Flensburg-Weiche
 type: point
 events:
@@ -899,12 +811,10 @@ events:
     -   date: !!null
         category: de.Bf
         de.Rangklasse: I
-        ref:
-            de.lknr: 01 424
+        de.lknr: 01 424
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        ref:
-            de.DS100: AFW
+        de.DS100: AFW
         sources: !keyref src.de.TPP.2006
     -   date: !date 1914
         name: Flensburg Weiche
@@ -916,7 +826,6 @@ events:
         sources: !keyref src.de.web.Erbeck
 
 ---
-
 key: point.de.Flensburg-Wilhelminental
 type: point
 events:
@@ -927,8 +836,7 @@ events:
     -   date: !!null
         category: de.Awanst
         name: Flensburg Wilheminental
-        ref:
-            de.DS100: AFWI
+        de.DS100: AFWI
         sources:
             - !keyref src.de.TPP.2006
             - !keyref src.de.SuW.2005
@@ -938,7 +846,6 @@ events:
             - !keyloc line.de.12650 174,86
 
 ---
-
 key: point.de.Flensburg
 type: point
 events:
@@ -951,12 +858,10 @@ events:
         category: de.Bf
         de.Rangklasse: I
         name: Flensburg
-        ref:
-            de.lknr: 01 427
+        de.lknr: 01 427
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        ref:
-            de.DS100: AF
+        de.DS100: AF
         sources: !keyref src.de.TPP.2006
     -   date: !date 1927-12-01
         location: !keyloc line.de.12900 80,64

@@ -8,7 +8,7 @@ events:
             - !keyref org.de.l.hh
 
     -   date: !!null
-        de.VzG: 1234
+        de.VzG: !!str 1234
         sources: !keyref src.de.VzG
 
     -   date: !!null
@@ -91,20 +91,14 @@ events:
     -   date: !!null
         category: de.Hp
         name: Hamburg-Lokstedt
-        ref:
-            de.lknr: 01 100
-        service: [ de.op, de.vg ]
+        de.lknr: 01 100
+        service: freight
         sources:
             - !keyref src.de.Bfv.1944
     -   date: !!null
-        ref:
-            de.DS100: ALOF
+        de.DS100: ALOF
         sources:
             - !keyref src.de.TPP.2006
-    -   date: !!null
-        coords: !geopoint 53.604425 9.966147
-        sources:
-            - !keyref src.GoogleMaps
     -   date: !date c1970
         category: de.Bf
 
@@ -120,7 +114,7 @@ events:
         category: de.Bf
         de.Rangklasse: I
         name: Barmbeck Gbf
-        service: no-passenger
+        service: freight
         de.lknr: 01 121
         sources: !keyref src.de.Bfv.1944
     -   date: !!null
@@ -145,47 +139,31 @@ type: point
 events:
     -   date: !!null
         category: de.Anst
-        location:
-            - !keyloc line.de.10300 15,3
-        sources:
-            - !keyref src.de.SuW.2005
+        location: !keyloc line.de.10300 15,3
+        sources: !keyref src.de.SuW.2005
     -   date: !!null
         name: Hamburg-Barmbek Gleichrichterwerk
-        ref:
-            de.DS100: ABGL
-        sources:
-            - !keyref src.de.TPP.2006
-    -   date: !!null
-        coords: !geopoint 53.568213 10.061103
-        sources:
-            - !keyref src.GoogleMaps
+        de.DS100: ABGL
+        sources: !keyref src.de.TPP.2006
 
 ---
-
 key: point.de.Hamburg-Horn
 type: point
+junction: True
 events:
     -   date: !!null
         location:
             - !keyloc line.de.10300 15,94
             - !keyloc line.de.10305 59,54
-        sources:
-            - !keyref src.de.DRG.Alt.Karte.1945
+        sources: !keyref src.de.DRG.Alt.Karte.1945
     -   date: !!null
         category: de.Bf
-        service: de.o
-        sources:
-            - !keyref src.de.SuW.2005
+        service: none
+        sources: !keyref src.de.SuW.2005
     -   date: !!null
         name: Hamburg-Horn
-        ref:
-            de.DS100: AHOR
-        sources:
-            - !keyref src.de.TPP.2006
-    -   date: !!null
-        coords: !geopoint 53.5629 10.064477
-        sources:
-            - !keyref src.GoogleMaps
+        de.DS100: AHOR
+        sources: !keyref src.de.TPP.2006
 
 ---
 key: point.de.Hamburg-Rothenburgsort-SStK
@@ -196,9 +174,9 @@ events:
         name: Hamburg-Rothenburgsort W135
 
 ---
-
 key: point.de.Hamburg-Rothenburgsort
 type: point
+junction: True
 events:
     -   date: !!null
         location:
@@ -208,29 +186,21 @@ events:
         category: de.Bf
         de.Rangklasse: I
         name: Hamburg-Rothenburgsort Vbf
-        ref:
-            de.lknr: 01 069
-        service: de.o
-        sources:
-            - !keyref src.de.Bfv.1933
+        de.lknr: 01 069
+        service: none
+        sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        ref:
-            de.DS100: AHRO
-        sources:
-            - !keyref src.de.SuW.2005
-    -   date: !!null
-        coords: !geopoint 53.535283 10.052147
-        sources:
-            - !keyref src.GoogleMaps
+        de.DS100: AHRO
+        sources: !keyref src.de.SuW.2005
     -   date: !date c1940
         name: Hamburg-Rothenburgsort
-        sources:
-            - !keyref src.de.Bfv.1944
+        sources: !keyref src.de.Bfv.1944
 
 ---
 
 key: point.de.Hamburg-Rothenburgsort-Ro
 type: point
+junction: True
 events:
     -   date: !!null
         category: de.Bft
@@ -240,17 +210,10 @@ events:
         sources: !keyref src.de.SuW.2005
     -   date: !!null
         name: Hamburg-Rothenburgsort Ro
-        ref:
-            de.DS100: AHROO
-        sources:
-            - !keyref src.de.TPP.2006
-    -   date: !!null
-        coords: !geopoint 53.538401 10.036842
-        sources:
-            - !keyref src.GoogleMaps
+        de.DS100: AHROO
+        sources: !keyref src.de.TPP.2006
 
 ---
-
 key: point.de.Hamburg-Luebecker-Gbf
 type: point
 events:
@@ -258,9 +221,5 @@ events:
         category: de.Bf
         name: Hamburg Lübecker Gbf
         service: freight
-    -   date: !!null
-        coords: !geopoint 53.547575 10.019102
-        sources:
-            - !keyref src.GoogleMaps
     -   date: !date c1900
         status: closed

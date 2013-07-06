@@ -16,8 +16,7 @@ events:
 
     -   date: !!null
         end: !keyref point.de.Emden-Sued-Es
-        de.VzG: 2931
-        locations: [ "134,770", "348,059" ]
+        de.VzG: !!str 2931
         sources: !keyref src.de.VzG
 
     -   date: !date 1846-03-03
@@ -185,7 +184,7 @@ events:
     -   date: !date 1966-09-12
         end: !keyref point.de.Muenster-Westf-Hbf
         electrified:
-            overhead: !voltage 15kV 16.7Hz
+            overhead: !var el.de
         sources: 
             - !keyref src.de.web.Joost
             - !keyref src.de.Krause.1986
@@ -193,18 +192,18 @@ events:
         start: !keyref point.de.Muenster-Westf-Hbf
         end: !keyref point.de.Rheine
         electrified:
-            overhead: !voltage 15kV 16.7Hz
+            overhead: !var el.de
         sources: !keyref src.de.Krause.1986
     -   date: !date 1975-06-23
         start: !keyref point.de.Rheine
         end: !keyref point.de.Salzbergen
         electrified:
-            overhead: !voltage 15kV 16.7Hz
+            overhead: !var el.de
         sources: !keyref src.ch.Schwach.1989
     -   date: !date 1980-09-28
         start: !keyref point.de.Salzbergen
         electrified:
-            overhead: !voltage 15kV 16.7Hz
+            overhead: !var el.de
         sources: !keyref src.ch.Schwach.1989
 
     -   date: !var org.de.DBAG.start
@@ -431,7 +430,7 @@ events:
         de.VBL: Df
         sources: !keyref src.de.web.Joost
     -   date: !date 1995-08-01
-        service: no-freight
+        service: passenger
         sources: !keyref src.de.web.Joost
     -   date: !date 1996-11-17
         category: [ de.Hp, de.Bk ]
@@ -657,7 +656,7 @@ events:
         de.DS100: ESPR
         sources: !keyref src.de.TPP.2006
     -   date: !!null
-        service: no-freight
+        service: passenger
         sources: !keyref src.de.web.Joost
     -   date: !date 1911
         service: freight
@@ -716,16 +715,12 @@ events:
         name: Reckenfeld
         sources: !keyref src.de.web.Joost
     -   date: !date 1996-02-01
-        service: no-freight
+        service: passenger
         sources: !keyref src.de.web.Joost
     -   date: !!null
         de.Rangklasse: III
-        tags: de.b
         de.lknr: 21 061
         sources: !keyref src.de.Bfv.1933
-    -   date: !date c1940
-        tags: []
-        sources: !keyref src.de.Bfv.1944
     -   date: !!null
         de.VBL: Rf
         sources: !keyref src.de.web.Joost
@@ -803,7 +798,7 @@ events:
     -   date: !date c1970
         category: [ de.Hp, de.Anst, de.Bk ]
     -   date: !date 1996-02-01
-        service: no-freight
+        service: passenger
         category: [ de.Hp, de.Bk ]
         sources: !keyref src.de.web.Joost
     -   date: !date c2000
@@ -959,7 +954,7 @@ events:
     -   date: !!null
         category: de.Bf
         de.Rangklasse: IV
-        tags: [ de.e, de.og ]
+        service: passenger
         de.lknr: 21 073
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
@@ -1124,11 +1119,11 @@ events:
     -   date: !!null
         category: de.Bf
         de.Rangklasse: IV
-        tags: [ de.e, de.og ]
+        service: passenger
         de.lknr: 21 079
         sources: !keyref src.de.Bfv.1933
     -   date: !date c1940
-        tags: de.e
+        service: full
         sources: !keyref src.de.Bfv.1944
     -   date: !date c1970
         status: closed
@@ -1306,8 +1301,7 @@ events:
     -   date: !!null
         category: de.Bf
         de.Rangklasse: IV
-        service: no-freight
-        tags: de.og
+        service: passenger
         de.lknr: 21 088
         sources: !keyref src.de.Bfv.1933
     -   date: !date c1945
@@ -1338,7 +1332,7 @@ events:
         de.DS100: HIHV
         sources: !keyref src.de.TPP.2006
     -   date: !date c1990
-        service: no-passenger
+        service: freight
         sources: !keyref src.de.SuW.2005
 
 ---
@@ -1510,7 +1504,7 @@ events:
         de.DS100: HODU
         sources: !keyref src.de.TPP.2006
     -   date: !date c1990
-        service: no-passenger
+        service: freight
         sources: !keyref src.de.SuW.2005
 
 ---

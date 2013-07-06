@@ -12,8 +12,7 @@ events:
         region: !keyref org.de.l.hb
 
     -   date: !!null
-        de.VzG: 1500
-        locations: [ "0,000", "44,778"]
+        de.VzG: !!str 1500
         sources: !keyref src.de.VzG
 
     -   date: !!null
@@ -67,18 +66,18 @@ events:
     -   date: !date 1964-12-14
         start: !keyref point.de.Bremen-Neustadt
         electrified:
-            overhead: !voltage 15kV 16.7Hz
+            overhead: !var el.de
         sources: !keyref src.ch.Schwach.1989
     -   date: !date 1980-05-28
         start: !keyref point.de.Delmenhorst
         end: !keyref point.de.Bremen-Neustadt
         electrified:
-            overhead: !voltage 15kV 16.7Hz
+            overhead: !var el.de
         sources: !keyref src.ch.Schwach.1989
     -   date: !date 1980-09-28
         end: !keyref point.de.Delmenhorst
         electrified:
-            overhead: !voltage 15kV 16.7Hz
+            overhead: !var el.de
         sources: !keyref src.ch.Schwach.1989
 
     -   date: !var org.de.DBAG.start
@@ -138,7 +137,7 @@ events:
         name: Neuenwege
         sources: !keyref src.de.Kb.1914
     -   date: !!null
-        tags: [ de.Agent, de.b ]
+        staff: agent
         de.lknr: 23 015
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
@@ -146,9 +145,6 @@ events:
         sources: !keyref src.de.Bfv.1944
     -   date: !date 1935-01-01
         de.lknr: 21 203
-        sources: !keyref src.de.Bfv.1944
-    -   date: !date c1940
-        tags: de.b
         sources: !keyref src.de.Bfv.1944
     -   date: !date c1975
         status: closed
@@ -175,7 +171,7 @@ events:
         de.DS100: HWUE
         sources: !keyref src.de.TPP.2006
     -   date: !date c1975
-        service: no-passenger
+        service: freight
         sources: !keyref src.de.SuW.2005
     -   date: !date c2010
         service: passenger
@@ -257,7 +253,6 @@ events:
         sources: !keyref src.de.Kb.1914
     -   date: !!null
         category: de.Hp
-        tags: de.b
         de.lknr: 23 010
         sources: !keyref src.de.Bfv.1933
     -   date: !date 1935-01-01
@@ -336,14 +331,14 @@ events:
         sources: !keyref src.de.Kb.1914
     -   date: !!null
         category: de.Hp
-        tags: [ de.Agent, de.b ]
+        staff: agent
         de.lknr: 23 005
         sources: !keyref src.de.Bfv.1933
     -   date: !date 1935-01-01
         de.lknr: 13 825
         sources: !keyref src.de.Bfv.1944
     -   date: !date c1940
-        tags: de.b
+        staff: full
         sources: !keyref src.de.Bfv.1944
     -   date: !!null
         de.DS100: HHEI
@@ -402,14 +397,12 @@ events:
     -   date: !!null
         category: de.Bf
         de.Rangklasse: I
-        tags: de.b
         de.lknr: 23 001
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
         de.DS100: HBN
         sources: !keyref src.de.TPP.2006
     -   date: !date c1940
-        tags: []
         de.lknr: 13 821
         sources: !keyref src.de.Bfv.1944
 

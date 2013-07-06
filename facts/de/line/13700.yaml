@@ -7,7 +7,7 @@ events:
             - !keyref org.de
             - !keyref org.de.l.ni
     -   date: !!null
-        de.VzG: 1710
+        de.VzG: !!str 1710
         sources: !keyref src.de.VzG
     -   date: !!null
         category: de.Hauptbahn
@@ -25,7 +25,7 @@ events:
         sources: !keyref src.de.WP.Bahnstrecke-Hannover-Hamburg
     -   date: !date 1965-04-03
         electrified:
-            overhead: !voltage 15kV 16.7Hz
+            overhead: !var el.de
         sources: !keyref src.de.WP.Bahnstrecke-Hannover-Hamburg
     -   date: !var org.de.DBAG.start
         owner: !keyref org.de.e.DBAG
@@ -58,10 +58,9 @@ events:
             - !keyloc line.de.13710 9,9
         category: de.Hp
         name: Langenhagen Mitte
-        ref:
-            de.DS100: HLGM
-        service: [ de.u, de.p ]
-        category: de.Hp
+        de.DS100: HLGM
+        service: passenger
+        staff: none
         sources: !keyref src.de.SuW.2005
 
 ---
@@ -123,8 +122,7 @@ events:
     -   date: !!null
         location: !keyloc line.de.13700 31,1
         category: de.Uest
-        ref:
-            de.DS100: HHSW
+        de.DS100: HHSW
         sources: !keyref src.de.SuW.2005
     -   date: !!null
         name: Hasenwechsel
@@ -141,9 +139,7 @@ events:
         sources: !keyref src.de.DRG.Han.1945
     -   date: !!null
         category: de.Hp
-        service: de.b
-        ref:
-            de.lknr: 13 808
+        de.lknr: 13 808
         sources: !keyref src.de.Bfv.1944
     -   date: !date c1945
         category: de.Bf

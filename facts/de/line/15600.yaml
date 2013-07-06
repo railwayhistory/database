@@ -12,8 +12,7 @@ events:
         region: !keyref org.de.l.ni
 
     -   date: !!null
-        de.VzG: 2950
-        locations: [ "-0,215", "55,210" ]
+        de.VzG: !!str 2950
         sources: !keyref src.de.VzG
 
     -   date: !!null
@@ -52,15 +51,15 @@ events:
 
     -   date: !date 1966-09-12?
         electrified:
-            overhead: !voltage 15kV 16.7Hz
+            overhead: !var el.de
 
     -   date: !date 1984-06-03
         start: !keyref point.de.Dissen-Bad-Rothenfelde
-        service: no-passenger
+        service: freight
         sources: !keyref src.de.web.Joost
     -   date: !date 1993-07-01
         start: !keyref point.de.Dissen-Bad-Rothenfelde
-        service: no-freight
+        service: none
         sources: !keyref src.de.Bundestag.14.200
 
     -   date: !var org.de.DBAG.start
@@ -174,7 +173,7 @@ events:
         de.VBL: Ql
         sources: !keyref src.de.web.Joost
     -   date: !date c1940
-        tags: de.Agent
+        staff: agent
         sources: !keyref src.de.Bfv.1944
     -   date: !date c1970
         location: !keyloc line.de.15600 3,172
@@ -293,7 +292,7 @@ events:
         location: !keyloc line.de.15600 12,766
         sources: !keyref src.de.web.Joost
     -   date: !date 1996-04-01
-        service: no-freight
+        service: passenger
         sources: !keyref src.de.web.Joost
 
 ---
@@ -341,7 +340,7 @@ events:
     -   date: !!null
         category: de.Hp
         de.lknr: 21 486
-        tags: [ de.Agent, de.e ]
+        staff: agent
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
         de.DS100: EHLN
@@ -377,7 +376,7 @@ events:
         de.VBL: Bhn
         sources: !keyref src.de.web.Joost
     -   date: !date 1996
-        service: no-freight
+        service: passenger
         sources: !keyref src.de.web.Joost
     -   date: !date 1998
         category: de.Hp
@@ -398,7 +397,7 @@ events:
         de.Rangklasse: IV
         de.lknr: 21 484
         service: passenger
-        tags: [ de.Agent, de.og ]
+        staff: agent
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
         de.DS100: EWBH
@@ -409,7 +408,6 @@ events:
     -   date: !date c1940
         category: de.Hp
         service: freight
-        tags: [ de.Agent ]
         sources: !keyref src.de.Bfv.1944
     -   date: !date c1970
         location: !keyloc line.de.15600 22,647
@@ -594,11 +592,10 @@ events:
         category: de.Bf
         de.Rangklasse: IV
         de.lknr: 21 477
-        tags: [ de.Agent, de.e ]
+        staff: agent
         sources: !keyref src.de.Bfv.1933
     -   date: !date c1940
         category: de.Hp
-        tags: de.Agent
         sources: !keyref src.de.Bfv.1944
     -   date: !date c1985
         status: closed
@@ -616,7 +613,7 @@ events:
     -   date: !!null
         category: de.Hp
         de.lknr: 21 476
-        tags: [ de.Agent, de.e ]
+        staff: agent
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
         de.DS100: HSUN

@@ -8,8 +8,7 @@ events:
             - !keyref org.de.l.ni
 
     -   date: !!null
-        de.VzG: 1503
-        locations: [ "-1,002", "50,247" ]
+        de.VzG: !!str 1503
         sources: !keyref src.de.VzG
 
     -   date: !!null
@@ -64,12 +63,12 @@ events:
     -   date: !date 1980-09-28
         end: !keyref point.de.Nordenham
         electrified:
-            overhead: !voltage 15kV 16.7Hz
+            overhead: !var el.de
         sources: !keyref src.ch.Schwach.1989
 
     -   date: !date 1980
         start: !keyref point.de.Nordenham
-        service: no-passenger
+        service: freight
         sources: !keyref src.de.WP.Bahnstrecke-Hude-Blexen
 
     -   date: !var org.de.DBAG.start
@@ -127,7 +126,7 @@ events:
         de.DS100: HNKP
         sources: !keyref src.de.TPP.2006
     -   date: !date c1980
-        service: no-passenger
+        service: freight
         sources: !keyref src.de.SuW.2005
 
 ---
@@ -209,7 +208,7 @@ events:
         de.DS100: HHWD
         sources: !keyref src.de.TPP.2006
     -   date: !date c1980
-        service: no-passenger
+        service: freight
         sources: !keyref src.de.SuW.2005
 
 ---
@@ -222,14 +221,14 @@ events:
         sources: !keyref src.de.Kb.1914
     -   date: !!null
         category: [ de.Hp, de.Ldst ]
-        tags: de.Agent
+        staff: agent
         de.lknr: 23 084
         sources: !keyref src.de.Bfv.1933
     -   date: !date 1935-01-01
         de.lknr: 13 839
         sources: !keyref src.de.Bfv.1944
     -   date: !date c1940
-        tags: [ de.b, de.u ]
+        staff: none
         master: !keyref point.de.Brake-Unterweser
         sources: !keyref src.de.Bfv.1944
     -   date: !!null
@@ -245,8 +244,9 @@ type: point
 junction: True
 events:
     -   date: !!null
-        location: !keyloc line.de.18150 31,9
-        location: !keyloc line.de.18200 25,5
+        location:
+            - !keyloc line.de.18150 31,9
+            - !keyloc line.de.18200 25,5
         sources: !keyref src.de.Kb.1914
     -   date: !!null
         name: Brake (Oldbg)
@@ -304,7 +304,7 @@ events:
         name: Sürwürden
         sources: !keyref src.de.Kb.1914
     -   date: !!null
-        tags: [ de.Agent, de.vg ]
+        staff: agent
         de.lknr: 23 089
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
@@ -314,7 +314,7 @@ events:
         de.lknr: 13 844
         sources: !keyref src.de.Bfv.1944
     -   date: !date c1940
-        tags: []
+        staff: full
         sources: !keyref src.de.Bfv.1944
     -   date: !date c1980
         status: closed
@@ -381,7 +381,7 @@ events:
         sources: !keyref src.de.Kb.1914
     -   date: !!null
         category: de.Ldst
-        tags: de.u
+        staff: none
         master: !keyref point.de.Nordenham
         de.lknr: 23 094
         sources: !keyref src.de.Bfv.1933
@@ -423,7 +423,6 @@ events:
         name: Kabelstraße
         sources: !keyref src.de.Kb.1914
     -   date: !!null
-        tags: de.oe
         de.lknr: 23 094
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
@@ -433,8 +432,7 @@ events:
         de.lknr: 13 855
         sources: !keyref src.de.Bfv.1944
     -   date: !date c1940
-        service: no-freight
-        tags: de.p
+        service: passenger
         sources: !keyref src.de.Bfv.1944
     -   date: !date c1980
         status: closed
@@ -448,7 +446,6 @@ events:
         name: Friedrich-August-Hütte
         sources: !keyref src.de.Kb.1914
     -   date: !!null
-        tags: de.oe
         de.lknr: 23 102
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
@@ -458,8 +455,7 @@ events:
         de.lknr: 13 856
         sources: !keyref src.de.Bfv.1944
     -   date: !date c1940
-        service: no-freight
-        tags: de.p
+        service: passenger
         sources: !keyref src.de.Bfv.1944
     -   date: !date c1980
         category: de.Anst
@@ -482,7 +478,6 @@ events:
         sources: !keyref src.de.Kb.W1937
     -   date: !!null
         name: Kabelstraße
-        tags: de.oe
         de.lknr: 23 103
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
@@ -492,8 +487,7 @@ events:
         de.lknr: 13 857
         sources: !keyref src.de.Bfv.1944
     -   date: !date c1940
-        service: no-freight
-        tags: de.p
+        service: passenger
         sources: !keyref src.de.Bfv.1944
     -   date: !date c1980
         status: closed

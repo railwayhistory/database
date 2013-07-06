@@ -32,9 +32,7 @@ events:
         region: !keyref org.de.l.hh
 
     -   date: !!null
-        ref:
-            de.VzG: 2200
-        locations: [ "-0,256", "355,910" ]
+        de.VzG: !!str 2200
         sources: !keyref src.de.VzG
 
     -   date: !!null
@@ -173,30 +171,30 @@ events:
     -   date: !date 1963-05-26
         end: !keyref point.de.Recklinghausen-Hbf
         electrified:
-            overhead: !voltage 15kV 16.7Hz
+            overhead: !var el.de
         sources: !keyref src.de.web.Joost
     -   date: !date 1963-10-01
         start: !keyref point.de.Recklinghausen-Hbf
         end: !keyref point.de.Haltern
         electrified:
-            overhead: !voltage 15kV 16.7Hz
+            overhead: !var el.de
         sources: !keyref src.de.web.Joost
     -   date: !date 1965-04-06
         start: !keyref point.de.Hamburg-Harburg
         electrified:
-            overhead: !voltage 15kV 16.7Hz
+            overhead: !var el.de
         sources: !keyref src.ch.Schwach.1989
     -   date: !date 1966-09-12
         start: !keyref point.de.Haltern
         end: !keyref point.de.Osnabrueck-Hbf
         electrified:
-            overhead: !voltage 15kV 16.7Hz
+            overhead: !var el.de
         sources: !keyref src.de.web.Joost
     -   date: !date 1968-09-29
         start: !keyref point.de.Osnabrueck-Hbf
         end: !keyref point.de.Hamburg-Harburg
         electrified:
-            overhead: !voltage 15kV 16.7Hz
+            overhead: !var el.de
         sources: !keyref src.ch.Schwach.1989
 
     -   date: !var org.de.DBAG.start
@@ -379,8 +377,7 @@ type: point
 events:
     -   date: !!null
         location: !keyloc line.de.15000 0,259
-        ref:
-            de.VBL: WAN
+        de.VBL: WAN
         sources: !keyref src.de.web.Joost
     -   date: !!null
         name: Pluto
@@ -388,12 +385,10 @@ events:
     -   date: !!null
         category: de.Bf
         de.Rangklasse: I
-        ref:
-            de.lknr: 10 127
+        de.lknr: 10 127
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        ref:
-            de.DS100: EWAN
+        de.DS100: EWAN
         sources: !keyref src.de.TPP.2006
     -   date: !date 1869
         name: Wanne
@@ -413,13 +408,11 @@ events:
         category: de.Abzw
         sources: !keyref src.de.DB.Esn.1951
     -   date: !!null
-        ref:
-            de.VBL: Bau
+        de.VBL: Bau
         sources: !keyref src.de.web.Joost
     -   date: !!null
         name: Baukau
-        ref:
-            de.DS100: EBAU
+        de.DS100: EBAU
         sources: !keyref src.de.TPP.2006
     -   date: !date c1980
         location: !keyloc line.de.15000 2,817
@@ -438,12 +431,10 @@ events:
     -   date: !!null
         category: de.Bf
         de.Rangklasse: I
-        ref:
-            de.lknr: 10 140
+        de.lknr: 10 140
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        ref:
-            de.VBL: RES
+        de.VBL: RES
         sources: !keyref src.de.web.Joost
     -   date: !date c1900
         name: Recklinghausen Süd
@@ -491,12 +482,10 @@ events:
     -   date: !!null
         category: de.Bf
         de.Rangklasse: I
-        ref:
-            de.lknr: 10 138
+        de.lknr: 10 138
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        ref:
-            de.VBL: RE
+        de.VBL: RE
         sources: !keyref src.de.web.Joost
     -   date: !date 1905-05-01
         name: Recklinghausen Hbf
@@ -505,7 +494,7 @@ events:
         location: !keyloc line.de.15000 10,536
         sources: !keyref src.de.web.Joost
     -   date: !date 1995-12-31
-        service: no-freight
+        service: passenger
         sources: !keyref src.de.web.Joost
 
 ---
@@ -559,16 +548,13 @@ events:
     -   date: !!null
         category: de.Bf
         de.Rangklasse: II
-        ref:
-            de.lknr: 10 136
+        de.lknr: 10 136
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        ref:
-            de.VBL: Si
+        de.VBL: Si
         sources: !keyref src.de.web.Joost
     -   date: !!null
-        ref:
-            de.DS100: EMSI
+        de.DS100: EMSI
         sources: !keyref src.de.TPP.2006
     -   date: !date c1950
         name: Marl-Sinsen
@@ -576,6 +562,7 @@ events:
     -   date: !date c1970
         location: !keyloc line.de.15000 17,056
         sources: !keyref src.de.web.Joost
+
 ---
 key: point.de.Marl-Sinsen-DGr
 type: point
@@ -595,10 +582,8 @@ events:
         name: Lenkerbeck
         sources: !keyref src.de.DRG.Mst.1946
     -   date: !!null
-        ref:
-            de.VBL: Lk
-        ref:
-            de.DS100: ELKB
+        de.VBL: Lk
+        de.DS100: ELKB
         sources: !keyref src.de.web.Joost
     -   date: !date c1960
         status: open
@@ -621,12 +606,10 @@ events:
     -   date: !date 1968-09-27
         location: !keyloc line.de.15000 22,392
         category: de.Abzw
-        ref:
-            de.VBL: Lp
+        de.VBL: Lp
         sources: !keyref src.de.web.Joost
     -   date: !!null
-        ref:
-            de.DS100: ELPE
+        de.DS100: ELPE
         sources: !keyref src.de.TPP.2006
     -   date: !date c2000
         name: Marl Lippe
@@ -662,16 +645,13 @@ events:
     -   date: !!null
         category: de.Bf
         de.Rangklasse: I
-        ref:
-            de.lknr: 21 001
+        de.lknr: 21 001
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        ref:
-            de.VBL: Ha
+        de.VBL: Ha
         sources: !keyref src.de.web.Joost
     -   date: !!null
-        ref:
-            de.DS100: EHLT
+        de.DS100: EHLT
         sources: !keyref src.de.TPP.2006
     -   date: !date 2003-12-14
         name: Haltern am See
@@ -724,17 +704,14 @@ events:
     -   date: !!null
         category: de.Hp
         name: Sythen
-        service: [ de.Agent, de.e ]
-        ref:
-            de.lknr: 21 004
+        staff: agent
+        de.lknr: 21 004
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        ref:
-            de.VBL: Syt
+        de.VBL: Syt
         sources: !keyref src.de.web.Joost
     -   date: !!null
-        ref:
-            de.DS100: ESYH
+        de.DS100: ESYH
         sources: !keyref src.de.TPP.2006
     -   date: !date 1931
         status: open
@@ -749,12 +726,10 @@ events:
         sources: !keyref src.de.web.Joost
     -   date: !!null
         name: Sythen Bbf
-        ref:
-            de.DS100: ESYB
+        de.DS100: ESYB
         sources: !keyref src.de.TPP.2006
     -   date: !!null
-        ref:
-            de.VBL: Sm
+        de.VBL: Sm
         sources: !keyref src.de.web.Joost
     -   date: !!null
         category: de.Bk
@@ -786,8 +761,7 @@ type: point
 events:
     -   date: !!null
         location: !keyloc line.de.15000 38,64
-        ref:
-            de.VBL: Dü
+        de.VBL: Dü
         sources: !keyref src.de.web.Joost
     -   date: !!null
         name: Dülmen
@@ -795,12 +769,10 @@ events:
     -   date: !!null
         category: de.Bf
         de.Rangklasse: II
-        ref:
-            de.lknr: 21 005
+        de.lknr: 21 005
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        ref:
-            de.DS100: EDUL
+        de.DS100: EDUL
         sources: !keyref src.de.TPP.2006
     -   date: !date c1940
         de.Rangklasse: I
@@ -863,8 +835,7 @@ type: point
 events:
     -   date: !!null
         location: !keyloc line.de.15000 45,196
-        ref:
-            de.VBL: B
+        de.VBL: B
         sources: !keyref src.de.web.Joost
     -   date: !!null
         name: Buldern
@@ -872,12 +843,10 @@ events:
     -   date: !!null
         category: de.Bf
         de.Rangklasse: III
-        ref:
-            de.lknr: 21 006
+        de.lknr: 21 006
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        ref:
-            de.DS100: EBUD
+        de.DS100: EBUD
         sources: !keyref src.de.TPP.2006
     -   date: !date 1998-10-25
         category: de.Hp
@@ -906,8 +875,7 @@ type: point
 events:
     -   date: !!null
         location: !keyloc line.de.15000 50,304
-        ref:
-            de.VBL: Ap
+        de.VBL: Ap
         sources: !keyref src.de.web.Joost
     -   date: !!null
         name: Appelhülsen
@@ -915,12 +883,10 @@ events:
     -   date: !!null
         category: de.Bf
         de.Rangklasse: III
-        ref:
-            de.lknr: 21 007
+        de.lknr: 21 007
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        ref:
-            de.DS100: EAPH
+        de.DS100: EAPH
         sources: !keyref src.de.TPP.2006
     -   date: !date 2004-12-12
         name: Nottuln-Appelhülsen
@@ -945,8 +911,7 @@ type: point
 events:
     -   date: !!null
         location: !keyloc line.de.15000 54,814
-        ref:
-            de.VBL: Bsl
+        de.VBL: Bsl
         sources: !keyref src.de.web.Joost
     -   date: !!null
         name: Bösensell
@@ -954,12 +919,10 @@ events:
     -   date: !!null
         category: de.Bf
         de.Rangklasse: III
-        ref:
-            de.lknr: 21 008
+        de.lknr: 21 008
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        ref:
-            de.DS100: EBSL
+        de.DS100: EBSL
         sources: !keyref src.de.TPP.2006
     -   date: !date c1900
         status: open
@@ -971,8 +934,7 @@ type: point
 events:
     -   date: !!null
         location: !keyloc line.de.15000 57,709
-        ref:
-            de.VBL: Al
+        de.VBL: Al
         sources: !keyref src.de.web.Joost
     -   date: !!null
         name: Albachten
@@ -980,12 +942,10 @@ events:
     -   date: !!null
         category: de.Bf
         de.Rangklasse: III
-        ref:
-            de.lknr: 21 009
+        de.lknr: 21 009
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        ref:
-            de.DS100: EABT
+        de.DS100: EABT
         sources: !keyref src.de.TPP.2006
     -   date: !date c1885
         status: open
@@ -1016,23 +976,19 @@ events:
     -   date: !!null
         category: de.Bf
         de.Rangklasse: III
-        ref:
-            de.lknr: 21 010
+        de.lknr: 21 010
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        ref:
-            de.VBL: Mk
+        de.VBL: Mk
         sources: !keyref src.de.web.Joost
     -   date: !!null
-        ref:
-            de.DS100: EMEK
+        de.DS100: EMEK
         sources: !keyref src.de.TPP.2006
     -   date: !date c1975
-        ref:
-            de.VBL: MEKB
+        de.VBL: MEKB
         sources: !keyref src.de.web.Joost
     -   date: !date 1991-06-02
-        service: no-passenger
+        service: freight
         sources: !keyref src.de.web.Joost
 
 ---
@@ -1074,18 +1030,14 @@ events:
         category: de.Bf
         de.Rangklasse: IV
         name: Geist
-        tags: [ de.oe, de.og ]
-        ref:
-            de.lknr: 21 418
+        service: passenger
+        de.lknr: 21 418
         sources: !keyref src.de.Bfv.1933
     -   date: !date 1924-07-01
         status: open
         sources: !keyref src.de.web.Joost
-    -   date: !date c1940
-        tags: []
-        sources: !keyref src.de.Bfv.1944
     -   date: !date 1966-09-25
-        service: no-passenger
+        service: none
         sources: !keyref src.de.web.Joost
     -   date: !date c1970
         location: !keyloc line.de.15000 64,45
@@ -1097,13 +1049,11 @@ type: point
 events:
     -   date: !!null
         location: !keyloc line.de.15000 66,8
-        ref:
-            de.VBL: Msg
+        de.VBL: Msg
         sources: !keyref src.de.web.Joost
     -   date: !!null
         name: Münster (Westf) Gbf
-        ref:
-            de.DS100: EMSTG
+        de.DS100: EMSTG
         sources: !keyref src.de.TPP.2006
     -   date: !!null
         category: de.Bft
@@ -1154,8 +1104,7 @@ events:
         sources: !keyref src.de.web.Joost
     -   date: !!null
         name: Münster (Westf) Pbf
-        ref:
-            de.DS100: EMSTP
+        de.DS100: EMSTP
         sources: !keyref src.de.TPP.2006
 
 ---
@@ -1190,8 +1139,7 @@ events:
         name: Schleuse
         sources: !keyref src.de.DRG.Mst.1946
     -   date: !!null
-        ref:
-            de.DS100: ESCE
+        de.DS100: ESCE
         sources: !keyref src.de.web.Joost
     -   date: !date c1960
         location: !keyloc line.de.15000 70,7
@@ -1215,8 +1163,7 @@ events:
     -   date: !!null
         location:
             - !keyloc line.de.15010 12,226
-        ref:
-            de.VBL: Sud
+        de.VBL: Sud
         sources: !keyref src.de.web.Joost
     -   date: !!null
         name: Sudmühle
@@ -1224,12 +1171,10 @@ events:
     -   date: !!null
         category: de.Bf
         de.Rangklasse: III
-        ref:
-            de.lknr: 21 017
+        de.lknr: 21 017
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        ref:
-            de.DS100: ESDM
+        de.DS100: ESDM
         sources: !keyref src.de.TPP.2006
     -   date: !date c1885
         status: open
@@ -1238,15 +1183,13 @@ events:
         location: !keyloc line.de.15000 72,175
         sources: !keyref src.de.web.Joost
     -   date: !date 1972
-        ref:
-            de.VBL: Sd
+        de.VBL: Sd
         sources: !keyref src.de.web.Joost
     -   date: !date c1975
-        service: no-passenger
+        service: freight
         sources: !keyref src.de.web.Joost
     -   date: !date 1979
-        ref:
-            de.VBL: Sdm
+        de.VBL: Sdm
         sources: !keyref src.de.web.Joost
 
 ---
@@ -1264,8 +1207,7 @@ events:
         subtype: post
         category: de.Bk
         name: Werse
-        ref:
-            de.DS100: EWSU
+        de.DS100: EWSU
         sources: !keyref src.de.web.Joost
     -   date: !date c1980
         status: closed
@@ -1279,18 +1221,16 @@ events:
         location: !keyloc line.de.15000 76,397
         category: de.Kr
         name: Ems
-        ref:
-            de.VBL: E
+        de.VBL: E
         sources: !keyref src.de.web.Joost
     -   date: !!null
-        ref:
-            de.DS100: EEMS
+        de.DS100: EEMS
         sources: !keyref src.de.TPP.2006
     -   date: !date c1960
         status: open
         service: freight
     -   date: !date 2002-01-02
-        service: no-freight
+        service: none
     -   date: !date c2000
         name: Münster Ems
         sources: !keyref src.de.TPP.2006
@@ -1304,8 +1244,7 @@ type: point
 events:
     -   date: !!null
         location: !keyloc line.de.15000 78,874
-        ref:
-            de.VBL: Ws
+        de.VBL: Ws
         sources: !keyref src.de.web.Joost
     -   date: !!null
         name: Westbevern
@@ -1313,15 +1252,13 @@ events:
     -   date: !!null
         category: de.Bf
         de.Rangklasse: III
-        ref:
-            de.lknr: 21 018
+        de.lknr: 21 018
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        ref:
-            de.DS100: EWBV
+        de.DS100: EWBV
         sources: !keyref src.de.TPP.2006
     -   date: !date 1990-05-27
-        service: no-freight
+        service: passenger
         sources: !keyref src.de.web.Joost
 
 ---
@@ -1347,8 +1284,7 @@ type: point
 events:
     -   date: !!null
         location: !keyloc line.de.15000 85,134
-        ref:
-            de.VBL: Bv
+        de.VBL: Bv
         sources: !keyref src.de.web.Joost
     -   date: !!null
         name: Brock-Ostbevern
@@ -1356,18 +1292,16 @@ events:
     -   date: !!null
         category: de.Bf
         de.Rangklasse: III
-        ref:
-            de.lknr: 21 019
+        de.lknr: 21 019
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        ref:
-            de.DS100: EBRO
+        de.DS100: EBRO
         sources: !keyref src.de.TPP.2006
     -   date: !date c1990
         status: open
         sources: !keyref src.de.web.Joost
     -   date: !date 1990-05-27
-        service: no-freight
+        service: passenger
         sources: !keyref src.de.web.Joost
     -   date: !date 2004-12-12
         name: Ostbevern
@@ -1396,8 +1330,7 @@ type: point
 events:
     -   date: !!null
         location: !keyloc line.de.15000 91,137
-        ref:
-            de.VBL: Kv
+        de.VBL: Kv
         sources: !keyref src.de.web.Joost
     -   date: !!null
         name: Kattenvenne
@@ -1405,15 +1338,13 @@ events:
     -   date: !!null
         category: de.Bf
         de.Rangklasse: III
-        ref:
-            de.lknr: 21 020
+        de.lknr: 21 020
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        ref:
-            de.DS100: EKV
+        de.DS100: EKV
         sources: !keyref src.de.TPP.2006
     -   date: !date 1993
-        service: no-freight
+        service: passenger
         sources: !keyref src.de.web.Joost
 
 ---
@@ -1426,15 +1357,13 @@ events:
         name: Ringel
         sources: !keyref src.de.DRG.Mst.1946
     -   date: !!null
-        ref:
-            de.DS100: ERIG
+        de.DS100: ERIG
         sources: !keyref src.de.TPP.2006
     -   date: !date c1960
         location: !keyloc line.de.15000 94,088
         category: de.Bf
         service: none
-        ref:
-            de.VBL: Rl
+        de.VBL: Rl
         sources: !keyref src.de.web.Joost
     
 ---
@@ -1456,8 +1385,7 @@ type: point
 events:
     -   date: !!null
         location: !keyloc line.de.15000 98,845
-        ref:
-            de.VBL: Lg
+        de.VBL: Lg
         sources: !keyref src.de.web.Joost
     -   date: !!null
         name: Lengerich (Westf)
@@ -1465,12 +1393,10 @@ events:
     -   date: !!null
         category: de.Bf
         de.Rangklasse: II
-        ref:
-            de.lknr: 21 021
+        de.lknr: 21 021
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        ref:
-            de.DS100: ELEN
+        de.DS100: ELEN
         sources: !keyref src.de.TPP.2006
 
 ---
@@ -1519,8 +1445,7 @@ events:
     -   date: !!null
         subtype: border
         name: Natrup-Hagen NI/NRW
-        ref:
-            de.DS100: HQNA
+        de.DS100: HQNA
         sources: !keyref src.de.TPP.2006
     -   date: !!null
         location: !keyloc line.de.15000 103,29
@@ -1539,12 +1464,10 @@ events:
     -   date: !!null
         category: de.Bf
         de.Rangklasse: III
-        ref:
-            de.lknr: 21 023
+        de.lknr: 21 023
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        ref:
-            de.DS100: HNAH
+        de.DS100: HNAH
         sources: !keyref src.de.TPP.2006
 
 ---
@@ -1573,12 +1496,10 @@ events:
     -   date: !!null
         category: de.Bf
         de.Rangklasse: III
-        ref:
-            de.lknr: 21 024
+        de.lknr: 21 024
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        ref:
-            de.DS100: HHSB
+        de.DS100: HHSB
         sources: !keyref src.de.TPP.2006
     -   date: !!null
         connection: !keyref point.de.Hasbergen-Georgsm
@@ -1614,8 +1535,7 @@ events:
         sources: !keyref src.de.SuW.2005
     -   date: !!null
         name: Hörne
-        ref:
-            de.DS100: HHRN
+        de.DS100: HHRN
         sources: !keyref src.de.TPP.2006
     -   date: !date c1960
         status: open
@@ -1680,8 +1600,7 @@ type: point
 events:
     -   date: !!null
         name: Osnabrück Hbf Klus
-        ref:
-            de.DS100: HO K
+        de.DS100: HO K
         sources: !keyref src.de.TPP.2006
     -   date: !!null
         location: !keyloc line.de.15000 118,4
@@ -1694,8 +1613,7 @@ type: point
 events:
     -   date: !!null
         name: Osnabrück Hbf Schinkel
-        ref:
-            de.DS100: HO S
+        de.DS100: HO S
         sources: !keyref src.de.TPP.2006
     -   date: !!null
         location: !keyloc line.de.15000 118,4
@@ -1712,8 +1630,7 @@ events:
         sources: !keyref src.de.SuW.2005
     -   date: !!null
         name: Osnabrück Hbf Vorbahnhof
-        ref:
-            de.DS100: HO N
+        de.DS100: HO N
         sources: !keyref src.de.TPP.2006
     -   date: !!null
         master: !keyref point.de.Osnabrueck-Hbf
@@ -1757,16 +1674,14 @@ events:
     -   date: !!null
         category: de.Bf
         de.Rangklasse: III
-        ref:
-            de.lknr: 21 035
-        tags: de.og
+        de.lknr: 21 035
         service: passenger
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
         de.DS100: HBEM
         sources: !keyref src.de.TPP.2006
     -   date: !date c1965
-        service: no-passenger
+        service: none
 
 ---
 key: point.de.Wittekind
@@ -1793,14 +1708,13 @@ events:
     -   date: !!null
         category: de.Bf
         de.Rangklasse: III
-        ref:
-            de.lknr: 21 036
+        de.lknr: 21 036
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
         de.DS100: HVEH
         sources: !keyref src.de.TPP.2006
     -   date: !date c1965
-        service: no-passenger
+        service: freight
 
 ---
 key: point.de.Tannenberg
@@ -1839,14 +1753,13 @@ events:
     -   date: !!null
         category: de.Bf
         de.Rangklasse: III
-        ref:
-            de.lknr: 21 037
+        de.lknr: 21 037
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
         de.DS100: HOSC
         sources: !keyref src.de.TPP.2006
     -   date: !date c1965
-        service: no-passenger
+        service: freight
 
 ---
 key: point.de.Oelingen
@@ -1886,8 +1799,7 @@ events:
     -   date: !!null
         category: de.Bf
         de.Rangklasse: II
-        ref:
-            de.lknr: 21 038
+        de.lknr: 21 038
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
         de.DS100: HBOM
@@ -1933,8 +1845,7 @@ events:
         sources: !keyref src.de.web.Joost
     -   date: !!null
         name: Bohmte NI/NRW
-        ref:
-            de.DS100: HQBO
+        de.DS100: HQBO
         sources: !keyref src.de.TPP.2006
 
 ---
@@ -1951,15 +1862,13 @@ events:
     -   date: !date 1908
         category: de.Kr
         name: Drohne
-        ref:
-            de.VBL: Dr
+        de.VBL: Dr
         sources: !keyref src.de.web.Joost
     -   date: !date c1960
         category: de.Bf
         service: none
     -   date: !!null
-        ref:
-            de.DS100: HDRO
+        de.DS100: HDRO
         sources: !keyref src.de.TPP.2006
     -   date: !date c1970
         location: !keyloc line.de.15000 148,527
@@ -1988,8 +1897,7 @@ events:
         sources: !keyref src.de.web.Joost
     -   date: !!null
         name: Lemförde NI/NRW
-        ref:
-            de.DS100: HQLM
+        de.DS100: HQLM
         sources: !keyref src.de.TPP.2006
 
 ---
@@ -2005,12 +1913,10 @@ events:
     -   date: !!null
         category: de.Bf
         de.Rangklasse: III
-        ref:
-            de.lknr: 21 039
+        de.lknr: 21 039
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        ref:
-            de.DS100: HLMF
+        de.DS100: HLMF
         sources: !keyref src.de.TPP.2006
     -   date: !date c1940
         de.Rangklasse: II
@@ -2053,15 +1959,13 @@ events:
     -   date: !!null
         category: de.Bf
         de.Rangklasse: III
-        ref:
-            de.lknr: 21 040
+        de.lknr: 21 040
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        ref:
-            de.DS100: HLMB
+        de.DS100: HLMB
         sources: !keyref src.de.TPP.2006
     -   date: !date c1980
-        service: no-passenger
+        service: freight
 
 ---
 key: point.de.Hunte
@@ -2103,12 +2007,10 @@ events:
     -   date: !!null
         category: de.Bf
         de.Rangklasse: II
-        ref:
-            de.lknr: 21 041
+        de.lknr: 21 041
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        ref:
-            de.DS100: HDIP
+        de.DS100: HDIP
         sources: !keyref src.de.TPP.2006
     -   date: !date c1940
         de.Rangklasse: I
@@ -2151,15 +2053,13 @@ events:
     -   date: !!null
         category: de.Bf
         de.Rangklasse: III
-        ref:
-            de.lknr: 21 042
+        de.lknr: 21 042
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        ref:
-            de.DS100: HDRB
+        de.DS100: HDRB
         sources: !keyref src.de.TPP.2006
     -   date: !date c1980
-        service: no-passenger
+        service: freight
 
 ---
 key: point.de.Dreeke
@@ -2198,12 +2098,10 @@ events:
     -   date: !!null
         category: de.Bf
         de.Rangklasse: III
-        ref:
-            de.lknr: 21 043
+        de.lknr: 21 043
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        ref:
-            de.DS100: HBNF
+        de.DS100: HBNF
         sources: !keyref src.de.TPP.2006
 
 ---
@@ -2231,15 +2129,13 @@ events:
     -   date: !!null
         category: de.Bf
         de.Rangklasse: III
-        ref:
-            de.lknr: 21 044
+        de.lknr: 21 044
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        ref:
-            de.DS100: HDRE
+        de.DS100: HDRE
         sources: !keyref src.de.TPP.2006
     -   date: !date c1980
-        service: no-passenger
+        service: freight
 
 ---
 key: point.de.Ridderade
@@ -2278,12 +2174,10 @@ events:
     -   date: !!null
         category: de.Bf
         de.Rangklasse: II
-        ref:
-            de.lknr: 21 045
+        de.lknr: 21 045
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        ref:
-            de.DS100: HT
+        de.DS100: HT
         sources: !keyref src.de.TPP.2006
 
 ---
@@ -2326,12 +2220,10 @@ events:
     -   date: !!null
         category: de.Bf
         de.Rangklasse: II
-        ref:
-            de.lknr: 21 046
+        de.lknr: 21 046
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        ref:
-            de.DS100: HBAS
+        de.DS100: HBAS
         sources: !keyref src.de.TPP.2006
 
 ---
@@ -2359,22 +2251,18 @@ events:
     -   date: !!null
         category: de.Bf
         de.Rangklasse: III
-        ref:
-            de.lknr: 21 047
-        tags: [ de.og, de.e ]
-        service: no-freight
+        de.lknr: 21 047
+        service: passenger
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        ref:
-            de.DS100: HBRA
+        de.DS100: HBRA
         sources: !keyref src.de.TPP.2006
     -   date: !date c1920
         name: Bramstedt b Syke
         sources: !keyref src.de.Bfv.1933
     -   date: !date c1940
         name: Bramstedt (b Syke)
-        tags: [ de.b ]
-        service: freight
+        service: full
         sources: !keyref src.de.Bfv.1944
     -   date: !date c1980
         category: de.Hp
@@ -2406,12 +2294,10 @@ events:
     -   date: !!null
         category: de.Bf
         de.Rangklasse: II
-        ref:
-            de.lknr: 21 048
+        de.lknr: 21 048
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        ref:
-            de.DS100: HSYK
+        de.DS100: HSYK
         sources: !keyref src.de.TPP.2006
     -   date: !date c1920
         name: Syke
@@ -2442,12 +2328,10 @@ events:
     -   date: !!null
         category: de.Bf
         de.Rangklasse: III
-        ref:
-            de.lknr: 21 049
+        de.lknr: 21 049
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        ref:
-            de.DS100: HBAR
+        de.DS100: HBAR
         sources: !keyref src.de.TPP.2006
     -   date: !date c1980
         category: de.Hp
@@ -2467,12 +2351,10 @@ events:
     -   date: !!null
         category: de.Bf
         de.Rangklasse: I
-        ref:
-            de.lknr: 21 050
+        de.lknr: 21 050
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        ref:
-            de.DS100: HKI
+        de.DS100: HKI
         sources: !keyref src.de.TPP.2006
 
 ---
@@ -2488,18 +2370,14 @@ events:
     -   date: !!null
         category: de.Bf
         de.Rangklasse: IV
-        ref:
-            de.lknr: 21 052
-        tags: [ de.e, de.og ]
-        service: no-freight
+        de.lknr: 21 052
+        service: passenger
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        ref:
-            de.DS100: HDRY
+        de.DS100: HDRY
         sources: !keyref src.de.TPP.2006
     -   date: !date c1940
-        tags: []
-        service: freight
+        service: full
     -   date: !date c1980
         category: de.Hp
         sources: !keyref src.de.SuW.2005
@@ -2512,8 +2390,7 @@ events:
         subtype: border
     -   date: !!null
         name: Dreye NI/HB
-        ref:
-            de.DS100: HQDR
+        de.DS100: HQDR
         sources: !keyref src.de.TPP.2006
 
 ---
@@ -2529,8 +2406,7 @@ events:
         name: Gabelung
         sources: !keyref src.de.web.Erbeck
     -   date: !!null
-        ref:
-            de.DS100: HGA
+        de.DS100: HGA
         sources: !keyref src.de.TPP.2006
     -   date: !date c2000
         name: Bremen Gabelung
@@ -2562,12 +2438,10 @@ events:
     -   date: !!null
         category: de.Bf
         de.Rangklasse: II
-        ref:
-            de.lknr: 13 764
+        de.lknr: 13 764
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        ref:
-            de.DS100: HBHM
+        de.DS100: HBHM
         sources: !keyref src.de.TPP.2006
     -   date: !date c1940
         name: Bremen-Hemelingen
@@ -2585,8 +2459,7 @@ events:
         name: Uf
         sources: !keyref src.de.DRG.Han.1938
     -   date: !!null
-        ref:
-            de.DS100: HUTB
+        de.DS100: HUTB
         sources: !keyref src.de.TPP.2006
     -   date: !date c1970
         name: Utbremen
@@ -2604,10 +2477,8 @@ events:
         sources: !keyref src.de.WP.Kleinbahn-Bremen-Tarmstedt
     -   date: !!null
         category: de.Ldst
-        tags: [ de.b ]
         name: Utbremen
-        ref:
-            de.lknr: 13 765
+        de.lknr: 13 765
         sources: !keyref src.de.Bfv.1933
     -   date: !date c1950
         status: closed
@@ -2637,12 +2508,10 @@ events:
     -   date: !!null
         category: de.Bf
         de.Rangklasse: III
-        ref:
-            de.lknr: 13 766
+        de.lknr: 13 766
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        ref:
-            de.DS100: HBON
+        de.DS100: HBON
         sources: !keyref src.de.TPP.2006
     -   date: !date c1970
         name: Bremen-Hemelingen
@@ -2667,8 +2536,7 @@ events:
         subtype: border
     -   date: !!null
         name: Sagehorn NI/HB 2200
-        ref:
-            de.DS100: AQSA
+        de.DS100: AQSA
         sources: !keyref src.de.TPP.2006
 
 ---
@@ -2687,12 +2555,10 @@ events:
     -   date: !!null
         category: de.Bf
         de.Rangklasse: III
-        ref:
-            de.lknr: 01 242
+        de.lknr: 01 242
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        ref:
-            de.DS100: ASAG
+        de.DS100: ASAG
         sources: !keyref src.de.TPP.2006
 
 ---
@@ -2732,12 +2598,10 @@ events:
     -   date: !!null
         category: de.Bf
         de.Rangklasse: III
-        ref:
-            de.lknr: 01 241
+        de.lknr: 01 241
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        ref:
-            de.DS100: AOBG
+        de.DS100: AOBG
         sources: !keyref src.de.TPP.2006
 
 ---
@@ -2777,17 +2641,11 @@ events:
     -   date: !!null
         category: de.Bf
         de.Rangklasse: III
-        ref:
-            de.lknr: 01 240
-        tags: de.b
+        de.lknr: 01 240
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        ref:
-            de.DS100: AS
+        de.DS100: AS
         sources: !keyref src.de.TPP.2006
-    -   date: !date c1940
-        tags: []
-        sources: !keyref src.de.Bfv.1944
 
 ---
 key: point.de.Hassendorf
@@ -2850,12 +2708,10 @@ events:
     -   date: !!null
         category: de.Bf
         de.Rangklasse: III
-        ref:
-            de.lknr: 01 238
+        de.lknr: 01 238
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        ref:
-            de.DS100: ASL
+        de.DS100: ASL
         sources: !keyref src.de.TPP.2006
     -   date: !date c1920
         name: Scheeßel
@@ -2886,17 +2742,11 @@ events:
     -   date: !!null
         category: de.Bf
         de.Rangklasse: III
-        ref:
-            de.lknr: 01 237
-        tags: de.b
+        de.lknr: 01 237
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        ref:
-            de.DS100: ALUB
+        de.DS100: ALUB
         sources: !keyref src.de.TPP.2006
-    -   date: !date c1940
-        tags: []
-        sources: !keyref src.de.Bfv.1944
 
 ---
 key: point.de.Vaalde
@@ -2933,15 +2783,10 @@ events:
         category: de.Bf
         de.Rangklasse: III
         name: Königsmoor
-        ref:
-            de.lknr: 01 236
-        tags: de.b
+        de.lknr: 01 236
         sources: !keyref src.de.Bfv.1933
     -   date: !date c1920
         status: open
-    -   date: !date c1940
-        tags: []
-        sources: !keyref src.de.Bfv.1944
     -   date: !date c1970
         status: closed
 
@@ -2976,12 +2821,10 @@ events:
     -   date: !!null
         category: de.Bf
         de.Rangklasse: III
-        ref:
-            de.lknr: 01 235
+        de.lknr: 01 235
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        ref:
-            de.DS100: ATST
+        de.DS100: ATST
         sources: !keyref src.de.TPP.2006
     
 ---
@@ -3009,17 +2852,11 @@ events:
     -   date: !!null
         category: de.Bf
         de.Rangklasse: III
-        ref:
-            de.lknr: 01 234
-        tags: de.b
+        de.lknr: 01 234
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        ref:
-            de.DS100: ASP
+        de.DS100: ASP
         sources: !keyref src.de.TPP.2006
-    -   date: !date c1940
-        tags: []
-        sources: !keyref src.de.Bfv.1944
     -   date: !date c1970
         category: de.Hp
         sources: !keyref src.de.SuW.2005
@@ -3049,12 +2886,10 @@ events:
     -   date: !!null
         category: de.Bf
         de.Rangklasse: III
-        ref:
-            de.lknr: 01 232
+        de.lknr: 01 232
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        ref:
-            de.DS100: AKC
+        de.DS100: AKC
         sources: !keyref src.de.TPP.2006
     -   date: !date c1970
         category: de.Hp
@@ -3085,12 +2920,10 @@ events:
     -   date: !!null
         category: de.Bf
         de.Rangklasse: III
-        ref:
-            de.lknr: 01 231
+        de.lknr: 01 231
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        ref:
-            de.DS100: AHIF
+        de.DS100: AHIF
         sources: !keyref src.de.TPP.2006
     -   date: !date c1970
         category: de.Hp
@@ -3104,8 +2937,7 @@ events:
         subtype: border
     -   date: !!null
         name: Hittfeld NI/HH
-        ref:
-            de.DS100: AQHI
+        de.DS100: AQHI
         sources: !keyref src.de.TPP.2006
 
 ---
@@ -3131,8 +2963,7 @@ events:
         category: de.Bf
         de.Rangklasse: I
         name: Harburg-Wilhelmsburg-Nord
-        ref:
-            de.lknr: 01 229
+        de.lknr: 01 229
         sources: !keyref src.de.Bfv.1933
     -   date: !date c1940
         category: de.Hp
@@ -3150,8 +2981,7 @@ events:
     -   date: !!null
         category: de.Hp
         name: Veddel
-        ref:
-            de.lknr: 01 228
+        de.lknr: 01 228
         sources: !keyref src.de.Bfv.1933
     -   date: !date 1983-09-25
         status: closed
@@ -3165,8 +2995,7 @@ events:
     -   date: !!null
         category: de.Hp
         name: Elbbrücke
-        ref:
-            de.lknr: 01 227
+        de.lknr: 01 227
         sources: !keyref src.de.Bfv.1933
     -   date: !date c1970
         status: closed
@@ -3180,8 +3009,7 @@ events:
     -   date: !!null
         category: de.Hp
         name: Oberhafen
-        ref:
-            de.lknr: 01 226
+        de.lknr: 01 226
         sources: !keyref src.de.Bfv.1933
     -   date: !date c1950
         status: closed

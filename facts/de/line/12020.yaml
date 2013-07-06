@@ -1,5 +1,4 @@
 ---
-
 key: line.de.12020
 type: line
 events:
@@ -10,9 +9,7 @@ events:
     -   date: !!null
         category: de.Nebenbahn
     -   date: !!null
-        ref:
-            de.VzG: 1214
-        locations: [ "-0,432", "15,872" ]
+        de.VzG: !!str 1214
         sources: !keyref src.de.VzG
     -   date: !date 1888-09-22
         start: !keyref point.de.St-Margarethen
@@ -30,7 +27,7 @@ events:
         status: open
         sources: !keyref src.de.DRG.1935
     -   date: !date 1988-05-29
-        service: no-passenger
+        service: freight
         sources: !keyref src.de.web.Dammbrueck.News
 points:
     - !keyref point.de.Wilster              # line.de.12000
@@ -45,7 +42,6 @@ points:
     - !keyref point.de.Brunsbuettel
 
 ---
-
 key: point.de.Rumfleth
 type: point
 events:
@@ -54,12 +50,12 @@ events:
         category: de.Hp
         location: !keyloc line.de.12020 1,2
         name: Rumfleth
-        service: [ de.p, de.u ]
+        service: passenger
+        staff: none
     -   date: !date 1988-05-29?
         status: closed
 
 ---
-
 key: point.de.Schotten
 type: point
 events:
@@ -68,13 +64,13 @@ events:
         category: de.Hp
         location: !keyloc line.de.12020 4,3
         name: Schotten
-        service: [ de.p, de.u ]
+        service: passenger
+        staff: none
     -   date: !date 1980-09-27
         status: closed
         note: Datum Einstellung der PV-Halte
 
 ---
-
 key: point.de.Nortorf-Kr-Steinburg
 type: point
 events:
@@ -90,7 +86,6 @@ events:
         status: closed
 
 ---
-
 key: point.de.Landscheide
 type: point
 events:
@@ -99,12 +94,12 @@ events:
         category: de.Hp
         location: !keyloc line.de.12020 7,3
         name: Landscheide
-        service: [ de.p, de.u ]
+        service: passenger
+        staff: none
     -   date: !date 1988-05-29?
         status: closed
 
 ---
-
 key: point.de.Kudensee
 type: point
 events:
@@ -112,19 +107,17 @@ events:
         location: !keyloc line.de.12020 10,9
         sources: !keyref src.de.SuW.2005
     -   date: !!null
-        ref:
-            de.DS100: AKUD
+        de.DS100: AKUD
         sources: !keyref src.de.TPP.2006
     -   date: !date c1950
         status: open
         category: [de.Hp, de.Awanst]
         name: Kudensee
-        service: de.u
+        staff: none
     -   date: !date c1990
         category: de.Awanst
 
 ---
-
 key: point.de.Ostermoor
 type: point
 events:
@@ -136,20 +129,17 @@ events:
         sources: !keyref src.de.Kb.1914
     -   date: !!null
         category: de.Hp
-        ref:
-            de.lknr: 01 501
-        service: de.e
+        de.lknr: 01 501
         sources: !keyref src.de.Bfv.1933
     -   date: !date c1940
         category: de.Bf
         de.Rangklasse: IV
-        service: [ de.e, de.og ]
+        service: passenger
         sources: !keyref src.de.Bfv.1944
     -   date: !date c1990
         status: closed
 
 ---
-
 key: point.de.Brunsbuettel-Ost
 type: point
 events:
@@ -157,14 +147,12 @@ events:
         category: de.Awanst
         location: !keyloc line.de.12020 14,2
         name: Brunsbüttel Ost
-        ref:
-            de.DS100: ABKO
+        de.DS100: ABKO
         sources:
             - !keyref src.de.SuW.2005
             - !keyref src.de.TPP.2006
 
 ---
-
 key: point.de.Brunsbuettel
 type: point
 events:
@@ -177,12 +165,10 @@ events:
     -   date: !!null
         category: de.Bf
         de.Rangklasse: II
-        ref:
-            de.lknr: 01 502
+        de.lknr: 01 502
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        ref:
-            de.DS100: ABK
+        de.DS100: ABK
         sources: !keyref src.de.TPP.2006
     -   date: !date c1950
         name: Brunsbüttel

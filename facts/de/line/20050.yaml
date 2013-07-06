@@ -8,7 +8,7 @@ events:
             - !keyref org.de.l.be
 
     -   date: !!null
-        de.VzG: 6170
+        de.VzG: !!str 6170
         sources: !keyref src.de.VzG
 
     -   date: !!null
@@ -76,13 +76,13 @@ events:
         start: !keyref point.de.Berlin-Frankfurter-Allee
         end: !keyref point.de.Berlin-Tw
         electrified:
-            overhead: !voltage 15kV 16.7Hz
+            overhead: !var el.de
         sources: !keyref src.de.Kuhlmann.2000
     -   date: !date 1990-09-15
         start: !keyref point.de.Berlin-Schoenhauser-Allee-Abzw
         end: !keyref point.de.Berlin-Frankfurter-Allee
         electrified:
-            overhead: !voltage 15kV 16.7Hz
+            overhead: !var el.de
         sources: !keyref src.de.Kuhlmann.2000
 
     -   date: !date 1990-10-03
@@ -104,7 +104,7 @@ events:
         start: !keyref point.de.Berlin-Halensee-Nordkopf
         end: !keyref point.de.Berlin-Schoenhauser-Allee-Abzw
         electrified:
-            overhead: !voltage 15kV 16.7Hz
+            overhead: !var el.de
 
 points:
     - !keyref point.de.Berlin-Westhafen
@@ -123,6 +123,7 @@ points:
     - !keyref point.de.Berlin-Frankfurter-Allee
     - !keyref point.de.Berlin-Ostkreuz-Nord
     - !keyref point.de.Berlin-Ostkreuz
+    - !keyref point.de.Berlin-Ostkreuz-Oks
     - !keyref point.de.Berlin-Treptower-Park-Tnt
     - !keyref point.de.Berlin-Treptower-Park
     - !keyref point.de.Berlin-Tw
@@ -167,12 +168,9 @@ events:
         de.Rangklasse: II
         sources: !keyref src.de.DRG.Bln.1932
     -   date: !!null
-        tags: de.og
+        service: passenger
         de.lknr: 03 012
         sources: !keyref src.de.Bfv.1933
-    -   date: !date c1940
-        tags: de.p
-        sources: !keyref src.de.Bfv.1944
     -   date: !date c1950
         category: de.Hp
         sources: !keyref src.dd.DR.Bln.1953
@@ -217,7 +215,6 @@ events:
         service: freight
         sources: !keyref src.de.DRG.Bln.1932
     -   date: !!null
-        tags: [de.b, de.op]
         de.lknr: 03 010
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
@@ -271,7 +268,6 @@ events:
         sources: !keyref src.de.Kb.1914
     -   date: !!null
         service: passenger
-        tags: [de.b, de.oe, de.ogep]
         de.lknr: 03 013
         sources: !keyref src.de.Bfv.1933
     -   date: !date c1920
@@ -282,7 +278,7 @@ events:
         sources: !keyref src.dd.DR.Bln.1953
     -   date: !date c1960
         category: de.Hp
-        master: point.de.Berlin-Gesundbrunnen
+        master: !keyref point.de.Berlin-Gesundbrunnen
         sources: !keyref src.dd.DR.Bln.1968
     -   date: !date c2000
         location: !keyloc line.de.20050 -
@@ -325,7 +321,6 @@ events:
         sources: !keyref src.de.Kb.1914
     -   date: !!null
         service: passenger
-        tags: de.og
         de.lknr: 03 195
         sources: !keyref src.de.Bfv.1933
     -   date: !date c1935
@@ -358,7 +353,7 @@ events:
         location:
             - !keyloc line.de.20050 4,87
             - !keyloc line.de.20900 4,87
-        sources: src.dd.DR.Bln.1953
+        sources: !keyref src.dd.DR.Bln.1953
 
 ---
 key: point.de.Berlin-Schoenhauser-Allee-Bk-26
@@ -413,7 +408,6 @@ events:
         sources: !keyref src.de.Kb.1914
     -   date: !!null
         service: passenger
-        tags: de.p
         de.lknr: 03 016
         sources: !keyref src.de.Bfv.1933
     -   date: !date c1940
@@ -454,7 +448,6 @@ events:
         name: Weißensee b Berlin
         sources: !keyref src.de.DRG.Bln.1932
     -   date: !!null
-        tags: [ de.b, de.oe, de.ogep ]
         de.lknr: 03 018
         sources: !keyref src.de.Bfv.1933
     -   date: !date c1940
@@ -462,7 +455,6 @@ events:
         sources: !keyref src.de.DRG.Bln.1943
     -   date: !date c1940
         service: passenger
-        tags: [ de.b, de.p ]
         sources: !keyref src.de.Bfv.1944
     -   date: !!null
         de.VBL: Wss
@@ -502,7 +494,6 @@ events:
         sources: !keyref src.de.DRG.Bln.1932
     -   date: !!null
         service: passenger
-        tags: de.p
         de.lknr: 03 020
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
@@ -527,10 +518,10 @@ events:
             - !keyref src.de.TPP.2006
     -   date: !!null
         de.DS100: BLST
-        sources: src.de.TPP.2006
+        sources: !keyref src.de.TPP.2006
     -   date: !date c2000
         location: !keyloc line.de.20050 -
-        sources: src.de.DBAG.ISR
+        sources: !keyref src.de.DBAG.ISR
 
 ---
 key: point.de.Berlin-Zentralviehhof
@@ -548,7 +539,6 @@ events:
         name: Berlin Zentralviehhof
         sources: !keyref src.de.DRG.Bln.1932
     -   date: !!null
-        tags: [ de.b, de.oe, de.ogep ]
         de.lknr: 03 021
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
@@ -583,7 +573,6 @@ events:
         de.Rangklasse: I
         sources: !keyref src.de.DRG.Bln.1932
     -   date: !!null
-        tags: [ de.b, de.oe, de.ogep ]
         de.lknr: 03 023
         sources: !keyref src.de.Bfv.1933
     -   date: !date 1897-10-01
@@ -695,6 +684,14 @@ events:
         location: !keyloc line.de.20050 13,13
 
 ---
+key: point.de.Berlin-Ostkreuz-Oks
+type: point
+progress: stub
+events:
+    -   date: !!null
+        name: Oks
+
+---
 key: point.de.Berlin-Treptower-Park-Tnt
 type: point
 events:
@@ -731,7 +728,6 @@ events:
         sources: !keyref src.de.DRG.Bln.1927
     -   date: !!null
         service: passenger
-        tags: de.p
         de.lknr: 03 028
         sources: !keyref src.de.Bfv.1933
     -   date: !date 1896-01-01?
@@ -800,7 +796,7 @@ events:
         location:
             - !keyloc line.de.20050 15,200
             - !keyloc line.de.20900 15,200
-        sources: src.dd.DR.Bln.1953
+        sources: !keyref src.dd.DR.Bln.1953
 
 ---
 key: point.de.Berlin-Treptow-Gbf
@@ -819,7 +815,6 @@ events:
         service: freight
         sources: !keyref src.de.DRG.Bln.1932
     -   date: !!null
-        tags: [ de.b, de.op ]
         de.lknr: 03 029
         sources: !keyref src.de.Bfv.1933
     -   date: !date 1937-10-03
@@ -860,7 +855,6 @@ events:
         de.Rangklasse: I
         sources: !keyref src.de.DRG.Bln.1927
     -   date: !!null
-        tags: [ de.b, de.oe, de.ogep ]
         de.lknr: 03 033
         sources: !keyref src.de.Bfv.1933
     -   date: !date 1938-05-15
@@ -898,7 +892,6 @@ events:
         sources: !keyref src.de.DRG.Bln.1932
     -   date: !!null
         service: passenger
-        tags: de.p
         de.lknr: 03 035
         sources: !keyref src.de.Bfv.1933
     -   date: !date 1901?
@@ -938,7 +931,6 @@ events:
         de.Rangklasse: I
         sources: !keyref src.de.DRG.Bln.1932
     -   date: !!null
-        tags: [ de.b, de.oe, de.ogep ]
         de.lknr: 03 037
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
@@ -996,7 +988,6 @@ events:
         de.Rangklasse: II
         sources: !keyref src.de.DRG.Bln.1932
     -   date: !!null
-        tags: [ de.b, de.oe, de.ogep ]
         de.lknr: 03 042
         sources: !keyref src.de.Bfv.1933
     -   date: !date 1938-05-15
@@ -1033,7 +1024,6 @@ events:
     -   date: !!null
         de.lknr: 03 044
         service: passenger
-        tags: de.p
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
         de.VBL: Smf
@@ -1107,7 +1097,6 @@ events:
         sources: !keyref src.de.DRG.Bln.1932
     -   date: !!null
         de.lknr: 03 046
-        tags: [ de.b, de.oe, de.ogep ]
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
         de.VBL: Hal
@@ -1187,7 +1176,6 @@ events:
     -   date: !!null
         de.lknr: 03 007
         service: passenger
-        tags: de.p
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
         de.VBL: Wes
@@ -1232,7 +1220,6 @@ events:
         sources: !keyref src.de.DRG.Bln.1932
     -   date: !!null
         de.lknr: 03 002
-        tags: [ de.b, de.op ]
         sources: !keyref src.de.Bfv.1933
     -   date: !date 1936-05-15
         name: Berlin-Charlottenburg Gbf
