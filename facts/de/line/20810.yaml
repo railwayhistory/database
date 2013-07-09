@@ -1,3 +1,161 @@
+---
+key: line.de.20810
+type: line
+label: de.S-Bahn
+events:
+    -   date: !!null
+        region: !keyref org.de
+    -   date: !!null
+        end: !keyref point.de.Berlin-Wilhelmshagen-LGr
+        region: !keyref org.de.l.be
+    -   date: !!null
+        start: !keyref point.de.Berlin-Wilhelmshagen-LGr
+        region: !keyref org.de.l.bb
+
+    -   date: !var vzg.dr
+        de.VzG: !!str 6004
+        sources: !keyref src.de.VzG
+
+    -   date: !!null
+        category: de.Hauptbahn
+        tracks: 2
+        sources: !keyref src.de.DRG.1927
+
+    # Konzessionen
+    #
+    
+    # Eröffnung und Elektrifizierung bis 1945
+    #
+    -   date: !date 1902-10-01
+        status: open
+        service: passenger
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !date 1928-06-11
+        electrified:
+            rail: !var el.de.bln
+        sources: !keyref src.de.Kuhlmann.2000
+
+    # Abbau 1945 und Wiederinbetriebnahme
+    #
+    -   date: !date 1945-05
+        status: removed
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !date 1948-01-03
+        end: !keyref point.de.Berlin-Koepenick
+        status: open
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !date 1948-04-30
+        start: !keyref point.de.Berlin-Koepenick
+        end: !keyref point.de.Berlin-Friedrichshagen
+        status: open
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !date 1948-11-15
+        start: !keyref point.de.Berlin-Friedrichshagen
+        status: open
+        sources: !keyref src.de.Kuhlmann.2000
+
+    # Eigentümer und Betreiber
+    #
+    -   date: !!null
+        owner: !keyref org.de.l.pre
+        operator: !keyref org.de.e.KPEV.Bln
+    -   date: !date 1920-04-01
+        owner: !keyref org.de
+        operator: !keyref org.de.r.RVM.PH
+    -   date: !date 1924-02-12
+        operator: !keyref org.de.e.DREb
+    -   date: !date 1924-08-30
+        operator: !keyref org.de.e.DRG
+    -   date: !date 1949-10-07
+        owner: !keyref org.dd
+    -   date: !var org.de.DR.start
+        operator: !keyref org.dd.DR
+    -   date: !date 1990-10-03
+        owner: !keyref org.de
+    -   date: !var org.de.DBAG.start
+        owner: !keyref org.de.e.DBAG
+        operator: !keyref org.de.e.DBAG
+    -   date: !var org.de.DBNetz.start
+        owner: !keyref org.de.e.DBNetz
+        operator: !keyref org.de.e.DBNetz
+
+    # Verlauf
+    #
+    course:
+        - !pathref path.de.20000 ost  a
+        - !pathref path.de.27000 a    erk
+
+points:
+    - !keyref point.de.Berlin-Ostbf                     # line.de.20000
+    - !keyref point.de.Berlin-Ostbf-S-Bahn              # line.de.20800
+    - !keyref point.de.Berlin-Warschauer-Strasse
+    - !keyref point.de.Berlin-Ostkreuz                  # line.de.20050
+    - !keyref point.de.Berlin-Ostkreuz-Stadtbahn
+    - !keyref point.de.Berlin-Ostkreuz-S-Bahn
+    - !keyref point.de.Berlin-Rummelsburg-S-Bahn
+    - !keyref point.de.Berlin-Rummelsburg-Betriebsbahnhof
+    - !keyref point.de.Berlin-Karlshorst                # line.de.27000
+    - !keyref point.de.Berlin-Karlshorst-S-Bahn
+    - !keyref point.de.Berlin-Rennbahn                  # line.de.27000
+    - !keyref point.de.Berlin-Wuhlheide-S-Bahn
+    - !keyref point.de.Berlin-Pferdebucht               # line.de.27000
+    - !keyref point.de.Berlin-Koepenick                 # line.de.27000
+    - !keyref point.de.Berlin-Koepenick-S-Bahn
+    - !keyref point.de.Berlin-Hirschgarten
+    - !keyref point.de.Berlin-Friedrichshagen
+    - !keyref point.de.Berlin-Mueggelsee                # line.de.27000
+    - !keyref point.de.Berlin-Rahnsdorf
+    - !keyref point.de.Berlin-Fichtenau                 # line.de.27000
+    - !keyref point.de.Berlin-Wilhelmshagen
+    - !keyref point.de.Berlin-Wilhelmshagen-LGr
+    - !keyref point.de.Erkner                           # line.de.27000
+    - !keyref point.de.Erkner-S-Bahn
+
+
+---
+key: point.de.Berlin-Warschauer-Strasse
+type: point
+events:
+    -   date: !date 1884-08-11
+        status: open
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !!null
+        name: Warschauer Straße
+        sources: !keyref src.de.Kb.1914
+    -   date: !date 1924-10-19
+        location: !keyloc line.de.20810 1,33
+        sources:
+            - !keyref src.de.Kuhlmann.2000
+            - !keyref src.de.DRG.Bln.1927
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: III
+        sources: !keyref src.de.DRG.Bln.1927
+    -   date: !!null
+        de.lknr: 03 287
+        service: passenger
+        sources: !keyref src.de.Bfv.1928
+    -   date: !var lknr.30
+        de.lknr: 03 290
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        de.VBL: Wrs
+        sources: !keyref src.de.DRG.Bln.1946
+    -   date: !date c1950
+        de.Rangklasse: U
+        sources: !keyref src.dd.DR.Bln.1953
+    -   date: !date c1950
+        master: !keyref point.de.Berlin-Ostkreuz
+        sources: !keyref src.dd.DR.Bln.1959
+    -   date: !var ds100.dr
+        de.DS100: BWRS
+        sources: !keyref src.de.TPP.2006
+    -   date: !date c2000
+        name: Berlin Warschauer Straße
+        sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef point.de.27000 war
 
 
 ---
@@ -12,12 +170,16 @@ events:
         sources: !keyref src.de.TPP.2006
     -   date: !!null
         location:
+            - !keyloc line.de.20810 2,42
             - !keyloc line.de.20850 0,00
         category: de.Bft
         master: !keyref point.de.Berlin-Ostkreuz
     -   date: !date c2012
         status: closed
         merged: !keyref point.de.Berlin-Ostkreuz-S-Bahn
+
+    -   date: !!null
+        site: !noderef point.de.27000 okr
 
 
 ---
@@ -34,6 +196,426 @@ events:
             - !keyref src.de.TPP.2013
     -   date: !!null
         location:
+            - !keyloc line.de.20810 2,42
             - !keyloc line.de.20850 0,00
             - !keyloc line.de.20900 13,13
         category: de.Bf
+
+    -   date: !!null
+        site:
+            - !noderef point.de.27000 okr
+
+---
+key: point.de.Berlin-Rummelsburg-S-Bahn
+type: point
+events:
+    -   date: !date 1842
+        status: open
+        name: Rummelsburg
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !!null
+        location:
+            - !keyloc line.de.20810 3,23
+            - !keyloc line.de.27000 3,23
+        sources: !keyref src.de.DRG.Bln.1927
+    -   date: !date 1882-06-01
+        name: Kiez-Rummelsburg
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !date 1902-10-01
+        location: !keyloc line.de.27000 -
+    -   date: !date 1914-10-01
+        name: Rummelsburg
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: IV
+        sources: !keyref src.de.DRG.Bln.1927
+    -   date: !!null
+        de.lknr: 03 257
+        service: no-freight
+        sources: !keyref src.de.Bfv.1928
+    -   date: !date c1930
+        location: !keyloc line.de.20810 3,26
+        de.Rangklasse: III
+        sources: !keyref src.de.DRG.Bln.1932
+    -   date: !var lknr.30
+        de.lknr: 03 292
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        de.VBL: Rg
+        sources: !keyref src.de.DRG.Bln.1946
+    -   date: !date c1950
+        de.Rangklasse: U
+        sources: !keyref src.dd.DR.Bln.1953
+    -   date: !date c1950
+        master: !keyref point.de.Berlin-Ostkreuz
+        sources: !keyref src.dd.DR.Bln.1959
+    -   date: !date c1975
+        category: de.Hp
+        sources: !keyref src.dd.DR.Bln.1978
+    -   date: !var ds100.dr
+        de.DS100: BRH
+        sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef point.de.27000 rus
+
+---
+key: point.de.Berlin-Rummelsburg-Betriebsbahnhof
+type: point
+events:
+    -   date: !date 1902-10-01
+        status: open
+        note: |
+            Bahnsteig für Bedienstete des Rbf Rummelsburg an den
+            Fernbahngleisen möglicherweise bereits seit 1879, spätestens
+            seit März 1902
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !!null
+        location: !keyloc line.de.20810 4,79
+        category: de.Hp
+        name: Rgv
+        sources: !keyref src.de.DRG.Bln.1927
+    -   date: !!null
+        de.lknr: 03 258
+        service: none
+        sources: !keyref src.de.Bfv.1928
+    -   date: !date c1928
+        name: Rummelsburg Betriebsbf
+        sources: !keyref src.de.Bfv.1928
+    -   date: !var lknr.30
+        de.lknr: 03 294
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        de.VBL: Rgv
+        sources: !keyref src.de.DRG.Bln.1946
+    -   date: !date 1948-01-05
+        service: passenger
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !date 1948-01-05?
+        de.VBL: Rgb
+        sources: !keyref src.dd.DR.Bln.1953
+    -   date: !date c1950
+        master: !keyref point.de.Berlin-Karlshorst
+        sources: !keyref src.dd.DR.Bln.1959
+    -   date: !date c1985
+        de.VBL: Rgv
+        sources: !keyref src.dd.DR.1989
+    -   date: !var ds100.dr
+        de.DS100: BRB
+        sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef point.de.27000 rub
+
+
+---
+key: point.de.Berlin-Karlshorst-S-Bahn
+type: point
+events:
+    -   date: !date 2006
+        status: open
+        split_from: !keyref point.de.Berlin-Karlshorst
+        sources:
+            - !keyref src.de.TPP.2006
+            - !keyref src.de.TPP.2007
+    -   date: !!null
+        location: !keyloc line.de.20810 7,151
+        name: Berlin-Karlshorst S-Bahn
+        category: de.Bf
+        de.DS100: BKLH
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef point.de.27000 kar
+
+
+---
+key: point.de.Berlin-Wuhlheide-S-Bahn
+type: point
+events:
+    -   date: !date 1877
+        status: open
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !!null
+        name: Sadowa
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        location:
+            - !keyloc line.de.20810 9,54
+            - !keyloc line.de.27000 9,54
+        category: de.Bf
+        de.Rangklasse: IV
+        sources: !keyref src.de.DRG.Bln.1927
+    -   date: !date 1902-10-01?
+        location: !keyloc line.de.27000 -
+    -   date: !!null
+        de.lknr: 03 260
+        service: passenger
+        sources: !keyref src.de.Bfv.1928
+    -   date: !date 1929-10-06
+        name: Wuhlheide
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !date c1930
+        de.Rangklasse: III
+        sources: !keyref src.de.DRG.Bln.1932
+    -   date: !var lknr.30
+        de.lknr: 03 298
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        de.VBL: Wu
+        sources: !keyref src.de.DRG.Bln.1946
+    -   date: !date c1950
+        de.Rangklasse: U
+        sources: !keyref src.dd.DR.Bln.1953
+    -   date: !date c1950
+        master: !keyref point.de.Berlin-Karlshorst
+        sources: !keyref src.dd.DR.Bln.1959
+    -   date: !date c1965
+        category: de.Hp
+        sources: !keyref src.dd.DR.Bln.1968
+    -   date: !var ds100.dr
+        de.DS100: BWHH
+        sources: !keyref src.de.TPP.2006
+    -   date: !date c1995
+        name: Berlin-Wuhlheide (S-Bahn)
+        sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef point.de.27000 wuh
+
+
+---
+key: point.de.Berlin-Koepenick-S-Bahn
+type: point
+events:
+    -   date: !date 2006
+        status: open
+        split_from: !keyref point.de.Berlin-Koepenick
+        sources:
+            - !keyref src.de.TPP.2006
+            - !keyref src.de.TPP.2007
+    -   date: !!null
+        location: !keyloc line.de.20810 11,628
+        category: de.Bf
+        name: Berlin-Köpenick S-Bahn
+        de.DS100: BKPK
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef point.de.27000 kop
+
+
+---
+key: point.de.Berlin-Hirschgarten
+type: point
+events:
+    -   date: !date 1894-05-01
+        status: open
+        name: Hirschgarten
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !!null
+        location:
+            - !keyloc line.de.20810 13,13
+            - !keyloc line.de.27000 13,13
+        category: de.Hp
+        sources: !keyref src.de.DRG.Bln.1927
+    -   date: !date 1902-10-01?
+        location: !keyloc line.de.27000 -
+    -   date: !!null
+        de.lknr: 03 261
+        service: passenger
+        sources: !keyref src.de.Bfv.1928
+    -   date: !var lknr.30
+        de.lknr: 03 302
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        de.VBL: Hir
+        sources: !keyref src.de.DRG.Bln.1946
+    -   date: !date c1950
+        master: !keyref point.de.Berlin-Koepenick
+        sources: !keyref src.dd.DR.Bln.1958
+    -   date: !var ds100.dr
+        de.DS100: BHI
+        sources: !keyref src.de.TPP.2006
+    -   date: !date c2000
+        name: Berlin-Hirschgarten
+        sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef point.de.27000 hir
+
+
+---
+key: point.de.Berlin-Friedrichshagen
+type: point
+events:
+    -   date: !date 1842-10-23
+        status: open
+        name: Friedrichshagen
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !!null
+        location:
+            - !keyloc line.de.20810 14,62
+            - !keyloc line.de.27000 14,62
+        category: de.Bf
+        de.Rangklasse: II
+        sources: !keyref src.de.DRG.Bln.1927
+    -   date: !!null
+        de.lknr: 03 091
+        sources: !keyref src.de.Bfv.1928
+    -   date: !var lknr.30
+        de.lknr: 03 303
+        sources: !keyref src.de.Bfv.1933
+    -   date: !date 1934-01-01
+        name: Berlin-Friedrichshagen
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !!null
+        de.VBL: Frh
+        sources: !keyref src.de.DRG.Bln.1946
+    -   date: !date c1950
+        de.Rangklasse: U
+        sources: !keyref src.dd.DR.Bln.1953
+    -   date: !date c1950
+        master: !keyref point.de.Berlin-Koepenick
+        sources: !keyref src.dd.DR.Bln.1959
+    -   date: !var ds100.dr
+        de.DS100: BFRH
+        sources: !keyref src.de.TPP.2006
+    -   date: !date c2000
+        location: !keyloc line.de.27000 -
+
+    -   date: !!null
+        site: !noderef point.de.27000 fri
+
+
+---
+key: point.de.Berlin-Rahnsdorf
+type: point
+events:
+    -   date: !date 1879-05-15
+        status: open
+        name: Rahnsdorf
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !!null
+        location:
+            - !keyloc line.de.20810 19,20
+            - !keyloc line.de.27000 19,20
+        category: de.Bf
+        de.Rangklasse: IV
+        sources: !keyref src.de.DRG.Bln.1927
+    -   date: !!null
+        de.lknr: 03 262
+        service: passenger
+        sources: !keyref src.de.Bfv.1928
+    -   date: !date c1930
+        de.Rangklasse: III
+        sources: !keyref src.de.DRG.Bln.1932
+    -   date: !var lknr.30
+        de.lknr: 03 304
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        de.VBL: Rd
+        sources: !keyref src.de.DRG.Bln.1946
+    -   date: !date c1965
+        de.Rangklasse: V
+        sources: !keyref src.dd.DR.Bln.1968
+    -   date: !date c1975
+        de.Rangklasse: IV
+        sources: !keyref src.dd.DR.Bln.1978
+    -   date: !var ds100.dr
+        de.DS100: BRD
+        sources: !keyref src.de.TPP.2006
+    -   date: !date c2000
+        category: de.Hp
+    -   date: !date c2000
+        name: Berlin-Rahnsdorf
+        sources: !keyref src.de.TPP.2006
+    -   date: !date c2000
+        location: !keyloc line.de.27000 -
+    -   date: !date c2010
+        category: de.Bf
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef point.de.27000 rah
+
+
+---
+key: point.de.Berlin-Wilhelmshagen
+type: point
+events:
+    -   date: !date 1882-11-15
+        status: open
+        name: Neu-Rahnsdorf
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !!null
+        location:
+            - !keyloc line.de.20810 21,99
+            - !keyloc line.de.27000 21,99
+        category: de.Hp
+        sources: !keyref src.de.DRG.Bln.1927
+    -   date: !date 1902-10-01
+        location: !keyloc line.de.27000 -
+        name: Wilhelmshagen
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !!null
+        de.lknr: 03 263
+        service: passenger
+        sources: !keyref src.de.Bfv.1928
+    -   date: !var lknr.30
+        de.lknr: 03 305
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        de.VBL: Wil
+        sources: !keyref src.de.DRG.Bln.1946
+    -   date: !date c1950
+        master: !keyref point.de.Berlin-Rahnsdorf
+        sources: !keyref src.dd.DR.Bln.1959
+    -   date: !var ds100.dr
+        de.DS100: BWIG
+        sources: !keyref src.de.TPP.2006
+    -   date: !date c2000
+        name: Berlin-Wilhelmshagen
+        sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef point.de.27000 wil
+
+
+---
+key: point.de.Berlin-Wilhelmshagen-LGr
+type: point
+events:
+    -   date: !!null
+        subtype: border
+    -   date: !!null
+        name: Berlin-Wilhelmshagen BE/BB
+        de.DS100: BQWI
+        sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef point.de.27000 gerk
+
+
+---
+key: point.de.Erkner-S-Bahn
+type: point
+events:
+    -   date: !date 2006
+        status: open
+        sources:
+            - !keyref src.de.TPP.2006
+            - !keyref src.de.TPP.2007
+    -   date: !!null
+        name: Erkner S-Bahn
+        de.DS100: BE
+        sources: !keyref src.de.TPP.2007
+    -   date: !!null
+        location: !keyloc line.de.20810 24,363
+        category: de.Bf
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef point.de.27000 erk
+
