@@ -9,7 +9,7 @@ events:
         region: !keyref org.de.l.be
     -   date: !!null
         start: !keyref point.de.Erkner-LGr
-        region: !keyerf ogr.de.l.bb
+        region: !keyref org.de.l.bb
 
     -   date: !var vzg.dr
         de.VzG: !!str 6153
@@ -101,8 +101,8 @@ events:
     #
     -   date: !!null
         end: !keyref point.de.Frankfurt-Oder-Pbf
-        owner: !keyref org.de.BFE
-        operator: !keyref org.de.BFE
+        owner: !keyref org.de.e.BFE
+        operator: !keyref org.de.e.BFE
     -   date: !!null
         start: !keyref point.de.Frankfurt-Oder-Pbf
         owner: !keyref org.de.e.NME
@@ -147,9 +147,10 @@ events:
 
     # Verlauf
     #
-    course:
-        - !pathref path.de.20000 ost  a
-        - !pathref path.de.27000 a    gfra
+    -   date: !!null
+        course:
+            - !pathref path.de.20000 ost  a
+            - !pathref path.de.27000 a    gfra
 
 points:
     - !keyref point.de.Berlin-Ostbf                         # line.de.20000
@@ -174,13 +175,14 @@ points:
     - !keyref point.de.Berlin-Rahnsdorf-Bk
     - !keyref point.de.Berlin-Fichtenau
     - !keyref point.de.Berlin-Wilhelmshagen                 # line.de.27000
+    - !keyref point.de.Erkner-LGr
     - !keyref point.de.Erkner
     - !keyref point.de.Loecknitz
     - !keyref point.de.Fangschleuse
     - !keyref point.de.Gruenheide
     - !keyref point.de.Hangelsberg
     - !keyref point.de.Heidehaus
-    - !keyref point.de.Neuland
+    - !keyref point.de.Fuerstenwalde-Neuland
     - !keyref point.de.Fuerstenwalde
     - !keyref point.de.Beerenbusch
     - !keyref point.de.Berkenbrueck
@@ -231,7 +233,7 @@ events:
         master: !keyref point.de.Berlin-Rummelsburg
 
     -   date: !!null
-        site: !noderef point.de.27000 vnk
+        site: !noderef path.de.27000 vnk
 
 ---
 key: point.de.Berlin-Rummelsburg
@@ -276,7 +278,7 @@ events:
         sources: !keyref src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef point.de.27000 rum
+        site: !noderef path.de.27000 rum
 
 
 ---
@@ -306,11 +308,11 @@ events:
         category: de.Bft
 
     -   date: !!null
-        site: !noderef point.de.27000 rua
+        site: !noderef path.de.27000 rua
 
 
 ---
-keyref: point.de.Berlin-Rummelsburg-Rgbo
+key: point.de.Berlin-Rummelsburg-Rgbo
 type: point
 events:
     -   date: !!null
@@ -323,12 +325,12 @@ events:
     -   date: !date c1995
         name: Berlin-Rummelsburg (Rgbo)
         de.DS100: BRGBO
-        sources: !Keyref src.de.TPP.2006
+        sources: !keyref src.de.TPP.2006
     -   date: !date c1995
         category: de.Bft
 
     -   date: !!null
-        site: !noderef point.de.27000 ruo
+        site: !noderef path.de.27000 ruo
 
 
 ---
@@ -353,7 +355,7 @@ events:
             - !keyref src.dd.DR.Bln.1953
 
     -   date: !!null
-        site: !noderef point.de.27000 ren
+        site: !noderef path.de.27000 ren
 
 
 ---
@@ -409,7 +411,7 @@ events:
         location: !keyloc line.de.20810 -
 
     -   date: !!null
-        site: !noderef point.de.27000 kar
+        site: !noderef path.de.27000 kar
 
 
 ---
@@ -433,7 +435,7 @@ events:
         status: closed
 
     -   date: !!null
-        site: !noderef point.de.27000 rbn
+        site: !noderef path.de.27000 rbn
 
 
 ---
@@ -456,7 +458,7 @@ events:
         sources: !keyref src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef point.de.27000 oeg
+        site: !noderef path.de.27000 oeg
 
 
 ---
@@ -482,7 +484,7 @@ events:
         sources: !keyref src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef point.de.27000 sst
+        site: !noderef path.de.27000 sst
 
 
 ---
@@ -506,7 +508,7 @@ events:
         status: closed
 
     -   date: !!null
-        site: !noderef point.de.27000 pfe
+        site: !noderef path.de.27000 pfe
 
 
 ---
@@ -552,7 +554,7 @@ events:
         location: !keyloc line.de.20810 -
 
     -   date: !!null
-        site: !noderef point.de.27000 kop
+        site: !noderef path.de.27000 kop
 
 
 ---
@@ -569,7 +571,7 @@ events:
         sources: !keyref src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef point.de.27000 fri
+        site: !noderef path.de.27000 fri
 
 
 ---
@@ -594,7 +596,7 @@ events:
         sources: !keyref src.dd.DR.Bln.1959
 
     -   date: !!null
-        site: !noderef point.de.27000 mug
+        site: !noderef path.de.27000 mug
 
 
 ---
@@ -619,7 +621,7 @@ events:
         sources: !keyref src.dd.DR.Bln.1959
 
     -   date: !!null
-        site: !noderef point.de.27000 fic
+        site: !noderef path.de.27000 fic
 
 
 ---
@@ -635,21 +637,20 @@ events:
         sources: !keyref src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef point.de.27000 rah
+        site: !noderef path.de.27000 rah
 
 
 ---
 key: point.de.Erkner-LGr
 type: point
+subtype: border
 events:
-    -   date: !!null
-        subtype: border
     -   date: !!null
         name: Erkner BB/BE
         de.DS100: BQER
 
     -   date: !!null
-        site: !noderef point.de.27000 gerk
+        site: !noderef path.de.27000 gerk
 
 
 ---
@@ -690,7 +691,7 @@ events:
         location: !keyloc line.de.20810 -
 
     -   date: !!null
-        site: !noderef point.de.27000 erk
+        site: !noderef path.de.27000 erk
 
 
 ---
@@ -713,13 +714,13 @@ events:
         sources: !keyref src.dd.DR.Bln.1959
 
     -   date: !!null
-        site: !noderef point.de.27000 loc
+        site: !noderef path.de.27000 loc
 
 
 ---
 key: point.de.Fangschleuse
 type: point
-event:
+events:
     -   date: !date 1879-05-15
         status: open
         name: Fangschleuse
@@ -753,7 +754,7 @@ event:
         sources: !keyref src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef point.de.27000 fan
+        site: !noderef path.de.27000 fan
 
 
 ---
@@ -778,7 +779,7 @@ events:
             - !keyref src.dd.DR.Bln.1973
 
     -   date: !!null
-        site: !noderef point.de.27000 gru
+        site: !noderef path.de.27000 gru
 
 
 ---
@@ -813,11 +814,11 @@ events:
         de.DS100: BHGB
         sources: !keyref src.de.TPP.2006
     -   date: !date c2000
-        catgeory: [de.Hp, de.Uest]
+        category: [de.Hp, de.Uest]
         sources: !keyref src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef point.de.27000 han
+        site: !noderef path.de.27000 han
 
 
 ---
@@ -842,11 +843,11 @@ events:
         status: closed
 
     -   date: !!null
-        site: !noderef point.de.27000 hei
+        site: !noderef path.de.27000 hei
 
 
 ---
-key: point.de.Neuland
+key: point.de.Fuerstenwalde-Neuland
 type: point
 events:
     -   date: !!null
@@ -865,7 +866,7 @@ events:
         sources: !keyref src.dd.DR.Bln.1959
 
     -   date: !!null
-        site: !noderef point.de.27000 nla
+        site: !noderef path.de.27000 nla
 
 
 ---
@@ -905,7 +906,7 @@ events:
         sources: !keyref src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef point.de.27000 fur
+        site: !noderef path.de.27000 fur
 
 # 47,60 Dir-Gr Bln/Ost src.de.DRG.Bln.1927, src.de.DRG.Bln.1932
 # 49,00 Dir-Gr Bln/Ost src.de.DRG.Bln.1943
@@ -923,7 +924,7 @@ events:
         status: closed
 
     -   date: !!null
-        site: !noderef point.de.27000 bee
+        site: !noderef path.de.27000 bee
 
 
 ---
@@ -958,7 +959,7 @@ events:
         sources: !keyref src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef point.de.27000 ber
+        site: !noderef path.de.27000 ber
 
 
 ---
@@ -966,7 +967,7 @@ key: point.de.Madlitz
 type: point
 events:
     -   date: !!null
-        location: !keyref line.de.27000 58,60
+        location: !keyloc line.de.27000 58,60
         category: de.Bk
         name: Madlitz
         sources: !keyref src.de.web.Erbeck
@@ -974,7 +975,7 @@ events:
         status: closed
 
     -   date: !!null
-        site: !noderef point.de.27000 mad
+        site: !noderef path.de.27000 mad
 
 
 ---
@@ -1008,7 +1009,7 @@ events:
         sources: !keyref src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef point.de.27000 bri
+        site: !noderef path.de.27000 bri
 
 
 ---
@@ -1048,7 +1049,7 @@ events:
         sources: !keyref src.de.SuW.2005
 
     -   date: !!null
-        site: !noderef point.de.27000 jac
+        site: !noderef path.de.27000 jac
 
 
 ---
@@ -1083,7 +1084,7 @@ events:
         sources: !keyref src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef point.de.27000 pil
+        site: !noderef path.de.27000 pil
 
 
 ---
@@ -1102,7 +1103,7 @@ events:
             - !keyref src.dd.DR.Bln.1973
 
     -   date: !!null
-        site: !noderef point.de.27000 lic
+        site: !noderef path.de.27000 lic
 
 
 ---
@@ -1149,7 +1150,7 @@ events:
         sources: !keyref src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef point.de.27000 ros
+        site: !noderef path.de.27000 ros
 
 
 ---
@@ -1168,7 +1169,7 @@ events:
             - !keyref src.dd.DR.Bln.1991
 
     -   date: !!null
-        site: !noderef point.de.27000 nuh
+        site: !noderef path.de.27000 nuh
 
 
 ---
@@ -1197,13 +1198,13 @@ events:
     -   date: !date c1965
         location:
             - !keyloc line.de.27000 81,280
-        sources: !keyref src.dd.DR.Bln.1965
+        sources: !keyref src.dd.DR.Bln.1968
     -   date: !var ds100.dr
         de.DS100: BFP
         sources: !keyref src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef point.de.27000 fra
+        site: !noderef path.de.27000 fra
 
 
 ---
@@ -1234,7 +1235,7 @@ events:
         status: closed
 
     -   date: !!null
-        site: !noderef point.de.27000 gul
+        site: !noderef path.de.27000 gul
 
 
 ---
@@ -1266,7 +1267,7 @@ events:
             - !keyref src.dd.DR.Bln.1953
 
     -   date: !!null
-        site: !noderef point.de.27000 bus
+        site: !noderef path.de.27000 bus
 
 
 ---
@@ -1296,7 +1297,7 @@ events:
         status: closed
 
     -   date: !!null
-        site: !noderef point.de.27000 los
+        site: !noderef path.de.27000 los
 
 
 ---
@@ -1328,7 +1329,7 @@ events:
         sources: !keyref src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef point.de.27000 fik
+        site: !noderef path.de.27000 fik
 
 
 ---
@@ -1358,7 +1359,7 @@ events:
     -   date: !date c1945
         de.Rangklasse: III
         sources: !keyref src.de.DRG.Bln.1946
-    -   date: !var ds100.dr:
+    -   date: !var ds100.dr
         de.DS100: BFIH
         sources: !keyref src.de.TPP.2006
     -   date: !date c2005
@@ -1366,7 +1367,7 @@ events:
         sources: !keyref src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef point.de.27000 fin
+        site: !noderef path.de.27000 fin
 
 
 ---
@@ -1390,7 +1391,7 @@ events:
         status: closed
 
     -   date: !!null
-        site: !noderef point.de.27000 fio
+        site: !noderef path.de.27000 fio
 
 
 ---
@@ -1437,7 +1438,7 @@ events:
         sources: !keyref src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef point.de.27000 wie
+        site: !noderef path.de.27000 wie
 
 
 ---
@@ -1452,12 +1453,12 @@ events:
             - !keyref src.dd.DR.Bln.1953
     -   date: !!null
         location: !keyloc line.de.27000 96,0
-        category: Abzw
+        category: de.Abzw
         name: Aws
         sources: !keyref src.dd.DR.Bln.1959
     -   date: !date c1965
         location: !keyloc line.de.27000 98,0
-        sources: !keyref src.dd.DR.Bln.1965
+        sources: !keyref src.dd.DR.Bln.1968
     -   date: !!null
         master: !keyref point.de.Ziltendorf
         sources: !keyref src.dd.DR.Bln.1973
@@ -1470,7 +1471,7 @@ events:
         sources: !keyref src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef point.de.27000 aws
+        site: !noderef path.de.27000 aws
 
 
 ---
@@ -1500,7 +1501,7 @@ events:
         status: closed
 
     -   date: !!null
-        site: !noderef point.de.27000 zin
+        site: !noderef path.de.27000 zin
 
 
 ---
@@ -1529,13 +1530,13 @@ events:
         sources: !keyref src.dd.DR.Bln.1953
     -   date: !!null
         location: !keyloc line.de.27000 98,114
-        sources: !keyref src.dd.DR.Bln.1958
+        sources: !keyref src.dd.DR.Bln.1959
     -   date: !var ds100.dr
         de.DS100: BZIL
         sources: !keyref src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef point.de.27000 zil
+        site: !noderef path.de.27000 zil
 
 
 ---
@@ -1571,7 +1572,7 @@ events:
         status: closed
 
     -   date: !!null
-        site: !noderef point.de.27000 vog
+        site: !noderef path.de.27000 vog
 
 
 ---
@@ -1616,7 +1617,7 @@ events:
         sources: !keyref src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef point.de.27000 eis
+        site: !noderef path.de.27000 eis
 
 
 # 107,400 Dir-Gr Bln/Cs src.dd.DR.Bln.1959 bis 1990-10-15
@@ -1657,7 +1658,7 @@ events:
         sources: !keyref src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef point.de.27000 nze
+        site: !noderef path.de.27000 nze
 
 
 ---
@@ -1696,7 +1697,7 @@ events:
         sources: !keyref src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef point.de.27000 wel
+        site: !noderef path.de.27000 wel
 
 
 ---
@@ -1737,7 +1738,7 @@ events:
         sources: !keyref src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef point.de.27000 cos
+        site: !noderef path.de.27000 cos
 
 
 ---
@@ -1790,7 +1791,7 @@ events:
         category: de.Bk
 
     -   date: !!null
-        site: !noderef point.de.27000 gun
+        site: !noderef path.de.27000 gun
 
 
 ---
@@ -1829,17 +1830,16 @@ events:
         sources: !keyref src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef point.de.27000 gub
+        site: !noderef path.de.27000 gub
 
 # 131,845 EGr DB/PKP src.de.VzG
 
 ---
 key: point.de.Guben-Grenze-Lubsko
 type: point
+subtype: border
 junction: True
 events:
-    -   date: !!null
-        subtype: border
     -   date: !!null
         location: !keyloc line.de.27000 131,86
         sources: !keyref src.dd.DR.1976
@@ -1848,5 +1848,5 @@ events:
         de.DS100: BXGK
 
     -   date: !!null
-        site: !noderef point.de.27000 ggub
+        site: !noderef path.de.27000 ggub
 

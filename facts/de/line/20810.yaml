@@ -81,9 +81,10 @@ events:
 
     # Verlauf
     #
-    course:
-        - !pathref path.de.20000 ost  a
-        - !pathref path.de.27000 a    erk
+    -   date: !!null
+        course:
+            - !pathref path.de.20000 ost  a
+            - !pathref path.de.27000 a    erk
 
 points:
     - !keyref point.de.Berlin-Ostbf                     # line.de.20000
@@ -122,6 +123,11 @@ events:
     -   date: !!null
         name: Warschauer Straße
         sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        location: !keyloc line.de.27300 c1
+    -   date: !date 1903-10-20
+        location: !keyloc line.de.27300 -
+        sources: !keyref src.de.Kuhlmann.2000
     -   date: !date 1924-10-19
         location: !keyloc line.de.20810 1,33
         sources:
@@ -155,7 +161,7 @@ events:
         sources: !keyref src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef point.de.27000 war
+        site: !noderef path.de.27000 war
 
 
 ---
@@ -171,6 +177,7 @@ events:
     -   date: !!null
         location:
             - !keyloc line.de.20810 2,42
+            - !keyloc line.de.20820 2,14
             - !keyloc line.de.20850 0,00
         category: de.Bft
         master: !keyref point.de.Berlin-Ostkreuz
@@ -179,7 +186,7 @@ events:
         merged: !keyref point.de.Berlin-Ostkreuz-S-Bahn
 
     -   date: !!null
-        site: !noderef point.de.27000 okr
+        site: !noderef path.de.27000 okr
 
 
 ---
@@ -197,13 +204,14 @@ events:
     -   date: !!null
         location:
             - !keyloc line.de.20810 2,42
+            - !keyloc line.de.20820 2,14
             - !keyloc line.de.20850 0,00
             - !keyloc line.de.20900 13,13
         category: de.Bf
 
     -   date: !!null
         site:
-            - !noderef point.de.27000 okr
+            - !noderef path.de.27000 okr
 
 ---
 key: point.de.Berlin-Rummelsburg-S-Bahn
@@ -232,7 +240,7 @@ events:
         sources: !keyref src.de.DRG.Bln.1927
     -   date: !!null
         de.lknr: 03 257
-        service: no-freight
+        service: passenger
         sources: !keyref src.de.Bfv.1928
     -   date: !date c1930
         location: !keyloc line.de.20810 3,26
@@ -258,7 +266,7 @@ events:
         sources: !keyref src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef point.de.27000 rus
+        site: !noderef path.de.27000 rus
 
 ---
 key: point.de.Berlin-Rummelsburg-Betriebsbahnhof
@@ -306,7 +314,7 @@ events:
         sources: !keyref src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef point.de.27000 rub
+        site: !noderef path.de.27000 rub
 
 
 ---
@@ -327,7 +335,7 @@ events:
         sources: !keyref src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef point.de.27000 kar
+        site: !noderef path.de.27000 kar
 
 
 ---
@@ -382,7 +390,7 @@ events:
         sources: !keyref src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef point.de.27000 wuh
+        site: !noderef path.de.27000 wuh
 
 
 ---
@@ -403,7 +411,7 @@ events:
         sources: !keyref src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef point.de.27000 kop
+        site: !noderef path.de.27000 kop
 
 
 ---
@@ -434,7 +442,7 @@ events:
         sources: !keyref src.de.DRG.Bln.1946
     -   date: !date c1950
         master: !keyref point.de.Berlin-Koepenick
-        sources: !keyref src.dd.DR.Bln.1958
+        sources: !keyref src.dd.DR.Bln.1959
     -   date: !var ds100.dr
         de.DS100: BHI
         sources: !keyref src.de.TPP.2006
@@ -443,7 +451,7 @@ events:
         sources: !keyref src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef point.de.27000 hir
+        site: !noderef path.de.27000 hir
 
 
 ---
@@ -486,7 +494,7 @@ events:
         location: !keyloc line.de.27000 -
 
     -   date: !!null
-        site: !noderef point.de.27000 fri
+        site: !noderef path.de.27000 fri
 
 
 ---
@@ -538,7 +546,7 @@ events:
         sources: !keyref src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef point.de.27000 rah
+        site: !noderef path.de.27000 rah
 
 
 ---
@@ -580,22 +588,21 @@ events:
         sources: !keyref src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef point.de.27000 wil
+        site: !noderef path.de.27000 wil
 
 
 ---
 key: point.de.Berlin-Wilhelmshagen-LGr
 type: point
+subtype: border
 events:
-    -   date: !!null
-        subtype: border
     -   date: !!null
         name: Berlin-Wilhelmshagen BE/BB
         de.DS100: BQWI
         sources: !keyref src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef point.de.27000 gerk
+        site: !noderef path.de.27000 gerk
 
 
 ---
@@ -617,5 +624,5 @@ events:
         sources: !keyref src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef point.de.27000 erk
+        site: !noderef path.de.27000 erk
 
