@@ -1,0 +1,239 @@
+---
+key: line.de.20830
+type: line
+label: de.S-Bahn
+events:
+    -   date: !!null
+        region:
+            - !keyref org.de
+            - !keyref org.de.l.be
+
+    -   date: !var vzg.dr
+        de.VzG: !!str 6011
+        sources: !keyref src.de.VzG
+
+    -   date: !!null
+        category: de.Hauptbahn
+        tracks: 2
+        electrified:
+            rail: !var el.de.bln
+        sources: !keyref src.dd.DR.Bln.1983
+
+    # Eröffnung
+    #
+    -   date: !date 1976-12-30
+        end: !keyref point.de.Berlin-Marzahn
+        status: open
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !date 1980-12-15
+        start: !keyref point.de.Berlin-Marzahn
+        end: !keyref point.de.Berlin-Mehrower-Allee
+        status: open
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !date 1982-12-30
+        start: !keyref point.de.Berlin-Mehrower-Allee
+        status: open
+        sources: !keyref src.de.Kuhlmann.2000
+
+    # Eigentümer und Betriebsführer
+    #
+    -   date: !!null
+        owner: !keyref org.dd
+        operator: !keyref org.dd.DR
+
+    -   date: !date 1990-10-03
+        owner: !keyref org.de
+
+    -   date: !var org.de.DBAG.start
+        owner: !keyref org.de.e.DBAG
+        operator: !keyref org.de.e.DBAG
+    -   date: !var org.de.DBNetz.start
+        owner: !keyref org.de.e.DBNetz
+        operator: !keyref org.de.e.DBNetz
+
+    # Verlauf
+    #
+    -   date: !!null
+        course:
+            - !pathref path.de.20820.bik bis  aspr
+            - !pathref path.de.20480     fffo f
+            - !pathref path.de.20410     flic awri
+            - !pathref path.de.26820     fbik ahr
+
+points:
+    - !keyref point.de.Biesdorfer-Kreuz-S-Bahn              # line.de.20820
+    - !keyref point.de.Berlin-Springpfuhl
+    - !keyref point.de.Berlin-Poelchaustrasse
+    - !keyref point.de.Berlin-Marzahn                       # line.de.26820
+    - !keyref point.de.Berlin-Marzahn-S-Bahn
+    - !keyref point.de.Berlin-Raoul-Wallenberg-Strasse
+    - !keyref point.de.Berlin-Mehrower-Allee
+    - !keyref point.de.Ahrensfelde                          # line.de.26820
+    - !keyref point.de.Ahrensfelde-S-Bahn
+
+
+---
+key: point.de.Berlin-Springpfuhl
+type: point
+junction: True
+events:
+    -   date: !date 1976-12-30
+        status: open
+        split_from: !keyref point.de.Biesdorfer-Kreuz-Nord
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: U
+        master: !keyref point.de.Berlin-Marzahn
+        de.VBL: Sgp
+        sources: !keyref src.dd.DR.Bln.1978
+    -   date: !date c1980
+        master: !keyref point.de.Berlin-Lichtenberg
+        sources: !keyref src.dd.DR.Bln.1983
+    -   date: !!null
+        location:
+            - !keyloc line.de.20830 8,750
+        sources: !keyref src.dd.DR.Bln.1991
+    -   date: !var ds100.dr
+        de.DS100: BSPH
+        sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.20410 spr
+
+
+---
+key: point.de.Berlin-Poelchaustrasse
+type: point
+events:
+    -   date: !date 1979-09-28
+        status: open
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !!null
+        location: !keyloc line.de.20830 9,700
+        category: de.Hp
+        staff: none
+        master: !keyref point.de.Berlin-Marzahn
+        name: Karl-Maron-Straße
+        de.VBL: Km
+        sources: !keyref src.dd.DR.Bln.1983
+    -   date: !date 1992-01-31
+        name: Poelchaustraße
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !var ds100.dr
+        de.DS100: BPOE
+        sources: !keyref src.de.TPP.2006
+    -   date: !date c2000
+        name: Berlin Pölchaustraße
+        sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.26820 poe
+
+# point.de.Berlin-Marzahn 9,92
+
+---
+key: point.de.Berlin-Marzahn-S-Bahn
+type: point
+events:
+    -   date: !date 2006
+        status: open
+        sources:
+            - !keyref src.de.TPP.2006
+            - !keyref src.de.TPP.2007
+    -   date: !!null
+        name: Berlin-Marzahn S-Bahn
+        de.DS100: BMAZ
+        sources: !keyref src.de.TPP.2007
+    -   date: !!null
+        location: !keyloc line.de.20830 10,625
+        category: de.Bf
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.26820 mar
+
+
+---
+key: point.de.Berlin-Raoul-Wallenberg-Strasse
+type: point
+events:
+    -   date: !date 1980-12-15
+        status: open
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !!null
+        location: !keyloc line.de.20830 10,340
+        category: de.Hp
+        staff: none
+        master: !keyref point.de.Berlin-Marzahn
+        name: Bruno-Leuschner-Straße
+        de.VBL: Bl
+        sources: !keyref src.dd.DR.Bln.1983
+    -   date: !date 1992-01-31
+        name: Raoul-Wallenberg-Straße
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !var ds100.dr
+        de.DS100: BRW
+        sources: !keyref src.de.TPP.2006
+    -   date: !date c2000
+        name: Berlin Raoul-Wallenberg-Straße
+        sources: !keyref src.de.TPP.2006
+    -   date: !date c2000
+        location: !keyloc line.de.20830 11,595
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.26820 rao
+
+
+---
+key: point.de.Berlin-Mehrower-Allee
+type: point
+events:
+    -   date: !date 1980-12-15
+        status: open
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !!null
+        location: !keyloc line.de.20830 11,750
+        category: de.Hp
+        staff: none
+        master: !keyref point.de.Berlin-Marzahn
+        name: Otto-Winzer-Straße
+        de.VBL: Ow
+        sources: !keyref src.dd.DR.Bln.1983
+    -   date: !date 1992-01-31
+        name: Mehrower Allee
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !var ds100.dr
+        de.DS100: BMEA
+        sources: !keyref src.de.TPP.2006
+    -   date: !date c2000
+        name: Berlin Mehrower Allee
+        sources: !keyref src.de.TPP.2006
+    -   date: !date c2000
+        location: !keyloc line.de.20830 12,462
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.26820 meh
+
+
+---
+key: point.de.Ahrensfelde-S-Bahn
+type: point
+events:
+    -   date: !date 2006
+        status: open
+        sources:
+            - !keyref src.de.TPP.2006
+            - !keyref src.de.TPP.2007
+    -   date: !!null
+        name: Ahrensfelde S-Bahn
+        de.DS100: BAF
+        sources: !keyref src.de.TPP.2007
+    -   date: !!null
+        location: !keyloc line.de.20830 14,277
+        category: de.Bf
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.26820 ahr
