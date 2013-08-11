@@ -44,7 +44,7 @@ events:
         operator: !keyref org.de.e.KPEV.Han
     -   date: !date 1872-06-24
         start: !keyref point.de.Stade
-        contract:
+        treaty:
             partners:
                 - !keyref org.de.l.pre
                 - !keyref org.de.l.hh
@@ -114,6 +114,14 @@ events:
     -   date: !var org.de.DBNetz.start
         owner: !keyref org.de.e.DBNetz
         operator: !keyref org.de.e.DBNetz
+
+    # Verlauf
+    #
+    -   date: !!null
+        course:
+            - !pathref path.de.44500 leh fcel
+            - !pathref path.de.13000 a   f
+
 points:
     - !keyref point.de.Lehrte
     - !keyref point.de.Aligse
@@ -203,7 +211,7 @@ events:
     -   date: !!null
         de.DS100: HLER
         de.dstnr: !!str 135400
-        sources: !keyref src.de.DS100.1982
+        sources: !keyref src.de.DS100.1984
 
     -   date: !!null
         site: !noderef path.de.44500 leh
@@ -226,7 +234,8 @@ events:
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
         de.DS100: HALI
-        sources: !keyref src.de.TPP.2006
+        de.dstnr: !!str 136382
+        sources: !keyref src.de.DS100.1984
     -   date: !date c1970
         category: de.Hp
         sources: !keyref src.de.SuW.2005
