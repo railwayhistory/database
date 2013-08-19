@@ -119,8 +119,10 @@ events:
     #
     -   date: !!null
         course:
-            - !pathref path.de.44500 leh fcel
-            - !pathref path.de.13000 a   f
+            - !pathref path.de.44500   leh  fcel
+            - !pathref path.de.13000.s a    f
+            - !pathref path.de.15000   fste har
+            - !pathref path.de.13000.n a    f
 
 points:
     - !keyref point.de.Lehrte
@@ -151,15 +153,15 @@ points:
     - !keyref point.de.Stelle
     - !keyref point.de.Maschen-Pbf
     - !keyref point.de.Meckelfeld-Abzw
+    - !keyref point.de.Meckelfeld
     - !keyref point.de.Meckelfeld-Hp
     - !keyref point.de.Meckelfeld-LGr
-    - !keyref point.de.Meckelfeld-Vbf
     - !keyref point.de.Hamburg-Harburg-Hga              # line.de.15000
+    - !keyref point.de.Meckelfeld-Vbf
     - !keyref point.de.Hamburg-Harburg                  # line.de.15000
-    - !keyref point.de.Hamburg-Unterelbe                # line.de.10600
+    - !keyref point.de.Hamburg-Unterelbe
     - !keyref point.de.Hamburg-Tempowerk
-    - !keyref point.de.Hamburg-Hausbruch                # line.de.10500
-    - !keyref point.de.Hamburg-Hausbruch-alt
+    - !keyref point.de.Hamburg-Hausbruch
     - !keyref point.de.Hamburg-Neugraben
     - !keyref point.de.Neu-Wulmstorf-LGr
     - !keyref point.de.Neu-Wulmstorf
@@ -228,8 +230,13 @@ events:
         name: Aligse
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 13 251
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: III
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 13 638
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
@@ -238,11 +245,17 @@ events:
         sources: !keyref src.de.DS100.1984
     -   date: !date c1970
         category: de.Hp
-        sources: !keyref src.de.SuW.2005
+        staff: none
+        sources: !keyref src.de.DS100.1984
+
+    -   date: !!null
+        site: !noderef path.de.13000.s ali
+
 
 ---
 key: point.de.Burgdorf-Han
 type: point
+junction: True
 events:
     -   date: !!null
         location: !keyloc line.de.13000 24,47
@@ -251,16 +264,29 @@ events:
         name: Burgdorf (Han)
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 13 250
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: II
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 13 637
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
         de.DS100: HBGD
-        sources: !keyref src.de.TPP.2006
-    -   date: !date c1970
+        de.dstnr: !!str 136374
+        sources: !keyref src.de.DS100.1984
+    -   date: !date c1990
         name: Burgdorf
         sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        connection: !keyref point.de.Burgdorf-Han-Kreisb
+
+    -   date: !!null
+        site: !noderef path.de.13000.s bur
+
 
 ---
 key: point.de.Otze
@@ -273,16 +299,27 @@ events:
         name: Otze
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 13 249
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: III
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 13 636
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
         de.DS100: HOTZ
-        sources: !keyref src.de.TPP.2006
+        de.dstnr: !!str 136366
+        sources: !keyref src.de.DS100.1984
     -   date: !date c1970
         category: de.Hp
-        sources: !keyref src.de.TPP.2006
+        staff: none
+        sources: !keyref src.de.DS100.1984
+
+    -   date: !!null
+        site: !noderef path.de.13000.s otz
+
 
 ---
 key: point.de.Ehlershausen
@@ -295,17 +332,28 @@ events:
         name: Ehlershausen
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 13 248
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: III
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 13 635
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
         de.DS100: HELH
-        sources: !keyref src.de.TPP.2006
+        de.dstnr: !!str 136358
+        sources: !keyref src.de.DS100.1984
+
+    -   date: !!null
+        site: !noderef path.de.13000.s ehl
+
 
 ---
 key: point.de.Celle
 type: point
+junction: True
 events:
     -   date: !!null
         location:
@@ -318,16 +366,32 @@ events:
         name: Celle Stsbf
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 13 246
+        sources: !keyref src.de.Bfv.1928
+    -   date: !date c1920
+        name: Celle
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: I
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 13 631
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
         de.DS100: HC
-        sources: !keyref src.de.TPP.2006
-    -   date: !date c1920
+        de.dstnr: !!str 136317
+        sources: !keyref src.de.DS100.1984
+    -   date: !date c1970
+        name: Celle Pbf
+        sources: !keyref src.de.DS100.1984
+    -   date: !date c1990
         name: Celle
-        sources: !keyref src.de.Bfv.1933
+        sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.13000.s cel
+
 
 ---
 key: point.de.Garssen
@@ -340,16 +404,29 @@ events:
         name: Garßen
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 13 245
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: III
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 13 630
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
         de.DS100: HGAR
-        sources: !keyref src.de.TPP.2006
+        de.dstnr: !!str 136309
+        sources: !keyref src.de.DS100.1984
     -   date: !date c1970
         service: none
         sources: !keyref src.de.SuW.2005
+    -   date: !date c1970
+        staff: none
+        sources: !keyref src.de.DS100.1984
+
+    -   date: !!null
+        site: !noderef path.de.13000.s gar
+
 
 ---
 key: point.de.Eschede
@@ -362,13 +439,23 @@ events:
         name: Eschede
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 13 244
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: III
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 13 629
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
         de.DS100: HESD
-        sources: !keyref src.de.TPP.2006
+        de.dstnr: !!str 136291
+        sources: !keyref src.de.DS100.1984
+
+    -   date: !!null
+        site: !noderef path.de.13000.s ese
+
 
 ---
 key: point.de.Unterluess
@@ -381,13 +468,23 @@ events:
         name: Unterlüß
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 13 243
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: III
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 13 628
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
         de.DS100: HUNL
-        sources: !keyref src.de.TPP.2006
+        de.dstnr: !!str 136283
+        sources: !keyref src.de.DS100.1984
+
+    -   date: !!null
+        site: !noderef path.de.13000.s ulu
+
 
 ---
 key: point.de.Suderburg
@@ -400,39 +497,60 @@ events:
         name: Suderburg
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 13 242
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: III
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 13 627
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
         de.DS100: HSUD
-        sources: !keyref src.de.TPP.2006
+        de.dstnr: !!str 136275
+        sources: !keyref src.de.DS100.1984
+
+    -   date: !!null
+        site: !noderef path.de.13000.s sud
+
 
 ---
 key: point.de.Klein-Suedstedt
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.13000 90,2
-        sources: !keyref src.de.SuW.2005
+        location: !keyloc line.de.13000 90,758
+        sources: !keyref src.de.DBAG.ISR
     -   date: !!null
         name: Klein Süstedt
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 13 241
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: III
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 13 626
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
         de.DS100: HKSU
-        sources: !keyref src.de.TPP.2006
+        de.dstnr: !!str 136267
+        sources: !keyref src.de.DS100.1984
     -   date: !date c1970
         service: none
         sources: !keyref src.de.SuW.2005
 
+    -   date: !!null
+        site: !noderef path.de.13000.s ksu
+
+
 ---
 key: point.de.Uelzen
 type: point
+junction: True
 events:
     -   date: !!null
         location:
@@ -444,16 +562,25 @@ events:
         name: Uelzen
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 13 239
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: I
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 13 622
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
         de.DS100: HU
-        sources: !keyref src.de.TPP.2006
+        de.dstnr: !!str 136226
+        sources: !keyref src.de.DS100.1984
+
+    -   date: !!null
+        site: !noderef path.de.13000.s uel
+
 
 ---
-
 key: point.de.Emmendorf
 type: point
 events:
@@ -464,15 +591,25 @@ events:
         name: Emmendorf
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 13 238
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: III
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 13 621
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
         de.DS100: HEMF
-        sources: !keyref src.de.TPP.2006
+        de.dstnr: !!str 136218
+        sources: !keyref src.de.DS100.1984
     -   date: !date c2000
         status: closed
+
+    -   date: !!null
+        site: !noderef path.de.13000.s emm
+
 
 ---
 key: point.de.Bad-Bevensen-DGr
@@ -485,6 +622,10 @@ events:
         location: !keyloc line.de.13000 104,45
         sources: !keyref src.de.DRG.Alt.Karte.1949
 
+    -   date: !!null
+        site: !noderef path.de.13000.s gbev
+
+
 ---
 key: point.de.Bad-Bevensen
 type: point
@@ -496,15 +637,25 @@ events:
         name: Bevensen
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 13 237
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: III
+        sources: !keyref src.de.Bfv.1933
+    -   date: !date c1930
         de.lknr: 01 170
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
         de.DS100: ABVS
-        sources: !keyref src.de.TPP.2006
+        de.dstnr: !!str 011700
+        sources: !keyref src.de.DS100.1984
     -   date: !date 1976?
         name: Bad Bevensen
+
+    -   date: !!null
+        site: !noderef path.de.13000.s bev
+
 
 ---
 key: point.de.Bruchtorf
@@ -518,6 +669,10 @@ events:
     -   date: !date c1970
         status: closed
 
+    -   date: !!null
+        site: !noderef path.de.13000.s bru
+
+
 ---
 key: point.de.Bienenbuettel
 type: point
@@ -529,13 +684,22 @@ events:
         name: Bienenbüttel
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 13 236
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: III
+        sources: !keyref src.de.Bfv.1933
+    -   date: !date c1930
         de.lknr: 01 171
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
         de.DS100: ABIL
-        sources: !keyref src.de.TPP.2006
+        de.dstnr: !!str 011718
+        sources: !keyref src.de.DS100.1984
+
+    -   date: !!null
+        site: !noderef path.de.13000.s bie
+
 
 ---
 key: point.de.Hohenbostel
@@ -549,6 +713,10 @@ events:
     -   date: !date c1970
         status: closed
 
+    -   date: !!null
+        site: !noderef path.de.13000.s hbo
+
+
 ---
 key: point.de.Deutsch-Evern
 type: point
@@ -560,20 +728,31 @@ events:
         name: Deutsch Evern
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 13 235
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: III
+        sources: !keyref src.de.Bfv.1933
+    -   date: !date c1930
         de.lknr: 01 172
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
         de.DS100: ADEV
-        sources: !keyref src.de.TPP.2006
+        de.dstnr: !!str 011726
+        sources: !keyref src.de.DS100.1984
     -   date: !date c1970
         service: none
         sources: !keyref src.de.SuW.2005
 
+    -   date: !!null
+        site: !noderef path.de.13000.s deu
+
+
 ---
 key: point.de.Lueneburg
 type: point
+junction: True
 events:
     -   date: !!null
         location:
@@ -585,13 +764,23 @@ events:
         name: Lüneburg
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 13 233
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: I
+        sources: !keyref src.de.Bfv.1933
+    -   date: !date c1930
         de.lknr: 01 173
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
         de.DS100: ALBG
-        sources: !keyref src.de.TPP.2006
+        de.dstnr: !!str 011734
+        sources: !keyref src.de.DS100.1984
+
+    -   date: !!null
+        site: !noderef path.de.13000.s lun
+
 
 ---
 key: point.de.Bardowick
@@ -604,13 +793,23 @@ events:
         name: Bardowick
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 13 232
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: III
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 01 177
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
         de.DS100: ABAD
-        sources: !keyref src.de.TPP.2006
+        de.dstnr: !!str 011775
+        sources: !keyref src.de.DS100.1984
+
+    -   date: !!null
+        site: !noderef path.de.13000.s bar
+
 
 ---
 key: point.de.Radbruch
@@ -623,13 +822,23 @@ events:
         name: Radbruch
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 13 231
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: III
+        sources: !keyref src.de.Bfv.1933
+    -   date: !date c1930
         de.lknr: 01 178
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
         de.DS100: ARH
-        sources: !keyref src.de.TPP.2006
+        de.dstnr: !!str 011783
+        sources: !keyref src.de.DS100.1984
+
+    -   date: !!null
+        site: !noderef path.de.13000.s rad
+
 
 ---
 key: point.de.Borstel
@@ -643,9 +852,14 @@ events:
     -   date: !date c1970
         status: closed
 
+    -   date: !!null
+        site: !noderef path.de.13000.s bor
+
+
 ---
 key: point.de.Winsen-Luhe
 type: point
+junction: True
 events:
     -   date: !!null
         location: !keyloc line.de.13000 150,58
@@ -654,13 +868,26 @@ events:
         name: Winsen (Luhe)
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 13 230
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: II
+        sources: !keyref src.de.Bfv.1933
+    -   date: !date c1930
         de.lknr: 01 179
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
         de.DS100: AWI
-        sources: !keyref src.de.TPP.2006
+        de.dstnr: !!str 011791
+        sources: !keyref src.de.DS100.1984
+
+    -   date: !!null
+        connection: !keyref point.de.Winsen-Luhe-Sued
+
+    -   date: !!null
+        site: !noderef path.de.13000.s win
+
 
 ---
 key: point.de.Ashausen
@@ -673,17 +900,28 @@ events:
         name: Ashausen
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 13 229
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: III
+        sources: !keyref src.de.Bfv.1933
+    -   date: !date c1930
         de.lknr: 01 180
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
         de.DS100: AASN
-        sources: !keyref src.de.TPP.2006
+        de.dstnr: !!str 011809
+        sources: !keyref src.de.DS100.1984
+
+    -   date: !!null
+        site: !noderef path.de.13000.s ash
+
 
 ---
 key: point.de.Stelle
 type: point
+junction: True
 events:
     -   date: !!null
         location: !keyloc line.de.13000 158,28
@@ -695,13 +933,24 @@ events:
         name: Stelle
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 13 228
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: III
+        sources: !keyref src.de.Bfv.1933
+    -   date: !date c1930
         de.lknr: 01 181
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
         de.DS100: ASTE
-        sources: !keyref src.de.TPP.2006
+        de.dstnr: !!str 011817
+        sources: !keyref src.de.DS100.1984
+
+    -   date: !!null
+        site: !noderef path.de.13000.s ste
+
+# bis c1930: Dir-Gr Han/Alt [src.de.Bfv.1928, src.de.Bfv.1933]
 
 ---
 key: point.de.Maschen-Pbf
@@ -714,38 +963,66 @@ events:
         name: Maschen
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 01 303
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: IV
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 01 182
         sources: !keyref src.de.Bfv.1933
-    -   date: !!null
-        de.DS100: AMA
-        sources: !keyref src.de.TPP.2006
     -   date: !date c1940
         category: de.Hst
         sources: !keyref src.de.Bfv.1944
     -   date: !date 1977?
         category: de.Bf
+        staff: none
+        sources: !keyref src.de.DS100.1984
+    -   date: !date 1977?
         location: !keyloc line.de.13000 161,6
+        sources: !keyref src.de.SuW.2005
+    -   date: !!null
+        de.DS100: AMA
+        de.dstnr: !!str 011825
+        sources: !keyref src.de.DS100.1984
+    -   date: !date c1990
         name: Maschen Pbf
         sources: !keyref src.de.SuW.2005
+
+    -   date: !!null
+        site: !noderef path.de.13000.s mas
+
 
 ---
 key: point.de.Meckelfeld-Abzw
 type: point
 events:
-    -   date: !date 1977?
+    -   date: !date c1990
         status: open
+        split_from: !keyref point.de.Meckelfeld
+    -   date: !!null
         category: de.Abzw
         name: Meckelfeld Abzw
         sources: !keyref src.de.SuW.2005
     -   date: !!null
         de.DS100: AMDA
         sources: !keyref src.de.TPP.2006
+    -   date: !date 2007
+        status: closed
+        merged: !keyref point.de.Meckelfeld
+        sources:
+            - !keyref src.de.TPP.2007
+            - !keyref src.de.TPP.2008
+
+    -   date: !!null
+        site: !noderef path.de.13000.s mea
+
 
 ---
-key: point.de.Meckelfeld-Hp
+key: point.de.Meckelfeld
 type: point
+junction: True
 events:
     -   date: !!null
         location: !keyloc line.de.13000 164,80
@@ -754,17 +1031,51 @@ events:
         name: Meckelfeld
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 01 377
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: IV
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 01 183
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        de.DS100: AMDH
-        sources: !keyref src.de.TPP.2006
+        de.DS100: AMD
+        de.dstnr: !!str 011833
+        sources: !keyref src.de.DS100.1984
     -   date: !date 1977?
+        staff: none
+        sources: !keyref src.de.DS100.1984
+    -   date: !date c1990
+        name: Meckelfeld
+        category: de.Bft
+        sources: !keyref src.de.SuW.2005
+
+    -   date: !!null
+        site: !noderef path.de.13000.s mec
+    -   date: !date 1977?
+        site: !noderef path.de.13000.s mea
+
+
+---
+key: point.de.Meckelfeld-Hp
+type: point
+events:
+    -   date: !date c1990
+        status: open
+        split_from: !keyref point.de.Meckelfeld
+    -   date: !!null
+        de.DS100: AMDH
+        name: Meckelfeld Hp
+        sources: !keyref src.de.TPP.2006
+    -   date: !!null
         category: de.Hp
         location: !keyloc line.de.13000 164,9
-        name: Meckelfeld Hp
+
+    -   date: !!null
+        site: !noderef path.de.13000.s meh
+
 
 ---
 key: point.de.Meckelfeld-LGr
@@ -775,20 +1086,78 @@ events:
         name: Meckelfeld NI/HH
         de.DS100: AQMD
         sources: !keyref src.de.TPP.2006
-        
+
+    -   date: !!null
+        site: !noderef path.de.13000.s gmec
+
+# point.de.Hamburg-Harburg-Hga
+
 ---
 key: point.de.Meckelfeld-Vbf
 type: point
 events:
     -   date: !!null
+        de.lknr: 01 384
+        name: Meckelfeld Vschbf
+        service: none
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: IV
-        de.lknr: 01 183
-        service: none
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 01 184
+        sources: !keyref src.de.Bfv.1933
+    -   date: !date c1930
         name: Meckelfeld Vbf
         sources: !keyref src.de.Bfv.1933
     -   date: !date c1970
         status: closed
+
+    -   date: !!null
+        site: !noderef path.de.15000 mev
+
+# point.de.Hamburg-Harburg
+
+---
+key: point.de.Hamburg-Unterelbe
+type: point
+junction: True
+events:
+    -   date: !!null
+        location: !keyloc line.de.10600 0,0
+    -   date: !!null
+        location: !keyloc line.de.13000 170,78
+        sources: !keyref src.de.DRG.Alt.Karte.1945
+    -   date: !!null
+        name: Harburg U E
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        de.lknr: 01 282
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: I
+        sources: !keyref src.de.Bfv.1933
+    -   date: !date c1930
+        name: Harburg-Wilhelmsburg U E
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 01 138
+        sources: !keyref src.de.Bfv.1933
+    -   date: !date 1938
+        name: Hamburg Unterelbe
+        sources: !keyref src.de.Bfv.1938
+    -   date: !!null
+        de.DS100: AHB
+        de.dstnr: !!str 011387
+        sources: !keyref src.de.DS100.1984
+    -   date: !date c1980
+        service: none
+        sources: !keyref src.de.SuW.2005
+
+    -   date: !!null
+        site: !noderef path.de.13000.n unt
 
 ---
 key: point.de.Hamburg-Tempowerk
@@ -796,59 +1165,147 @@ type: point
 events:
     -   date: !date 1950
         status: open
+    -   date: !!null
+        location: !keyloc line.de.13000 173,87
         category: de.Hp
-        name: Hamburg Tempowerk
+        name: Hamburg Tempo-Werk
     -   date: !date 1984
         status: closed
 
+    -   date: !!null
+        site: !noderef path.de.13000.n tem
+
+
 ---
-key: point.de.Hamburg-Hausbruch-alt
+key: point.de.Hamburg-Hausbruch-Bostelbeck
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.13000 176,57
-        sources: !keyref src.de.DRG.Alt.Karte.1949
+        location: !keyloc line.de.13000 175,11
+        category: de.Bf
+        name: Bostelbeck Bbf
+    -   date: !date c1970
+        category: de.Glgr
+        name: Hamburg-Hausbruch Bostelbeck
+        sources: !keyref src.de.DS100.1984
+    -   date: !!null
+        de.DS100: AHBRB
+        sources: !keyref src.de.DS100.1984
+    -   date: !date c1990
+        status: closed
+        merged: !keyref point.de.Hamburg-Hausbruch
+
+    -   date: !!null
+        site: !noderef path.de.13000.n hau
+
+
+---
+key: point.de.Hamburg-Hausbruch
+type: point
+junction: True
+events:
+    -   date: !date 1899
+        status: open
+        sources: !keyref src.de.WP.Niederelbebahn
     -   date: !!null
         name: Hausbruch
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 01 283
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: IV
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 01 185
         sources: !keyref src.de.Bfv.1933
-    -   date: !date 1899
-        status: open
-        sources: !keyref src.de.WP.Niederelbebahn
     -   date: !date 1938
         name: Hamburg-Hausbruch
-        sources: !keyref src.de.WP.Niederelbebahn
+        sources:
+            - !keyref src.de.WP.Niederelbebahn
+            - !keyref src.de.Bfv.1938
+    -   date: !!null
+        location: !keyloc line.de.13000 176,57
+        sources: !keyref src.de.DRG.Alt.Karte.1949
     -   date: !date 1974
-        status: closed
+        service: none
         sources: !keyref src.de.WP.Niederelbebahn
+    -   date: !!null
+        de.DS100: AHBR
+        de.dstnr: !!str 011858
+        sources: !keyref src.de.DS100.1984
+    -   date: !date c1990
+        location:
+            - !keyloc line.de.13000 175,016
+            - !keyloc line.de.10505 8,674
+        sources: !keyref src.de.web.HHA
+
+    -   date: !!null
+        site: !noderef path.de.13000.n hau
+    -   date: !date c1990
+        site: !noderef path.de.13000.n haa
+
 
 ---
 key: point.de.Hamburg-Neugraben
 type: point
+junction: True
 events:
-    -   date: !!null
-        location: !keyloc line.de.13000 179,19
-        sources: !keyref src.de.DRG.Alt.Karte.1949
     -   date: !!null
         name: Neugraben
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 01 284
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: IV
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 01 186
         sources: !keyref src.de.Bfv.1933
+    -   date: !date 1938
+        name: Hamburg-Neugraben
+        sources: !keyref src.de.Bfv.1938
+    -   date: !!null
+        location: !keyloc line.de.13000 179,19
+        sources: !keyref src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.DS100: ANR
-        sources: !keyref src.de.TPP.2006
-    -   date: !date 1938?
-        name: Hamburg-Neugraben
-        sources: !keyref src.de.Bfv.1944
+        de.dstnr: !!str 011866
+        sources: !keyref src.de.DS100.184
     -   date: !date c1980
-        location: !keyloc line.de.13000 179,3
+        location: !keyloc line.de.13000 179,331
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        connection: !keyref point.de.Hamburg-Neugraben-S-Bahn
+
+    -   date: !!null
+        site: !noderef path.de.13000.n ngr
+
+
+---
+key: point.de.Fischbek
+type: point
+events:
+    -   date: !date 2007-12-09
+        status: open
+        sources: !keyref src.de.WP.Niederelbebahn
+    -   date: !!null
+        location: !keyloc line.de.13000 181,487
+        category: de.Hp
+        name: Fischbek
+        de.DS100: AFIB
+        sources: !keyref src.de.DBAG.ISR
+    -   date: !!null
+        staff: none
+
+    -   date: !!null
+        site: !noderef path.de.13000.n fis
+
+# 181,6 Anschluß HH-Fischbek Bundeswehr. [src.de.SuW.2005]
 
 ---
 key: point.de.Neu-Wulmstorf-LGr
@@ -859,6 +1316,10 @@ events:
         name: Neu Wulmstorf NI/HH
         de.DS100: AQNW
         sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.13000.n gnwu
+
 
 ---
 key: point.de.Neu-Wulmstorf
@@ -871,24 +1332,40 @@ events:
         name: Daerstorf
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 01 285
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: IV
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 01 187
         sources: !keyref src.de.Bfv.1933
+    -   date: !date c1935
+        category: de.Hst
+        sources: !keyref src.de.Bfv.1938
+    -   date: !date c1960
+        category: de.Bf
+        name: Neu Wulmstorf
+        sources: !keyref src.de.DS100.1984
     -   date: !!null
         de.DS100: ANWF
-        sources: !keyref src.de.TPP.2006
-    -   date: !date c1940
+        de.dstnr: !!str 011874
+        sources: !keyref src.de.DS100.1984
+    -   date: !date c1995
         category: [de.Hp, de.Awanst]
-        sources:
-            - !keyref src.de.Bfv.1944
-            - !keyref src.de.SuW.2005
-    -   date: !date c1960
-        name: Neu Wulmstorf
+    -   date: !date c2010
+        category: de.Hp
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.13000.n nwu
+
 
 ---
 key: point.de.Buxtehude
 type: point
+junction: True
 events:
     -   date: !!null
         location: !keyloc line.de.13000 190,25
@@ -897,13 +1374,26 @@ events:
         name: Buxtehude
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 01 286
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: II
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 01 188
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
         de.DS100: ABX
-        sources: !keyref src.de.TPP.2006
+        de.dstnr: !!str 011882
+        sources: !keyref src.de.DS100.1984
+
+    -   date: !!null
+        connection: !keyref point.de.Buxtehude-Sued
+
+    -   date: !!null
+        site: !noderef path.de.13000.n bux
+
 
 ---
 key: point.de.Neukloster-Stade
@@ -916,20 +1406,30 @@ events:
         name: Neukloster (Han)
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 01 287
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: IV
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 01 189
         sources: !keyref src.de.Bfv.1933
-    -   date: !!null
-        de.DS100: ANL
-        sources: !keyref src.de.TPP.2006
-    -   date: !date c1940
+    -   date: !date c1935
         category: de.Hst
         name: Neukloster (Kr Stade)
-        sources: !keyref src.de.Bfv.1944
-    -   date: !date c1980
+        sources: !keyref src.de.Bfv.1938
+    -   date: !!null
+        de.DS100: ANL
+        de.dstnr: !!str 011890
+        sources: !keyref src.de.DS100.1984
+    -   date: !date c1990
         category: de.Hp
         sources: !keyref src.de.SuW.2005
+
+    -   date: !!null
+        site: !noderef path.de.13000.n nkl
+
 
 ---
 key: point.de.Horneburg
@@ -942,13 +1442,23 @@ events:
         name: Horneburg
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 01 288
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: III
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 01 190
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
         de.DS100: AHOG
-        sources: !keyref src.de.TPP.2006
+        de.dstnr: !!str 011908
+        sources: !keyref src.de.DS100.1984
+
+    -   date: !!null
+        site: !noderef path.de.13000.n hor
+
 
 ---
 key: point.de.Dollern
@@ -961,16 +1471,26 @@ events:
         name: Dollern
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 01 289
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: IV
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 01 191
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
         de.DS100: ADR
-        sources: !keyref src.de.TPP.2006
-    -   date: !date c1980
+        de.dstnr: !!str 011916
+        sources: !keyref src.de.DS100.1984
+    -   date: !date c1995
         category: de.Hp
         sources: !keyref src.de.SuW.2005
+
+    -   date: !!null
+        site: !noderef path.de.13000.n dol
+
 
 ---
 key: point.de.Agathenburg
@@ -983,16 +1503,28 @@ events:
         name: Agathenburg
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 01 382
+        service: passenger
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Hp
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 01 192
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
         de.DS100: AABG
-        sources: !keyref src.de.TPP.2006
+        de.dstnr: !!str 011924
+        sources: !keyref src.de.DS100.1984
+
+    -   date: !!null
+        site: !noderef path.de.13000.n aga
+
 
 ---
 key: point.de.Stade
 type: point
+junction: True
 events:
     -   date: !!null
         location:
@@ -1003,13 +1535,23 @@ events:
         name: Stade
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 01 290
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: II
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 01 193
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
         de.DS100: AST
-        sources: !keyref src.de.TPP.2006
+        de.dstnr: !!str 012096
+        sources: !keyref src.de.DS100.1984
+
+    -   date: !!null
+        site: !noderef path.de.13000.n sta
+
 
 ---
 key: point.de.Hahle
@@ -1020,8 +1562,15 @@ events:
         category: de.Bk
         name: Hahle
         sources: !keyref src.de.DRG.Alt.Karte.1949
-    -   date: !date c1970
+    -   date: !!null
+        de.DS100: ABKH
+        sources: !keyref src.de.DS100.1984
+    -   date: !date c1990
         status: closed
+
+    -   date: !!null
+        site: !noderef path.de.13000.n hah
+
 
 ---
 key: point.de.Hammah
@@ -1034,16 +1583,26 @@ events:
         name: Hammah
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 01 291
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: IV
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 01 194
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
         de.DS100: AHAM
-        sources: !keyref src.de.TPP.2006
-    -   date: !date c1980
+        de.dstnr: !!str 011940
+        sources: !keyref src.de.DS100.1984
+    -   date: !date c1995
         category: de.Hp
         sources: !keyref src.de.SuW.2005
+
+    -   date: !!null
+        site: !noderef path.de.13000.n ham
+
 
 ---
 key: point.de.Himmelpforten
@@ -1056,13 +1615,23 @@ events:
         name: Himmelpforten
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 01 292
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: III
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 01 195
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
         de.DS100: AHPF
-        sources: !keyref src.de.TPP.2006
+        de.dstnr: !!str 011957
+        sources: !keyref src.de.DS100.1984
+
+    -   date: !!null
+        site: !noderef path.de.13000.n him
+
 
 ---
 key: point.de.Ostebruecke
@@ -1073,8 +1642,15 @@ events:
         category: de.Bk
         name: Ostebrücke
         sources: !keyref src.de.DRG.Alt.Karte.1949
-    -   date: !date c1950
+    -   date: !!null
+        de.DS100: AOK
+        sources: !keyref src.de.DS100.1984
+    -   date: !date c1990
         status: closed
+
+    -   date: !!null
+        site: !noderef path.de.13000.n ost
+
 
 ---
 key: point.de.Hechthausen
@@ -1087,13 +1663,23 @@ events:
         name: Hechthausen
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 01 293
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: III
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 01 196
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
         de.DS100: AHEN
-        sources: !keyref src.de.TPP.2006
+        de.dstnr: !!str 011965
+        sources: !keyref src.de.DS100.1984
+
+    -   date: !!null
+        site: !noderef path.de.13000.n hec
+
 
 ---
 key: point.de.Hemmoor
@@ -1106,16 +1692,27 @@ events:
         name: Basbeck-Osten
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 01 294
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: III
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 01 197
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
+        de.DS100: ABO
+        de.dstnr: !!str 011973
+        sources: !keyref src.de.DS100.1984
+    -   date: !date c1990
+        name: Hemmoor
         de.DS100: AHEM
         sources: !keyref src.de.TPP.2006
-    -   date: !date c1970
-        name: Hemmoor
-        sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.13000.n hem
+
 
 ---
 key: point.de.Warstade
@@ -1128,17 +1725,28 @@ events:
         name: Warstade-Hemmor
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 01 295
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: III
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 01 198
         sources: !keyref src.de.Bfv.1933
-    -   date: !!null
-        de.DS100: AWS
-    -   date: !date c1970
+    -   date: !!null    
+        de.DS100: AWH
+        de.dstnr: !!str 011981
+        sources: !keyref src.de.DS100.1984
+    -   date: !date c1990
         name: Warstade
-        sources: !keyref src.de.TPP.2006
+        de.DS100: AWS
     -   date: !date c2000
         status: closed
+
+    -   date: !!null
+        site: !noderef path.de.13000.n war
+
 
 ---
 key: point.de.Wingst
@@ -1151,20 +1759,32 @@ events:
         name: Höftgrube
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 01 296
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: IV
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 01 199
         sources: !keyref src.de.Bfv.1933
+    -   date: !date c1935
+        category: de.Hst
+        sources: !keyref src.de.Bfv.1938
+    -   date: !date c1970
+        name: Wingst
+        sources: !keyref src.de.DS100.1984
     -   date: !!null
         de.DS100: AWG
-        sources: !keyref src.de.TPP.2006
-    -   date: !date c1940
-        category: de.Hst
-        sources: !keyref src.de.Bfv.1944
-    -   date: !date c1970
+        de.dstnr: !!str 011999
+        sources: !keyref src.de.DS100.1984
+    -   date: !date c1995
         category: de.Hp
-        name: Wingst
-        sources: !keyref src.de.TPP.2006
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.13000.n wig
+
 
 ---
 key: point.de.Cadenberge
@@ -1177,13 +1797,23 @@ events:
         name: Cadenberge
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 01 297
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: III
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 01 200
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
         de.DS100: ACD
-        sources: !keyref src.de.TPP.2006
+        de.dstnr: !!str 012005
+        sources: !keyref src.de.DS100.1984
+
+    -   date: !!null
+        site: !noderef path.de.13000.n cad
+
 
 ---
 key: point.de.Neuhaus-Oste
@@ -1196,16 +1826,27 @@ events:
         name: Neuhaus (Oste)
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 01 298
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: III
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 01 201
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
         de.DS100: ANEU
+        de.dstnr: !!str 012013
+        sources: !keyref src.de.DS100.1984
     -   date: !date c1980
         category: [de.Hp, de.Anst]
     -   date: !date c2000
         status: closed
+
+    -   date: !!null
+        site: !noderef path.de.13000.n nha
+
 
 ---
 key: point.de.Otterndorf
@@ -1218,13 +1859,23 @@ events:
         name: Otterndorf
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 01 299
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: III
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 01 202
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
         de.DS100: AOF
-        sources: !keyref src.de.TPP.2006
+        de.dstnr: !!str 012021
+        sources: !keyref src.de.DS100.1984
+
+    -   date: !!null
+        site: !noderef path.de.13000.n ott
+
 
 ---
 key: point.de.Altenbruch
@@ -1237,16 +1888,29 @@ events:
         name: Altenbruch
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 01 300
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: III
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 01 203
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
         de.DS100: AALT
+        de.dstnr: !!str 012039
+        sources: !keyref src.de.DS100.1984
     -   date: !date c1980
+        category: [de.Hp, de.Bk]
+    -   date: !date c1990
         category: de.Bk
     -   date: !date c2000
         status: closed
+
+    -   date: !!null
+        site: !noderef path.de.13000.n abr
+
 
 ---
 key: point.de.Cuxhaven-CF
@@ -1257,14 +1921,24 @@ events:
             - !keyloc line.de.13000 271,7
             - !keyloc line.de.14100 227,1
             - !keyloc line.de.14120 0,0
-        category: de.Bft
         sources: !keyref src.de.SuW.2005
     -   date: !!null
+        category: de.Glgr
+        name: Cuxhaven Amerika-Bahnhof (Cf)
+        de.DS100: ACV F
+        sources: !keyref src.de.DS100.1984
+    -   date: !date c1995
+        category: de.Bft
+    -   date: !date c1995
         name: Cuxhaven CF
         de.DS100: ACV F
         sources: !keyref src.de.TPP.2006
     -   date: !!null
         master: !keyref point.de.Cuxhaven
+
+    -   date: !!null
+        site: !noderef path.de.13000.n cuf
+
 
 ---
 key: point.de.Cuxhaven
@@ -1279,17 +1953,27 @@ events:
         name: Cuxhaven
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 01 301
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: I
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 01 204
         sources: !keyref src.de.Bfv.1933
-    -   date: !!null
-        de.DS100: ACV
-        sources: !keyref src.de.TPP.2006
-    -   date: !date c1940   
+    -   date: !date c1935   
         name: Cuxhaven Stadt
-        sources: !keyref src.de.Bfv.1944
+        sources: !keyref src.de.Bfv.1938
     -   date: !date c1970
         name: Cuxhaven
-        sources: !keyref src.de.TPP.2006
+        sources: !keyref src.de.DS100.1984
+    -   date: !!null
+        de.DS100: ACV
+        de.dstnr: !!str 012054
+        sources: !keyref src.de.DS100.1984
+
+    -   date: !!null
+        site: !noderef path.de.13000.n cux
+
 
