@@ -1,26 +1,37 @@
 ---
-
 key: line.de.10200
 type: line
 events:
+    #   Regionen
+    #
     -   date: !!null
         region:
             - !keyref org.de
             - !keyref org.de.l.hh
+
+    #   Referenzen
+    #
     -   date: !!null
         de.VzG: !!str 1232
         sources: !keyref src.de.VzG
+
+    #   Unbekanntes
+    #
     -   date: !!null
         category: de.Hauptbahn
         tracks: 2
-        owner: !keyref org.de.l.pre
-        operator: !keyref org.de.e.KPEV.Alt
+
+    #   Konzessionen
+    #
     -   date: !date 1889-04-08
         concession:
             by: !keyref org.de.l.pre
         sources:
             - !keyref src.de.DRG.1935
             - !keyref src.de.Preussen.1889.9.13
+
+    #   Eröffnungen
+    #
     -   date: !date 1893-05-01
         end: !keyref point.de.Hamburg-Langenfelde-Bbf
         status: open
@@ -29,6 +40,17 @@ events:
         start: !keyref point.de.Hamburg-Langenfelde-Bbf
         status: open
 
+    #   Elektrifizierung
+    #
+    -   date: !date c1990
+        electrified:
+            overhead: !var el.de
+
+    #   Eigentümer und Betriebsführer
+    #
+    -   date: !!null
+        owner: !keyref org.de.l.pre
+        operator: !keyref org.de.e.KPEV.Alt
     -   date: !date 1920-04-01
         owner: !keyref org.de
         operator: !keyref org.de.r.RVM.PH
@@ -39,10 +61,6 @@ events:
     -   date: !var org.de.DB.start
         operator: !keyref org.de.e.DB
 
-    -   date: !date c1990
-        electrified:
-            overhead: !var el.de
-
     -   date: !var org.de.DBAG.start
         owner: !keyref org.de.e.DBAG
         operator: !keyref org.de.e.DBAG
@@ -50,10 +68,12 @@ events:
         owner: !keyref org.de.e.DBNetz
         operator: !keyref org.de.e.DBNetz
 
+    #   Verlauf
+    #
     -   date: !!null
         course:
-            - !pathref path.de.21000 arw arw
-            - !pathref path.de.10200 a f
+            - !pathref path.de.21000 rai  alan
+            - !pathref path.de.10200 a    f
             - !pathref path.de.11000 fbah eid
 
 points:

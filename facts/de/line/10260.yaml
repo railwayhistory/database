@@ -12,27 +12,24 @@ events:
         sources: !keyref src.de.VzG
 
     -   date: !!null
-        owner: !keyref org.de.e.AKE
-        operator: !keyref org.de.e.AKE
-        sources: !keyref src.de.DRG.1935
-    -   date: !!null
         category: de.Nebenbahn
+
+    #   Konzessionen
+    #
     -   date: !date 1874-04-01
         start: !keyref point.de.Hamburg-Altona-Kai
         concession:
             by: !keyref org.de.l.pre
-        sources:
-            - !keyref src.de.DRG.1935
-            - !keyref src.de.Preussen.1874.24.313
+            document: !keyref src.de.l.pre.1874.24.313
+        sources: !keyref src.de.DRG.1935
+
+    #   Eröffnung und Elektrifizierung
+    #
     -   date: !date 1876-01-18
         start: !keyref point.de.Hamburg-Altona-Kai
         end: !keyref point.de.Altona-Palmaille
         service: freight
         status: open
-        sources: !keyref src.de.DRG.1935
-    -   date: !date 1886-07-01
-        owner: !keyref org.de.l.pre
-        operator: !keyref org.de.e.KPEV.Alt
         sources: !keyref src.de.DRG.1935
     -   date: !date 1895-11-16?
         start: !keyref point.de.Altona-Palmaille
@@ -43,16 +40,8 @@ events:
             overhead: !voltage 6300V 25Hz
         sources: !keyref src.de.WP.Schellfischtunnel
 
-    -   date: !date 1920-04-01
-        owner: !keyref org.de
-        operator: !keyref org.de.r.RVM.PH
-    -   date: !date 1924-02-12
-        operator: !keyref org.de.e.DREb
-    -   date: !date 1924-08-30
-        operator: !keyref org.de.e.DRG
-    -   date: !var org.de.DB.start
-        operator: !keyref org.de.e.DB
-
+    #   Schließung
+    #
     -   date: !date 1954
         electrified:
             overhead: !voltage none
@@ -63,15 +52,45 @@ events:
     -   date: !date c2000
         status: removed
 
+
+    #   Eigentümer und Betreiber
+    #
+    -   date: !!null
+        owner: !keyref org.de.e.AKE
+        operator: !keyref org.de.e.AKE
+        sources: !keyref src.de.DRG.1935
+    -   date: !date 1886-07-01
+        owner: !keyref org.de.l.pre
+        operator: !keyref org.de.e.KPEV.Alt
+        sources: !keyref src.de.DRG.1935
+    -   date: !date 1920-04-01
+        owner: !keyref org.de
+        operator: !keyref org.de.r.RVM.PH
+    -   date: !date 1924-02-12
+        operator: !keyref org.de.e.DREb
+    -   date: !date 1924-08-30
+        operator: !keyref org.de.e.DRG
+    -   date: !var org.de.DB.start
+        operator: !keyref org.de.e.DB
+
+    -   date: !var org.de.DBAG.start
+        owner: !keyref org.de.e.DBAG
+        operator: !keyref org.de.e.DBAG
+    -   date: !var org.de.DBNetz.start
+        owner: !keyref org.de.e.DBNetz
+        operator: !keyref org.de.e.DBNetz
+
     -   date: !!null
         course:
             - !pathref path.de.10265 kai aalt
-            - !pathref path.de.10260 a f
+            - !pathref path.de.10260 a   f
             - !pathref path.de.11000 pal alt
 
 points:
     - !keyref point.de.Hamburg-Altona-Kai
+    - !keyref point.de.Schellfischtunnel.A
     - !keyref point.de.Altona-Palmaille             # line.de.11000
+    - !keyref point.de.Schellfischtunnel.F
     - !keyref point.de.Hamburg-Altona               # line.de.11000
 
 ---
@@ -95,4 +114,34 @@ events:
     -   date: !!null
         site: !noderef path.de.10265 kai
 
+
+---
+key: point.de.Schellfischtunnel.A
+type: point
+subtype: portal
+structure: struct.de.Schellfischtunnel
+events:
+    -   date: !!null
+        site: !noderef path.de.10260 tsfa
+
+
+---
+key: point.de.Schellfischtunnel
+type: structure
+subtype: tunnel
+events:
+    -   date: !!null
+        length: 961
+        name: Schellfischtunnel
+        sources: !keyref src.de.WP.Schellfischtunnel
+        
+
+---
+key: point.de.Schellfischtunnel.F
+type: point
+subtype: portal
+structure: struct.de.Schellfischtunnel
+events:
+    -   date: !!null
+        site: !noderef path.de.10260 tsff
 
