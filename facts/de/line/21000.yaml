@@ -413,9 +413,9 @@ points:
     - !keyref point.de.Hamburg-Hbf
     - !keyref point.de.Hamburg-Dammtor
     - !keyref point.de.Hamburg-Sternschanze
-    - !keyref point.de.Hamburg-Holstenstrasse
+    - !keyref point.de.Hamburg-Holstenstrasse           # line.de.10100
     - !keyref point.de.Hamburg-Rainweg
-    - !keyref point.de.Hamburg-Altona                    # line.de.11000
+    - !keyref point.de.Hamburg-Altona                   # line.de.11000
 
 ---
 key: point.de.Berlin-Spandau-West
@@ -2723,6 +2723,7 @@ events:
     -   date: !!null
         site: !noderef path.de.21000 ham
 
+
 ---
 key: point.de.Hamburg-Dammtor
 type: point
@@ -2762,7 +2763,8 @@ events:
         location: !keyloc line.de.10100 -
 
     -   date: !!null
-        site: !noderef path.de.21000 dmt
+        site: !noderef path.de.21000 dam
+
 
 ---
 key: point.de.Hamburg-Sternschanze
@@ -2799,52 +2801,8 @@ events:
         sources: !keyref src.de.SuW.2005
 
     -   date: !!null
-        site: !noderef path.de.21000 stz
+        site: !noderef path.de.21000 ste
 
----
-key: point.de.Hamburg-Holstenstrasse
-type: point
-junction: True
-events:
-    -   date: !date 1883
-        status: open
-    -   date: !!null
-        name: Altona Holstenstrasse
-        sources: !keyref src.de.Kb.1914
-    -   date: !!null
-        de.lknr: 01 398
-        service: passenger
-        sources: !keyref src.de.Bfv.1928
-    -   date: !!null
-        category: de.Bf
-        de.Rangklasse: III
-        sources: !keyref src.de.Bfv.1933
-    -   date: !var lknr.30
-        de.lknr: 01 092
-        sources: !keyref src.de.Bfv.1933
-    -   date: !!null
-        location:
-            - !keyloc line.de.10100 291,02
-            - !keyloc line.de.21000 291,02
-        sources: !keyref src.de.DRG.Alt.Karte.1949
-    -   date: !!null
-        location:
-            - !keyloc line.de.10020 0,1
-        sources: !keyref src.de.SuW.2005
-    -   date: !date 1938-05-15
-        name: Hamburg Holstenstraße
-        sources: !keyref src.de.web.Nosske
-    -   date: !date c1970
-        category: [de.Hp, de.Abzw]
-        location: !keyloc line.de.21000 -
-        sources: !keyref src.de.SuW.2005
-    -   date: !!null
-        de.DS100: AHST
-        de.dstnr: 010926
-        sources: !keyref src.de.DS100.1984
-
-    -   date: !!null
-        site: !noderef path.de.21000 hol
 
 ---
 key: point.de.Hamburg-Rainweg
@@ -2863,5 +2821,5 @@ events:
         sources: !keyref src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.21000 arw
+        site: !noderef path.de.21000 rai
 
