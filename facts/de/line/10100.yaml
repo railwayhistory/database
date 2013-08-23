@@ -56,9 +56,11 @@ points:
     - !keyref point.de.Hamburg-Dammtor-S-Bahn
     - !keyref point.de.Hamburg-Sternschanze                 # line.de.21000
     - !keyref point.de.Hamburg-Sternschanze-S-Bahn
-    - !keyref point.de.Hamburg-Holstenstrasse               # line.de.21000
+    - !keyref point.de.Hamburg-Holstenstrasse
+    - !keyref point.de.S-Bahn-Tunnel-Hamburg-City.F         # line.de.10000
     - !keyref point.de.Hamburg-Altona                       # line.de.11000
     - !keyref point.de.Hamburg-Altona-S-Bahn                # line.de.10000
+
 
 ---
 key: point.de.Hamburg-Dammtor-S-Bahn
@@ -82,7 +84,8 @@ events:
         sources: !keyref src.de.TPP.2007
     
     -   date: !!null
-        site: !noderef path.de.21000 dmt
+        site: !noderef path.de.21000 dam
+
 
 ---
 key: point.de.Hamburg-Sternschanze-S-Bahn
@@ -106,4 +109,51 @@ events:
         sources: !keyref src.de.TPP.2007
     
     -   date: !!null
-        site: !noderef path.de.21000 stz
+        site: !noderef path.de.21000 ste
+
+
+---
+key: point.de.Hamburg-Holstenstrasse
+type: point
+junction: True
+events:
+    -   date: !date 1883
+        status: open
+    -   date: !!null
+        name: Altona Holstenstrasse
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        de.lknr: 01 398
+        service: passenger
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: III
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 01 092
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location:
+            - !keyloc line.de.10100 291,02
+            - !keyloc line.de.21000 291,02
+        sources: !keyref src.de.DRG.Alt.Karte.1949
+    -   date: !!null
+        location:
+            - !keyloc line.de.10020 0,1
+        sources: !keyref src.de.SuW.2005
+    -   date: !date 1938-05-15
+        name: Hamburg Holstenstraße
+        sources: !keyref src.de.web.Nosske
+    -   date: !date c1970
+        category: [de.Hp, de.Abzw]
+        location: !keyloc line.de.21000 -
+        sources: !keyref src.de.SuW.2005
+    -   date: !!null
+        de.DS100: AHST
+        de.dstnr: 010926
+        sources: !keyref src.de.DS100.1984
+
+    -   date: !!null
+        site: !noderef path.de.21000 hol
+

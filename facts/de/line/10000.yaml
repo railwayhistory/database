@@ -3,23 +3,31 @@ key: line.de.10000
 type: line
 label: de.S-Bahn
 events:
+    # Regionen
+    #
     -   date: !!null
         region:
             - !keyref org.de
             - !keyref org.de.l.hh
 
+    # Defaults
+    #
     -   date: !!null
         category: de.Hauptbahn
         tracks: 2
         electrified:
-            rail: !voltage 1200V DC
+            rail: !var el.de.hmb
         owner: !keyref org.de
         operator: !keyref org.de.e.DB
 
+    # References
+    #
     -   date: !!null
         de.VzG: !!str 1270
         sources: !keyref src.de.VzG
 
+    # Eröffnung
+    #
     -   date: !date 1967-10
         status: construction
         sources: !keyref src.de.web.Matthaei
@@ -34,6 +42,8 @@ events:
         status: open
         sources: !keyref src.de.web.Matthaei
 
+    # Eigentümer und Betriebsführer
+    #
     -   date: !var org.de.DBAG.start
         owner: !keyref org.de.e.DBAG
         operator: !keyref org.de.e.DBAG
@@ -41,6 +51,8 @@ events:
         owner: !keyref org.de.e.DBNetz
         operator: !keyref org.de.e.DBNetz
 
+    # Verlauf
+    #
     -   date: !!null
         course:
             - !pathref path.de.21000 ham alan
@@ -48,14 +60,17 @@ events:
             - !pathref path.de.10020 fals dit
 
 points:
-    -   !keyref point.de.Hamburg-Hbf-S-Bahn
-    -   !keyref point.de.Hamburg-Jungfernstieg
-    -   !keyref point.de.Hamburg-Stadthausbruecke
-    -   !keyref point.de.Hamburg-Landungsbruecken
-    -   !keyref point.de.Hamburg-Reeperbahn
-    -   !keyref point.de.Hamburg-Koenigstrasse
-    -   !keyref point.de.Hamburg-Altona-S-Bahn
-    -   !keyref point.de.Hamburg-Diebsteich
+    - !keyref point.de.Hamburg-Hbf-S-Bahn
+    - !keyref point.de.S-Bahn-Tunnel-Hamburg-City.A
+    - !keyref point.de.Hamburg-Jungfernstieg
+    - !keyref point.de.Hamburg-Stadthausbruecke
+    - !keyref point.de.Hamburg-Landungsbruecken
+    - !keyref point.de.Hamburg-Reeperbahn
+    - !keyref point.de.Hamburg-Koenigstrasse
+    - !keyref point.de.Hamburg-Altona-S-Bahn
+    - !keyref point.de.S-Bahn-Tunnel-Hamburg-City.F
+    - !keyref point.de.Hamburg-Diebsteich                   # line.de.10020
+
 
 ---
 key: point.de.Hamburg-Hbf-S-Bahn
@@ -67,10 +82,14 @@ events:
         service: passenger
         split_from: !keyref point.de.Hamburg-Hbf
     -   date: !!null
+        category: de.Bf
+        name: Hamburg (S-Bahn)
+        de.DS100: AHHS
+        de.dstnr: !!str 010215
+        sources: !keyref src.de.DS100.1984
+    -   date: !date c2000
         category: de.Bft
         name: Hamburg Hbf (S-Bahn)
-        short_name: Hamburg Hbf
-        public_name: Hamburg Hbf
         de.DS100: AHS
         sources: !keyref src.de.SuW.2005
     -   date: !!null
@@ -83,6 +102,28 @@ events:
 
     -   date: !!null
         site: !noderef path.de.21000 ham
+
+
+---
+key: point.de.S-Bahn-Tunnel-Hamburg-City.A
+type: point
+subtype: portal
+structure: struct.de.S-Bahn-Tunnel-Hamburg-City
+events:
+    -   date: !!null
+        site: !noderef path.de.10000 tcta
+
+
+---
+key: struct.de.S-Bahn-Tunnel-Hamburg-City
+type: structure
+subtype: tunnel
+events:
+    -   date: !!null
+        length: 5757
+        name: S-Bahn-Tunnel Hamburg-City
+        sources: !keyref src.de.DBAG.ISR
+
 
 ---
 key: point.de.Hamburg-Jungfernstieg
@@ -105,7 +146,8 @@ events:
         sources: !keyref src.de.TPP.2007
 
     -   date: !!null
-        site: !noderef path.de.10000 jus
+        site: !noderef path.de.10000 jun
+
 
 ---
 key: point.de.Hamburg-Stadthausbruecke
@@ -134,7 +176,8 @@ events:
         sources: !keyref src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.10000 shs
+        site: !noderef path.de.10000 sta
+
 
 ---
 key: point.de.Hamburg-Landungsbruecken
@@ -157,7 +200,8 @@ events:
         sources: !keyref src.de.TPP.2007
 
     -   date: !!null
-        site: !noderef path.de.10000 las
+        site: !noderef path.de.10000 lan
+
 
 ---
 key: point.de.Hamburg-Reeperbahn
@@ -180,7 +224,8 @@ events:
         sources: !keyref src.de.TPP.2007
 
     -   date: !!null
-        site: !noderef path.de.10000 res
+        site: !noderef path.de.10000 ree
+
 
 ---
 key: point.de.Hamburg-Koenigstrasse
@@ -203,7 +248,8 @@ events:
         sources: !keyref src.de.TPP.2007
 
     -   date: !!null
-        site: !noderef path.de.10000 kos
+        site: !noderef path.de.10000 kon
+
 
 ---
 key: point.de.Hamburg-Altona-S-Bahn
@@ -234,36 +280,14 @@ events:
     -   date: !!null
         site: !noderef path.de.10000 als
 
----
-key: point.de.Hamburg-Diebsteich
-type: point
-junction: True
-events:
-    -   date: !date 1950
-        category: de.Hp
-        status: open
-    -   date: !!null
-        name: Diebsteich
-        sources: !keyref src.de.DS100.1984
-    -   date: !!null
-        location:
-            - !keyloc line.de.10000 7,8
-            - !keyloc line.de.10020 1,4
-        sources: !keyref src.de.SuW.2005
-    -   date: !!null
-        de.DS100: ADT
-        de.dstnr: !!str 012823
-        sources: !keyref src.de.DS100.1984
-    -   date: !date 1975?
-        category: de.Hst
-        sources: !keyref src.de.DS100.1984
-    -   date: !date c1995
-        category: de.Bf
-        sources: !keyref src.de.DBAG.ISR
-    -   date: !date c2000
-        name: Hamburg Diebsteich
-        public_name: Diebsteich
-        sources: !keyref src.de.TPP.2007
 
+---
+key: point.de.S-Bahn-Tunnel-Hamburg-City.F
+type: point
+subtype: portal
+structure: struct.de.S-Bahn-Tunnel-Hamburg-City
+events:
     -   date: !!null
-        site: !noderef path.de.10020 dit
+        site: !noderef path.de.10000 tctf
+
+
