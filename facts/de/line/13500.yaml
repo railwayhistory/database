@@ -56,8 +56,8 @@ points:
     - !keyref point.de.Hamburg-Wilhelmsburg-Abzw
     - !keyref point.de.Hamburg-Veddel                       # line.de.10430
     - !keyref point.de.Hamburg-Oberhafen                    # line.de.10430
-    - !keyref point.de.Hamburg-Rothenburgsort-Ro            # line.de.10300
-    - !keyref point.de.Hamburg-Rothenburgsort               # line.de.10300
+    - !keyref point.de.Hamburg-Rothenburgsort-Ro
+    - !keyref point.de.Hamburg-Rothenburgsort
     - !keyref point.de.Hamburg-Rothenburgsort-Tk            # line.de.21000
     - !keyref point.de.Hamburg-Billwerder-Moorfleet-Abzw    # line.de.21000
     - !keyref point.de.Hamburg-Billwerder
@@ -161,6 +161,53 @@ events:
         category: de.Abzw
         name: Hamburg-Wilhelmsburg Abzw
         de.DS100: AWLBA
+
+---
+key: point.de.Hamburg-Rothenburgsort-Ro
+type: point
+junction: True
+events:
+    -   date: !!null
+        category: de.Bft
+        location:
+            - !keyloc line.de.10300 21,2
+            - !keyloc line.de.13500 40,3
+        sources: !keyref src.de.SuW.2005
+    -   date: !!null
+        name: Hamburg-Rothenburgsort Ro
+        de.DS100: AHROO
+        sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.21009 roo
+
+
+---
+key: point.de.Hamburg-Rothenburgsort
+type: point
+junction: True
+events:
+    -   date: !!null
+        location:
+            - !keyloc line.de.10300 20,82
+        sources: !keyref src.de.DRG.Alt.Karte.1945
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: I
+        name: Hamburg-Rothenburgsort Vbf
+        de.lknr: 01 069
+        service: none
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        de.DS100: AHRO
+        sources: !keyref src.de.SuW.2005
+    -   date: !date c1940
+        name: Hamburg-Rothenburgsort
+        sources: !keyref src.de.Bfv.1944
+
+    -   date: !!null
+        site: !noderef path.de.21009 rot
+
 
 ---
 key: point.de.Hamburg-Billwerder
