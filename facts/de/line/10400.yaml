@@ -14,9 +14,39 @@ events:
         sources: !keyref src.de.SuW.2005
     -   date: !date 1906
         status: open
-        note: vormals Teil Strecke Hamburg – Berlin
+
+    #   Eigentümer und Betreiber
+    #
+    -   date: !!null
+        owner: !keyref org.de.e.KPEV.Alt
+        operator: !keyref org.de.e.KPEV.Alt
+    -   date: !date 1920-04-01
+        owner: !keyref org.de
+        operator: !keyref org.de.r.RVM.PH
+    -   date: !date 1924-02-12
+        operator: !keyref org.de.e.DREb
+    -   date: !date 1924-08-30
+        operator: !keyref org.de.e.DRG
+    -   date: !var org.de.DB.start
+        operator: !keyref org.de.e.DB
+    -   date: !var org.de.DBAG.start
+        owner: !keyref org.de.e.DBAG
+        operator: !keyref org.de.e.DBAG
+    -   date: !var org.de.DBNetz.start
+        owner: !keyref org.de.e.DBNetz
+        operator: !keyref org.de.e.DBNetz
+
+    #   Verlauf
+    #
+    -   date: !!null
+        course:
+            - !pathref path.de.21009 roo  aeri
+            - !pathref path.de.10400 a    f
+            - !pathref path.de.15000 fbar f
+            - !pathref path.de.21000 fhar ham
+
 points:
-    - !keyref point.de.Hamburg-Rothenburgsort           # line.de.10300
+    - !keyref point.de.Hamburg-Rothenburgsort-Ro        # line.de.13500
     - !keyref point.de.Hamburg-Berl
     - !keyref point.de.Hamburg-Hbf                      # line.de.21000
 
@@ -24,14 +54,22 @@ points:
 key: point.de.Hamburg-Berl
 type: point
 events:
+    -   date: !date c1906
+        status: open
     -   date: !!null
-        name: Hamburg Berliner Bf
-    -   date: !date c1900
+        name: Hamburg Hgbf (Berl)
+        de.lknr: 01 032
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: I
-        name: Hamburg Hgbf Berl
-        de.lknr: 01 072
         service: freight
+        sources: !keyref src.de.Bfv.1933
+    -   date: !date c1930
+        name: Hamburg Hgbf Berl
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 01 072
         sources: !keyref src.de.Bfv.1933
     -   date: !date c1940
         name: Hamburg Berl
@@ -39,3 +77,5 @@ events:
     -   date: !date c1970
         status: closed
 
+    -   date: !!null
+        site: !noderef path.de.10400 ber
