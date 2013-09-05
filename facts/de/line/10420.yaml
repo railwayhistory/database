@@ -6,20 +6,35 @@ events:
         region:
             - !keyref org.de
             - !keyref org.de.l.hh
+
     -   date: !!null
         de.VzG: !!str 1291
         sources: !keyref src.de.VzG
+
     -   date: !!null
         category: de.Hauptbahn
         electrified:
             overhead: !var el.de
+        owner: !keyref org.de.e.DBNetz
+        operator: !keyref org.de.e.DBNetz
+
     -   date: !date c2000
         status: open
+
+    -   date: !!null
+        course:
+            - !pathref path.de.21000     rop  aeri
+            - !pathref path.de.10420.rot a    f
+            - !pathref path.de.21009     fhor aeri
+            - !pathref path.de.10420.ohf a    f
+            - !pathref path.de.15000     frot eri
+
 points:
     - !keyref point.de.Hamburg-Rothenburgsort-Rop   # line.de.21000
-    - !keyref point.de.Hamburg-Rothenburgsort-Ro    # line.de.10300
+    - !keyref point.de.Hamburg-Rothenburgsort-Ro    # line.de.13500
     - !keyref point.de.Hamburg-Ericus-Awanst
     - !keyref point.de.Hamburg-Ericus
+
 
 ---
 key: point.de.Hamburg-Ericus-Awanst
@@ -27,27 +42,31 @@ type: point
 events:
     -   date: !!null
         category: de.Awanst
-        location:
-            - !keyloc line.de.10420 284,5
+        location: !keyloc line.de.10420 284,5
         sources: !keyref src.de.SuW.2005
     -   date: !!null
         name: Hamburg Ericus Awanst
         de.DS100: AERIA
         sources: !keyref src.de.TPP.2006
 
+    -   date: !!null
+        site: !noderef path.de.15000 era
+
+
 ---
 key: point.de.Hamburg-Ericus
 type: point
+junction: True
 events:
-    -   date: !!null
-        category: de.Abzw
-        location:
-            - !keyloc line.de.10420 284,9
-        sources: !keyref src.de.SuW.2005
     -   date: !!null
         name: Hamburg Ericus
         de.DS100: AERI
         sources: !keyref src.de.TPP.2006
+    -   date: !!null
+        category: de.Abzw
+        location:
+            - !keyloc line.de.10420 284,930
+        sources: !keyref src.de.DBAG.ISR
 
     -   date: !!null
         site: !noderef path.de.15000 eri
