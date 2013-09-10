@@ -6,19 +6,11 @@ events:
         region:
             - !keyref org.de
             - !keyref org.de.l.hh
+
     -   date: !!null
         de.VzG: !!str 1253
-        sources: !keyref src.de.SuW.2005
-    -   date: !!null
-        end: !keyref point.de.Hamburg-Hohe-Schaar-DB-Grenze
-        owner: !keyref org.de
-        operator: !keyref org.de.e.DRG
-    -   date: !!null
-        start: !keyref point.de.Hamburg-Hohe-Schaar-DB-Grenze
-        owner: !keyref org.de.l.hh
-        operator: !keyref org.de.e.HHA
-        sources:
-            - !keyref src.de.web.HHA
+        sources: !keyref src.de.VzG
+
     -   date: !!null
         category: de.Nebenbahn
         electrified:
@@ -32,9 +24,47 @@ events:
         start: !keyref point.de.Hamburg-Hausbruch-Mitte
         tracks: 2
         sources: !keyref src.de.SuW.2005
+
+    -   date: !date c1930
+        start: !keyref point.de.Hamburg-Hausbruch-Mitte
+        status: open
+        service: freight
+    -   date: !date c1975
+        end: !keyref point.de.Hamburg-Hausbruch-Mitte
+        status: open
+        service: freight
+
+    -   date: !!null
+        end: !keyref point.de.Hamburg-Hohe-Schaar-EGr
+        owner: !keyref org.de
+        operator: !keyref org.de.e.DB
+    -   date: !var org.de.DBAG.start
+        end: !keyref point.de.Hamburg-Hohe-Schaar-EGr
+        owner: !keyref org.de.e.DBAG
+        operator: !keyref org.de.e.DBAG
+    -   date: !var org.de.DBNetz.start
+        end: !keyref point.de.Hamburg-Hohe-Schaar-EGr
+        owner: !keyref org.de.e.DBNetz
+        operator: !keyref org.de.e.DBNetz
+
+    -   date: !!null
+        start: !keyref point.de.Hamburg-Hohe-Schaar-EGr
+        owner: !keyref org.de.l.hh
+        operator: !keyref org.de.e.HHA
+        sources: !keyref src.de.web.HHA
+
+    #   Verlauf
+    #
+    -   date: !!null
+        course:
+            - !pathref path.de.15000 sel  ahoh -3.5
+            - !pathref path.de.10500 a    ahau
+            - !pathref path.de.13000 fkat awal 2
+            - !pathref path.de.10500 fhau f
+
 points:
-    - !keyref point.de.Hamburg-Suederelbbruecke             # line.de.10430
-    - !keyref point.de.Hamburg-Hohe-Schaar-DB-Grenze
+    - !keyref point.de.Hamburg-Suederelbbruecke             # line.de.15000
+    - !keyref point.de.Hamburg-Suederelbbruecke-EGr
     - !keyref point.de.Hamburg-Hohe-Schaar-Sued
     - !keyref point.de.Hamburg-Hohe-Schaar
     - !keyref point.de.Kattwykbruecke
@@ -43,46 +73,57 @@ points:
     - !keyref point.de.Hamburg-Waltershof-W318
     - !keyref point.de.Hamburg-Waltershof
 
----
 
-key: point.de.Hamburg-Hohe-Schaar-DB-Grenze
+---
+key: point.de.Hamburg-Suederelbbruecke-EGr
 type: point
 subtype: border
 events:
     -   date: !!null
         category: de.EGr
-        location:
-            - !keyloc line.de.10500 1,000
-            - !keyloc line.de.10730 0,543
-        sources:
-            - !keyref src.de.web.HHA
+        location: !keyloc line.de.10500 1,000
+        sources: !keyref src.de.web.HHA
+
+    -   date: !!null
+        site: !noderef path.de.10500 gsel
+
 
 ---
 key: point.de.Hamburg-Hohe-Schaar-Sued
 type: point
+junction: True
 events:
     -   date: !!null
         name: Hamburg Hohe Schaar Süd
         de.DS100: AHOSS
         sources: !keyref src.de.TPP.2006
     -   date: !!null
-        category: de.Abzw
-        sources: !keyref src.de.SuW.2005
+        location:
+            - !keyloc line.de.10500 1,895
+        category: de.Bft
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.10500 hss
+
+
 
 ---
 key: point.de.Hamburg-Hohe-Schaar
 type: point
 events:
     -   date: !!null
-        category: de.Bf
-        location:
-            - !keyloc line.de.10500 3,7
-        sources:
-            - !keyref src.de.SuW.2005
-    -   date: !!null
         name: Hamburg Hohe Schaar
         de.DS100: AHOS
         sources: !keyref src.de.TPP.2006
+    -   date: !!null
+        category: de.Bf
+        location: !keyloc line.de.10500 3,700
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.10500 hsc
+
 
 ---
 key: point.de.Kattwykbruecke
@@ -90,30 +131,38 @@ type: point
 events:
     -   date: !!null
         category: de.Dkst
-        location:
-            - !keyloc line.de.10500 5,0
-        sources:
-            - !keyref src.de.SuW.2005
+        location: !keyloc line.de.10500 5,0
+        sources: !keyref src.de.SuW.2005
     -   date: !!null
         name: Hamburg Hohe Schaar Kattwykbrücke
         de.DS100: AHOSB
         sources: !keyref src.de.TPP.2006
 
+    -   date: !!null
+        site: !noderef path.de.10500 kat
+
+
 ---
 key: point.de.Hamburg-Hausbruch-Mitte
 type: point
+junction: True
 events:
     -   date: !!null
         category: de.Bft
-        location:
-            - !keyloc line.de.10500 9,1
-            - !keyloc line.de.10505 9,1
-        sources:
-            - !keyref src.de.web.HHA
+    -   date: !!null
+        location: !keyloc line.de.10500 9,554
+        sources: !keyref src.de.DBAG.ISR
     -   date: !!null
         name: Hamburg-Hausbruch Mitte
         de.DS100: AHBRM
         sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        connection: !keyref point.de.Hamburg-Hausbruch
+
+    -   date: !!null
+        site: !noderef path.de.13000.n hbm
+
 
 ---
 key: point.de.Hamburg-Waltershof-Alte-Suederelbe
@@ -121,19 +170,22 @@ type: point
 events:
     -   date: !!null
         category: de.Bft
-        location:
-            - !keyloc line.de.10500 13,6
-        sources:
-            - !keyref src.de.SuW.2005
+        location: !keyloc line.de.10500 13,6
+        sources: !keyref src.de.SuW.2005
     -   date: !!null
         name: Hamburg-Waltershof Alte Süderelbe
         de.DS100: AWHOS
         sources: !keyref src.de.TPP.2006
 
+    -   date: !!null
+        site: !noderef path.de.10500 asu
+
+
 ---
 key: point.de.Hamburg-Waltershof-W318
 type: point
 subtype: reference
+junction: True
 events:
     -   date: !!null
         location:
@@ -141,17 +193,23 @@ events:
             - !keyloc line.de.10580 0,000?
         name: Hamburg-Waltershof W318
 
+    -   date: !!null
+        site: !noderef path.de.10500 waw
+
+
 ---
 key: point.de.Hamburg-Waltershof
 type: point
+junction: True
 events:
     -   date: !!null
         category: de.Bft
-        location:
-            - !keyloc line.de.10500 15,8
-        sources:
-            - !keyref src.de.SuW.2005
+        location: !keyloc line.de.10500 15,8
+        sources: !keyref src.de.SuW.2005
     -   date: !!null
         name: Hamburg-Waltershof
         de.DS100: AWHO
         sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.10500 wal
