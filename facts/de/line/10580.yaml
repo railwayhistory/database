@@ -11,9 +11,24 @@ events:
     -   date: !!null
         de.VzG: !!str 1251
         sources: !keyref src.de.VzG
+
+    -   date: !date c1975
+        status: open
+        service: freight
+
+    -   date: !!null
+        owner: !keyref org.de.l.hh
+        operator: !keyref org.de.e.HHA
+
+    -   date: !date
+        course:
+            - !pathref path.de.10500 waw ffin
+            - !pathref path.de.10850 a   f
+
 points:
-    - !keyref point.de.Hamburg-Waltershof-W318
+    - !keyref point.de.Hamburg-Waltershof-W318          # line.de.10500
     - !keyref point.de.Hamburg-Finkenwerder
+
 
 ---
 key: point.de.Hamburg-Finkenwerder
@@ -26,3 +41,7 @@ events:
         name: Hamburg-Finkenwerder
         de.DS100: AFKW
         sources: !keyref src.de.SuW.2005
+
+    -   date: !!null
+        site: !noderef path.de.10580 fin
+
