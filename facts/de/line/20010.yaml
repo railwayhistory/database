@@ -16,19 +16,55 @@ events:
         tracks: 2
         electrified:
             overhead: !var el.de
-        owner: !keyref org.de.e.DBNetz
-        operator: !keyref org.de.e.DBNetz
 
     -   date: !date 2006-05-27
         status: open
         sources: !keyref src.de.WP.Nord-Sued-Fernbahn
 
+    #   Eigentümer und Betreiber
+    #
+    -   date: !!null
+        owner: !keyref org.de.e.DBNetz
+        operator: !keyref org.de.e.DBNetz
+
+    #   Verlauf
+    #
+    -   date: !!null
+        course:
+            - !pathref path.de.20050 wea  fhbf
+            - !pathref path.de.20010 a    f
+            - !pathref path.de.31000 fhbf sks
+
 points:
-    - !keyref point.de.Berlin-Wedding-Abzw
+    - !keyref point.de.Berlin-Wedding-Abzw                  # line.de.20050
+    - !keyref point.de.Fernbahntunnel-Nord-Sued-A
     - !keyref point.de.Berlin-Hbf-Lehrter-Bf
     - !keyref point.de.Berlin-Potsdamer-Platz-Fernbf
+    - !keyref point.de.Fernbahntunnel-Nord-Sued-F
     - !keyref point.de.Berlin-Suedkreuz
     - !keyref point.de.Berlin-Suedkreuz-Suedende
+
+
+---
+key: point.de.Fernbahntunnel-Nord-Sued-A
+type: point
+subtype: portal
+structure: struct.de.Fernbahntunnel-Nord-Sued
+events:
+    -   date: !!null
+        site: !noderef path.de.20010 tnsa
+
+
+---
+key: struct.de.Fernbahntunnel-Nord-Sued
+type: structure
+subtype: tunnel
+events:
+    -   date: !!null
+        length: 3453
+        name: Fernbahntunnel Nord-Süd-Verbindung
+        sources: !keyref src.de.DBAG.ISR
+
 
 ---
 key: point.de.Berlin-Hbf-Lehrter-Bf
@@ -37,12 +73,9 @@ junction: True
 events:
     -   date: !!null
         location:
-            - !keyloc line.de.20010 2,169
-            - !keyloc line.de.20020 2,169
-        sources: !keyref src.de.WP.Nord-Sued-Fernbahn
-    -   date: !!null
-        location:
+            - !keyloc line.de.20010 2,200
             - !keyloc line.de.20015 1,303
+            - !keyloc line.de.20020 2,200
         sources: !keyref src.de.DBAG.ISR
     -   date: !!null
         category: de.Bf
@@ -51,21 +84,41 @@ events:
         de.DS100: BL
         sources: !keyref src.de.TPP.2006
 
+    -   date: !!null
+        site: !noderef path.de.20010 hbf
+
+
 ---
 key: point.de.Berlin-Potsdamer-Platz-Fernbf
 type: point
 events:
     -   date: !!null
         location:
-            - !keyloc line.de.20010 4,196
-            - !keyloc line.de.20020 4,196
-        sources: !keyref src.de.WP.Nord-Sued-Fernbahn
-    -   date: !!null
+            - !keyloc line.de.20010 4,100
+            - !keyloc line.de.20020 4,100
         category: de.Hp
+        sources: !keyref src.de.DBAG.ISR
     -   date: !!null
         name: Berlin Potsdamer Platz Fernbf
         de.DS100: BPOF
         sources: !keyref src.de.TPP.2006
+    -   date: !date 2006
+        name: Berlin Potsdamer Platz
+        sources: !keyref src.de.TPP.2007
+
+    -   date: !!null
+        site: !noderef path.de.20010 pot
+
+
+---
+key: point.de.Fernbahntunnel-Nord-Sued-F
+type: point
+subtype: portal
+structure: struct.de.Fernbahntunnel-Nord-Sued
+events:
+    -   date: !!null
+        site: !noderef path.de.20010 tnsf
+
 
 ---
 key: point.de.Berlin-Suedkreuz
@@ -74,14 +127,16 @@ junction: True
 events:
     -   date: !!null
         location:
-            - !keyloc line.de.20010 7,946
-            - !keyloc line.de.20020 7,946
-        sources: !keyref src.de.WP.Nord-Sued-Fernbahn
-    -   date: !!null
+            - !keyloc line.de.20010 7,900
+            - !keyloc line.de.20020 7,900
         category: de.Bf
+        sources: !keyref src.de.DBAG.ISR
     -   date: !!null
-        name: Berlin Südkreuz
+        name: Berlin Papestraße Fernbf
         de.DS100: BPAF
+        sources: !keyref src.de.TPP.2006
+    -   date: !date 2006
+        name: Berlin Südkreuz
         sources: !keyref src.de.TPP.2007
 
     -   date: !!null
