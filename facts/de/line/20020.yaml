@@ -16,15 +16,27 @@ events:
         tracks: 2
         electrified:
             overhead: !var el.de
-        owner: !keyref org.de.e.DBNetz
-        operator: !keyref org.de.e.DBNetz
 
     -   date: !date 2006-05-27
         status: open
         sources: !keyref src.de.WP.Nord-Sued-Fernbahn
 
+    #   Eigentümer und Betreiber
+    #
+    -   date: !!null
+        owner: !keyref org.de.e.DBNetz
+        operator: !keyref org.de.e.DBNetz
+
+    #   Verlauf
+    #
+    -   date: !!null
+        course:
+            - !pathref path.de.20010 hbf  f
+            - !pathref path.de.31000 fhbf sks
+
 points:
-    - !keyref point.de.Berlin-Hbf-Lehrter-Bf
-    - !keyref point.de.Berlin-Potsdamer-Platz-Fernbf
-    - !keyref point.de.Berlin-Suedkreuz
-    - !keyref point.de.Berlin-Suedkreuz-Suedende
+    - !keyref point.de.Berlin-Hbf-Lehrter-Bf                # line.de.20010
+    - !keyref point.de.Berlin-Potsdamer-Platz-Fernbf        # line.de.20010
+    - !keyref point.de.Fernbahntunnel-Nord-Sued-F           # line.de.20010
+    - !keyref point.de.Berlin-Suedkreuz                     # line.de.20010
+    - !keyref point.de.Berlin-Suedkreuz-Suedende            # line.de.20010
