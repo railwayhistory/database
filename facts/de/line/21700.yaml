@@ -6,10 +6,10 @@ events:
         region: !keyref org.de
     -   date: !!null
         end: !keyref point.de.Berlin-Heiligensee-LGr
-        region: !keyref org.de.be
+        region: !keyref org.de.l.be
     -   date: !!null
         start: !keyref point.de.Berlin-Heiligensee-LGr
-        region: !keyref org.de.bb
+        region: !keyref org.de.l.bb
 
     -   date: !var vzg.dr
         de.VzG: !!str 6183
@@ -83,11 +83,6 @@ events:
         start: !keyref point.de.Berlin-Tegel
         end: !keyref point.de.Berlin-Heiligensee-LGr
         status: closed
-    -   date: !date 1986
-        start: !keyref point.de.Berlin-Tegel-11650
-        end: !keyref point.de.Berlin-Tegel-13070
-        status: released
-        sources: !keyref src.de.web.Stadtschnellbahn-Berlin
 
     -   date: !date 1995-05-28
         start: !keyref point.de.Berlin-Tga
@@ -150,6 +145,7 @@ points:
     - !keyref point.de.Berlin-Schulzendorf
     - !keyref point.de.Berlin-Heiligensee
     - !keyref point.de.Berlin-Heiligensee-LGr
+    - !keyref point.de.Stolpe-Sued
     - !keyref point.de.Hennigsdorf-S-Bahn
     - !keyref point.de.Hennigsdorf
     - !keyref point.de.Hennigsdorf-Nord                     # line.de.20600
@@ -321,7 +317,7 @@ events:
             - !keyref src.de.TPP.2006
     -   date: !date 1994-05-29?
         location: !keyloc line.de.21700 7,630
-        category: Hp
+        category: de.Hp
         sources: !keyref src.de.DBAG.ISR
 
     -   date: !!null
@@ -544,6 +540,36 @@ events:
 
     -   date: !!null
         site: !noderef path.de.21700 ghei
+
+
+---
+key: point.de.Stolpe-Sued
+type: point
+events:
+    -   date: !date 1954-06-04
+        status: open
+        name: Hennigsdorf Süd
+        service: none
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !date 1958-11-03
+        service: passenger
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !!null
+        location: !keyloc line.de.21700 18,0
+        category: de.Bf
+        de.Rangklasse: U
+        master: !keyref point.de.Hennigsdorf
+        de.VBL: Hds
+        sources: !keyref src.dd.DR.Bln.1959
+    -   date: !date 1959-10-04
+        name: Stolpe Süd
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !date 1961-08-16
+        status: closed
+        sources: !keyref src.de.Kuhlmann.2000
+
+    -   date: !!null
+        site: !noderef path.de.21700 sto left
 
 
 ---
@@ -798,7 +824,7 @@ events:
         name: Schwante
         sources: !keyref src.de.Kuhlmann.2000
     -   date: !!null
-        location: !keyloc line.de.27100 33,06
+        location: !keyloc line.de.21700 33,06
         category: de.Bf
         de.Rangklasse: IV
         sources: !keyref src.de.DRG.Bln.1927
