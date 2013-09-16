@@ -36,5 +36,37 @@ points:
     - !keyref point.de.Hamburg-Harburg                      # line.de.10430
     - !keyref point.de.Hamburg-Suederelbbruecke             # line.de.10430
     - !keyref point.de.Hamburg-Wilhelmsburg                 # line.de.10430
-    - !keyref point.de.Hamburg-Sued                         # line.de.10700
+    - !keyref point.de.Hamburg-Sued
+
+
+---
+key: point.de.Hamburg-Sued
+type: point
+events:
+    -   date: !!null
+        name: Niedernfelde Rbf
+    -   date: !date c1910
+        name: Hamburg Hgbf Süd
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        service: freight
+        de.lknr: 01 036
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: I
+        sources: !keyref src.de.Bfv.1933
+    -   date: !date c1930
+        name: Hamburg Süd
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 01 079
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        de.DS100: AHBS
+        de.dstnr: !!str 010793
+        sources: !keyref src.de.DS100.1984
+
+    -   date: !!null
+        site: !noderef path.de.13550 sud left
 
