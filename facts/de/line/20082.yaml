@@ -8,18 +8,26 @@ events:
             - !keyref org.de
             - !keyref org.de.l.pre
 
-    -   date: !date 1882-02-07
-        status: open
-        service: passenger
-        owner: !keyref org.de.l.pre
-        operator: !keyref org.de.e.KPEV.Bln
-        sources: !keyref src.de.DRG.1935
-
     -   date: !!null
         category: de.Hauptbahn
         tracks: 2
         sources: !keyref src.de.DRG.1927
 
+    -   date: !date 1882-02-07
+        status: open
+        service: passenger
+        sources: !keyref src.de.DRG.1935
+
+    -   date: !date c1950
+        status: removed
+        sources: !keyref src.dd.DR.Bln.1959
+
+    #   Eigentümer und Betriebsführer
+    #
+    -   date: !!null
+        owner: !keyref org.de.l.pre
+        operator: !keyref org.de.e.KPEV.Bln
+        sources: !keyref src.de.DRG.1935
     -   date: !date 1920-04-01
         owner: !keyref org.de
         operator: !keyref org.de.r.RVM.PH
@@ -30,9 +38,13 @@ events:
     -   date: !var org.de.DR.start
         operator: !keyref org.dd.DR
 
-    -   date: !date c1950
-        status: removed
-        sources: !keyref src.dd.DR.Bln.1959
+    #   Verlauf
+    #
+    -   date: !!null
+        course:
+            - !pathref path.de.20000 cha  ambf 0.
+            - !pathref path de.20082 a    f    0.
+            - !pathref path.de.20900 fcha mbf  0.
 
 points:
     - !keyref point.de.Berlin-Charlottenburg        # line.de.20000
