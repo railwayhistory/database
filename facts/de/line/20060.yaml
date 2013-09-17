@@ -12,6 +12,10 @@ events:
         de.VzG: !!str 6040
         sources: !keyref src.de.VzG
 
+    -   date: !!null
+        category: de.Hauptbahn
+        sources: !keyref src.de.DRG.1927
+
     -   date: !date 1868-07-18
         concession:
             by: !keyref org.de.l.pre
@@ -22,13 +26,20 @@ events:
     -   date: !date 1871-07-17
         status: open
         service: freight
+        sources: !keyref src.de.DRG.1935
+
+    -   date: !date 1985-06-30
+        status: closed
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !date c1988
+        status: removed
+
+    #   Eigentümer und Betriebsführer
+    #
+    -   date: !!null
         owner: !keyref org.de.l.pre
         operator: !keyref org.de.e.KPEV.Bln
         sources: !keyref src.de.DRG.1935
-    -   date: !!null
-        category: de.Hauptbahn
-        sources: !keyref src.de.DRG.1927
-
     -   date: !date 1920-04-01
         owner: !keyref org.de
         operator: !keyref org.de.r.RVM.PH
@@ -42,16 +53,18 @@ events:
     -   date: !var org.de.DR.start
         operator: !keyref org.dd.DR
 
-    -   date: !date 1985-06-30
-        status: closed
-        sources: !keyref src.de.Kuhlmann.2000
-    -   date: !date c1988
-        status: removed
-
+    #   Verlauf
+    #
+    -   date: !!null
+        course:
+            - !pathref path.de.28000 vrf  atrg  1.5
+            - !pathref path.de.20900 gtre trg  -1.5
+    
 points:
     - !keyref point.de.Berlin-Treptow-Vrf                   # line.de.28000
     - !keyref point.de.Berlin-Treptow-Vrf-Gr
     - !keyref point.de.Berlin-Treptow-Gbf                   # line.de.20050
+
 
 ---
 key: point.de.Berlin-Treptow-Vrf-Gr
@@ -63,3 +76,7 @@ events:
     -   date: !!null
         location: !keyloc line.de.20060 2,25
         sources: !keyref src.dd.DR.Bln.1953
+
+    -   date: !!null
+        site: !noderef path.de.20900 gtre
+
