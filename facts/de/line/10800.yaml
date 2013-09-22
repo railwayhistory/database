@@ -1,5 +1,4 @@
 ---
-
 key: line.de.10800
 type: line
 events:
@@ -11,35 +10,31 @@ events:
     -   date: !!null
         start: !keyref point.de.Holtenklinke-LGr
         region: !keyref org.de.l.sh
+
     -   date: !!null
         de.VzG: !!str 9123
         sources: !keyref src.de.SuW.2005
+
     -   date: !!null
         category: de.Kleinbahn
-        owner: !keyref org.de.e.BGhE
-        operator: !keyref org.de.e.BGhE
+
     -   date: !date 1906-12-20
         start: !keyref point.de.Hamburg-Bergedorf-Sued
         status: open
-        sources:
-            - !keyref src.de.web.VHH
+        sources: !keyref src.de.web.VHH
     -   date: !date 1907-05-01
         end: !keyref point.de.Hamburg-Bergedorf-Sued
         status: open
-        sources:
-            - !keyref src.de.web.VHH
+        sources: !keyref src.de.web.VHH
     -   date: !date 1915?
         tracks: 2
-        sources:
-            - !keyref src.de.web.VHH
+        sources: !keyref src.de.web.VHH
     -   date: !date 1918
         tracks: 1
-        sources:
-            - !keyref src.de.web.VHH
+        sources: !keyref src.de.web.VHH
     -   date: !date 1940?
         tracks: 2
-        sources:
-            - !keyref src.de.web.VHH
+        sources: !keyref src.de.web.VHH
     -   date: !date c1950
         category: de.Nebenbahn
     -   date: !date c1950
@@ -47,15 +42,31 @@ events:
     -   date: !date 1953-10-26
         service: freight
         sources: !keyref src.de.web.VHH
+
+    #   Eigentümer und Betriebsführer
+    #
+    -   date: !!null
+        owner: !keyref org.de.e.BGhE
+        operator: !keyref org.de.e.BGhE
+    -   date: !date 1954
+        owner: !keyref org.de.e.VVH
+        operator: !keyref org.de.e.VVH
     -   date: !date 1956-01-01
         operator: !keyref org.de.e.AKN
-        sources:
-            - !keyref src.de.web.VHH
+        sources: !keyref src.de.web.VHH
+
+    #   Verlauf
+    #
+    -   date: !!null
+        course:
+            - !pathref path.de.21000 beg fbes 1.5
+            - !pathref path.de.10800 a   f    0.
+
 points:
     - !keyref point.de.Hamburg-Bergedorf-Gbf                # line.de.21000
     - !keyref point.de.Hamburg-Bergedorf-Sued
     - !keyref point.de.Holtenklinke
-    - !keyref point.de.Holtenklinke-LGr
+    - !keyref point.de.Boernsen-LGr
     - !keyref point.de.Boernsen
     - !keyref point.de.Escheburg
     - !keyref point.de.Besenhorst
@@ -70,7 +81,7 @@ events:
     -   date: !!null
         name: Bergedorf Süd
         sources: !keyref src.de.Bfv.1933
-    -   date: !!null
+    -   date: !var lknr.kb
         de.lknr: 40 224
         sources: !keyref src.de.Bfv.1944
     -   date: !date 1938
@@ -85,31 +96,40 @@ events:
         location: !keyloc line.de.10800 1,6
         sources: !keyref src.de.SuW.2005
 
+    -   date: !!null
+        site: !noderef path.de.10800 bes left
+
+
 ---
 key: point.de.Holtenklinke
 type: point
 events:
-    -   date: !!null
-        category: de.Hp
-        location:
-            - !keyloc line.de.10800 3,7
-        sources:
-            - !keyref src.de.SuW.2005
-    -   date: !!null
-        name: Holtenklinke
-        sources:
-            - !keyref src.de.Kb.W1937
     -   date: !date c1920
         status: open
+    -   date: !!null
+        name: Holtenklinke
+        sources: !keyref src.de.Kb.W1937
+    -   date: !!null
+        category: de.Hp
+        location: !keyloc line.de.10800 3,7
+        sources: !keyref src.de.SuW.2005
+
+    -   date: !!null
+        site: !noderef path.de.10800 hol
+
 
 ---
-key: point.de.Holtenklinke-LGr
+key: point.de.Boernsen-LGr
 type: point
 subtype: border
 events:
     -   date: !!null
         category: de.LGr
-        name: Holtenklinke HH/SH
+        name: Börnsen SH/HH
+
+    -   date: !!null
+        site: !noderef path.de.10800 gbor
+
 
 ---
 
@@ -117,65 +137,84 @@ key: point.de.Boernsen
 type: point
 events:
     -   date: !!null
-        category: de.Bf
-        location: !keyloc line.de.10800 6,3
-        de.DS100: ABSF
-        sources:
-            - !keyref src.de.SuW.2005
-    -   date: !!null
         name: Börnsen
         sources: !keyref src.de.Kb.1914
-    -   date: !!null
+    -   date: !var lknr.kb
         de.lknr: 40 226
         sources: !keyref src.de.Bfv.1944
+    -   date: !!null
+        de.DS100: ABSF
+        de.dstnr: !!str 404533
+        sources: !keyref src.de.DS100.1984
+    -   date: !!null
+        category: de.Bf
+        location: !keyloc line.de.10800 6,3
+        sources: !keyref src.de.SuW.2005
+
+    -   date: !!null
+        site: !noderef path.de.10800 bor
+
 
 ---
 key: point.de.Escheburg
 type: point
 events:
     -   date: !!null
-        category: de.Bf
-        location:
-            - !keyloc line.de.10800 8,9
-        de.DS100: AEBG
-        sources: !keyref src.de.SuW.2005
-    -   date: !!null
         name: Escheburg
         sources: !keyref src.de.Kb.1914
-    -   date: !!null
+    -   date: !var lknr.kb
         de.lknr: 40 227
         sources: !keyref src.de.Bfv.1944
+    -   date: !!null
+        de.DS100: AEBG
+        de.dstnr: !!str 404541
+        sources: !keyref src.de.DS100.1984
+    -   date: !!null
+        category: de.Bf
+        location: !keyloc line.de.10800 8,9
+        sources: !keyref src.de.SuW.2005
+
+    -   date: !!null
+        site: !noderef path.de.10800 ese
+
 
 ---
 key: point.de.Besenhorst
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.10800 11,4
-        de.DS100: ABSN
-    -   date: !!null
         name: Besenhorst
-        sources:
-            - !keyref src.de.Kb.1914
+        sources: !keyref src.de.Kb.1914
     -   date: !!null
+        location: !keyloc line.de.10800 11,4
+    -   date: !var lknr.kb
         de.lknr: 40 228
-        sources:
-            - !keyref src.de.Bfv.1944
-    -   date: !date c1950
+        sources: !keyref src.de.Bfv.1944
+    -   date: !!null
+        de.DS100: ABSN
+        de.dstnr: !!str 404558
+        sources: !keyref src.de.DS100.1984
+    -   date: !date c1990
         status: closed
+
+    -   date: !!null
+        site: !noderef path.de.10800 beh
+
 
 ---
 key: point.de.Dueneberg
 type: point
 events:
     -   date: !!null
-        location:
-            - !keyloc line.de.10800 13,1
+        location: !keyloc line.de.10800 13,1
         name: Düneberg
-        sources:
-            - !keyref src.de.Kb.1914
+        sources: !keyref src.de.Kb.1914
     -   date: !date c1950
         status: closed
+
+    -   date: !!null
+        site: !noderef path.de.10800 dun
+
 
 ---
 key: point.de.Geesthacht
@@ -183,17 +222,16 @@ type: point
 junction: True
 events:
     -   date: !!null
-        category: de.Bf
-        location:
-            - !keyloc line.de.10800 13,9
-        de.DS100: AGEH
-        sources:
-            - !keyref src.de.SuW.2005
-    -   date: !!null
         name: Geesthacht
-        sources:
-            - !keyref src.de.Kb.1914
-    -   date: !!null
+        sources: !keyref src.de.Kb.1914
+    -   date: !var lknr.kb
         de.lknr: 40 230
-        sources:
-            - !keyref src.de.Bfv.1944
+        sources: !keyref src.de.Bfv.1944
+    -   date: !!null
+        de.DS100: AGEH
+        de.dstnr: !!str 513168
+        sources: !keyref src.de.DS100.1984
+    -   date: !!null
+        category: de.Bf
+        location: !keyloc line.de.10800 13,9
+        sources: !keyref src.de.SuW.2005
