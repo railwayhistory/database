@@ -5,10 +5,10 @@ events:
     -   date: !!null
         region: !keyref org.de
     -   date: !!null
-        end: !keyref point.de.Berlin-Staaken-LGr-6179
+        end: !keyref point.de.Berlin-Staaken-LGr-Gueterbahn
         region: !keyref org.de.l.be
     -   date: !!null
-        start: !keyref point.de.Berlin-Staaken-LGr-6179
+        start: !keyref point.de.Berlin-Staaken-LGr-Gueterbahn
         region: !keyref org.de.l.bb
 
     -   date: !var vzg.dr
@@ -18,13 +18,17 @@ events:
         start: !keyref point.de.Berlin-Siemensstadt-Fuerstenbrunn
         de.VzG: !!str 6179
 
+    -   date: !!null
+        category: de.Hauptbahn
+        tracks: 2
+        sources: !keyref src.de.DRG.1927
+
     -   date: !date 1867-06-12
         end: !keyref point.de.Dallgow-Doeberitz
         concession:
             by: !keyref org.de.l.pre
+            for: !keyref org.de.e.MHE
             document: !keyref src.de.l.pre.1867.70.1221
-        owner: !keyref org.de.e.MHE
-        operator: !keyref org.de.e.MHE
         sources: !keyref src.de.DRG.1935
     -   date: !date 1871-02-01
         start: !keyref point.de.Berlin-Spandau-Gbf
@@ -41,23 +45,12 @@ events:
         service: freight
         sources: !keyref src.de.DRG.1935
 
-    -   date: !date 1879-12-29
-        end: !keyref point.de.Dallgow-Doeberitz
-        operator: !keyref org.de.e.KPEV.Mg
-    -   date: !date 1886-01-01
-        end: !keyref point.de.Dallgow-Doeberitz
-        owner: !keyref org.de.l.pre
-    -   date: !date 1895-04-01?
-        end: !keyref point.de.Dallgow-Doeberitz
-        operator: !keyref org.de.e.KPEV.Bln
-
     -   date: !date 1898-05-20
         start: !keyref point.de.Dallgow-Doeberitz
         concession:
             by: !keyref org.de.l.pre
+            for: !keyref org.de.l.pre
             document: !keyref src.de.l.pre.1898.14.92
-        owner: !keyref org.de.l.pre
-        operator: !keyref org.de.e.KPEV.Bln
         sources: !keyref src.de.DRG.1935
     -   date: !date 1910-04-01
         start: !keyref point.de.Dallgow-Doeberitz
@@ -65,28 +58,9 @@ events:
         service: freight
         sources: !keyref src.de.DRG.1935
 
-    -   date: !date 1920-04-01
-        owner: !keyref org.de
-        operator: !keyref org.de.r.RVM.PH
-    -   date: !date 1924-02-12
-        operator: !keyref org.de.e.DREb
-    -   date: !date 1924-08-30
-        operator: !keyref org.de.e.DRG
-
-    -   date: !!null
-        category: de.Hauptbahn
-        tracks: 2
-        sources: !keyref src.de.DRG.1927
-
     -   date: !date c1945
         tracks: 1
         sources: !keyref src.dd.DR.Bln.1953
-
-    -   date: !date 1949-10-07
-        start: !keyref point.de.Berlin-Staaken-Gr
-        owner: !keyref org.dd
-    -   date: !var org.de.DR.start
-        operator: !keyref org.dd.DR
 
     -   date: !date c1960
         start: !keyref point.de.Berlin-Moabit
@@ -94,16 +68,6 @@ events:
         status: closed
         sources: !keyref src.dd.DR.Bln.1968
 
-    -   date: !date 1990-10-03
-        start: !keyref point.de.Berlin-Staaken-Gr
-        owner: !keyref org.de
-    -   date: !var org.de.DBAG.start
-        owner: !keyref org.de.e.DBAG
-        operator: !keyref org.de.e.DBAG
-    -   date: !var org.de.DBNetz.start
-        owner: !keyref org.de.e.DBNetz
-        operator: !keyref org.de.e.DBNetz
-    
     -   date: !date 1998-09-15
         start: !keyref point.de.Berlin-Spandau-Ost
         electrified:
@@ -123,6 +87,61 @@ events:
             - !keyref src.de.TPP.2010
             - !keyref src.de.DBAG.ISR
 
+    #   Eigentümer und Betreiber
+    #
+    -   date: !!null
+        end: !keyref point.de.Dallgow-Doeberitz
+        owner: !keyref org.de.e.MHE
+        operator: !keyref org.de.e.MHE
+    -   date: !date 1879-12-29
+        end: !keyref point.de.Dallgow-Doeberitz
+        operator: !keyref org.de.e.KPEV.Mg
+    -   date: !date 1886-01-01
+        end: !keyref point.de.Dallgow-Doeberitz
+        owner: !keyref org.de.l.pre
+    -   date: !date 1895-04-01?
+        end: !keyref point.de.Dallgow-Doeberitz
+        operator: !keyref org.de.e.KPEV.Bln
+    -   date: !!null
+        start: !keyref point.de.Dallgow-Doeberitz
+        owner: !keyref org.de.l.pre
+        operator: !keyref org.de.e.KPEV.Bln
+    -   date: !date 1920-04-01
+        owner: !keyref org.de
+        operator: !keyref org.de.r.RVM.PH
+    -   date: !date 1924-02-12
+        operator: !keyref org.de.e.DREb
+    -   date: !date 1924-08-30
+        operator: !keyref org.de.e.DRG
+    -   date: !date 1949-10-07
+        start: !keyref point.de.Berlin-Staaken-Gr
+        owner: !keyref org.dd
+    -   date: !var org.de.DR.start
+        operator: !keyref org.dd.DR
+    -   date: !date 1990-10-03
+        start: !keyref point.de.Berlin-Staaken-Gr
+        owner: !keyref org.de
+    -   date: !var org.de.DBAG.start
+        owner: !keyref org.de.e.DBAG
+        operator: !keyref org.de.e.DBAG
+    -   date: !var org.de.DBNetz.start
+        owner: !keyref org.de.e.DBNetz
+        operator: !keyref org.de.e.DBNetz
+
+    #   Verlauf
+    #
+    -   date: !!null
+        course:
+            - !pathref path.de.20010 hag  fmoa  4.
+            - !pathref path.de.45000 fhbf amox  2.
+            - !pathref path.de.45000 fmox xosa -2.
+            - !pathref path.de.45000 fosa spg  -3.
+            - !pathref path.de.20100 a    f     0.
+            - !pathref path.de.45000 bra  wur  -2.
+
+
+
+
 points:
     - !keyref point.de.Berlin-Hamb-u-Lehrt-Bf
     - !keyref point.de.Berlin-Moabit                        # line.de.20050
@@ -139,7 +158,7 @@ points:
     - !keyref point.de.Berlin-Staaken-alt                   # line.de.45000
     - !keyref point.de.Berlin-Staaken-Bstg                  # line.de.45000
     - !keyref point.de.Berlin-Staaken-Gr                    # line.de.45000
-    - !keyref point.de.Berlin-Staaken-LGr-6179
+    - !keyref point.de.Berlin-Staaken-LGr-Gueterbahn
     - !keyref point.de.Berlin-Staaken                       # line.de.45000
     - !keyref point.de.Berlin-Staaken-West                  # line.de.45000
     - !keyref point.de.Staaken-Flugplatz                    # line.de.45000
@@ -159,8 +178,14 @@ events:
         de.Rangklasse: I
         sources: !keyref src.de.DRG.Bln.1927
     -   date: !!null
-        name: Berlin Hamb u Lehrt Gbf
+        name: Berlin Hamburg u Lehrter Gbf
         service: freight
+        de.lknr: 03 047
+        sources: !keyref src.de.Bfv.1928
+    -   date: !date c1930
+        name: Berlin Hamb u Lehrt Gbf
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 03 159
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
@@ -181,6 +206,10 @@ events:
         de.DS100: BHUL
         sources: !keyref src.de.TPP.2006
 
+    -   date: !!null
+        site: !noderef path.de.20010 hag left
+
+
 ---
 key: point.de.Berlin-Ruhleben
 type: point
@@ -189,14 +218,15 @@ events:
         status: open
         sources: !keyref src.de.Kuhlmann.2000
     -   date: !!null
-        location:
-            - !keyloc line.de.20100 10,67
-        name: Betriebsbf Ruhleben
+        location: !keyloc line.de.20100 10,67
         sources: !keyref src.de.DRG.Bln.1927
     -   date: !!null
         category: de.Gnst
         master: !keyref point.de.Berlin-Spandau-Gbf
         service: freight
+        de.lknr: 03 004
+        sources: !keyref src.de.Bfv.1928
+    -   date: !var lknr.30
         de.lknr: 03 174
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
@@ -224,6 +254,10 @@ events:
     -   date: !date c1995
         master: !keyref point.de.Berlin-Spandau
 
+    -   date: !!null
+        site: !noderef path.de.45000 ruh left
+
+
 ---
 key: point.de.Berlin-Spandau-Gbf
 type: point
@@ -236,6 +270,9 @@ events:
         sources: !keyref src.de.DRG.Bln.1927
     -   date: !!null
         service: freight
+        de.lknr: 03 003
+        sources: !keyref src.de.Bfv.1928
+    -   date: !var lknr.30
         de.lknr: 03 172
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
@@ -262,6 +299,10 @@ events:
     -   date: !date c1995
         master: !keyref point.de.Berlin-Spandau
 
+    -   date: !!null
+        site: !noderef path.de.45000 spg left
+
+
 ---
 key: point.de.Brandwerder
 type: point
@@ -281,15 +322,22 @@ events:
         status: closed
         sources: !keyref src.dd.DR.Bln.1968
 
+    -   date: !!null
+        site: !noderef path.de.45000 bra left
+
+
 ---
-key: point.de.Berlin-Staaken-LGr-6179
+key: point.de.Berlin-Staaken-LGr-Gueterbahn
 type: point
 subtype: border
 events:
     -   date: !!null
-    -   date: !!null
         name: Berlin-Staaken BE/BB 6179
         de.DS100: BQSTG
         sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.45000 gstl
+
 
 
