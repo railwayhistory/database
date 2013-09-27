@@ -8,19 +8,25 @@ events:
             - !keyref org.de
             - !keyref org.de.l.be
 
-    -   date: !!null
+    -   date: !var vzg.dr
         de.VzG: !!str 6165
         sources: !keyref src.de.VzG
+
+    -   date: !!null
+        category: de.Hauptbahn
+        sources: !keyref src.de.DRG.1927
 
     -   date: !date 1871-07-17?
         status: open
         service: freight
         note: Genaue Streckeneröffnungen am Lehrter Bf unklar
         sources: !keyref src.de.DRG.1935
+    -   date: !date c1995
+        status: removed
+
     -   date: !!null
         owner: !keyref org.de.l.pre
         operator: !keyref org.de.e.KPEV.Bln
-
     -   date: !date 1920-04-01
         owner: !keyref org.de
         operator: !keyref org.de.r.RVM.PH
@@ -30,14 +36,6 @@ events:
         operator: !keyref org.de.e.DRG
     -   date: !var org.de.DR.start
         operator: !keyref org.dd.DR
-
-    -   date: !!null
-        category: de.Hauptbahn
-        sources: !keyref src.de.DRG.1927
-
-    -   date: !date c1995
-        status: removed
-
     -   date: !var org.de.DBAG.start
         owner: !keyref org.de.e.DBAG
         operator: !keyref org.de.e.DBAG
@@ -45,9 +43,16 @@ events:
         owner: !keyref org.de.e.DBNetz
         operator: !keyref org.de.e.DBNetz
 
+    -   date: !!null
+        course:
+            - !pathref path.de.20140 a    f     0.
+            - !pathref path.de.20010 aspr fmoa -1.5
+            - !pathref path.de.45000 a    moa  -1.5
+
 points:
     - !keyref point.de.Berlin-Spreeufer
     - !keyref point.de.Berlin-Moabit
+
 
 ---
 key: point.de.Berlin-Spreeufer
@@ -64,6 +69,9 @@ events:
     -   date: !!null
         name: Berlin Spreeufer
         service: freight
+        de.lknr: 03 049
+        sources: !keyref src.de.Bfv.1928
+    -   date: !var lknr.30
         de.lknr: 03 163
         sources: !keyref src.de.Bfv.1933
     -   date: !date c1950
@@ -78,3 +86,6 @@ events:
         sources: !keyref src.dd.DR.Bln.1973
     -   date: !date c1995
         status: closed
+
+    -   date: !!null
+        site: !noderef path.de.20140 spr right
