@@ -7,16 +7,19 @@ events:
             - !keyref org.de
             - !keyref org.de.l.pre
 
-    -   date: !!null
+    -   date: !var vzg.dr
         start: !keyref point.de.Berlin-Schoeneberg-Betriebsbf
         de.VzG: !!str 6125
         sources: !keyref src.de.VzG
 
+    -   date: !!null
+        category: de.Hauptbahn
+        tracks: 1
+        sources: !keyref src.de.DRG.1927
+
     -   date: !date 1902-12-01
         status: open
         service: freight
-        owner: !keyref org.de.l.pre
-        operator: !keyref org.de.e.KPEV.Bln
         sources: !keyref src.de.DRG.1935
     -   date: !date c1937
         end: !keyref point.de.Berlin-Schoeneberg-Betriebsbf
@@ -27,7 +30,11 @@ events:
         start: !keyref point.de.Berlin-Schoeneberg-Betriebsbf
         status: closed
 
-    # Eigentümer-/Betreiberwechsel
+    #   Eigentümer und Betreiberwechsel
+    #
+    -   date: !!null
+        owner: !keyref org.de.l.pre
+        operator: !keyref org.de.e.KPEV.Bln
     -   date: !date 1920-04-01
         owner: !keyref org.de
         operator: !keyref org.de.r.RVM.PH
@@ -44,10 +51,15 @@ events:
         owner: !keyref org.de.e.DBNetz
         operator: !keyref org.de.e.DBNetz
 
+    -   date: !!null
+        course:
+            - !pathref path.de.46000 bpg stg -1.5
+
 points:
     - !keyref point.de.Berlin-Potsd-Gbf
     - !keyref point.de.Berlin-Schoeneberg-Betriebsbf
     - !keyref point.de.Berlin-Steglitz-Gbf
+
 
 ---
 key: point.de.Berlin-Schoeneberg-Betriebsbf
