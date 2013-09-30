@@ -6,55 +6,78 @@ events:
         region:
             - !keyref org.de
             - !keyref org.de.l.sh
+
     -   date: !!null
         de.VzG: !!str 1221
         sources: !keyref src.de.VzG
+
     -   date: !!null
         category: de.Nebenbahn
-        sources:
-            - !keyref src.de.DRG.1927
+        sources: !keyref src.de.DRG.1927
+
     -   date: !date 1886-04-19
         concession:
             by: !keyref org.de.l.pre
-        owner: !keyref org.de.e.KPEV.Alt
-        operator: !keyref org.de.e.KPEV.Alt
-        sources:
-            - !keyref src.de.DRG.1935
-            - !keyref src.de.Preussen.1886.13.125
+            for: !keyref org.de.l.pre
+            document: !keyref src.de.Preussen.1886.13.125
+        sources: !keyref src.de.DRG.1935
     -   date: !date 1889-08-01
         status: open
-        sources:
-            - !keyref src.de.DRG.1935
+        sources: !keyref src.de.DRG.1935
     -   date: !date 1975-09-27
         start: !keyref point.de.Hohenlockstedt
         end: !keyref point.de.Edendorf
         status: closed
-        sources:
-            - !keyref src.de.DB.Hmb.1984
+        sources: !keyref src.de.DB.Hmb.1984
     -   date: !date 1975-09-27
         service: freight
-        sources:
-            - !keyref src.de.DB.Hmb.1984
+        sources: !keyref src.de.DB.Hmb.1984
     -   date: !date 1994-12-31
         start: !keyref point.de.Edendorf
         service: none
-        sources:
-            - !keyref src.de.Bundestag.13.2569
+        sources: !keyref src.de.Bundestag.13.2569
     -   date: !date 1995-04-01
         start: !keyref point.de.Edendorf
         status: closed
-        sources:
-            - !keyref src.de.web.EBA.Still
+        sources: !keyref src.de.web.EBA.Still
     -   date: !date 1995-05-28
         end: !keyref point.de.Kellinghusen
         service: none
-        sources:
-            - !keyref src.de.Bundestag.13.5369
+        sources: !keyref src.de.Bundestag.13.5369
     -   date: !date 1996-01-01
         end: !keyref point.de.Kellinghusen
         status: closed
-        sources:
-            - !keyref src.de.web.EBA.Still
+        sources: !keyref src.de.web.EBA.Still
+
+    #   Eigentümer und Betreiber
+    #
+    -   date: !!null
+        owner: !keyref org.de.l.pre
+        operator: !keyref org.de.e.KPEV.Alt
+    -   date: !date 1920-04-01
+        owner: !keyref org.de
+        operator: !keyref org.de.r.RVM.PH
+    -   date: !date 1924-02-12
+        operator: !keyref org.de.e.DREb
+    -   date: !date 1924-08-30
+        operator: !keyref org.de.e.DRG
+    -   date: !var org.de.DB.start
+        operator: !keyref org.de.e.DB
+    -   date: !var org.de.DBAG.start
+        owner: !keyref org.de.e.DBAG
+        operator: !keyref org.de.e.DBAG
+    -   date: !var org.de.DBNetz.start
+        owner: !keyref org.de.e.DBNetz
+        operator: !keyref org.de.e.DBNetz
+
+    #   Verlauf
+    #
+    -   date: !!null
+        course:
+            - !pathref path.de.11000 wri  ahoh -1.5
+            - !pathref path.de.11030 a    f     0.
+            - !pathref path.de.12000 awri itz  -1.5
+
 points:
     - !keyref point.de.Wrist                        # line.de.11000
     - !keyref point.de.Kellinghusen
@@ -64,8 +87,8 @@ points:
     - !keyref point.de.Edendorf
     - !keyref point.de.Itzehoe                      # line.de.12000
 
----
 
+---
 key: point.de.Kellinghusen
 type: point
 events:
@@ -73,19 +96,32 @@ events:
         name: Kellinghusen
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 01 225
+        sources: !keyref src.de.Bfv.1928
+    -   date: !date c1920
+        name: Kellinghusen (Mittelholst)
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: II
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 01 436
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        de.DS100: AKG
-    -   date: !!null
         location: !keyloc line.de.11030 55,13
-        sources: !keyref src.de.DRG.Alt.Karte.1945
-    -   date: !date c1920
-        name: Kellinghusen (Mittelholst)
-        sources:
-            - !keyref src.de.Bfv.1933
+        sources: !keyref src.de.DRG.Alt.Karte.1949
+    -   date: !!null
+        de.DS100: AKG
+        de.dstnr: !!str 014365
+        sources: !keyref src.de.DS100.1984
+    -   date: !date c1975
+        staff: none
+        sources: !keyref src.de.DS100.1984
+
+    -   date: !!null
+        site: !noderef path.de.11030 kel right
+
 
 ---
 key: point.de.Muehlenbarbek
@@ -95,22 +131,33 @@ events:
         name: Mühlenbarbek
         sources: !keyref src.de.Kb.1914
     -   date: !!null
-        category: de.Hp
         service: passenger
-        de.lknr: 01 437
+        de.lknr: 01 370
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Hp
+        sources: !keyref src.de.Bfv.1933
+    -   date: !date c1930
         staff: agent
         sources: !keyref src.de.Bfv.1933
-    -   date: !!null
-        location: !keyloc line.de.11030 59,24
-        sources: !keyref src.de.DRG.Alt.Karte.1945
+    -   date: !var lknr.30
+        de.lknr: 01 437
+        sources: !keyref src.de.Bfv.1933
     -   date: !date c1940
         category: de.Bf
         de.Rangklasse: IV
         sources: !keyref src.de.Bfv.1944
+    -   date: !!null
+        location: !keyloc line.de.11030 59,24
+        sources: !keyref src.de.DRG.Alt.Karte.1949
     -   date: !date c1950
         category: de.Hp
     -   date: !date 1975?
         status: closed
+
+    -   date: !!null
+        site: !noderef path.de.11030 muh right
+
 
 ---
 key: point.de.Hohenlockstedt
@@ -120,28 +167,47 @@ events:
         name: Lockstedter Lager
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 01 226
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: IV
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 01 438
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
         location: !keyloc line.de.11030 62,05
-        sources: !keyref src.de.DRG.Alt.Karte.1945
-    -   date: !!null
-        de.DS100: AHLO
+        sources: !keyref src.de.DRG.Alt.Karte.194p
     -   date: !date 1956?
         name: Hohenlockstedt
+    -   date: !!null
+        de.DS100: AHLO
+        de.dstnr: !!str 014381
+        sources: !keyref src.de.DS100.1984
+    -   date: !date c1975
+        staff: none
+        sources: !keyref src.de.DS100.1984
+
+    -   date: !!null
+        site: !noderef path.de.11030 hoh right
+
 
 ---
 key: point.de.Schlotfeld
 type: point
 events:
-    -   date: !!null
+    -   date: !date c1950
+        status: open
         category: de.Hp
         name: Schlotfeld
         staff: none
-    -   date: !date c1950
-        status: open
+    -   date: !date c1975
+        status: closed
+
+    -   date: !!null
+        site: !noderef path.de.11030 slo left
+
 
 ---
 key: point.de.Edendorf
@@ -151,12 +217,24 @@ events:
         name: Edendorf
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 01 227
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: IV
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 01 439
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        de.DS100: AEOF
-    -   date: !!null    
         location: !keyloc line.de.11030 71,03
+        sources: !keyref src.de.DRG.Alt.Karte.1949
+    -   date: !!null
+        de.DS100: AEOF
+        de.dstnr: !!str 014399
+        sources: !keyref src.de.DS100.1984
+
+    -   date: !!null
+        site: !noderef path.de.11030 ede right
+
 
