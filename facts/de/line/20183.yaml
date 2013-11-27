@@ -1,0 +1,47 @@
+---
+key: line.de.20183
+type: line
+label: connection
+events:
+    -   date: !!null
+        region:
+            - !keyref org.de
+            - !keyref org.de.l.bb
+
+    -   date: !var vzg.dr
+        de.VzG: 6113
+        sources: !keyref src.de.VzG
+
+    -   date: !date 1952-10-04
+        status: open
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !date 1995-12-17
+        electrified:
+            overhead: !var el.de
+
+    #   Eigentümer und Betreiber
+    #
+    -   date: !!null
+        owner: !keyref org.dd
+        operator: !keyref org.dd.DR
+    -   date: !date 1990-10-03
+        owner: !keyref org.de
+    -   date: !var org.de.DBAG.start
+        owner: !keyref org.de.e.DBAG
+        operator: !keyref org.de.e.DBAG
+    -   date: !var org.de.DBNetz.start
+        owner: !keyref org.de.e.DBNetz
+        operator: !keyref org.de.e.DBNetz
+
+    #   Verlauf
+    #
+    -   date: !!null
+        course:
+            - !pathref path.de.29500 wps  awpo 0.
+            - !pathref path.de.20183 a    f    0.
+            - !pathref path.de.46000 awps wpo  .5
+
+points:
+    - !keyref point.de.Potsdam-Wildpark-Sued            # line.de.29500
+    - !keyref point.de.Potsdam-Wildpark-Ost             # line.de.46000
+
