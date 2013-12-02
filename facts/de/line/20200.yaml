@@ -90,6 +90,20 @@ events:
         end: !keyref point.de.Berlin-Suedende
         operator: !keyref org.de.e.DRG
 
+    -   date: !!null
+        start: !keyref point.de.Berlin-Suedende
+        owner: !keyref org.de
+        operator: !keyref org.de.e.DRG
+
+    -   date: !date 1949-10-07
+        start: !keyref point.de.Teltow-LGr
+        owner: !keyref org.dd
+    -   date: !var org.de.DR.start
+        operator: !keyref org.dd.DR
+    -   date: !date 1990-10-03
+        start: !keyref point.de.Teltow-LGr
+        owner: !keyref org.de
+
     -   date: !var org.de.DBAG.start
         owner: !keyref org.de.e.DBAG
         operator: !keyref org.de.e.DBAG
@@ -97,9 +111,11 @@ events:
         owner: !keyref org.de.e.DBNetz
         operator: !keyref org.de.e.DBNetz
 
+    # Verlauf
+    #
     -   date: !!null
         course:
-            - !pathref path.de.31000 ahg gbe
+            - !pathref path.de.31000 ahg gbe -2
 
 points:
     - !keyref point.de.Berlin-Anh-Gbf                       # line.de.31000
