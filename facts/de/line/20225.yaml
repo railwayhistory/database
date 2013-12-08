@@ -1,0 +1,50 @@
+---
+key: line.de.20220
+type: line
+events:
+    -   date: !!null
+        region:
+            - !keyref org.de
+            - !keyref org.de.l.be
+
+    -   date: !var vzg.dr
+        de.VzG: !!str 6119
+        sources: !keyref src.de.VzG
+
+
+    # Eröffnungen
+    #
+    -   date: !date c1995
+        status: open
+        service: freight
+    -   date: !!null
+        category: de.Hauptbahn
+    -   date: !!null
+        end: !keyref point.de.Seddin-Bla
+        electrified:
+            overhead: !var el.de
+
+    # Eigentümer und Betreiber
+    #
+    -   date: !!null
+        owner: !keyref org.de.e.DBAG
+        operator: !keyref org.de.e.DBAG
+    -   date: !var org.de.DBNetz.start
+        owner: !keyref org.de.e.DBNetz
+        operator: !keyref org.de.e.DBNetz
+
+    # Verlauf
+    #
+    -   date: !!null
+        course:
+            - !pathref path.de.46500 mic  alia -1.5
+            - !pathref path.de.20222 f    a    0
+            - !pathref path.de.29500 ased bea  0
+
+points:
+    - !keyref point.de.Michendorf                           # line.de.46500
+    - !keyref point.de.Seddin                               # line.de.46500
+    - !keyref point.de.Seddin-Bla                           # line.de.46500
+    - !keyref point.de.Beelitz-Bea                          # line.de.29500
+
+
