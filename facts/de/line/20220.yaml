@@ -41,14 +41,9 @@ events:
     # Nach 1945
     #
     -   date: !date 1982-05-22
-        end: !keyref point.de.Seddin
         electrified:
             overhead: !var el.de
         sources: !keyref src.de.Kuhlmann.2000
-
-    -   date: !date c1995
-        tracks: 1
-        note: zweites Gleis neue Strecke 20225
 
     # Eigentümer und Betreiber
     #
@@ -86,6 +81,23 @@ events:
 
 points:
     - !keyref point.de.Michendorf                           # line.de.46500
-    - !keyref point.de.Seddin                               # line.de.46500
+    - !keyref point.de.Seddin-So                            # line.de.46500
+    - !keyref point.de.Seddin-Einf-Nord
 
+
+---
+key: point.de.Seddin-Einf-Nord
+type: point
+events:
+    -   date: !!null
+        location:
+            - !keyloc line.de.20220 31,181
+            - !keyloc line.de.20222 31,181
+        category: de.Bft
+        name: Seddin Einf Nord
+        de.DS100: BSE N
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.46500 sen
 

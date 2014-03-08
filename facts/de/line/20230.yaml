@@ -1,5 +1,5 @@
 ---
-key: line.de.20222
+key: line.de.20230
 type: line
 events:
     -   date: !!null
@@ -8,17 +8,19 @@ events:
             - !keyref org.de.l.be
 
     -   date: !var vzg.dr
-        de.VzG: !!str 6124
+        de.VzG: !!str 6119
         sources: !keyref src.de.VzG
 
     # Konzessionen
     #
     -   date: !date 1909-07-28
+        start: !keyref point.de.Seddin-Bla
         concession:
             by: !keyref org.de.l.pre
             document: !keyref src.de.l.pre.1909.25.644
         sources: !keyref src.de.DRG.1935
     -   date: !date 1914-06-10
+        start: !keyref point.de.Seddin-Bla
         concession:
             by: !keyref org.de.l.pre
             document: !keyref src.de.l.pre.1914.17.97
@@ -26,7 +28,8 @@ events:
 
     # Eröffnungen
     #
-    -   date: !date 1918-03-19
+    -   date: !date 1927-05-06
+        start: !keyref point.de.Seddin-Bla
         status: open
         service: freight
         sources: !keyref src.de.DRG.1935
@@ -34,9 +37,15 @@ events:
         category: de.Hauptbahn
         sources: !keyref src.de.DRG.1927
 
+    -   date: !date c1940
+        status: open
+        service: freight
+        end: !keyref point.de.Seddin-Bla
+
     # Nach 1945
     #
     -   date: !date 1982-05-22
+        end: !keyref point.de.Seddin-Bla
         electrified:
             overhead: !var el.de
         sources: !keyref src.de.Kuhlmann.2000
@@ -62,7 +71,7 @@ events:
     -   date: !date 1990-10-03
         owner: !keyref org.de
 
-    -   date: !var org.de.DBAG.start
+    -   date: !!null
         owner: !keyref org.de.e.DBAG
         operator: !keyref org.de.e.DBAG
     -   date: !var org.de.DBNetz.start
@@ -73,44 +82,81 @@ events:
     #
     -   date: !!null
         course:
-            - !pathref path.de.29500 bea  ased 0
-            - !pathref path.de.20222 a    f    0
-            - !pathref path.de.46500 alia bla  2.5
+            - !pathref path.de.46500 mic  alia -2.5
+            - !pathref path.de.20230 a    f    0
+            - !pathref path.de.29500 ased bea  0
 
 points:
-    - !keyref point.de.Seddin-Einf-Nord                 # line.de.20220
-    - !keyref point.de.Seddin                           # line.de.46500
-    - !keyref point.de.Seddin-Srw-Mitte
-    - !keyref point.de.Seddin-Ausf-West
-    
+    - !keyref point.de.Michendorf                           # line.de.46500
+    - !keyref point.de.Seddin-Sued-Sso
+    - !keyref point.de.Seddin-Sued-Umspanngleise
+    - !keyref point.de.Seddin-Sued
+    - !keyref point.de.Seddin-Sued-Ssw
+    - !keyref point.de.Seddin-Bla                           # line.de.46500
+    - !keyref point.de.Beelitz-Bea                          # line.de.29500
+
 
 ---
-key: point.de.Seddin-Srw-Mitte
+key: point.de.Seddin-Sued-Sso
 type: point
 events:
     -   date: !!null
+        location: !keyloc line.de.20230 31,0
         category: de.Bft
-        name: Seddin Srw Mitte
-        de.DS100: BSE M
+        name: Seddin Süd Sso
+        de.DS100: BSS O
         sources: !keyref src.de.SuW.2011
 
     -   date: !!null
-        site: !noderef path.de.46500 swm
+        site: !noderef path.de.46500 suo
+
 
 ---
-key: point.de.Seddin-Ausf-West
+key: point.de.Seddin-Sued-Umspanngleise
 type: point
 events:
     -   date: !!null
-        location:
-            - !keyloc line.de.20222 33,423
-            - !keyloc line.de.20225 1,968
+        location: !keyloc line.de.20230 31,8
         category: de.Bft
-        name: Seddin Ausf Nord
-        de.DS100: BSE W
+        name: Seddin Süd Umspanngleise
+        de.DS100: BSS U
+        sources: !keyref src.de.SuW.2011
+
+    -   date: !!null
+        site: !noderef path.de.46500 ssu
+
+
+---
+key: point.de.Seddin-Sued
+type: point
+junction: True
+events:
+    -   date: !!null
+        location: !keyloc line.de.20230 32,980
+        category: de.Bf
+        name: Seddin Süd
+        de.DS100: BSS
         sources: !keyref src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.46500 saw
+        site: !noderef path.de.46500 ses
+
+
+---
+key: point.de.Seddin-Sued-Ssw
+type: point
+junction: True
+events:
+    -   date: !!null
+        location:
+            - !keyloc line.de.20230 33,7
+            - !keyloc line.de.20232 33,7
+        category: de.Bft
+        name: Seddin Süd Ssw
+        de.DS100: BSS W
+        sources: !keyref src.de.SuW.2011
+
+    -   date: !!null
+        site: !noderef path.de.46500 ssw
 
 
