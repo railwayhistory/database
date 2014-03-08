@@ -1,0 +1,56 @@
+---
+key: line.de.20244
+type: line
+events:
+    -   date: !!null
+        region:
+            - !keyref org.de
+            - !keyref org.de.l.bb
+
+    -   date: !var vzg.dr
+        de.VzG: !!str 6114
+        sources: !keyref src.de.VzG
+
+    #   Eröffnung
+    #
+    -   date: !date 1957-09-28
+        status: open
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !!null
+        category: de.Hauptbahn
+        tracks: 1
+        sources: !keyref src.dd.DR.Bln.1959
+
+    #   Elektrifizierung
+    #
+    -   date: !date 1982-12-15?
+        electrified:
+            overhead: !var el.de
+
+    #   Eigentümer und Betriebsführer
+    #
+    -   date: !!null
+        owner: !keyref org.dd
+        operator: !keyref org.dd.DR
+    -   date: !date 1990-10-03
+        owner: !keyref org.de
+
+    -   date: !var org.de.DBAG.start
+        owner: !keyref org.de.e.DBAG
+        operator: !keyref org.de.e.DBAG
+    -   date: !var org.de.DBNetz.start
+        owner: !keyref org.de.e.DBNetz
+        operator: !keyref org.de.e.DBNetz
+        
+    #   Verlauf
+    #
+    -   date: !!null
+        course:
+            - !pathref path.de.46500 wia  fnes -0.5
+            - !pathref path.de.20244 a    f     0
+            - !pathref path.de.20240 awil wne  -0.5
+
+points:
+    - !keyref point.de.Wilhelmshorst-Abzw                   # line.de.46500
+    - !keyref point.de.Wilhelmshorst-Nesselgrund            # line.de.20240
+
