@@ -1,8 +1,51 @@
 
 
 ---
-key: point.de.Schoenefeld
+key: point.de.Berlin-Schoenefeld-Flughafen
 type: point
 junction: True
 progress: stub
 events: []
+
+
+
+---
+key: point.de.Berlin-Eichgestell
+type: point
+junction: True
+events:
+    -   date: !date 1941-01-01
+        status: open
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !!null
+        location: !keyloc line.de.20250 23,7
+        name: Eichgestell
+        sources: !keyref src.de.DRG.Bln.1943
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: IV
+        service: none
+        de.lknr: 03 389
+        sources: !keyref src.de.Bfv.1944
+    -   date: !!null
+        de.VBL: Eg
+        sources: !keyref src.de.DRG.Bln.1946
+    -   date: !date c1950
+        de.Rangklasse: U
+        master: !keyref point.de.Berlin-Karlshorst
+        sources:
+            - !keyref src.dd.DR.Bln.1953
+            - !keyref src.dd.DR.Bln.1959
+    -   date: !date c1965
+        master: !keyref point.de.Berlin-Wuhlheide-Rbf
+        sources: !keyref src.dd.DR.Bln.1968
+    -   date: !date c1975
+        master: !keyref point.de.Berlin-Karlshorst
+        sources: !keyref src.dd.DR.Bln.1978
+    -   date: !var ds100.dr
+        de.DS100: BEG
+        sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.20290 eic left
+
