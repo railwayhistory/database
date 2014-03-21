@@ -1,12 +1,406 @@
+---
+key: line.de.20290
+type: line
+events:
+    -   date: !!null
+        region: !keyref org.de
+    -   date: !!null
+        end: !keyref point.de.Berlin-Schoenefeld-Flughafen-LGr
+        region: !keyref org.de.l.bb
+    -   date: !!null
+        start: !keyref point.de.Berlin-Schoenefeld-Flughafen-LGr
+        region: !keyref org.de.l.be
+
+    -   date: !var vzg.dr
+        de.VzG: !!str 6126
+        sources: !keyref src.de.VzG
+
+    #   Eröffnung
+    #
+    -   date: !date 1951-07-08
+        end: !keyref point.de.Berlin-Schoenefeld-Flughafen
+        status: open
+        note: >
+            "Offizielle Eröffnung 10.07.1951"
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !date 1951-08-12
+        start: !keyref point.de.Berlin-Schoenefeld-Flughafen
+        end: !keyref point.de.Gruenauer-Kreuz-Nord
+        status: open
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !date 1951-12-02
+        start: !keyref point.de.Gruenauer-Kreuz-Nord
+        status: open
+        note: >
+            "Offizielle Eröffnung 10.12.1951"
+        sources: !keyref src.de.Kuhlmann.2000
+
+    #   Eigenschaften
+    #
+    -   date: !!null
+        category: de.Hauptbahn
+        gauge: 1435
+        sources: !keyref src.dd.DR.Bln.1953
+    -   date: !!null
+        end: !keyref point.de.Berlin-Schoenefeld-Flughafen
+        tracks: 2
+        sources: !keyref src.dd.DR.Bln.1953
+    -   date: !!null
+        start: !keyref point.de.Berlin-Schoenefeld-Flughafen
+        tracks: 1
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !date 1951-12-02
+        start: !keyref point.de.Berlin-Schoenefeld-Flughafen
+        tracks: 2
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !date 1982-05-22
+        end: !keyref point.de.Glasower-Damm-West
+        electrified:
+            overhead: !var el.de
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !date 1983-05-28
+        start: !keyref point.de.Glasower-Damm-West
+        end: !keyref point.de.Berlin-Schoenefeld-Flughafen
+        electrified:
+            overhead: !var el.de
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !date 1983-09-24
+        start: !keyref point.de.Berlin-Schoenefeld-Flughafen
+        end: !keyref point.de.Gruenauer-Kreuz-Sued
+        electrified:
+            overhead: !var el.de
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !date 1985-06-01
+        start: !keyref point.de.Gruenauer-Kreuz-Sued
+        electrified:
+            overhead: !var el.de
+        sources: !keyref src.de.Kuhlmann.2000
+        
+    #   Eigentümer und Betriebsführer
+    #
+    -   date: !!null
+        owner: !keyref org.dd
+        operator: !keyref org.dd.DR
+    -   date: !date 1990-10-03
+        owner: !keyref org.de
+
+    -   date: !var org.de.DBAG.start
+        owner: !keyref org.de.e.DBAG
+        operator: !keyref org.de.e.DBAG
+    -   date: !var org.de.DBNetz.start
+        owner: !keyref org.de.e.DBNetz
+        operator: !keyref org.de.e.DBNetz
+        
+    #   Verlauf
+    #
+    -   date: !!null
+        course:
+            - !pathref path.de.20280 gen ason 1.0
+            - !pathref path.de.20290 a   eic  0.0
+
+points:
+    - !keyref point.de.Genshagener-Heide                    # line.de.20280
+    - !keyref point.de.Genshagener-Heide-Mitte              # line.de.20280
+    - !keyref point.de.Genshagener-Heide-Ost
+    - !keyref point.de.Diedersdorf
+    - !keyref point.de.Glasower-Damm-West
+    - !keyref point.de.Glasower-Damm-Ost
+    - !keyref point.de.Selchow-West
+    - !keyref point.de.Wassmannsdorf
+    - !keyref point.de.Berlin-Schoenefeld-Flughafen
+    - !keyref point.de.Berlin-Schoenefeld-Flughafen-LGr
+    - !keyref point.de.Gruenauer-Kreuz-Sued
+    - !keyref point.de.Gruenauer-Kreuz-Nord
+    - !keyref point.de.Berlin-Wendenheide-Abzw
+    - !keyref point.de.Berlin-Eichgestell
+
+
+---
+key: point.de.Genshagener-Heide-Ost
+type: point
+junction: True
+events:
+    -   date: !date 1951-07-08
+        status: open
+    -   date: !!null
+        category: de.Abzw
+        name: Gho
+        sources: !keyref src.dd.DR.Bln.1959
+    -   date: !!null
+        location:
+            - !keyloc line.de.20290 18,20
+        master: !keyref point.de.Grossbeeren
+        sources: !keyref src.dd.DR.Bln.1991
+    -   date: !var ds100.dr
+        de.DS100: BGHO
+        sources: !keyref src.de.TPP.2006
+    -   date: !!null
+        location: !keyloc line.de.20292 1,872
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.20290 gho right
+
+
+---
+key: point.de.Diedersdorf
+type: point
+events:
+    -   date: !date 1951-07-10
+        status: open
+        service: none
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !!null
+        location: !keyloc line.de.20290 24,15
+        category: de.Bf
+        de.Rangklasse: U
+        name: Diedersdorf
+        master: !keyref point.de.Mahlow
+        de.VBL: Ddf
+        sources: !keyref src.dd.DR.Bln.1959
+    -   date: !date c1965
+        location: !keyloc line.de.20290 24,185
+        sources: !keyref src.dd.DR.Bln.1968
+    -   date: !date c1975
+        staff: none
+        sources: !keyref src.dd.DR.Bln.1978
+    -   date: !var ds100.dr
+        de.DS100: BDDF
+        sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.20290 die right
+
+
+---
+key: point.de.Glasower-Damm-West
+type: point
+junction: True
+events:
+    -   date: !date 1961-05-25?
+        status: open
+    -   date: !!null
+        category: de.Abzw
+        name: Agdw
+        sources: !keyref src.dd.DR.Bln.1968
+    -   date: !var ds100.dr
+        name: Glasower Damm West
+        de.DS100: BAG W
+        sources: !keyref src.de.TPP.2006
+    -   date: !!null
+        location:
+            - !keyloc line.de.20290 26,732
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.20290 gdw left
+
+
+---
+key: point.de.Glasower-Damm-Ost
+type: point
+junction: True
+events:
+    -   date: !date 1951-07-08
+        status: open
+    -   date: !!null
+        category: de.Abzw
+        name: Agd
+        sources: !keyref src.dd.DR.Bln.1959
+    -   date: !date 1961-05-25?
+        name: Agdo
+        sources: !keyref src.dd.DR.Bln.1968
+    -   date: !var ds100.dr
+        name: Glasower Damm Ost
+        de.DS100: BAG O
+        sources: !keyref src.de.TPP.2006
+    -   date: !!null
+        location:
+            - !keyloc line.de.20290 27,863
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.20290 gdo right
+
+
+---
+key: point.de.Selchow-West
+type: point
+junction: True
+events:
+    -   date: !date 2011-10-30?
+        status: open
+    -   date: !!null
+        location:
+            - !keyloc line.de.20290 30,140
+        category: de.Abzw
+        name: Selchow West
+        de.DS100: BASC
+        sources: !keyref src.de.DBAG.ISR
+    
+    -   date: !!null
+        site: !noderef path.de.20290 sel right
+
+
+---
+key: point.de.Wassmannsdorf
+type: point
+events:
+    -   date: !date 1951-07-10
+        status: open
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !!null
+        location: !keyloc line.de.20290 31,241
+        category: de.Bf
+        de.Rangklasse: U
+        name: Waßmannsdorf
+        master: !keyref point.de.Berlin-Schoenefeld-Flughafen
+        de.VBL: Wa
+        sources: !keyref src.dd.DR.Bln.1959
+    -   date: !date c1965
+        master: !keyref point.de.Mahlow
+        sources: !keyref src.dd.DR.Bln.1968
+    -   date: !date 1952-05-07
+        status: closed
+        sources: !keyref src.de.Kuhlmann.2000
+
+    -   date: !!null
+        site: !noderef path.de.20290 was right
+
 
 
 ---
 key: point.de.Berlin-Schoenefeld-Flughafen
 type: point
 junction: True
-progress: stub
-events: []
+events:
+    -   date: !date 1951-07-10
+        status: open
+        service: none
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: U
+        name: Schönefeld (b Berlin)
+        de.VBL: Sfb
+        sources: !keyref src.dd.DR.Bln.1953
+    -   date: !!null
+        location: !keyloc line.de.20290 35,4
+        sources: !keyref src.dd.DR.Bln.1959
+    -   date: !date 1962-03-25
+        service: passenger
+        name: Zentralflughafen Schönefeld
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !date 1962-07-15
+        name: Zentralflughafen Berlin-Schönefeld
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !date c1965
+        de.Rangklasse: II
+        de.VBL: Zfh
+        sources: !keyref src.dd.DR.Bln.1968
+    -   date: !date 1976-06-01
+        name: Flughafen Berlin-Schönefeld
+        de.VBL: Fhs
+        sources:
+            - !keyref src.de.Kuhlmann.2000
+            - !keyref src.dd.DR.Bln.1978
+    -   date: !var ds100.dr
+        de.DS100: BFHS
+        sources: !keyref src.de.TPP.2006
+    -   date: !date c1995
+        name: Berlin-Schönefeld Flughafen
+        sources: !keyref src.de.TPP.2006
 
+    -   date: !!null
+        site: !noderef path.de.20290 son right
+
+
+---
+key: point.de.Berlin-Schoenefeld-Flughafen-LGr
+type: point
+subtype: border
+events:
+    -   date: !!null
+        name: Berlin-Schönefeld Flughafen BB/BE
+        de.DS100: BQFH
+        sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.20290 gson
+
+
+---
+key: point.de.Gruenauer-Kreuz-Sued
+type: point
+junction: True
+events:
+    -   date: !date 1951-12-02?
+        status: open
+    -   date: !!null
+        category: de.Abzw
+        name: Grks
+        sources: !keyref src.dd.DR.Bln.1959
+    -   date: !date c1990
+        name: Gks
+        sources: !keyref src.dd.DR.Bln.1991
+    -   date: !var ds100.dr
+        name: Grünauer Kreuz Süd
+        de.DS100: BGK S
+        sources: !keyref src.de.TPP.2006
+    -   date: !!null
+        location:
+            - !keyloc line.de.20290 39,522
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.20290 gks left
+
+
+---
+key: point.de.Gruenauer-Kreuz-Nord
+type: point
+junction: True
+events:
+    -   date: !date 1951-08-12?
+        status: open
+    -   date: !!null
+        category: de.Abzw
+        name: Grkn
+        sources: !keyref src.dd.DR.Bln.1959
+    -   date: !var ds100.dr
+        name: Grünauer Kreuz Nord
+        de.DS100: BGK N
+        sources: !keyref src.de.TPP.2006
+    -   date: !!null
+        location:
+            - !keyloc line.de.20290 40,747
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.20290 gks left
+
+
+---
+key: point.de.Berlin-Wendenheide-Abzw
+type: point
+junction: True
+events:
+    -   date: !!null
+        location: !keyloc line.de.20290 42,8
+        category: de.Abzw
+        name: Awdh
+        sources: !keyref src.dd.DR.Bln.1991
+    -   date: !var ds100.dr
+        de.DS100: BWDH
+        name: Berlin-Wendenheide
+        sources: !keyref src.de.TPP.2006
+    -   date: !date c2010
+        location:
+            - !keyloc line.de.20290 42,760
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.20290 wea left
 
 
 ---
@@ -45,6 +439,10 @@ events:
     -   date: !var ds100.dr
         de.DS100: BEG
         sources: !keyref src.de.TPP.2006
+    -   date: !date c2000
+        location:
+            - !keyloc line.de.20290 44,185
+        sources: !keyref src.de.DBAG.ISR
 
     -   date: !!null
         site: !noderef path.de.20290 eic left

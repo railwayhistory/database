@@ -1,0 +1,60 @@
+---
+key: line.de.20287
+type: line
+label: connection
+events:
+    -   date: !!null
+        region:
+            - !keyref org.de
+            - !keyref org.de.l.bb
+
+    -   date: !var vzg.dr
+        de.VzG: !!str 6130
+        sources: !keyref src.de.VzG
+
+    #   Eröffnung
+    #
+    -   date: !date 1958-06-01
+        status: open
+        sources: !keyref src.de.Kuhlmann.2000
+
+    #   Eigenschaften
+    #
+    -   date: !!null
+        category: de.Hauptbahn
+        tracks: 1
+        gauge: 1435
+        sources: !keyref src.dd.DR.Bln.1959
+    -   date: !date 1982-05-22
+        electrified:
+            overhead: !var el.de
+        sources: !keyref src.de.Kuhlmann.2000
+
+    #   Eigentümer und Betriebsführer
+    #
+    -   date: !!null
+        owner: !keyref org.dd
+        operator: !keyref org.dd.DR
+    -   date: !date 1990-10-03
+        owner: !keyref org.de
+
+    -   date: !var org.de.DBAG.start
+        owner: !keyref org.de.e.DBAG
+        operator: !keyref org.de.e.DBAG
+    -   date: !var org.de.DBNetz.start
+        owner: !keyref org.de.e.DBNetz
+        operator: !keyref org.de.e.DBNetz
+        
+    #   Verlauf
+    #
+    -   date: !!null
+        course:
+            - !pathref path.de.20280 ghw  aghn -0.5
+            - !pathref path.de.20287 a    f     0
+            - !pathref path.de.20286 fghw ghn  -1
+
+points:
+    - !keyref point.de.Genshagener-Heide-West               # line.de.20280
+    - !keyref point.de.Genshagener-Heide                    # line.de.20280
+    - !keyref point.de.Genshagener-Heide-Nord               # line.de.20286
+    
