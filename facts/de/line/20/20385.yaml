@@ -1,0 +1,93 @@
+---
+key: line.de.20385
+type: line
+events:
+    -   date: !!null
+        region:
+            - !keyref org.de
+            - !keyref org.de.l.be
+
+    -   date: !var vzg.dr
+        de.VzG: !!str 6070
+        sources: !keyref src.de.VzG
+    
+    #   Eröffnung
+    #
+    -   date: !date 1950
+        end: !keyref point.de.Biesdorfer-Kreuz-Sued-West
+        status: open
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !date 1975-12?
+        start: !keyref point.de.Biesdorfer-Kreuz-Sued-West
+        status: open
+
+    #   Eigenschaften
+    #
+    -   date: !!null
+        category: de.Hauptbahn
+        tracks: 1
+        gauge: 1435
+        sources: !keyref src.dd.DR.Bln.1959
+    -   date: !date 1987-05-31
+        electrified:
+            overhead: !var el.de
+        sources: !keyref src.de.Kuhlmann.2000
+
+    #   Eigentümer und Betriebsführer
+    #
+    -   date: !!null
+        owner: !keyref org.dd
+        operator: !keyref org.dd.DR
+    -   date: !date 1990-10-03
+        owner: !keyref org.de
+
+    -   date: !var org.de.DBAG.start
+        owner: !keyref org.de.e.DBAG
+        operator: !keyref org.de.e.DBAG
+    -   date: !var org.de.DBNetz.start
+        owner: !keyref org.de.e.DBNetz
+        operator: !keyref org.de.e.DBNetz
+
+    #   Verlauf
+    #
+    -   date: !!null
+        course:
+            - !pathref path.de.20380 tra  abik -1.0
+            - !pathref path.de.20385 a    f     0.0
+            - !pathref path.de.20250 frum alic -1.0
+            - !pathref path.de.20250 affo abkn  0.0
+            - !pathref path.de.20410 fbsw bkn  -1.5
+
+points:
+    - !keyref point.de.Berlin-Treskowallee                  # line.de.20385
+    - !keyref point.de.Biesdorfer-Kreuz-Sued-West
+    - !keyref point.de.Biesdorfer-Kreuz-Nord                # line.de.20410
+
+
+---
+key: point.de.Biesdorfer-Kreuz-Sued-West
+type: point
+junction: True
+events:
+    -   date: !!null
+        category: de.Glgr
+        name: Berlin Wuhlheide Rbf B1
+        sources: !keyref src.dd.DR.Bln.1959
+    -   date: !!null
+        location: !keyloc line.de.20250 31,184
+        sources: !keyref src.dd.DR.Bln.1968
+    -   date: !date c1975
+        category: de.Abzw
+        name: Biesdorfer Kreuz Südwest
+        de.VBL: Bksw
+    -   date: !var ds100.dr
+        name: Biesdorfer Kreuz Süd-West
+        de.DS100: BBIKV
+        sources: !keyref src.de.TPP.2006
+    -   date: !!null
+        location:
+            - !keyloc line.de.20385 9,240
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.20250 bsw left
