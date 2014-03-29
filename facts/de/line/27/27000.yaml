@@ -149,11 +149,13 @@ events:
     #
     -   date: !!null
         course:
-            - !pathref path.de.20000 ost  a
-            - !pathref path.de.27000 a    gfra
+            - !pathref path.de.20000 ost  a     0.0
+            - !pathref path.de.27000 a    gfra  0.0
 
 points:
     - !keyref point.de.Berlin-Ostbf                         # line.de.20000
+    - !keyref point.de.Berlin-Ostgbf
+    - !keyref point.de.Berlin-Ostgbf-B7
     - !keyref point.de.Berlin-Rummelsburg-S-Bahn            # line.de.20810
     - !keyref point.de.Berlin-Rummelsburg-Rgbv
     - !keyref point.de.Berlin-Rummelsburg
@@ -214,6 +216,76 @@ points:
 
 
 ---
+key: point.de.Berlin-Ostgbf
+type: point
+junction: True
+events:
+    -   date: !date 1842-08-23
+        status: open
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !!null
+        location:
+            - !keyloc line.de.20390 1,13
+            - !keyloc line.de.27000 1,13
+        category: de.Bf
+        de.Rangklasse: I
+        name: Berlin Schles Gbf
+        sources: !keyref src.de.DRG.Bln.1927
+    -   date: !!null
+        de.lknr: 03 088
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        service: freight
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 03 284
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        de.VBL: Schg
+        sources: !keyref src.de.DRG.Bln.1946
+    -   date: !date 1950-12-01
+        name: Berlin Ostgüterbahnhof
+        de.VBL: Osg
+        sources:
+            - !keyref src.de.Kuhlmann.2000
+            - !keyref src.dd.DR.Bln.1959
+    -   date: !var ds100.dr
+        de.DS100: BOSG
+    -   date: !date c2000
+        category: de.Bft
+        master: !keyref point.de.Berlin-Ostbf
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.27000 osg right
+
+
+---
+key: point.de.Berlin-Ostgbf-B7
+type: point
+events:
+    -   date: !!null
+        location:
+            - !keyloc line.de.20390 1,79
+            - !keyloc line.de.27000 1,79
+        category: de.Glgr
+        name: Berlin Schles Gbf Schga
+        sources: !keyref src.de.DRG.Bln.1943
+    -   date: !date c1950
+        name: Berlin Ostgbf B7
+        sources: !keyref src.dd.DR.Bln.1959
+    -   date: !date c1995
+        name: Berlin Ostgüterbahnhof (B7)
+        de.DS100: BOSGA
+        sources: !keyref src.de.TPP.2006
+    -   date: !date c1995
+        category: de.Bft
+
+    -   date: !!null
+        site: !noderef path.de.27000 oga right
+
+
+---
 key: point.de.Berlin-Rummelsburg-Rgbv
 type: point
 junction: True
@@ -221,6 +293,7 @@ events:
     -   date: !!null
         location:
             - !keyloc line.de.20380 3,92
+            - !keyloc line.de.20390 3,92
             - !keyloc line.de.27000 3,92
         category: de.Abzw
         name: Vnk
