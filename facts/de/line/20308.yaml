@@ -1,0 +1,71 @@
+---
+key: line.de.20308
+type: line
+label: connection
+events:
+    -   date: !!null
+        region: !keyref org.de
+    -   date: !!null
+        end: !keyref point.de.Bohnsdorf-Nord-LGr
+        region: !keyref org.de.l.be
+    -   date: !!null
+        start: !keyref point.de.Bohnsdorf-Nord-LGr
+        region: !keyref org.de.l.bb
+
+    -   date: !!null
+        de.VzG: !!str 6519
+        sources: !keyref src.de.DBAG.ISR
+
+    #   Eröffnung
+    #
+    -   date: !date 2012-06-02?
+        status: open
+        service: none
+        sources: !keyref src.de.WP.Bahnhof-Flughafen-Berlin-Brandenburg
+
+    #   Eigenschaften
+    #
+    -   date: !!null
+        tracks: 1
+        gauge: 1435
+        electrified:
+            overhead: !var el.de
+        sources: !keyref src.de.DBAG.ISR
+    -   date: !!null
+        category: de.Hauptbahn
+        sources: !keyref src.de.SuW.2011
+
+    #   Eigentümer und Betriebsführer
+    #
+    -   date: !!null
+        owner: !keyref org.de.e.DBNetz
+        operator: !keyref org.de.e.DBNetz
+
+    #   Verlauf
+    #
+    -   date: !!null
+        course:
+            - !pathref path.de.28000 gru  aflu 1.5
+            - !pathref path.de.20308 a    f    0.
+            - !pathref path.de.20300 agru bow  0.5
+
+points:
+    - !keyref point.de.Berlin-Gruenau                       # line.de.28000
+    - !keyref point.de.Bohnsdorf-Nord-LGr
+    - !keyref point.de.Bohnsdorf-West                       # line.de.20300
+
+
+---
+key: point.de.Bohnsdorf-Nord-LGr
+type: point
+subtype: border
+events:
+    -   date: !!null
+        name: Berlin-Grünau BE/BB 6519
+        de.DS100: BQGAF
+        sources: !keyref src.de.TPP.2012
+
+    -   date: !!null
+        site: !noderef path.de.20308 gboh
+
+
