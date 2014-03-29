@@ -1,6 +1,7 @@
 ---
-key: line.de.20310
+key: line.de.20316
 type: line
+label: connection
 events:
     -   date: !!null
         region:
@@ -8,13 +9,15 @@ events:
             - !keyref org.de.l.bb
 
     -   date: !var vzg.dr
-        de.VzG: !!str 6137
+        de.VzG: !!str 6138
         sources: !keyref src.de.VzG
 
     #   Eröffnung
     #
-    -   date: !date 1983-05-17
+    -   date: !date 1951-07-08
         status: open
+        note: >
+            „offizielle Eröffnung am 10.07.1951”
         sources: !keyref src.de.Kuhlmann.2000
     
     #   Eigenschaften
@@ -23,21 +26,14 @@ events:
         category: de.Hauptbahn
         tracks: 1
         gauge: 1435
-        sources:
-            - !keyref src.dd.DR.Bln.1983
-            - !keyref src.de.Kuhlmann.2000
+        sources: !keyref src.dd.DR.Bln.1953
+    -   date: !date c1980
+        tracks: 2
+        sources: !keyref src.dd.DR.Bln.1983
     -   date: !date 1983-05-28
         electrified:
             overhead: !var el.de
         sources: !keyref src.de.Kuhlmann.2000
-    -   date: !date 1986-09-26
-        tracks: 2
-        sources: !keyref src.de.Kuhlmann.2000
-
-    #   Stilllegung
-    #
-    -   date: !date c2010
-        status: removed
 
     #   Eigentümer und Betriebsführer
     #
@@ -58,9 +54,12 @@ events:
     #
     -   date: !!null
         course:
-            - !pathref path.de.20290 gdo son 2.
+            - !pathref path.de.20290 gdo  fgds -2.0
+            - !pathref path.de.20316 a    f     0.0
+            - !pathref path.de.29000 fgdo agdx -2.0
+            - !pathref path.de.29000 fgdx gds   0.0
 
 points:
     - !keyref point.de.Glasower-Damm-Ost                    # line.de.20290
-    - !keyref point.de.Berlin-Schoenefeld-Flughafen         # line.de.20290
-    
+    - !keyref point.de.Glasower-Damm-Sued                   # line.de.29000
+
