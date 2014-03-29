@@ -1,4 +1,67 @@
+---
+key: line.de.20320
+type: line
+events:
+    -   date: !!null
+        region:
+            - !keyref org.de
+            - !keyref org.de.l.be
 
+    -   date: !var vzg.dr
+        de.VzG: !!str 6144
+        sources: !keyref src.de.VzG
+
+    #   Eröffnung
+    #
+    -   date: !date 1962-10-01
+        status: open
+        sources: !keyref src.de.Kuhlmann.2000
+    
+    #   Eigenschaften
+    #
+    -   date: !!null
+        category: de.Hauptbahn
+        tracks: 1
+        gauge: 1435
+        sources: !keyref src.dd.DR.Bln.1968
+    -   date: !date 1985-06-01?
+        electrified:
+            overhead: !var el.de
+        sources: !keyref src.dd.DR.Bln.1991
+    -   date: !date c2010
+        electrified:
+            overhead: !var el.none
+        sources: !keyref src.de.SuW.2011
+
+    #   Eigentümer und Betriebsführer
+    #
+    -   date: !!null
+        owner: !keyref org.dd
+        operator: !keyref org.dd.DR
+    -   date: !date 1990-10-03
+        owner: !keyref org.de
+
+    -   date: !var org.de.DBAG.start
+        owner: !keyref org.de.e.DBAG
+        operator: !keyref org.de.e.DBAG
+    -   date: !var org.de.DBNetz.start
+        owner: !keyref org.de.e.DBNetz
+        operator: !keyref org.de.e.DBNetz
+
+    #   Verlauf
+    #
+    -   date: !!null
+        course:
+            - !pathref path.de.28000 sad  awen -3.5
+            - !pathref path.de.20320 a    fgrk  0.0
+            - !pathref path.de.20290 fson awen -1.5
+            - !pathref path.de.20320 awea f     0.0
+            - !pathref path.de.20290 fwen wea  -1.5
+
+points:
+    - !keyref point.de.Berlin-Schoeneweide-Sad              # line.de.28000
+    - !keyref point.de.Berlin-Wendenheide
+    - !keyref point.de.Berlin-Wendenheide-Abzw              # line.de.20290
 
 
 ---
@@ -29,6 +92,7 @@ events:
         service: freight
         sources: !keyref src.de.Kuhlmann.2000
     -   date: !date 1962-10-01
+        location: !keyloc line.de.20320 2,55
         de.Rangklasse: U
         master: !keyref point.de.Berlin-Schoeneweide
         de.VBL: Wdh
@@ -38,4 +102,4 @@ events:
         sources: !keyref src.de.Kuhlmann.2000
 
     -   date: !!null
-        site: !noderef path.de.20310 wen left
+        site: !noderef path.de.20320 wen left
