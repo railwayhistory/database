@@ -1,5 +1,5 @@
 ---
-key: line.de.20344
+key: line.de.20378
 type: line
 label: connection
 events:
@@ -9,15 +9,15 @@ events:
             - !keyref org.de.l.be
 
     -   date: !var vzg.dr
-        de.VzG: !!str 6146
+        de.VzG: !!str 6148
         sources: !keyref src.de.VzG
 
     #   Eröffnung
     #
-    -   date: !date 1951-12-02
+    -   date: !date 1940-12-16
         status: open
         note: >
-            „offizielle Eröffnung am 10.12.1951“
+            „offiziell erst am 01.01.1941 eröffnet”
         sources: !keyref src.de.Kuhlmann.2000
 
     #   Eigenschaften
@@ -26,16 +26,24 @@ events:
         category: de.Hauptbahn
         tracks: 1
         gauge: 1435
-        sources: !keyref src.dd.DR.Bln.1953
-    -   date: !date 1985-06-01
+        service: freight
+        sources: !keyref src.de.DRG.Bln.1943
+    -   date: !date 1965
+        service: full
+        sources: !keyref src.dd.DR.Bln.1968
+    -   date: !date 1985-12-14
         electrified:
             overhead: !var el.de
         sources: !keyref src.de.Kuhlmann.2000
-        
+
     #   Eigentümer und Betriebsführer
     #
     -   date: !!null
+        owner: !keyref org.de
+        operator: !keyref org.de.e.DRG
+    -   date: !date 1949-10-07
         owner: !keyref org.dd
+    -   date: !var dd.DR.start
         operator: !keyref org.dd.DR
     -   date: !date 1990-10-03
         owner: !keyref org.de
@@ -51,11 +59,12 @@ events:
     #
     -   date: !!null
         course:
-            - !pathref path.de.28000   gru  fgks -1.5
-            - !pathref path.de.20344   a    f     0.0
-            - !pathref path.de.20290   agru gks  -0.5
+            - !pathref path.de.20410 egb  asta 0.5
+            - !pathref path.de.20378 a    f    0.0
+            - !pathref path.de.27000 feic sst  1.5
 
 points:
-    - !keyref point.de.Berlin-Gruenau                       # line.de.28000
-    - !keyref point.de.Gruenauer-Kreuz-Sued                 # line.de.20290
+    - !keyref point.de.Berlin-Eichgestell-Egb               # line.de.20410
+    - !keyref point.de.Berlin-Stadtforst                    # line.de.27000
+
 
