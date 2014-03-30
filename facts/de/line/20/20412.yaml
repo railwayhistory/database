@@ -1,0 +1,60 @@
+---
+key: line.de.20412
+type: line
+label: connection
+events:
+    -   date: !!null    
+        region:
+            - !keyref org.de
+            - !keyref org.de.l.be
+
+    -   date: !var vzg.dr
+        de.VzG: !!str 6076
+        sources: !keyref src.de.VzG
+
+    #   Eröffnung
+    #
+    -   date: !date 1980-03-21
+        status: open
+        note: bereits in src.dd.DR.Bln.1978 verzeichnet
+        sources: !keyref src.de.Kuhlmann.2000
+
+    #   Eigenschaften
+    #
+    -   date: !!null
+        category: de.Hauptbahn
+        tracks: 1
+        gauge: 1435
+        sources: !keyref src.dd.DR.Bln.1978
+    -   date: !date 1985-06-01
+        electrified:
+            overhead: !var el.de
+        sources: !keyref src.de.Kuhlmann.2000
+
+    #   Eigentümer und Betriebsführer
+    #
+    -   date: !!null
+        owner: !keyref org.dd
+        operator: !keyref org.dd.DR
+    -   date: !date 1990-10-03
+        owner: !keyref org.de
+
+    -   date: !var org.de.DBAG.start
+        owner: !keyref org.de.e.DBAG
+        operator: !keyref org.de.e.DBAG
+    -   date: !var org.de.DBNetz.start
+        owner: !keyref org.de.e.DBNetz
+        operator: !keyref org.de.e.DBNetz
+        
+    #   Verlauf
+    #
+    -   date: !!null
+        course:
+            - !pathref path.de.20410 bks  alic  0.5
+            - !pathref path.de.20412 a    f     0.0
+            - !pathref path.de.27300 awuh bso  -1.0
+
+points:
+    - !keyref point.de.Biesdorfer-Kreuz-Sued                # line.de.20410
+    - !keyref point.de.Biesdorfer-Kreuz-Sued-Ost            # line.de.27300
+

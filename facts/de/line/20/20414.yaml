@@ -1,0 +1,57 @@
+---
+key: line.de.20414
+type: line
+label: connection
+events:
+    -   date: !!null    
+        region:
+            - !keyref org.de
+            - !keyref org.de.l.be
+
+    -   date: !var vzg.dr
+        de.VzG: !!str 6075
+        sources: !keyref src.de.VzG
+
+    #   Eröffnung
+    #
+    -   date: !date 1978-04-01
+        status: open
+        sources: !keyref src.de.Kuhlmann.2000
+
+    #   Eigenschaften
+    #
+    -   date: !!null
+        category: de.Hauptbahn
+        tracks: 1
+        gauge: 1435
+        sources: !keyref src.dd.DR.Bln.1978
+
+    #   Eigentümer und Betriebsführer
+    #
+    -   date: !!null
+        owner: !keyref org.dd
+        operator: !keyref org.dd.DR
+    -   date: !date 1990-10-03
+        owner: !keyref org.de
+
+    -   date: !var org.de.DBAG.start
+        owner: !keyref org.de.e.DBAG
+        operator: !keyref org.de.e.DBAG
+    -   date: !var org.de.DBNetz.start
+        owner: !keyref org.de.e.DBNetz
+        operator: !keyref org.de.e.DBNetz
+        
+    #   Verlauf
+    #
+    -   date: !!null
+        course:
+            - !pathref path.de.20410 bkm  abko  0.5
+            - !pathref path.de.20414 a    f     0.0
+            - !pathref path.de.20415 fbkm f     1.0
+            - !pathref path.de.27300 fbkn bio   0.5
+
+points:
+    - !keyref point.de.Biesdorfer-Kreuz-Mitte               # line.de.20410
+    - !keyref point.de.Biesdorfer-Kreuz-Ost                 # line.de.27300
+
+
