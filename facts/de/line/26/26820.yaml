@@ -12,6 +12,11 @@ events:
         region: !keyref org.de.l.bb
 
     -   date: !var vzg.dr
+        start: !keyref point.de.Biesdorfer-Kreuz-West
+        end: !keyref point.de.Berlin-Aff
+        de.VzG: !!str 6531
+        sources: !keyref src.de.VzG
+    -   date: !var vzg.dr
         start: !keyref point.de.Ahrensfelde
         de.VzG: !!str 6528
         sources: !keyref src.de.VzG
@@ -40,8 +45,12 @@ events:
     # Verlegung Biesdorfer Kreuz
     #
     -   date: !date 1971-08-31?
+        end: !keyref point.de.Biesdorfer-Kreuz-West
+        status: removed
+    -   date: !date 1971-08-31?
+        start: !keyref point.de.Berlin-Aff
         end: !keyref point.de.Berlin-Marzahn
-        status: closed
+        status: removed
     -   date: !date c1980
         start: !keyref point.de.Berlin-Marzahn
         end: !keyref point.de.Ahrensfelde
@@ -67,6 +76,16 @@ events:
         end: !keyref point.de.Tiefensee
         service: freight
         sources: !keyref src.de.WP.Wriezener-Bahn
+
+    -   date: !date c2005
+        start: !keyref point.de.Biesdorfer-Kreuz-West
+        end: !keyref point.de.Berlin-Magerviehhof
+        status: removed
+        sources: !keyref src.de.SuW.2005
+    -   date: !date c2005
+        start: !keyref point.de.Berlin-Magerviehhof
+        end: !keyref point.de.Berlin-Aff
+        category: de.Anschl
 
     # Eigentümer und Betriebsführer
     #
@@ -111,8 +130,10 @@ events:
 
 points:
     - !keyref point.de.Berlin-Lichtenberg                   # line.de.27300
+    - !keyref point.de.Biesdorfer-Kreuz-West                # line.de.27300
     - !keyref point.de.Berlin-Magerviehhof
     - !keyref point.de.Berlin-Aff
+    - !keyref point.de.Berlin-Iab
     - !keyref point.de.Berlin-Marzahn
     - !keyref point.de.Ahrensfelde
     - !keyref point.de.Ahrensfelde-LGr
@@ -180,12 +201,10 @@ key: point.de.Berlin-Aff
 type: point
 junction: True
 events:
-    -   date: !!null
-        location: !keyloc line.de.26820 8,45
-        category: de.Abzw
-        name: Iab
-        sources: !keyref src.de.DRG.Bln.1932
     -   date: !date c1965
+        status: open
+        category: de.Abzw
+        location: !keyloc line.de.26820 7,795
         name: Aff
         sources: !keyref src.dd.DR.Bln.1968
     -   date: !date c1970
@@ -194,6 +213,24 @@ events:
 
     -   date: !!null
         site: !noderef path.de.26820 aff
+
+
+---
+key: point.de.Berlin-Iab
+type: point
+junction: True
+events:
+    -   date: !!null
+        location: !keyloc line.de.26820 8,45
+        category: de.Abzw
+        name: Iab
+        sources: !keyref src.de.DRG.Bln.1932
+    -   date: !date c1965
+        status: closed
+        sources: !keyref src.dd.DR.Bln.1973
+
+    -   date: !!null
+        site: !noderef path.de.26820 iab
 
 # point.de.Berlin-Poelchaustrasse poe
 
