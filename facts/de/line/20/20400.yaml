@@ -1,0 +1,133 @@
+---
+key: line.de.20400
+type: line
+label: freight
+events:
+    -   date: !!null
+        region:
+            - !keyref org.de
+            - !keyref org.de.l.be
+
+    -   date: !var vzg.dr
+        de.VzG: !!str 6140
+        sources: !keyref src.de.VzG
+
+    #   Genehmigung und Eröffnung
+    #
+    -   date: !date 1873-06-11
+        concession:
+            by: !keyref org.de.l.pre
+            document: !keyref src.de.l.pre.1873.22.305
+        sources: !keyref src.de.DRG.1935
+    -   date: !date 1879-09-01
+        status: open
+        service: freight
+        sources: !keyref src.de.DRG.1935
+
+    #   Eigenschaften
+    #
+    -   date: !!null
+        category: de.Hauptbahn
+        tracks: 2
+        gauge: 1435
+        sources: !keyref src.de.DRG.Bln.1927
+    -   date: !date 1985-07-04
+        electrified:
+            overhead: !var el.de
+        sources: !keyref src.de.Kuhlmann.2000
+    
+    #   Eigentümer und Betriebsführer
+    #
+    -   date: !!null
+        owner: !keyref org.de.l.pre
+        operator: !keyref org.de.e.KPEV.Bln
+
+    -   date: !date 1920-04-01
+        owner: !keyref org.de
+        operator: !keyref org.de.r.RVM.PH
+    -   date: !date 1924-02-12
+        operator: !keyref org.de.e.DREb
+    -   date: !date 1924-08-30
+        operator: !keyref org.de.e.DRG
+
+    -   date: !date 1949-10-07
+        owner: !keyref org.dd
+    -   date: !var org.de.DR.start
+        operator: !keyref org.dd.DR
+    -   date: !date 1990-10-03
+        owner: !keyref org.de
+
+    -   date: !var org.de.DBAG.start
+        owner: !keyref org.de.e.DBAG
+        operator: !keyref org.de.e.DBAG
+    -   date: !var org.de.DBNetz.start
+        owner: !keyref org.de.e.DBNetz
+        operator: !keyref org.de.e.DBNetz
+
+    #   Verlauf
+    #
+    -   date: !!null
+        course:
+            - !pathref path.de.20900 fra  arum -2.0
+            - !pathref path.de.20400 a    f     0.0
+            - !pathref path.de.27000 ffra rum   3.0
+
+points:
+    - !keyref point.de.Berlin-Frankfurter-Allee             # line.de.20050
+    - !keyref point.de.Berlin-Lichtenberg-B1
+    - !keyref point.de.Berlin-Rummelsburg-Rgbw
+    - !keyref point.de.Berlin-Rummelsburg                   # line.de.27000
+
+
+---
+key: point.de.Berlin-Lichtenberg-B1
+type: point
+junction: True
+events:
+    -   date: !!null
+        location:
+            - !keyloc line.de.20400 0,66
+        category: de.Abzw
+        name: Gab
+        sources: !keyref src.de.DRG.Bln.1927
+    -   date: !date c1965
+        location:
+            - !keyloc line.de.20400 0,580
+        category: de.Glgr
+        name: Berlin-Lichtenberg B1
+        sources: !keyref src.dd.DR.Bln.1968
+    -   date: !var ds100.dr
+        de.DS100: BLO G
+        sources: !keyref src.de.TPP.2006
+    -   date: !date c1995
+        category: de.Bft
+        sources: !keyref src.de.SuW.2005
+
+    -   date: !!null
+        site:
+            - !noderef path.de.20400 gab right
+            - !noderef path.de.20405 gab left
+
+
+---
+key: point.de.Berlin-Rummelsburg-Rgbw
+type: point
+junction: True
+events:
+    -   date: !!null
+        location: !keyloc line.de.20390 3,9
+        category: de.Glgr
+        name: Rgw
+        sources: !keyref src.de.DRG.Bln.1932
+    -   date: !date c1965
+        location: !keyloc line.de.20390 3,835
+    -   date: !var ds100.dr
+        category: de.Bft
+        name: Berlin-Rummelsburg (Rgbw)
+        de.DS100: BRGBW
+        sources:
+            - !keyref src.de.TPP.2006
+            - !keyref src.de.SuW.2005
+
+    -   date: !!null
+        site: !noderef path.de.27000 rgw right
