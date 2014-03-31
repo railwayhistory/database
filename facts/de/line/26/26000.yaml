@@ -171,9 +171,9 @@ events:
     #
     -   date: !!null
         course:
-            - !pathref path.de.26000.nob nob  f
-            - !pathref path.de.20900     fnob sga
-            - !pathref path.de.26000     a    gtan
+            - !pathref path.de.26000.nob nob  f     0.0
+            - !pathref path.de.20900     fnob sga  -3.0
+            - !pathref path.de.26000     a    gtan  0.0
 
 points:
     - !keyref point.de.Berlin-Nordbf
@@ -330,6 +330,11 @@ subtype: border
 events:
     -   date: !!null
         name: Bornholmer Straße Grenze
+    -   date: !!null
+        location:
+            - !keyloc line.de.20502 2,84
+            - !keyloc line.de.26000 2,7
+        sources: !keyref src.dd.DR.Bln.1953
 
     -   date: !!null
         site: !noderef path.de.26000 gbor
@@ -350,6 +355,12 @@ events:
         category: de.Bft
         name: Berlin Bornholmer Straße Bft
         sources: !keyref src.de.TPP.2006
+    -   date: !!null
+        location:
+            - !keyloc line.de.20500 2,564
+            - !keyloc line.de.24000 1,709
+            - !keyloc line.de.26000 3,290
+        sources: !keyref src.de.DBAG.ISR
 
     -   date: !!null
         site: !noderef path.de.26000 bor
@@ -360,7 +371,15 @@ key: point.de.Berlin-Pankow-Pkrs
 type: point
 events:
     -   date: !!null
+        location: !keyloc line.de.26000 4,64
+        category: de.Glgr
+        name: Pks
+        master: !keyref point.de.Berlin-Pankow-Rbf
+        sources: !keyref src.de.DRG.Bln.1932
+    -   date: !date c1960
         location: !keyloc line.de.26000 4,600
+        sources: !keyref src.dd.DR.Bln.Bpl.1967
+    -   date: !var ds100.dr
         category: de.Bft
         name: Berlin-Pankow (Pkrs)
         de.DS100: BPKRS
@@ -383,6 +402,7 @@ events:
         sources: !keyref src.de.Kuhlmann.2000
     -   date: !!null
         location:
+            - !keyloc line.de.20500 0,00
             - !keyloc line.de.26000 5,60
         category: de.Bf
         de.Rangklasse: I
