@@ -1,0 +1,48 @@
+---
+key: line.de.1251
+type: line
+label: freight
+events:
+    -   date: !!null
+        region:
+            - !keyref org.de
+            - !keyref org.de.l.hh
+    -   date: !!null
+        category: de.Bfgleis
+    -   date: !!null
+        de.VzG: !!str 1251
+        sources: !keyref src.de.VzG
+
+    -   date: !date c1975
+        status: open
+        service: freight
+
+    -   date: !!null
+        owner: !keyref org.de.l.hh
+        operator: !keyref org.de.e.HHA
+
+    -   date: !!null
+        course:
+            - !pathref path.de.1253 waw ffin 0.0
+            - !pathref path.de.1251 a   f    0.0
+
+points:
+    - !keyref point.de.Hamburg-Waltershof-W318          # line.de.1253
+    - !keyref point.de.Hamburg-Finkenwerder
+
+
+---
+key: point.de.Hamburg-Finkenwerder
+type: point
+events:
+    -   date: !!null
+        category: de.Bf
+        location:
+            - !keyloc line.de.1251 4,2
+        name: Hamburg-Finkenwerder
+        de.DS100: AFKW
+        sources: !keyref src.de.SuW.2005
+
+    -   date: !!null
+        site: !noderef path.de.1251 fin
+

@@ -1,0 +1,86 @@
+---
+key: line.de.1239
+type: line
+events:
+    -   date: !!null
+        region:
+            - !keyref org.de
+            - !keyref org.de.l.hh
+
+    -   date: !!null
+        de.VzG: !!str 1239
+        sources: !keyref src.de.VzG
+
+    #   Genehmigung und Eröffnung
+    #
+    -   date: !date 2001-04-11
+        status: construction
+        sources: !keyref src.de.WP.Flughafen-S-Bahn-Hamburg
+    -   date: !date 2008-12-12
+        status: open
+        sources: !keyref src.de.WP.Flughafen-S-Bahn-Hamburg
+
+    #   Eigenschaften
+    #
+    -   date: !!null
+        category: de.Hauptbahn
+        electrified:
+            rail: !voltage 1200V DC
+        tracks: 2
+
+    #   Eigentümer und Betreiber
+    #
+    -   date: !!null
+        owner: !keyref org.de.e.DBNetz
+        operator: !keyref org.de.e.DBNetz
+
+    #   Verlauf
+    #
+    -   date: !!null
+        course:
+            - !pathref path.de.1241 ohl aair
+            - !pathref path.de.1239 a f
+
+points:
+    - !keyref point.de.Hamburg-Ohlsdorf-S-Bahn          # line.de.1241
+    - !keyref point.de.S-Bahn-Tunnel-Hamburg-Airport.A
+    - !keyref point.de.Hamburg-Airport
+
+
+---
+key: point.de.S-Bahn-Tunnel-Hamburg-Airport.A
+type: point
+subtype: portal
+structure: !keyref struct.de.S-Bahn-Tunnel-Hamburg-Airport
+events:
+    -   date: !!null
+        site: !noderef path.de.1241 taia
+
+
+---
+key: struct.de.S-Bahn-Tunnel-Hamburg-Airport
+type: structure
+subtype: tunnel
+events:
+    -   date: !!null
+        name: S-Bahn-Tunnel Hamburg-Airport
+    -   date: !!null
+        length: 1748
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Hamburg-Airport
+type: point
+events:
+    -   date: !!null
+        name: Hamburg Airport
+        de.DS100: AAI
+        sources: !keyref src.de.TPP.2010
+    -   date: !!null
+        location: !keyloc line.de.1239 14,2
+        sources: !keyref src.de.WP.Flughafen-S-Bahn-Hamburg
+
+    -   date: !!null
+        site: !noderef path.de.1239 air
+

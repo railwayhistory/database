@@ -1,0 +1,292 @@
+---
+key: line.de.1270
+type: line
+label: de.S-Bahn
+events:
+    -   date: !!null
+        region:
+            - !keyref org.de
+            - !keyref org.de.l.hh
+
+    -   date: !!null
+        de.VzG: !!str 1270
+        sources: !keyref src.de.VzG
+
+    #   Eröffnung
+    #
+    -   date: !date 1967-10
+        status: construction
+        sources: !keyref src.de.web.Matthaei
+    -   date: !date 1975-05-30
+        end: !keyref point.de.Hamburg-Landungsbruecken
+        service: passenger
+        status: open
+        sources: !keyref src.de.web.Matthaei
+    -   date: !date 1979-08-30
+        start: !keyref point.de.Hamburg-Landungsbruecken
+        service: passenger
+        status: open
+        sources: !keyref src.de.web.Matthaei
+
+    #   Eigenschaften
+    #
+    -   date: !!null
+        category: de.Hauptbahn
+        tracks: 2
+        gauge: 1435
+        electrified:
+            rail: !var el.de.hmb
+        sources: !keyref src.de.SuW.2005
+
+    #   Eigentümer und Betriebsführer
+    #
+    -   date: !!null
+        owner: !keyref org.de
+        operator: !keyref org.de.e.DB
+    -   date: !var org.de.DBAG.start
+        owner: !keyref org.de.e.DBAG
+        operator: !keyref org.de.e.DBAG
+    -   date: !var org.de.DBNetz.start
+        owner: !keyref org.de.e.DBNetz
+        operator: !keyref org.de.e.DBNetz
+
+    #   Verlauf
+    #
+    -   date: !!null
+        course:
+            - !pathref path.de.21000 ham  alan 4.0
+            - !pathref path.de.1270 tcta f    0.0
+            - !pathref path.de.1225 fals dit  0.0
+
+points:
+    - !keyref point.de.Hamburg-Hbf-S-Bahn
+    - !keyref point.de.S-Bahn-Tunnel-Hamburg-City.A
+    - !keyref point.de.Hamburg-Jungfernstieg
+    - !keyref point.de.Hamburg-Stadthausbruecke
+    - !keyref point.de.Hamburg-Landungsbruecken
+    - !keyref point.de.Hamburg-Reeperbahn
+    - !keyref point.de.Hamburg-Koenigstrasse
+    - !keyref point.de.Hamburg-Altona-S-Bahn
+    - !keyref point.de.S-Bahn-Tunnel-Hamburg-City.F
+    - !keyref point.de.Hamburg-Diebsteich                   # line.de.1225
+
+
+---
+key: point.de.Hamburg-Hbf-S-Bahn
+type: point
+junction: True
+events:
+    -   date: !date 1960
+        status: open
+        service: passenger
+        split_from: !keyref point.de.Hamburg-Hbf
+    -   date: !!null
+        category: de.Bf
+        name: Hamburg (S-Bahn)
+        de.DS100: AHHS
+        de.dstnr: !!str 010215
+        sources: !keyref src.de.DS100.1984
+    -   date: !date c2000
+        category: de.Bft
+        name: Hamburg Hbf (S-Bahn)
+        de.DS100: AHS
+        sources: !keyref src.de.SuW.2005
+    -   date: !!null
+        location:
+            -   !keyloc line.de.1270   0,000
+            -   !keyloc line.de.1240 286,672
+            -   !keyloc line.de.1271   0,000
+            -   !keyloc line.de.1244   0,000
+        sources: !keyref src.de.VzG
+
+    -   date: !!null
+        site: !noderef path.de.21000 ham
+
+
+---
+key: point.de.S-Bahn-Tunnel-Hamburg-City.A
+type: point
+subtype: portal
+structure: !keyref struct.de.S-Bahn-Tunnel-Hamburg-City
+events:
+    -   date: !!null
+        site: !noderef path.de.1270 tcta
+
+
+---
+key: struct.de.S-Bahn-Tunnel-Hamburg-City
+type: structure
+subtype: tunnel
+events:
+    -   date: !!null
+        length: 5757
+        name: S-Bahn-Tunnel Hamburg-City
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Hamburg-Jungfernstieg
+type: point
+events:
+    -   date: !date 1975-05-30
+        status: open
+    -   date: !!null
+        category: de.Hp
+        name: Jungfernstieg
+        de.DS100: AJUS
+        de.dstnr: !!str 010496
+        sources: !keyref src.de.DS100.1984
+    -   date: !!null
+        location: !keyloc line.de.1270 1,3
+        sources: !keyref src.de.SuW.2005
+    -   date: !date c2000
+        name: Hamburg Jungfernstieg
+        public_name: Jungfernstieg
+        sources: !keyref src.de.TPP.2007
+
+    -   date: !!null
+        site: !noderef path.de.1270 jun
+
+
+---
+key: point.de.Hamburg-Stadthausbruecke
+type: point
+events:
+    -   date: !date 1975-05-30
+        status: open
+    -   date: !!null
+        category: de.Hp
+        name: Stadthausbrücke
+        de.DS100: ASHS
+        de.dstnr: !!str 010504
+        sources: !keyref src.de.DS100.1984
+    -   date: !!null
+        location: !keyloc line.de.1270 2,0
+        sources: !keyref src.de.SuW.2005
+    -   date: !date c1990
+        category: de.Bf
+        sources: !keyref src.de.SuW.2005
+    -   date: !date c2000
+        name: Hamburg-Stadthausbrücke
+        public_name: Stadthausbrücke
+        sources: !keyref src.de.TPP.2007
+    -   date: !date c2000
+        category: de.Bft
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.1270 sta
+
+
+---
+key: point.de.Hamburg-Landungsbruecken
+type: point
+events:
+    -   date: !date 1975-05-30
+        status: open
+    -   date: !!null
+        category: de.Bf
+        name: Landungsbrücken
+        de.DS100: ALAS
+        de.dstnr: !!str 010512
+        sources: !keyref src.de.DS100.1984
+    -   date: !!null
+        location: !keyloc line.de.1270 3,0
+        sources: !keyref src.de.SuW.2005
+    -   date: !date c2000
+        name: Hamburg Landungsbrücken
+        public_name: Landungsbrücken
+        sources: !keyref src.de.TPP.2007
+
+    -   date: !!null
+        site: !noderef path.de.1270 lan
+
+
+---
+key: point.de.Hamburg-Reeperbahn
+type: point
+events:
+    -   date: !date 1979-08-30
+        status: open
+    -   date: !!null
+        category: de.Hp
+        name: Reeperbahn
+        de.DS100: ARES
+        de.dstnr: !!str 010520
+        sources: !keyref src.de.DS100.1984
+    -   date: !!null
+        location: !keyloc line.de.1270 4,0
+        sources: !keyref src.de.SuW.2005
+    -   date: !date c2000
+        name: Hamburg Reeperbahn
+        public_name: Reeperbahn
+        sources: !keyref src.de.TPP.2007
+
+    -   date: !!null
+        site: !noderef path.de.1270 ree
+
+
+---
+key: point.de.Hamburg-Koenigstrasse
+type: point
+events:
+    -   date: !date 1979-08-30
+        status: open
+    -   date: !!null
+        category: de.Hp
+        name: Königstraße
+        de.DS100: AKS
+        de.dstnr: !!str 010538
+        sources: !keyref src.de.DS100.1984
+    -   date: !!null
+        location: !keyloc line.de.1270 4,9
+        sources: !keyref src.de.SuW.2005
+    -   date: !date c2000
+        name: Hamburg Königstraße
+        public_name: Königstraße
+        sources: !keyref src.de.TPP.2007
+
+    -   date: !!null
+        site: !noderef path.de.1270 kon
+
+
+---
+key: point.de.Hamburg-Altona-S-Bahn
+type: point
+junction: True
+events:
+    -   date: !date 1960
+        status: open
+    -   date: !!null
+        name: Altona (S-Bahn)
+        category: de.Bf
+        de.DS100: AAS
+        de.dstnr: !!str 010207
+        sources: !keyref src.de.DS100.1984
+    -   date: !!null
+        location:
+            - !keyloc line.de.1270   5,9
+            - !keyloc line.de.1224   1,0
+            - !keyloc line.de.1240 292,9
+        sources: !keyref src.de.SuW.2005
+    -   date: !!null
+        public_name: Altona
+    -   date: !date c2000
+        name: Hamburg-Altona (S-Bahn)
+        public_name: Hamburg-Altona
+        sources: !keyref src.de.SuW.2005
+
+    -   date: !!null
+        site: !noderef path.de.1270 als
+
+
+---
+key: point.de.S-Bahn-Tunnel-Hamburg-City.F
+type: point
+subtype: portal
+structure:  !keyref struct.de.S-Bahn-Tunnel-Hamburg-City
+events:
+    -   date: !!null
+        site: !noderef path.de.1270 tctf
+
+

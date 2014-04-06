@@ -1,0 +1,130 @@
+---
+key: line.de.1247
+type: line
+label: freight
+events:
+    -   date: !!null
+        region:
+            - !keyref org.de
+            - !keyref org.de.l.hh
+
+    -   date: !!null
+        de.VzG: !!str 1247
+        sources: !keyref src.de.VzG
+
+    #   Genehmigung und Eröffnung
+    #
+    -   date: !date 1918-01-05
+        status: open
+        service: freight
+        sources: !keyref src.de.web.Matthaei
+
+    #   Eigenschaften
+    #
+    -   date: !!null
+        category: de.Kleinbahn
+        sources: !keyref src.de.web.Matthaei
+    -   date: !date 1926
+        electrified:
+            overhead: !voltage 6300V DC # XXX uncertain
+        sources: !keyref src.de.web.Matthaei
+    -   date: !date 1935-05-01
+        category: de.Nebenbahn
+    -   date: !date c1940
+        electrified:
+            overhead: !voltage none
+
+    #   Stilllegung
+    #
+    -   date: !date 1996
+        status: closed
+        sources: !keyref src.de.Bundestag.13.5369
+    -   date: !date 2008
+        status: removed
+        sources: !keyref src.de.WP.Gueterumgehungsbahn-Hamburg
+
+    #   Eigentümer und Betreiber
+    #
+    -   date: !!null
+        owner: !keyref org.de.e.LhKb
+        operator: !keyref org.de.e.LhKb
+        sources: !keyref src.de.Bfv.1933
+    -   date: !date 1938-05-01
+        owner: !keyref org.de
+        operator: !keyref org.de.e.DRG
+    -   date: !var org.de.DB.start
+        operator: !keyref org.de.e.DB
+    -   date: !var org.de.DBAG.start
+        owner: !keyref org.de.e.DBAG
+        operator: !keyref org.de.e.DBAG
+    -   date: !var org.de.DBNetz.start
+        owner: !keyref org.de.e.DBNetz
+        operator: !keyref org.de.e.DBNetz
+
+    #   Verlauf
+    #
+    -   date: !!null
+        course:
+            - !pathref path.de.1241 ohl aair -1.5
+            - !pathref path.de.1247 a   f     0.0
+
+points:
+    - !keyref point.de.Hamburg-Ohlsdorf                 # line.de.1243
+    - !keyref point.de.Hamburg-Langenhorn
+    - !keyref point.de.Hamburg-Ochsenzoll
+
+
+---
+key: point.de.Hamburg-Langenhorn
+type: point
+events:
+    -   date: !!null
+        category: de.Ldst
+        location: !keyloc line.de.1247 3,85
+        sources: !keyref src.de.DRG.Alt.Karte.1949
+    -   date: !!null
+        name: Langenhorn Mitte
+        sources: !keyref src.de.Bfv.1933
+    -   date: !date c1945
+        name: Langenhorn
+        sources: !keyref src.de.DRG.Alt.Karte.1949
+    -   date: !date c1970
+        status: closed
+
+    -   date: !!null
+        site: !noderef path.de.1247 lan
+
+
+---
+key: point.de.Hamburg-Ochsenzoll
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.1247 7,68
+        sources: !keyref src.de.DRG.Alt.Karte.1949
+    -   date: !!null
+        location: !keyloc line.de.11170 0,0
+        sources: !keyref src.de.WP.Alsternordbahn
+    -   date: !!null
+        name: Ochsenzoll
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        category: de.Hp
+        service: freight
+        staff: agent
+        sources: !keyref src.de.Bfv.1944
+    -   date: !date 1938-05-01
+        de.lknr: 01 102
+        sources: !keyref src.de.Bfv.1944
+    -   date: !!null
+        de.DS100: AOZ
+        de.dstnr: !!str 011023
+        sources: !keyref src.de.DS100.1984
+    -   date: !date c1970
+        name: Hamburg-Ochsenzoll
+        staff: none
+        sources: !keyref src.de.DS100.1984
+
+    -   date: !!null
+        site: !noderef path.de.1247 och
+
