@@ -1,85 +1,144 @@
 ---
-key: line.de.11150
+key: line.de.9120
 type: line
 events:
     -   date: !!null
         region:
             - !keyref org.de
             - !keyref org.de.l.sh
-        category: de.Nebenbahn
+
     -   date: !!null
         end: !keyref point.de.Ulzburg
         de.VzG: !!str 9120
-        sources:
-            - !keyref src.de.SuW.2005
+        sources: !keyref src.de.SuW.2005
     -   date: !!null
         start: !keyref point.de.Blumendorf
         de.VzG: !!str 1123
         sources: !keyref src.de.VzG
+
+    #   Genehmigung
+    #
     -   date: !date 1890
         end: !keyref point.de.Barmstedt
         concession:
             by: !keyref org.de.l.pre
-        owner: !keyref org.de.e.EBO
-        operator: !keyref org.de.e.EBO
-    -   date: !date 1896-07-15
-        end: !keyref point.de.Barmstedt
-        status: open
-        sources:
-            - !keyref src.de.Lichte.1979
     -   date: !date 1904-10-01
         start: !keyref point.de.Barmstedt
         concession:
             by: !keyref org.de.l.pre
-        owner: !keyref org.de.e.EBO
-        operator: !keyref org.de.e.EBO
-        sources:
-            - !keyref src.de.DRG.1935
-            - !keyref src.de.Schleswig.1904.361
+            document: !keyref src.de.Schleswig.1904.361
+        sources: !keyref src.de.DRG.1935
+
+    #   Eröffnung
+    #
+    -   date: !date 1896-07-15
+        end: !keyref point.de.Barmstedt
+        status: open
+        sources: !keyref src.de.Lichte.1979
     -   date: !date 1907-06-09
         start: !keyref point.de.Barmstedt
         status: open
-        sources:
-            - !keyref src.de.Lichte.1979
+        sources: !keyref src.de.Lichte.1979
+
+    #   Verkehrseinstellung und Teilstilllegung
+    #
     -   date: !date 1973-09-29
         start: !keyref point.de.Barmstedt
         service: freight
         sources: !keyref src.de.Lichte.1979
+    -   date: !date 1973-12-31
+        start: !keyref point.de.Barmstedt
+        end: !keyref point.de.Blumendorf
+        service: none
+        sources: !keyref src.de.WP.Bahnstrecke-Elmshorn-Bad-Oldesloe
     -   date: !date c1980
         start: !keyref point.de.Ulzburg
         end: !keyref point.de.Blumendorf
         status: removed
+
+    #   Wiederaufnahme Personenverkehr
+    #
+    -   date: !date 1992
+        start: !keyref point.de.Barmstedt
+        end: !keyref point.de.Ulzburg
+        service: full
+        sources: !keyref src.de.WP.Bahnstrecke-Elmshorn-Bad-Oldesloe
+
+    #   Eigenschaften
+    #
+    -   date: !!null
+        end: !keyref point.de.Barmstedt
+        category: de.Kleinbahn
+        sources: !keyref src.de.WP.Bahnstrecke-Elmshorn-Bad-Oldesloe
+    -   date: !date 1907-06-09
+        end: !keyref point.de.Barmstedt
+        category: de.Nebenbahn
+        sources: !keyref src.de.WP.Bahnstrecke-Elmshorn-Bad-Oldesloe
+    -   date: !!null
+        start: !keyref point.de.Barmstedt
+        category: de.Nebenbahn
+        sources: !keyref src.de.WP.Bahnstrecke-Elmshorn-Bad-Oldesloe
     -   date: !date 1981
         start: !keyref point.de.Blumendorf
         category: de.Anschl
+
+    #   Eigentümer etc. 
+    #
+    -   date: !!null
+        end: !keyref point.de.Barmstedt
+        owner: !keyref org.de.e.Elmshorn-Barmstedter-Eisenbahn
+        operator: !keyref org.de.e.Elmshorn-Barmstedter-Eisenbahn
+        sources: !keyref src.de.WP.Bahnstrecke-Elmshorn-Bad-Oldesloe
+    -   date: !date 1907-06-09
+        end: !keyref point.de.Barmstedt
+        owner: !keyref org.de.e.EBOE
+        operator: !keyref org.de.e.EBOE
+    -   date: !!null
+        start: !keyref point.de.Barmstedt
+        owner: !keyref org.de.e.EBOE
+        operator: !keyref org.de.e.EBOE
+    -   date: !date 1981
+        start: !keyref point.de.Blumendorf
         owner: !keyref org.de.g.Bad-Oldesloe
         operator: !keyref org.de.e.DB
     -   date: !date 1981
         end: !keyref point.de.Ulzburg
         owner: !keyref org.de.e.AKN
         operator: !keyref org.de.e.AKN
-        sources:
-            - !keyref src.de.WP.Elmshorn-Barmstedt-Oldesloer-Eisenbahn
-    -   date: !date 1992
-        start: !keyref point.de.Barmstedt
-        end: !keyref point.de.Ulzburg
-        service: full
-        sources:
-            - !keyref src.de.WP.Elmshorn-Barmstedt-Oldesloer-Eisenbahn
+        sources: !keyref src.de.WP.Bahnstrecke-Elmshorn-Bad-Oldesloe
+
+    -   date: !var org.de.DBAG.start
+        start: !keyref point.de.Blumendorf
+        operator: !keyref org.de.e.DBAG
+    -   date: !var org.de.DBNetz.start
+        start: !keyref point.de.Blumendorf
+        operator: !keyref org.de.e.DBNetz
+
+    #   Verlauf
+    #
+    -   date: !!null
+        course:
+            - !pathref path.de.1220 elm  aulz  1.5
+            - !pathref path.de.9120 a    aulz  0.0
+            - !pathref path.de.9121 aelm fold -1.0
+            - !pathref path.de.9120 fulz f     0.0
+            - !pathref path.de.6928 fulz f    -1.0
+            - !pathref path.de.11600 aulz old  -3.5
+
 points:
     - !keyref point.de.Elmshorn                         # line.de.1220
-    - !keyref point.de.Langenmoor
+    - !keyref point.de.Elmshorn-Langenmoor
     - !keyref point.de.Sibirien
     - !keyref point.de.Sparrieshoop
     - !keyref point.de.Bokholt
     - !keyref point.de.Vossloch
     - !keyref point.de.Barmstedt-Brunnenstrasse
     - !keyref point.de.Barmstedt
-    - !keyref point.de.Langeln
+    - !keyref point.de.Langeln-Holst
     - !keyref point.de.Alveslohe
     - !keyref point.de.Ulzburg                          # line.de.9121
     - !keyref point.de.Henstedt-Kisdorf
-    - !keyref point.de.Henstedt-Wohldorf
+    - !keyref point.de.Henstedt-Wohld
     - !keyref point.de.Wakendorf-Goetzberg
     - !keyref point.de.Nahe
     - !keyref point.de.Nahe-Torfverladestelle
@@ -90,9 +149,11 @@ points:
     - !keyref point.de.Bad-Oldesloe                     # line.de.11600
 
 ---
-key: point.de.Langenmoor
+key: point.de.Elmshorn-Langenmoor
 type: point
 events:
+    -   date: !date c1935
+        status: open
     -   date: !!null
         name: Langenmoor
         sources: !keyref src.de.Kb.W1937
@@ -101,27 +162,39 @@ events:
         service: passenger
         staff: none
         master: !keyref point.de.Elmshorn
-        sources: !keyref src.de.Bfv.1944
+        sources: !keyref src.de.Bfv.1938
     -   date: !!null
-        location: !keyloc line.de.11150 2,0
+        location: !keyloc line.de.9120 2,0
         sources: !keyref src.de.DRG.Alt.Karte.1945
     -   date: !!null
-        category: de.Hp
         de.DS100: ALGM
+        de.dstnr: !!str 438028
+        sources: !keyref src.de.DS100.1984
+    -   date: !!null
+        category: de.Hp
         sources: !keyref src.de.SuW.2005
-    -   date: !date c1935
-        status: open
+    -   date: !date c2000
+        name: Elmshorn Langenmoor
+        sources: !keyref src.de.SuW.2005
+
+    -   date: !!null
+        site: !noderef path.de.9120 lam right
+
 
 ---
 key: point.de.Sibirien
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.11150 2,5
+        location: !keyloc line.de.9120 2,5
         name: Sibirien
         sources: !keyref src.de.Kb.1914
     -   date: !date c1920
         status: closed
+
+    -   date: !!null
+        site: !noderef path.de.9120 sib
+
 
 ---
 key: point.de.Sparrieshoop
@@ -129,39 +202,56 @@ type: point
 events:
     -   date: !!null
         name: Sparrieshoop
-        sources: !keyref src.de.Kb.1914
+        sources: !keyref src.de.Kb.1905
     -   date: !!null
         de.lknr: 41 823
-        sources: !keyref src.de.Bfv.1933
+        sources: !keyref src.de.Bfv.1928
     -   date: !!null
-        location: !keyloc line.de.11150 3,8
+        location: !keyloc line.de.9120 3,8
         sources: !keyref src.de.DRG.Alt.Karte.1945
     -   date: !!null
-        category: de.Bf
         de.DS100: ASPS
+        de.dstnr: !!str 438036
+        sources: !keyref src.de.DS100.1984
+    -   date: !!null
+        category: de.Bf
         sources: !keyref src.de.SuW.2005
+
+    -   date: !!null
+        site: !noderef path.de.9120 spa left
+
 
 ---
 key: point.de.Bokholt
 type: point
 events:
     -   date: !!null
+        name: Bockholt
+        sources: !keyref src.de.Kb.1905
+    -   date: !date c1910
+        status: closed
+        sources: !keyref src.de.Kb.1914
+    -   date: !date c1935
+        status: open
         name: Bokholt
         sources: !keyref src.de.Kb.W1937
     -   date: !!null
         de.lknr: 57 823
         service: passenger
         staff: none
-        sources: !keyref src.de.Bfv.1944
+        sources: !keyref src.de.Bfv.1938
     -   date: !!null
         category: de.Hp
-        location: !keyloc line.de.11150 6,0
+        location: !keyloc line.de.9120 6,0
         sources: !keyref src.de.DRG.Alt.Karte.1945
     -   date: !!null
-        de.DS100: AHBT
-        sources: !keyref src.de.SuW.2005
-    -   date: !date c1935
-        status: open
+        de.DS100: ABHT
+        de.dstnr: !!str 438044
+        sources: !keyref src.de.DS100.1984
+
+    -   date: !!null
+        site: !noderef path.de.9120 bok left
+
 
 ---
 key: point.de.Vossloch
@@ -169,41 +259,51 @@ type: point
 events:
     -   date: !!null
         name: Voßloch
-        sources: !keyref src.de.Kb.1914
+        sources: !keyref src.de.Kb.1905
     -   date: !!null
         de.lknr: 42 823
-        sources: !keyref src.de.Bfv.1933
+        sources: !keyref src.de.Bfv.1928
     -   date: !!null
         service: passenger
         sources: !keyref src.de.Bfv.1944
     -   date: !!null
-        location: !keyloc line.de.11150 7,4
+        location: !keyloc line.de.9120 7,4
         sources: !keyref src.de.DRG.Alt.Karte.1945
     -   date: !!null
         de.DS100: AVSL
-        sources: !keyref src.de.SuW.2005
+        de.dstnr: !!str 438051
+        sources: !keyref src.de.DS100.1984
     -   date: !date c1970
         category: de.Hp
         sources: !keyref src.de.SuW.2005
+
+    -   date: !!null
+        site: !noderef path.de.9120 vos right
+
 
 ---
 key: point.de.Barmstedt-Brunnenstrasse
 type: point
 events:
+    -   date: !date c1935
+        status: open
+        sources: !keyref src.de.Kb.W1937
     -   date: !!null
         name: Barmstedt Brunnenstraße
         de.lknr: 56 823
         service: passenger
-        sources: !keyref src.de.Bfv.1944
+        sources: !keyref src.de.Bfv.1938
     -   date: !!null
         category: de.Hp
-        location: !keyloc line.de.11150 9,1
+        location: !keyloc line.de.9120 9,1
         sources: !keyref src.de.DRG.Alt.Karte.1945
     -   date: !!null
         de.DS100: ABMB
         sources: !keyref src.de.SuW.2005
-    -   date: !date c1935
-        status: open
+
+    -   date: !!null
+        site: !noderef path.de.9120 bab right
+
 
 ---
 key: point.de.Barmstedt
@@ -211,23 +311,25 @@ type: point
 events:
     -   date: !!null
         name: Barmstedt
-        sources: !keyref src.de.Kb.1914
+        sources: !keyref src.de.Kb.1905
     -   date: !!null
         de.lknr: 43 823
-        sources: !keyref src.de.Bfv.1933
+        sources: !keyref src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
-        location: !keyloc line.de.11150 10,0
+        location: !keyloc line.de.9120 10,0
         sources: !keyref src.de.DRG.Alt.Karte.1945
     -   date: !!null
         de.DS100: ABMS
-        sources: !keyref src.de.SuW.2005
-    -   date: !date c1970
-        category: de.Hp
-        sources: !keyref src.de.SuW.2005
+        de.dstnr: !!str 438077
+        sources: !keyref src.de.DS100.1984
+
+    -   date: !!null
+        site: !noderef path.de.9120 bar right
+
 
 ---
-key: point.de.Langeln
+key: point.de.Langeln-Holst
 type: point
 events:
     -   date: !!null
@@ -235,26 +337,24 @@ events:
         sources: !keyref src.de.Kb.1914
     -   date: !!null
         de.lknr: 44 823
-        sources: !keyref src.de.Bfv.1933
+        sources: !keyref src.de.Bfv.1928
     -   date: !!null
         category: de.Hp
-        location: !keyloc line.de.11150 15,4
+        location: !keyloc line.de.9120 15,4
         sources: !keyref src.de.DRG.Alt.Karte.1945
-    -   date: !!null
-        de.DS100: ABMS
-        sources: !keyref src.de.SuW.2005
-    -   date: !date c1970
-        category: de.Hp
-        sources: !keyref src.de.SuW.2005
     -   date: !date 1973-09-29?
         status: closed
     -   date: !date 2000-05-28
         status: open
     -   date: !date 2000-05-28
         name: Langeln (Holst)
-        location: !keyloc line.de.11150 15,8
+        location: !keyloc line.de.9120 15,8
         de.DS100: ALAL
         sources: !keyref src.de.SuW.2005
+
+    -   date: !!null
+        site: !noderef path.de.9120 lal left
+
 
 ---
 key: point.de.Alveslohe
@@ -265,14 +365,21 @@ events:
         sources: !keyref src.de.Kb.1914
     -   date: !!null
         de.lknr: 45 823
-        sources: !keyref src.de.Bfv.1933
+        sources: !keyref src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
-        location: !keyloc line.de.11150 19,4
+        location: !keyloc line.de.9120 19,4
         sources: !keyref src.de.DRG.Alt.Karte.1945
     -   date: !!null
         de.DS100: AAV
         sources: !keyref src.de.SuW.2005
+    -   date: !date 1992?
+        category: de.Hp
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.9120 alv right
+
 
 ---
 key: point.de.Henstedt-Kisdorf
@@ -283,28 +390,36 @@ events:
         sources: !keyref src.de.Kb.1914
     -   date: !!null
         de.lknr: 47 823
-        sources: !keyref src.de.Bfv.1933
+        sources: !keyref src.de.Bfv.1928
     -   date: !!null
         category: de.Hp
-        location: !keyloc line.de.11150 26,6
+        location: !keyloc line.de.9120 26,6
         sources: !keyref src.de.DRG.Alt.Karte.1945
 
+    -   date: !!null
+        site: !noderef path.de.9120 kis left
+
+
 ---
-key: point.de.Henstedt-Wohldorf
+key: point.de.Henstedt-Wohld
 type: point
 events:
+    -   date: !date c1935
+        status: open
+        sources: !keyref src.de.Kb.W1937
     -   date: !!null
-        name: Henstedt-Wohldorf
+        name: Henstedt-Wohld
         de.lknr: 55 823
         service: passenger
         staff: none
         sources: !keyref src.de.Bfv.1944
     -   date: !!null
-        location: !keyloc line.de.11150 29,1
+        location: !keyloc line.de.9120 29,1
         sources: !keyref src.de.DRG.Alt.Karte.1945
-    -   date: !date c1935
-        status: open
-        sources: !keyref src.de.Kb.W1937
+
+    -   date: !!null
+        site: !noderef path.de.9120 woh right
+
 
 ---
 key: point.de.Wakendorf-Goetzberg
@@ -312,7 +427,7 @@ type: point
 events:
     -   date: !!null
         name: Wakendorf-Götzberg
-        location: !keyloc line.de.11150 31,4
+        location: !keyloc line.de.9120 31,4
         sources: !keyref src.de.Kb.1914
     -   date: !!null
         de.lknr: 48 823
@@ -320,6 +435,10 @@ events:
     -   date: !date c1945
         status: closed
         sources: !keyref src.de.DRG.Alt.Karte.1945
+
+    -   date: !!null
+        site: !noderef path.de.9120 wak left
+
 
 ---
 key: point.de.Nahe
@@ -333,8 +452,12 @@ events:
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
         category: de.Bf
-        location: !keyloc line.de.11150 36,4
+        location: !keyloc line.de.9120 36,4
         sources: !keyref src.de.DRG.Alt.Karte.1945
+
+    -   date: !!null
+        site: !noderef path.de.9120 nah right
+
 
 ---
 key: point.de.Nahe-Torfverladestelle
@@ -344,6 +467,10 @@ events:
         name: Nahe (Torfverladestelle)
         de.lknr: 54 823
         sources: !keyref src.de.Bfv.1933
+
+    -   date: !!null
+        site: !noderef path.de.9120 nat right
+
 
 ---
 key: point.de.Suelfeld
@@ -357,8 +484,12 @@ events:
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
         category: de.Bf
-        location: !keyloc line.de.11150 42,5
+        location: !keyloc line.de.9120 42,5
         sources: !keyref src.de.DRG.Alt.Karte.1945
+
+    -   date: !!null
+        site: !noderef path.de.9120 sul left
+
 
 ---
 key: point.de.Grabau
@@ -372,8 +503,12 @@ events:
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
         category: de.Bf
-        location: !keyloc line.de.11150 44,8
+        location: !keyloc line.de.9120 44,8
         sources: !keyref src.de.DRG.Alt.Karte.1945
+
+    -   date: !!null
+        site: !noderef path.de.9120 gra left
+
 
 ---
 key: point.de.Blumendorf
@@ -387,12 +522,18 @@ events:
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
         category: de.Bf
-        location: !keyloc line.de.11150 48,4
+        location: !keyloc line.de.9120 48,4
         sources: !keyref src.de.DRG.Alt.Karte.1945
     -   date: !!null
         de.DS100: ABMD
-    -   date: !date 1981?
+        de.dstnr: !!str 013276
+        sources: !keyref src.de.DS100.1984
+    -   date: !date 1995
         status: closed
+
+    -   date: !!null
+        site: !noderef path.de.9120 blu right
+
 
 ---
 key: point.de.Ruempeler-Weg
@@ -406,3 +547,7 @@ events:
         status: open
     -   date: !date 1973-09-29?
         status: closed
+
+    -   date: !!null
+        site: !noderef path.de.9120 rum left
+
