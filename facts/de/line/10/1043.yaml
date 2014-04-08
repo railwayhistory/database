@@ -1,40 +1,64 @@
 ---
-key: line.de.11060
+key: line.de.1043
 type: line
 events:
     -   date: !!null
         region:
             - !keyref org.de
             - !keyref org.de.l.sh
+
     -   date: !!null
         de.VzG: !!str 1043
         sources: !keyref src.de.VzG
-    -   date: !!null
-        category: de.Hauptbahn
-        sources:
-            - !keyref src.de.DRG.1927
+
+    #   Genehmigung und Eröffnung
+    #
     -   date: !date 1872-03-13
         concession:
             by: !keyref org.de.l.pre
             for: !keyref org.de.e.AKE
-        owner: !keyref org.de.e.AKE
-        operator: !keyref org.de.e.AKE
         sources:
             - !keyref src.de.DRG.1935
             - !keyref src.de.Preussen.1872.20.328
     -   date: !date 1875-12-10
         status: open
-        sources:
-            - !keyref src.de.DRG.1935
+        sources: !keyref src.de.DRG.1935
+
+    #   Eigenschaften
+    #
+    -   date: !!null
+        category: de.Hauptbahn
+        sources: !keyref src.de.DRG.1927
+    -   date: !!null
+        tracks: 1
+        gauge: 1435
+    -   date: !date 1907
+        tracks: 2
+        sources: !keyref src.de.web.EFM
+    -   date: !date 1954
+        tracks: 1
+        sources: !keyref src.de.web.EFM
+
+    #   PV-Einstellung und Wiedereröffnung
+    #
+    -   date: !date 1984-09-30
+        end: !keyref point.de.Bad-Segeberg
+        service: freight
+        sources: !keyref src.de.DB.Hmb.1984
+    -   date: !date 2002-12-15
+        end: !keyref point.de.Bad-Segeberg
+        service: full
+
+    #   Eigentümer etc.
+    #
+    -   date: !!null
+        owner: !keyref org.de.e.AKE
+        operator: !keyref org.de.e.AKE
     -   date: !date 1886-07-01
         owner: !keyref org.de.l.pre
         operator: !keyref org.de.e.KPEV.Alt
-        sources:
-            - !keyref src.de.DRG.1935
-    -   date: !date 1907
-        tracks: 2
-        sources:
-            - !keyref src.de.web.EFM
+        sources: !keyref src.de.DRG.1935
+
     -   date: !date 1920-04-01
         owner: !keyref org.de
         operator: !keyref org.de.r.RVM.PH
@@ -44,29 +68,17 @@ events:
         operator: !keyref org.de.e.DRG
     -   date: !var org.de.DB.start
         operator: !keyref org.de.e.DB
-    -   date: !date 1954
-        tracks: 1
-        sources:
-            - !keyref src.de.web.EFM
-    -   date: !date 1984-09-30
-        end: !keyref point.de.Bad-Segeberg
-        service: freight
-        sources:
-            - !keyref src.de.DB.Hmb.1984
-    -   date: !date c1990
-        category: de.Nebenbahn
-    -   date: !date 2002-12-15
-        end: !keyref point.de.Bad-Segeberg
-        service: full
 
+    #   Verlauf
+    #
     -   date: !!null
         course:
-            - !pathref path.de.11000 neu  fnes -1.5
-            - !pathref path.de.11060 a    f     0
+            - !pathref path.de.1220 neu  fnes -1.5
+            - !pathref path.de.1043 a    f     0
             - !pathref path.de.11600 fseg old   2
 
 points:
-    - !keyref point.de.Neumuenster                          # line.de.11000
+    - !keyref point.de.Neumuenster                          # line.de.1220
     - !keyref point.de.Neumuenster-Sued
     - !keyref point.de.Kleinkummerfeld
     - !keyref point.de.Rickling-Oelweiche
@@ -87,7 +99,7 @@ type: point
 events:
     -   date: !!null
         category: de.Abzw
-        location: !keyloc line.de.11060 76,70
+        location: !keyloc line.de.1043 76,70
         name: AK
         sources: !keyref src.de.DRG.Alt.Karte.1949
     -   date: !date 1953-03-31
@@ -102,7 +114,7 @@ events:
         sources: !keyref src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.11060 nes right
+        site: !noderef path.de.1043 nes right
 
 
 ---
@@ -126,7 +138,7 @@ events:
         de.lknr: 01 342
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        location: !keyloc line.de.11060 83,25
+        location: !keyloc line.de.1043 83,25
         sources: !keyref src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.DS100: AKD
@@ -136,7 +148,7 @@ events:
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.11060 kku right
+        site: !noderef path.de.1043 kku right
 
 
 ---
@@ -144,7 +156,7 @@ key: point.de.Rickling-Oelweiche
 type: point
 events:
     -   date: !date c1950
-        location: !keyloc line.de.11060 85,8
+        location: !keyloc line.de.1043 85,8
         status: open
     -   date: !!null
         name: Rickling Ölweiche
@@ -156,7 +168,7 @@ events:
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.11060 rio
+        site: !noderef path.de.1043 rio
 
 
 ---
@@ -177,21 +189,21 @@ events:
         de.lknr: 01 341
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        location: !keyloc line.de.11060 91,09
+        location: !keyloc line.de.1043 91,09
         sources: !keyref src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.DS100: ARL
         de.dstnr: !!str 013417
         sources: !keyref src.de.DS100.1984
     -   date: !date 2002
-        location: !keyloc line.de.11060 91,007
+        location: !keyloc line.de.1043 91,007
         category: de.Hp
         sources: !keyref src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.11060 ric left
+        site: !noderef path.de.1043 ric left
     -   date: !date 2002
-        site: !noderef path.de.11060 rin left
+        site: !noderef path.de.1043 rin left
 
 
 ---
@@ -202,13 +214,13 @@ events:
         status: open
     -   date: !!null
         category: de.Hp
-        location: !keyloc line.de.11060 96,832
+        location: !keyloc line.de.1043 96,832
         name: Wahlstedt
         de.DS100: AWAH
         sources: !keyref src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.11060 wah left
+        site: !noderef path.de.1043 wah left
 
 
 ---
@@ -229,7 +241,7 @@ events:
         de.lknr: 01 340
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        location: !keyloc line.de.11060 99,26
+        location: !keyloc line.de.1043 99,26
         sources: !keyref src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.DS100: AFK
@@ -238,16 +250,16 @@ events:
     -   date: !date 2002
         category: [de.Hp, de.Awanst]
     -   date: !date 2002
-        location: !keyloc line.de.11060 99,363
+        location: !keyloc line.de.1043 99,363
         sources: !keyref src.de.DBAG.ISR
     -   date: !date c2010
         category: de.Bft
         sources: !keyref src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.11060 fah right
+        site: !noderef path.de.1043 fah right
     -   date: !date c2002
-        site: !noderef path.de.11060 fak left
+        site: !noderef path.de.1043 fak left
 
 
 ---
@@ -271,20 +283,20 @@ events:
         de.lknr: 01 339
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        location: !keyloc line.de.11060 103,41
+        location: !keyloc line.de.1043 103,41
         sources: !keyref src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.DS100: ASB
         de.dstnr: !!str 013391
         sources: !keyref src.de.DS100.1984
     -   date: !date c2002
-        location: !keyloc line.de.11060 103,143
+        location: !keyloc line.de.1043 103,143
         sources: !keyref src.de.DBAG.ISR
  
     -   date: !!null
-        site: !noderef path.de.11060 seg left
+        site: !noderef path.de.1043 seg left
     -   date: !date c2002
-        site: !noderef path.de.11060 seb left
+        site: !noderef path.de.1043 seb left
 
 
 ---
@@ -305,7 +317,7 @@ events:
         de.lknr: 01 338
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        location: !keyloc line.de.11060 108,19
+        location: !keyloc line.de.1043 108,19
         sources: !keyref src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.DS100: AAT
@@ -316,7 +328,7 @@ events:
         sources: !keyref src.de.DS100.1984
  
     -   date: !!null
-        site: !noderef path.de.11060 ago left
+        site: !noderef path.de.1043 ago left
 
 
 ---
@@ -337,7 +349,7 @@ events:
         de.lknr: 01 337
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        location: !keyloc line.de.11060 111,98
+        location: !keyloc line.de.1043 111,98
         sources: !keyref src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.DS100: AWK
@@ -348,7 +360,7 @@ events:
         sources: !keyref src.de.SuW.2005
  
     -   date: !!null
-        site: !noderef path.de.11060 wak right
+        site: !noderef path.de.1043 wak right
 
 
 ---
@@ -369,7 +381,7 @@ events:
         de.lknr: 01 336
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        location: !keyloc line.de.11060 115,35
+        location: !keyloc line.de.1043 115,35
         sources: !keyref src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.DS100: AFN
@@ -381,7 +393,7 @@ events:
         sources: !keyref src.de.DS100.1984
  
     -   date: !!null
-        site: !noderef path.de.11060 fre right
+        site: !noderef path.de.1043 fre right
 
 
 ---
@@ -389,7 +401,7 @@ key: point.de.Poggensee
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.11060 117,7
+        location: !keyloc line.de.1043 117,7
         name: Poggensee
         category: de.Hp
     -   date: !date c1950
@@ -398,6 +410,6 @@ events:
         status: closed
  
     -   date: !!null
-        site: !noderef path.de.11060 pog
+        site: !noderef path.de.1043 pog
 
 
