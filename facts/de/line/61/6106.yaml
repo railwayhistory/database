@@ -1,0 +1,140 @@
+---
+key: line.de.6106
+type: line
+events:
+    -   date: !!null
+        region:
+            - !keyref org.de
+            - !keyref org.de.l.be
+
+    -   date: !var vzg.dr
+        end: !keyref point.de.Berlin-Moabit
+        de.VzG: !!str 6106
+
+    #   Genehmigung
+    #
+    -   date: !date 1867-06-12
+        concession:
+            by: !keyref org.de.l.pre
+            for: !keyref org.de.e.MHE
+            document: !keyref src.de.l.pre.1867.70.1221
+        sources: !keyref src.de.DRG.1935
+
+    #   Eröffnung
+    #
+    -   date: !date 1871-06-15
+        start: !keyref point.de.Berlin-Moabit
+        status: open
+        sources: !keyref src.de.DRG.1935
+    -   date: !date 1871-07-15
+        end: !keyref point.de.Berlin-Moabit
+        status: open
+        service: freight
+        sources: !keyref src.de.DRG.1935
+
+    #   Eigenschaften
+    #
+    -   date: !!null
+        category: de.Hauptbahn
+        tracks: 2
+        gauge: 1435
+        sources: !keyref src.de.DRG.1927
+    -   date: !date c1945
+        tracks: 1
+        sources: !keyref src.dd.DR.Bln.1953
+
+    #   Stilllegung
+    #
+    -   date: !date c1960
+        start: !keyref point.de.Berlin-Moabit
+        status: closed
+        sources: !keyref src.dd.DR.Bln.1968
+
+    #   Eigentümer etc.
+    #
+    -   date: !!null
+        owner: !keyref org.de.e.MHE
+        operator: !keyref org.de.e.MHE
+    -   date: !date 1879-12-29
+        operator: !keyref org.de.e.KPEV.Mg
+    -   date: !date 1886-01-01
+        owner: !keyref org.de.l.pre
+    -   date: !date 1895-04-01?
+        operator: !keyref org.de.e.KPEV.Bln
+
+    -   date: !date 1920-04-01
+        owner: !keyref org.de
+        operator: !keyref org.de.r.RVM.PH
+    -   date: !date 1924-02-12
+        operator: !keyref org.de.e.DREb
+    -   date: !date 1924-08-30
+        operator: !keyref org.de.e.DRG
+
+    -   date: !var org.de.DR.start
+        operator: !keyref org.dd.DR
+    
+    -   date: !var org.de.DBAG.start
+        owner: !keyref org.de.e.DBAG
+        operator: !keyref org.de.e.DBAG
+    -   date: !var org.de.DBNetz.start
+        owner: !keyref org.de.e.DBNetz
+        operator: !keyref org.de.e.DBNetz
+
+    #   Verlauf
+    #
+    -   date: !!null
+        course:
+            - !pathref path.de.6171 hag  fmoa  4.
+            - !pathref path.de.6107 fhbf fub   2.
+
+points:
+    - !keyref point.de.Berlin-Hamb-u-Lehrt-Bf
+    - !keyref point.de.Berlin-Moabit                        # line.de.6170
+    - !keyref point.de.Berlin-Vlr                           # line.de.6107
+    - !keyref point.de.Berlin-Siemensstadt-Fuerstenbrunn    # line.de.6107
+
+
+---
+key: point.de.Berlin-Hamb-u-Lehrt-Bf
+type: point
+junction: True
+events:
+    -   date: !!null
+        location: !keyloc line.de.6106 1,35
+        category: de.Bf
+        de.Rangklasse: I
+        sources: !keyref src.de.DRG.Bln.1927
+    -   date: !!null
+        name: Berlin Hamburg u Lehrter Gbf
+        service: freight
+        de.lknr: 03 047
+        sources: !keyref src.de.Bfv.1928
+    -   date: !date c1930
+        name: Berlin Hamb u Lehrt Gbf
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 03 159
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        de.VBL: Hul
+        sources: !keyref src.de.DRG.Bln.1946
+    -   date: !date c1950
+        de.Rangklasse: U
+        name: Berlin Hamb u Lehrt Bf
+        sources: !keyref src.dd.DR.Bln.1953
+    -   date: !date c1950
+        location: !keyloc line.de.6106 1,36
+        master: !keyref point.de.Berlin-Lehrter-Bf
+        sources: !keyref src.dd.DR.Bln.1959
+    -   date: !date c1965
+        master: !keyref point.de.Berlin-Moabit
+        sources: !keyref src.dd.DR.Bln.1968
+    -   date: !var ds100.dr
+        de.DS100: BHUL
+        sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.6171 hag left
+
+
+

@@ -1,5 +1,5 @@
 ---
-key: line.de.45000
+key: line.de.6107
 type: line
 events:
     -   date: !!null
@@ -24,10 +24,11 @@ events:
         de.VzG: !!str 1950
         sources: !keyref src.de.VzG
     -   date: !var vzg.dr
+        start: !keyref point.de.Berlin-Moabit
         de.VzG: !!str 6107
         sources: !keyref src.de.VzG
     -   date: !date 2006-05-28?
-        start: !keyref point.de.Berlin-Moabit
+        end: !keyref point.de.Berlin-Moabit
         de.VzG: !!str 6107
         sources: !keyref src.de.DBAG.ISR
 
@@ -59,17 +60,9 @@ events:
         operator: !keyref org.de.e.BHE
         sources: !keyref src.de.DRG.1935
 
-    #   bis Berlin-Moabit und ab Dallgow-Döberitz: Lehrter Bahn
-    #   siehe auch line.de.20100 das Zwischenstück (via Spandau Gbf)
+    #   ab Dallgow-Döberitz: Lehrter Bahn
+    #   siehe auch line.de.6179 das Zwischenstück (via Spandau Gbf)
 
-    -   date: !date 1867-06-12
-        end: !keyref point.de.Berlin-Moabit
-        concession:
-            by: !keyref org.de.l.pre
-            document: !keyref src.de.l.pre.1867.70.1221
-        owner: !keyref org.de.e.MHE
-        operator: !keyref org.de.e.MHE
-        sources: !keyref src.de.DRG.1935
     -   date: !date 1867-06-12
         start: !keyref point.de.Dallgow-Doeberitz
         concession:
@@ -88,10 +81,6 @@ events:
     -   date: !date 1871-02-01
         start: !keyref point.de.Dallgow-Doeberitz
         end: !keyref point.de.Gardelegen
-        status: open
-        sources: !keyref src.de.DRG.1935
-    -   date: !date 1871-06-15
-        end: !keyref point.de.Berlin-Moabit
         status: open
         sources: !keyref src.de.DRG.1935
     -   date: !date 1871-11-01
@@ -117,6 +106,7 @@ events:
     -   date: !!null
         category: de.Hauptbahn
         tracks: 2
+        gauge: 1435
         sources: !keyref src.de.DRG.1927
 
     -   date: !date 1920-04-01
@@ -212,6 +202,15 @@ events:
             overhead: !var el.de
         sources: !keyref src.de.WP.Schnellfahrstrecke-Hannover-Berlin
 
+    -   date: !date 2006-05-27
+        status: open
+        category: de.Hauptbahn
+        tracks: 2
+        electrified:
+            overhead: !var el.de
+        owner: !keyref org.de.e.DBNetz
+        operator: !keyref org.de.e.DBNetz
+        sources: !keyref src.de.WP.Nord-Sued-Fernbahn
     -   date: !date 2006-05-28?
         start: !keyref point.de.Berlin-Moabit
         end: !keyref point.de.Berlin-Spandau-Ost
@@ -224,26 +223,25 @@ events:
         start: !keyref point.de.Berlin-Nennhauser-Damm
         end: !keyref point.de.Wustermark-Rbf-Wot
         status: closed
-        reused: !keyref line.de.20100
+        reused: !keyref line.de.6179
         sources: !keyref src.de.DBAG.ISR
 
     -   date: !!null
         course:
-            - !pathref path.de.20010 leb  fmoa
-            - !pathref path.de.45000 a    f
+            - !pathref path.de.6171 hbf  fmoa
+            - !pathref path.de.6107 a    f
             - !pathref path.de.44500 agif leh
     -   date: !date c1990
         course:
-            - !pathref path.de.20010     leb  fmoa
-            - !pathref path.de.45000     a    auch
-            - !pathref path.de.45000.uch a    f
-            - !pathref path.de.45000     fuch f
+            - !pathref path.de.6171     hbf  fmoa
+            - !pathref path.de.6107     a    auch
+            - !pathref path.de.6107.uch a    f
+            - !pathref path.de.6107     fuch f
             - !pathref path.de.44500     agif leh
 
 points:
-    - !keyref point.de.Berlin-Lehrter-Bf
-    - !keyref point.de.Berlin-Westhafen                     # line.de.20900
-    - !keyref point.de.Berlin-Moabit                        # line.de.20050
+    - !keyref point.de.Berlin-Hbf-Lehrter-Bf                # line.de.6171
+    - !keyref point.de.Berlin-Moabit                        # line.de.6170
     - !keyref point.de.Berlin-Jungfernheide                 # line.de.20900
     - !keyref point.de.Berlin-Jungfernheide-DB-Netz
     - !keyref point.de.Berlin-Vlr
@@ -335,31 +333,6 @@ points:
     - !keyref point.de.Lehrte                               # line.de.13000
 
 
----
-key: point.de.Berlin-Lehrter-Bf
-type: point
-events:
-    -   date: !!null
-        location:
-            - !keyloc line.de.45000 0,00
-        category: de.Bf
-        de.Rangklasse: I
-        name: Berlin Lehrter Bf
-        sources: !keyref src.de.DRG.Bln.1927
-    -   date: !!null
-        service: passenger
-        de.lknr: 03 369
-        sources: !keyref src.de.Bfv.1933
-    -   date: !!null
-        de.VBL: Leb
-        sources: !keyref src.de.DRG.Bln.1946
-    -   date: !date 1951-08-28
-        status: closed
-        sources: !keyref src.de.Kuhlmann.2000
-
-    -   date: !!null
-        site: !noderef path.de.20010 leb
-
 # point.de.Berlin-Beusselstrasse beu
 # point.de.Berlin-Markthalle mar
 # point.de.Berlin-Moabit-Gaswerk gaw
@@ -372,15 +345,16 @@ events:
         status: open
     -   date: !!null
         location:
-            - !keyloc line.de.45000 5,650
+            - !keyloc line.de.6107 5,650
         category: de.Hp
         name: Berlin Jungfernheide DB-Netz
+        de.DS100: BJUF
         sources: !keyref src.de.DBAG.ISR
     -   date: !!null
         public_name: Berlin Jungfernheide
 
     -   date: !!null
-        site: !noderef path.de.45000 jun
+        site: !noderef path.de.6107 jun
 
 
 ---
@@ -389,20 +363,18 @@ type: point
 events:
     -   date: !!null
         location:
-            - !keyloc line.de.20090 15,97
-            - !keyloc line.de.20100 7,38
-            - !keyloc line.de.45000 7,38
+            - !keyloc line.de.6179 15,97
+            - !keyloc line.de.6106 7,38
+            - !keyloc line.de.6107 7,38
         category: de.Abzw
         name: Vlr
         sources: !keyref src.de.DRG.Bln.1932
     -   date: !date c1950
         status: closed
         sources: !keyref src.dd.DR.Bln.1953
-    -   date: !date c2000
-        location: !keyloc line.de.20090 7,38
 
     -   date: !!null
-        site: !noderef path.de.45000 vlr
+        site: !noderef path.de.6107 vlr
 
 
 ---
@@ -418,8 +390,8 @@ events:
         sources: !keyref src.de.Kuhlmann.2000
     -   date: !!null
         location:
-            - !keyloc line.de.20100 7,74
-            - !keyloc line.de.45000 7,74
+            - !keyloc line.de.6106 7,74
+            - !keyloc line.de.6107 7,74
         category: de.Bf
         de.Rangklasse: IV
         sources: !keyref src.de.DRG.Bln.1927
@@ -456,7 +428,7 @@ events:
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.45000 fub
+        site: !noderef path.de.6107 fub
 
 
 ---
@@ -467,15 +439,15 @@ events:
         status: open
     -   date: !!null
         location:
-            - !keyloc line.de.20100 8,659
-            - !keyloc line.de.45000 8,659
+            - !keyloc line.de.6179 8,659
+            - !keyloc line.de.6107 8,659
         category: de.Abzw
         name: Berlin Wiesendamm
         de.DS100: BWD
         sources: !keyref src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.45000 wdm
+        site: !noderef path.de.6107 wdm
 
 
 ---
@@ -484,8 +456,8 @@ type: point
 events:
     -   date: !!null
         location:
-            - !keyloc line.de.20100 8,75
-            - !keyloc line.de.45000 8,75
+            - !keyloc line.de.6179 8,75
+            - !keyloc line.de.6107 8,75
         category: de.Bk
         name: Bk 20
         sources: !keyref src.de.DRG.Bln.1932
@@ -500,7 +472,7 @@ events:
         sources: !keyref src.dd.DR.Bln.1953
 
     -   date: !!null
-        site: !noderef path.de.45000 sre
+        site: !noderef path.de.6107 sre
 
 
 ---
@@ -511,9 +483,9 @@ events:
         status: open
     -   date: !!null
         location:
-            - !keyloc line.de.20000 18,4
-            - !keyloc line.de.20100 10,3
-            - !keyloc line.de.45000 10,3
+            - !keyloc line.de.6109 18,4
+            - !keyloc line.de.6179 10,3
+            - !keyloc line.de.6107 10,3
         category: de.Bft
         sources: !keyref src.de.SuW.2005
     -   date: !!null
@@ -524,7 +496,7 @@ events:
         sources: !keyref src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.45000 sdo
+        site: !noderef path.de.6107 sdo
 
 # point.de.Berlin-Ruhleben ruh
 
@@ -534,8 +506,8 @@ type: point
 events:
     -   date: !!null
         location:
-            - !keyloc line.de.20000 19,77
-            - !keyloc line.de.45000 11,84
+            - !keyloc line.de.6109 19,77
+            - !keyloc line.de.6107 11,84
         category: de.Bf
         de.Rangklasse: I
         sources: !keyref src.de.DRG.Bln.1932
@@ -563,7 +535,7 @@ events:
     -   date: !date 1998-12-30?
         category: de.Hp
         location:
-            - !keyloc line.de.20000 -
+            - !keyloc line.de.6109 -
     -   date: !date 1998-12-30?
         de.DS100: BSRW
         sources: !keyref src.de.TPP.2006
@@ -572,9 +544,9 @@ events:
         sources: !keyref src.de.DRG.Bln.1946
 
     -   date: !!null
-        site: !noderef path.de.45000 spd
+        site: !noderef path.de.6107 spd
     -   date: !date 1998-12-30
-        site: !noderef path.de.45000 srw
+        site: !noderef path.de.6107 srw
 
 
 ---
@@ -592,7 +564,7 @@ events:
     -   date: !!null
         location:
             - !keyloc line.de.21000 12,82
-            - !keyloc line.de.45000 13,05
+            - !keyloc line.de.6107 13,05
         category: de.Bf
         de.Rangklasse: IV
         sources: !keyref src.de.DRG.Bln.1927
@@ -621,13 +593,13 @@ events:
     -   date: !date 1997-05-19?
         location:
             - !keyloc line.de.21000 12,428
-            - !keyloc line.de.20100 11,760
-            - !keyloc line.de.45000 12,669
+            - !keyloc line.de.6179 11,760
+            - !keyloc line.de.6107 12,669
         de.DS100: BSPD
         sources: !keyref src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.45000 sdu
+        site: !noderef path.de.6107 sdu
 
 # point.de.Berlin-Spandau-Gbf spg
 
@@ -636,7 +608,7 @@ key: point.de.Berlin-Hamburg-Lehrte
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.45000 14,80
+        location: !keyloc line.de.6107 14,80
         category: de.Bk
         name: Bk 27
         sources: !keyref src.de.DRG.Bln.1932
@@ -651,7 +623,7 @@ events:
         sources: !keyref src.dd.DR.Bln.1953
 
     -   date: !!null
-        site: !noderef path.de.45000 hal
+        site: !noderef path.de.6107 hal
 
 
 ---
@@ -659,7 +631,7 @@ key: point.de.Berlin-Staaken-Bk-14
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.45000 15,64
+        location: !keyloc line.de.6107 15,64
         category: de.Bk
         name: Bk 14
         sources: !keyref src.de.DRG.Bln.1932
@@ -668,7 +640,7 @@ events:
         sources: !keyref src.de.DRG.Bln.1943
 
     -   date: !!null
-        site: !noderef path.de.45000 hal
+        site: !noderef path.de.6107 hal
 
 # point.de.Brandwerder bra
 
@@ -685,13 +657,13 @@ events:
         sources: !keyref src.de.TPP.2006
     -   date: !!null
         location:
-            - !keyloc line.de.45000 16,146
-            - !keyloc line.de.20100 16,062
+            - !keyloc line.de.6107 16,146
+            - !keyloc line.de.6179 16,062
         category: de.Abzw
         sources: !keyref src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.45000 ned
+        site: !noderef path.de.6107 ned
 
 
 ---
@@ -703,8 +675,8 @@ events:
         sources: !keyref src.de.Kuhlmann.2000
     -   date: !!null
         location:
-            - !keyloc line.de.20100 16,58
-            - !keyloc line.de.45000 16,58
+            - !keyloc line.de.6179 16,58
+            - !keyloc line.de.6107 16,58
         category: de.Bf
         de.Rangklasse: IV
         name: Staaken
@@ -723,8 +695,8 @@ events:
         sources: !keyref src.de.DRG.Bln.1932
     -   date: !date c1940
         location:
-            - !keyloc line.de.20100 16,52
-            - !keyloc line.de.45000 16,52
+            - !keyloc line.de.6179 16,52
+            - !keyloc line.de.6107 16,52
         sources: !keyref src.de.DRG.Bln.1943
     -   date: !date c1950
         name: Berlin-Staaken
@@ -737,7 +709,7 @@ events:
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.45000 sta
+        site: !noderef path.de.6107 sta
 
 
 ---
@@ -756,15 +728,15 @@ events:
         master: !keyref point.de.Berlin-Staaken
     -   date: !!null
         location:
-            - !keyloc line.de.20100 16,582
-            - !keyloc line.de.45000 16,582
+            - !keyloc line.de.6179 16,582
+            - !keyloc line.de.6107 16,582
         sources: !keyref src.de.DBAG.ISR
     -   date: !date c2010
         category: de.Hp
         sources: !keyref src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.45000 stb
+        site: !noderef path.de.6107 stb
 
 
 ---
@@ -776,12 +748,12 @@ events:
         name: Staaken Grenze
     -   date: !!null
         location:
-            - !keyloc line.de.20100 16,600
-            - !keyloc line.de.45000 16,600
+            - !keyloc line.de.6179 16,600
+            - !keyloc line.de.6107 16,600
         sources: !keyref src.dd.DR.Bln.1953
 
     -   date: !!null
-        site: !noderef path.de.45000 gsts
+        site: !noderef path.de.6107 gsts
 
 
 ---
@@ -795,7 +767,7 @@ events:
         sources: !keyref src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.45000 gstl
+        site: !noderef path.de.6107 gstl
 
 
 ---
@@ -814,8 +786,8 @@ events:
         sources: !keyref src.dd.DR.Bln.1968
     -   date: !!null
         location:
-            - !keyloc line.de.20100 16,7
-            - !keyloc line.de.45000 16,7
+            - !keyloc line.de.6179 16,7
+            - !keyloc line.de.6107 16,7
         sources: !keyref src.dd.DR.Bln.1991
     -   date: !date c1970
         de.VBL: Sta
@@ -827,13 +799,13 @@ events:
         name: Berlin-Staaken
         sources: !keyref src.de.TPP.2006
     -   date: !date c2010
-        location: !keyloc line.de.20100 18,396
+        location: !keyloc line.de.6179 18,396
         sources: !keyref src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.45000 stk
+        site: !noderef path.de.6107 stk
     -   date: !date c2010
-        site: !noderef path.de.45000 stw
+        site: !noderef path.de.6107 stw
 
 
 ---
@@ -854,7 +826,7 @@ events:
         sources: !keyref src.de.TPP.2011
 
     -   date: !!null
-        site: !noderef path.de.45000 stw
+        site: !noderef path.de.6107 stw
 
 
 ---
@@ -863,8 +835,8 @@ type: point
 events:
     -   date: !!null
         location:
-            - !keyloc line.de.20100 18,78
-            - !keyloc line.de.45000 18,78
+            - !keyloc line.de.6179 18,78
+            - !keyloc line.de.6107 18,78
         category: de.Bk
         name: Bk 16
         sources: !keyref src.de.DRG.Bln.1932
@@ -878,7 +850,7 @@ events:
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.45000 flu
+        site: !noderef path.de.6107 flu
 
 
 ---
@@ -892,8 +864,8 @@ events:
         sources: !keyref src.de.Kuhlmann.2000
     -   date: !!null
         location:
-            - !keyloc line.de.20100 22,35
-            - !keyloc line.de.45000 22,35
+            - !keyloc line.de.6179 22,35
+            - !keyloc line.de.6107 22,35
         category: de.Bf
         de.Rangklasse: II
         name: Dallgow-Döberitz
@@ -917,7 +889,7 @@ events:
             - !keyref src.dd.DR.Bln.1953
     -   date: !date c1950
         location:
-            - !keyloc line.de.20100 22,265
+            - !keyloc line.de.6179 22,265
         sources: !keyref src.dd.DR.Bln.1959
     -   date: !var ds100.dr
         de.DS100: BDL
@@ -925,14 +897,14 @@ events:
     -   date: !date c1995
         category: de.Hp
         location:
-            - !keyloc line.de.20100 22,22
+            - !keyloc line.de.6179 22,22
         sources: !keyref src.de.DBAG.ISR
     -   date: !date 1999-05
         name: Dallgow-Döberitz
         sources: !keyref src.de.Kuhlmann.2000
 
     -   date: !!null
-        site: !noderef path.de.45000 dal
+        site: !noderef path.de.6107 dal
 
 
 ---
@@ -947,8 +919,8 @@ events:
         master: !keyref point.de.Wustermark-Rbf
     -   date: !!null
         location:
-            - !keyloc line.de.20100 24,183
-            - !keyloc line.de.45000 24,183
+            - !keyloc line.de.6179 24,183
+            - !keyloc line.de.6107 24,183
         sources: !keyref src.dd.DR.Bln.1959
     -   date: !date c1995
         name: Wustermark Rbf Wot
@@ -959,7 +931,7 @@ events:
         sources: !keyref src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.45000 wot
+        site: !noderef path.de.6107 wot
 
 
 ---
@@ -972,9 +944,9 @@ events:
         sources: !keyref src.de.Kuhlmann.2000
     -   date: !!null
         location:
-            - !keyloc line.de.20100 26,38
+            - !keyloc line.de.6179 26,38
             - !keyloc line.de.20110 26,38
-            - !keyloc line.de.45000 26,38
+            - !keyloc line.de.6107 26,38
         category: de.Bf
         de.Rangklasse: I
         sources: !keyref src.de.DRG.Bln.1927
@@ -996,7 +968,7 @@ events:
         sources: !keyref src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.45000 wur
+        site: !noderef path.de.6107 wur
 
 
 ---
@@ -1011,13 +983,13 @@ events:
         de.DS100: BETN
         sources: !keyref src.de.TPP.2006
     -   date: !!null
-        location: !keyloc line.de.45000 26,380
+        location: !keyloc line.de.6107 26,380
         category: [ de.Hp, de.Bft ]
         master: !keyref point.de.Wustermark-Rbf
         sources: !keyref src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.45000 wur
+        site: !noderef path.de.6107 wur
 
 
 ---
@@ -1028,7 +1000,7 @@ events:
         status: open
     -   date: !!null
         location:
-            - !keyloc line.de.45000 28,10
+            - !keyloc line.de.6107 28,10
             - !keyloc line.de.20110 28,10
         category: de.Glgr
         name: Wwb
@@ -1037,7 +1009,7 @@ events:
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.45000 wwb
+        site: !noderef path.de.6107 wwb
 
 
 ---
@@ -1050,7 +1022,7 @@ events:
         sources: !keyref src.de.Kb.1914
     -   date: !!null
         location:
-            - !keyloc line.de.45000 30,45
+            - !keyloc line.de.6107 30,45
         category: de.Bf
         de.Rangklasse: II
         sources: !keyref src.de.DRG.Bln.1927
@@ -1058,7 +1030,7 @@ events:
         de.lknr: 03 038
         sources: !keyref src.de.Bfv.1928
     -   date: !date c1930
-        location: !keyloc line.de.45000 30,46
+        location: !keyloc line.de.6107 30,46
         sources: !keyref src.de.DRG.Bln.1932
     -   date: !var lknr.30
         de.lknr: 03 180
@@ -1076,7 +1048,7 @@ events:
         sources: !keyref src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.45000 wus
+        site: !noderef path.de.6107 wus
 
 
 ---
@@ -1098,7 +1070,7 @@ events:
         sources: !keyref src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.45000 awn
+        site: !noderef path.de.6107 awn
 
 
 ---
@@ -1106,7 +1078,7 @@ key: point.de.Wernitz
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.45000 33,03
+        location: !keyloc line.de.6107 33,03
         category: de.Bk
         name: Bk 7
         sources: !keyref src.de.DRG.Bln.1932
@@ -1120,7 +1092,7 @@ events:
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.45000 wer
+        site: !noderef path.de.6107 wer
 
 
 ---
@@ -1135,7 +1107,7 @@ events:
         sources: !keyref src.de.Bfv.1928
     -   date: !!null
         location:
-            - !keyloc line.de.45000 35,29
+            - !keyloc line.de.6107 35,29
         category: de.Bf
         de.Rangklasse: III
         sources: !keyref src.de.DRG.Bln.1932
@@ -1158,7 +1130,7 @@ events:
         sources: !keyref src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.45000 nga
+        site: !noderef path.de.6107 nga
 
 
 ---
@@ -1166,7 +1138,7 @@ key: point.de.Schwanebeck
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.45000 39,15
+        location: !keyloc line.de.6107 39,15
         category: de.Bk
         name: Bk 10
         sources: !keyref src.de.DRG.Bln.1932
@@ -1178,7 +1150,7 @@ events:
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.45000 sbk
+        site: !noderef path.de.6107 sbk
 
 
 ---
@@ -1189,7 +1161,7 @@ events:
         name: Groß Behnitz
         sources: !keyref src.de.Kb.1914
     -   date: !!null
-        location: !keyloc line.de.45000 43,55
+        location: !keyloc line.de.6107 43,55
         category: de.Bf
         de.Rangklasse: III
         sources: !keyref src.de.DRG.Bln.1932
@@ -1207,7 +1179,7 @@ events:
         sources: !keyref src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.45000 gbn
+        site: !noderef path.de.6107 gbn
 
 
 ---
@@ -1215,7 +1187,7 @@ key: point.de.Ribbeck-Bk
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.45000 46,89
+        location: !keyloc line.de.6107 46,89
         category: de.Bk
         name: Bk 12
         sources: !keyref src.de.DRG.Bln.1932
@@ -1227,7 +1199,7 @@ events:
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.45000 rib
+        site: !noderef path.de.6107 rib
 
 
 ---
@@ -1239,14 +1211,14 @@ events:
         status: open
     -   date: !!null
         location:
-            - !keyloc line.de.45000 48,936
+            - !keyloc line.de.6107 48,936
         category: de.Abzw
         name: Ribbeck
         de.DS100: LRIK
         sources: !keyref src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.45000 ria
+        site: !noderef path.de.6107 ria
 
 
 ---
@@ -1254,7 +1226,7 @@ key: point.de.Heineberg
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.45000 49,35
+        location: !keyloc line.de.6107 49,35
         category: de.Bk
         name: Bk 13
         sources: !keyref src.de.DRG.Bln.1932
@@ -1266,7 +1238,7 @@ events:
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.45000 hei
+        site: !noderef path.de.6107 hei
 
 
 ---
@@ -1280,7 +1252,7 @@ events:
         de.lknr: 13 318
         sources: !keyref src.de.Bfv.1928
     -   date: !!null
-        location: !keyloc line.de.45000 52,45
+        location: !keyloc line.de.6107 52,45
         category: de.Bf
         de.Rangklasse: III
         sources: !keyref src.de.DRG.Bln.1932
@@ -1295,7 +1267,7 @@ events:
         sources: !keyref src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.45000 bus
+        site: !noderef path.de.6107 bus
 
 
 ---
@@ -1303,7 +1275,7 @@ key: point.de.Bukow
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.45000 57,16
+        location: !keyloc line.de.6107 57,16
         category: de.Bk
         name: Bk 15
         sources: !keyref src.de.DRG.Bln.1932
@@ -1315,7 +1287,7 @@ events:
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.45000 buk
+        site: !noderef path.de.6107 buk
 
 
 ---
@@ -1329,7 +1301,7 @@ events:
         de.lknr: 03 317
         sources: !keyref src.de.Bfv.1928
     -   date: !!null
-        location: !keyloc line.de.45000 60,45
+        location: !keyloc line.de.6107 60,45
         category: de.Bf
         de.Rangklasse: III
         sources: !keyref src.de.DRG.Bln.1932
@@ -1347,7 +1319,7 @@ events:
         sources: !keyref src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.45000 nen
+        site: !noderef path.de.6107 nen
 
 
 ---
@@ -1356,7 +1328,7 @@ type: point
 junction: True
 events:
     -   date: !!null
-        location: !keyloc line.de.45000 65,06
+        location: !keyloc line.de.6107 65,06
         category: [de.Bk, de.Uehst]
         name: Bamme
         sources: !keyref src.de.DRG.Bln.1932
@@ -1364,7 +1336,7 @@ events:
         de.VBL: Bm
         sources: !keyref src.de.DRG.Bln.1946
     -   date: !date c1965
-        location: !keyloc line.de.45000 65,04
+        location: !keyloc line.de.6107 65,04
         category: de.Bf
         de.Rangklasse: U
         staff: none
@@ -1375,14 +1347,14 @@ events:
         sources: !keyref src.de.TPP.2006
     -   date: !date c1995
         location:
-            - !keyloc line.de.45000 65,626
+            - !keyloc line.de.6107 65,626
         category: de.Abzw
         sources: !keyref src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.45000 bab
+        site: !noderef path.de.6107 bab
     -   date: !date c1995
-        site: !noderef path.de.45000 baa
+        site: !noderef path.de.6107 baa
 
 
 ---
@@ -1390,7 +1362,7 @@ key: point.de.Friedrichsdorf-Rathenow
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.45000 68,29
+        location: !keyloc line.de.6107 68,29
         category: de.Bk
         name: Bk 21
         sources: !keyref src.de.DRG.Bln.1932
@@ -1402,7 +1374,7 @@ events:
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.45000 fri
+        site: !noderef path.de.6107 fri
 
 
 ---
@@ -1421,7 +1393,7 @@ events:
         sources: !keyref src.de.Bfv.1928
     -   date: !!null
         location:
-            - !keyloc line.de.45000 70,87
+            - !keyloc line.de.6107 70,87
         category: de.Bf
         de.Rangklasse: II
         sources: !keyref src.de.DRG.Bln.1932
@@ -1442,7 +1414,7 @@ events:
         sources: !keyref src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.45000 rat
+        site: !noderef path.de.6107 rat
 
 
 ---
@@ -1450,7 +1422,7 @@ key: point.de.Wilhelminenhof
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.45000 75,10
+        location: !keyloc line.de.6107 75,10
         category: de.Bk
         name: Bk 25
         sources: !keyref src.de.DRG.Bln.1932
@@ -1461,7 +1433,7 @@ events:
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.45000 wil
+        site: !noderef path.de.6107 wil
 
 
 ---
@@ -1475,7 +1447,7 @@ events:
         de.lknr: 13 135
         sources: !keyref src.de.Bfv.1928
     -   date: !!null
-        location: !keyloc line.de.45000 79,37
+        location: !keyloc line.de.6107 79,37
         category: de.Bf
         de.Rangklasse: III
         sources: !keyref src.de.DRG.Bln.1932
@@ -1493,7 +1465,7 @@ events:
         sources: !keyref src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.45000 wud
+        site: !noderef path.de.6107 wud
 
 
 ---
@@ -1507,7 +1479,7 @@ events:
         sources: !keyref src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.45000 gwud
+        site: !noderef path.de.6107 gwud
 
 
 ---
@@ -1515,7 +1487,7 @@ key: point.de.Schmetzdorf
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.45000 83,42
+        location: !keyloc line.de.6107 83,42
         category: de.Bk
         name: Bk 29
         sources: !keyref src.de.DRG.Bln.1932
@@ -1529,7 +1501,7 @@ events:
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.45000 sme
+        site: !noderef path.de.6107 sme
 
 
 ---
@@ -1546,7 +1518,7 @@ events:
         name: Schönhauser Damm
         sources: !keyref src.de.Bfv.1928
     -   date: !!null
-        location: !keyloc line.de.45000 86,47
+        location: !keyloc line.de.6107 86,47
         category: de.Bf
         de.Rangklasse: III
         sources: !keyref src.de.DRG.Bln.1932
@@ -1557,12 +1529,12 @@ events:
         de.VBL: Sm
         sources: !keyref src.dd.DR.1976
     -   date: !date c1965
-        location: !keyloc line.de.45000 86,50
+        location: !keyloc line.de.6107 86,50
         de.Rangklasse: U
         sources: !keyref src.dd.DR.1976
 
     -   date: !!null
-        site: !noderef path.de.45000 sod
+        site: !noderef path.de.6107 sod
 
 
 ---
@@ -1571,7 +1543,7 @@ type: point
 junction: True
 events:
     -   date: !!null
-        location: !keyloc line.de.45000 88,845
+        location: !keyloc line.de.6107 88,845
         category: de.Bk
         name: Bk 32
         sources: !keyref src.de.DRG.Bln.1932
@@ -1587,13 +1559,13 @@ events:
     -   date: !date c1985
         category: de.Abzw
         location:
-            - !keyloc line.de.45000 90,34
+            - !keyloc line.de.6107 90,34
         sources: !keyref src.dd.DR.1989
     -   date: !date c1995
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.45000 goh
+        site: !noderef path.de.6107 goh
 
 
 ---
@@ -1608,7 +1580,7 @@ events:
         de.lknr: 13 313
         sources: !keyref src.de.Bfv.1928
     -   date: !!null
-        location: !keyloc line.de.45000 92,33
+        location: !keyloc line.de.6107 92,33
         category: de.Bf
         de.Rangklasse: III
         sources: !keyref src.de.DRG.Bln.1932
@@ -1626,7 +1598,7 @@ events:
         sources: !keyref src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.45000 soe
+        site: !noderef path.de.6107 soe
 
 
 ---
@@ -1646,7 +1618,7 @@ events:
         de.lknr: 13 001
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        location: !keyloc line.de.45000 97,15
+        location: !keyloc line.de.6107 97,15
         de.VBL: Hn
         sources: !keyref src.dd.DR.1976
     -   date: !date c1965
@@ -1663,7 +1635,7 @@ events:
         sources: !keyref src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.45000 hae
+        site: !noderef path.de.6107 hae
 
 
 ---
@@ -1675,14 +1647,14 @@ events:
         status: open
     -   date: !!null
         location:
-            - !keyloc line.de.45000 99,922
+            - !keyloc line.de.6107 99,922
         category: de.Abzw
         name: Bindfelde Abzw
         de.DS100: LBIN
         sources: !keyref src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.45000 bia
+        site: !noderef path.de.6107 bia
 
 
 ---
@@ -1690,7 +1662,7 @@ key: point.de.Bindfelde-Bk
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.45000 101,07
+        location: !keyloc line.de.6107 101,07
         category: de.Bk
         name: Bindfelde
         sources: !keyref src.dd.DR.1976
@@ -1701,7 +1673,7 @@ events:
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.45000 bib
+        site: !noderef path.de.6107 bib
 
 
 ---
@@ -1727,7 +1699,7 @@ events:
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
         location:
-            - !keyloc line.de.45000 105,11
+            - !keyloc line.de.6107 105,11
         de.VBL: Stl
         sources: !keyref src.dd.DR.1976
     -   date: !var ds100.dr
@@ -1735,7 +1707,7 @@ events:
         sources: !keyref src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.45000 ste
+        site: !noderef path.de.6107 ste
 
 
 ---
@@ -1752,7 +1724,7 @@ events:
             - !keyref src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.45000 stg
+        site: !noderef path.de.6107 stg
 
 
 ---
@@ -1774,7 +1746,7 @@ events:
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
         de.VBL: Grm
-        location: !keyloc line.de.45000 112,44
+        location: !keyloc line.de.6107 112,44
         sources: !keyref src.dd.DR.1976
     -   date: !date c1965
         name: Möringen (Altm)
@@ -1792,14 +1764,14 @@ events:
         sources: !keyref src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.45000 moe
+        site: !noderef path.de.6107 moe
 
 ---
 key: point.de.Nahrstedt-91
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.45000 115,12
+        location: !keyloc line.de.6107 115,12
         category: de.Bk
         name: !!str 91
         de.VBL: Ü
@@ -1808,7 +1780,7 @@ events:
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.45000 nab
+        site: !noderef path.de.6107 nab
 
 
 ---
@@ -1820,14 +1792,14 @@ events:
         status: open
     -   date: !!null
         location:
-            - !keyloc line.de.45000 115,533
+            - !keyloc line.de.6107 115,533
         category: de.Abzw
         name: Nahrstedt
         de.DS100: LMGA
         sources: !keyref src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.45000 naa
+        site: !noderef path.de.6107 naa
 
 
 ---
@@ -1852,7 +1824,7 @@ events:
         de.lknr: 13 005
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        location: !keyloc line.de.45000 117,83
+        location: !keyloc line.de.6107 117,83
         de.VBL: Vg
         sources: !keyref src.dd.DR.1976
     -   date: !date c1965
@@ -1863,14 +1835,14 @@ events:
         sources: !keyref src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.45000 vin
+        site: !noderef path.de.6107 vin
 
 ---
 key: point.de.Uchtspringe-96
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.45000 121,10
+        location: !keyloc line.de.6107 121,10
         category: de.Bk
         name: !!str 96
         de.VBL: Kb
@@ -1882,7 +1854,7 @@ events:
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.45000 kbe
+        site: !noderef path.de.6107 kbe
 
 
 ---
@@ -1898,7 +1870,7 @@ events:
         de.lknr: 03 006
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        location: !keyloc line.de.45000 124,17
+        location: !keyloc line.de.6107 124,17
         de.VBL: Us
         sources: !keyref src.dd.DR.1976
     -   date: !date c1965
@@ -1911,13 +1883,13 @@ events:
         de.DS100: LUS
         sources: !keyref src.de.TPP.2006
     -   date: !date c1995
-        location: !keyloc line.de.45000 123,959
+        location: !keyloc line.de.6107 123,959
         sources: !keyref src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.45000 uch
+        site: !noderef path.de.6107 uch
     -   date: !date c1995
-        site: !noderef path.de.45000.uch uch
+        site: !noderef path.de.6107.uch uch
 
 
 ---
@@ -1925,7 +1897,7 @@ key: point.de.Jaevenitz-101
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.45000 128,05
+        location: !keyloc line.de.6107 128,05
         category: de.Bk
         name: !!str 101
         de.VBL: Hk
@@ -1934,7 +1906,7 @@ events:
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.45000 jab
+        site: !noderef path.de.6107 jab
 
 
 ---
@@ -1955,7 +1927,7 @@ events:
         de.lknr: 13 007
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        location: !keyloc line.de.45000 131,33
+        location: !keyloc line.de.6107 131,33
         de.VBL: Jz
         sources: !keyref src.dd.DR.1976
     -   date: !date c1965
@@ -1966,7 +1938,7 @@ events:
         sources: !keyref src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.45000 jae
+        site: !noderef path.de.6107 jae
 
 
 ---
@@ -1974,7 +1946,7 @@ key: point.de.Gardelegen-107
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.45000 134,51
+        location: !keyloc line.de.6107 134,51
         category: de.Bk
         name: !!str 107
         de.VBL: Aj
@@ -1983,7 +1955,7 @@ events:
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.45000 gab
+        site: !noderef path.de.6107 gab
 
 
 ---
@@ -2008,7 +1980,7 @@ events:
         de.lknr: 13 008
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        location: !keyloc line.de.45000 137,45
+        location: !keyloc line.de.6107 137,45
         de.VBL: Gr
         sources: !keyref src.dd.DR.1976
     -   date: !date c1965
@@ -2019,7 +1991,7 @@ events:
         sources: !keyref src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.45000 gar
+        site: !noderef path.de.6107 gar
 
 
 ---
@@ -2040,7 +2012,7 @@ events:
         de.lknr: 13 009
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        location: !keyloc line.de.45000 145,22
+        location: !keyloc line.de.6107 145,22
         de.VBL: Sk
         sources: !keyref src.dd.DR.1976
     -   date: !date c1965
@@ -2054,7 +2026,7 @@ events:
         sources: !keyref src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.45000 sol
+        site: !noderef path.de.6107 sol
 
 
 ---
@@ -2062,7 +2034,7 @@ key: point.de.Solpke-117
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.45000 148,16
+        location: !keyloc line.de.6107 148,16
         category: de.Bk
         name: !!str 117
         de.VBL: Ör
@@ -2071,7 +2043,7 @@ events:
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.45000 sob
+        site: !noderef path.de.6107 sob
 
 
 ---
@@ -2092,7 +2064,7 @@ events:
         de.lknr: 13 010
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        location: !keyloc line.de.45000 151,48
+        location: !keyloc line.de.6107 151,48
         de.VBL: Mst
         sources: !keyref src.dd.DR.1976
     -   date: !date c1965
@@ -2103,7 +2075,7 @@ events:
         sources: !keyref src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.45000 mie
+        site: !noderef path.de.6107 mie
 
 
 ---
@@ -2111,7 +2083,7 @@ key: point.de.Mieste-122
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.45000 154,32
+        location: !keyloc line.de.6107 154,32
         category: de.Bk
         name: !!str 122
         de.VBL: Gp
@@ -2120,7 +2092,7 @@ events:
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.45000 mib
+        site: !noderef path.de.6107 mib
 
 
 ---
@@ -2141,7 +2113,7 @@ events:
         de.lknr: 13 011
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        location: !keyloc line.de.45000 157,67
+        location: !keyloc line.de.6107 157,67
         de.VBL: Mt
         sources: !keyref src.dd.DR.1976
     -   date: !date c1965
@@ -2152,7 +2124,7 @@ events:
         sources: !keyref src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.45000 mih
+        site: !noderef path.de.6107 mih
 
 
 ---
@@ -2160,7 +2132,7 @@ key: point.de.Bergfriede
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.45000 162,26
+        location: !keyloc line.de.6107 162,26
         category: de.Bf
         de.Rangklasse: U
         name: Bergfriede
@@ -2173,7 +2145,7 @@ events:
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.45000 ber
+        site: !noderef path.de.6107 ber
 
 
 ---
@@ -2202,7 +2174,7 @@ events:
         sources: !keyref src.de.Bfv.1944
     -   date: !!null
         location:
-            - !keyloc line.de.45000 167,33
+            - !keyloc line.de.6107 167,33
         de.VBL: Oe
         sources: !keyref src.dd.DR.1976
     -   date: !!null
@@ -2213,7 +2185,7 @@ events:
         sources: !keyref src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.45000 oeb
+        site: !noderef path.de.6107 oeb
 
 
 ---
@@ -2233,11 +2205,11 @@ events:
         de.DS100: LQOE
         sources: !keyref src.de.TPP.2006
     -   date: !!null
-        location: !keyloc line.de.45000 168,938
+        location: !keyloc line.de.6107 168,938
         sources: !keyref src.dd.DR.1989
 
     -   date: !!null
-        site: !noderef path.de.45000 goeb
+        site: !noderef path.de.6107 goeb
 
 
 ---
@@ -2253,7 +2225,7 @@ events:
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.45000 gra
+        site: !noderef path.de.6107 gra
 
 
 ---
@@ -2261,7 +2233,7 @@ key: point.de.Vorsfelde-135
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.45000 171,44
+        location: !keyloc line.de.6107 171,44
         category: de.Bk
         name: !!str 135
         sources: !keyref src.de.DRG.Han.1931
@@ -2269,7 +2241,7 @@ events:
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.45000 vob
+        site: !noderef path.de.6107 vob
 
 
 ---
@@ -2294,13 +2266,13 @@ events:
         de.dstnr: !!str 130161
         sources: !keyref src.de.DS100.1984
     -   date: !!null
-        location: !keyloc line.de.45000 176,461
+        location: !keyloc line.de.6107 176,461
         sources: !keyref src.de.DBAG.ISR
     -   date: !date c1975
         service: none
 
     -   date: !!null
-        site: !noderef path.de.45000 vor
+        site: !noderef path.de.6107 vor
 
 
 ---
@@ -2315,7 +2287,7 @@ events:
         de.lknr: 13 299
         sources: !keyref src.de.Bfv.1928
     -   date: !!null
-        location: !keyloc line.de.45000 181,28
+        location: !keyloc line.de.6107 181,28
         sources: !keyref src.de.DRG.Han.1931
     -   date: !!null
         category: de.Bf
@@ -2338,7 +2310,7 @@ events:
             - !keyref src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.45000 wol
+        site: !noderef path.de.6107 wol
 
 
 ---
@@ -2356,7 +2328,7 @@ events:
         name: Fallersleben
         sources: !keyref src.de.Bfv.1928
     -   date: !!null
-        location: !keyloc line.de.45000 185,60
+        location: !keyloc line.de.6107 185,60
         sources: !keyref src.de.DRG.Han.1931
     -   date: !!null
         category: de.Bf
@@ -2374,7 +2346,7 @@ events:
         sources: !keyref src.de.DS100.1984
 
     -   date: !!null
-        site: !noderef path.de.45000 fal
+        site: !noderef path.de.6107 fal
 
 
 ---
@@ -2382,7 +2354,7 @@ key: point.de.Fallersleben-152
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.45000 188,60
+        location: !keyloc line.de.6107 188,60
         category: de.Bk
         name: !!str 152
         sources: !keyref src.de.DRG.Han.1931
@@ -2390,7 +2362,7 @@ events:
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.45000 fab
+        site: !noderef path.de.6107 fab
 
 
 ---
@@ -2404,7 +2376,7 @@ events:
         de.lknr: 13 297
         sources: !keyref src.de.Bfv.1928
     -   date: !!null
-        location: !keyloc line.de.45000 192,07
+        location: !keyloc line.de.6107 192,07
         sources: !keyref src.de.DRG.Han.1931
     -   date: !!null
         category: de.Bf
@@ -2422,7 +2394,7 @@ events:
         sources: !keyref src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.45000 cal
+        site: !noderef path.de.6107 cal
 
 
 ---
@@ -2445,7 +2417,7 @@ events:
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
         location:
-            - !keyloc line.de.45000 198,35
+            - !keyloc line.de.6107 198,35
             - !keyloc line.de.13100 0,00
         sources: !keyref src.de.DRG.Han.1945
     -   date: !!null
@@ -2458,7 +2430,7 @@ events:
         sources: !keyref src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.45000 gif
+        site: !noderef path.de.6107 gif
 
 
 ---
@@ -2466,7 +2438,7 @@ key: point.de.Winkel
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.45000 201,70
+        location: !keyloc line.de.6107 201,70
         category: de.Bk
         name: !!str 162
         sources: !keyref src.de.DRG.Han.1931
@@ -2480,7 +2452,7 @@ events:
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.45000 win
+        site: !noderef path.de.6107 win
 
 
 ---
@@ -2496,11 +2468,11 @@ events:
         de.DS100: HLFU
         sources: !keyref src.de.TPP.2006
     -   date: !!null
-        location: !keyloc line.de.45000 205,7
+        location: !keyloc line.de.6107 205,7
         sources: !keyref src.de.SuW.2005
 
     -   date: !!null
-        site: !noderef path.de.45000 leu
+        site: !noderef path.de.6107 leu
 
 
 ---
@@ -2514,7 +2486,7 @@ events:
         de.lknr: 13 295
         sources: !keyref src.de.Bfv.1928
     -   date: !!null
-        location: !keyloc line.de.45000 206,34
+        location: !keyloc line.de.6107 206,34
         sources: !keyref src.de.DRG.Han.1931
     -   date: !!null
         category: de.Bf
@@ -2537,7 +2509,7 @@ events:
         sources: !keyref src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.45000 lei
+        site: !noderef path.de.6107 lei
 
 
 ---
@@ -2545,7 +2517,7 @@ key: point.de.Meinersen-169
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.45000 210,05
+        location: !keyloc line.de.6107 210,05
         category: de.Bk
         name: !!str 169
         sources: !keyref src.de.DRG.Han.1945
@@ -2553,7 +2525,7 @@ events:
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.45000 meb
+        site: !noderef path.de.6107 meb
 
 
 ---
@@ -2567,7 +2539,7 @@ events:
         de.lknr: 13 294
         sources: !keyref src.de.Bfv.1928
     -   date: !!null
-        location: !keyloc line.de.45000 213,69
+        location: !keyloc line.de.6107 213,69
         sources: !keyref src.de.DRG.Han.1931
     -   date: !!null
         category: de.Bf
@@ -2582,7 +2554,7 @@ events:
         sources: !keyref src.de.DS100.1984
 
     -   date: !!null
-        site: !noderef path.de.45000 mei
+        site: !noderef path.de.6107 mei
 
 
 ---
@@ -2598,7 +2570,7 @@ events:
         sources: !keyref src.de.Bfv.1928
     -   date: !!null
         location:
-            - !keyloc line.de.45000 216,97
+            - !keyloc line.de.6107 216,97
             # 27,80/0,00
         sources: !keyref src.de.DRG.Han.1931
     -   date: !!null
@@ -2619,7 +2591,7 @@ events:
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.45000 plo
+        site: !noderef path.de.6107 plo
 
 
 ---
@@ -2633,7 +2605,7 @@ events:
         de.lknr: 13 292
         sources: !keyref src.de.Bfv.1928
     -   date: !!null
-        location: !keyloc line.de.45000 219,67
+        location: !keyloc line.de.6107 219,67
         sources: !keyref src.de.DRG.Han.1945
     -   date: !!null
         category: de.Bf
@@ -2651,7 +2623,7 @@ events:
         sources: !keyref src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.45000 ded
+        site: !noderef path.de.6107 ded
 
 
 ---
@@ -2665,7 +2637,7 @@ events:
         de.lknr: 13 291
         sources: !keyref src.de.Bfv.1928
     -   date: !!null
-        location: !keyloc line.de.45000 223,90
+        location: !keyloc line.de.6107 223,90
         sources: !keyref src.de.DRG.Han.1931
     -   date: !!null
         category: de.Bf
@@ -2678,7 +2650,7 @@ events:
         sources: !keyref src.de.DS100.1984
 
     -   date: !!null
-        site: !noderef path.de.45000 dol
+        site: !noderef path.de.6107 dol
 
 
 ---
@@ -2686,7 +2658,7 @@ key: point.de.Schwueblingsen
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.45000 227,53
+        location: !keyloc line.de.6107 227,53
         category: de.Bk
         name: Schwüblingsen
         sources: !keyref src.de.DRG.Han.1945
@@ -2697,7 +2669,7 @@ events:
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.45000 swu
+        site: !noderef path.de.6107 swu
 
 
 ---
@@ -2718,7 +2690,7 @@ events:
         de.lknr: 13 028
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        location: !keyloc line.de.45000 231,01
+        location: !keyloc line.de.6107 231,01
         sources: !keyref src.de.DRG.Han.1945
     -   date: !!null
         de.DS100: HIMS
@@ -2726,7 +2698,7 @@ events:
         sources: !keyref src.de.DS100.1984
 
     -   date: !!null
-        site: !noderef path.de.45000 imm
+        site: !noderef path.de.6107 imm
 
 
 ---
@@ -2734,7 +2706,7 @@ key: point.de.Immensen-189
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.45000 233,49
+        location: !keyloc line.de.6107 233,49
         category: de.Bk
         name: !!str 189
         sources: !keyref src.de.DRG.Han.1945
@@ -2742,7 +2714,7 @@ events:
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.45000 imb
+        site: !noderef path.de.6107 imb
 
 
 ---
@@ -2750,7 +2722,7 @@ key: point.de.Lehrte-191
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.45000 235,74
+        location: !keyloc line.de.6107 235,74
         category: de.Bk
         name: !!str 191
         sources: !keyref src.de.DRG.Han.1945
@@ -2758,5 +2730,5 @@ events:
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.45000 lbk
+        site: !noderef path.de.6107 lbk
 
