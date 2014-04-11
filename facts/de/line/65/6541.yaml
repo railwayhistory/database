@@ -1,0 +1,316 @@
+---
+key: line.de.6541
+type: line
+label: freight
+events:
+    -   date: !!null
+        region: !keyref org.de
+    -   date: !!null
+        end: !keyref point.de.Osdorf-LGr
+        region: !keyref org.de.l.bb
+    -   date: !!null
+        start: !keyref point.de.Osdorf-LGr
+        end: !keyref point.de.Gross-Ziethen-LGr
+        region: !keyref org.de.l.be
+    -   date: !!null
+        start: !keyref point.de.Gross-Ziethen-LGr
+        region: !keyref org.de.l.bb
+
+    -   date: !var vzg.dr
+        de.VzG: !!str 6541
+        sources: !keyref src.de.VzG
+
+    #   Eröffnung und Schließung
+    #
+    -   date: !date 1940-12-16
+        status: open
+        note: >
+            „offiziell erst 01.01.1941 eröffnet“
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !date 1951-03-21
+        start: !keyref point.de.Altglienicke
+        status: closed
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !date c1960
+        status: removed
+ 
+    #   Eigenschaften
+    #
+    -   date: !!null
+        category: de.Nebenbahn
+        tracks: 1
+        gauge: 1435
+        sources: !keyref src.de.DRG.Bln.1943
+
+    #   Eigentümer und Betriebsführer
+    #
+    -   date: !!null
+        owner: !keyref org.de
+        operator: !keyref org.de.e.DRG
+    -   date: !date 1949-07-10
+        end: !keyref point.de.Osdorf-LGr
+        owner: !keyref org.dd
+    -   date: !date 1949-07-10
+        start: !keyref point.de.Gross-Ziethen-LGr
+        owner: !keyref org.dd
+    -   date: !var dd.DR.start
+        operator: !keyref org.dd.DR
+    -   date: !date 1990-10-03
+        owner: !keyref org.de
+
+    -   date: !var org.de.DBAG.start
+        owner: !keyref org.de.e.DBAG
+        operator: !keyref org.de.e.DBAG
+    -   date: !var org.de.DBNetz.start
+        owner: !keyref org.de.e.DBNetz
+        operator: !keyref org.de.e.DBNetz
+        
+    #   Verlauf
+    #
+    -   date: !!null
+        course:
+            - !pathref path.de.31000     tel  flic  1.5
+            - !pathref path.de.6541.lic a    f     0.0
+            - !pathref path.de.20870     flic awen  0
+            - !pathref path.de.6541.gru a    f     0.0
+            - !pathref path.de.28000     fagl gru   1.5
+
+points:
+    - !keyref point.de.Teltow                               # line.de.31000
+    - !keyref point.de.Osdorf
+    - !keyref point.de.Osdorf-LGr
+    - !keyref point.de.Lichtenrade-Ltw
+    - !keyref point.de.Lichtenrade-Ost
+    - !keyref point.de.Gross-Ziethen-LGr
+    - !keyref point.de.Gross-Ziethen
+    - !keyref point.de.Gross-Ziethen-Ost
+    - !keyref point.de.Schoenefeld-Teltow-Mitte
+    - !keyref point.de.Berlin-Gruenbergallee-LGr            # line.de.20870
+    - !keyref point.de.Schoenefeld-Teltow-Siedlung
+    - !keyref point.de.Berlin-Gruenbergallee                # line.de.20870
+    - !keyref point.de.Berlin-Altglienicke                  # line.de.20870
+    - !keyref point.de.Berlin-Gruenau                       # line.de.28000
+
+
+---
+key: point.de.Osdorf
+type: point
+events:
+    -   date: !date 1914-01-01
+        status: open
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !!null
+        location: !keyloc line.de.6541 2,51
+        name: Osdorf
+        sources: !keyref src.de.DRG.Bln.1943
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: IV
+        service: none
+        de.lknr: 03 834
+        sources: !keyref src.de.Bfv.1944
+    -   date: !!null
+        de.VBL: Os
+        sources: !keyref src.de.DRG.Bln.1946
+    -   date: !date c1945
+        status: closed
+        sources: !keyref src.de.Kuhlmann.2000
+
+    -   date: !!null
+        site: !noderef path.de.6541.lic osd
+
+
+---
+key: point.de.Osdorf-LGr
+type: point
+subtype: border
+events:
+    -   date: !!null
+        name: Osdorf BB/BE
+
+    -   date: !!null
+        site: !noderef path.de.6541.lic gosd
+
+
+---
+key: point.de.Lichtenrade-Ltw
+type: point
+junction: True
+events:
+    -   date: !!null
+        category: de.Abzw
+        name: Ltw
+
+    -   date: !!null
+        site: !noderef path.de.6541.lic ltw
+
+
+---
+key: point.de.Lichtenrade-Ost
+type: point
+junction: True
+events:
+    -   date: !date 1941-01-01
+        status: open
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !!null
+        location: !keyloc line.de.6541 6,48
+        name: Lichtenrade (Güteraußenring)
+        sources: !keyref src.de.DRG.Bln.1943
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: IV
+        service: none
+        de.lknr: 03 088
+        sources: !keyref src.de.Bfv.1944
+    -   date: !!null
+        de.VBL: Lra
+        sources: !keyref src.de.DRG.Bln.1946
+    -   date: !date 1949-07-22
+        service: passenger
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !date 1950-10-08
+        service: none
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !date c1955
+        name: Lichtenrade Ost
+        category: [de.Hp, de.Abzw]
+        sources: !keyref src.dd.DR.Bln.1959
+    -   date: !var ds100.dr
+        de.DS100: BLRO
+
+    -   date: !!null
+        site: !noderef path.de.6541.lic lio
+
+
+---
+key: point.de.Gross-Ziethen-LGr
+type: point
+subtype: border
+events:
+    -   date: !!null
+        name: Groß Ziethen BB/BE
+
+    -   date: !!null
+        site: !noderef path.de.6541.lic ggzi
+
+
+---
+key: point.de.Gross-Ziethen
+type: point
+events:
+    -   date: !date 1941-01-01
+        status: open
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !!null
+        location: !keyloc line.de.6541 9,55
+        name: Groß Ziethen
+        sources: !keyref src.de.DRG.Bln.1943
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: IV
+        service: none
+        de.lknr: 03 385
+        sources: !keyref src.de.Bfv.1944
+    -   date: !!null
+        de.VBL: Zt
+        sources: !keyref src.de.DRG.Bln.1946
+    -   date: !date 1948-07-26
+        service: passenger
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !date 1950-10-08
+        service: none
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !date 1952-10-01
+        service: passenger
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !date 1958-05-31
+        service: none
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !date c1950
+        de.Rangklasse: U
+        sources: !keyref src.dd.DR.Bln.1953
+    -   date: !date c1955
+        location: !keyloc line.de.6541 11,17
+        category: de.Hp
+        master: !keyref point.de.Berlin-Schoenefeld-Flughafen
+        sources: !keyref src.dd.DR.Bln.1959
+
+    -   date: !!null
+        site: !noderef path.de.6541.lic gzi left
+
+
+---
+key: point.de.Gross-Ziethen-Ost
+type: point
+events:
+    -   date: !date 1954-10-03
+        status: open
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !!null
+        location: !keyloc line.de.6541 11,8
+        name: Groß Ziethen Ost
+        master: !keyref point.de.Berlin-Schoenefeld-Flughafen
+        de.VBL: Zto
+        sources: !keyref src.dd.DR.Bln.1959
+
+    -   date: !!null
+        site: !noderef path.de.6541.lic gzo
+
+
+---
+key: point.de.Schoenefeld-Teltow-Mitte
+type: point
+events:
+    -   date: !date 1941-01-01
+        status: open
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !!null
+        location: !keyloc line.de.6541 13,68
+        name: Schönefeld (Kr Teltow)
+        sources: !keyref src.de.DRG.Bln.1943
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: IV
+        service: none
+        de.lknr: 03 386
+        sources: !keyref src.de.Bfv.1944
+    -   date: !!null
+        de.VBL: Sf
+        sources: !keyref src.de.DRG.Bln.1946
+    -   date: !date 1948-04-27
+        service: passenger
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !date 1949-10-01
+        name: Schönefeld (Kr Teltow) Mitte
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !date 1951-03-21
+        service: none
+        sources: !keyref src.de.Kuhlmann.2000
+
+    -   date: !!null
+        site: !noderef path.de.6541.lic son
+
+
+---
+key: point.de.Schoenefeld-Teltow-Siedlung
+type: point
+events:
+    -   date: !date 1949-05-15
+        status: open
+        name: Schönefeld (Kr Teltow) Siedlung
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !!null
+        location: !keyloc line.de.6541 16,9
+        category: de.Hp
+        master: !keyref point.de.Berlin-Schoenefeld-Flughafen
+        sources: !keyref src.dd.DR.Bln.1959
+    -   date: !date 1958-05-31?
+        status: closed
+        sources: !keyref src.de.Kuhlmann.2000
+
+    -   date: !!null
+        site: !noderef path.de.20870 sos
+
+
+

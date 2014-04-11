@@ -1,0 +1,116 @@
+---
+key: line.de.6124
+type: line
+events:
+    -   date: !!null
+        region:
+            - !keyref org.de
+            - !keyref org.de.l.be
+
+    -   date: !var vzg.dr
+        de.VzG: !!str 6124
+        sources: !keyref src.de.VzG
+
+    # Konzessionen
+    #
+    -   date: !date 1909-07-28
+        concession:
+            by: !keyref org.de.l.pre
+            document: !keyref src.de.l.pre.1909.25.644
+        sources: !keyref src.de.DRG.1935
+    -   date: !date 1914-06-10
+        concession:
+            by: !keyref org.de.l.pre
+            document: !keyref src.de.l.pre.1914.17.97
+        sources: !keyref src.de.DRG.1935
+
+    # Eröffnungen
+    #
+    -   date: !date 1918-03-19
+        status: open
+        service: freight
+        sources: !keyref src.de.DRG.1935
+    -   date: !!null
+        category: de.Hauptbahn
+        sources: !keyref src.de.DRG.1927
+
+    # Nach 1945
+    #
+    -   date: !date 1982-05-22
+        electrified:
+            overhead: !var el.de
+        sources: !keyref src.de.Kuhlmann.2000
+
+    # Eigentümer und Betreiber
+    #
+    -   date: !!null
+        owner: !keyref org.de.l.pre
+        operator: !keyref org.de.e.KPEV.Bln
+    
+    -   date: !date 1920-04-01
+        owner: !keyref org.de
+        operator: !keyref org.de.r.RVM.PH
+    -   date: !date 1924-02-12
+        operator: !keyref org.de.e.DREb
+    -   date: !date 1924-08-30
+        operator: !keyref org.de.e.DRG
+
+    -   date: !date 1949-10-07
+        owner: !keyref org.dd
+    -   date: !var org.de.DR.start
+        operator: !keyref org.dd.DR
+    -   date: !date 1990-10-03
+        owner: !keyref org.de
+
+    -   date: !var org.de.DBAG.start
+        owner: !keyref org.de.e.DBAG
+        operator: !keyref org.de.e.DBAG
+    -   date: !var org.de.DBNetz.start
+        owner: !keyref org.de.e.DBNetz
+        operator: !keyref org.de.e.DBNetz
+
+    # Verlauf
+    #
+    -   date: !!null
+        course:
+            - !pathref path.de.29500 bea  ased 0
+            - !pathref path.de.6124 a    f    0
+            - !pathref path.de.46500 alia bla  2.5
+
+points:
+    - !keyref point.de.Seddin-Einf-Nord                 # line.de.6122
+    - !keyref point.de.Seddin                           # line.de.46500
+    - !keyref point.de.Seddin-Srw-Mitte
+    - !keyref point.de.Seddin-Ausf-West
+    
+
+---
+key: point.de.Seddin-Srw-Mitte
+type: point
+events:
+    -   date: !!null
+        category: de.Bft
+        name: Seddin Srw Mitte
+        de.DS100: BSE M
+        sources: !keyref src.de.SuW.2011
+
+    -   date: !!null
+        site: !noderef path.de.46500 swm
+
+---
+key: point.de.Seddin-Ausf-West
+type: point
+events:
+    -   date: !!null
+        location:
+            - !keyloc line.de.6124 33,423
+            - !keyloc line.de.6123 1,968
+        category: de.Bft
+        name: Seddin Ausf Nord
+        de.DS100: BSE W
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.46500 saw
+
+

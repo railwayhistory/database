@@ -1,0 +1,66 @@
+---
+key: line.de.6168
+type: line
+label: connection
+events:
+    -   date: !!null
+        region:
+            - !keyref org.de
+            - !keyref org.de.l.be
+
+    -   date: !var vzg.dr
+        de.VzG: !!str 6168
+        sources: !keyref src.de.VzG
+
+    # Konzessionen
+    #
+
+    # Eröffnungen
+    #
+    -   date: !date 1901-12-01
+        status: open
+        service: freight
+        sources: !keyref src.de.DRG.1935
+    -   date: !!null
+        category: de.Hauptbahn
+        sources: !keyref src.de.DRG.1927
+
+    # Nach 1990
+    #
+    -   date: !date c1995
+        status: removed
+
+    # Eigentümer und Betreiber
+    #
+    -   date: !!null
+        owner: !keyref org.de.l.pre
+        operator: !keyref org.de.e.KPEV.Bln
+    
+    -   date: !date 1920-04-01
+        owner: !keyref org.de
+        operator: !keyref org.de.r.RVM.PH
+    -   date: !date 1924-02-12
+        operator: !keyref org.de.e.DREb
+    -   date: !date 1924-08-30
+        operator: !keyref org.de.e.DRG
+
+    -   date: !var org.de.DR.start
+        operator: !keyref org.dd.DR
+
+    -   date: !var org.de.DBAG.start
+        owner: !keyref org.de.e.DBAG
+        operator: !keyref org.de.e.DBAG
+    -   date: !var org.de.DBNetz.start
+        owner: !keyref org.de.e.DBNetz
+        operator: !keyref org.de.e.DBNetz
+
+    # Verlauf
+    #
+    -   date: !!null
+        course:
+            - !pathref path.de.31000 tem sue  -2.5
+
+points:
+    - !keyref point.de.Berlin-Tempelhof-Rbf                 # line.de.31000
+    - !keyref point.de.Berlin-Suedende                      # line.de.31000
+

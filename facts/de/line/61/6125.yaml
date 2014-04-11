@@ -1,0 +1,96 @@
+---
+key: line.de.6125
+type: line
+label: freight
+events:
+    -   date: !!null
+        region:
+            - !keyref org.de
+            - !keyref org.de.l.pre
+
+    -   date: !var vzg.dr
+        start: !keyref point.de.Berlin-Schoeneberg-Betriebsbf
+        de.VzG: !!str 6125
+        sources: !keyref src.de.VzG
+
+    -   date: !!null
+        category: de.Hauptbahn
+        tracks: 1
+        sources: !keyref src.de.DRG.1927
+
+    -   date: !date 1902-12-01
+        status: open
+        service: freight
+        sources: !keyref src.de.DRG.1935
+    -   date: !date c1937
+        end: !keyref point.de.Berlin-Schoeneberg-Betriebsbf
+        status: removed
+        reused: !keyref line.de.20700
+        sources: !keyref src.de.DRG.Bln.1943
+    -   date: !date c2000
+        start: !keyref point.de.Berlin-Schoeneberg-Betriebsbf
+        status: closed
+
+    #   Eigentümer und Betreiberwechsel
+    #
+    -   date: !!null
+        owner: !keyref org.de.l.pre
+        operator: !keyref org.de.e.KPEV.Bln
+    -   date: !date 1920-04-01
+        owner: !keyref org.de
+        operator: !keyref org.de.r.RVM.PH
+    -   date: !date 1924-02-12
+        operator: !keyref org.de.e.DREb
+    -   date: !date 1924-08-30
+        operator: !keyref org.de.e.DRG
+    -   date: !var org.de.DR.start
+        operator: !keyref org.dd.DR
+    -   date: !var org.de.DBAG.start
+        owner: !keyref org.de.e.DBAG
+        operator: !keyref org.de.e.DBAG
+    -   date: !var org.de.DBNetz.start
+        owner: !keyref org.de.e.DBNetz
+        operator: !keyref org.de.e.DBNetz
+
+    -   date: !!null
+        course:
+            - !pathref path.de.6177 bpg stg -1.5
+
+points:
+    - !keyref point.de.Berlin-Potsd-Gbf
+    - !keyref point.de.Berlin-Schoeneberg-Betriebsbf
+    - !keyref point.de.Berlin-Steglitz-Gbf
+
+
+---
+key: point.de.Berlin-Schoeneberg-Betriebsbf
+type: point
+junction: True
+events:
+    -   date: !!null
+        location:
+            - !keyloc line.de.6176 24,80
+            - !keyloc line.de.6125 3,91
+        category: de.Bf
+        de.Rangklasse: III
+        name: Betriebsbf Schöneberg
+        sources: !keyref src.de.DRG.Bln.1927
+    -   date: !!null
+        service: none
+    -   date: !!null
+        de.VBL: Sgr
+        sources: !keyref src.de.DRG.Bln.1946
+    -   date: !date c1950
+        de.Rangklasse: U
+        sources: !keyref src.dd.DR.Bln.1953
+    -   date: !date c1950
+        master: !keyref point.de.Berlin-Friedenau
+        sources: !keyref src.dd.DR.Bln.1959
+    -   date: !var ds100.dr
+        de.DS100: BSBB
+    -   date: !date c2005
+        status: closed
+
+    -   date: !!null
+        site: !noderef path.de.6177 sbb right
+

@@ -1,0 +1,47 @@
+---
+key: line.de.6103
+type: line
+label: connection
+events:
+    -   date: !!null
+        region:
+            - !keyref org.de
+            - !keyref org.de.l.bb
+
+    -   date: !!null
+        de.VzG: !!str 6103
+        sources: !keyref src.de.VzG
+
+    -   date: !date 1955-10-02
+        status: open
+        service: freight
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !!null
+        category: de.Hauptbahn
+        owner: !keyref org.dd
+        operator: !keyref org.dd.DR
+
+    -   date: !date 1983-09-25
+        electrified:
+            overhead: !var el.de
+        sources: !keyref src.ch.Schwach.1989
+
+    -   date: !date 1990-10-03
+        owner: !keyref org.de
+    -   date: !var org.de.DBAG.start
+        owner: !keyref org.de.e.DBAG
+        operator: !keyref org.de.e.DBAG
+    -   date: !var org.de.DBNetz.start
+        owner: !keyref org.de.e.DBNetz
+        operator: !keyref org.de.e.DBNetz
+
+    -   date: !!null
+        course:
+            - !pathref path.de.20600 awf  awus -1.5
+            - !pathref path.de.6103 a    f     0.
+            - !pathref path.de.6107 abar wur  -1.5
+
+points:
+    - !keyref point.de.Wustermark-Awf                       # line.de.20600
+    - !keyref point.de.Wustermark-Rbf                       # line.de.6107
+
