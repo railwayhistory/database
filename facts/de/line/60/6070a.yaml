@@ -1,0 +1,132 @@
+---
+key: line.de.6070a
+type: line
+events:
+    -   date: !!null
+        region:
+            - !keyref org.de
+            - !keyref org.de.l.be
+
+    #   Eröffnung
+    #
+    -   date: !date 1901-01-29
+        status: open
+        sources: !keyref src.de.DRG.1935
+
+    #   Eigenschaften
+    #
+    -   date: !!null
+        category: de.Hauptbahn
+        tracks: 2
+        gauge: 1435
+        sources: !keyref src.de.DRG.Bln.1927
+    -   date: !date c1945
+        tracks: 1
+        sources: !keyref src.dd.DR.Bln.1953
+
+    #   Stilllegung
+    #
+    -   date: !date 1966
+        start: !keyref point.de.Berlin-Treskowallee
+        end: !keyref point.de.Berlin-Grabensprung
+        status: closed
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !date 1978-04-01
+        start: !keyref point.de.Berlin-Grabensprung
+        status: closed
+        sources: !keyref src.de.WP.VnK-Strecke
+    -   date: !date 1978-04
+        start: !keyref point.de.Berlin-Treskowallee
+        status: removed
+
+    #   Eigentümer und Betriebsführer
+    #
+    -   date: !!null
+        owner: !keyref org.de.l.pre
+        operator: !keyref org.de.e.KPEV.Bln
+
+    -   date: !date 1920-04-01
+        owner: !keyref org.de
+        operator: !keyref org.de.r.RVM.PH
+    -   date: !date 1924-02-12
+        operator: !keyref org.de.e.DREb
+    -   date: !date 1924-08-30
+        operator: !keyref org.de.e.DRG
+
+    -   date: !date 1949-10-07
+        owner: !keyref org.dd
+    -   date: !var org.de.DR.start
+        operator: !keyref org.dd.DR
+
+    #   Verlauf
+    #
+    -   date: !!null
+        course:
+            - !pathref path.de.6170  tra  akau 0.0
+            - !pathref path.de.6170a a    f    0.0
+            - !pathref path.de.27300 frum kau  2.0
+
+points:
+    - !keyref point.de.Berlin-Treskowallee                  # line.de.6070
+    - !keyref point.de.Berlin-Kaulsdorf-Bk-4
+    - !keyref point.de.Berlin-Grabensprung
+    - !keyref point.de.Berlin-Wuhle
+    - !keyref point.de.Berlin-Kaulsdorf                     # line.de.27300
+
+
+---
+key: point.de.Berlin-Kaulsdorf-Bk-4
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.6170a 8,06
+        category: de.Bk
+        name: Bk 4
+        sources: !keyref src.de.DRG.Bln.1932
+    -   date: !date c1940
+        status: closed
+        sources: !keyref src.de.DRG.Bln.1943
+
+    -   date: !!null
+        site: !noderef path.de.6170a biv right
+
+
+---
+key: point.de.Berlin-Grabensprung
+type: point
+junction: True
+events:
+    -   date: !date 1941-01-01
+        status: open
+    -   date: !!null
+        location: !keyloc line.de.6170a 8,92
+        category: de.Abzw
+        name: Grabensprung
+        sources: !keyref src.de.DRG.Bln.1943
+
+    -   date: !!null
+        site: !noderef path.de.6170a gra right
+
+
+---
+key: point.de.Berlin-Wuhle
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.6170a 10,03
+        category: de.Bk
+        name: Bk 5
+        sources: !keyref src.de.DRG.Bln.1932
+    -   date: !date c1940
+        name: Wuhle
+        sources: !keyref src.de.DRG.Bln.1943
+    -   date: !date c1940
+        de.VBL: Wh
+        sources: !keyref src.de.DRG.Bln.1946
+    -   date: !date c1950
+        status: closed
+        sources: !keyref src.dd.DR.Bln.1959
+
+    -   date: !!null
+        site: !noderef path.de.6170a wuh left
+
