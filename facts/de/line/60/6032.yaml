@@ -1,0 +1,496 @@
+---
+key: line.de.6032
+type: line
+label: de.S-Bahn
+events:
+    -   date: !!null
+        region:
+            - !keyref org.de
+            - !keyref org.de.l.be
+
+    -   date: !var vzg.dr
+        de.VzG: !!str 6032
+        sources: !keyref src.de.VzG
+
+    #   Eröffnung
+    #
+    -   date: !date 1936-07-28
+        end: !keyref point.de.Berlin-Brandenburger-Tor
+        status: open
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !date 1939-04-15
+        start: !keyref point.de.Berlin-Brandenburger-Tor
+        end: !keyref point.de.Berlin-Anh-Bf-S-Bahn
+        status: open
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !date 1939-10-09 
+        start: !keyref point.de.Berlin-Anh-Bf-S-Bahn
+        status: open
+        sources: !keyref src.de.Kuhlmann.2000
+
+    #   Sprengung und Wiederinstandsetzung
+    #
+    -   date: !date 1945-05-02
+        status: suspended
+        sources: !keyref src.de.WP.Nord-Sued-Tunnel
+    -   date: !date 1946-06-02
+        start: !keyref point.de.Berlin-Friedrichstrasse-unten
+        end: !keyref point.de.Berlin-Anh-Bf-S-Bahn
+        status: open
+        sources: !keyref src.de.WP.Nord-Sued-Tunnel
+    -   date: !date 1946-07-27
+        start: !keyref point.de.Berlin-Anh-Bf-S-Bahn
+        status: open
+        sources: !keyref src.de.WP.Nord-Sued-Tunnel
+    -   date: !date 1947-11-16
+        end: !keyref point.de.Berlin-Friedrichstrasse-unten
+        status: open
+        sources: !keyref src.de.WP.Nord-Sued-Tunnel
+
+    #   Betriebseinstellung Übernahme BVG
+    #
+    -   date: !date 1984-01-09
+        service: none
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !date 1984-05-01
+        service: passenger
+        sources: !keyref src.de.Kuhlmann.2000
+
+    #   Betriebseinstellung Sanierung
+    #
+    -   date: !date 1991-04-02
+        status: suspended
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !date 1992-03-01
+        status: reopened
+        sources: !keyref src.de.Kuhlmann.2000
+
+    #   Eigenschaften
+    #
+    -   date: !!null
+        category: de.Hauptbahn
+        tracks: 2
+        gauge: 1435
+        service: passenger
+        sources: !keyref src.de.DRG.Bln.1943
+
+    #   Eigentümer etc.
+    #
+    -   date: !!null
+        owner: !keyref org.de
+        operator: !keyref org.de.e.DRG
+    -   date: !date 1949-10-07
+        end: !keyref point.de.Berlin-Potsdamer-Platz-Gr
+        owner: !keyref org.dd
+    -   date: !var dd.DR.start
+        operator: !keyref org.dd.DR
+    -   date: !date 1984-01-09
+        operator: !keyref org.de.e.BVG
+    -   date: !date 1990-10-03
+        end: !keyref point.de.Berlin-Potsdamer-Platz-Gr
+        owner: !keyref org.de
+
+    -   date: !var org.de.DBAG.start
+        owner: !keyref org.de.e.DBAG
+        operator: !keyref org.de.e.DBAG
+    -   date: !var org.de.DBNetz.start
+        owner: !keyref org.de.e.DBNetz
+        operator: !keyref org.de.e.DBNetz
+
+    #   Verlauf
+    #
+    -   date: !!null
+        course:
+            - !pathref path.de.26000.nob nox  tnsa  2.0
+            - !pathref path.de.6032      a    f     0.0
+            - !pathref path.de.6177      fahu asox -2.0
+            - !pathref path.de.6177      fsox xsob  2.0
+
+points:
+    - !keyref point.de.Berlin-Nordbf-Strw
+    - !keyref point.de.Berlin-Nord-Sued-Tunnel-A
+    - !keyref point.de.Berlin-Nordbf-unten
+    - !keyref point.de.Berlin-Oranienburger-Strasse
+    - !keyref point.de.Berlin-Friedrichstrasse-unten
+    - !keyref point.de.Berlin-Brandenburger-Tor
+    - !keyref point.de.Berlin-Potsdamer-Platz-S-Bahn
+    - !keyref point.de.Berlin-Potsdamer-Platz-Gr
+    - !keyref point.de.Berlin-Anh-Bf-S-Bahn
+    - !keyref point.de.Berlin-Nord-Sued-Tunnel-F
+    - !keyref point.de.Berlin-Grossgoerschenstrasse         # line.de.20780
+    - !keyref point.de.Berlin-Julius-Leber-Brücke
+    - !keyref point.de.Berlin-Schoeneberg-Strw              # line.de.20780
+
+
+---
+key: point.de.Berlin-Nordbf-Strw
+type: point
+subtype: reference
+junction: True
+events:
+    -   date: !!null
+        name: Berlin Nordbahnhof Strw Nord-Süd-Tunnel
+        short_name: Berlin Nordbahnhof
+        location: !keyloc line.de.6032 0,000
+
+    -   date: !!null
+        site: !noderef path.de.26000.nob nox
+
+
+---
+key: point.de.Berlin-Nord-Sued-Tunnel-A
+type: point
+subtype: portal
+structure: !keyref struct.de.Berlin-Nord-Sued-Tunnel
+events:
+    -   date: !!null
+        site: !noderef path.de.26000.nob tnsa down
+
+
+---
+key: struct.de.Berlin-Nord-Sued-Tunnel
+type: structure
+subtype: tunnel
+events:
+    -   date: !!null
+        name: S-Bahn-Tunnel Berlin Nord-Süd
+        length: 5584
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Berlin-Nordbf-unten
+type: point
+events:
+    -   date: !date 1936-07-27
+        status: open
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !!null
+        category: de.Hp
+        name: Stettiner Bahnhof
+        service: passenger
+        de.lknr: 03 380
+        sources: !keyref src.de.Bfv.1938
+    -   date: !!null
+        location: !keyloc line.de.6032 0,32
+        sources: !keyref src.de.DRG.Bln.1943
+    -   date: !!null
+        de.VBL: Stu
+        sources: !keyref src.de.DRG.Bln.1946
+    -   date: !date 1950-12-01
+        name: Nordbahnhof
+        de.VBL: Nou
+        sources:
+            - !keyref src.de.Kuhlmann.2000
+            - !keyref src.dd.DR.Bln.1953
+    -   date: !date c1950
+        category: de.Bf
+        de.Rangklasse: U
+        master: !keyref point.de.Berlin-Nordbf
+        sources:
+            - !keyref src.dd.DR.Bln.1953
+            - !keyref src.dd.DR.Bln.1959
+    -   date: !date 1961-08-13
+        service: none
+    -   date: !date c1965
+        de.Rangklasse: IV
+        master: !!null
+        sources: !keyref src.dd.DR.Bln.1968
+    -   date: !date c1975
+        de.Rangklasse: U
+        master: !keyref point.de.Berlin-Friedrichstrasse
+        sources: !keyref src.dd.DR.Bln.1978
+    -   date: !var ds100.dr
+        de.DS100: BNB
+        sources: !keyref src.de.TPP.2006
+    -   date: !date c2000
+        name: Berlin Nordbahnhof
+        sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.6032 nou left
+
+
+---
+key: point.de.Berlin-Oranienburger-Strasse
+type: point
+events:
+    -   date: !date 1936-07-27
+        status: open
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !!null
+        category: de.Hp
+        name: Oranienburger Straße
+        service: passenger
+        de.lknr: 03 381
+        sources: !keyref src.de.Bfv.1938
+    -   date: !!null
+        location: !keyloc line.de.6032 1,29
+        sources: !keyref src.de.DRG.Bln.1943
+    -   date: !!null
+        de.VBL: Oru
+        sources: !keyref src.de.DRG.Bln.1946
+    -   date: !date c1950
+        master: !keyref point.de.Berlin-Friedrichstrasse
+        sources: !keyref src.dd.DR.Bln.1959
+    -   date: !date 1961-08-13
+        service: none
+        sources: !keyref src.de.web.Stadtschnellbahn-Berlin
+    -   date: !date c1965
+        master: !keyref point.de.Berlin-Nordbf
+        sources: !keyref src.dd.DR.Bln.1968
+    -   date: !date c1970
+        master: !keyref point.de.Berlin-Friedrichstrasse
+        sources: !keyref src.dd.DR.Bln.1973
+    -   date: !date 1990-07-02
+        service: passenger
+        sources: !keyref src.de.web.Stadtschnellbahn-Berlin
+    -   date: !var ds100.dr
+        de.DS100: BORS
+        sources: !keyref src.de.TPP.2006
+    -   date: !date c2000
+        name: Berlin Oranienburger Straße
+        sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.6032 ora right
+
+
+---
+key: point.de.Berlin-Friedrichstrasse-unten
+type: point
+junction: True
+events:
+    -   date: !date 1936-07-27
+        status: open
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !!null
+        category: de.Hp
+        name: Friedrichstraße
+        service: passenger
+        de.lknr: 03 382
+        sources: !keyref src.de.Bfv.1938
+    -   date: !!null
+        location: !keyloc line.de.6032 2,02
+        sources: !keyref src.de.DRG.Bln.1943
+    -   date: !!null
+        de.VBL: Fru
+        sources: !keyref src.de.DRG.Bln.1943
+    -   date: !date c1955
+        category: de.Glgr
+        master: !keyref point.de.Berlin-Friedrichstrasse
+        sources: !keyref src.dd.DR.Bln.1959
+    -   date: !var ds100.dr
+        category: de.Bft
+        name: Friedrichstraße (Nord-Süd-Tunnel)
+        de.DS100: BFRIU
+        sources: !keyref src.de.SuW.2005
+    -   date: !date c2008
+        category: de.Hp
+        name: Berlin Friedrichstraße (Nord-Süd-Tunnel)
+        de.DS100: BFSTT
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        connection: !keyref point.de.Berlin-Friedrichstrasse
+
+    -   date: !!null
+        site: !noderef path.de.6032 fri right
+
+
+---
+key: point.de.Berlin-Brandenburger-Tor
+type: point
+events:
+    -   date: !date 1936-07-27
+        status: open
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !!null
+        category: de.Hp
+        name: Unter den Linden
+        service: passenger
+        de.lknr: 03 383
+        sources: !keyref src.de.Bfv.1938
+    -   date: !!null
+        location: !keyloc line.de.6032 2,68
+        sources: !keyref src.de.DRG.Bln.1943
+    -   date: !date c1940
+        category: de.Bf
+        de.Rangklasse: IV
+        sources: !keyref src.de.DRG.Bln.1943
+    -   date: !date c1944
+        de.Rangklasse: III
+        sources: !keyref src.de.Bfv.1944
+    -   date: !!null
+        de.VBL: Ulu
+        sources: !keyref src.de.DRG.Bln.1946
+    -   date: !date c1950
+        de.Rangklasse: U
+        master: !keyref point.de.Berlin-Potsdamer-Platz-S-Bahn
+        sources:
+            - !keyref src.dd.DR.Bln.1953
+            - !keyref src.dd.DR.Bln.1959
+    -   date: !date 1961-08-13
+        service: none
+        sources: !keyref src.de.web.Stadtschnellbahn-Berlin
+    -   date: !date c1965
+        master: !keyref point.de.Berlin-Nordbf
+        sources: !keyref src.dd.DR.Bln.1968
+    -   date: !date c1970
+        master: !keyref point.de.Berlin-Friedrichstrasse
+        sources: !keyref src.dd.DR.Bln.1973
+    -   date: !date 1990-06-01
+        service: passenger
+        sources: !keyref src.de.web.Stadtschnellbahn-Berlin
+    -   date: !var ds100.dr
+        de.DS100: BUDL
+        sources: !keyref src.de.TPP.2006
+    -   date: !date c2000
+        name: Berlin Unter den Linden
+        sources: !keyref src.de.TPP.2006
+    -   date: !date 2009-08-08
+        name: Berlin Brandenburger Tor
+        de.DS100: BTOR
+        sources:
+            - !keyref src.de.web.Stadtschnellbahn-Berlin
+            - !keyref src.de.DBAG.ISR
+    -   date: !date c2008
+        category: de.Hp
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.6032 bra right
+
+
+---
+key: point.de.Berlin-Potsdamer-Platz-S-Bahn
+type: point
+junction: True
+events:
+    -   date: !date 1939-04-15
+        status: open
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !!null
+        location: !keyloc line.de.6032 3,62
+        category: de.Bf
+        de.Rangklasse: II
+        name: Potsdamer Platz
+        sources: !keyref src.de.DRG.Bln.1943
+    -   date: !!null
+        service: passenger
+        de.lknr: 03 121
+        sources: !keyref src.de.Bfv.1944
+    -   date: !!null
+        de.VBL: Pou
+        sources: !keyref src.de.DRG.Bln.1946
+    -   date: !date 1961-08-13
+        service: none
+        sources: !keyref src.de.web.Stadtschnellbahn-Berlin
+    -   date: !date c1965
+        de.Rangklasse: U
+        master: !keyref point.de.Berlin-Nordbf
+        sources: !keyref src.dd.DR.Bln.1968
+    -   date: !date c1970
+        master: !keyref point.de.Berlin-Friedrichstrasse
+        sources: !keyref src.dd.DR.Bln.1973
+    -   date: !date 1992-03-01
+        service: passenger
+        sources: !keyref src.de.web.Stadtschnellbahn-Berlin
+    -   date: !var ds100.dr
+        de.DS100: BPOP
+        sources: !keyref src.de.TPP.2006
+    -   date: !date c2000
+        name: Berlin Potsdamer Platz
+        sources: !keyref src.de.TPP.2006
+    -   date: !date c2008
+        name: Berlin Potsdamer Platz (S-Bahn)
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        connection: !keyref point.de.Berlin-Potsdamer-Platz-Fernbf
+
+    -   date: !!null
+        site: !noderef path.de.6032 pot right
+
+
+---
+key: point.de.Berlin-Potsdamer-Platz-Gr
+type: point
+subtype: border
+events:
+    -   date: !!null
+        name: Berlin Potsdamer Platz Grenze
+        site: !noderef path.de.6032 gpot
+
+---
+key: point.de.Berlin-Anh-Bf-S-Bahn
+type: point
+junction: True
+events:
+    -   date: !date 1939-10-09
+        status: open
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !!null
+        location: !keyloc line.de.6032 4,47
+        sources: !keyref src.de.DRG.Bln.1943
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: II
+        name: Anhalter Bahnhof (S-Bahn)
+        service: passenger
+        de.lknr: 03 070
+        sources: !keyref src.de.Bfv.1944
+    -   date: !!null
+        de.VBL: Ahu
+        sources: !keyref src.de.DRG.Bln.1946
+    -   date: !date c1955
+        de.Rangklasse: U
+        master: !keyref point.de.Berlin-Friedenau
+        sources: !keyref src.dd.DR.Bln.1959
+    -   date: !date c1975
+        name: Anhalter Bf
+        sources: !keyref src.dd.DR.Bln.1978
+    -   date: !date c1980
+        master: !keyref point.de.Berlin-Wilmersdorf
+        sources: !keyref src.dd.DR.Bln.1983
+    -   date: !var ds100.dr
+        de.DS100: BAHU
+        sources: !keyref src.de.TPP.2006
+    -   date: !date c2000
+        name: Berlin Anhalter Bf
+        sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        connection: !keyref point.de.Berlin-Anh-Bf
+
+    -   date: !!null
+        site: !noderef path.de.6032 anh left
+
+
+---
+key: point.de.Berlin-Nord-Sued-Tunnel-F
+type: point
+subtype: portal
+structure: !keyref struct.de.Berlin-Nord-Sued-Tunnel
+events:
+    -   date: !!null
+        site: !noderef path.de.26000.nob tnsf down
+
+
+---
+key: point.de.Berlin-Julius-Leber-Brücke
+type: point
+events:
+    -   date: !date 2008-05-02
+        status: open
+        sources: !keyref src.de.web.Stadtschnellbahn-Berlin
+    -   date: !!null
+        location: !keyloc line.de.6032 6,817
+        category: de.Hp
+        name: Berlin Julius-Leber-Brücke SB
+        de.DS100: BJLB
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.6177 jul left
+
