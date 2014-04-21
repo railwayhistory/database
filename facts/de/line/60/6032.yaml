@@ -36,15 +36,15 @@ events:
     -   date: !date 1946-06-02
         start: !keyref point.de.Berlin-Friedrichstrasse-unten
         end: !keyref point.de.Berlin-Anh-Bf-S-Bahn
-        status: open
+        status: reopened
         sources: !keyref src.de.WP.Nord-Sued-Tunnel
     -   date: !date 1946-07-27
         start: !keyref point.de.Berlin-Anh-Bf-S-Bahn
-        status: open
+        status: reopened
         sources: !keyref src.de.WP.Nord-Sued-Tunnel
     -   date: !date 1947-11-16
         end: !keyref point.de.Berlin-Friedrichstrasse-unten
-        status: open
+        status: reopened
         sources: !keyref src.de.WP.Nord-Sued-Tunnel
 
     #   Betriebseinstellung Übernahme BVG
@@ -59,9 +59,11 @@ events:
     #   Betriebseinstellung Sanierung
     #
     -   date: !date 1991-04-02
+        end: !keyref point.de.Berlin-Anh-Bf-S-Bahn
         status: suspended
         sources: !keyref src.de.Kuhlmann.2000
     -   date: !date 1992-03-01
+        end: !keyref point.de.Berlin-Anh-Bf-S-Bahn
         status: reopened
         sources: !keyref src.de.Kuhlmann.2000
 
@@ -72,7 +74,8 @@ events:
         tracks: 2
         gauge: 1435
         service: passenger
-        sources: !keyref src.de.DRG.Bln.1943
+        electrified:
+            rail: !var el.de.bln
 
     #   Eigentümer etc.
     #
@@ -431,7 +434,9 @@ events:
         status: open
         sources: !keyref src.de.Kuhlmann.2000
     -   date: !!null
-        location: !keyloc line.de.6032 4,47
+        location:
+            - !keyloc line.de.6032 4,47
+            - !keyloc line.de.6034 4,47
         sources: !keyref src.de.DRG.Bln.1943
     -   date: !!null
         category: de.Bf
