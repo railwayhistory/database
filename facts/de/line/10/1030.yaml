@@ -1,0 +1,50 @@
+---
+key: line.de.1030
+type: line
+label: freight
+events: 
+    -   date: !!null
+        region:
+            - !keyref org.de
+            - !keyref org.de.l.sh
+
+    -   date: !!null
+        de.VzG: !!str 1030
+        sources: !keyref src.de.VzG
+
+    -   date: !date c1920
+        status: open
+        service: freight
+    -   date: !date c1980
+        status: removed
+
+    #   Eigentümer etc.
+    #
+    -   date: !!null
+        owner: !keyref org.de
+        operator: !keyref org.de.e.DRG
+    -   date: !var org.de.DB.start
+        operator: !keyref org.de.e.DB
+
+    #   Verlauf
+    #
+    -   date: !!null
+        course:
+            - !pathref path.de.1220 mef  agbf -3.5
+            - !pathref path.de.1030 a    khg   0.0
+
+points:
+    - !keyref point.de.Meimersdorf-Rbf                  # line.de.1220
+    - !keyref point.de.Meimersdorf-Mitte                # line.de.1032
+    - !keyref point.de.Kiel-Hgbf
+
+
+---
+key: point.de.Kiel-Hgbf
+type: point
+events:
+    -   date: !!null
+        name: Kiel Hgbf
+
+    -   date: !!null
+        site: !noderef path.de.1030 khg up
