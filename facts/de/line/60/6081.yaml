@@ -1,9 +1,7 @@
 ---
-key: line.de.26000
+key: line.de.6081
 type: line
 events:
-    # Regionen
-    #
     -   date: !!null
         region: !keyref org.de
     -   date: !!null
@@ -11,36 +9,35 @@ events:
         region: !keyref org.de.l.be
     -   date: !!null
         start: !keyref point.de.Berlin-Buch-LGr-Fernbahn
+        end: !keyref point.de.Nechlin-LGr
         region: !keyref org.de.l.bb
+    -   date: !!null
+        start: !keyref point.de.Nechlin-LGr
+        region: !keyref org.de.l.mv
 
-    # Streckennummern
-    #
     -   date: !var vzg.dr
-        end: !keyref point.de.Angermuende
+        start: !keyref point.de.Berlin-Gesundbrunnen
         de.VzG: !!str 6081
         sources: !keyref src.de.VzG
-    -   date: !var vzg.dr
-        start: !keyref point.de.Angermuende
-        de.VzG: !!str 6328
-        sources: !keyref src.de.VzG
 
-    # Unklares
-    #
-    -   date: !!null
-        category: de.Hauptbahn
-        tracks: 2
-        sources: !keyref src.de.DRG.1927
-
-    # Konzessionen
+    #   Genehmigung
     #
     -   date: !date 1840-10-12
+        end: !keyref point.de.Angermuende
         concession:
             by: !keyref org.de.l.pre
             for: !keyref org.de.e.BSE
             document: !keyref src.de.l.pre.1840.305
         sources: !keyref src.de.DRG.1935
+    -   date: !date 1861-06-21
+        start: !keyref point.de.Angermuende
+        concession:
+            by: !keyref org.de.l.pre
+            for: !keyref org.de.e.BSE
+            document: !keyref src.de.l.pre.1861.25.431
+        sources: !keyref src.de.DRG.1935
 
-    # Eröffnungen
+    #   Eröffnung
     #
     -   date: !date 1842-08-01
         end: !keyref point.de.Eberswalde-Hbf
@@ -51,34 +48,47 @@ events:
         end: !keyref point.de.Angermuende
         status: open
         sources: !keyref src.de.DRG.1935
-    -   date: !date 1843-08-16
+    -   date: !date 1863-03-16
         start: !keyref point.de.Angermuende
+        end: !keyref point.de.Anklam
+        status: open
+        sources: !keyref src.de.DRG.1935
+    -   date: !date 1863-11-01
+        start: !keyref point.de.Anklam
         status: open
         sources: !keyref src.de.DRG.1935
 
-    # Nach 1945
+    #   Eigenschaften
     #
+    -   date: !!null
+        category: de.Hauptbahn
+        tracks: 2
+        sources: !keyref src.de.DRG.1927
+    
     -   date: !date c1945
         tracks: 1
+
     -   date: !date c1955
         end: !keyref point.de.Berlin-Pankow-Pkrs
         status: closed
         sources: !keyref src.dd.DR.Bln.1959
     -   date: !date c1965
+        end: !keyref point.de.Berlin-Pankow-Pkrs
         status: removed
         sources: !keyref src.dd.DR.Bln.1968
 
-    # Wiederaufbau 2. Gleis
+    #   Wiederaufbau 2. Gleis
     #
     -   date: !date c1970
-        start: !keyref point.de.Angermuende
-        end: !keyref point.de.Passow-Uckerm
-        tracks: 2
-        sources: !keyref src.dd.DR.1976
-    -   date: !date c1978
         start: !keyref point.de.Berlin-Pankow-Pkrn
         end: !keyref point.de.Berlin-Blankenburg
-        sources: !keyref src.dd.DR.Bln.1978
+        tracks: 2
+        sources: !keyref src.dd.DR.Bln.1973
+    -   date: !date c1970
+        start: !keyref point.de.Erichshagen
+        end: !keyref point.de.Warnitz-Uckerm
+        tracks: 2
+        sources: !keyref src.dd.DR.1976
     -   date: !date c1978
         start: !keyref point.de.Berlin-Karow
         end: !keyref point.de.Angermuende
@@ -86,9 +96,18 @@ events:
         sources:
             - !keyref src.dd.DR.Bln.1978
             - !keyref src.dd.DR.1989
+    -   date: !date c1980
+        start: !keyref point.de.Angermuende
+        end: !keyref point.de.Erichshagen
+        tracks: 2
+        sources: !keyref src.dd.DR.1989
+    -   date: !date c1980
+        start: !keyref point.de.Warnitz-Uckerm
+        tracks: 2
+        sources: !keyref src.dd.DR.1989
 
-    # Elektrifizierung
-    #
+    #   Elektrifizierung
+    #       
     -   date: !date 1987-10-03
         start: !keyref point.de.Berlin-Blankenburg
         end: !keyref point.de.Eberswalde-Hbf
@@ -97,7 +116,36 @@ events:
         sources: !keyref src.de.Hafner.1989
     -   date: !date 1987-12-30
         start: !keyref point.de.Eberswalde-Hbf
-        end: !keyref point.de.Passow-Uckerm
+        end: !keyref point.de.Angermuende
+        electrified:
+            overhead: !var el.de
+        sources: !keyref src.de.Hafner.1989
+    -   date: !date 1988-03-06
+        start: !keyref point.de.Angermuende
+        end: !keyref point.de.Prenzlau
+        electrified:
+            overhead: !var el.de
+        sources: !keyref src.de.Hafner.1989
+    -   date: !date 1988-05-25
+        start: !keyref point.de.Prenzlau
+        end: !keyref point.de.Pasewalk
+        electrified:
+            overhead: !var el.de
+        sources: !keyref src.de.Hafner.1989
+    -   date: !date 1988-09-28
+        start: !keyref point.de.Pasewalk
+        end: !keyref point.de.Zuessow
+        electrified:
+            overhead: !var el.de
+        sources: !keyref src.de.Hafner.1989
+    -   date: !date 1988-12-09
+        start: !keyref point.de.Zuessow
+        end: !keyref point.de.Greifswald
+        electrified:
+            overhead: !var el.de
+        sources: !keyref src.de.Hafner.1989
+    -   date: !date 1988-12-17
+        start: !keyref point.de.Greifswald
         electrified:
             overhead: !var el.de
         sources: !keyref src.de.Hafner.1989
@@ -171,9 +219,9 @@ events:
     #
     -   date: !!null
         course:
-            - !pathref path.de.26000.nob nob  f     0.0
+            - !pathref path.de.6081.nob nob  f      0.0
             - !pathref path.de.20900     fnob sga  -3.0
-            - !pathref path.de.26000     a    gtan  0.0
+            - !pathref path.de.6081     a    str   0.0
 
 points:
     - !keyref point.de.Berlin-Nordbf
@@ -213,20 +261,42 @@ points:
     - !keyref point.de.Serwest
     - !keyref point.de.Herzsprung
     - !keyref point.de.Angermuende
-    - !keyref point.de.Kerkow
-    - !keyref point.de.Welsow-Bruchhagen
-    - !keyref point.de.Schoenermark-Angermuende
-    - !keyref point.de.Briest
-    - !keyref point.de.Passow-Uckerm
-    - !keyref point.de.Schoenow
-    - !keyref point.de.Blumberg-Uckerm
-    - !keyref point.de.Casekow
-    - !keyref point.de.Petershagen-Uckerm
-    - !keyref point.de.Schoenfeld-Uckerm
-    - !keyref point.de.Tantow
-    - !keyref point.de.Radekow
-    - !keyref point.de.Rosow
-    - !keyref point.de.Tantow-Gr
+    - !keyref point.de.Erichshagen
+    - !keyref point.de.Greiffenberg
+    - !keyref point.de.Wilmersdorf-Angermuende
+    - !keyref point.de.Melzow
+    - !keyref point.de.Warnitz-Uckermark
+    - !keyref point.de.Quast
+    - !keyref point.de.Seehausen-Uckerm
+    - !keyref point.de.Seeluebbe
+    - !keyref point.de.Prenzlau
+    - !keyref point.de.Prenzlau-Blindow
+    - !keyref point.de.Dauer
+    - !keyref point.de.Nechlin
+    - !keyref point.de.Papendorf-Pasewalk
+    - !keyref point.de.Pasewalk
+    - !keyref point.de.Belling
+    - !keyref point.de.Sandfoerde
+    - !keyref point.de.Jatznick
+    - !keyref point.de.Ferdinandshof
+    - !keyref point.de.Borckenfriede
+    - !keyref point.de.Ducherow
+    - !keyref point.de.Aurose
+    - !keyref point.de.Anklam
+    - !keyref point.de.Salchower-Weiche
+    - !keyref point.de.Klein-Buenzow
+    - !keyref point.de.Zuessow
+    - !keyref point.de.Gross-Kiesow
+    - !keyref point.de.Guest
+    - !keyref point.de.Schoenwalde-Greifswald
+    - !keyref point.de.Greifswald-Sued
+    - !keyref point.de.Greifswald
+    - !keyref point.de.Mesekenhagen
+    - !keyref point.de.Jeeser
+    - !keyref point.de.Miltzow
+    - !keyref point.de.Wuestenfelde
+    - !keyref point.de.Stralsund-SRG
+    - !keyref point.de.Stralsund
 
 
 ---
@@ -243,7 +313,7 @@ events:
     -   date: !!null
         location:
             - !keyloc line.de.8613  0,00
-            - !keyloc line.de.26000 -0,28
+            - !keyloc line.de.6081 -0,28
         category: de.Bf
         de.Rangklasse: I
         sources: !keyref src.de.DRG.Bln.1927
@@ -267,7 +337,7 @@ events:
         sources: !keyref src.de.Kuhlmann.2000
 
     -   date: !!null
-        site: !noderef path.de.26000 nob
+        site: !noderef path.de.6081 nob down
 
 
 ---
@@ -279,11 +349,11 @@ events:
         location:
             - !keyloc line.de.8613 0,700
             - !keyloc line.de.20710 0,700
-            - !keyloc line.de.26000 0,700
+            - !keyloc line.de.6081 0,700
         name: Berlin Nordbahnhof Grenze
 
     -   date: !!null
-        site: !noderef path.de.26000.nob gnob
+        site: !noderef path.de.6081.nob gnob
 
 
 ---
@@ -295,12 +365,12 @@ events:
         location:
             - !keyloc line.de.8613 0,94
             - !keyloc line.de.20710 0,94
-            - !keyloc line.de.26000 0,94
+            - !keyloc line.de.6081 0,94
         name: Berlin Nordbf Ntm
         sources: !keyref src.de.DRG.Bln.1932
 
     -   date: !!null
-        site: !noderef path.de.26000.nob ntm
+        site: !noderef path.de.6081.nob ntm left
 
 # point.de.Berlin-Humboldthain hum
 
@@ -313,7 +383,7 @@ events:
         location:
             - !keyloc line.de.20710 2,74
             - !keyloc line.de.20730 1,17
-            - !keyloc line.de.26000 2,74
+            - !keyloc line.de.6081 2,74
             - !keyloc line.de.6088 1,17
         category: de.Abzw
         name: Sga
@@ -323,7 +393,7 @@ events:
         sources: !keyref src.dd.DR.Bln.1978
 
     -   date: !!null
-        site: !noderef path.de.20900 sga
+        site: !noderef path.de.20900 sga left
 
 
 ---
@@ -336,12 +406,12 @@ events:
     -   date: !!null
         location:
             - !keyloc line.de.6167 2,84
-            - !keyloc line.de.26000 2,7
+            - !keyloc line.de.6081 2,7
         sources: !keyref src.dd.DR.Bln.1953
 
     -   date: !!null
         site:
-            - !noderef path.de.26000 gbor
+            - !noderef path.de.6081 gbor
             - !noderef path.de.6166 gbor
 
 
@@ -364,11 +434,11 @@ events:
         location:
             - !keyloc line.de.6141 2,564
             - !keyloc line.de.6088 1,709
-            - !keyloc line.de.26000 3,290
+            - !keyloc line.de.6081 3,290
         sources: !keyref src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.26000 bor
+        site: !noderef path.de.6081 bor right
 
 
 ---
@@ -376,13 +446,13 @@ key: point.de.Berlin-Pankow-Pkrs
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.26000 4,64
+        location: !keyloc line.de.6081 4,64
         category: de.Glgr
         name: Pks
         master: !keyref point.de.Berlin-Pankow-Rbf
         sources: !keyref src.de.DRG.Bln.1932
     -   date: !date c1960
-        location: !keyloc line.de.26000 4,600
+        location: !keyloc line.de.6081 4,600
         sources: !keyref src.dd.DR.Bln.Bpl.1967
     -   date: !var ds100.dr
         category: de.Bft
@@ -392,7 +462,7 @@ events:
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.26000 pks
+        site: !noderef path.de.6081 pks left
 
 
 # point.de.Berlin-Pankow pan pas
@@ -408,7 +478,7 @@ events:
     -   date: !!null
         location:
             - !keyloc line.de.6167 0,00
-            - !keyloc line.de.26000 5,60
+            - !keyloc line.de.6081 5,60
         category: de.Bf
         de.Rangklasse: I
         sources: !keyref src.de.DRG.Bln.1927
@@ -438,7 +508,7 @@ events:
         merged: !keyref point.de.Berlin-Pankow
 
     -   date: !!null
-        site: !noderef path.de.26000 par
+        site: !noderef path.de.6081 par right
 
 
 ---
@@ -446,7 +516,7 @@ key: point.de.Berlin-Pankow-Pkrn
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.26000 6,21
+        location: !keyloc line.de.6081 6,21
         name: Berlin-Pankow Pkn
         sources: !keyref src.de.DRG.Bln.1932
     -   date: !date c1995
@@ -457,7 +527,7 @@ events:
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.26000 pkn
+        site: !noderef path.de.6081 pkn right
 
 
 ---
@@ -474,7 +544,7 @@ events:
     -   date: !!null
         location:
             - !keyloc line.de.20710 8,43
-            - !keyloc line.de.26000 8,43
+            - !keyloc line.de.6081 8,43
         category: de.Bf
         de.Rangklasse: III
         sources: !keyref src.de.DRG.Bln.1927
@@ -509,7 +579,7 @@ events:
         sources: !keyref src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.26000 bla
+        site: !noderef path.de.6081 bla left
 
 
 ---
@@ -518,7 +588,7 @@ type: point
 events:
     -   date: !date 1890
         status: open
-        location: !keyloc line.de.26000 10,63
+        location: !keyloc line.de.6081 10,63
         category: de.Bf
         service: none
         name: Karow Vschbf
@@ -528,7 +598,7 @@ events:
         sources: !keyref src.de.Kuhlmann.2000
 
     -   date: !!null
-        site: !noderef path.de.26000 kav
+        site: !noderef path.de.6081 kav right
 
 
 ---
@@ -537,7 +607,7 @@ type: point
 events:
     -   date: !date c1950
         status: open
-        location: !keyloc line.de.26000 11,43
+        location: !keyloc line.de.6081 11,43
         category: de.Abzw
         name: Akn
         sources: !keyref src.dd.DR.Bln.1959
@@ -549,7 +619,7 @@ events:
             - !keyref src.dd.DR.Bln.1978
 
     -   date: !!null
-        site: !noderef path.de.26000 akn
+        site: !noderef path.de.6081 akn right
 
 
 ---
@@ -572,9 +642,9 @@ events:
         category: de.Hp
         sources: !keyref src.de.DRG.Bln.1927
     -   date: !!null
-        location: !keyloc line.de.26000 11,61
+        location: !keyloc line.de.6081 11,61
     -   date: !date c1914
-        location: !keyloc line.de.26000 -
+        location: !keyloc line.de.6081 -
     -   date: !!null
         de.lknr: 03 249
         service: passenger
@@ -599,7 +669,7 @@ events:
         category: de.Bf
         de.Rangklasse: U
         location:
-            - !keyloc line.de.26000 11,61
+            - !keyloc line.de.6081 11,61
         sources: !keyref src.dd.DR.Bln.1978
     -   date: !date c1975
         location:
@@ -610,7 +680,7 @@ events:
         location: !keyloc line.de.20710 -
 
     -   date: !!null
-        site: !noderef path.de.26000 kar
+        site: !noderef path.de.6081 kar left
 
 
 ---
@@ -626,7 +696,7 @@ events:
     -   date: !!null
         location:
             - !keyloc line.de.20710 14,34
-            - !keyloc line.de.26000 14,34
+            - !keyloc line.de.6081 14,34
         category: de.Bf
         de.Rangklasse: III
         sources: !keyref src.de.DRG.Bln.1927
@@ -654,7 +724,7 @@ events:
         sources: !keyref src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.26000 buc
+        site: !noderef path.de.6081 buc left
 
 
 ---
@@ -668,7 +738,7 @@ events:
         sources: !keyref src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.26000 gbuc
+        site: !noderef path.de.6081 gbuc
 
 # point.de.Roentgental ron
 # point.de.Zepernick-Bernau zep
@@ -687,7 +757,7 @@ events:
     -   date: !!null
         location:
             - !keyloc line.de.20710 22,53
-            - !keyloc line.de.26000 22,53
+            - !keyloc line.de.6081 22,53
         category: de.Bf
         de.Rangklasse: II
         sources: !keyref src.de.DRG.Bln.1927
@@ -719,7 +789,7 @@ events:
         location: !keyloc line.de.20710 -
 
     -   date: !!null
-        site: !noderef path.de.26000 ber
+        site: !noderef path.de.6081 ber left
 
 # 23,70 Dir-Gr Bln/Stn src.de.DRG.Bln.1927, src.de.DRG.Bln.1932
 # 24,300 Dir-Gr Bln/Gre src.dd.DR.Bln.1959 bis src.dd.DR.Bln.1991
@@ -730,7 +800,7 @@ type: point
 events:
     -   date: !date c1960
         status: open
-        location: !keyloc line.de.26000 24,900
+        location: !keyloc line.de.6081 24,900
         category: de.Bk
         name: Ladeburg
         sources: !keyref src.dd.DR.Bln.1968
@@ -739,7 +809,7 @@ events:
         sources: !keyref src.dd.DR.1989
 
     -   date: !!null
-        site: !noderef path.de.26000 lad
+        site: !noderef path.de.6081 lad left
 
 
 ---
@@ -749,7 +819,7 @@ events:
     -   date: !date c1940
         status: open
     -   date: !!null
-        location: !keyloc line.de.26000 25,64
+        location: !keyloc line.de.6081 25,64
         sources: !keyref src.de.DRG.Bln.1943
     -   date: !!null
         category: de.Bf
@@ -766,7 +836,7 @@ events:
         sources: !keyref src.dd.DR.Bln.1953
 
     -   date: !!null
-        site: !noderef path.de.26000 ruv
+        site: !noderef path.de.6081 ruv left
 
 
 ---
@@ -790,7 +860,7 @@ events:
         name: Rüdnitz (Kr Oberbarnim)
         sources: !keyref src.de.Kb.W1937
     -   date: !!null
-        location: !keyloc line.de.26000 28,16
+        location: !keyloc line.de.6081 28,16
         sources: !keyref src.de.DRG.Bln.1943
     -   date: !date c1940
         de.lknr: 03 266
@@ -809,7 +879,7 @@ events:
         sources: !keyref src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.26000 rud
+        site: !noderef path.de.6081 rud left
 
 # 29,600 Dir-Gr Bln/Ste src.de.DRG.Bln.1943 bis src.dd.DR.Bln.1953
 
@@ -818,7 +888,7 @@ key: point.de.Danewitz
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.26000 30,5
+        location: !keyloc line.de.6081 30,5
         category: de.Bk
         name: Danewitz
         sources: !keyref src.de.DRG.Bln.1943
@@ -827,7 +897,7 @@ events:
         sources: !keyref src.dd.DR.1976
 
     -   date: !!null
-        site: !noderef path.de.26000 dan
+        site: !noderef path.de.6081 dan right
 
 
 ---
@@ -848,7 +918,7 @@ events:
         de.lknr: 28 157
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        location: !keyloc line.de.26000 33,05
+        location: !keyloc line.de.6081 33,05
         de.VBL: Bt
         sources: !keyref src.dd.DR.1976
     -   date: !date c1965
@@ -859,7 +929,7 @@ events:
         sources: !keyref src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.26000 bie
+        site: !noderef path.de.6081 bie left
 
 
 ---
@@ -880,7 +950,7 @@ events:
         de.lknr: 28 158
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        location: !keyloc line.de.26000 35,64
+        location: !keyloc line.de.6081 35,64
         de.VBL: Mch
         sources: !keyref src.dd.DR.1976
     -   date: !var ds100.dr
@@ -888,7 +958,7 @@ events:
         sources: !keyref src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.26000 mel
+        site: !noderef path.de.6081 mel right
 
 
 ---
@@ -898,7 +968,7 @@ events:
     -   date: !!null
         category: de.Bk
     -   date: !!null
-        location: !keyloc line.de.26000 38,20
+        location: !keyloc line.de.6081 38,20
         name: Wildtränke
         sources: !keyref src.dd.DR.1976
     -   date: !date c1950
@@ -916,7 +986,7 @@ events:
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.26000 wil
+        site: !noderef path.de.6081 wil right
 
 
 ---
@@ -924,7 +994,7 @@ key: point.de.Spechthausen
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.26000 42,26
+        location: !keyloc line.de.6081 42,26
         category: de.Bk
         name: Spechthausen
         de.VBL: Sph
@@ -934,7 +1004,7 @@ events:
         sources: !keyref src.dd.DR.1989
 
     -   date: !!null
-        site: !noderef path.de.26000 spe
+        site: !noderef path.de.6081 spe left
 
 
 ---
@@ -960,7 +1030,7 @@ events:
         sources: !keyref src.de.Bfv.1944
     -   date: !!null
         location:
-            - !keyloc line.de.26000 45,24
+            - !keyloc line.de.6081 45,24
         de.VBL: Ebw
         sources: !keyref src.dd.DR.1976
     -   date: !var ds100.dr
@@ -968,7 +1038,7 @@ events:
         sources: !keyref src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.26000 ebe
+        site: !noderef path.de.6081 ebe right
 
 
 ---
@@ -978,7 +1048,7 @@ junction: True
 events:
     -   date: !!null
         location:
-            - !keyloc line.de.26000 47,60
+            - !keyloc line.de.6081 47,60
         category: de.Abzw
         name: Kanalbrücke
         de.VBL: Knb
@@ -992,7 +1062,7 @@ events:
         master: !keyref point.de.Eberswalde-Hbf
 
     -   date: !!null
-        site: !noderef path.de.26000 kan
+        site: !noderef path.de.6081 kan right
 
 
 ---
@@ -1015,7 +1085,7 @@ events:
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
         location:
-            - !keyloc line.de.26000 50,02
+            - !keyloc line.de.6081 50,02
         de.VBL: Brz
         sources: !keyref src.dd.DR.1976
     -   date: !date c1965
@@ -1030,7 +1100,7 @@ events:
         sources: !keyref src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.26000 bri
+        site: !noderef path.de.6081 bri left
 
 
 ---
@@ -1040,7 +1110,7 @@ junction: True
 events:
     -   date: !!null
         location:
-            - !keyloc line.de.26000 52,48
+            - !keyloc line.de.6081 52,48
         category: de.Abzw
         name: Ragösermühle
         de.VBL: Rgm
@@ -1054,7 +1124,7 @@ events:
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.26000 rag
+        site: !noderef path.de.6081 rag right
 
 
 ---
@@ -1080,7 +1150,7 @@ events:
         name: Chorin Kloster
         sources: !keyref src.de.Kb.W1937
     -   date: !!null
-        location: !keyloc line.de.26000 54,75
+        location: !keyloc line.de.6081 54,75
         category: [de.Hp, de.Bk]
         de.VBL: Cor
         sources: !keyref src.dd.DR.1976
@@ -1098,7 +1168,7 @@ events:
         sources: !keyref src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.26000 cok
+        site: !noderef path.de.6081 cok right
 
 
 ---
@@ -1119,7 +1189,7 @@ events:
         de.lknr: 28 213
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        location: !keyloc line.de.26000 57,53
+        location: !keyloc line.de.6081 57,53
         de.VBL: Co
         sources: !keyref src.dd.DR.1976
     -   date: !date c1965
@@ -1130,7 +1200,7 @@ events:
         sources: !keyref src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.26000 cor
+        site: !noderef path.de.6081 cor right
 
 
 ---
@@ -1138,7 +1208,7 @@ key: point.de.Serwest
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.26000 62,16
+        location: !keyloc line.de.6081 62,16
         category: de.Bk
         name: Serwest
         de.VBL: Swt
@@ -1152,7 +1222,7 @@ events:
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.26000 ser
+        site: !noderef path.de.6081 ser right
 
 
 ---
@@ -1173,7 +1243,7 @@ events:
         de.lknr: 28 214
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        location: !keyloc line.de.26000 66,08
+        location: !keyloc line.de.6081 66,08
         de.VBL: Hg
         sources: !keyref src.dd.DR.1976
     -   date: !date c1965
@@ -1193,7 +1263,7 @@ events:
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.26000 her
+        site: !noderef path.de.6081 her right
 
 
 ---
@@ -1216,7 +1286,8 @@ events:
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
         location:
-            - !keyloc line.de.26000 70,67
+            - !keyloc line.de.6081 70,67
+            - !keyloc line.de.6328 70,67
         de.VBL: Agm
         sources: !keyref src.dd.DR.1976
     -   date: !date c1965
@@ -1227,415 +1298,1146 @@ events:
         sources: !keyref src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.26000 ang
+        site: !noderef path.de.6081 ang right
 
 
 ---
-key: point.de.Kerkow
+key: point.de.Erichshagen
 type: point
 junction: True
 events:
     -   date: !!null
+        category: de.Bk
+        name: Erichshagen
+        sources: !keyref src.de.DRG.1927
+    -   date: !!null
         location:
-            - !keyloc line.de.26000 73,97
+            - !keyloc line.de.6081 74,98
+        de.VBL: Er
+        sources: !keyref src.dd.DR.1976
+    -   date: !date c1950
         category: de.Abzw
-        name: Kerkow
-        de.VBL: Kk
-        sources: !keyref src.dd.DR.1989
+        sources: !keyref src.dd.DR.1976
     -   date: !var ds100.dr
-        de.DS100: WKK
-    -   date: !date c2000
+        de.DS100: WER
+    -   date: !date 1996-12-04?
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.26000 ker
+        site: !noderef path.de.6081 eri left
 
 
 ---
-key: point.de.Welsow-Bruchhagen
+key: point.de.Greiffenberg
 type: point
 events:
     -   date: !!null
-        name: Welsow-Bruchhagen
+        name: Greiffenberg (Uckermark)
+        sources: !keyref src.de.Kb.1905
+    -   date: !date c1910
+        name: Greiffenberg (Uckerm)
         sources: !keyref src.de.Kb.1914
     -   date: !!null
-        de.lknr: 28 182
+        de.lknr: 28 134
         sources: !keyref src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
         de.Rangklasse: IV
         sources: !keyref src.de.Bfv.1933
     -   date: !var lknr.30
-        de.lknr: 28 231
+        de.lknr: 28 222
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        location: !keyloc line.de.26000 77,53
-        de.VBL: Wbr
+        location: !keyloc line.de.6081 79,57
+        de.VBL: Grf
         sources: !keyref src.dd.DR.1976
-    -   date: !date c1965
-        category: de.Hp
+    -   date: !date c1695
+        de.Rangklasse: U
+        name: Greiffenberg (Kr Angermünde)
         sources: !keyref src.dd.DR.1976
-    -   date: !date c1985
-        staff: none
+    -   date: !date c1980
+        category: [de.Hp, de.Bk]
         sources: !keyref src.dd.DR.1989
-    -   date: !date c1965
-        master: !keyref point.de.Schoenermark-Angermuende
-        sources: !keyref src.dd.DR.Bln.1991
     -   date: !var ds100.dr
-        de.DS100: WWBR
-    -   date: !date c2005
+        de.DS100: WGRF
+    -   date: !date c1997
         status: closed
+        sources: !keyref src.de.SuW.2000
 
     -   date: !!null
-        site: !noderef path.de.26000 wel
+        site: !noderef path.de.6081 grb left
 
 
 ---
-key: point.de.Schoenermark-Angermuende
+key: point.de.Wilmersdorf-Angermuende
 type: point
-junction: True
 events:
     -   date: !!null
-        name: Schönermark Stb
+        name: Wilmersdorf (Kr Angerm)
+        sources: !keyref src.de.Kb.1905
+    -   date: !date c1910
+        name: Wilmersdorf (Uckerm)
         sources: !keyref src.de.Kb.1914
     -   date: !!null
-        de.lknr: 28 183
+        de.lknr: 28 133
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: III
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 28 223
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location: !keyloc line.de.6081 83,88
+        de.VBL: Wld
+        sources: !keyref src.dd.DR.1976
+    -   date: !date c1965
+        name: Wilmersdorf (Kr Angermünde)
+        de.Rangklasse: IV
+        sources: !keyref src.dd.DR.1976
+    -   date: !var ds100.dr
+        de.DS100: WWLD
+        sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.6081 wid right
+
+
+---
+key: point.de.Melzow
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.6081 88,63
+        category: de.Bk
+        name: Melzow
+        de.VBL: Mel
+        sources: !keyref src.dd.DR.1976
+    -   date: !date c1980
+        status: closed
+        sources: !keyref src.dd.DR.1989
+
+    -   date: !!null
+        site: !noderef path.de.6081 mez right
+
+
+---
+key: point.de.Warnitz-Uckermark
+type: point
+events:
+    -   date: !!null
+        name: Warnitz
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        de.lknr: 28 132
         sources: !keyref src.de.Bfv.1928
     -   date: !date c1920
-        name: Schönermark
+        name: Warnitz (Uckerm)
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: IV
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 28 224
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location: !keyloc line.de.6081 91,95
+        de.VBL: Waz
+        sources: !keyref src.dd.DR.1976
+    -   date: !date c1965
+        de.Rangklasse: U
+        sources: !keyref src.dd.DR.1976
+    -   date: !date c1980
+        category: [de.Hp, de.Bk]
+        sources: !keyref src.dd.DR.1989
+    -   date: !var ds100.dr
+        de.DS100: WWAN
+        sources: !keyref src.de.TPP.2006
+    -   date: !date c2000
+        name: Warnitz (Uckermark)
+        sources: !keyref src.de.TPP.2006
+    -   date: !date c2005
+        category: de.Hp
+        sources: !keyref src.de.SuW.2005
+
+    -   date: !!null
+        site: !noderef path.de.6081 war left
+
+
+---
+key: point.de.Quast
+type: point
+events:
+    -   date: !date c1930
+        status: open
+        category: de.Hp
+        name: Quast
+        staff: none
+        service: passenger
+        master: !keyref point.de.Seehausen-Uckerm
+        de.lknr: 28 225
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location: !keyloc line.de.6081 94,95
+        de.VBL: Qa
+        sources: !keyref src.dd.DR.1976
+    -   date: !var ds100.dr
+        de.DS100: WQA
+    -   date: !date c2000
+        status: closed
+        sources: !keyref src.de.SuW.2000
+
+    -   date: !!null
+        site: !noderef path.de.6081 qua right
+
+
+---
+key: point.de.Seehausen-Uckerm
+type: point
+events:
+    -   date: !!null
+        name: Seehausen (Uckermark)
+        sources: !keyref src.de.Kb.1905
+    -   date: !date c1910
+        name: Seehausen (Uckerm)
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        de.lknr: 28 131
         sources: !keyref src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
         de.Rangklasse: III
         sources: !keyref src.de.Bfv.1933
     -   date: !var lknr.30
-        de.lknr: 28 232
-        sources: !keyref src.de.Bfv.1933
-    -   date: !date c1930
-        name: Schönermark (Kr Angermünde)
+        de.lknr: 28 226
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        location: !keyloc line.de.26000 82,1
-        de.VBL: Smk
+        location: !keyloc line.de.6081 97,00
+        de.VBL: See
         sources: !keyref src.dd.DR.1976
     -   date: !date c1965
-        de.Rangklasse: V
+        de.Rangklasse: IV
         sources: !keyref src.dd.DR.1976
     -   date: !var ds100.dr
-        de.DS100: WSMK
-    -   date: !date c2005
-        status: closed
+        de.DS100: WSEE
+        sources: !keyref src.de.TPP.2006
+    -   date: !date c2000
+        name: Seehausen (Uckermark)
+        sources: !keyref src.de.TPP.2006
+    -   date: !date c2010
+        category: de.Hp
+        sources: !keyref src.de.SuW.2011
 
     -   date: !!null
-        site: !noderef path.de.26000 son
+        site: !noderef path.de.6081 see right
 
 
 ---
-key: point.de.Briest
+key: point.de.Seeluebbe
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.26000 86,96
+        location: !keyloc line.de.6081 102,37
         category: de.Bk
-        name: Briest
-        sources: !keyref src.de.web.Erbeck
-    -   date: !date c1950
+        name: Seelübbe
+        de.VBL: sel
+        sources: !keyref src.dd.DR.1976
+    -   date: !date c1980
         status: closed
+        sources: !keyref src.dd.DR.1989
 
     -   date: !!null
-        site: !noderef path.de.26000 brs
+        site: !noderef path.de.6081 sel left
 
 
 ---
-key: point.de.Passow-Uckerm
+key: point.de.Prenzlau
 type: point
 junction: True
 events:
     -   date: !!null
-        name: Passow (Uckerm)
-        sources: !keyref src.de.Kb.1914
+        name: Prenzlau
+        sources: !keyref src.de.Kb.1905
     -   date: !!null
-        de.lknr: 28 184
+        de.lknr: 28 124
         sources: !keyref src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
-        de.Rangklasse: III
+        de.Rangklasse: II
         sources: !keyref src.de.Bfv.1933
     -   date: !var lknr.30
-        de.lknr: 28 233
+        de.lknr: 28 227
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
         location:
-            - !keyloc line.de.26000 89,3
-        de.VBL: Ps
-        sources: !keyref src.dd.DR.1976
-    -   date: !date c1965
-        de.Rangklasse: V
-        name: Passow (Kr Angermünde)
+            - !keyloc line.de.6081 108,29
+        de.VBL: Pl
         sources: !keyref src.dd.DR.1976
     -   date: !var ds100.dr
-        de.DS100: WPS
-        sources: !keyref src.de.TPP.2006
-    -   date: !date c2000
-        name: Passow (Uckermark)
+        de.DS100: WPL
         sources: !keyref src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.26000 pas
+        site: !noderef path.de.6081 pre left
 
 
 ---
-key: point.de.Schoenow
+key: point.de.Prenzlau-Blindow
+type: point
+junction: True
+events:
+    -   date: !!null
+        location: !keyloc line.de.6081 111,59
+        category: de.Abzw
+        name: Blindow
+        de.VBL: Bl
+        sources: !keyref src.dd.DR.1976
+    -   date: !var ds100.dr
+        name: Prenzlau-Blindow
+        de.DS100: WPLB
+    -   date: !date c2000
+        status: closed
+
+    -   date: !!null
+        site: !noderef path.de.6081 bli left
+
+
+---
+key: point.de.Dauer
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.26000 93,50
-        category: de.Bk
-        name: Schönow
-        sources: !keyref src.de.web.Erbeck
-    -   date: !date c1935
-        category: [de.Hp, de.Bk]
-        name: Schönow (Kr Randow)
-        service: passenger
-        de.lknr: 28 607
-        sources:
-            - !keyref src.de.Kb.W1937
-            - !keyref src.de.Bfv.1938
-    -   date: !date c1940
-        name: Schönow (Bz Stettin)
-        service: full
-        sources: !keyref src.de.Bfv.1944
+        name: Dauer
+        sources: !keyref src.de.Kb.1905
     -   date: !!null
-        de.VBL: Scn
+        de.lknr: 28 123
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: IV
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 28 229
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location: !keyloc line.de.6081 116,45
+        de.VBL: Dau
         sources: !keyref src.dd.DR.1976
-    -   date: !date c1935
-        location: !keyloc line.de.26000 94,72
+    -   date: !date c1965
+        de.Rangklasse: U
         sources: !keyref src.dd.DR.1976
-    -   date: !date c1950
-        name: Schönow (Kr Angermünde)
+    -   date: !date c1980
+        category: [de.Hp, de.Bk]
+        sources: !keyref src.dd.DR.1989
+    -   date: !var ds100.dr
+        de.DS100: WDAU
+        sources: !keyref src.de.TPP.2006
+    -   date: !date c2000
+        category: de.Bk
+    -   date: !date c2005
+        category: de.Anst
+        sources: !keyref src.de.SuW.2005
+    -   date: !date c2010
+        status: closed
+        sources: !keyref src.de.SuW.2011
+    
+    -   date: !!null
+        site: !noderef path.de.6081 dau right
+
+
+---
+key: point.de.Nechlin
+type: point
+events:
+    -   date: !!null
+        name: Nechlin
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        de.lknr: 28 122
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: III
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 28 230
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location: !keyloc line.de.6081 121,97
+        de.VBL: Nl
+        sources: !keyref src.dd.DR.1976
+    -   date: !date c1965
+        de.Rangklasse: IV
         sources: !keyref src.dd.DR.1976
     -   date: !var ds100.dr
-        de.DS100: WSCN
+        de.DS100: WNL
         sources: !keyref src.de.TPP.2006
+    -   date: !date c2010
+        category: de.Hp
+        sources: !keyref src.de.DBAG.ISR
+    
+    -   date: !!null
+        site: !noderef path.de.6081 nec left
+
+
+---
+key: point.de.Papendorf-Pasewalk
+type: point
+events:
+    -   date: !date c1950
+        status: open
+        location: !keyloc line.de.6081 127,59
+        category: de.Bf
+        de.Rangklasse: U
+        staff: none
+        name: Papendorf (Kr Pasewalk)
+        de.VBL: Pf
+        sources: !keyref src.dd.DR.1976
+    -   date: !date c1980
+        category: de.Bk
+        sources: !keyref src.dd.DR.1989
+    -   date: !var ds100.dr
+        de.DS100: BPAP
     -   date: !date c2000
-        name: Schönow (Uckermark)
+        status: closed
+
+    -   date: !!null
+        site: !noderef path.de.6081 pap left
+
+
+---
+key: point.de.Pasewalk
+type: point
+junction: True
+events:
+    -   date: !!null
+        name: Pasewalk
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        de.lknr: 28 117
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: I
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 28 146
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location:
+            - !keyloc line.de.6081 132,25
+        de.VBL: Pw
+        sources: !keyref src.dd.DR.1976
+    -   date: !var ds100.dr
+        de.DS100: WP
         sources: !keyref src.de.TPP.2006
-    -   date: !date c2000
+
+    -   date: !!null
+        site: !noderef path.de.6081 paw right
+
+
+---
+key: point.de.Belling
+type: point
+junction: True
+events:
+    -   date: !!null
+        location: !keyloc line.de.6081 135,08
+        category: de.Abzw
+        name: Belling
+        sources: !keyref src.dd.DR.1976
+    -   date: !!null
+        de.VBL: Big
+        sources: !keyref src.dd.DR.1989
+    -   date: !var ds100.dr
+        de.DS100: WBLG
+    -   date: !date c1995
+        status: closed
+
+    -   date: !!null
+        site: !noderef path.de.6081 bel left
+
+
+---
+key: point.de.Sandfoerde
+type: point
+events:
+    -   date: !!null
+        name: Sandförde
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        service: passenger
+        de.lknr: 28 522
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Hp
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 28 145
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location: !keyloc line.de.6081 138,06
+        de.VBL: San
+        sources: !keyref src.dd.DR.1976
+    -   date: !date c1950
+        category: de.Bf
+        de.Rangklasse: U
+        sources: !keyref src.dd.DR.1976
+    -   date: !date c1980
+        category: [de.Hp, de.Bk]
+        sources:
+            - !keyref src.dd.DR.1989
+            - !keyref src.dd.Kb.1989
+    -   date: !var ds100.dr
+        de.DS100: WSAF
+        sources: !keyref src.de.TPP.2006
+    -   date: !date c2005
         category: de.Hp
         sources: !keyref src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.26000 sow
+        site: !noderef path.de.6081 san left
 
 
 ---
-key: point.de.Blumberg-Uckerm
-type: point
-events:
-    -   date: !!null
-        location: !keyloc line.de.26000 96,35
-        category: de.Bk
-        name: Blumberg
-        sources: !keyref src.de.web.Erbeck
-    -   date: !date c1950
-        status: closed
-
-    -   date: !!null
-        site: !noderef path.de.26000 blu
-
-
----
-key: point.de.Casekow
+key: point.de.Jatznick
 type: point
 junction: True
 events:
     -   date: !!null
-        name: Casekow
-        sources: !keyref src.de.Kb.1914
-    -   date: !!null    
-        de.lknr: 28 185
+        name: Jatznick
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        de.lknr: 28 112
         sources: !keyref src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
         de.Rangklasse: III
         sources: !keyref src.de.Bfv.1933
     -   date: !var lknr.30
-        de.lknr: 28 234
+        de.lknr: 28 140
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        location: !keyloc line.de.26000 99,6
-        de.VBL: Cw
+        location: !keyloc line.de.6081 142,88
+        de.VBL: Jk
         sources: !keyref src.dd.DR.1976
     -   date: !date c1965
-        de.Rangklasse: V
+        de.Rangklasse: IV
         sources: !keyref src.dd.DR.1976
     -   date: !var ds100.dr
-        de.DS100: WCW
+        de.DS100: WJK
         sources: !keyref src.de.TPP.2006
-    -   date: !date c1995
-        category: [de.Hp, de.Bk]
+
+    -   date: !!null
+        site: !noderef path.de.6081 jat right
+
+
+---
+key: point.de.Ferdinandshof
+type: point
+junction: True
+events:
+    -   date: !!null
+        name: Ferdinandshof
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        de.lknr: 28 111
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: III
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 28 139
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location: !keyloc line.de.6081 150,22
+        de.VBL: Fdf
+        sources: !keyref src.dd.DR.1976
+    -   date: !date c1965
+        de.Rangklasse: IV
+        sources: !keyref src.dd.DR.1976
+    -   date: !var ds100.dr
+        de.DS100: WFDF
+        sources: !keyref src.de.TPP.2006
     -   date: !date c2010
         category: de.Hp
         sources: !keyref src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.26000 cas
+        site: !noderef path.de.6081 fer right
 
 
 ---
-key: point.de.Petershagen-Uckerm
+key: point.de.Borckenfriede
 type: point
 events:
     -   date: !!null
-        name: Petershagen (Kr Randow)
+        name: Borckenfriede
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        de.lknr: 28 110
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: III
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 28 138
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location: !keyloc line.de.6081 157,27
+        de.VBL: Bkd
+        sources: !keyref src.dd.DR.1976
+    -   date: !date c1965
+        de.Rangklasse: U
+        sources: !keyref src.dd.DR.1976
+    -   date: !date c1980
+        category: [de.Hp, de.Uest]
+        sources: !keyref src.dd.DR.1989
+    -   date: !var ds100.dr
+        de.DS100: WBKD
+    -   date: !date c2000
+        status: closed
+        sources: !keyref src.de.SuW.2000
+
+    -   date: !!null
+        site: !noderef path.de.6081 bof right
+
+
+---
+key: point.de.Ducherow
+type: point
+junction: True
+events:
+    -   date: !!null
+        name: Ducherow
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        de.lknr: 28 094
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: II
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 28 116
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location: !keyloc line.de.6081 163,19
+        de.VBL: Du
+        sources: !keyref src.dd.DR.1976
+    -   date: !date c1965
+        de.Rangklasse: IV
+        sources: !keyref src.dd.DR.1976
+    -   date: !var ds100.dr
+        de.DS100: WDU
+        sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.6081 duc left
+
+
+---
+key: point.de.Aurose
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.6081 168,47
+        category: de.Bk
+        name: Aurose
+        de.VBL: Aur
+        sources: !keyref src.dd.DR.1976
+    -   date: !var ds100.dr
+        de.DS100: WAUR
+    -   date: !date c2005
+        status: closed
+
+    -   date: !!null
+        site: !noderef path.de.6081 aur right
+
+
+---
+key: point.de.Anklam
+type: point
+junction: True
+events:
+    -   date: !!null
+        name: Anklam Staatsbf
+        sources: !keyref src.de.Kb.1905
+    -   date: !date c1910
+        name: Anklam
         sources: !keyref src.de.Kb.1914
     -   date: !!null
-        de.lknr: 28 186
+        de.lknr: 28 093
         sources: !keyref src.de.Bfv.1928
-    -   date: !!null    
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: II
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 28 114
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location: !keyloc line.de.6081 175,33
+        de.VBL: Ak
+        sources: !keyref src.dd.DR.1976
+    -   date: !date c1965
+        de.Rangklasse: III
+        sources: !keyref src.dd.DR.1976
+    -   date: !var ds100.dr
+        de.DS100: WAK
+        sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.6081 ank left
+
+
+---
+key: point.de.Salchower-Weiche
+type: point
+events:
+    -   date: !date c1965
+        status: open
+        location: !keyloc line.de.6081 181,38
+        category: [de.Hp, de.Bk]
+        name: Salchower Weiche
+        de.VBL: Sl
+        sources: !keyref src.dd.DR.1976
+    -   date: !date c1980
+        status: closed
+        sources: !keyref src.dd.DR.1989
+
+    -   date: !!null
+        site: !noderef path.de.6081 sal right
+
+
+---
+key: point.de.Klein-Buenzow
+type: point
+events:
+    -   date: !!null
+        name: Klein-Bünzow
+        sources: !keyref src.de.Kb.1905
+    -   date: !date c1910
+        name: Klein Bünzow
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        de.lknr: 28 092
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: IV
         sources: !keyref src.de.Bfv.1933
     -   date: !var lknr.30
-        de.lknr: 28 235
+        de.lknr: 28 113
         sources: !keyref src.de.Bfv.1933
-    -   date: !date c1940
-        name: Petershagen (Bz Stettin)
-        sources: !keyref src.de.Bfv.1944
     -   date: !!null
-        location: !keyloc line.de.26000 103,75
-        de.VBL: Pe
-        sources: !keyref src.dd.DR.1976
-    -   date: !date c1950
-        name: Petershagen (Kr Angermünde)
+        location: !keyloc line.de.6081 184,48
+        de.VBL: Kb
         sources: !keyref src.dd.DR.1976
     -   date: !date c1965
-        category: [de.Hp, de.Anst]
+        de.Rangklasse: U
         sources: !keyref src.dd.DR.1976
+    -   date: !date c1980
+        de.Rangklasse: S
+        sources: !keyref src.dd.DR.1989
     -   date: !var ds100.dr
-        de.DS100: WPE
+        de.DS100: WKB
         sources: !keyref src.de.TPP.2006
-    -   date: !date c2000
-        name: Petershagen (Uckermark)
-        sources: !keyref src.de.TPP.2006
+    -   date: !date c1995
+        category: [de.Hp, de.Bk]
     -   date: !date c2000
         category: de.Hp
         sources: !keyref src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.26000 pet
+        site: !noderef path.de.6081 kbu right
 
 
 ---
-key: point.de.Schoenfeld-Uckerm
+key: point.de.Zuessow
 type: point
+junction: True
 events:
     -   date: !!null
-        location: !keyloc line.de.26000 107,25
-        category: de.Bk
-        name: Schönfeld
-        sources: !keyref src.de.web.Erbeck
-    -   date: !date c1950
-        status: closed
-
+        name: Züssow
+        sources: !keyref src.de.Kb.1905
     -   date: !!null
-        site: !noderef path.de.26000 sof
-
-
----
-key: point.de.Tantow
-type: point
-events:
-    -   date: !!null
-        name: Tantow
-        sources: !keyref src.de.Kb.1914
-    -   date: !!null
-        de.lknr: 28 187
+        de.lknr: 28 087
         sources: !keyref src.de.Bfv.1928
-    -   date: !!null    
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: III
         sources: !keyref src.de.Bfv.1933
     -   date: !var lknr.30
-        de.lknr: 28 236
+        de.lknr: 28 108
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        location: !keyloc line.de.26000 111,0
-        de.VBL: Ta
-        sources: !keyref src.dd.DR.1976
-    -   date: !date c1965
-        de.Rangklasse: IV
+        location: !keyloc line.de.6081 191,90
+        de.VBL: Zss
         sources: !keyref src.dd.DR.1976
     -   date: !var ds100.dr
-        de.DS100: WTA
+        de.DS100: WZS
         sources: !keyref src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.26000 tan
-
+        site: !noderef path.de.6081 zus right
 
 ---
-key: point.de.Radekow
+key: point.de.Gross-Kiesow
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.26000 113,49
-        category: de.Bk
-        name: Radekow
-        sources: !keyref src.de.web.Erbeck
-    -   date: !date c1950
-        status: closed
-
-    -   date: !!null
-        site: !noderef path.de.26000 rad
-
-
----
-key: point.de.Rosow
-type: point
-events:
-    -   date: !!null
-        name: Rosow
+        name: Groß-Kiesow
+        sources: !keyref src.de.Kb.1905
+    -   date: !date c1910
+        name: Groß Kiesow
         sources: !keyref src.de.Kb.1914
     -   date: !!null
-        de.lknr: 28 189
+        de.lknr: 28 086
         sources: !keyref src.de.Bfv.1928
-    -   date: !!null    
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: IV
         sources: !keyref src.de.Bfv.1933
     -   date: !var lknr.30
-        de.lknr: 28 239
+        de.lknr: 28 107
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        location: !keyloc line.de.26000 116,51
-        de.VBL: Rsw
+        location: !keyloc line.de.6081 198,17
+        de.VBL: Gkw
         sources: !keyref src.dd.DR.1976
     -   date: !date c1965
         category: de.Hp
         sources: !keyref src.dd.DR.1976
+    -   date: !date c1980
+        category: [de.Hp, de.Anst]
+        sources: !keyref src.dd.DR.1989
     -   date: !var ds100.dr
-        de.DS100: WRSW
+        de.DS100: WKB
+        sources: !keyref src.de.TPP.2006
+    -   date: !date c1995
+        category: [de.Hp, de.Bk]
+    -   date: !date c2000
+        category: de.Hp
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.6081 gki right
+
+
+---
+key: point.de.Guest
+type: point
+events:
+    -   date: !date c1965
+        status: open
+        location: !keyloc line.de.6081 201,60
+        category: de.Bf
+        de.Rangklasse: U
+        staff: none
+        name: Guest
+        de.VBL: Güt
+        sources: !keyref src.dd.DR.1976
+    -   date: !!null
+        service: none
+        note: oder freight?
+        sources: !keyref src.dd.Kb.1989
     -   date: !date c1995
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.26000 ros
+        site: !noderef path.de.6081 gus left
 
 
 ---
-key: point.de.Tantow-Gr
+key: point.de.Schoenwalde-Greifswald
 type: point
-subtype: border
+junction: True
 events:
+    -   date: !date 1969-09-28?
+        status: open
     -   date: !!null
-        location: !keyloc line.de.26000 119,585
+        location: !keyloc line.de.6081 204,35
+        category: de.Bk
+        name: Schönwalde
+        de.VBL: Sön
         sources: !keyref src.dd.DR.1976
-    -   date: !!null
-        name: Tantow Grenze
-        de.DS100: WXT
+    -   date: !date c1980
+        category: de.Abzw
+        sources: !keyref src.dd.DR.1989
+    -   date: !var ds100.dr
+        de.DS100: WSOE
         sources: !keyref src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.26000 gtan
+        site: !noderef path.de.6081 son right
+
+
+---
+key: point.de.Greifswald-Sued
+type: point
+events:
+    -   date: !date c1965
+        status: open
+        category: de.Hp
+        staff: none
+        name: Greifswald Süd
+        de.VBL: Gws
+        sources: !keyref src.dd.DR.1976
+    -   date: !date c1980
+        staff: full
+        sources: !keyref src.dd.DR.1989
+    -   date: !var ds100.dr
+        de.DS100: WGWS
+        sources: !keyref src.de.TPP.2006
+    -   date: !!null
+        location: !keyloc line.de.6081 207,030
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.6081 grs right
+
+
+---
+key: point.de.Greifswald
+type: point
+junction: True
+events:
+    -   date: !!null
+        name: Greifswald
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        de.lknr: 28 085
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: II
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 28 105
+        sources: !keyref src.de.Bfv.1933
+    -   date: !date c1940
+        de.Rangklasse: I
+        sources: !keyref src.de.Bfv.1944
+    -   date: !!null
+        location:
+            - !keyloc line.de.6081 209,60
+        de.VBL: Gwd
+        sources: !keyref src.dd.DR.1976
+    -   date: !date c1965
+        de.Rangklasse: II
+        sources: !keyref src.dd.DR.1976
+    -   date: !var ds100.dr
+        de.DS100: WGW
+        sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.6081 gre right
+
+
+---
+key: point.de.Mesekenhagen
+type: point
+events:
+    -   date: !date c1910
+        status: open
+        name: Mesekenhagen
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        de.lknr: 28 518
+        service: passenger
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Hp
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 28 104
+        sources: !keyref src.de.Bfv.1933
+    -   date: !date c1935
+        service: full
+        sources: !keyref src.de.Bfv.1938
+    -   date: !!null
+        location: !keyloc line.de.6081 216,45
+        de.VBL: Mn
+        sources: !keyref src.dd.DR.1976
+    -   date: !date c1965
+        category: de.Bf
+        de.Rangklasse: U
+        sources: !keyref src.dd.DR.1976
+    -   date: !date c1980
+        category: de.Abzw
+        sources: !keyref src.dd.DR.1989
+    -   date: !var ds100.dr
+        de.DS100: WMNH
+    -   date: !date c1995
+        category: de.Bk
+    -   date: !date c2000
+        status: closed
+
+    -   date: !!null
+        site: !noderef path.de.6081 mes right
+
+
+---
+key: point.de.Jeeser
+type: point
+events:
+    -   date: !!null
+        name: Jeeser
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        service: passenger
+        de.lknr: 28 517
+        sources: !keyref src.de.Bfv.1928
+    -   date: !var lknr.30
+        de.lknr: 28 103
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location: !keyloc line.de.6081 220,46
+        category: [de.Hp, de.Bk]
+        de.VBL: Jer
+        sources: !keyref src.dd.DR.1976
+    -   date: !date c1980
+        category: de.Hp
+        sources: !keyref src.dd.DR.1989
+    -   date: !var ds100.dr
+        de.DS100: WJER
+        sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.6081 jee right
+
+
+---
+key: point.de.Miltzow
+type: point
+events:
+    -   date: !!null
+        name: Miltzow
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        de.lknr: 28 084
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: III
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 28 102
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location: !keyloc line.de.6081 225,82
+        de.VBL: Mi
+        sources: !keyref src.dd.DR.1976
+    -   date: !date c1965
+        de.Rangklasse: IV
+        sources: !keyref src.dd.DR.1976
+    -   date: !var ds100.dr
+        de.DS100: WMI
+        sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.6081 mil right
+
+
+---
+key: point.de.Wuestenfelde
+type: point
+events:
+    -   date: !!null
+        name: Wüstenfelde
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        de.lknr: 28 083
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: IV
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 28 101
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location: !keyloc line.de.6081 231,13
+        de.VBL: Wsf
+        sources: !keyref src.dd.DR.1976
+    -   date: !date c1965
+        de.Rangklasse: U
+        sources: !keyref src.dd.DR.1976
+    -   date: !date c1980
+        category: [de.Hp, de.Bk]
+        sources:
+            - !keyref src.dd.DR.1989
+            - !keyref src.dd.Kb.1989
+    -   date: !var ds100.dr
+        de.DS100: WWSF
+        sources: !keyref src.de.TPP.2006
+    -   date: !date c2005
+        category: de.Hp
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.6081 wus left
+
+
+---
+key: point.de.Stralsund-SRG
+type: point
+junction: True
+events:
+    -   date: !!null
+        location:
+            - !keyloc line.de.6081 238,32
+            - !keyloc line.de.6088 220,14
+        category: de.Abzw
+        name: Srg
+        sources: !keyref src.dd.DR.1976
+    -   date: !var ds100.dr
+        de.DS100: WSRG
+        sources: !keyref src.de.TPP.2006
+    -   date: !date c2000
+        name: Stralsund SRG
+        sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.6081 srg right
+
+
+---
+key: point.de.Stralsund
+type: point
+junction: True
+events:
+    -   date: !!null
+        name: Stralsund Bf
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        de.lknr: 28 048
+        sources: !keyref src.de.Bfv.1928
+    -   date: !date c1920
+        name: Stralsund
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: I
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 28 059
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location:
+            - !keyloc line.de.6081 240,80
+            - !keyloc line.de.6088 222,64
+        de.VBL: Srd
+        sources: !keyref src.dd.DR.1976
+    -   date: !var ds100.dr
+        de.DS100: WSR
+        sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.6081 str up
 
