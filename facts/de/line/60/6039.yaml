@@ -1,0 +1,83 @@
+# DE 6039.  S-Bahn Lichterfelde Süd - Teltow Stadt
+#
+---
+key: line.de.6039
+type: line
+label: de.S-Bahn
+events:
+    -   date: !!null
+        region: !keyref org.de
+    -   date: !!null
+        end: !keyref point.de.Berlin-Lichterfelde-Sued-LGr
+        region: !keyref org.de.l.be
+    -   date: !!null
+        start: !keyref point.de.Berlin-Lichterfelde-Sued-LGr
+        region: !keyref org.de.l.bb
+
+    -   date: !!null
+        de.VzG: !!str 6039
+        sources: !keyref src.de.DBAG.ISR
+
+    #   Eröffnung
+    #
+    -   date: !date 2005-02-24
+        status: open
+        sources: !keyref src.de.web.Stadtschnellbahn-Berlin
+
+    #   Eigenschaften
+    #
+    -   date: !!null
+        category: de.Hauptbahn
+        tracks: 1
+        gauge: 1435
+        electrified:
+            rail: !var el.de.bln
+        service: passenger
+
+    #   Eigentümer etc.
+    #
+    -   date: !!null
+        owner: !keyref org.de.e.DBNetz
+        operator: !keyref org.de.e.DBNetz
+        
+    # Verlauf
+    #
+    -   date: !!null
+        course:
+            - !pathref path.de.6132 lis gtel
+            - !pathref path.de.6039 a   tel
+
+points:
+    - !keyref point.de.Berlin-Lichterfelde-Sued             # line.de.6036
+    - !keyref point.de.Berlin-Lichterfelde-Sued-LGr
+
+
+---
+key: point.de.Berlin-Lichterfelde-Sued-LGr
+type: point
+subtype: border
+events:
+    -   date: !!null
+    -   date: !!null
+        name: Berlin-Lichterfelde Süd BE/BB
+        de.DS100: BQLI
+        sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.6132 gtel
+
+
+---
+key: point.de.Teltow-Stadt
+type: point
+junction: True
+events:
+    -   date: !!null
+        location: !keyloc line.de.6039 2,754
+        category: de.Bf
+        name: Teltow Stadt
+        de.DS100: BTLS
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.6039 tel right
