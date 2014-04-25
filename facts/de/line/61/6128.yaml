@@ -1,0 +1,62 @@
+# DE 6128.  Birkengrund Nord - Ludwigsfelde
+#
+#           Vorortgleis c1950 bis c2000
+---
+key: line.de.6128
+type: line
+events:
+    -   date: !!null
+        region:
+            - !keyref org.de
+            - !keyref org.de.l.pre
+
+    -   date: !var vzg.dr
+        de.VzG: !!str 6128
+        sources: !keyref src.de.VzG
+
+    #   Eröffnung und Stilllegung
+    #
+    -   date: !date 1951-07-10?
+        status: open
+    -   date: !date c2000
+        status: closed
+        reused: !keyref line.de.6129
+
+    #   Eigenschaften
+    #
+    -   date: !!null
+        category: de.Hauptbahn
+        tracks: 1
+        gauge: 1435
+        sources: !keyref src.dd.DR.Bln.1953
+    -   date: !date 1982-05-22
+        end: !keyref point.de.Birkengrund-Sued-Abzw
+        electrified:
+            overhead: !var el.de
+        sources: !keyref src.de.Kuhlmann.2000
+
+    #   Eigentümer etc.
+    #
+    -   date: !!null
+        owner: !keyref org.dd
+        operator: !keyref org.dd.DR
+    -   date: !date 1990-10-03
+        owner: !keyref org.de
+
+    -   date: !var org.de.DBAG.start
+        owner: !keyref org.de.e.DBAG
+        operator: !keyref org.de.e.DBAG
+    -   date: !var org.de.DBNetz.start
+        owner: !keyref org.de.e.DBNetz
+        operator: !keyref org.de.e.DBNetz
+
+    #   Verlauf
+    #
+    -   date: !!null
+        course:
+            - !pathref path.de.6132 bir  lud  1.5
+
+points:
+    - !keyref point.de.Birkengrund                          # line.de.6132
+    - !keyref point.de.Birkengrund-Sued-Hp                  # line.de.6036
+    - !keyref point.de.Ludwigsfelde                         # line.de.6132

@@ -1,42 +1,71 @@
-# S-Bahn Priesterweg - Lichterfelde Süd - Ludwigsfelde
+# DE 6036. S-Bahn Priesterweg - Lichterfelde Süd - Ludwigsfelde
 #
 ---
-key: line.de.20760
+key: line.de.6036
 type: line
 label: de.S-Bahn
 events:
     -   date: !!null
         region: !keyref org.de
     -   date: !!null
-        end: !keyref point.de.Berlin-Lichterfelde-Sued-LGr
+        end: !keyref point.de.Teltow-LGr
         region: !keyref org.de.l.be
     -   date: !!null
-        start: !keyref point.de.Berlin-Lichterfelde-Sued-LGr
+        start: !keyref point.de.Teltow-LGr
         region: !keyref org.de.l.bb
 
     -   date: !var vzg.dr
-        end: !keyref point.de.Birkengrund
         de.VzG: !!str 6036
         sources: !keyref src.de.VzG
-    -   date: !var vzg.dr
-        start: !keyref point.de.Birkengrund
-        de.VzG: !!str 6128
-        sources: !keyref src.de.VzG
 
-    -   date: !!null
-        category: de.Hauptbahn
-        tracks: 2
 
-    # Konzessionen
-    #
-
-    # Eröffnungen und Elektrifizierung
+    #   Eröffnung und Stilllegung und Wiedereröffnung
     #
     -   date: !date 1901-12-01
         end: !keyref point.de.Berlin-Lichterfelde-Ost
         status: open
         service: passenger
         sources: !keyref src.de.DRG.1935
+    -   date: !date 1943-08-09
+        start: !keyref point.de.Berlin-Lichterfelde-Ost
+        status: open
+        sources: !keyref src.de.Kuhlmann.2000
+
+    -   date: !date c1950
+        start: !keyref point.de.Teltow
+        end: !keyref point.de.Birkengrund
+        status: removed
+    -   date: !date 1961-08-13
+        start: !keyref point.de.Berlin-Lichterfelde-Sued
+        end: !keyref point.de.Teltow
+        status: closed
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !date c1962
+        start: !keyref point.de.Berlin-Lichterfelde-Sued
+        end: !keyref point.de.Teltow
+        status: removed
+
+    -   date: !date 1984-09-01
+        end: !keyref point.de.Berlin-Lichterfelde-Sued
+        status: suspended
+        sources: !keyref src.de.Kuhlmann.2000
+
+    -   date: !date 1995-05-28
+        end: !keyref point.de.Berlin-Lichterfelde-Ost
+        status: reopened
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !date 1998-09-25
+        start: !keyref point.de.Berlin-Lichterfelde-Ost
+        end: !keyref point.de.Berlin-Lichterfelde-Sued
+        status: reopened
+        sources: !keyref src.de.Kuhlmann.2000
+
+    #   Eigenschaften
+    #
+    -   date: !!null
+        category: de.Hauptbahn
+        tracks: 2
+        gauge: 1435
 
     -   date: !date 1903-06-15
         end: !keyref point.de.Berlin-Lichterfelde-Ost
@@ -54,54 +83,18 @@ events:
 
     -   date: !date 1943-08-09
         start: !keyref point.de.Berlin-Lichterfelde-Ost
-        status: open
-        sources: !keyref src.de.Kuhlmann.2000
-    -   date: !date 1943-08-09
-        start: !keyref point.de.Berlin-Lichterfelde-Ost
         end: !keyref point.de.Berlin-Lichterfelde-Sued
         electrified:
             rail: !var el.de.bln
         sources: !keyref src.de.Kuhlmann.2000
-
-    # Nach 1945
-    #
-    -   date: !date c1950
-        start: !keyref point.de.Teltow
-        end: !keyref point.de.Birkengrund
-        status: removed
     -   date: !date 1951-07-07
         start: !keyref point.de.Berlin-Lichterfelde-Sued
         end: !keyref point.de.Teltow
         electrified:
             rail: !var el.de.bln
         sources: !keyref src.de.Kuhlmann.2000
-    -   date: !date 1961-08-13
-        start: !keyref point.de.Berlin-Lichterfelde-Sued
-        end: !keyref point.de.Teltow
-        status: closed
-        sources: !keyref src.de.Kuhlmann.2000
-    -   date: !date c1962
-        start: !keyref point.de.Berlin-Lichterfelde-Sued
-        end: !keyref point.de.Teltow
-        status: removed
-    -   date: !date 1984-09-01
-        end: !keyref point.de.Berlin-Lichterfelde-Sued
-        status: suspended
-        sources: !keyref src.de.Kuhlmann.2000
 
-    #   Nach 1989
-    #
-    -   date: !date 1995-05-28
-        end: !keyref point.de.Berlin-Lichterfelde-Ost
-        status: open
-        sources: !keyref src.de.Kuhlmann.2000
-    -   date: !date 1998-09-25
-        start: !keyref point.de.Berlin-Lichterfelde-Ost
-        end: !keyref point.de.Berlin-Lichterfelde-Sued
-        status: open
-        sources: !keyref src.de.Kuhlmann.2000
-
-    # Eigentümer und Betreiber
+    #   Eigentümer etc.
     #
     -   date: !!null
         end: !keyref point.de.Berlin-Lichterfelde-Ost
@@ -158,7 +151,7 @@ points:
     - !keyref point.de.Berlin-Lichterfelde-Ost
     - !keyref point.de.Berlin-Osdorfer-Strasse
     - !keyref point.de.Berlin-Lichterfelde-Sued
-    - !keyref point.de.Berlin-Lichterfelde-Sued-LGr
+    - !keyref point.de.Teltow-LGr                           # line.de.6132
     - !keyref point.de.Teltow                               # line.de.6132
     - !keyref point.de.Grossbeeren-Nord
     - !keyref point.de.Birkengrund                          # line.de.6132
@@ -182,7 +175,7 @@ events:
     -   date: !date 1901-12-01
         location: !keyloc line.de.6132 -
     -   date: !!null
-        location: !keyloc line.de.20760 7,93
+        location: !keyloc line.de.6036 7,93
         category: de.Hp
         sources: !keyref src.de.DRG.Bln.1927
     -   date: !!null
@@ -241,7 +234,7 @@ events:
     -   date: !!null
         location:
             - !keyloc line.de.6173 9,21
-            - !keyloc line.de.20760 9,32
+            - !keyloc line.de.6036 9,32
             - !keyloc line.de.6132 9,21
         category: de.Bf
         de.Rangklasse: II
@@ -288,7 +281,7 @@ events:
         status: open
         sources: !keyref src.de.web.Dudczak
     -   date: !!null
-        location: !keyloc line.de.20760 10,740
+        location: !keyloc line.de.6036 10,740
         category: de.Hp
         name: Berlin Osdorfer Straße
         de.DS100: BOSS
@@ -328,7 +321,7 @@ events:
         de.VBL: Lis
         sources: !keyref src.de.DRG.Bln.1946
     -   date: !!null
-        location: !keyloc line.de.20760 11,7
+        location: !keyloc line.de.6036 11,7
         sources: !keyref src.dd.DR.Bln.1959
     -   date: !date c1950
         category: de.Bf
@@ -354,21 +347,6 @@ events:
 
     -   date: !!null
         site: !noderef path.de.6132 lis
-
----
-key: point.de.Berlin-Lichterfelde-Sued-LGr
-type: point
-subtype: border
-events:
-    -   date: !!null
-    -   date: !!null
-        name: Berlin-Lichterfelde Süd BE/BB
-        de.DS100: BQLI
-        sources: !keyref src.de.TPP.2006
-
-    -   date: !!null
-        site: !noderef path.de.6132 gtel
-
 
 ---
 key: point.de.Grossbeeren-Nord
@@ -398,11 +376,13 @@ events:
     -   date: !date 1943-08-09
         name: Birkengrund Süd
         location:
-            - !keyloc line.de.20760 22,5
+            - !keyloc line.de.6036 22,5
             - !keyloc line.de.6132 -
         sources:
             - !keyref src.de.Kuhlmann.2000
             - !keyref src.de.DRG.Bln.1943
+    -   date: !!null
+        location: !keyloc line.de.6128 22,5
     -   date: !!null
         de.lknr: 03 117
         service: passenger
