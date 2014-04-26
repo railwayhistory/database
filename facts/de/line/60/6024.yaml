@@ -1,74 +1,88 @@
+# DE 6024.  S-Bahn Berlin Ostbf - Potsdam Stadt
 ---
-key: line.de.20800
+key: line.de.6024
 type: line
 label: de.S-Bahn
 events:
     -   date: !!null
-        region:
-            - !keyref org.de
-            - !keyref org.de.l.be
+        region: !keyref org.de
+    -   date: !!null
+        end: !keyref point.de.Berlin-Wannsee-LGr
+        region: !keyref org.de.l.be
+    -   date: !!null
+        start: !keyref point.de.Berlin-Wannsee-LGr
+        region: !keyref org.de.l.bb
 
     -   date: !!null
         de.VzG: !!str 6024
         sources: !keyref src.de.VzG
 
+    #   Genehmigung
+    #
+    -   date: !date 1871-05-31
+        start: !keyref point.de.Berlin-Wannsee
+        end: !keyref point.de.Potsdam-Griebnitzsee
+        concession:
+            by: !keyref org.de.l.pre
+            for: !keyref org.de.e.BPME
+            document: !keyref src.de.l.pre.1871.412
+        sources: !keyref src.de.DRG.1935
     -   date: !date 1874-04-08
         end: !keyref point.de.Berlin-Charlottenburg
         concession:
             by: !keyref org.de.l.pre
             document: !keyref src.de.l.pre.1874.33.257
-        owner: !keyref org.de.e.BStEG
-        operator: !keyref org.de.e.BStEG
+        sources: !keyref src.de.DRG.1935
+
+    #   Eröffnung
+    #
+    -   date: !date 1874-06-01
+        start: !keyref point.de.Berlin-Wannsee
+        end: !keyref point.de.Potsdam-Griebnitzsee
+        status: open
         sources: !keyref src.de.DRG.1935
     -   date: !date 1882-02-07
         end: !keyref point.de.Berlin-Charlottenburg
         status: open
-        service: passenger
         sources: !keyref src.de.DRG.1935
-
+    -   date: !date 1891-10-01
+        start: !keyref point.de.Potsdam-Griebnitzsee
+        status: open
+        sources: !keyref src.de.Kuhlmann.2000
     -   date: !date 1896-05-01
         start: !keyref point.de.Berlin-Charlottenburg
         end: !keyref point.de.Berlin-Grunewald
         status: open
-        service: passenger
-        owner: !keyref org.de.l.pre
-        operator: !keyref org.de.e.KPEV.Bln
-        sources: !keyref src.de.Kuhlmann.2000
-
-    -   date: !date 1920-04-01
-        owner: !keyref org.de
-        operator: !keyref org.de.r.RVM.PH
-    -   date: !date 1924-02-12
-        operator: !keyref org.de.e.DREb
-    -   date: !date 1924-08-30
-        operator: !keyref org.de.e.DRG
-
-    -   date: !date 1928-06-11
-        end: !keyref point.de.Berlin-Grunewald
-        electrified:
-            rail: !var el.de.bln
         sources: !keyref src.de.Kuhlmann.2000
     -   date: !date 1928-08-16
         start: !keyref point.de.Berlin-Nikolassee
         end: !keyref point.de.Berlin-Wannsee
         status: open
-        service: passenger
-        owner: !keyref org.de
-        operator: !keyref org.de.e.DRG
-        electrified:
-            rail: !var el.de.bln
         sources: !keyref src.de.Kuhlmann.2000
     -   date: !date 1937-04-16
         start: !keyref point.de.Berlin-Grunewald
         end: !keyref point.de.Berlin-Nikolassee
         status: open
-        service: passenger
-        owner: !keyref org.de
-        operator: !keyref org.de.e.DRG
-        electrified:
-            rail: !var el.de.bln
         sources: !keyref src.de.Kuhlmann.2000
 
+    #   Einstellung Richtung Potsdam 1961
+    #
+    -   date: !date 1961-08-13
+        start: !keyref point.de.Berlin-Wannsee
+        end: !keyref point.de.Potsdam-Griebnitzsee
+        status: closed
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !date 1961-10-09
+        start: !keyref point.de.Potsdam-Griebnitzsee
+        status: closed
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !date c1970
+        start: !keyref point.de.Potsdam-Griebnitzsee
+        status: removed
+        sources: !keyref src.dd.DR.Bln.1978
+
+    #   Einstellung 1980 und Wiederaufnahme
+    #
     -   date: !date 1980-09-17
         start: !keyref point.de.Berlin-Friedrichstrasse
         end: !keyref point.de.Berlin-Wannsee
@@ -89,6 +103,56 @@ events:
         end: !keyref point.de.Berlin-Wannsee
         status: open
         sources: !keyref src.de.Kuhlmann.2000
+      
+    #   Wiederaufnahme Richtung Potsdam 1992
+    #
+    -   date: !date 1992-04-01
+        status: open
+        sources: !keyref src.de.Kuhlmann.2000
+
+    #   Eigenschaften
+    #
+    -   date: !!null
+        category: de.Hauptbahn
+        tracks: 2
+        gauge: 1435
+        service: passenger
+        sources: !keyref src.de.DRG.1927
+    -   date: !date 1928-06-11
+        end: !keyref point.de.Berlin-Grunewald
+        electrified:
+            rail: !var el.de.bln
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !date 1928-06-11
+        start: !keyref point.de.Berlin-Wannsee
+        electrified:
+            rail: !var el.de.bln
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !!null
+        start: !keyref point.de.Berlin-Grunewald
+        end: !keyref point.de.Berlin-Wannsee
+        electrified:
+            rail: !var el.de.bln
+        sources: !keyref src.de.Kuhlmann.2000
+
+    -   date: !date c1945
+        tracks: 1
+        sources: !keyref src.dd.DR.Bln.1953
+
+
+    #   Eigentümer etc.
+    #
+    -   date: !!null
+        end: !keyref point.de.Berlin-Charlottenburg
+        owner: !keyref org.de.e.BStEG
+        operator: !keyref org.de.e.BStEG
+        sources: !keyref src.de.DRG.1935
+    -   date: !!null
+        start: !keyref point.de.Berlin-Wannsee
+        end: !keyref point.de.Potsdam-Griebnitzsee
+        owner: !keyref org.de.e.BPME
+        operator: !keyref org.de.e.BPME
+        sources: !keyref src.de.DRG.1935
 
     -   date: !date 1878-07-15
         end: !keyref point.de.Berlin-Charlottenburg
@@ -97,11 +161,61 @@ events:
         sources:
             - !keyref src.de.DRG.1935
             - !keyref src.de.WP.Preussische-Staatseisenbahnen
+    -   date: !date 1880-04-01
+        start: !keyref point.de.Berlin-Wannsee
+        end: !keyref point.de.Potsdam-Griebnitzsee
+        owner: !keyref org.de.l.pre
+        sources: !keyref src.de.DRG.1935
     -   date: !date c1885
+        end: !keyref point.de.Berlin-Charlottenburg
+        operator: !keyref org.de.e.KPEV.Bln
+    -   date: !date c1885
+        start: !keyref point.de.Berlin-Wannsee
+        end: !keyref point.de.Potsdam-Griebnitzsee
+        operator: !keyref org.de.e.KPEV.Bln
+
+    -   date: !!null
+        start: !keyref point.de.Berlin-Charlottenburg
+        end: !keyref point.de.Berlin-Grunewald
+        owner: !keyref org.de.l.pre
+        operator: !keyref org.de.e.KPEV.Bln
+    -   date: !!null
+        start: !keyref point.de.Potsdam-Griebnitzsee
+        owner: !keyref org.de.l.pre
         operator: !keyref org.de.e.KPEV.Bln
         
+    -   date: !date 1920-04-01
+        end: !keyref point.de.Berlin-Grunewald
+        owner: !keyref org.de
+        operator: !keyref org.de.r.RVM.PH
+    -   date: !date 1920-04-01
+        start: !keyref point.de.Berlin-Wannsee
+        owner: !keyref org.de
+        operator: !keyref org.de.r.RVM.PH
+    -   date: !date 1924-02-12
+        end: !keyref point.de.Berlin-Grunewald
+        operator: !keyref org.de.e.DREb
+    -   date: !date 1924-02-12
+        start: !keyref point.de.Berlin-Wannsee
+        operator: !keyref org.de.e.DREb
+    -   date: !date 1924-08-30
+        end: !keyref point.de.Berlin-Grunewald
+        operator: !keyref org.de.e.DRG
+    -   date: !date 1924-08-30
+        start: !keyref point.de.Berlin-Wannsee
+        operator: !keyref org.de.e.DRG
+
+    -   date: !!null
+        start: !keyref point.de.Berlin-Grunewald
+        end: !keyref point.de.Berlin-Wannsee
+        owner: !keyref org.de
+        operator: !keyref org.de.e.DRG
+
     -   date: !date 1949-10-07
         end: !keyref point.de.Berlin-Friedrichstrasse-Gr
+        owner: !keyref org.dd
+    -   date: !date 1949-10-07
+        start: !keyref point.de.Berlin-Wannsee-LGr
         owner: !keyref org.dd
     -   date: !var dd.DR.start
         operator: !keyref org.dd.DR
@@ -112,6 +226,9 @@ events:
     -   date: !date 1990-10-03
         end: !keyref point.de.Berlin-Friedrichstrasse-Gr
         owner: !keyref org.de
+    -   date: !date 1990-10-03
+        start: !keyref point.de.Berlin-Wannsee-LGr
+        owner: !keyref org.de
     -   date: !var org.de.DBAG.start
         owner: !keyref org.de.e.DBAG
         operator: !keyref org.de.e.DBAG
@@ -119,11 +236,14 @@ events:
         owner: !keyref org.de.e.DBNetz
         operator: !keyref org.de.e.DBNetz
 
+    #   Verlauf
+    #
     -   date: !!null
         course:
-            - !pathref path.de.6109 ost awkr
-            - !pathref path.de.20800 a f
-            - !pathref path.de.6118 fwkr wan
+            - !pathref path.de.6109 ost  awkr  2.0
+            - !pathref path.de.6024 a    f     0.0
+            - !pathref path.de.6118 fwkr koh   2.0
+            - !pathref path.de.6110 ggri pot   2.0
 
 points:
     - !keyref point.de.Berlin-Ostbf                         # line.de.6109
@@ -155,6 +275,15 @@ points:
     - !keyref point.de.Berlin-Nikolassee-Stadtbahn
     - !keyref point.de.Berlin-Wannsee                       # line.de.6118
     - !keyref point.de.Berlin-Wannsee-S-Bahn                # line.de.6033
+    - !keyref point.de.Berlin-Pohle
+    - !keyref point.de.Berlin-Teltow-Kanal
+    - !keyref point.de.Kohlhasenbruecke                     # line.de.6118
+    - !keyref point.de.Berlin-Wannsee-LGr
+    - !keyref point.de.Potsdam-Griebnitzsee                 # line.de.6110
+    - !keyref point.de.Potsdam-Griebnitzsee-S-Bahn
+    - !keyref point.de.Potsdam-Babelsberg
+    - !keyref point.de.Potsdam-Hbf                          # line.de.6110
+    - !keyref point.de.Potsdam-Hbf-S-Bahn
 
 
 ---
@@ -166,8 +295,8 @@ events:
         status: open
         split_from: !keyref point.de.Berlin-Ostbf
         location:
-            - !keyloc line.de.20800 0,00
-            - !keyloc line.de.20800 0,10
+            - !keyloc line.de.6024 0,00
+            - !keyloc line.de.6024 0,10
     -   date: !!null
         name: Berlin Ostbahnhof S-Bahn
         de.DS100: BOSB
@@ -185,7 +314,7 @@ key: point.de.Berlin-Jannowitzbruecke
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.20800 1,18
+        location: !keyloc line.de.6024 1,18
         name: Jannowitzbrücke
         category: de.Bf
         de.Rangklasse: III
@@ -225,7 +354,7 @@ events:
     -   date: !date c2007
         status: open
         split_from: !keyref point.de.Berlin-Alexanderplatz
-        location: !keyloc line.de.20800 2,17
+        location: !keyloc line.de.6024 2,17
     -   date: !!null
         name: Berlin Alexanderplatz S-Bahn
         public_name: Alexanderplatz
@@ -244,7 +373,7 @@ key: point.de.Berlin-Hackescher-Markt
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.20800 2,26
+        location: !keyloc line.de.6024 2,26
         category: de.Bf
         de.Rangklasse: III
         name: Börse
@@ -254,7 +383,7 @@ events:
         service: passenger
         sources: !keyref src.de.Bfv.1928
     -   date: !date c1930
-        location: !keyloc line.de.20800 2,86
+        location: !keyloc line.de.6024 2,86
         sources: !keyref src.de.DRG.Bln.1932
     -   date: !var lknr.30
         de.lknr: 03 279
@@ -316,7 +445,7 @@ events:
         status: open
         sources: !keyref src.de.WP.Berlin-Hauptbahnhof
     -   date: !!null
-        location: !keyloc line.de.20800 5,368
+        location: !keyloc line.de.6024 5,368
         category: de.Hp
         name: Berlin Hauptbahnhof - Lehrter Bf S-Bahn
         de.DS100: BHBF
@@ -336,7 +465,7 @@ events:
         name: Lehrter Bahnhof
         sources: !keyref src.de.Kuhlmann.2000
     -   date: !!null
-        location: !keyloc line.de.20800 5,41
+        location: !keyloc line.de.6024 5,41
         category: de.Bf
         de.Rangklasse: III
         sources: !keyref src.de.DRG.Bln.1927
@@ -377,7 +506,7 @@ key: point.de.Berlin-Bellevue
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.20800 7,10
+        location: !keyloc line.de.6024 7,10
         category: de.Bf
         de.Rangklasse: III
         name: Bellevue
@@ -423,7 +552,7 @@ events:
         name: Tiergarten
         sources: !keyref src.de.Kuhlmann.2000
     -   date: !!null
-        location: !keyloc line.de.20800 8,23
+        location: !keyloc line.de.6024 8,23
         category: de.Bf
         de.Rangklasse: III
         sources: !keyref src.de.DRG.Bln.1927
@@ -475,7 +604,7 @@ events:
         sources: !keyref src.de.TPP.2007
     -   date: !!null
         category: de.Bf
-        location: !keyloc line.de.20800 9,128
+        location: !keyloc line.de.6024 9,128
         sources: !keyref src.de.DBAG.ISR
 
     -   date: !!null
@@ -490,7 +619,7 @@ events:
         status: open
         sources: !keyref src.de.Kuhlmann.2000
     -   date: !!null
-        location: !keyloc line.de.20800 10,07
+        location: !keyloc line.de.6024 10,07
         category: de.Bf
         de.Rangklasse: III
         name: Savignyplatz
@@ -533,7 +662,7 @@ events:
         status: open
         split_from: !keyref point.de.Berlin-Charlottenburg
         location:
-            - !keyloc line.de.20800 11,26
+            - !keyloc line.de.6024 11,26
         public_name: Berlin-Charlottenburg
     -   date: !!null
         name: Berlin-Charlottenburg S-Bahn
@@ -562,7 +691,7 @@ events:
     -   date: !!null
         location:
             - !keyloc line.de.20900 30,44
-            - !keyloc line.de.20800 12,58
+            - !keyloc line.de.6024 12,58
         category: de.Bf
         de.Rangklasse: IV
         sources: !keyref src.de.DRG.Bln.1932
@@ -571,7 +700,7 @@ events:
         service: passenger
         sources: !keyref src.de.Bfv.1933
     -   date: !date c1940
-        location: !keyloc line.de.20800 12,56
+        location: !keyloc line.de.6024 12,56
         sources: !keyref src.de.DRG.Bln.1943
     -   date: !!null
         de.VBL: Wk
@@ -594,7 +723,7 @@ events:
 
     -   date: !!null
         site:
-            - !noderef path.de.20800 wkr left
+            - !noderef path.de.6024 wkr left
             - !noderef path.de.20900 wkr right
 
 
@@ -605,7 +734,7 @@ events:
     -   date: !date c2000
         status: open
         location:
-            - !keyloc line.de.20800 12,56
+            - !keyloc line.de.6024 12,56
         public_name: Westkreuz
     -   date: !!null
         name: Berlin Westkreuz (Stadtbahn)
@@ -622,7 +751,7 @@ events:
         sources: !keyref src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.20800 wkr
+        site: !noderef path.de.6024 wkr
 
 
 ---
@@ -630,7 +759,7 @@ key: point.de.Berlin-Eichkamp-alt
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.20800 13,68
+        location: !keyloc line.de.6024 13,68
         name: Eichkamp
         category: de.Bf
         de.Rangklasse: IV
@@ -656,10 +785,10 @@ events:
         sources: !keyref src.de.DBAG.ISR
     -   date: !!null
         split_from: !keyref point.de.Berlin-Grunewald
-        location: !keyloc line.de.20800 14,63
+        location: !keyloc line.de.6024 14,63
 
     -   date: !!null
-        site: !noderef path.de.20800 gru
+        site: !noderef path.de.6024 gru
 
 
 ---
@@ -669,7 +798,7 @@ events:
     -   date: !date c2000
         status: open
         split_from: !keyref point.de.Berlin-Nikolassee
-        location: !keyloc line.de.20800 22,49
+        location: !keyloc line.de.6024 22,49
         public_name: Nikolassee
     -   date: !!null
         category: de.Hp
@@ -685,4 +814,166 @@ events:
     -   date: !!null
         site: !noderef path.de.6118 nik
 
+
+---
+key: point.de.Berlin-Pohle
+type: point
+events:
+    -   date: !date c1940
+        location: !keyloc line.de.6024 25,77
+        category: de.Bk
+        name: Pohle
+        sources: !keyref src.de.DRG.Bln.1943
+    -   date: !date c1955
+        status: closed
+        sources: !keyref src.dd.DR.Bln.1959
+
+    -   date: !!null
+        site: !noderef path.de.6118 poh right
+
+
+---
+key: point.de.Berlin-Teltow-Kanal
+type: point
+events:
+    -   date: !date c1940
+        location: !keyloc line.de.6024 27,41
+        category: de.Bk
+        name: Teltow-Kanal
+        sources: !keyref src.de.DRG.Bln.1943
+    -   date: !date c1955
+        status: closed
+        sources: !keyref src.dd.DR.Bln.1959
+
+    -   date: !!null
+        site: !noderef path.de.6118 tel right
+
+
+---
+key: point.de.Berlin-Wannsee-LGr
+type: point
+subtype: border
+events:
+    -   date: !date 1949-10-07
+        status: open
+        location: !keyloc line.de.6024 28,050
+        name: Berlin-Wannsee Grenze
+    -   date: !date 1990-10-03
+        name: Berlin-Wannsee BE/BB
+        de.DS100: BQWS
+
+    -   date: !!null
+        site: !noderef path.de.6110 ggri
+
+
+---
+key: point.de.Potsdam-Griebnitzsee-S-Bahn
+type: point
+events:
+    -   date: !date c2007
+        status: open
+        split_from: !keyref point.de.Potsdam-Griebnitzsee
+        location: !keyloc line.de.6024 28,75
+    -   date: !!null
+        name: Potsdam Griebnitzsee S-Bahn
+        de.DS100: BGRI
+        sources: !keyref src.de.TPP.2006
+    -   date: !!null
+        public_name: Potsdam Griebnitzsee
+    -   date: !!null
+        category: de.Bf
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.6110 gri right
+
+
+---
+key: point.de.Potsdam-Babelsberg
+type: point
+events:
+    -   date: !date 1862
+        status: open
+        name: Neuendorf
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !!null
+        location: !keyloc line.de.6110 24,35?
+    -   date: !date 1890-05-01
+        name: Nowawes-Neuendorf
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !date 1908-03-01
+        name: Nowawes
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !date 1891-10-01?
+        location:
+            - !keyloc line.de.6024 25,75
+            - !keyloc line.de.6110 -
+        sources: !keyref src.de.DRG.Bln.1927
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: IV
+        sources: !keyref src.de.DRG.Bln.1927
+    -   date: !!null
+        de.lknr: 03 229
+        service: passenger
+        sources: !keyref src.de.Bfv.1928
+    -   date: !date c1930
+        de.Rangklasse: III
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 03 138
+        sources: !keyref src.de.Bfv.1933
+    -   date: !date 1938-04-01
+        name: Babelsberg
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !date 1938-04-01
+        de.VBL: Bbg
+        sources: !keyref src.de.DRG.Bln.1946
+    -   date: !date c1940
+        location: !keyloc line.de.6024 31,22
+        sources: !keyref src.de.DRG.Bln.1943
+    -   date: !date c1950
+        de.Rangklasse: U
+        sources: !keyref src.dd.DR.Bln.1953
+    -   date: !date c1955
+        category: de.Hp
+        master: !keyref point.de.Potsdam-Griebnitzsee
+        sources: !keyref src.dd.DR.Bln.1959
+    -   date: !date c1965
+        master: !keyref point.de.Potsdam-Hbf
+        sources: !keyref src.dd.DR.Bln.1968
+    -   date: !var ds100.dr
+        de.DS100: BBAB
+        sources: !keyref src.de.TPP.2006
+    -   date: !date c2000
+        name: Potsdam-Babelsberg
+        sources: !keyref src.de.TPP.2006
+    -   date: !date c2000
+        category: de.Bf
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.6110 bab right
+
+
+---
+key: point.de.Potsdam-Hbf-S-Bahn
+type: point
+events:
+    -   date: !date c2007
+        status: open
+        split_from: !keyref point.de.Potsdam-Hbf
+        location: !keyloc line.de.6024 32,98
+    -   date: !!null
+        name: Potsdam Hbf S-Bahn
+        de.DS100: BPDH
+        sources: !keyref src.de.TPP.2007
+    -   date: !!null
+        public_name: Potsdam Hbf
+    -   date: !!null
+        category: de.Bf
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.6110 pot right
 
