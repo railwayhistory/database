@@ -1,0 +1,140 @@
+# DE 6012.  S-Bahn Berlin Springpfuhl - Berlin-Wartenberg
+#
+---
+key: line.de.6012
+type: line
+label: de.S-Bahn
+events:
+    -   date: !!null
+        region:
+            - !keyref org.de
+            - !keyref org.de.l.be
+
+    -   date: !var vzg.dr
+        de.VzG: !!str 6012
+        sources: !keyref src.de.VzG
+
+    #   Eröffnung
+    #
+    -   date: !date 1984-12-20
+        end: !keyref point.de.Berlin-Hohenschoenhausen
+        status: open
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !date 1985-12-20
+        start: !keyref point.de.Berlin-Hohenschoenhausen
+        status: open
+        sources: !keyref src.de.Kuhlmann.2000
+
+    #   Eigenschaften
+    #
+    -   date: !!null
+        category: de.Hauptbahn
+        tracks: 2
+        gauge: 1435
+        sources: !keyref src.dd.DR.1989
+    -   date: !!null
+        electrified:
+            rail: !var el.de.bln
+        service: passenger
+
+    #   Eigentümer etc.
+    #
+    -   date: !!null
+        owner: !keyref org.dd
+        operator: !keyref org.dd.DR
+
+    -   date: !date 1990-10-03
+        owner: !keyref org.de
+
+    -   date: !var org.de.DBAG.start
+        owner: !keyref org.de.e.DBAG
+        operator: !keyref org.de.e.DBAG
+    -   date: !var org.de.DBNetz.start
+        owner: !keyref org.de.e.DBNetz
+        operator: !keyref org.de.e.DBNetz
+
+    #   Verlauf
+    #
+    -   date: !!null
+        course:
+            - !pathref path.de.6080 spr  f    5.0
+            - !pathref path.de.6067 fbno war  2.0
+
+points:
+    - !keyref point.de.Berlin-Springpfuhl                   # line.de.6011
+    - !keyref point.de.Berlin-Gehrenseestrasse
+    - !keyref point.de.Berlin-Hohenschoenhausen             # line.de.6067
+    - !keyref point.de.Berlin-Hohenschoenhausen-S-Bahn
+    - !keyref point.de.Berlin-Wartenberg
+
+
+---
+key: point.de.Berlin-Gehrenseestrasse
+type: point
+events:
+    -   date: !date 1984-12-20
+        status: open
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !!null
+        location: !keyloc line.de.6012 12,15
+        category: de.Hp
+        name: Gehrenseestraße
+        de.VBL: Gen
+        master: !keyref point.de.Berlin-Marzahn
+        sources: !keyref src.dd.DR.1989
+    -   date: !var ds100.dr
+        de.DS100: BGSE
+        sources: !keyref src.de.TPP.2006
+    -   date: !date c2000
+        name: Berlin Gehrenseestraße
+        sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.6067 geh right
+
+
+---
+key: point.de.Berlin-Hohenschoenhausen-S-Bahn
+type: point
+events:
+    -   date: !date 2006
+        status: open
+        split_from: !keyref point.de.Berlin-Hohenschoenhausen
+        sources:
+            - !keyref src.de.TPP.2006
+            - !keyref src.de.TPP.2007
+    -   date: !!null
+        location: !keyloc line.de.6012 13,596
+        category: de.Bf
+        name: Berlin-Hohenschönhausen S-Bahn
+        de.DS100: BHH
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.6067 hsc right
+
+
+---
+key: point.de.Berlin-Wartenberg
+type: point
+junction: True
+events:
+    -   date: !date 1985-12-20
+        status: open
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !!null
+        location: !keyloc line.de.6012 14,48
+        category: de.Hp
+        name: Wartenberg
+        de.VBL: Wtb
+        sources: !keyref src.dd.DR.1989
+    -   date: !var ds100.dr
+        de.DS100: BWAB
+        sources: !keyref src.de.TPP.2006
+    -   date: !date c2000
+        name: Berlin-Wartenberg
+        sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.6067 war right
+
