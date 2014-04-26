@@ -54,7 +54,7 @@ events:
         status: open
         sources: !keyref src.de.Kuhlmann.2000
 
-    # Eigentümer und Betreiber
+    #   Eigentümer etc.
     #
     -   date: !!null
         owner: !keyref org.de.l.pre
@@ -90,6 +90,7 @@ points:
     - !keyref point.de.Berlin-Ostbf                     # line.de.6109
     - !keyref point.de.Berlin-Ostbf-S-Bahn              # line.de.6024
     - !keyref point.de.Berlin-Warschauer-Strasse
+    - !keyref point.de.Berlin-Warschauer-Strasse-Vsr
     - !keyref point.de.Berlin-Ostkreuz                  # line.de.6170
     - !keyref point.de.Berlin-Ostkreuz-Stadtbahn
     - !keyref point.de.Berlin-Ostkreuz-S-Bahn
@@ -129,7 +130,9 @@ events:
         location: !keyloc line.de.6078 -
         sources: !keyref src.de.Kuhlmann.2000
     -   date: !date 1924-10-19
-        location: !keyloc line.de.6004 1,33
+        location:
+            - !keyloc line.de.6003 1,33
+            - !keyloc line.de.6004 1,33
         sources:
             - !keyref src.de.Kuhlmann.2000
             - !keyref src.de.DRG.Bln.1927
@@ -162,6 +165,27 @@ events:
 
     -   date: !!null
         site: !noderef path.de.6153 war
+
+
+---
+key: point.de.Berlin-Warschauer-Strasse-Vsr
+type: point
+junction: True
+events:
+    -   date: !!null
+        location:
+            - !keyloc line.de.6003 1,82
+            - !keyloc line.de.6004 1,82
+            - !keyloc line.de.20820 1,52
+        category: de.Abzw
+        name: Vsr
+        sources: !keyref src.de.DRG.Bln.1927
+    -   date: !date c1990
+        status: closed
+        merged: !keyref point.de.Berlin-Warschauer-Strasse
+
+    -   date: !!null
+        site: !noderef path.de.6153 vsr
 
 
 ---
