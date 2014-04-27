@@ -1,0 +1,201 @@
+# DE 6043.  S-Bahn Berlin Potsd Ringbf - Abzw Vp
+#
+---
+key: line.de.6043
+type: line
+label: de.S-Bahn
+events:
+    -   date: !!null
+        region:
+            - !keyref org.de
+            - !keyref org.de.l.be
+
+    -   date: !!null
+        de.VzG: !!str 6043
+        sources: !keyref src.de.VzG
+
+    #   Genehmigung
+    #
+    -   date: !date 1873-06-11
+        start: !keyref point.de.Berlin-Kolonnenstrasse
+        concession:
+            by: !keyref org.de.l.pre
+            for: !keyref org.de.l.pre
+            document: !keyref src.de.l.pre.1873.22.305
+        sources: !keyref src.de.DRG.1935
+    -   date: !date 1889-04-08
+        end: !keyref point.de.Berlin-Kolonnenstrasse
+        concession:
+            by: !keyref org.de.l.pre
+            for: !keyref org.de.l.pre
+            document: !keyref src.de.l.pre.1889.9.69
+        sources: !keyref src.de.DRG.1935
+
+    #   Eröffnung und Einstellung
+    #
+    -   date: !date 1881-10-15
+        start: !keyref point.de.Berlin-Kolonnenstrasse
+        status: open
+        service: freight
+        sources: !keyref src.de.DRG.1935
+    -   date: !date 1882-02-07
+        start: !keyref point.de.Berlin-Kolonnenstrasse
+        service: full
+        sources: !keyref src.de.DRG.1935
+    -   date: !date 1891-04-01
+        status: open
+        service: passenger
+        sources: !keyref src.de.DRG.1935
+    -   date: !date 1944-07-03
+        status: closed
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !date c1950
+        status: removed
+        sources: !keyref src.dd.DR.Bln.1953
+
+    #   Eigenschaften
+    #
+    -   date: !!null
+        category: de.Hauptbahn
+        tracks: 2
+        gauge: 1435
+        sources: !keyref src.de.DRG.Bln.1927
+    -   date: !date 1929-04-18
+        electrified:
+            rail: !var el.de.bln
+        sources: !keyref src.de.Kuhlmann.2000
+
+    #   Eigentümer etc.
+    #
+    -   date: !!null
+        owner: !keyref org.de.l.pre
+        operator: !keyref org.de.e.KPEV.Bln
+    -   date: !date 1920-04-01
+        owner: !keyref org.de
+        operator: !keyref org.de.r.RVM.PH
+    -   date: !date 1924-02-12
+        operator: !keyref org.de.e.DREb
+    -   date: !date 1924-08-30
+        operator: !keyref org.de.e.DRG
+
+    #   Verlauf
+    #
+    -   date: !!null
+        course:
+            - !pathref path.de.6177 por  f    0.0
+            - !pathref path.de.6043 a    f    0.0
+            - !pathref path.de.6020 fpor vpe  0.0
+
+points:
+    - !keyref point.de.Berlin-Potsd-Ringbf
+    - !keyref point.de.Berlin-Hochbahn
+    - !keyref point.de.Berlin-Kolonnenstrasse
+    - !keyref point.de.Berlin-Tempelhof-Vp                  # line.de.6020
+
+
+---
+key: point.de.Berlin-Potsd-Ringbf
+type: point
+junction: True
+events:
+    -   date: !date 1891-04-01
+        status: open
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !!null
+        name: Berlin Potsd Ringbf
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        location:
+            - !keyloc line.de.6035 0,00
+            - !keyloc line.de.6043 0,00
+        category: de.Bf
+        de.Rangklasse: II
+        sources: !keyref src.de.DRG.Bln.1927
+    -   date: !!null
+        de.lknr: 03 280
+        service: passenger
+        sources: !keyref src.de.Bfv.1928
+    -   date: !var lknr.30
+        de.lknr: 03 120
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        de.VBL: Por
+        sources: !keyref src.de.DRG.Bln.1946
+    -   date: !date 1944-07-03
+        status: closed
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !date 1945-08-06
+        status: open
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !date 1946-02-27
+        status: closed
+        sources: !keyref src.de.Kuhlmann.2000
+
+    -   date: !!null
+        site: !noderef path.de.6177 por down
+
+
+---
+key: point.de.Berlin-Hochbahn
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.6043 0,87
+        category: de.Bk
+        name: Bk 38
+        sources: !keyref src.de.DRG.Bln.1932
+    -   date: !date c1940
+        location: !keyloc line.de.6043 1,87
+        name: Hochbahn
+        sources: !keyref src.de.DRG.Bln.1943
+    -   date: !!null
+        de.VBL: Hch
+        sources: !keyref src.de.DRG.Bln.1946
+    -   date: !date c1945
+        status: closed
+
+    -   date: !!null
+        site: !noderef path.de.6177 hoc left
+
+
+---
+key: point.de.Berlin-Kolonnenstrasse
+type: point
+junction: True
+events:
+    -   date: !date 1881-10-15
+        status: open
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !!null
+        name: Schöneberg Ringbf
+        sources: !keyref src.de.Kb.1914
+    -   date: !date c1920
+        name: Schöneberg Pbf
+        sources: !keyref src.de.DRG.Bln.1927
+    -   date: !!null
+        location:
+            - !keyloc line.de.6043 2,36
+            - !keyloc line.de.6177 2,52
+        category: de.Bf
+        de.Rangklasse: II
+        sources: !keyref src.de.DRG.Bln.1927
+    -   date: !!null
+        service: passenger
+        de.lknr: 03 282
+        sources: !keyref src.de.Bfv.1928
+    -   date: !date 1932-12-01
+        name: Kolonnenstraße
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !var lknr.30
+        de.lknr: 03 123
+        sources: !keyref src.de.Bfv.1933
+    -   date: !date 1944-07-03
+        status: closed
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !date 1932-12-01
+        de.VBL: Kl
+        sources: !keyref src.de.DRG.Bln.1946
+
+    -   date: !!null
+        site: !noderef path.de.6177 kol left
+
