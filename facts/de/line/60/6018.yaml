@@ -1,0 +1,51 @@
+# DE 6018.  S-Bahn  Berlin Bornholmer Straße - Berlin Schönhauser Allee
+#
+---
+key: line.de.6018
+type: line
+label: de.S-Bahn
+events:
+    -   date: !!null
+        region:
+            - !keyref org.de
+            - !keyref org.de.l.be
+
+    -   date: !!null
+        de.VzG: !!str 6018
+        sources: !keyref src.de.VzG
+
+    #   Eröffnung
+    #
+    -   date: !date 2003-06-16
+        status: open
+        service: passenger
+
+
+    #   Eigenschaften
+    #
+    -   date: !!null
+        category: de.Hauptbahn
+        tracks: 2
+        gauge: 1435
+        electrified:
+            rail: !var el.de.bln
+        sources: !keyref src.de.DBAG.ISR
+
+    #   Eigentümer etc.
+    #
+    -   date: !!null
+        owner: !keyref org.de.e.DBNetz
+        operator: !keyref org.de.e.DBNetz
+
+    # Verlauf
+    #
+    -   date: !!null
+        course:
+            - !pathref path.de.6081 bor  vns  2.0
+            - !pathref path.de.6018 a    f    0.0
+            - !pathref path.de.6020 fbos son  0.0
+
+points:
+    - !keyref point.de.Berlin-Bornholmer-Strasse            # line.de.6002
+    - !keyref point.de.Berlin-Schoenhauser-Allee            # line.de.6020
+
