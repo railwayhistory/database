@@ -1,7 +1,9 @@
+# DE 6021.  S-Bahn Berlin-Neukölln - Berlin Baumschulenweg
+#
 ---
-key: line.de.20930
+key: line.de.6021
 type: line
-label: connection
+label: de.S-Bahn
 events:
     -   date: !!null
         region:
@@ -73,13 +75,21 @@ events:
         owner: !keyref org.de.e.DBNetz
         operator: !keyref org.de.e.DBNetz
 
+    #   Verlauf
+    #
+    -   date: !!null
+        course:
+            - !pathref path.de.6020 nko  fbau -2.0
+            - !pathref path.de.6021 a    f     0.0
+            - !pathref path.de.6142 fnko bau  -4.0
+
 points:
     - !keyref point.de.Berlin-Neukoelln                     # line.de.6170
     - !keyref point.de.Berlin-Neukoelln-S-Bahn              # line.de.6020
     - !keyref point.de.Berlin-Koellnische-Heide
     - !keyref point.de.Berlin-Baumschulenweg-Gr             # line.de.6045
-    - !keyref point.de.Berlin-Baumschulenweg                # line.de.6142
     - !keyref point.de.Berlin-Baumschulenweg-S-Bahn         # line.de.6007
+    - !keyref point.de.Berlin-Baumschulenweg                # line.de.6142
 
 ---
 key: point.de.Berlin-Koellnische-Heide
@@ -90,7 +100,7 @@ events:
         sources: !keyref src.de.Kuhlmann.2000
     -   date: !!null
         location:
-            - !keyloc line.de.20930 1,81
+            - !keyloc line.de.6021 1,81
         category: de.Bf
         de.Rangklasse: IV
         name: Köllnische Heide
