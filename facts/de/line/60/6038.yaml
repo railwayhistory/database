@@ -1,0 +1,194 @@
+# DE 6038.  S-Bahn Berlin-Wannsee - Stahnsdorf
+#
+---
+key: line.de.6038
+type: line
+label: de.S-Bahn
+events:
+    -   date: !!null
+        region: !keyref org.de
+    -   date: !!null
+        end: !keyref point.de.Dreilinden-LGr
+        region: !keyref org.de.l.be
+    -   date: !!null
+        start: !keyref point.de.Dreilinden-LGr
+        region: !keyref org.de.l.bb
+
+    -   date: !var vzg.dr
+        de.VzG: !!str 6038
+        sources: !keyref src.de.VzG
+
+    #   Eröffnung und Einstellung
+    #
+    -   date: !date 1913-06-03
+        status: open
+        sources: !keyref src.de.DRG.1935
+    -   date: !date 1961-08-13
+        status: closed
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !date c1965
+        start: !keyref point.de.Dreilinden-LGr
+        status: removed
+        sources: !keyref src.dd.DR.Bln.1968
+    -   date: !date c1980
+        end: !keyref point.de.Dreilinden-LGr
+        status: removed
+        
+    #   Eigenschaften
+    #
+    -   date: !!null
+        category: de.Hauptbahn
+        tracks: 1
+        gauge: 1435
+        sources: !keyref src.de.DRG.Bln.1927
+    -   date: !date 1928-07-10
+        electrified:
+            rail: !var el.de.bln
+        sources: !keyref src.de.Kuhlmann.2000
+
+    #   Eigentümer etc.
+    #
+    -   date: !!null
+        owner: !keyref org.de.l.pre
+        operator: !keyref org.de.e.KPEV.Bln
+        note: >
+            „Genehmigung für Bau und Betrieb wurde erteilt an die
+            Stadtsynode Berlin. Vom Eröffnungstage an den Preuß
+            Staatseisenbahnen als unbeschränktes Eigentum zum Betriebe
+            überlassen.“
+        sources: !keyref src.de.DRG.1935
+
+    -   date: !date 1920-04-01
+        owner: !keyref org.de
+        operator: !keyref org.de.r.RVM.PH
+    -   date: !date 1924-02-12
+        operator: !keyref org.de.e.DREb
+    -   date: !date 1924-08-30
+        operator: !keyref org.de.e.DRG
+
+    -   date: !var org.de.DR.start
+        operator: !keyref org.dd.DR
+
+    -   date: !var org.de.DBAG.start
+        owner: !keyref org.de.e.DBAG
+        operator: !keyref org.de.e.DBAG
+    -   date: !var org.de.DBNetz.start
+        owner: !keyref org.de.e.DBNetz
+        operator: !keyref org.de.e.DBNetz
+
+    #   Verlauf
+    #
+    -   date: !!null
+        course:
+            - !pathref path.de.6118 wan  asta -1.5
+            - !pathref path.de.6038 a    f     0.0
+
+points:
+    - !keyref point.de.Berlin-Wannsee                       # line.de.6118
+    - !keyref point.de.Dreilinden-LGr
+    - !keyref point.de.Dreilinden
+    - !keyref point.de.Stahnsdorf
+
+
+---
+key: point.de.Dreilinden-LGr
+type: point
+subtype: border
+events:
+    -   date: !!null
+        name: Dreilinden BE/BB
+    -   date: !!null    
+        site: !noderef path.de.6038 gdre
+
+
+---
+key: point.de.Dreilinden
+type: point
+events:
+    -   date: !date 1913-06-03
+        status: open
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !!null
+        name: Dreilinden
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        location: !keyloc line.de.6038 2,29
+        category: de.Hp
+        sources: !keyref src.de.DRG.Bln.1927
+    -   date: !!null
+        service: passenger
+        de.lknr: 03 286
+        sources: !keyref src.de.Bfv.1928
+    -   date: !var lknr.30
+        de.lknr: 03 376
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        de.VBL: Dr
+        sources: !keyref src.de.DRG.Bln.1946
+    -   date: !date c1950
+        master: !keyref point.de.Stahnsdorf
+        sources: !keyref src.dd.DR.Bln.1959
+    -   date: !date 1961-08-13
+        service: none
+    -   date: !date c1965
+        master: !keyref point.de.Potsdam-Drewitz
+        sources: !keyref src.dd.DR.Bln.1968
+    -   date: !date c1970
+        status: closed
+        sources: !keyref src.dd.DR.Bln.1973
+    -   date: !var ds100.dr
+        de.DS100: BDRL
+
+    -   date: !!null
+        site: !noderef path.de.6038 dre left
+
+
+---
+key: point.de.Stahnsdorf
+type: point
+events:
+    -   date: !date 1913-06-02
+        status: open
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !!null
+        name: Stahnsdorf Friedhof
+        sources: !keyref src.de.Kb.1914
+    -   date: !date 1926-05-04
+        name: Stahnsdorf Reichsb
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !!null
+        location: !keyloc line.de.6038 4,24
+        category: de.Bf
+        de.Rangklasse: IV
+        sources: !keyref src.de.DRG.Bln.1927
+    -   date: !!null
+        de.lknr: 03 021
+        sources: !keyref src.de.Bfv.1928
+    -   date: !date c1930
+        de.Rangklasse: III
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 03 375
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        de.VBL: Std
+        sources: !keyref src.de.DRG.Bln.1946
+    -   date: !date 1948-05-27
+        name: Stahnsdorf
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !date 1961-08-13
+        service: none
+    -   date: !date c1965
+        de.Rangklasse: U
+        master: !keyref point.de.Potsdam-Drewitz
+        sources: !keyref src.dd.DR.Bln.1968
+    -   date: !date c1970
+        status: closed
+        sources: !keyref src.dd.DR.Bln.1973
+    -   date: !var ds100.dr
+        de.DS100: BSTF
+
+    -   date: !!null
+        site: !noderef path.de.6038 sta left
+
+
