@@ -1,0 +1,63 @@
+# DE 6001.  S-Bahn Berlin-Pankow - Berlin Schönhauser Allee
+#
+---
+key: line.de.6001
+type: line
+label: de.S-Bahn
+events:
+    -   date: !!null
+        region:
+            - !keyref org.de
+            - !keyref org.de.l.be
+
+    -   date: !var vzg.dr
+        de.VzG: !!str 6001
+        sources: !keyref src.de.VzG
+
+    #   Eröffnung und Einstellung
+    #
+    -   date: !date 1961-12-10
+        status: open
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !date 2001-09-10
+        status: closed
+    -   date: !date c2002
+        status: removed
+
+    #   Eigenschaften
+    #
+    -   date: !!null
+        category: de.Hauptbahn
+        tracks: 2
+        gauge: 1435
+        electrified:
+            rail: !var el.de.bln
+        sources: !keyref src.dd.DR.Bln.1968
+
+    #   Eigentümer etc.
+    #
+    -   date: !!null
+        owner: !keyref org.dd
+        operator: !keyref org.dd.DR
+    -   date: !date 1990-10-03
+        owner: !keyref org.de
+    -   date: !var org.de.DBAG.start
+        owner: !keyref org.de.e.DBAG
+        operator: !keyref org.de.e.DBAG
+    -   date: !var org.de.DBNetz.start
+        owner: !keyref org.de.e.DBNetz
+        operator: !keyref org.de.e.DBNetz
+
+    # Verlauf
+    #
+    -   date: !!null
+        course:
+            - !pathref path.de.6081 pan  ngn   2.0
+            - !pathref path.de.6081 ason vns  -6.0
+            - !pathref path.de.6141 a    asos -2.0
+            - !pathref path.de.6020 fbos son   0.0
+
+points:
+    - !keyref point.de.Berlin-Pankow                    # line.de.6002
+    - !keyref point.de.Berlin-Bornholmer-Strasse        # line.de.6002
+    - !keyref point.de.Berlin-Schoenhauser-Allee        # line.de.6020
