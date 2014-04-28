@@ -1,0 +1,166 @@
+# DE 6022.  S-Bahn Berlin Jungfernheide - Berlin-Gartenfeld
+#
+#           Siemensbahn
+#
+---
+key: line.de.6022
+type: line
+label: de.S-Bahn
+events:
+    -   date: !!null
+        region:
+            - !keyref org.de
+            - !keyref org.de.l.be
+
+    -   date: !!null
+        de.VzG: !!str 6022
+        sources: !keyref src.de.VzG
+
+    #   Genehmigung
+    #
+    -   date: !date 1926-04-20
+        concession:
+            by: !keyref org.de
+            for: !keyref org.de
+        note: >
+            Erlaß des Reichsverkehrmin vom 20. April 1926 — E II 22 Nr 1021 —
+        sources: !keyref src.de.DRG.1935
+
+    #   Eröffnung und Einstellung
+    #
+    -   date: !date 1929-12-18
+        status: open
+        service: passenger
+        sources: !keyref src.de.DRG.1935
+    -   date: !date 1980-09-18
+        status: closed
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !date c1985
+        status: removed
+
+    #   Eigentümer
+    #
+    -   date: !!null
+        owner: !keyref org.de
+        operator: !keyref org.de.e.DRG
+    -   date: !var org.de.DR.start
+        operator: !keyref org.dd.DR
+
+    #   Verlauf
+    #
+    -   date: !!null
+        course:
+            - !pathref path.de.6107 jun  agar  4.0
+            - !pathref path.de.6022 a    gar   0.0
+
+points:
+    - !keyref point.de.Berlin-Jungfernheide                 # line.de.6020
+    - !keyref point.de.Berlin-Wernerwerk
+    - !keyref point.de.Berlin-Siemensstadt
+    - !keyref point.de.Berlin-Gartenfeld
+
+
+---
+key: point.de.Berlin-Wernerwerk
+type: point
+events:
+    -   date: !date 1929-12-18
+        status: open
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !!null
+        location: !keyloc line.de.6022 1,94
+        category: de.Hp
+        name: Wernerwerk
+        sources: !keyref src.de.DRG.Bln.1932
+    -   date: !!null
+        service: passenger
+        de.lknr: 03 169
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        de.VBL: Ww
+        sources: !keyref src.de.DRG.Bln.1946
+    -   date: !date c1950
+        master: !keyref point.de.Berlin-Gartenfeld
+        sources: !keyref src.dd.DR.Bln.1959
+    -   date: !date c1965
+        master: !keyref point.de.Berlin-Westend
+        sources: !keyref src.dd.DR.Bln.1968
+    -   date: !date c1980
+        master: !keyref point.de.Berlin-Gesundbrunnen
+    -   date: !var ds100.dr
+        de.DS100: BWRK
+
+    -   date: !!null
+        site: !noderef path.de.6022 wer left
+
+
+---
+key: point.de.Berlin-Siemensstadt
+type: point
+events:
+    -   date: !date 1929-12-18
+        status: open
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !!null
+        location: !keyloc line.de.6022 3,12
+        category: de.Hp
+        name: Siemensstadt
+        sources: !keyref src.de.DRG.Bln.1932
+    -   date: !!null
+        de.lknr: 03 168
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        de.VBL: Ss
+        sources: !keyref src.de.DRG.Bln.1946
+    -   date: !date c1950
+        name: Berlin-Siemensstadt
+        sources: !keyref src.dd.DR.Bln.1953
+    -   date: !date c1950
+        master: !keyref point.de.Berlin-Gartenfeld
+        sources: !keyref src.dd.DR.Bln.1959
+    -   date: !date c1965
+        master: !keyref point.de.Berlin-Westend
+        sources: !keyref src.dd.DR.Bln.1968
+    -   date: !date c1980
+        master: !keyref point.de.Berlin-Gesundbrunnen
+    -   date: !var ds100.dr
+        de.DS100: BSMS
+
+    -   date: !!null
+        site: !noderef path.de.6022 sie left
+
+
+---
+key: point.de.Berlin-Gartenfeld
+type: point
+junction: True
+events:
+    -   date: !date 1929-12-18
+        status: open
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !!null
+        location: !keyloc line.de.6022 4,46
+        category: de.Bf
+        de.Rangklasse: III
+        name: Gartenfeld
+        sources: !keyref src.de.DRG.Bln.1932
+    -   date: !!null
+        de.lknr: 03 167
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        de.VBL: Gtf
+        sources: !keyref src.de.DRG.Bln.1946
+    -   date: !date c1950
+        name: Berlin-Gartenfeld
+        sources: !keyref src.dd.DR.Bln.1953
+    -   date: !date c1965
+        de.Rangklasse: U
+        master: !keyref point.de.Berlin-Westend
+        sources: !keyref src.dd.DR.Bln.1968
+    -   date: !date c1980
+        master: !keyref point.de.Berlin-Gesundbrunnen
+    -   date: !var ds100.dr
+        de.DS100: BGTF
+
+    -   date: !!null
+        site: !noderef path.de.6022 gar up
