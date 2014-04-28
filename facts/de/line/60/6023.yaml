@@ -1,0 +1,79 @@
+# DE 6023.  S-Bahn Berlin-Charlottenburg - Berlin-Halensee
+#
+---
+key: line.de.6023
+type: line
+label: de.S-Bahn
+events:
+    -   date: !!null
+        region:
+            - !keyref org.de
+            - !keyref org.de.l.be
+
+    -   date: !!null
+        de.VzG: !!str 6023
+        sources: !keyref src.de.VzG
+
+    #   Eröffnung
+    #
+    -   date: !date 1882-05-15
+        status: open
+        service: passenger
+        sources: !keyref src.de.DRG.1935
+    -   date: !date 1980-09-18
+        service: none
+    
+    #   Eigenschaften
+    #
+    -   date: !!null
+        category: de.Hauptbahn
+        tracks: 2
+        gauge: 1435
+        sources: !keyref src.de.DRG.Bln.1927
+    -   date: !date 1928-11-06
+        electrified:
+            rail: !var el.de.bln
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !date c1990
+        tracks: 1
+        sources: !keyref src.de.SuW.2000
+
+    #   Eigentümer etc.
+    #
+    -   date: !!null
+        owner: !keyref org.de.l.pre
+        operator: !keyref org.de.e.KPEV.Bln
+        sources: !keyref src.de.DRG.1935
+
+    -   date: !date 1920-04-01
+        owner: !keyref org.de
+        operator: !keyref org.de.r.RVM.PH
+    -   date: !date 1924-02-12
+        operator: !keyref org.de.e.DREb
+    -   date: !date 1924-08-30
+        operator: !keyref org.de.e.DRG
+
+    -   date: !var org.de.DR.start
+        operator: !keyref org.dd.DR
+
+    -   date: !var org.de.DBAG.start
+        owner: !keyref org.de.e.DBAG
+        operator: !keyref org.de.e.DBAG
+    -   date: !var org.de.DBNetz.start
+        owner: !keyref org.de.e.DBNetz
+        operator: !keyref org.de.e.DBNetz
+
+    #   Verlauf
+    #
+    -   date: !!null
+        course:
+            - !pathref path.de.6109 cha  awkr  4.0
+            - !pathref path.de.6024 a    ahal  2.0
+            - !pathref path.de.6023 a    f     0.0
+            - !pathref path.de.6020 acha hal  -2.0
+
+points:
+    - !keyref point.de.Berlin-Charlottenburg                # line.de.6109
+    - !keyref point.de.Berlin-Charlottenburg-S-Bahn         # line.de.6024
+    - !keyref point.de.Berlin-Halensee                      # line.de.6020
+
