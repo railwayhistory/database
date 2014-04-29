@@ -1,0 +1,466 @@
+# DE 8100.  Kiel Süd - Bad Segeberg West
+#
+---
+key: line.de.8100
+type: line
+events:
+    -   date: !!null
+        region:
+            - !keyref org.de
+            - !keyref org.de.l.sh
+
+    #   Eröffnung und Einstellung
+    #
+    -   date: !date 1911-02-02
+        status: open
+        sources: !keyref src.de.Wolff.1972
+    -   date: !date 1961-12-31
+        start: !keyref point.de.Wellsee
+        status: closed
+        sources: !keyref src.de.Wolff.1972
+    -   date: !date 1961-12-31
+        start: !keyref point.de.Kiel-Hbf-Ss
+        end: !keyref point.de.Wellsee
+        category: de.Anschl
+    -   date: !date 1965
+        start: !keyref point.de.Wellsee
+        status: removed
+        sources: !keyref src.de.WP.Kleinbahn-Kiel-Segeberg
+
+    #   Eigenschaften
+    #   
+    -   date: !!null
+        category: de.Kleinbahn
+        tracks: 1
+        gauge: 1435
+        sources: !keyref src.de.Wolff.1972
+    -   date: !date c1956
+        category: de.Nebenbahn
+
+    #   Eigentümer etc.
+    #
+    -   date: !!null
+        owner: !keyref org.de.e.KbKSb
+        operator: !keyref org.de.e.Lenz
+        sources: !keyref src.de.Wolff.1972
+    -   date: !date c1945
+        operator: !keyref org.de.e.DEG
+
+    #   Verlauf
+    #
+    -   date: !!null
+        course:
+            - !pathref path.de.9107 a    akss  0.0
+            - !pathref path.de.1023 fkis agaa -1.0
+            - !pathref path.de.9107 fkss aseg  0.0
+            - !pathref path.de.8100 a    f     0.0
+            - !pathref path.de.1043 fkie sek   0.0
+
+points:
+    - !keyref point.de.Kiel-Sued                        # line.de.9107
+    - !keyref point.de.Kiel-Hbf-Ss                      # line.de.1023
+    - !keyref point.de.Wellsee
+    - !keyref point.de.Moorsee-Holst
+    - !keyref point.de.Boksee
+    - !keyref point.de.Klein-Barkau
+    - !keyref point.de.Kirchbarkau
+    - !keyref point.de.Warnau
+    - !keyref point.de.Nettelsee
+    - !keyref point.de.Depenau
+    - !keyref point.de.Stolpe-Holst
+    - !keyref point.de.Wankendorf-Kleinb
+    - !keyref point.de.Ruhwinkel-Schoenboeken
+    - !keyref point.de.Bornhoeved
+    - !keyref point.de.Tarbek
+    - !keyref point.de.Tensfeld
+    - !keyref point.de.Blunk-Holst
+    - !keyref point.de.Gross-Roennau
+    - !keyref point.de.Bad-Segeberg-Nord
+    - !keyref point.de.Bad-Segeberg-West
+
+
+---
+key: point.de.Wellsee
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.8100 2,4
+        name: Wellsee
+        sources: !keyref src.de.Kb.1914
+    -   date: !var lknr.kb
+        de.lknr: 43 428
+        sources: !keyref src.de.Bfv.1938
+    -   date: !!null
+        category: de.Hp
+        sources: !keyref src.de.mtbl.1726.1925
+
+    -   date: !!null
+        site: !noderef path.de.8100 wel left
+
+
+---
+key: point.de.Moorsee-Holst
+type: point
+events:
+    -   date: !!null
+        name: Moorsee (Holst)
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location: !keyloc line.de.8100 4,8
+        sources: !keyref src.de.Kb.W1937
+    -   date: !var lknr.kb
+        de.lknr: 43 429
+        sources: !keyref src.de.Bfv.1938
+    -   date: !!null
+        category: de.Hp
+        sources: !keyref src.de.mtbl.1726.1925
+
+    -   date: !!null
+        site: !noderef path.de.8100 moo right
+
+
+---
+key: point.de.Boksee
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.8100 7,3
+        name: Boksee
+        sources: !keyref src.de.Kb.1914
+    -   date: !var lknr.kb
+        de.lknr: 43 430
+        sources: !keyref src.de.Bfv.1938
+    -   date: !!null
+        category: de.Hp
+        sources: !keyref src.de.mtbl.1726.1925
+
+    -   date: !!null
+        site: !noderef path.de.8100 bok left
+
+
+---
+key: point.de.Klein-Barkau
+type: point
+events:
+    -   date: !!null
+        category: de.Bf
+        sources: !keyref src.de.mtbl.1726.1925
+    -   date: !!null
+        name: Kleinbarkau
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location: !keyloc line.de.8100 9,5
+        sources: !keyref src.de.Kb.W1937
+    -   date: !var lknr.kb
+        de.lknr: 43 431
+        sources: !keyref src.de.Bfv.1938
+    -   date: !date c1938
+        name: Klein Barkau
+        sources: !keyref src.de.Bfv.1938
+
+    -   date: !!null
+        site: !noderef path.de.8100 klb right
+
+
+---
+key: point.de.Kirchbarkau
+type: point
+junction: True
+events:
+    -   date: !!null
+        location: !keyloc line.de.8100 10,8
+        name: Kirchbarkau
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        category: de.Bf
+        sources: !keyref src.de.mtbl.1726.1925
+    -   date: !var lknr.kb
+        de.lknr: 43 432
+        sources: !keyref src.de.Bfv.1938
+
+    -   date: !!null
+        site: !noderef path.de.8100 kib right
+
+
+---
+key: point.de.Warnau
+type: point
+events:
+    -   date: !!null
+        category: de.Hp
+        sources: !keyref src.de.mtbl.1826.1913
+    -   date: !!null
+        location: !keyloc line.de.8100 13,5
+        name: Warnau
+        sources: !keyref src.de.Kb.1914
+    -   date: !var lknr.kb
+        de.lknr: 43 433
+        sources: !keyref src.de.Bfv.1938
+
+    -   date: !!null
+        site: !noderef path.de.8100 war right
+
+
+---
+key: point.de.Nettelsee
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.8100 16,0
+        name: Nettelsee
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        category: de.Bf
+        sources: !keyref src.de.mtbl.1827.1925
+    -   date: !var lknr.kb
+        de.lknr: 43 434
+        sources: !keyref src.de.Bfv.1938
+
+    -   date: !!null
+        site: !noderef path.de.8100 net left
+
+
+---
+key: point.de.Depenau
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.8100 17,9
+        name: Nettelau
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        category: de.Bf
+        sources: !keyref src.de.mtbl.1827.1925
+    -   date: !date c1920
+        name: Depenau
+        sources: !keyref src.de.Bfv.1928
+    -   date: !var lknr.kb
+        de.lknr: 43 435
+        sources: !keyref src.de.Bfv.1938
+
+    -   date: !!null
+        site: !noderef path.de.8100 dep left
+
+
+---
+key: point.de.Stolpe-Holst
+type: point
+events:
+    -   date: !!null
+        category: de.Bf
+        sources: !keyref src.de.mtbl.1827.1925
+    -   date: !!null
+        name: Stolpe (Holst)
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        location: !keyloc line.de.8100 21,1
+        sources: !keyref src.de.Kb.W1937
+    -   date: !var lknr.kb
+        de.lknr: 43 436
+        sources: !keyref src.de.Bfv.1938
+
+    -   date: !!null
+        site: !noderef path.de.8100 sto left
+
+
+---
+key: point.de.Wankendorf-Kleinb
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.8100 23,2
+        name: Wankendorf
+        sources: !keyref src.de.Kb.1914
+    -   date: !date c1920
+        name: Wankendorf (Kleinb)
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        sources: !keyref src.de.mtbl.1827.1925
+    -   date: !date c1930
+        name: Wankendorf Kleinb
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.kb
+        de.lknr: 43 437
+        sources: !keyref src.de.Bfv.1938
+    -   date: !date c1950
+        name: Wankendorf Nord
+        sources: !keyref src.de.WP.Kleinbahn-Kiel-Segeberg
+
+    -   date: !!null
+        site: !noderef path.de.8100 wan right
+
+
+---
+key: point.de.Ruhwinkel-Schoenboeken
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.8100 26,2
+        name: Ruhwinkel-Schönböken
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        category: de.Hp
+        sources: !keyref src.de.mtbl.1927.1930
+    -   date: !var lknr.kb
+        de.lknr: 43 438
+        sources: !keyref src.de.Bfv.1938
+
+    -   date: !!null
+        site: !noderef path.de.8100 ruh right
+
+
+---
+key: point.de.Bornhoeved
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.8100 28,2
+        name: Bornhöved
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        category: de.Bf
+        sources: !keyref src.de.mtbl.1927.1930
+    -   date: !var lknr.kb
+        de.lknr: 43 439
+        sources: !keyref src.de.Bfv.1938
+
+    -   date: !!null
+        site: !noderef path.de.8100 bor left
+
+
+---
+key: point.de.Tarbek
+type: point
+events:
+    -   date: !!null
+        category: de.Hp
+        sources: !keyref src.de.mtbl.1927.1930
+    -   date: !!null
+        name: Tarbek
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        location: !keyloc line.de.8100 32,1
+        sources: !keyref src.de.Kb.W1937
+    -   date: !var lknr.kb
+        de.lknr: 43 440
+        sources: !keyref src.de.Bfv.1938
+
+    -   date: !!null
+        site: !noderef path.de.8100 tar left
+
+
+---
+key: point.de.Tensfeld
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.8100 35,5
+        name: Tensfeld
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        category: de.Hp
+        sources: !keyref src.de.mtbl.1927.1930
+    -   date: !var lknr.kb
+        de.lknr: 43 441
+        sources: !keyref src.de.Bfv.1938
+
+    -   date: !!null
+        site: !noderef path.de.8100 ten left
+
+
+---
+key: point.de.Blunk-Holst
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.8100 39,8
+        name: Blunk
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        category: de.Hp
+        sources: !keyref src.de.mtbl.1927.1930
+    -   date: !date c1920
+        name: Blunk (Holst)
+        sources: !keyref src.de.Bfv.1928
+    -   date: !var lknr.30
+        de.lknr: 43 442
+        sources: !keyref src.de.Bfv.1938
+
+    -   date: !!null
+        site: !noderef path.de.8100 blu right
+
+
+---
+key: point.de.Gross-Roennau
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.8100 43,9
+        name: Groß Rönnau
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        category: de.Hp
+        sources: !keyref src.de.mtbl.2027.1925
+    -   date: !var lknr.30
+        de.lknr: 43 443
+        sources: !keyref src.de.Bfv.1938
+
+    -   date: !!null
+        site: !noderef path.de.8100 gro right
+
+
+---
+key: point.de.Bad-Segeberg-Nord
+type: point
+events:
+    -   date: !!null
+        category: de.Hp
+        sources: !keyref src.de.mtbl.2027.1925
+    -   date: !!null
+        location: !keyloc line.de.8100 46,6
+        name: Bad Segeberg Nord
+        sources: !keyref src.de.Kb.W1937
+    -   date: !var lknr.kb
+        de.lknr: 43 444
+        sources: !keyref src.de.Bfv.1938
+    -   date: !!null
+        category: de.Bf
+        sources: !keyref src.de.DRG.Alt.Karte.1945
+
+    -   date: !!null
+        site: !noderef path.de.8100 sen left
+
+
+---
+key: point.de.Bad-Segeberg-West
+type: point
+events:
+    -   date: !!null
+        location:
+            - !keyloc line.de.8100 48,9
+        name: Segeberg
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        category: de.Bf
+        sources: !keyref src.de.mtbl.2027.1925
+    -   date: !date c1920
+        name: Bad Segeberg
+        sources: !keyref src.de.Bfv.1928
+    -   date: !date c1935
+        name: Bad Segeberg Kleinb
+        sources: !keyref src.de.Bfv.1938
+    -   date: !var lknr.kb
+        de.lknr: 43 445
+        sources: !keyref src.de.Bfv.1938
+    -   date: !date c1940
+        name: Bad Segeberg Kieler Kleinb
+        sources: !keyref src.de.Bfv.1944
+    -   date: !date c1950
+        name: Bad Segeberg West
+        sources: !keyref src.de.WP.Kleinbahn-Kiel-Segeberg
+
+    -   date: !!null
+        connection: !keyref point.de.Bad-Segeberg
+        site: !noderef path.de.1043 sek left
+
