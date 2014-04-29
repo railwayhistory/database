@@ -1,0 +1,99 @@
+# DE 9108.  Schönberg (Holst) - Schönberger Strand
+#
+---
+key: line.de.9108
+type: line
+events:
+    -   date: !!null
+        region:
+            - !keyref org.de
+            - !keyref org.de.l.sh
+
+    -   date: !!null
+        de.VzG: !!str 9108
+        sources: !keyref src.de.SuW.2005
+
+    #   Eröffnung und Einstellung
+    #
+    -   date: !date 1914-06-18
+        status: open
+        sources: !keyref src.de.web.Protze
+
+    -   date: !date 1981-01-16
+        end: !keyref point.de.Schoenberg-Holst
+        service: freight
+        sources: !keyref src.de.web.Protze
+
+    #   Eigenschaften
+    #
+    -   date: !!null
+        category: de.Kleinbahn
+        tracks: 1
+        gauge: 1435
+    -   date: !date c1956
+        category: de.Nebenbahn
+
+    #   Eigentümer etc.
+    #
+    -   date: !!null
+        owner: !keyref org.de.e.KbKS
+        operator: !keyref org.de.e.Lenz
+    -   date: !date c1945
+        operator: !keyref org.de.e.DEG
+    -   date: !date c1970
+        owner: !keyref org.de.e.VKP
+        operator: !keyref org.de.e.VKP
+    -   date: !date 1994?
+        owner: !keyref org.de.e.VVM
+        operator: !keyref org.de.e.VVM
+
+    #   Verlauf
+    #
+    -   date: !!null
+        course:
+            - !pathref path.de.9107 son  f    0.0
+            - !pathref path.de.9107 a    f    0.0
+
+points:
+    - !keyref point.de.Schoenberg-Holst                     # line.de.9107
+    - !keyref point.de.Stakendorf
+    - !keyref point.de.Schoenberger-Strand
+
+
+---
+key: point.de.Stakendorf
+type: point
+events:
+    -   date: !date c1990
+        status: open
+    -   date: !!null
+        category: de.Museum
+        location: !keyloc line.de.9108 21,7
+        name: Stakendorf
+        de.DS100: ASTD
+        sources: !keyref src.de.SuW.2005
+
+    -   date: !!null
+        site: !noderef path.de.9108 sta right
+
+
+---
+key: point.de.Schoenberger-Strand
+type: point
+events:
+    -   date: !!null
+        name: Schönberger Strand
+        sources: !keyref src.de.Kb.1914
+    -   date: !var lknr.kb
+        de.lknr: 43 422
+        sources: !keyref src.de.Bfv.1938
+    -   date: !!null
+        category: de.Bf
+        location: !keyloc line.de.9108 24,1
+        de.DS100: ASCS
+        sources: !keyref src.de.SuW.2005
+
+    -   date: !!null
+        site: !noderef path.de.9108 sos left
+
+

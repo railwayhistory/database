@@ -1,0 +1,421 @@
+# DE 9107.  Kiel Süd - Schönberg (Holst)
+#
+---
+key: line.de.9107
+type: line
+events:
+    -   date: !!null
+        region:
+            - !keyref org.de
+            - !keyref org.de.l.sh
+
+    -   date: !!null
+        de.VzG: !!str 9107
+        sources: !keyref src.de.SuW.2005
+
+    #   Eröffnung und Einstellung
+    #
+    -   date: !date 1897-07-07
+        start: !keyref point.de.Kiel-Hbf-Ss
+        end: !keyref point.de.Schoenberg-Holst
+        status: open
+        sources: !keyref src.de.web.Protze
+    -   date: !date 1911-11-01
+        end: !keyref point.de.Kiel-Hbf-Ss
+        status: open
+        sources: !keyref src.de.web.Protze
+
+    -   date: !date 1981-01-16
+        end: !keyref point.de.Schoenberg-Holst
+        service: freight
+        sources: !keyref src.de.web.Protze
+
+    #   Eigenschaften
+    #
+    -   date: !!null
+        category: de.Kleinbahn
+        tracks: 1
+        gauge: 1435
+    -   date: !date c1956
+        category: de.Nebenbahn
+
+    #   Eigentümer etc.
+    #
+    -   date: !!null
+        owner: !keyref org.de.e.KbKS
+        operator: !keyref org.de.e.Lenz
+    -   date: !date c1945
+        operator: !keyref org.de.e.DEG
+    -   date: !date c1970
+        owner: !keyref org.de.e.VKP
+        operator: !keyref org.de.e.VKP
+    -   date: !date 2006?
+        operator: !keyref org.de.e.SK
+
+    #   Verlauf
+    #
+    -   date: !!null
+        course:
+            - !pathref path.de.9107 a    akss  0.0
+            - !pathref path.de.1023 fkis agaa -1.0
+            - !pathref path.de.9107 fkss son   0.0
+
+points:
+    - !keyref point.de.Kiel-Sued
+    - !keyref point.de.Kiel-Hbf-Ss                          # line.de.1023
+    - !keyref point.de.Kiel-Gaarden
+    - !keyref point.de.Kiel-Schulen-am-Langsee
+    - !keyref point.de.Ellerbek
+    - !keyref point.de.Kiel-Wellingdorf
+    - !keyref point.de.Oppendorf
+    - !keyref point.de.Schoenkirchen
+    - !keyref point.de.Landgraben
+    - !keyref point.de.Trensahl
+    - !keyref point.de.Hagen-Holst
+    - !keyref point.de.Probsteierhagen
+    - !keyref point.de.Passade
+    - !keyref point.de.Fiefbergen
+    - !keyref point.de.Schoenberg-Holst
+
+---
+key: point.de.Kiel-Sued
+type: point
+events:
+    -   date: !!null
+        name: Kiel Klbf
+        sources: !keyref src.de.Kb.1914
+    -   date: !date c1920
+        name: Kiel Kleinbf
+        sources: !keyref src.de.Bfv.1928
+    -   date: !var lknr.kb
+        de.lknr: 43 427
+        sources: !keyref src.de.Bfv.1938
+    -   date: !date c1950
+        name: Kiel Süd
+    -   date: !!null
+        location: !keyloc line.de.9107 0,0
+        category: de.Bf
+        de.DS100: AKSU
+        sources: !keyref src.de.SuW.2005
+
+    -   date: !!null
+        site: !noderef path.de.9107 kie left
+
+
+---
+key: point.de.Kiel-Gaarden
+type: point
+events:
+    -   date: !date 1954
+        status: open
+        sources: !keyref src.de.WP.Kiel-Schoeneberger-Eisenbahn
+    -   date: !!null
+        location: !keyloc line.de.9107 1,0
+        name: Kiel-Gaarden
+        de.DS100: AKGA
+        sources: !keyref src.de.SuW.2005
+    -   date: !!null
+        category: de.Hp
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.9107 gaa right
+
+
+---
+key: point.de.Kiel-Schulen-am-Langsee
+type: point
+events:
+    -   date: !date 2013-09-02
+        status: open
+        location: !keyloc line.de.9107 2,5
+        category: de.Hp
+        staff: none
+        name: Kiel Schulen am Langsee
+        sources: !keyref src.de.WP.Kiel-Schoeneberger-Eisenbahn
+    -   date: !!null
+        de.DS100: AKSL
+        sources: !keyref src.de.Abk100.2014
+
+    -   date: !!null
+        site: !noderef path.de.9107 sul right
+
+
+---
+key: point.de.Ellerbek
+type: point
+events:
+    -   date: !!null
+        name: Ellerbek
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        category: de.Hp
+        sources: !keyref src.de.DRG.Alt.Karte.1949
+    -   date: !!null
+        location: !keyloc line.de.9107 3,563
+        sources: !keyref src.de.web.Seehafen-Kiel.OeRiLi
+    -   date: !date c1980
+        status: closed
+
+    -   date: !!null
+        site: !noderef path.de.9107 ell left
+
+
+---
+key: point.de.Kiel-Wellingdorf
+type: point
+events:
+    -   date: !date c1910
+        status: open
+        name: Wellingdorf
+        sources: !keyref src.de.Kb.1914
+    -   date: !var lknr.kb
+        de.lknr: 43 412
+        sources: !keyref src.de.Bfv.1938
+    -   date: !!null
+        category: de.Bf
+        sources: !keyref src.de.DRG.Alt.Karte.1949
+    -   date: !!null
+        de.DS100: AKWD
+        de.dstnr: !!str 489047
+        sources: !keyref src.de.DS100.1984
+    -   date: !!null
+        location: !keyloc line.de.9107 5,3
+        sources: !keyref src.de.SuW.2005
+    -   date: !date c1940
+        name: Kiel-Wellingdorf
+        sources: !keyref src.de.Bfv.1944
+
+    -   date: !!null
+        site: !noderef path.de.9107 wel left
+
+
+---
+key: point.de.Oppendorf
+type: point
+events:
+    -   date: !!null
+        name: Oppendorfer Weiche
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 43 413
+        sources: !keyref src.de.Bfv.1938
+    -   date: !date c1950
+        name: Oppendorf
+        sources: !keyref src.de.SuW.2005
+    -   date: !!null
+        category: de.Bf
+        location: !keyloc line.de.9107 6,8
+        sources: !keyref src.de.SuW.2005
+    -   date: !!null
+        de.DS100: AOPD
+        de.dstnr: !!str 489054
+        sources: !keyref src.de.DS100.1984
+
+    -   date: !!null
+        site: !noderef path.de.9107 opp right
+
+
+---
+key: point.de.Schoenkirchen
+type: point
+events:
+    -   date: !!null
+        name: Schönkirchen
+        sources: !keyref src.de.Kb.1905
+    -   date: !var lknr.kb
+        de.lknr: 43 413
+        sources: !keyref src.de.Bfv.1938
+    -   date: !!null
+        category: de.Bf
+        location: !keyloc line.de.9107 8,4
+        sources: !keyref src.de.SuW.2005
+    -   date: !!null
+        de.DS100: ASCK
+        de.dstnr: !!str 489062
+        sources: !keyref src.de.DS100.1984
+
+    -   date: !!null
+        site: !noderef path.de.9107 sok right
+
+
+---
+key: point.de.Landgraben
+type: point
+events:
+    -   date: !date c1920
+        status: open
+        name: Landgraben
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.kb
+        de.lknr: 43 415
+        sources: !keyref src.de.Bfv.1938
+    -   date: !!null
+        category: de.Bf
+        location: !keyloc line.de.9107 9,9
+        sources: !keyref src.de.SuW.2005
+    -   date: !!null
+        de.DS100: ALGB
+        de.dstnr: !!str 489070
+        sources: !keyref src.de.DS100.1984
+    -   date: !date c2000
+        name: Schönkirchen Landgraben
+        sources: !keyref src.de.SuW.2005
+    -   date: !date c2005
+        status: closed
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.9107 lan left
+
+
+---
+key: point.de.Trensahl
+type: point
+events:
+    -   date: !date c1950
+        status: open
+        name: Trensahl
+    -   date: !!null
+        de.DS100: ATRL
+        de.dstnr: !!str 489088
+        sources: !keyref src.de.DBAG.ISR
+    -   date: !!null
+        category: de.Hp
+        location: !keyloc line.de.9107 12,4
+        sources: !keyref src.de.DBAG.ISR
+    -   date: !date c2000
+        name: Probsteierhagen Trensahl
+        sources: !keyref src.de.SuW.2005
+
+    -   date: !!null
+        site: !noderef path.de.9107 tre right
+
+
+---
+key: point.de.Hagen-Holst
+type: point
+events:
+    -   date: !date c1920
+        status: open
+        name: Hagen (Holst)
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.kb
+        de.lknr: 43 416
+        sources: !keyref src.de.Bfv.1938
+    -   date: !!null
+        category: de.Bf
+        location: !keyloc line.de.9107 13,4
+        sources: !keyref src.de.SuW.2005
+    -   date: !!null
+        de.DS100: AHGH
+        de.dstnr: !!str 489096
+        sources: !keyref src.de.DS100.1984
+    -   date: !date c2010
+        status: closed
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.9107 hag right
+
+
+---
+key: point.de.Probsteierhagen
+type: point
+events:
+    -   date: !!null
+        name: Probsteierhagen
+        sources: !keyref src.de.Kb.1905
+    -   date: !var lknr.kb
+        de.lknr: 43 417
+        sources: !keyref src.de.Bfv.1938
+    -   date: !!null
+        category: de.Bf
+        location: !keyloc line.de.9107 14,1
+        sources: !keyref src.de.SuW.2005
+    -   date: !!null
+        de.DS100: APSH
+        de.dstnr: !!str 489104
+        sources: !keyref src.de.DS100.1984
+
+    -   date: !!null
+        site: !noderef path.de.9107 pro left
+
+
+---
+key: point.de.Passade
+type: point
+events:
+    -   date: !!null
+        name: Passade
+        sources: !keyref src.de.Kb.W1937
+    -   date: !!null
+        category: de.Hp
+        sources: !keyref src.de.DRG.Alt.Karte.1949
+    -   date: !!null
+        location: !keyloc line.de.9107 16,0
+        sources: !keyref src.de.SuW.2005
+    -   date: !!null
+        de.DS100: APSS
+        de.dstnr: !!str 489112
+        sources: !keyref src.de.DS100.1984
+    -   date: !date c2005
+        status: closed
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.9107 pas right
+
+
+---
+key: point.de.Fiefbergen
+type: point
+events:
+    -   date: !date c1920
+        status: open
+        name: Fiefbergen
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.kb
+        de.lknr: 43 419
+        sources: !keyref src.de.Bfv.1938
+    -   date: !!null
+        category: de.Bf
+        location: !keyloc line.de.9107 18,0
+        sources: !keyref src.de.SuW.2005
+    -   date: !!null
+        de.DS100: AFFB
+        de.dstnr: !!str 489120
+        sources: !keyref src.de.DS100.1984
+
+    -   date: !!null
+        site: !noderef path.de.9107 fie left
+
+
+---
+key: point.de.Schoenberg-Holst
+type: point
+events:
+    -   date: !!null
+        name: Schönberg Holst
+        sources: !keyref src.de.Kb.1905
+    -   date: !date c1920
+        name: Schönberg (Holst)
+        sources: !keyref src.de.Bfv.1928
+    -   date: !var lknr.kb
+        de.lknr: 43 420
+        sources: !keyref src.de.Bfv.1938
+    -   date: !!null
+        category: de.Bf
+        location:
+            - !keyloc line.de.9107 20,2
+            - !keyloc line.de.9108 20,2
+        sources: !keyref src.de.SuW.2005
+    -   date: !!null
+        de.DS100: ASCB
+        de.dstnr: !!str 489138
+        sources: !keyref src.de.DS100.1984
+
+
+    -   date: !!null
+        site: !noderef path.de.9107 son left
+
