@@ -1,0 +1,185 @@
+# DE 8615.  Brahlstorf - Neuhaus (Elbe)
+#
+---
+key: line.de.8615
+type: line
+events:
+    -   date: !!null
+        region: !keyref org.de
+    -   date: !!null
+        end: !keyref point.de.Brahlstorf-LGr
+        region: !keyref org.de.l.mv
+    -   date: !!null
+        start: !keyref point.de.Brahlstorf-LGr
+        region: !keyref org.de.l.ni
+
+    #   Genehmigung
+    #
+    -   date: !date 1911-04-28
+        end: !keyref point.de.Brahlstorf-LGr
+        concession:
+            by: !keyref org.de.l.msw
+            for: !keyref org.de.e.KbNB
+        sources: !keyref src.de.web.Troeger
+    -   date: !date 1911-04-28
+        start: !keyref point.de.Brahlstorf-LGr
+        concession:
+            by: !keyref org.de.l.pre
+            for: !keyref org.de.e.KbNB
+        sources: !keyref src.de.web.Troeger
+
+    #   Eröffnung und Einstellung
+    #
+    -   date: !date 1912-04-16
+        status: open
+        sources: !keyref src.de.web.Troeger
+    -   date: !date 1934-11-05
+        service: freight
+        sources: !keyref src.de.web.Troeger
+    -   date: !date 1939
+        service: full
+        sources: !keyref src.de.web.Troeger
+    -   date: !date 1968-09-29
+        service: freight
+        sources: !keyref src.de.web.Troeger
+    -   date: !date 1972-12-31
+        status: closed
+        sources: !keyref src.de.web.Troeger
+    -   date: !date 1973
+        status: removed
+        sources: !keyref src.de.web.Troeger
+
+    #   Eigenschaften
+    #
+    -   date: !!null
+        category: de.Kleinbahn
+        tracks: 1
+        gauge: 1435
+    -   date: !date 1949-04-01
+        category: de.Nebenbahn
+
+    #   Eigentümer etc.
+    #
+    -   date: !!null
+        owner: !keyref org.de.e.KbNB
+        operator: !keyref org.de.e.KbNB
+    -   date: !date 1923-06-01
+        operator: !keyref org.de.e.NLEA
+    -   date: !date 1949-04-01
+        operator: !keyref org.dd.DR
+    -   date: !date 1950-01-01
+        owner: !keyref org.dd
+        sources: !keyref src.de.web.Troeger
+
+    #   Verlauf
+    #
+    -   date: !!null
+        course:
+            - !pathref path.de.6100 brk  aneu -4.5
+            - !pathref path.de.8615 a    f     0.0
+
+points:
+    - !keyref point.de.Brahlstorf-Kleinb
+    - !keyref point.de.Brahlstorf-LGr
+    - !keyref point.de.Preten
+    - !keyref point.de.Dellien
+    - !keyref point.de.Neuhaus-Elbe
+
+
+---
+key: point.de.Brahlstorf-Kleinb
+type: point
+junction: True
+events:
+    -   date: !!null
+        name: Brahlstorf
+        sources: !keyref src.de.Kb.1914
+    -   date: !date c1930
+        name: Brahlstorf Kleinb
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.kb
+        de.lknr: 45 393
+        sources: !keyref src.de.Bfv.1938
+    -   date: !date 1953-05-17
+        name: Brahlstorf
+        sources: !keyref src.de.web.Troeger
+
+    -   date: !!null
+        connection: !keyref point.de.Brahlstorf
+        site: !noderef path.de.6100 brk left
+
+
+---
+key: point.de.Brahlstorf-LGr
+type: point
+subtype: border
+events:
+    -   date: !!null
+        name: Brahlstorf MV/NI
+        site: !noderef path.de.8615 gbra
+
+
+---
+key: point.de.Preten
+type: point
+events:
+    -   date: !!null
+        name: Preten
+        sources: !keyref src.de.Kb.1914
+    -   date: !var lknr.kb
+        de.lknr: 45 392
+        sources: !keyref src.de.Bfv.1938
+    -   date: !!null
+        location: !keyloc line.de.8615 5,700
+        category: de.Hp
+        sources: !keyref src.de.web.Troeger
+
+    -   date: !!null
+        site: !noderef path.de.8615 pre right
+
+
+---
+key: point.de.Dellien
+type: point
+events:
+    -   date: !!null
+        name: Dellien
+        sources: !keyref src.de.Kb.1914
+    -   date: !var lknr.kb
+        de.lknr: 45 391
+        sources: !keyref src.de.Bfv.1938
+    -   date: !!null
+        location: !keyloc line.de.8615 7,700
+        category: de.Hp
+        sources: !keyref src.de.web.Troeger
+
+    -   date: !!null
+        site: !noderef path.de.8615 del right
+
+
+---
+key: point.de.Neuhaus-Elbe
+type: point
+junction: True
+events:
+    -   date: !!null
+        name: Neuhaus Elbe
+        sources: !keyref src.de.Kb.1914
+    -   date: !date c1920
+        name: Neuhaus (Elbe)
+        sources: !keyref src.de.Bfv.1928
+    -   date: !var lknr.kb
+        de.lknr: 45 390
+        sources: !keyref src.de.Bfv.1938
+    -   date: !!null
+        location: !keyloc line.de.8615 10,670
+        category: de.Bf
+        sources: !keyref src.de.web.Troeger
+    -   date: !date 1966-01-01
+        de.Rangklasse: U
+        master: !keyref point.de.Brahlstorf
+        sources: !keyref src.de.web.Troeger
+
+    -   date: !!null
+        site: !noderef path.de.8615 neu right
+
