@@ -1,0 +1,119 @@
+# DE 1101.  Heiligenhafen - Lütjenbrode Ost
+#
+---
+key: line.de.1101
+type: line
+events:
+    -   date: !!null
+        region:
+            - !keyref org.de
+            - !keyref org.de.l.sh
+
+    -   date: !!null
+        de.VzG: !!str 1101
+        sources: !keyref src.de.VzG
+
+    #   Eröffnung und Einstellung
+    #
+    -   date: !date 1963-04-15
+        status: open
+    -   date: !date 1976-05-30
+        service: freight
+        sources: !keyref src.de.WP.Kreis-Oldenburger-Eisenbahn
+    -   date: !date 1984-11-01
+        status: closed
+        sources: !keyref src.de.WP.Kreis-Oldenburger-Eisenbahn
+
+    #   Eigenschaften
+    #
+    -   date: !!null
+        category: de.Nebenbahn
+        tracks: 1
+        gauge: 1435
+
+    #   Eigentümer und Betriebsführer
+    #
+    -   date: !!null
+        owner: !keyref org.de
+        operator: !keyref org.de.e.DB
+
+    -   date: !var org.de.DBAG.start
+        owner: !keyref org.de.e.DBAG
+        operator: !keyref org.de.e.DBAG
+    -   date: !var org.de.DBNetz.start
+        owner: !keyref org.de.e.DBNetz
+        operator: !keyref org.de.e.DBNetz
+
+    #   Verlauf
+    #
+    -   date: !!null
+        course:
+            - !pathref path.de.1101 a    f    0.0
+            - !pathref path.de.1100 fhei luo  0.0
+
+points:
+    -   !keyref point.de.Heiligenhafen
+    -   !keyref point.de.Luetjenbrode
+    -   !keyref point.de.Luetjenbrode-Ost       # line.de.1100
+
+
+---
+key: point.de.Heiligenhafen
+type: point
+events:
+    -   date: !!null
+        name: Heiligenhafen
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        de.lknr: 50 856
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        category: de.Bf
+        sources: !keyref src.de.Bfv.1944
+    -   date: !date 1941-07-31
+        de.Rangklasse: II
+        de.lknr: 27 384
+        sources: !keyref src.de.Bfv.1944
+    -   date: !!null
+        location: !keyloc line.de.8110 43,55
+        sources: !keyref src.de.DRG.Alt.Karte.1945
+    -   date: !!null
+        location: !keyloc line.de.1101 0,00
+
+    -   date: !!null
+        site: !noderef path.de.1101 hei left
+
+
+---
+key: point.de.Luetjenbrode
+type: point
+events:
+    -   date: !!null
+        name: Lütjenbrode
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        de.lknr: 49 856
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        sources: !keyref src.de.Bfv.1944
+    -   date: !date 1941-07-31
+        de.Rangklasse: IV
+        de.lknr: 27 383
+        sources: !keyref src.de.Bfv.1944
+    -   date: !!null
+        location:
+            - !keyloc line.de.8110 39,55
+            - !keyloc line.de.8111 0,00
+        sources: !keyref src.de.DRG.Alt.Karte.1949
+    -   date: !!null
+        location:
+            - !keyloc line.de.1101 3,8
+            - !keyloc line.de.1102 3,8
+
+
+    -   date: !!null
+        site: !noderef path.de.1101 lut left
+
+
+
