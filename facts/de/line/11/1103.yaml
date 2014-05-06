@@ -1,38 +1,24 @@
+# DE 1103.  Fehmarnsund - Orth (Fehmarn)
+#
 ---
-key: line.de.11570
+key: line.de.1103
 type: line
 events:
     -   date: !!null
         region:
             - !keyref org.de
             - !keyref org.de.l.sh
+
     -   date: !!null
         start: !keyref point.de.Burgstaaken
         de.VzG: !!str 1103
         sources: !keyref src.de.VzG
-    -   date: !!null
-        category: de.Kleinbahn
-        owner: !keyref org.de.e.KOE
-        operator: !keyref org.de.e.KPEV.Alt
-        sources: !keyref src.de.WP.Kreis-Oldenburger-Eisenbahn
+
+    #   Eröffnung und Einstellung
+    #
     -   date: !date 1905-09-20
         status: open
         sources: !keyref src.de.web.Kuestenbahn
-    -   date: !date 1923
-        operator: !keyref org.de.e.DRG
-        sources: !keyref src.de.WP.Kreis-Oldenburger-Eisenbahn
-    -   date: !date 1925-01-01
-        operator: !keyref org.de.e.EBOE
-        sources: !keyref src.de.WP.Kreis-Oldenburger-Eisenbahn
-    -   date: !date 1931-07-01
-        operator: !keyref org.de.e.KOE
-        sources: !keyref src.de.WP.Kreis-Oldenburger-Eisenbahn
-    -   date: !date 1941-07-31
-        owner: !keyref org.de
-        operator: !keyref org.de.e.DRG
-        sources: !keyref src.de.WP.Kreis-Oldenburger-Eisenbahn
-    -   date: !date 1941-07-31
-        category: de.Nebenbahn
     -   date: !date 1956-06-02
         start: !keyref point.de.Burg-Fehmarn
         service: freight
@@ -72,6 +58,57 @@ events:
         end: !keyref point.de.Landkirchen
         status: closed
         sources: !keyref src.de.web.EBA.Still
+
+    #   Eigenschaften
+    #   
+    -   date: !!null
+        category: de.Kleinbahn
+        tracks: 1
+        gauge: 1435
+        sources: !keyref src.de.WP.Kreis-Oldenburger-Eisenbahn
+    -   date: !date 1941-07-31
+        category: de.Nebenbahn
+
+    #   Eigentümer und Betriebsführer
+    #
+    -   date: !!null
+        owner: !keyref org.de.e.KOE
+        operator: !keyref org.de.e.KPEV.Alt
+        sources: !keyref src.de.WP.Kreis-Oldenburger-Eisenbahn
+    -   date: !date 1923
+        operator: !keyref org.de.e.DRG
+        sources: !keyref src.de.WP.Kreis-Oldenburger-Eisenbahn
+    -   date: !date 1925-01-01
+        operator: !keyref org.de.e.EBOE
+        sources: !keyref src.de.WP.Kreis-Oldenburger-Eisenbahn
+    -   date: !date 1931-07-01
+        operator: !keyref org.de.e.KOE
+        sources: !keyref src.de.WP.Kreis-Oldenburger-Eisenbahn
+    -   date: !date 1941-07-31
+        owner: !keyref org.de
+        operator: !keyref org.de.e.DRG
+        sources: !keyref src.de.WP.Kreis-Oldenburger-Eisenbahn
+    -   date: !var org.de.DB.start
+        operator: !keyref org.de.e.DB
+
+    #   Verlauf
+    #
+    -   date: !!null
+        course:
+            - !pathref path.de.1103 a    f    0.0
+    -   date: !date 1963-04-30?
+        course:
+            - !pathref path.de.1103     a    abuw 0.0
+            - !pathref path.de.1103.bur fbur f    0.0
+            - !pathref path.de.1100     abur fort 0.0
+            - !pathref path.de.1103     fbuw f    0.0
+    -   date: !date 2010-07-31
+        course:
+            - !pathref path.de.1103     a    abur 0.0
+            - !pathref path.de.1103.bur a    f    0.0
+            - !pathref path.de.1100     abur fort 0.0
+            - !pathref path.de.1103     fbuw f    0.0
+
 points:
     - !keyref point.de.Fehmarnsund
     - !keyref point.de.Wulfen-Fehmarn
@@ -85,17 +122,17 @@ points:
     - !keyref point.de.Petersdorf-Fehmarn
     - !keyref point.de.Orth-Fehmarn
 
----
 
+---
 key: point.de.Fehmarnsund
 type: point
 events:
     -   date: !!null
         name: Fehmarnsund
         sources: !keyref src.de.Kb.1914
-    -   date: !!null
-        location: !keyloc line.de.11570 0,05
-        sources: !keyref src.de.DRG.Alt.Karte.1945
+    -   date: !var lknr.kb
+        de.lknr: 44 179
+        sources: !keyref src.de.Bfv.1938
     -   date: !!null
         category: de.Bf
         sources: !keyref src.de.Bfv.1944
@@ -103,6 +140,13 @@ events:
         de.Rangklasse: IV
         de.lknr: 27 401
         sources: !keyref src.de.Bfv.1944
+    -   date: !!null
+        location: !keyloc line.de.1103 0,05
+        sources: !keyref src.de.DRG.Alt.Karte.1949
+
+    -   date: !!null
+        site: !noderef path.de.1103 feh right
+
 
 ---
 
@@ -113,17 +157,20 @@ events:
         name: Wulfen (Fehmarn)
         sources: !keyref src.de.Kb.1914
     -   date: !!null
-        location: !keyloc line.de.11570 2,57
-        sources: !keyref src.de.DRG.Alt.Karte.1945
-    -   date: !!null
         category: de.Hp
         sources: !keyref src.de.Bfv.1944
     -   date: !date 1941-07-31
         de.lknr: 27 402
         sources: !keyref src.de.Bfv.1944
+    -   date: !!null
+        location: !keyloc line.de.1103 2,57
+        sources: !keyref src.de.DRG.Alt.Karte.1949
+
+    -   date: !!null
+        site: !noderef path.de.1103 wul left
+
 
 ---
-
 key: point.de.Burgstaaken
 type: point
 events:
@@ -131,14 +178,18 @@ events:
         name: Burgstaaken
         sources: !keyref src.de.Kb.1914
     -   date: !!null
-        location: !keyloc line.de.11570 5,30
-        sources: !keyref src.de.DRG.Alt.Karte.1945
-    -   date: !!null
         category: de.Hp
         sources: !keyref src.de.Bfv.1944
     -   date: !date 1941-07-31
         de.lknr: 27 403
         sources: !keyref src.de.Bfv.1944
+    -   date: !!null
+        location: !keyloc line.de.1103 5,30
+        sources: !keyref src.de.DRG.Alt.Karte.1949
+
+    -   date: !!null
+        site: !noderef path.de.1103 bus right
+
 
 ---
 key: point.de.Burg-Fehmarn
@@ -147,18 +198,31 @@ events:
     -   date: !!null
         name: Burg (Fehmarn)
         sources: !keyref src.de.Kb.1914
+    -   date: !var lknr.kb
+        de.lknr: 44 182
+        sources: !keyref src.de.Bfv.1938
     -   date: !!null
         category: de.Bf
         sources: !keyref src.de.Bfv.1944
-    -   date: !!null
-        location: !keyloc line.de.11570 7,33
-        sources: !keyref src.de.DRG.Alt.Karte.1945
-    -   date: !!null
-        de.DS100: ABUF
     -   date: !date 1941-07-31
         de.Rangklasse: III
         de.lknr: 27 404
         sources: !keyref src.de.Bfv.1944
+    -   date: !!null
+        location: !keyloc line.de.1103 7,33
+        sources: !keyref src.de.DRG.Alt.Karte.1949
+    -   date: !!null
+        de.DS100: ABUF
+    -   date: !date 2010-07-31
+        category: de.Hp
+        name: Fehmarn-Burg
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.1103 bur right
+    -   date: !date 2010-07-31
+        site: !noderef path.de.1103.bur bur right
+
 
 ---
 key: point.de.Burg-Fehmarn-Abzw
@@ -180,23 +244,33 @@ events:
     -   date: !!null
         name: Landkirchen
         sources: !keyref src.de.Kb.1914
-    -   date: !!null
-        location: !keyloc line.de.11570 10,68
-        sources: !keyref src.de.DRG.Alt.Karte.1945
+    -   date: !var lknr.kb
+        de.lknr: 44 183
+        sources: !keyref src.de.Bfv.1938
     -   date: !!null
         category: de.Bf
         sources: !keyref src.de.Bfv.1944
+    -   date: !date 1941-07-31
+        de.Rangklasse: IV
+        de.lknr: 27 405
+        sources: !keyref src.de.Bfv.1944
+    -   date: !!null
+        location: !keyloc line.de.1103 10,68
+        sources: !keyref src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.VBL: Lak
         sources: !keyref src.de.web.Kuestenbahn
     -   date: !!null
         de.DS100: APUL
-    -   date: !date 1941-07-31
-        de.Rangklasse: IV
-        de.lknr: 27 405
-        sources: !keyref src.de.Bfv.1944
-    -   date: !date c1990
+        de.dstnr: !!str 016634
+        sources: !keyref src.de.DS100.1984
+    -   date: !date c1980
         category: de.Anst
+        sources: !keyref src.de.DS100.1984
+
+    -   date: !!null
+        site: !noderef path.de.1103 lan left
+
 
 ---
 key: point.de.Alt-Jellingsdorf
@@ -206,14 +280,20 @@ events:
         name: Alt Jellingsdorf
         sources: !keyref src.de.Kb.1914
     -   date: !!null
-        location: !keyloc line.de.11570 12,78
-        sources: !keyref src.de.DRG.Alt.Karte.1945
-    -   date: !!null
         category: de.Hp
         sources: !keyref src.de.Bfv.1944
     -   date: !date 1941-07-31
         de.lknr: 27 406
         sources: !keyref src.de.Bfv.1944
+    -   date: !!null
+        location: !keyloc line.de.1103 12,78
+        sources: !keyref src.de.DRG.Alt.Karte.1949
+    -   date: !date c1970
+        status: closed
+
+    -   date: !!null
+        site: !noderef path.de.1103 aje left
+
 
 ---
 key: point.de.Lemkendorf
@@ -222,9 +302,9 @@ events:
     -   date: !!null
         name: Lemkendorf
         sources: !keyref src.de.Kb.1914
-    -   date: !!null
-        location: !keyloc line.de.11570 14,80
-        sources: !keyref src.de.DRG.Alt.Karte.1945
+    -   date: !var lknr.kb
+        de.lknr: 44 185
+        sources: !keyref src.de.Bfv.1938
     -   date: !!null
         category: de.Bf
         sources: !keyref src.de.Bfv.1944
@@ -232,6 +312,15 @@ events:
         de.Rangklasse: IV
         de.lknr: 27 407
         sources: !keyref src.de.Bfv.1944
+    -   date: !!null
+        location: !keyloc line.de.1103 14,80
+        sources: !keyref src.de.DRG.Alt.Karte.1949
+    -   date: !date c1970
+        status: closed
+
+    -   date: !!null
+        site: !noderef path.de.1103 lem right
+
 
 ---
 key: point.de.Petersdorf-Fehmarn
@@ -240,10 +329,9 @@ events:
     -   date: !!null
         name: Petersdorf (Fehmarn)
         sources: !keyref src.de.Kb.1914
-    -   date: !!null
-        location: !keyloc line.de.11570 16,890
-        de.VBL: Pf
-        sources: !keyref src.de.web.Kuestenbahn
+    -   date: !var lknr.kb
+        de.lknr: 44 186
+        sources: !keyref src.de.Bfv.1938
     -   date: !!null
         category: de.Bf
         sources: !keyref src.de.Bfv.1944
@@ -251,6 +339,18 @@ events:
         de.Rangklasse: IV
         de.lknr: 27 408
         sources: !keyref src.de.Bfv.1944
+    -   date: !!null
+        location: !keyloc line.de.1103 16,890
+        de.VBL: Pf
+        sources: !keyref src.de.web.Kuestenbahn
+    -   date: !!null
+        de.DS100: APT
+        de.dstnr: !!str 016667
+        sources: !keyref src.de.DS100.1984
+
+    -   date: !!null
+        site: !noderef path.de.1103 pet right
+
 
 ---
 key: point.de.Orth-Fehmarn
@@ -259,9 +359,9 @@ events:
     -   date: !!null
         name: Orth (Fehmarn)
         sources: !keyref src.de.Kb.1914
-    -   date: !!null
-        location: !keyloc line.de.11570 20,79
-        sources: !keyref src.de.DRG.Alt.Karte.1945
+    -   date: !var lknr.kb
+        de.lknr: 44 187
+        sources: !keyref src.de.Bfv.1938
     -   date: !!null
         category: de.Bf
         sources: !keyref src.de.Bfv.1944
@@ -269,4 +369,10 @@ events:
         de.Rangklasse: IV
         de.lknr: 27 409
         sources: !keyref src.de.Bfv.1944
+    -   date: !!null
+        location: !keyloc line.de.1103 20,79
+        sources: !keyref src.de.DRG.Alt.Karte.1949
+
+    -   date: !!null
+        site: !noderef path.de.1103 ort left
 
