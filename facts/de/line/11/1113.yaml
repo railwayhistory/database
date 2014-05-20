@@ -1,0 +1,451 @@
+# DE 1113.  Schwartau Waldhalle - Lübeck-Travemünde Strand
+#
+---
+key: line.de.1113
+type: line
+events:
+    -   date: !!null
+        region:
+            - !keyref org.de
+            - !keyref org.de.l.sh
+
+    -   date: !!null
+        de.VzG: !!str 1113
+        sources: !keyref src.de.VzG
+
+    #   Genehmigungen
+    #
+    -   date: !date 1880-09-08
+        end: !keyref point.de.Luebeck-Travemuende-Hafen
+        concession:
+            by: !keyref org.de.l.lbk
+            for: !keyref org.de.e.LBE
+        sources: !keyref src.de.DRG.1935
+    -   date: !date 1898-07-09
+        start: !keyref point.de.Luebeck-Travemuende-Hafen
+        concession:
+            by: !keyref org.de.l.lbk
+            for: !keyref org.de.e.LBE
+        sources: !keyref src.de.DRG.1935
+
+    #   Eröffnung
+    #
+    -   date: !date 1882-08-01
+        end: !keyref point.de.Luebeck-Travemuende-Hafen
+        status: open
+        passenger: full
+        freight: none
+        sources: !keyref src.de.DRG.1935
+    -   date: !date 1882-10-15
+        end: !keyref point.de.Luebeck-Travemuende-Hafen
+        freight: full
+        sources: !keyref src.de.DRG.1935
+    -   date: !date 1898-07-01
+        start: !keyref point.de.Luebeck-Travemuende-Hafen
+        status: open
+        passenger: full
+        freight: none
+        sources: !keyref src.de.DRG.1935
+
+    #   Eigenschaften
+    #
+    -   date: !!null
+        category: de.Hauptbahn
+        tracks: 1
+        gauge: 1435
+        sources: !keyref src.de.DRG.1927
+    -   date: !date 2008-12-13
+        electrified:
+            overhead: !var el.de
+    -   date: !date c2005
+        end: !keyref point.de.Schwartau-Waldhalle
+        tracks: 2
+        sources: !keyref src.de.SuW.2005
+    -   date: !date 2010-07
+        start: !keyref point.de.Schwartau-Waldhalle
+        end: !keyref point.de.Luebeck-Kuecknitz
+        tracks: 2
+
+    #   Eigentümer und Betriebsführer
+    #
+    -   date: !!null
+        owner: !keyref org.de.e.LBE
+        operator: !keyref org.de.e.LBE
+        sources: !keyref src.de.DRG.1935
+    -   date: !date 1938-01-01
+        owner: !keyref org.de
+        operator: !keyref org.de.e.DRG
+    -   date: !date 1949-07-01
+        owner: !keyref org.de
+        operator: !keyref org.de.e.DB
+
+    -   date: !var org.de.DBAG.start
+        owner: !keyref org.de.e.DBAG
+        operator: !keyref org.de.e.DBAG
+    -   date: !var org.de.DBNetz.start
+        owner: !keyref org.de.e.DBNetz
+        operator: !keyref org.de.e.DBNetz
+
+    #   Verlauf
+    #
+    -   date: !!null
+        course:
+            - !pathref path.de.1100 wal  atra  0.5
+            - !pathref path.de.1113 a    trs   0.0
+
+points:
+    - !keyref point.de.Schwartau-Waldhalle-Wr           # line.de.1100
+    - !keyref point.de.Schwartau-Waldhalle
+    - !keyref point.de.Luebeck-Daenischburg
+    - !keyref point.de.Luebeck-Daenischburg-Pbf
+    - !keyref point.de.Luebeck-Kuecknitz
+    - !keyref point.de.Luebeck-Kuecknitz-Abzw
+    - !keyref point.de.Luebeck-Kuecknitz-Roter-Hahn
+    - !keyref point.de.Luebeck-Poeppendorf
+    - !keyref point.de.Luebeck-Ivendorf
+    - !keyref point.de.Luebeck-Travemuende-Skandinavienkai
+    - !keyref point.de.Luebeck-Travemuende-Hafen
+    - !keyref point.de.Luebeck-Travemuende-Strand
+
+
+---
+key: point.de.Schwartau-Waldhalle
+type: point
+events:
+    -   date: !!null
+        name: Waldhalle (Schwartau)
+        sources: !keyref src.de.Kb.1905
+    -   date: !date c1910
+        name: Schwartau Waldhalle
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        de.lknr: 56 869
+        service: passenger
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        sources: !keyref src.de.Bfv.1944
+    -   date: !date 1938-01-01
+        de.Rangklasse: IV
+        de.lknr: 27 282
+        sources: !keyref src.de.Bfv.1944
+    -   date: !!null
+        location: !keyloc line.de.1113 5,60
+        sources: !keyref src.de.DRG.Alt.Karte.1949
+    -   date: !!null
+        de.DS100: ASWL
+        de.dstnr: !!str 016725
+        sources: !keyref src.de.DS100.1984
+    -   date: !date 1986-05-31
+        service: none
+        sources: !keyref src.de.Hecht.2001
+    -   date: !date c2005
+        category: de.Uest
+        sources: !keyref src.de.SuW.2005
+    -   date: !date 2011-07?
+        status: closed
+
+    -   date: !!null
+        site: !noderef path.de.1113 wal left
+
+
+---
+key: point.de.Luebeck-Daenischburg
+type: point
+events:
+    -   date: !!null
+        name: Dänischburg
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        de.lknr: 57 869
+        sources: !keyref src.de.Bfv.1928
+    -   date: !date c1935
+        name: Lübeck-Dänischburg
+        sources: !keyref src.de.Kb.W1937
+    -   date: !!null
+        category: de.Bf
+        sources: !keyref src.de.Bfv.1944
+    -   date: !date 1938-01-01
+        de.Rangklasse: II
+        de.lknr: 27 283
+        sources: !keyref src.de.Bfv.1944
+    -   date: !!null
+        location: !keyloc line.de.1113 8,20
+        sources: !keyref src.de.DRG.Alt.Karte.1949
+    -   date: !!null
+        de.DS100: ADN
+        de.dstnr: !!str 016733
+        sources: !keyref src.de.DS100.1984
+    -   date: !date c1995
+        de.DS100: ALD
+        sources: !keyref src.de.TPP.2006
+    -   date: !!null
+        location: !keyloc line.de.11660 0,0
+        sources: !keyref src.de.SuW.2005
+    -   date: !date 1986-05-31
+        service: none
+        sources: !keyref src.de.Hecht.2001
+    -   date: !date 2010
+        category: de.Abzw
+        name: Lübeck-Dänischburg Abzw
+        de.DS100: ALD
+        sources: !keyref src.de.TPP.2011
+
+    -   date: !!null
+        site: !noderef path.de.1113 dan left
+
+
+---
+key: point.de.Luebeck-Daenischburg-Pbf
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.1113 8,23
+    -   date: !!null
+        category: de.Glgr
+        name: Lübeck-Dänischburg Pbf
+        master: !keyref point.de.Luebeck-Daenischburg
+        de.DS100: ADN P
+        sources: !keyref src.de.DS100.1984
+    -   date: !date c1995
+        category: de.Bft
+        de.DS100: ALD P
+    -   date: !date c2005
+        status: closed
+
+    -   date: !!null
+        site: !noderef path.de.1113 dan left
+
+
+---
+key: point.de.Luebeck-Kuecknitz
+type: point
+events:
+    -   date: !!null
+        name: Waldhusen
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        de.lknr: 68 869
+        sources: !keyref src.de.Bfv.1928
+    -   date: !date c1920
+        name: Kücknitz
+        sources: !keyref src.de.Bfv.1928
+    -   date: !date c1935
+        name: Lübeck-Kücknitz
+        sources: !keyref src.de.Bfv.1938
+    -   date: !!null
+        category: de.Bf
+        sources: !keyref src.de.Bfv.1944
+    -   date: !date 1938-01-01
+        de.Rangklasse: IV
+        de.lknr: 27 284
+        sources: !keyref src.de.Bfv.1944
+    -   date: !!null
+        location: !keyloc line.de.1113 11,84
+        sources: !keyref src.de.DRG.Alt.Karte.1949
+    -   date: !!null
+        de.DS100: AKUE
+        de.dstnr: !!str 016741
+        sources: !keyref src.de.DS100.1984
+    -   date: !date c1995
+        de.DS100: ALKN
+        sources: !keyref src.de.TPP.2006
+    -   date: !!null
+        location: !keyloc line.de.11670 0,0
+    -   date: !date c1980
+        service: freight
+    -   date: !date c2005
+        status: closed
+
+    -   date: !!null
+        site: !noderef path.de.1113 kuc left
+
+
+---
+key: point.de.Luebeck-Kuecknitz-Abzw
+type: point
+junction: True
+events:
+    -   date: !date c2005
+        status: open
+    -   date: !!null
+        location:
+            - !keyloc line.de.1113 12,548
+        category: de.Abzw
+        name: Lübeck-Kücknitz
+        de.DS100: ALKN
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.1113 kua left
+
+
+---
+key: point.de.Luebeck-Kuecknitz-Roter-Hahn
+type: point
+events:
+    -   date: !date c1990
+        status: open
+    -   date: !!null
+        location: !keyloc line.de.1113 13,901
+        category: de.Hp
+        name: Lübeck-Kücknitz Roter Hahn
+        de.DS100: ALKR
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.1113 kur right
+
+
+---
+key: point.de.Luebeck-Poeppendorf
+type: point
+events:
+    -   date: !!null
+        name: Pöppendorf
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        de.lknr: 59 869
+        sources: !keyref src.de.Bfv.1928
+    -   date: !date c1935
+        name: Lübeck-Pöppendorf
+        sources: !keyref src.de.Kb.W1937
+    -   date: !!null
+        category: de.Bf
+        sources: !keyref src.de.Bfv.1938
+    -   date: !date 1938-01-01
+        de.Rangklasse: IV
+        de.lknr: 27 285
+        sources: !keyref src.de.Bfv.1944
+    -   date: !!null
+        location: !keyloc line.de.1113 15,70
+        sources: !keyref src.de.DRG.Alt.Karte.1949
+    -   date: !date c1980
+        status: closed
+
+    -   date: !!null
+        site: !noderef path.de.1113 pop left
+
+
+---
+key: point.de.Luebeck-Ivendorf
+type: point
+events:
+    -   date: !date 2013
+        status: open
+        sources: !keyref src.de.TPP.2014
+    -   date: !!null
+        location: !keyloc line.de.1113 16,30
+        category: de.Bf
+        name: Lübeck-Ivendorf
+        de.DS100: ALIV
+        sources: !keyref src.de.DBAG.ISR
+    -   date: !!null
+        service: none
+
+    -   date: !!null
+        site: !noderef path.de.1113 ive left
+
+
+---
+key: point.de.Luebeck-Travemuende-Skandinavienkai
+type: point
+junction: True
+events:
+    -   date: !date 1980-05-31
+        status: open
+        sources: !keyref src.de.Hecht.2001
+    -   date: !!null
+        category: de.Hp
+        staff: none
+        name: Lübeck-Travemünde Skandinavienkai
+        de.DS100: ASKK
+        sources: !keyref src.de.DS100.1984
+    -   date: !!null
+        location: !keyloc line.de.1113 17,905
+        sources: !keyref src.de.DBAG.ISR
+    -   date: !date c1995
+        de.DS100: ALTK
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.1113 ska left
+
+
+---
+key: point.de.Luebeck-Travemuende-Hafen
+type: point
+events:
+    -   date: !!null
+        name: Travemünde Stadt
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        de.lknr: 60 869
+        sources: !keyref src.de.Bfv.1928
+    -   date: !date c1935
+        name: Lübeck-Travemünde Hafen
+        sources: !keyref src.de.Kb.W1937
+    -   date: !!null
+        category: de.Bf
+        sources: !keyref src.de.Bfv.1938
+    -   date: !date 1938-01-01
+        de.Rangklasse: II
+        de.lknr: 27 286
+        sources: !keyref src.de.Bfv.1944
+    -   date: !!null    
+        location:
+            - !keyloc line.de.1113 19,64
+            - !keyloc line.de.11680 0,00
+        sources: !keyref src.de.DRG.Alt.Karte.1949
+    -   date: !!null
+        de.DS100: ATR
+        de.dstnr: !!str 016766
+        sources: !keyref src.de.DS100.1984
+    -   date: !date c1995
+        de.DS100: ALTH
+        sources: !keyref src.de.TPP.2006
+    -   date: !date c2005
+        category: de.Hp
+        sources: !keyref src.de.SuW.2005
+
+    -   date: !!null
+        site: !noderef path.de.1113 trh right
+
+
+---
+key: point.de.Luebeck-Travemuende-Strand
+type: point
+events:
+    -   date: !!null
+        name: Travemünde Strand
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        de.lknr: 61 869
+        service: passenger
+        sources: !keyref src.de.Bfv.1928
+    -   date: !date c1935
+        name: Lübeck-Travemünde Strand
+        sources: !keyref src.de.Kb.W1937
+    -   date: !!null
+        category: de.Bf
+        sources: !keyref src.de.Bfv.1938
+    -   date: !date 1938-01-01
+        de.Rangklasse: II
+        de.lknr: 27 287
+        sources: !keyref src.de.Bfv.1944
+    -   date: !!null    
+        location: !keyloc line.de.1113 20,65
+        sources: !keyref src.de.DRG.Alt.Karte.1949
+    -   date: !!null
+        de.DS100: ATRS
+        de.dstnr: !!str 016774
+    -   date: !date c1995
+        de.DS100: ALTS
+        sources: !keyref src.de.TPP.2006
+    -   date: !date c2005
+        category: de.Hp
+        sources: !keyref src.de.SuW.2005
+
+    -   date: !!null
+        site: !noderef path.de.1113 trs up
+
