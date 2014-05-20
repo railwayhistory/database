@@ -1,48 +1,75 @@
+# DE 1114.  Lübeck-Travemünde Hafen - Niendorf (Ostsee)
+#
 ---
-key: line.de.11680
+key: line.de.1114
 type: line
 events:
     -   date: !!null
         region:
             - !keyref org.de
             - !keyref org.de.l.sh
+
     -   date: !!null
         de.VzG: !!str 1114
         sources: !keyref src.de.VzG
-    -   date: !!null
-        category: de.Nebenbahn
-        sources: !keyref src.de.DRG.1927
-    -   date: !!null
-        owner: !keyref org.de.e.LBE
-        operator: !keyref org.de.e.LBE
+
+    #   Genehmigung
+    #
     -   date: !date 1913-04-05
         concession:
             by: !keyref org.de.l.old
+            for: !keyref org.de.e.LBE
         sources: !keyref src.de.DRG.1935
     -   date: !date 1913-05-21
         concession:
             by: !keyref org.de.l.lbk
+            for: !keyref org.de.e.LBE
         sources: !keyref src.de.DRG.1935
+
+    #   Eröffnung und Einstellung
+    #
     -   date: !date 1913-07-08
         status: open
         sources: !keyref src.de.DRG.1935
-    -   date: !date 1938-01-01
-        owner: !keyref org.de
-        operator: !keyref org.de.e.DRG
-    -   date: !date 1949-07-01
-        owner: !keyref org.de
-        operator: !keyref org.de.e.DB
     -   date: !date 1974-09-29
         status: closed
         sources: !keyref src.de.DB.Hmb.1984
     -   date: !date c1980
         status: removed
 
+    #   Eigenschaften
+    #
+    -   date: !!null
+        category: de.Nebenbahn
+        tracks: 1
+        gauge: 1435
+        sources: !keyref src.de.DRG.1927
+
+    #   Eigentümer und Betriebsführer
+    #
+    -   date: !!null
+        owner: !keyref org.de.e.LBE
+        operator: !keyref org.de.e.LBE
+    -   date: !date 1938-01-01
+        owner: !keyref org.de
+        operator: !keyref org.de.e.DRG
+    -   date: !date 1949-07-01
+        owner: !keyref org.de
+        operator: !keyref org.de.e.DB
+
+    #   Verlauf
+    #
+    -   date: !!null
+        course:
+            - !pathref path.de.1113 trh  anie -1.0
+            - !pathref path.de.1114 a    f     0.0
+
 points:
-    - !keyref point.de.Luebeck-Travemuende-Hafen    # line.de.1113
+    - !keyref point.de.Luebeck-Travemuende-Hafen        # line.de.1113
     - !keyref point.de.Luebeck-Travemuende-Nord
     - !keyref point.de.Luebeck-Brodten
     - !keyref point.de.Niendorf-Ostsee
+
 
 ---
 key: point.de.Luebeck-Travemuende-Nord
@@ -50,11 +77,15 @@ type: point
 events:
     -   date: !date c1950
         status: open
+        location: !keyloc line.de.1114 0,8
         category: de.Hp
-        location: !keyloc line.de.11680 0,8
+        name: Lübeck-Travemünde Nord
         service: passenger
         staff: none
-        name: Lübeck-Travemünde Nord
+
+    -   date: !!null
+        site: !noderef path.de.1113 trn left
+
 
 ---
 key: point.de.Luebeck-Brodten
@@ -69,19 +100,23 @@ events:
         staff: none
         master: !keyref point.de.Luebeck-Travemuende-Hafen
         sources: !keyref src.de.Bfv.1933
+    -   date: !date c1935
+        name: Lübeck-Brodten
+        sources: !keyref src.de.Bfv.1938
     -   date: !!null
         category: de.Hp
         sources: !keyref src.de.Bfv.1944
-    -   date: !!null
-        location: !keyloc line.de.11680 2,66
-        sources: !keyref src.de.DRG.Alt.Karte.1945
     -   date: !date 1938-01-01
         de.lknr: 27 289
         staff: none
         sources: !keyref src.de.Bfv.1944
-    -   date: !date c1940
-        name: Lübeck-Brodten
-        sources: !keyref src.de.Bfv.1944
+    -   date: !!null
+        location: !keyloc line.de.1114 2,66
+        sources: !keyref src.de.DRG.Alt.Karte.1949
+
+    -   date: !!null
+        site: !noderef path.de.1113 bro right
+
 
 ---
 key: point.de.Niendorf-Ostsee
@@ -96,11 +131,15 @@ events:
     -   date: !!null
         category: de.Bf
         sources: !keyref src.de.Bfv.1944
-    -   date: !!null
-        location: !keyloc line.de.11680 4,77
-        sources: !keyref src.de.DRG.Alt.Karte.1945
     -   date: !date 1938-01-01
         de.Rangklasse: III
         de.lknr: 27 290
         sources: !keyref src.de.Bfv.1944
+    -   date: !!null
+        location: !keyloc line.de.1114 4,77
+        sources: !keyref src.de.DRG.Alt.Karte.1949
+
+    -   date: !!null
+        site: !noderef path.de.1113 nie right
+
 
