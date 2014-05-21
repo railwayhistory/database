@@ -1,0 +1,265 @@
+# DE 1110.  Eutin - Lübeck Hbf
+#
+---
+key: line.de.1110
+type: line
+events:
+    -   date: !!null
+        region:
+            - !keyref org.de
+            - !keyref org.de.l.sh
+
+    -   date: !!null
+        end: !keyref point.de.Bad-Schwartau
+        de.VzG: !!str 1110
+        sources: !keyref src.de.VzG
+
+    #   Verträge und Genehmigungen
+    #
+    -   date: !date 1870-04-08
+        treaty:
+            partners:
+                - !keyref org.de.l.old
+                - !keyref org.de.l.lbk
+        sources: !keyref src.de.DRG.1935
+    -   date: !date 1870-07-02
+        concession:
+            by: !keyref org.de.l.lbk
+        sources: !keyref src.de.DRG.1935
+    -   date: !date 1870-07-10
+        concession:
+            by: !keyref org.de.l.old
+        sources: !keyref src.de.DRG.1935
+
+    #   Eröffnung und Einstellung
+    #
+    -   date: !date 1873-04-10
+        status: open
+        sources: !keyref src.de.DRG.1935
+    -   date: !date 1963-05-14
+        start: !keyref point.de.Bad-Schwartau
+        status: closed
+        reused: !keyref line.de.1100
+    
+    #   Eigenschaften
+    #
+    -   date: !!null
+        category: de.Hauptbahn
+        tracks: 1
+        gauge: 1435
+
+    #   Eigentümer und Betriebsführer
+    #
+    -   date: !!null
+        owner: !keyref org.de.e.ELE
+        operator: !keyref org.de.e.ELE
+        sources: !keyref src.de.DB.Hmb.1984
+    -   date: !date 1941-01-01
+        owner: !keyref org.de
+        operator: !keyref org.de.e.DRG
+    -   date: !var org.de.DB.start
+        operator: !keyref org.de.e.DB
+    -   date: !var org.de.DBAG.start
+        owner: !keyref org.de.e.DBAG
+        operator: !keyref org.de.e.DBAG
+    -   date: !var org.de.DBNetz.start
+        owner: !keyref org.de.e.DBNetz
+        operator: !keyref org.de.e.DBNetz
+
+    #   Verlauf
+    #
+    -   date: !!null
+        course:
+            - !pathref path.de.1023 eut  alub  1.0
+            - !pathref path.de.1110 a    f     0.0
+            - !pathref path.de.1100 aeut a     0.0
+            - !pathref path.de.1120 a    lub   0.0
+
+points:
+    - !keyref point.de.Eutin                            # line.de.1023
+    - !keyref point.de.Bockholt
+    - !keyref point.de.Ottendorf-Holst
+    - !keyref point.de.Poenitz-Holst
+    - !keyref point.de.Gleschendorf
+    - !keyref point.de.Pansdorf
+    - !keyref point.de.Bad-Schwartau-Abzw               # line.de.1100
+    - !keyref point.de.Bad-Schwartau                    # line.de.1100
+    - !keyref point.de.Schwartau-Waldhalle-Wr           # line.de.1100
+    - !keyref point.de.Luebeck-Hbf                      # line.de.1100
+
+
+---
+key: point.de.Bockholt
+type: point
+events:
+    -   date: !date 1913-05-01
+        status: open
+        sources: !keyref src.de.Kloth.1983
+    -   date: !!null
+        name: Bockholt
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        de.lknr: 46 825
+        service: passenger
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Hp
+        sources: !keyref src.de.Bfv.1944
+    -   date: !date 1941-01-01
+        de.lknr: 27 398
+        sources: !keyref src.de.Bfv.1944
+    -   date: !!null
+        location: !keyloc line.de.1110 4,84
+        sources: !keyref src.de.DRG.Alt.Karte.1949
+    -   date: !date 1980-05-31
+        status: closed
+
+    -   date: !!null    
+        site: !noderef path.de.1110 boc right
+
+
+---
+key: point.de.Ottendorf-Holst
+type: point
+events:
+    -   date: !!null
+        name: Ottendorf
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        de.lknr: 47 825
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        sources: !keyref src.de.Bfv.1944
+    -   date: !date 1941-01-01
+        de.Rangklasse: IV
+        de.lknr: 27 397
+        sources: !keyref src.de.Bfv.1944
+    -   date: !date c1940
+        name: Ottendorf (Holst)
+        sources: !keyref src.de.Bfv.1944
+    -   date: !!null
+        location: !keyloc line.de.1110 8,72
+        sources: !keyref src.de.DRG.Alt.Karte.1949
+    -   date: !!null
+        de.DS100: AOD
+        de.dstnr: !!str 016378
+        sources: !keyref src.de.DS100.1984
+    -   date: !date 1985-06-01
+        service: freight
+    -   date: !date c1995
+        status: closed
+
+    -   date: !!null    
+        site: !noderef path.de.1110 ott right
+
+
+---
+key: point.de.Poenitz-Holst
+type: point
+junction: True
+events:
+    -   date: !!null
+        name: Gleschendorf Bf
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        de.lknr: 44 825
+        sources: !keyref src.de.Bfv.1928
+    -   date: !date c1920
+        name: Bahnhof Gleschendorf
+        sources: !keyref src.de.Bfv.1928
+    -   date: !date 1934-05-15
+        name: Pönitz (Holst)
+        sources: !keyref src.de.Kloth.1983
+    -   date: !!null
+        category: de.Bf
+        sources: !keyref src.de.Bfv.1944
+    -   date: !date 1941-01-01
+        de.Rangklasse: IV
+        de.lknr: 27 393
+        sources: !keyref src.de.Bfv.1944
+    -   date: !!null
+        location:
+            - !keyloc line.de.1110 11,560
+            - !keyloc line.de.11710  0,000
+    -   date: !!null
+        de.DS100: APN
+        de.dstnr: !!str 016360
+        sources: !keyref src.de.DS100.1984
+
+    -   date: !!null    
+        site: !noderef path.de.1110 pon right
+
+
+---
+key: point.de.Gleschendorf
+type: point
+events:
+    -   date: !!null
+        name: Gleschendorf Dorf
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        de.lknr: 43 825
+        service: passenger
+        sources: !keyref src.de.Bfv.1928
+    -   date: !date c1920
+        name: Dorf Gleschendorf
+        sources: !keyref src.de.Bfv.1928
+    -   date: !date 1934-05-15
+        name: Gleschendorf
+        sources: !keyref src.de.Kloth.1983
+    -   date: !!null
+        category: de.Hp
+        sources: !keyref src.de.Bfv.1944
+    -   date: !date 1941-01-01
+        de.lknr: 27 392
+        sources: !keyref src.de.Bfv.1944
+    -   date: !!null
+        location: !keyloc line.de.1110 13,80
+        sources: !keyref src.de.DRG.Alt.Karte.1949
+    -   date: !!null
+        de.DS100: AGLD
+        de.dstnr: !!str 016352
+        sources: !keyref src.de.DS100.1984
+    -   date: !date 1985-06-01
+        status: closed
+        sources: !keyref src.de.Kloth.1983
+
+    -   date: !!null    
+        site: !noderef path.de.1110 gle right
+
+
+---
+key: point.de.Pansdorf
+type: point
+events:
+    -   date: !!null
+        name: Pansdorf
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        de.lknr: 42 825
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        sources: !keyref src.de.Bfv.1944
+    -   date: !date 1941-01-01
+        de.Rangklasse: IV
+        de.lknr: 27 391
+        sources: !keyref src.de.Bfv.1944
+    -   date: !!null
+        location: !keyloc line.de.1110 19,23
+        sources: !keyref src.de.DRG.Alt.Karte.1949
+    -   date: !!null
+        de.DS100: APF
+        de.dstnr: !!str 016345
+        sources: !keyref src.de.DS100.1984
+    -   date: !date 1985-06-01
+        service: freight
+        sources: !keyref src.de.Kloth.1983
+    -   date: !date 2000
+        service: full
+
+    -   date: !!null    
+        site: !noderef path.de.1110 pan left
+
+
