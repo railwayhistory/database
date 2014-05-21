@@ -1,0 +1,164 @@
+# DE 1111.  Pönitz (Holst) - Ahrensbök
+#
+---
+key: line.de.1111
+type: line
+events:
+    -   date: !!null
+        region:
+            - !keyref org.de
+            - !keyref org.de.l.sh
+
+    -   date: !!null
+        de.VzG: !!str 1111
+        sources: !keyref src.de.VzG
+
+    #   Genehmigung
+    #
+    -   date: !date 1885-11-30
+        concession:
+            by: !keyref org.de.l.old
+            for: !keyref org.de.e.ELE
+        sources: !keyref src.de.DRG.1935
+
+    #   Eröffnung und Einstellung
+    #
+    -   date: !date 1886-05-10
+        status: open
+        sources: !keyref src.de.DRG.1935
+    -   date: !date 1954-05-22
+        service: freight
+        sources: !keyref src.de.DB.Hmb.1984
+    -   date: !date 1988-05-29
+        status: closed
+        sources: !keyref src.de.DB.Hmb.1984
+    -   date: !date c1990
+        status: removed
+
+    #   Eigenschaften
+    #
+    -   date: !!null
+        category: de.Nebenbahn
+        tracks: 1
+        gauge: 1435
+    
+    #   Eigentümer und Betriebsführer
+    #
+    -   date: !!null
+        owner: !keyref org.de.e.ELE
+        operator: !keyref org.de.e.ELE
+        sources: !keyref src.de.DRG.1935
+    -   date: !date 1941-01-01
+        owner: !keyref org.de
+        operator: !keyref org.de.e.DRG
+    -   date: !var org.de.DB.start
+        operator: !keyref org.de.e.DB
+
+    #   Verlauf
+    #
+    -   date: !!null
+        course:
+            - !pathref path.de.1110 pon  aahr  1.0
+            - !pathref path.de.1111 a    f     0.0
+
+points:
+    - !keyref point.de.Poenitz-Holst                    # line.de.1110
+    - !keyref point.de.Brauner-Hirsch
+    - !keyref point.de.Holstendorf
+    - !keyref point.de.Ahrensboek
+
+
+---
+key: point.de.Brauner-Hirsch
+type: point
+events:
+    -   date: !!null
+        name: Brauner Hirsch
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        de.lknr: 48 825
+        service: passenger
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Hp
+        sources: !keyref src.de.Bfv.1944
+    -   date: !date 1941-01-01
+        de.lknr: 27 394
+        sources: !keyref src.de.Bfv.1944
+    -   date: !!null
+        location: !keyloc line.de.1111 3,77
+        sources: !keyref src.de.DRG.Alt.Karte.1949
+    -   date: !date c1955
+        status: closed
+
+    -   date: !!null    
+        site: !noderef path.de.1111 bra left
+
+
+---
+key: point.de.Holstendorf
+type: point
+events:
+    -   date: !!null
+        name: Zuckerfabrik Ahrensbök
+        sources:
+            - !keyref src.de.Kloth.1983
+            - !keyref src.de.Kb.1905
+    -   date: !!null
+        de.lknr: 49 825
+        service: passenger
+        sources: !keyref src.de.Bfv.1928
+    -   date: !date c1920
+        name: Holstendorf
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Hp
+        sources: !keyref src.de.Bfv.1944
+    -   date: !date 1941-01-01
+        de.lknr: 27 395
+        sources: !keyref src.de.Bfv.1944
+    -   date: !!null
+        location: !keyloc line.de.1111 5,72
+        sources: !keyref src.de.DRG.Alt.Karte.1949
+    -   date: !date c1955
+        category: de.Anst
+        sources: !keyref src.de.DS100.1984
+    -   date: !!null
+        de.DS100: AHLD
+        sources: !keyref src.de.DS100.1984
+
+    -   date: !!null    
+        site: !noderef path.de.1111 hol right
+
+
+---
+key: point.de.Ahrensboek
+type: point
+events:
+    -   date: !!null
+        name: Ahrensböck
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        de.lknr: 50 825
+        sources: !keyref src.de.Bfv.1928
+    -   date: !date c1920
+        name: Ahrensbök
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        sources: !keyref src.de.Bfv.1944
+    -   date: !date 1941-01-01
+        de.Rangklasse: IV
+        de.lknr: 27 396
+        sources: !keyref src.de.Bfv.1944
+    -   date: !!null
+        location: !keyloc line.de.1111 7,95
+        sources: !keyref src.de.DRG.Alt.Karte.1949
+    -   date: !!null
+        de.DS100: AAB
+        de.dstnr: !!str 016915
+        sources: !keyref src.de.DS100.1984
+
+    -   date: !!null    
+        site: !noderef path.de.1111 ahr right
+
