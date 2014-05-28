@@ -1,40 +1,1555 @@
-
+# DE 1122.  Lübeck Hbf - Strasburg (Meckl)
+#
 ---
-key: point.de.Luebeck-Genin-Awanst
-type: point
+key: line.de.1122
+type: line
 events:
     -   date: !!null
-        category: de.Awanst
-        name: Lübeck-Genin
-        de.DS100: ALGE
-        sources: !keyref src.de.SuW.2005
-    -   date: !date c2000
-        status: closed
-
----
-key: point.de.Strecknitz-LBE
-type: point
-subtype: reference
-events:
+        region: !keyref org.de
     -   date: !!null
-        name: Abzw von alten LBE-Bahnhof
+        end: !keyref point.de.Herrnburg-LGr
+        region: !keyref org.de.l.sh
+    -   date: !!null
+        start: !keyref point.de.Herrnburg-LGr
+        region: !keyref org.de.l.mv
+
+    -   date: !!null
+        end: !keyref point.de.Herrnburg-LGr
+        de.VzG: !!str 1122
+        sources: !keyref src.de.VzG
+    -   date: !var vzg.dr
+        start: !keyref point.de.Herrnburg-LGr
+        de.VzG: !!str 1122
+        sources: !keyref src.de.VzG
+
+    #   Staatsverträge und Genehmigungen
+    #
+    -   date: !date 1846-03-10
+        start: !keyref point.de.Bad-Kleinen
+        end: !keyref point.de.Guestrow
+        concession:
+            by: !keyref org.de.l.msw
+            for: !keyref org.de.e.Mecklenburgische-Eisenbahn-Ges
+            document: !keyref src.de.l.msw.1846.10.beilage
+        sources: !keyref src.de.DRG.1935
+    -   date: !date 1862-02-08
+        start: !keyref point.de.Guestrow
+        concession:
+            by: !keyref org.de.l.msw
+            document: !keyref src.de.l.msw.1862.9.69
+        sources: !keyref src.de.DRG.1935
+    -   date: !date 1864-10-24
+        start: !keyref point.de.Strecknitz
+        end: !keyref point.de.Bad-Kleinen
+        treaty:
+            partners:
+                - !keyref org.de.l.lbk
+                - !keyref org.de.l.msw
+                - !keyref org.de.l.mst
+            document: !keyref src.de.l.msw.1866.6.beilage-A
+        sources: !keyref src.de.l.msw.1866.6.beilage
+    -   date: !date 1865-12-20
+        start: !keyref point.de.Strecknitz
+        end: !keyref point.de.Bad-Kleinen
+        concession:
+            by: !keyref org.de.l.msw
+            for: !keyref org.de.e.Luebeck-Kleinener-Eisenbahn-Ges
+            document: !keyref src.de.l.msw.1866.6.beilage
+        sources: !keyref src.de.DRG.1935
+
+    #   Eröffnung und Einstellung
+    #
+    -   date: !date 1850-05-13
+        start: !keyref point.de.Bad-Kleinen
+        end: !keyref point.de.Guestrow
+        status: open
+        sources: !keyref src.de.DRG.1935
+    -   date: !date 1864-11-15
+        start: !keyref point.de.Guestrow
+        end: !keyref point.de.Neubrandenburg
+        status: open
+        sources: !keyref src.de.DRG.1935
+    -   date: !date 1867-01-01
+        start: !keyref point.de.Neubrandenburg
+        status: open
+        sources: !keyref src.de.DRG.1935
+    -   date: !date 1870-07-01
+        start: !keyref point.de.Strecknitz
+        end: !keyref point.de.Bad-Kleinen
+        status: open
+        sources: !keyref src.de.DRG.1935
+    -   date: !date 1908-05-01
+        end: !keyref point.de.Strecknitz
+        status: open
+
+    #   Eigenschaften
+    #
+    -   date: !!null
+        category: de.Hauptbahn
+        gauge: 1435
+        sources: !keyref src.dd.DR.1976
+    -   date: !!null
+        end: !keyref point.de.Teterow
+        tracks: 2
+        sources: !keyref src.dd.DR.1989
+    -   date: !!null
+        start: !keyref point.de.Teterow
+        tracks: 1
+        sources: !keyref src.dd.DR.1989
+
+    -   date: !date c1945
+        end: !keyref point.de.Teterow
+        tracks: 1
+        sources: !keyref src.dd.DR.1989
+
+    -   date: !date c1985
+        start: !keyref point.de.Bad-Kleinen
+        end: !keyref point.de.Buetzow
+        tracks: 2
+        sources: !keyref src.dd.DR.1989
+
+    -   date: !date 1985-05-18
+        start: !keyref point.de.Guestrow
+        end: !keyref point.de.Lalendorf
+        electrified:
+            overhead: !var el.de
+        sources: !keyref src.ch.Schwach.1989
+    -   date: !date 1986-04-12
+        start: !keyref point.de.Bad-Kleinen
+        end: !keyref point.de.Guestrow
+        electrified:
+            overhead: !var el.de
+        sources: !keyref src.de.WP.Chronik-Streckenelektrifizierung-DR
+
+    #   Eigentümer etc.
+    #
+    -   date: !!null
+        start: !keyref point.de.Bad-Kleinen
+        end: !keyref point.de.Guestrow
+        owner: !keyref org.de.e.Mecklenburgische-Eisenbahn-Ges
+        operator: !keyref org.de.e.Mecklenburgische-Eisenbahn-Ges
+    -   date: !!null
+        start: !keyref point.de.Guestrow
+        owner: !keyref org.de.e.MFFE
+        operator: !keyref org.de.e.MFFE
+
+
+    -   date: !!null
+        end: !keyref point.de.Bad-Kleinen
+        owner: !keyref org.de.e.Luebeck-Kleinener-Eisenbahn-Ges
+    -   date: !date 1868
+        end: !keyref point.de.Bad-Kleinen
+        owner: !keyref org.de.l.msw
+    -   date: !!null
+        end: !keyref point.de.Bad-Kleinen
+        operator: !keyref org.de.l.msw
+
+    -   date: !date 1873-04-02
+        end: !keyref point.de.Guestrow
+        owner: !keyref org.de.e.MFFE
+        operator: !keyref org.de.e.MFFE
+        sources: !keyref src.de.DRG.1935
+
+    -   date: !date 1920-04-01
+        owner: !keyref org.de
+    -   date: !date 1924-02-12
+        operator: !keyref org.de.e.DREb
+    -   date: !date 1924-08-30
+        operator: !keyref org.de.e.DRG
+
+    -   date: !date 1949-10-07
+        start: !keyref point.de.Herrnburg-LGr
+        owner: !keyref org.dd
+    -   date: !var org.de.DR.start
+        start: !keyref point.de.Herrnburg-LGr
+        operator: !keyref org.dd.DR
+    -   date: !var org.de.DB.start
+        end: !keyref point.de.Herrnburg-LGr
+        operator: !keyref org.de.e.DB
+    -   date: !date 1990-10-03
+        start: !keyref point.de.Herrnburg-LGr
+        owner: !keyref org.de
+
+    -   date: !var org.de.DBAG.start
+        owner: !keyref org.de.e.DBAG
+        operator: !keyref org.de.e.DBAG
+    -   date: !var org.de.DBNetz.start
+        owner: !keyref org.de.e.DBNetz
+        operator: !keyref org.de.e.DBNetz
+
+    #   Verlauf
+    #
+    -   date: !!null
+        course:
+            - !pathref path.de.1120 lub  akle -3.0
+            - !pathref path.de.1122 a    f     0.0
+            - !pathref path.de.6327 f    str   0.0
+
+points:
+    - !keyref point.de.Luebeck-Hbf                      # line.de.1100
+    - !keyref point.de.Luebeck-Hgbf                     # line.de.1120
+    - !keyref point.de.Luebeck-Hgbf-Abzw                # line.de.1120
+    - !keyref point.de.Strecknitz
+    - !keyref point.de.Luebeck-St-Juergen
+    - !keyref point.de.Herrnburg-LGr
+    - !keyref point.de.Herrnburg
+    - !keyref point.de.Herrnburg-Fehlstelle
+    - !keyref point.de.Luedersdorf-Meckl
+    - !keyref point.de.Schoenberg-Meckl
+    - !keyref point.de.Menzendorf
+    - !keyref point.de.Grieben-Meckl
+    - !keyref point.de.Boerzow
+    - !keyref point.de.Grevesmuehlen
+    - !keyref point.de.Plueschow
+    - !keyref point.de.Bobitz
+    - !keyref point.de.Bad-Kleinen
+    - !keyref point.de.Hohen-Viecheln
+    - !keyref point.de.Ventschow
+    - !keyref point.de.Blankenberg-Meckl
+    - !keyref point.de.Friedrichwalde-Meckl
+    - !keyref point.de.Warnow-Meckl
+    - !keyref point.de.Zernin
+    - !keyref point.de.Buetzow
+    - !keyref point.de.Schwiesower-Forst
+    - !keyref point.de.Guestrow-Gbf
+    - !keyref point.de.Guestrow
+    - !keyref point.de.Priemerburg
+    - !keyref point.de.Priemerwald-Sued
+    - !keyref point.de.Devwinkel
+    - !keyref point.de.Nienhagen-Lalendorf
+    - !keyref point.de.Lalendorf
+    - !keyref point.de.Neu-Wokern
+    - !keyref point.de.Teterow
+    - !keyref point.de.Hohen-Mistorf
+    - !keyref point.de.Remplin
+    - !keyref point.de.Malchin
+    - !keyref point.de.Leuschentin
+    - !keyref point.de.Scharpzow
+    - !keyref point.de.Reuterstadt-Stavenhagen
+    - !keyref point.de.Grischow-Meckl
+    - !keyref point.de.Kastorf-Meckl
+    - !keyref point.de.Kleeth
+    - !keyref point.de.Moelln-Meckl
+    - !keyref point.de.Blankenhof
+    - !keyref point.de.Weitin
+    - !keyref point.de.Neubrandenburg
+    - !keyref point.de.Neubrandenburg-Gbf
+    - !keyref point.de.Sponholz
+    - !keyref point.de.Ruehlow
+    - !keyref point.de.Neetzka
+    - !keyref point.de.Oertzenhof
+    - !keyref point.de.Kreckow
+    - !keyref point.de.Lauenhagen
+    - !keyref point.de.Strasburg-Meckl                  # line.de.6327
+
 
 ---
 key: point.de.Strecknitz
 type: point
 junction: True
 events:
+    -   date: !date c1950
+        status: open
     -   date: !!null
-        location:
-            - !keyloc line.de.11720 4,4
         category: de.Abzw
-        sources: !keyref src.de.SuW.2005
-    -   date: !!null
         name: Strecknitz
         de.DS100: ASTR
+        de.dstnr: !!str 017178
+        sources: !keyref src.de.DS100.1984
+    -   date: !!null
+        location:
+            - !keyloc line.de.1122 6,020
+            - !keyloc line.de.11720 4,348
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.1122 stn right
+
+
+---
+key: point.de.Luebeck-St-Juergen
+type: point
+events:
+    -   date: !date c2000
+        status: open
+    -   date: !!null
+        location: !keyloc line.de.1122 6,436
+        category: de.Hp
+        name: Lübeck St Jürgen
+        de.DS100: ALSJ
+        sources: !keyref src.de.DBAG.ISR
+    -   date: !!null
+        service: passenger
+        staff: none
+
+    -   date: !!null
+        site: !noderef path.de.1122 sju right
+
+
+---
+key: point.de.Herrnburg-LGr
+type: point
+subtype: border
+events:
+    -   date: !!null
+        location: !keyloc line.de.1122 9,517=6,903
+        sources: !keyref src.dd.DR.1976
+    -   date: !!null
+        short_name: Herrnburg LGr
+    -   date: !!null
+        name: Herrnburg MV/SH
+        de.DS100: WQHB
+        sources: !keyref src.de.TPP.2006
+    -   date: !date c2000
+        location: !keyloc line.de.1122 9,517
+
+    -   date: !!null
+        site: !noderef path.de.1122 gher
+
+
+---
+key: point.de.Herrnburg
+type: point
+events:
+    -   date: !!null
+        name: Herrnburg
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        de.lknr: 27 103
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: IV
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 27 003
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location: !keyloc line.de.1122 7,53
+        de.VBL: Hb
+        sources: !keyref src.dd.DR.1976
+    -   date: !var ds100.dr
+        de.DS100: WHB
+        sources: !keyref src.de.TPP.2006
+    -   date: !date c2000
+        location: !keyloc line.de.1122 10,14
+    -   date: !date c2010
+        location: !keyloc line.de.1122 10,200
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.1122 her right
+
+
+---
+key: point.de.Herrnburg-Fehlstelle
+type: point
+subtype: break
+events:
+    -   date: !date c2000
+        location: !keyloc line.de.1122 10,80+2705=10,90
+
+    -   date: !!null
+        site: !noderef path.de.1122 xher
+
+
+---
+key: point.de.Luedersdorf-Meckl
+type: point
+events:
+    -   date: !!null
+        name: Lüdersdorf
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        de.lknr: 27 004
+        sources: !keyref src.de.Bfv.1928
+    -   date: !date c1920
+        name: Lüdersdorf (Meckl)
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: III
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location: !keyloc line.de.1122 11,20
+        de.VBL: Lü
+        sources: !keyref src.dd.DR.1976
+    -   date: !var dr.rkl.65
+        de.Rangklasse: V
+        sources: !keyref src.dd.DR.1976
+    -   date: !date c1985
+        de.VBL: Lf
+        sources: !keyref src.dd.DR.1989
+    -   date: !var ds100.dr
+        de.DS100: WLF
+        sources: !keyref src.de.TPP.2006
+    -   date: !date c2002
+        category: de.Hp
+        sources: !keyref src.de.SuW.2005
+
+    -   date: !!null
+        site: !noderef path.de.1122 lud right
+
+
+---
+key: point.de.Schoenberg-Meckl
+type: point
+junction: True
+events:
+    -   date: !!null
+        name: Schönberg
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        de.lknr: 27 005
+        sources: !keyref src.de.Bfv.1928
+    -   date: !date c1920
+        name: Schönberg (Meckl)
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: II
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location: !keyloc line.de.1122 19,35
+        de.VBL: Sg
+        sources: !keyref src.dd.DR.1976
+    -   date: !var dr.rkl.65
+        de.Rangklasse: V
+        sources: !keyref src.dd.DR.1976
+    -   date: !var ds100.dr
+        de.DS100: WSBG
         sources: !keyref src.de.TPP.2006
 
+    -   date: !!null
+        site: !noderef path.de.1122 sob right
 
+
+---
+key: point.de.Menzendorf
+type: point
+events:
+    -   date: !date c1940
+        status: open
+        sources: !keyref src.de.Bfv.1944
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: IV
+        service: none
+        name: Menzendorf
+        de.lknr: 27 009
+        sources: !keyref src.de.Bfv.1944
+    -   date: !!null
+        location: !keyloc line.de.1122 25,25
+        de.VBL: Me
+        sources: !keyref src.dd.DR.1976
+    -   date: !date c1965
+        category: de.Hp
+        sources: !keyref src.dd.DR.1976
+    -   date: !date c1965
+        service: passenger
+        sources: !keyref src.dd.Kb.1989
+    -   date: !var ds100.dr
+        de.DS100: WMEF
+        sources: !keyref src.de.TPP.2006
+    -   date: !date c2000
+        service: none
+    -   date: !date c2000
+        category: de.Bf
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.1122 men right
+
+
+---
+key: point.de.Grieben-Meckl
+type: point
+events:
+    -   date: !!null
+        name: Grieben
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        de.lknr: 27 008
+        sources: !keyref src.de.Bfv.1928
+    -   date: !date c1920
+        name: Grieben (Meckl)
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: IV
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 27 010
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location: !keyloc line.de.1122 29,02
+        de.VBL: Gbn
+        sources: !keyref src.dd.DR.1976
+    -   date: !var dr.rkl.65
+        de.Rangklasse: U
+        sources: !keyref src.dd.DR.1976
+    -   date: !var ds100.dr
+        de.DS100: WGBN
+        sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.1122 gri left
+
+
+---
+key: point.de.Boerzow
+type: point
+events:
+    -   date: !date c1940
+        status: open
+        sources: !keyref src.de.Bfv.1944
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: IV
+        service: none
+        name: Börzow
+        de.lknr: 27 012
+        sources: !keyref src.de.Bfv.1944
+    -   date: !date c1950
+        status: closed
+
+    -   date: !!null
+        site: !noderef path.de.1122 bor left
+
+
+---
+key: point.de.Grevesmuehlen
+type: point
+junction: True
+events:
+    -   date: !!null
+        name: Grevesmühlen
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        de.lknr: 27 009
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: II
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 27 011
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location:
+            - !keyloc line.de.1122 36,70
+        de.VBL: Gv
+        sources: !keyref src.dd.DR.1976
+    -   date: !var dr.rkl.65
+        de.Rangklasse: III
+        sources: !keyref src.dd.DR.1976
+    -   date: !var ds100.dr
+        de.DS100: WGV
+        sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.1122 gre left
+
+
+---
+key: point.de.Plueschow
+type: point
+events:
+    -   date: !!null
+        name: Plüschow
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        de.lknr: 27 013
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: IV
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 27 017
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location: !keyloc line.de.1122 43,97
+        de.VBL: Ps
+        sources: !keyref src.dd.DR.1976
+    -   date: !var dr.rkl.65
+        de.Rangklasse: U
+        sources: !keyref src.dd.DR.1976
+    -   date: !var ds100.dr
+        de.DS100: WPSW
+        sources: !keyref src.de.TPP.2006
+    -   date: !date c1998
+        category: de.Hp
+        sources: !keyref src.de.SuW.2000
+
+    -   date: !!null
+        site: !noderef path.de.1122 plu right
+
+
+---
+key: point.de.Bobitz
+type: point
+events:
+    -   date: !!null
+        name: Bobitz
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        de.lknr: 27 014
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: III
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 27 018
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location: !keyloc line.de.1122 50,57
+        de.VBL: Bz
+        sources: !keyref src.dd.DR.1976
+    -   date: !var dr.rkl.65
+        de.Rangklasse: U
+        sources: !keyref src.dd.DR.1976
+    -   date: !var ds100.dr
+        de.DS100: WBO
+        sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.1122 bob right
+
+
+---
+key: point.de.Bad-Kleinen
+type: point
+junction: True
+events:
+    -   date: !!null
+        name: Kleinen
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        de.lknr: 27 015
+        sources: !keyref src.de.Bfv.1928
+    -   date: !date c1920
+        name: Bad Kleinen
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: I
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 27 020
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location:
+            - !keyloc line.de.1122 59,32
+        de.VBL: Kl
+        sources: !keyref src.dd.DR.1976
+    -   date: !var ds100.dr
+        de.DS100: WK
+        sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.1122 kle left
+
+
+---
+key: point.de.Hohen-Viecheln
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.1122 63,80
+        category: de.Bk
+        name: Hohen-Viecheln
+        sources: !keyref src.dd.DR.1976
+    -   date: !date c1985
+        status: closed
+        sources: !keyref src.dd.DR.1989
+
+    -   date: !!null
+        site: !noderef path.de.1122 hvi left
+
+
+---
+key: point.de.Ventschow
+type: point
+events:
+    -   date: !!null
+        name: Ventschow
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        de.lknr: 27 016
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: III
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 27 021
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location: !keyloc line.de.1122 67,60
+        de.VBL: Ve
+        sources: !keyref src.dd.DR.1976
+    -   date: !var dr.rkl.65
+        de.Rangklasse: IV
+        sources: !keyref src.dd.DR.1976
+    -   date: !var ds100.dr
+        de.DS100: WVE
+        sources: !keyref src.de.TPP.2006
+    -   date: !date c2010
+        category: [de.Hp, de.Uest]
+        sources: !keyref src.de.SuW.2011
+
+    -   date: !!null
+        site: !noderef path.de.1122 ven right
+
+
+---
+key: point.de.Blankenberg-Meckl
+type: point
+junction: True
+events:
+    -   date: !!null
+        name: Blankenberg
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        de.lknr: 27 017
+        sources: !keyref src.de.Bfv.1928
+    -   date: !date c1920
+        name: Blankenberg(Meckl)
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: II
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 27 022
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location:
+            - !keyloc line.de.1122 76,80
+        de.VBL: Bl
+        sources: !keyref src.dd.DR.1976
+    -   date: !var dr.rkl.65
+        de.Rangklasse: III
+        sources: !keyref src.dd.DR.1976
+    -   date: !var ds100.dr
+        de.DS100: WBL
+        sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.1122 bla right
+
+
+---
+key: point.de.Friedrichwalde-Meckl
+type: point
+events:
+    -   date: !!null
+        name: Friedrichwalde (Meckl)
+        service: freight
+        de.lknr: 27 018
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: IV
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 27 023
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location: !keyloc line.de.1122 81,20
+        de.VBL: Fw
+        sources: !keyref src.dd.DR.1976
+    -   date: !var dr.rkl.65
+        de.Rangklasse: U
+        sources: !keyref src.dd.DR.1976
+    -   date: !date c1985
+        category: de.Hp
+        staff: none
+        sources: !keyref src.dd.DR.1989
+    -   date: !date c1995
+        status: closed
+
+    -   date: !!null
+        site: !noderef path.de.1122 fri right
+
+
+---
+key: point.de.Warnow-Meckl
+type: point
+events:
+    -   date: !!null
+        name: Warnow
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        de.lknr: 27 019
+        sources: !keyref src.de.Bfv.1928
+    -   date: !date c1920
+        name: Warnow (Meckl)
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: III
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 27 024
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location: !keyloc line.de.1122 89,66
+        de.VBL: Ww
+        sources: !keyref src.dd.DR.1976
+    -   date: !var dr.rkl.65
+        de.Rangklasse: IV
+        sources: !keyref src.dd.DR.1976
+    -   date: !var ds100.dr
+        de.DS100: WWRN
+        sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.1122 war left
+
+
+---
+key: point.de.Zernin
+type: point
+events:
+    -   date: !date c1910
+        status: open
+        name: Zernin
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        service: passenger
+        de.lknr: 27 217
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Hp
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 27 025
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location: !keyloc line.de.1122 93,30
+        de.VBL: Zr
+        sources: !keyref src.dd.DR.1976
+    -   date: !date c1995
+        status: closed
+
+    -   date: !!null
+        site: !noderef path.de.1122 zer right
+
+        
+---
+key: point.de.Buetzow
+type: point
+junction: True
+events:
+    -   date: !!null
+        name: Bützow
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        de.lknr: 27 020
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: I
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 27 026
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location:
+            - !keyloc line.de.1122 99,79
+        de.VBL: B
+        sources: !keyref src.dd.DR.1976
+    -   date: !var dr.rkl.65
+        de.Rangklasse: III
+        sources: !keyref src.dd.DR.1976
+    -   date: !var ds100.dr
+        de.DS100: WB
+        sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.1122 but left
+
+
+---
+key: point.de.Schwiesower-Forst
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.1122 106,67
+        category: de.Bf
+        de.Rangklasse: U
+        de.VBL: Swf
+        sources: !keyref src.dd.DR.1976
+    -   date: !!null
+        service: none
+    -   date: !var ds100.dr
+        de.DS100: WSWF
+    -   date: !date c2000
+        status: closed
+
+    -   date: !!null
+        site: !noderef path.de.1122 swi left
+
+
+---
+key: point.de.Guestrow-Gbf
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.1122 112,40
+        name: Güstrow Gbf
+        sources: !keyref src.dd.DR.1976
+    -   date: !var ds100.dr
+        de.DS100: "WG  G"
+        sources: !keyref src.de.TPP.2006
+    -   date: !var ds100.dr
+        category: de.Bft
+
+    -   date: !!null
+        site: !noderef path.de.1122 gug left
+
+
+---
+key: point.de.Guestrow
+type: point
+junction: True
+events:
+    -   date: !!null
+        name: Güstrow
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        de.lknr: 27 021
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: I
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 27 027
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location:
+            - !keyloc line.de.1122 113,26
+        de.VBL: G
+        sources: !keyref src.dd.DR.1976
+    -   date: !var ds100.dr
+        de.DS100: WG
+        sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.1122 gus right
+
+
+---
+key: point.de.Priemerburg
+type: point
+junction: True
+events:
+    -   date: !date c1910
+        status: open
+        name: Priemerburg
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        de.lknr: 27 281
+        service: passenger
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: IV
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 27 198
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location: !keyloc line.de.1122 116,74
+        de.VBL: Pi
+        sources: !keyref src.dd.DR.1976
+    -   date: !var dr.rkl.65
+        de.Rangklasse: III
+        sources: !keyref src.dd.DR.1976
+    -   date: !var ds100.dr
+        de.DS100: WPI
+        sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.1122 pri right
+
+
+---
+key: point.de.Priemerwald-Sued
+type: point
+junction: True
+events:
+    -   date: !!null
+        location:
+            - !keyloc line.de.1122 118,47
+        category: de.Abzw
+        name: Priemerwald Süd
+        sources: !keyref src.dd.DR.1976
+    -   date: !var ds100.dr
+        de.DS100: WPWS
+    -   date: !date 1995-12-31?
+        status: closed
+
+    -   date: !!null
+        site: !noderef path.de.1122 pws left
+
+
+---
+key: point.de.Devwinkel
+type: point
+events:
+    -   date: !date c1965
+        status: open
+    -   date: !!null
+        location: !keyloc line.de.1122 121,90
+        category: de.Bf
+        de.Rangklasse: U
+        name: Devwinkel
+        de.VBL: Dv
+        sources: !keyref src.dd.DR.1976
+    -   date: !!null
+        service: none
+    -   date: !var ds100.dr
+        de.DS100: WDVW
+    -   date: !date c1995
+        category: de.Bk
+    -   date: !date c2002
+        status: closed
+
+    -   date: !!null
+        site: !noderef path.de.1122 dev right
+
+
+---
+key: point.de.Nienhagen-Lalendorf
+type: point
+events:
+    -   date: !date 1941
+        status: open
+        sources: !keyref src.de.Kb.W1941
+    -   date: !!null
+        category: de.Hp
+        name: Nienhagen
+        service: passenger
+        staff: none
+        master: !keyref point.de.Lalendorf
+        de.lknr: 27 040
+        sources: !keyref src.de.Bfv.1944
+    -   date: !date c1950
+        status: closed
+
+    -   date: !!null
+        site: !noderef path.de.1122 nie right
+
+
+---
+key: point.de.Lalendorf
+type: point
+junction: True
+events:
+    -   date: !!null
+        name: Lalendorf
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        de.lknr: 27 023
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: II
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 27 029
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location:
+            - !keyloc line.de.1122 129,03
+        de.VBL: Ld
+        sources: !keyref src.dd.DR.1976
+    -   date: !var dr.rkl.65
+        de.Rangklasse: IV
+        sources: !keyref src.dd.DR.1976
+    -   date: !var ds100.dr
+        de.DS100: WLD
+        sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.1122 lal left
+
+
+---
+key: point.de.Neu-Wokern
+type: point
+events:
+    -   date: !!null
+        name: Neu Wokern
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        de.lknr: 27 024
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: III
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 27 030
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location: !keyloc line.de.1122 136,60
+        de.VBL: Wo
+        sources: !keyref src.dd.DR.1976
+    -   date: !var dr.rkl.65
+        de.Rangklasse: U
+        sources: !keyref src.dd.DR.1976
+    -   date: !var ds100.dr
+        de.DS100: WNWO
+        sources: !keyref src.de.TPP.2006
+    -   date: !date c2000
+        category: de.Hp
+        sources: !keyref src.de.SuW.2005
+
+    -   date: !!null
+        site: !noderef path.de.1122 nwo right
+
+
+---
+key: point.de.Teterow
+type: point
+junction: True
+events:
+    -   date: !!null
+        name: Teterow
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        de.lknr: 27 025
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: II
+        sources: !keyref src.de.Bfv.1928
+    -   date: !var lknr.30
+        de.lknr: 27 031
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        location:
+            - !keyloc line.de.1122 142,30
+        de.VBL: Te
+        sources: !keyref src.dd.DR.1976
+    -   date: !var dr.rkl.65
+        de.Rangklasse: III
+        sources: !keyref src.dd.DR.1976
+    -   date: !var ds100.dr
+        de.DS100: WTE
+        sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.1122 tet left
+
+
+---
+key: point.de.Hohen-Mistorf
+type: point
+events:
+    -   date: !!null
+        name: Hohen-Mistorf
+        sources: !keyref src.de.Kb.1905
+    -   date: !date c1910
+        name: Hohen Mistorf
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        de.lknr: 27 032
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: IV
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 27 042
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location: !keyloc line.de.1122 148,80
+        de.VBL: Mw
+        sources: !keyref src.dd.DR.1976
+    -   date: !var dr.rkl.65
+        de.Rangklasse: U
+        sources: !keyref src.dd.DR.1976
+    -   date: !var ds100.dr
+        de.DS100: WHMT
+    -   date: !date c2005
+        status: closed
+
+    -   date: !!null
+        site: !noderef path.de.1122 hmi left
+
+
+---
+key: point.de.Remplin
+type: point
+events:
+    -   date: !date c1930
+        status: open
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        category: de.Hp
+        name: Remplin
+        service: passenger
+        de.lknr: 27 043
+        sources: !keyref src.de.Bfv.1933
+    -   date: !date c1935
+        staff: none
+        master: !!null
+        sources: !keyref src.de.Bfv.1938
+    -   date: !date c1940
+        category: de.Bf
+        de.Rangklasse: IV
+        sources: !keyref src.de.Bfv.1944
+    -   date: !date c1950
+        status: closed
+        sources: !keyref src.dd.DR.1976
+    -   date: !date c1985
+        status: open
+        category: de.Bk
+        de.VBL: Rp
+        sources: !keyref src.dd.DR.1989
+    -   date: !var ds100.dr
+        de.DS100: WRE
+    -   date: !date c2000
+        status: closed
+
+    -   date: !!null
+        site: !noderef path.de.1122 rem left
+
+
+---
+key: point.de.Malchin
+type: point
+junction: True
+events:
+    -   date: !!null
+        name: Malchin
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        de.lknr: 27 033
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: I
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 27 044
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location:
+            - !keyloc line.de.1122 156,31
+        de.VBL: Man
+        sources: !keyref src.dd.DR.1976
+    -   date: !var dr.rkl.65
+        de.Rangklasse: II
+        sources: !keyref src.dd.DR.1976
+    -   date: !var ds100.dr
+        de.DS100: WMA
+        sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.1122 mal right
+
+
+---
+key: point.de.Leuschentin
+type: point
+events:
+    -   date: !date c1940
+        status: open
+        sources: !keyref src.de.Bfv.1944
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: IV
+        name: Leuschentin
+        de.lknr: 27 051
+        sources: !keyref src.de.Bfv.1944
+    -   date: !!null
+        location: !keyloc line.de.1122 158,95
+        sources: !keyref src.dd.DR.1976
+    -   date: !date c1950
+        category: de.Bk
+        sources: !keyref src.dd.DR.1976
+    -   date: !var ds100.dr
+        de.DS100: WLEU
+    -   date: !date c2000
+        status: closed
+
+    -   date: !!null
+        site: !noderef path.de.1122 leu left
+
+
+---
+key: point.de.Scharpzow
+type: point
+events:
+    -   date: !date c1935
+        status: open
+        sources: !keyref src.de.Bfv.1938
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: IV
+        name: Scharpzow
+        service: none
+        de.lknr: 27 052
+        sources: !keyref src.de.Bfv.1938
+    -   date: !!null
+        location: !keyloc line.de.1122 162,30
+        de.VBL: Sr
+        sources: !keyref src.dd.DR.1976
+    -   date: !var dr.rkl.65
+        de.Rangklasse: U
+        sources: !keyref src.dd.DR.1976
+    -   date: !date c1970
+        staff: none
+        sources: !keyref src.dd.DR.1976
+    -   date: !date c1985
+        category: de.Kr
+        sources: !keyref src.dd.DR.1989
+    -   date: !var ds100.dr
+        category: de.Bf
+        de.DS100: WSRP
+    -   date: !date c1995
+        status: closed
+
+    -   date: !!null
+        site: !noderef path.de.1122 sar right
+
+
+---
+key: point.de.Reuterstadt-Stavenhagen
+type: point
+junction: True
+events:
+    -   date: !!null
+        name: Stavenhagen
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        de.lknr: 27 039
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: II
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 27 053
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location: !keyloc line.de.1122 167,50
+        de.VBL: St
+        sources: !keyref src.dd.DR.1976
+    -   date: !date 1949
+        name: Reuterstadt Stavenhagen
+        sources: !keyref src.dd.DR.1976
+    -   date: !var dr.rkl.65
+        de.Rangklasse: IV
+        sources: !keyref src.dd.DR.1976
+    -   date: !var ds100.dr
+        de.DS100: WRST
+        sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.1122 sta right
+
+
+---
+key: point.de.Grischow-Meckl
+type: point
+events:
+    -   date: !date c1930
+        status: open
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: IV
+        name: Grischow (Meckl)
+        service: freight
+        de.lknr: 27 054
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location: !keyloc line.de.1122 173,74
+        de.VBL: Gro
+        sources: !keyref src.dd.DR.1976
+    -   date: !var dr.rkl.65
+        de.Rangklasse: U
+        sources: !keyref src.dd.DR.1976
+    -   date: !var ds100.dr
+        de.DS100: WGRO
+        sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.1122 grw left
+
+
+---
+key: point.de.Kastorf-Meckl
+type: point
+events:
+    -   date: !date c1935
+        status: open
+        sources: !keyref src.de.Bfv.1938
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: IV
+        name: Kastorf (Meckl)
+        service: none
+        de.lknr: 27 055
+        sources: !keyref src.de.Bfv.1938
+    -   date: !!null
+        location: !keyloc line.de.1122 178,98
+        de.VBL: Kf
+        sources: !keyref src.dd.DR.1976
+    -   date: !date c1960
+        name: Kastorf
+        sources: !keyref src.dd.DR.1976
+    -   date: !var dr.rkl.65
+        de.Rangklasse: U
+        sources: !keyref src.dd.DR.1976
+    -   date: !var ds100.dr
+        de.DS100: WKF
+    -   date: !date c2000
+        status: closed
+
+    -   date: !!null
+        site: !noderef path.de.1122 kas right
+
+
+---
+key: point.de.Kleeth
+type: point
+events:
+    -   date: !!null
+        name: Kleeth
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        de.lknr: 27 040
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: III
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 27 056
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location: !keyloc line.de.1122 182,38
+        de.VBL: Kh
+        sources: !keyref src.dd.DR.1976
+    -   date: !var dr.rkl.65
+        de.Rangklasse: U
+        sources: !keyref src.dd.DR.1976
+    -   date: !var ds100.dr
+        de.DS100: WKLE
+        sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.1122 kee right
+
+
+---
+key: point.de.Moelln-Meckl
+type: point
+events:
+    -   date: !!null
+        name: Mölln (Mecklb)
+        sources: !keyref src.de.Kb.1905
+    -   date: !date c1910
+        name: Mölln
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        de.lknr: 27 041
+        sources: !keyref src.de.Bfv.1928
+    -   date: !date c1920
+        name: Mölln (Meckl)
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: IV
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 27 057
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location: !keyloc line.de.1122 186,95
+        de.VBL: Mö
+        sources: !keyref src.dd.DR.1976
+    -   date: !var dr.rkl.65
+        de.Rangklasse: V
+        sources: !keyref src.dd.DR.1976
+    -   date: !var ds100.dr
+        de.DS100: WMOE
+        sources: !keyref src.de.TPP.2006
+    -   date: !date c1995
+        category: de.Hp
+        sources: !keyref src.de.SuW.2000
+
+    -   date: !!null
+        site: !noderef path.de.1122 mol right
+
+
+---
+key: point.de.Blankenhof
+type: point
+events:
+    -   date: !date c1930
+        status: open
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: IV
+        name: Blankenhof
+        service: none
+        de.lknr: 27 058
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location: !keyloc line.de.1122 191,03
+        de.VBL: Blh
+        sources: !keyref src.dd.DR.1976
+    -   date: !var dr.rkl.65
+        de.Rangklasse: U
+        sources: !keyref src.dd.DR.1976
+    -   date: !var ds100.dr
+        de.DS100: WBLH
+        sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.1122 blh right
+
+
+---
+key: point.de.Weitin
+type: point
+events:
+    -   date: !date c1935
+        status: open
+        sources: !keyref src.de.Bfv.1938
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: IV
+        name: Weitin
+        service: none
+        de.lknr: 27 059
+        sources: !keyref src.de.Bfv.1938
+    -   date: !!null
+        location: !keyloc line.de.1122 196,80
+        de.VBL: Wtn
+        sources: !keyref src.dd.DR.1976
+    -   date: !var dr.rkl.65
+        de.Rangklasse: U
+        sources: !keyref src.dd.DR.1976
+    -   date: !var ds100.dr
+        de.DS100: WWTN
+    -   date: !date c2000
+        status: closed
+
+    -   date: !!null
+        site: !noderef path.de.1122 wtn left
 
 
 ---
@@ -57,6 +1572,7 @@ events:
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
         location:
+            - !keyloc line.de.1122 200,92
             - !keyloc line.de.6088 133,73
         de.VBL: Ng
         sources: !keyref src.dd.DR.1976
@@ -65,7 +1581,7 @@ events:
         sources: !keyref src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.6088 nbr
+        site: !noderef path.de.1122 nbr right
 
 
 ---
@@ -80,5 +1596,205 @@ events:
         sources: !keyref src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.6088 nbg
+        site: !noderef path.de.1122 nbg left
+
+
+---
+key: point.de.Sponholz
+type: point
+events:
+    -   date: !!null
+        name: Sponholz
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        de.lknr: 27 044
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: IV
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 27 062
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location: !keyloc line.de.1122 208,05
+        de.VBL: Sp
+        sources: !keyref src.dd.DR.1976
+    -   date: !var dr.rkl.65
+        de.Rangklasse: IV
+        sources: !keyref src.dd.DR.1976
+    -   date: !var ds100.dr
+        de.DS100: WSP
+        sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.1122 spo right
+
+
+---
+key: point.de.Ruehlow
+type: point
+events:
+    -   date: !date c1940
+        status: open
+        sources: !keyref src.de.Bfv.1944
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: IV
+        name: Küssow
+        de.lknr: 27 063
+        sources: !keyref src.de.Bfv.1944
+    -   date: !!null
+        location: !keyloc line.de.1122 214,62
+        sources: !keyref src.dd.DR.1976
+    -   date: !date c1960
+        name: Rühlow
+        de.VBL: Rü
+        sources: !keyref src.dd.DR.1976
+    -   date: !var dr.rkl.65
+        de.Rangklasse: U
+        sources: !keyref src.dd.DR.1976
+    -   date: !date c1985
+        category: de.Hp
+        staff: none
+        sources: !keyref src.dd.DR.1989
+    -   date: !var ds100.dr
+        de.DS100: WRUE
+    -   date: !date c1995
+        status: closed
+
+    -   date: !!null
+        site: !noderef path.de.1122 ruh right
+
+
+---
+key: point.de.Neetzka
+type: point
+events:
+    -   date: !!null
+        name: Neetzka
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        de.lknr: 27 045
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: IV
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 27 064
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location: !keyloc line.de.1122 217,87
+        de.VBL: Na
+        sources: !keyref src.dd.DR.1976
+    -   date: !var dr.rkl.65
+        de.Rangklasse: U
+        sources: !keyref src.dd.DR.1976
+    -   date: !var ds100.dr
+        de.DS100: WNA
+        sources: !keyref src.de.TPP.2006
+    -   date: !date c2010
+        category: de.Hp
+        sources: !keyref src.de.SuW.2011
+
+    -   date: !!null
+        site: !noderef path.de.1122 nee right
+
+
+---
+key: point.de.Oertzenhof
+type: point
+events:
+    -   date: !!null
+        name: Oertzenhof
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        de.lknr: 27 046
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: III
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 27 065
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location: !keyloc line.de.1122 222,97
+        de.VBL: Oe
+        sources: !keyref src.dd.DR.1976
+    -   date: !var dr.rkl.65
+        de.Rangklasse: V
+        sources: !keyref src.dd.DR.1976
+    -   date: !var ds100.dr
+        de.DS100: WOE
+        sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.1122 oer right
+
+
+---
+key: point.de.Kreckow
+type: point
+events:
+    -   date: !date c1930
+        status: open
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: IV
+        name: Kreckow
+        service: none
+        de.lknr: 27 066
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location: !keyloc line.de.1122 227,29
+        de.VBL: Kre
+        sources: !keyref src.dd.DR.1976
+    -   date: !var dr.rkl.65
+        de.Rangklasse: U
+        sources: !keyref src.dd.DR.1976
+    -   date: !var ds100.dr
+        de.DS100: WKRE
+    -   date: !date c2000
+        status: closed
+
+    -   date: !!null
+        site: !noderef path.de.1122 kre left
+
+
+---
+key: point.de.Lauenhagen
+type: point
+events:
+    -   date: !date c1940
+        status: open
+        sources: !keyref src.de.Bfv.1944
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: IV
+        name: Lauenhagen
+        de.lknr: 27 075
+        sources: !keyref src.de.Bfv.1944
+    -   date: !!null
+        location: !keyloc line.de.1122 230,97
+        sources: !keyref src.dd.DR.1976
+    -   date: !var dr.rkl.65
+        de.Rangklasse: U
+        sources: !keyref src.dd.DR.1976
+    -   date: !date c1970
+        staff: none
+        sources: !keyref src.dd.DR.1976
+    -   date: !!null
+        de.VBL: Lah
+        sources: !keyref src.dd.DR.1989
+    -   date: !var ds100.dr
+        de.DS100: WLAH
+    -   date: !date c2000
+        status: closed
+
+    -   date: !!null
+        site: !noderef path.de.1122 lau left
+
 
