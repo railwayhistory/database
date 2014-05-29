@@ -1,0 +1,503 @@
+# DE 1121.  Lübeck Hbf - Büchen
+#
+---
+key: line.de.1121
+type: line
+events:
+    -   date: !!null
+        region:
+            - !keyref org.de
+            - !keyref org.de.l.sh
+
+    -   date: !!null
+        de.VzG: !!str 1121
+        sources: !keyref src.de.VzG
+
+
+    #   Staatsverträge und Genehmigung
+    #
+    -   date: !date 1847-06-23
+        contract:
+            partners:
+                - !keyref org.de.l.lbk
+                - !keyref org.dk
+        sources: !keyref src.de.DRG.1935
+    -   date: !date 1850-02-18
+        concession:
+            by: !keyref org.de.l.lau
+            for: !keyref org.de.e.LBE
+        sources: !keyref src.de.DRG.1935
+    -   date: !date 1850-03-02
+        concession:
+            by: !keyref org.de.l.lbk
+            for: !keyref org.de.e.LBE
+        sources: !keyref src.de.DRG.1935
+    -   date: !date 1857-04-07
+        concession:
+            by: !keyref org.dk
+            for: !keyref org.de.e.LBE
+        sources: !keyref src.de.DRG.1935
+
+    #   Eröffnung und Einstellung
+    #
+    -   date: !date 1851-10-16
+        status: open
+        sources: !keyref src.de.DRG.1935
+    -   date: !date c2010
+        end: !keyref point.de.Luebeck-Hgbf-Abzw
+        status: removed
+        sources: !keyref src.de.DBAG.ISR
+
+    #   Eigenschaften
+    #
+    -   date: !!null
+        category: de.Hauptbahn
+        tracks: 1
+        gauge: 1435
+        sources: !keyref src.de.DRG.1927
+
+    #   Eigentümer etc.
+    #
+    -   date: !!null
+        owner: !keyref org.de.e.LBE
+        operator: !keyref org.de.e.LBE
+        sources: !keyref src.de.DRG.1935
+    
+    -   date: !date 1938-01-01
+        owner: !keyref org.de
+        operator: !keyref org.de.e.DRG
+    
+    -   date: !var org.de.DB.start
+        operator: !keyref org.de.e.DB
+    
+    -   date: !var org.de.DBAG.start
+        owner: !keyref org.de.e.DBAG
+        operator: !keyref org.de.e.DBAG
+    -   date: !var org.de.DBNetz.start
+        owner: !keyref org.de.e.DBNetz
+        operator: !keyref org.de.e.DBNetz
+
+
+    #   Verlauf
+    #
+    -   date: !!null
+        course:
+            - !pathref path.de.1120 lub  akle -1.5
+            - !pathref path.de.1122 a    abuc  1.5
+            - !pathref path.de.1121 a    f     0.0
+            - !pathref path.de.6100 alub buc  -1.5
+
+points:
+    - !keyref point.de.Luebeck-Hbf                      # line.de.1100
+    - !keyref point.de.Luebeck-Hgbf                     # line.de.1120
+    - !keyref point.de.Luebeck-Hgbf-Abzw                # line.de.1120
+    - !keyref point.de.Luebeck-Juergen-Bk
+    - !keyref point.de.Luebeck-Juergen-Fehlstelle
+    - !keyref point.de.Luebeck-Hochschulstadtteil
+    - !keyref point.de.Luebeck-Flughafen
+    - !keyref point.de.Luebeck-Blankensee
+    - !keyref point.de.Sarau
+    - !keyref point.de.Pogeez
+    - !keyref point.de.Pogeez-Bk
+    - !keyref point.de.Ratzeburg
+    - !keyref point.de.Moelln-Lauenburg
+    - !keyref point.de.Moelln-Lauenburg-Industriegleis
+    - !keyref point.de.Guester-Bahnsteig
+    - !keyref point.de.Guester
+    - !keyref point.de.Roseburg
+    - !keyref point.de.Buechen-Nuessau
+    - !keyref point.de.Buechen                          # line.de.6100
+
+
+---
+key: point.de.Luebeck-Juergen-Bk
+type: point
+events:
+    -   date: !!null
+        category: de.Bk
+        location: !keyloc line.de.1121 3,19
+        name: Jürgen
+        sources: !keyref src.de.DRG.Alt.Karte.1949
+    -   date: !date c1980
+        status: closed
+
+    -   date: !!null
+        site: !noderef path.de.1121 jur left
+
+
+---
+key: point.de.Luebeck-Juergen-Fehlstelle
+type: point
+subtype: break
+events:
+    -   date: !!null
+        location: !keyloc line.de.1121 4,0+1888=4,2+0
+
+    -   date: !!null
+        site: !noderef path.de.1121 xjur
+
+
+---
+key: point.de.Luebeck-Hochschulstadtteil
+type: point
+events:
+    -   date: !date 2013-12-15
+        status: open
+        sources: !keyref src.de.WP.Bahnstrecke-Luebeck-Lueneburg
+    -   date: !!null
+        location: !keyloc line.de.1121 4,512
+        category: de.Hp
+        name: Lübeck Hochschulstadtteil
+        de.DS100: ALHS
+        sources: !keyref src.de.DBAG.ISR
+    -   date: !!null
+        staff: none
+
+    -   date: !!null
+        site: !noderef path.de.1121 hoc left
+
+
+---
+key: point.de.Luebeck-Flughafen
+type: point
+events:
+    -   date: !date 2008-05-26
+        status: open
+        sources: !keyref src.de.WP.Bahnstrecke-Luebeck-Lueneburg
+    -   date: !!null
+        location: !keyloc line.de.1121 7,409
+        category: de.Hp
+        name: Lübeck Flughafen
+        de.DS100: ALB
+        sources: !keyref src.de.DBAG.ISR
+    -   date: !!null
+        staff: none
+
+    -   date: !!null
+        site: !noderef path.de.1121 flu left
+
+
+---
+key: point.de.Luebeck-Blankensee
+type: point
+events:
+    -   date: !!null
+        name: Blankensee b Lübeck
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        de.lknr: 49 869
+        sources: !keyref src.de.Bfv.1928
+    -   date: !date c1935
+        name: Lübeck-Blankensee
+        sources: !keyref src.de.Kb.W1937
+    -   date: !!null
+        category: de.Bf
+        sources: !keyref src.de.Bfv.1944
+    -   date: !date 1938-01-01
+        de.Rangklasse: III
+        de.lknr: 27 294
+        sources: !keyref src.de.Bfv.1944
+    -   date: !!null
+        location: !keyloc line.de.1121 7,73
+        sources: !keyref src.de.DRG.Alt.Karte.1949
+    -   date: !date c1980
+        service: none
+    -   date: !!null
+        de.DS100: ABLA
+        de.dstnr: !!str 016824
+        sources: !keyref src.de.DS100.1984
+    -   date: !date c1990
+        de.DS100: ALB
+    -   date: !date c2000
+        status: closed
+        sources: !keyref src.de.SuW.2005
+
+    -   date: !!null
+        site: !noderef path.de.1121 bla right
+
+
+---
+key: point.de.Sarau
+type: point
+events:
+    -   date: !!null
+        name: Sarau
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        de.lknr: 50 869
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Hp
+        sources: !keyref src.de.Bfv.1944
+    -   date: !date 1938-01-01
+        de.lknr: 27 295
+        sources: !keyref src.de.Bfv.1944
+    -   date: !!null
+        location: !keyloc line.de.1121 12,67
+        sources: !keyref src.de.DRG.Alt.Karte.1949
+    -   date: !date c1960
+        status: closed
+
+    -   date: !!null
+        site: !noderef path.de.1121 sar left
+
+
+---
+key: point.de.Pogeez
+type: point
+events:
+    -   date: !date c1960
+        status: open
+    -   date: !!null
+        category: de.Bf
+        name: Pogeez
+        de.DS100: APOF
+        de.dstnr: !!str 016832
+        sources: !keyref src.de.DS100.1984
+    -   date: !!null
+        service: none
+    -   date: !!null
+        location: !keyloc line.de.1121 13,573
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.1121 pog left
+
+
+---
+key: point.de.Pogeez-Bk
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.1121 14,08
+        category: de.Bk
+        name: Pogeez
+        sources: !keyref src.de.DRG.Alt.Karte.1949
+    -   date: !date c1960
+        status: closed
+
+    -   date: !!null
+        site: !noderef path.de.1121 pob right
+
+
+---
+key: point.de.Ratzeburg
+type: point
+junction: True
+events:
+    -   date: !!null
+        name: Ratzeburg
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        de.lknr:
+            - 01 321
+            - 51 869
+        sources: !keyref src.de.Bfv.1928
+    -   date: !date c1920
+        name: Ratzeburg Land
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: II
+        sources: !keyref src.de.Bfv.1933
+    -   date: !date 1938-01-01
+        de.lknr: 01 321
+        sources: !keyref src.de.Bfv.1944
+    -   date: !date c1940
+        de.Rangklasse: I
+        name: Ratzeburg
+        sources: !keyref src.de.Bfv.1944
+    -   date: !!null
+        location:
+            - !keyloc line.de.1121 19,95
+            - !keyloc line.de.11900 49,16
+        sources: !keyref src.de.DRG.Alt.Karte.1949
+    -   date: !!null
+        de.DS100: ARF
+        de.dstnr: !!str 013219
+        sources: !keyref src.de.DS100.1984
+
+    -   date: !!null
+        site: !noderef path.de.1121 rat left
+
+
+---
+key: point.de.Moelln-Lauenburg
+type: point
+junction: True
+events:
+    -   date: !!null
+        name: Mölln (Lauenb)
+        sources: !keyref src.de.Kb.1905
+    -   date: !date c1910
+        name: Mölln i Lauenb
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        de.lknr: 52 869
+        sources: !keyref src.de.Bfv.1928
+    -   date: !date c1920
+        name: Mölln (Lauenbg)
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: II
+        sources: !keyref src.de.Bfv.1933
+    -   date: !date c1930
+        de.lknr:
+            - 01 319
+            - 52 869
+        sources: !keyref src.de.Bfv.1933
+    -   date: !date c1935
+        name: Mölln (Lauenb)
+        sources: !keyref src.de.Kb.W1937
+    -   date: !date 1938-01-01
+        de.lknr: 27 297
+        sources: !keyref src.de.Bfv.1944
+    -   date: !!null
+        location:
+            - !keyloc line.de.1121 29,23
+            - !keyloc line.de.11930 11,74
+        sources: !keyref src.de.DRG.Alt.Karte.1949
+    -   date: !!null
+        de.DS100: AMLN
+        de.dstnr: !!str 016840
+        sources: !keyref src.de.DS100.1984
+    -   date: !date c1960
+        name: Mölln (b Lauenburg)
+        sources: !keyref src.de.DS100.1984
+    -   date: !date c1990
+        name: Mölln (Lauenburg)
+        sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.1121 mol left
+
+
+---
+key: point.de.Moelln-Lauenburg-Industriegleis
+type: point
+events:
+    -   date: !!null
+        category: de.Anst
+        name: Mölln (b Lauenburg) Industriegleis
+        de.DS100: AMLI
+        sources: !keyref src.de.DS100.1984
+    -   date: !!null
+        location: !keyloc line.de.1121 32,2
+        sources: !keyref src.de.SuW.2005
+    -   date: !date c1990
+        name: Mölln (Lauenburg) Industriegleis
+        sources: !keyref src.de.TPP.2006
+    -   date: !date c1990
+        category: de.Awanst
+        sources: !keyref src.de.SuW.2005
+    -   date: !date c2010
+        status: closed
+        sources: !keyref src.de.SuW.2011
+
+    -   date: !!null
+        site: !noderef path.de.1121 moi right
+
+
+---
+key: point.de.Guester-Bahnsteig
+type: point
+events:
+    -   date: !date c1960
+        status: open
+    -   date: !!null
+        category: de.Glgr
+        name: Güster Bahnsteig
+        master: !keyref point.de.Guester
+        de.DS100: AGUEB
+        sources: !keyref src.de.DS100.1984
+    -   date: !date c1990
+        status: closed
+
+    -   date: !!null
+        site: !noderef path.de.1121 gub left
+
+
+---
+key: point.de.Guester
+type: point
+events:
+    -   date: !date c1940
+        status: open
+        sources: !keyref src.de.Bfv.1944
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: IV
+        name: Güster
+        de.lknr: 27 300
+        service: passenger
+        sources: !keyref src.de.Bfv.1944
+    -   date: !!null
+        location: !keyloc line.de.1121 39,36
+        sources: !keyref src.de.DRG.Alt.Karte.1949
+    -   date: !!null
+        de.DS100: AGUE
+        de.dstnr: !!str 016857
+        sources: !keyref src.de.DS100.1984
+    -   date: !date c1990
+        service: none
+
+    -   date: !!null
+        site: !noderef path.de.1121 gus left
+
+
+---
+key: point.de.Roseburg
+type: point
+events:
+    -   date: !!null
+        name: Roseburg
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        de.lknr: 53 869
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        sources: !keyref src.de.Bfv.1944
+    -   date: !date 1938-01-01
+        de.Rangklasse: IV
+        de.lknr: 27 298
+        sources: !keyref src.de.Bfv.1944
+    -   date: !!null
+        location: !keyloc line.de.1121 41,73
+        sources: !keyref src.de.DRG.Alt.Karte.1949
+    -   date: !!null
+        de.DS100: AROS
+        de.dstnr: !!str 016865
+        sources: !keyref src.de.DS100.1984
+    -   date: !date c1980
+        category: de.Hst
+        sources: !keyref src.de.DS100.1984
+    -   date: !date c1995
+        status: closed
+
+    -   date: !!null
+        site: !noderef path.de.1121 ros left
+
+
+---
+key: point.de.Buechen-Nuessau
+type: point
+events:
+    -   date: !date c1950
+        status: open
+    -   date: !!null
+        category: de.Hp
+        name: Büchen-Nüssau
+        staff: none
+        de.DS100: ANUE
+        de.dstnr: !!str 016931
+        sources: !keyref src.de.DS100.1984
+    -   date: !!null
+        location: !keyloc line.de.1121 45,5
+    -   date: !date c1990
+        status: closed
+
+    -   date: !!null
+        site: !noderef path.de.1121 nus right
+
