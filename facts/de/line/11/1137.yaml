@@ -1,0 +1,77 @@
+# DE 1137.  Brandenbaum - Lübeck Konstinbahnhof
+#
+---
+key: line.de.1137
+type: line
+label: freight
+events:
+    -   date: !!null
+        region:
+            - !keyref org.de
+            - !keyref org.de.l.sh
+
+    -   date: !!null
+        de.VzG: !!str 1137
+        sources: !keyref src.de.VzG
+
+    #   Genehmigung
+    #
+
+    #   Eröffnung
+    #
+    -   date: !date 1923
+        status: open
+        sources: !keyref src.de.Hecht.2001
+
+    #   Eigenschaften
+    #
+    -   date: !!null
+        category: de.Anschl
+        tracks: 1
+        gauge: 1435
+
+    #   Eigentümer etc.
+    #
+    -   date: !!null
+        owner: !keyref org.de.e.LBE
+        operator: !keyref org.de.e.LBE
+        sources: !keyref src.de.WP.Luebecker-Hafenbahn
+    -   date: !date 1936-07
+        owner: !keyref org.de.Luebecker-Hafengesellschaft
+        operator: !keyref org.de.Luebecker-Hafengesellschaft
+        sources: !keyref src.de.WP.Luebecker-Hafenbahn
+    -   date: !date 2008-01-01
+        owner: !keyref org.de.Luebeck-Port-Authority
+        operator: !keyref org.de.Luebeck-Port-Authority
+        sources: !keyref src.de.WP.Luebecker-Hafenbahn
+
+    #   Verlauf
+    #
+    -   date: !!null
+        course:
+            - !pathref path.de.1131 bra  akon -1.0
+            - !pathref path.de.1137 a    f     0.0
+
+points:
+    - !keyref point.de.Brandenbaum                      # line.de.1131
+    - !keyref point.de.Luebeck-Konstinbahnhof
+
+
+---
+key: point.de.Luebeck-Konstinbahnhof
+type: point
+junction: True
+events:
+    -   date: !!null
+        category: de.Bf
+        name: Lübeck Konstinbahnhof
+        de.DS100: ALKO
+        de.dstnr: !!str 017525
+        sources: !keyref src.de.DS100.1984
+    -   date: !!null
+        location: !keyloc line.de.1137 5,800
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.1137 kon right
+
