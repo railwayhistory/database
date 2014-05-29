@@ -1,0 +1,35 @@
+# DE 1136.  Lübeck St Jürgen Gaswerk II - Lübeck St Jürgen Walkmühlenweg
+#
+---
+key: line.de.1136
+type: line
+progress: stub
+label: freight
+events:
+    -   date: !!null
+        region:
+            - !keyref org.de
+            - !keyref org.de.l.sh
+
+    -   date: !!null
+        de.VzG: !!str 1136
+        sources: !keyref src.de.VzG
+
+    -   date: !!null
+        course:
+            - !pathref path.de.1135 gas  awal  1.0
+            - !pathref path.de.1136 a    f     0.0
+
+points:
+    - !keyref point.de.Luebeck-St-Juergen-Gaswerk-II    # line.de.1135
+    - !keyref point.de.Luebeck-Walkmuehlenweg
+
+
+---
+key: point.de.Luebeck-Walkmuehlenweg
+type: point
+junction: True
+events:
+    -   date: !!null
+        name: Lübeck St Jürgen Walkmühlenweg
+        site: !noderef path.de.1136 wal left

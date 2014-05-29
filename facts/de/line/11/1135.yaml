@@ -1,0 +1,47 @@
+# DE 1135.  Lübeck Hgbf - Lübeck St Jürgen Steintor
+#
+---
+key: line.de.1135
+type: line
+progress: stub
+label: freight
+events:
+    -   date: !!null
+        region:
+            - !keyref org.de
+            - !keyref org.de.l.sh
+
+    -   date: !!null
+        de.VzG: !!str 1135
+        sources: !keyref src.de.VzG
+
+    -   date: !!null
+        course:
+            - !pathref path.de.1120 lug  akle -3.5
+            - !pathref path.de.1135 a    f     0.0
+
+points:
+    - !keyref point.de.Luebeck-Hgbf                     # line.de.1120
+    - !keyref point.de.Luebeck-St-Juergen-Gaswerk-II
+    - !keyref point.de.Luebeck-St-Juergen-Steinhof
+
+
+---
+key: point.de.Luebeck-St-Juergen-Gaswerk-II
+type: point
+junction: True
+events:
+    -   date: !!null
+        name: Lübeck St Jürgen Gaswerk II
+        site: !noderef path.de.1135 gas right
+
+
+---
+key: point.de.Luebeck-St-Juergen-Steinhof
+type: point
+junction: True
+events:
+    -   date: !!null
+        name: Lübeck St Jürgen Steinhof
+        short_name: Steinhof
+        site: !noderef path.de.1135 ste right
