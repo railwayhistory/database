@@ -1,3 +1,5 @@
+# DE 1120a.  Lübeck alter Bf - Richtung Hamburg
+#
 ---
 key: line.de.1120a
 type: line
@@ -5,38 +7,55 @@ events:
     -   date: !!null
         region:
             - !keyref org.de
-            - !keyref org.de.l.hh
+            - !keyref org.de.l.sh
 
-    -   date: !date c1880
+    #   Verträge und Konzessionen
+    #
+    -   date: !date 1862-11-29
+        concession:
+            by: !keyref org.de.l.lbk
+            for: !keyref org.de.e.LBE
+        sources: !keyref src.de.DRG.1935
+
+    #   Eröffnung
+    #
+    -   date: !date 1865-08-01
         status: open
-    -   date: !date c1905
-        status: removed
+        service: passenger
+        sources: !keyref src.de.DRG.1935
+    -   date: !date 1865-08-08
+        service: full
+        sources: !keyref src.de.DRG.1935
+    -   date: !date 1908-05-01
+        status: closed
 
+    #   Eigenschaften
+    #
+    -   date: !!null
+        category: de.Hauptbahn
+        tracks: 1
+        gauge: 1435
+        sources: !keyref src.de.DRG.1927
+    -   date: !date 1870
+        tracks: 2
+        sources: !keyref src.de.Hecht.2001
+
+    #   Eigentümer und Betreiber
+    #
     -   date: !!null
         owner: !keyref org.de.e.LBE
         operator: !keyref org.de.e.LBE
+        sources: !keyref src.de.DRG.1935
 
+    #   Verlauf
+    #
     -   date: !!null
         course:
-            - !pathref path.de.6100 lub alug
-            - !pathref path.de.1120a a   lug
+            - !pathref path.de.1121a lua  aold 1.5
+            - !pathref path.de.1120a a    f    0.0
+            - !pathref path.de.1120  flua gea  0.0
 
 points:
-    - !keyref point.de.Hamburg-Luebecker-Bf     # line.de.1120
-    - !keyref point.de.Hamburg-Luebecker-Gbf
-
-      
----
-key: point.de.Hamburg-Luebecker-Gbf
-type: point
-events:
-    -   date: !!null
-        category: de.Bf
-        name: Hamburg Lübecker Gbf
-        service: freight
-    -   date: !date c1950
-        status: closed
-
-    -   date: !!null
-        site: !noderef path.de.1120a lug
+    - !keyref point.de.Luebeck-alter-Bf                 # line.de.1121a
+    - !keyref point.de.Luebeck-Genin-Abzw               # line.de.1120
 

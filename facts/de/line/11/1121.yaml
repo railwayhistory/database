@@ -17,22 +17,26 @@ events:
     #   Staatsverträge und Genehmigung
     #
     -   date: !date 1847-06-23
+        start: !keyref point.de.Luebeck-Moenkhof
         contract:
             partners:
                 - !keyref org.de.l.lbk
                 - !keyref org.dk
         sources: !keyref src.de.DRG.1935
     -   date: !date 1850-02-18
+        start: !keyref point.de.Luebeck-Moenkhof
         concession:
             by: !keyref org.de.l.lau
             for: !keyref org.de.e.LBE
         sources: !keyref src.de.DRG.1935
     -   date: !date 1850-03-02
+        start: !keyref point.de.Luebeck-Moenkhof
         concession:
             by: !keyref org.de.l.lbk
             for: !keyref org.de.e.LBE
         sources: !keyref src.de.DRG.1935
     -   date: !date 1857-04-07
+        start: !keyref point.de.Luebeck-Moenkhof
         concession:
             by: !keyref org.dk
             for: !keyref org.de.e.LBE
@@ -41,8 +45,12 @@ events:
     #   Eröffnung und Einstellung
     #
     -   date: !date 1851-10-16
+        start: !keyref point.de.Luebeck-Moenkhof
         status: open
         sources: !keyref src.de.DRG.1935
+    -   date: !date 1908-05-01
+        end: !keyref point.de.Luebeck-Moenkhof
+        status: open
     -   date: !date c2010
         end: !keyref point.de.Luebeck-Hgbf-Abzw
         status: removed
@@ -77,7 +85,6 @@ events:
         owner: !keyref org.de.e.DBNetz
         operator: !keyref org.de.e.DBNetz
 
-
     #   Verlauf
     #
     -   date: !!null
@@ -92,7 +99,8 @@ points:
     - !keyref point.de.Luebeck-Hgbf                     # line.de.1120
     - !keyref point.de.Luebeck-Hgbf-Abzw                # line.de.1120
     - !keyref point.de.Luebeck-Juergen-Bk
-    - !keyref point.de.Luebeck-Juergen-Fehlstelle
+    - !keyref point.de.Luebeck-Moenkhof
+    - !keyref point.de.Luebeck-Moenkhof-Fehlstelle
     - !keyref point.de.Luebeck-Hochschulstadtteil
     - !keyref point.de.Luebeck-Flughafen
     - !keyref point.de.Luebeck-Blankensee
@@ -126,7 +134,18 @@ events:
 
 
 ---
-key: point.de.Luebeck-Juergen-Fehlstelle
+key: point.de.Luebeck-Moenkhof
+type: point
+junction: True
+subtype: reference
+events:
+    -   date: !!null
+        short_name: Lübeck Mönkhof
+        site: !noderef path.de.1121 mon
+
+
+---
+key: point.de.Luebeck-Moenkhof-Fehlstelle
 type: point
 subtype: break
 events:

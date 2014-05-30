@@ -17,10 +17,6 @@ events:
         de.VzG: !!str 1120
         sources: !keyref src.de.VzG
 
-    -   date: !!null
-        category: de.Hauptbahn
-        sources: !keyref src.de.DRG.1927
-
     #   Verträge und Konzessionen
     #
     -   date: !date 1858-06-17
@@ -49,15 +45,25 @@ events:
     #   Eröffnung
     #
     -   date: !date 1865-08-01
+        start: !keyref point.de.Luebeck-Genin-Abzw
         status: open
         service: passenger
         sources: !keyref src.de.DRG.1935
     -   date: !date 1865-08-08
+        start: !keyref point.de.Luebeck-Genin-Abzw
         service: full
         sources: !keyref src.de.DRG.1935
+    -   date: !date 1908-05-01
+        end: !keyref point.de.Luebeck-Genin-Abzw
+        status: open
 
-    #   Ausbau
+    #   Eigenschaften
     #
+    -   date: !!null
+        category: de.Hauptbahn
+        tracks: 1
+        gauge: 1435
+        sources: !keyref src.de.DRG.1927
     -   date: !date 1870
         tracks: 2
         sources: !keyref src.de.Hecht.2001
@@ -98,6 +104,8 @@ points:
     - !keyref point.de.Luebeck-Hbf                          # line.de.1100
     - !keyref point.de.Luebeck-Hgbf
     - !keyref point.de.Luebeck-Hgbf-Abzw
+    - !keyref point.de.Luebeck-Genin-Abzw
+    - !keyref point.de.Luebeck-Genin-Fehlstelle
     - !keyref point.de.Luebeck-Niendorf
     - !keyref point.de.Wesenburg
     - !keyref point.de.Reinfeld-Holst
@@ -191,6 +199,29 @@ events:
 
     -   date: !!null
         site: !noderef path.de.1120 lua left
+
+
+---
+key: point.de.Luebeck-Genin-Abzw
+type: point
+junction: True
+events:
+    -   date: !date 1908-05-01?
+        status: open
+    -   date: !!null
+        short_name: Genin Abzw
+
+    -   date: !!null
+        site: !noderef path.de.1120 gea left
+
+
+---
+key: point.de.Luebeck-Genin-Fehlstelle
+type: point
+subtype: break
+events:
+    -   date: !!null
+        location: !keyloc line.de.1120 4,7+50=5,8
 
 
 ---
