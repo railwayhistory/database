@@ -1,0 +1,278 @@
+# DE 1215.  St Michaelisdonn - Brunsbüttel Nord
+#
+---
+key: line.de.1215
+type: line
+events:
+    -   date: !!null
+        region:
+            - !keyref org.de
+            - !keyref org.de.l.sh
+
+    -   date: !!null
+        de.VzG: !!str 1215
+        sources: !keyref src.de.VzG
+
+    #   Genehmigung
+    #
+    -   date: !date 1907-11-17
+        start: !keyref point.de.Eddelak
+        concession:
+            by: !keyref org.de
+            document: !keyref src.de.RGBl.1897.323
+        sources: !keyref src.de.DRG.1935
+
+    #   Eröffnung und Einstellung
+    #
+    -   date: !date 1920-06-01
+        status: open
+        sources: !keyref src.de.DRG.1935
+    -   date: !date 1969-09-27
+        passenger: none
+        sources: !keyref src.de.web.Dammbrueck.News
+    -   date: !date c1990
+        start: !keyref point.de.Brunsbuettel-Condea
+        status: removed
+        sources: !keyref src.de.SuW.2000
+
+    #   Eigenschaften
+    #
+    -   date: !!null
+        category: de.Nebenbahn
+        tracks: 1
+        gauge: 1435
+        sources: !keyref src.de.DRG.1927
+
+    #   Eigentümer etc.
+    #
+    -   date: !!null
+        owner: !keyref org.de
+        operator: !keyref org.de.r.RVM.PH
+    -   date: !date 1924-02-12
+        operator: !keyref org.de.e.DREb
+    -   date: !date 1924-08-30
+        operator: !keyref org.de.e.DRG
+
+    -   date: !var org.de.DB.start
+        operator: !keyref org.de.e.DB
+
+    -   date: !var org.de.DBAG.start
+        owner: !keyref org.de.e.DBAG
+        operator: !keyref org.de.e.DBAG
+    -   date: !var org.de.DBNetz.start
+        owner: !keyref org.de.e.DBNetz
+        operator: !keyref org.de.e.DBNetz
+
+    #   Verlauf
+    #
+    -   date: !!null
+        course:
+            - !pathref path.de.1210 smi  fbrk  1.5
+            - !pathref path.de.1215 a    f     0.0
+
+points:
+    - !keyref point.de.St-Michaelisdonn                 # line.de.1210
+    - !keyref point.de.Dingerdonn
+    - !keyref point.de.Eddelak
+    - !keyref point.de.Averlak
+    - !keyref point.de.Blangenmoor
+    - !keyref point.de.Blangenmoor-Lehe
+    - !keyref point.de.Brunsbuettel-Condea
+    - !keyref point.de.Josenburg
+    - !keyref point.de.Brunsbuettel-Nord
+
+
+---
+key: point.de.Dingerdonn
+type: point
+events:
+    -   date: !date c1950
+        status: open
+        category: de.Hp
+        location: !keyloc line.de.1215 2,8
+        name: Dingerdonn
+        service: passenger
+        staff: none
+    -   date: !date 1969-09-27?
+        status: closed
+
+    -   date: !!null
+        site: !noderef path.de.1215 din left
+
+
+---
+key: point.de.Eddelak
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.1210c 59,5
+    -   date: !!null
+        name: Eddelak
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        de.lknr: 01 093
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: IV
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 01 507
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location: !keyloc line.de.1215 5,12
+        sources: !keyref src.de.DRG.Alt.Karte.1949
+    -   date: !date c1970
+        category: de.Anst
+        sources: !keyref src.de.DS100.1984
+    -   date: !!null
+        de.DS100: AEK
+        de.dstnr: !!str 015073
+        sources: !keyref src.de.DS100.1984
+    -   date: !date c2000
+        status: closed
+
+    -   date: !!null
+        site: !noderef path.de.1215 edd right
+
+
+---
+key: point.de.Averlak
+type: point
+events:
+    -   date: !date c1950
+        status: open
+        category: de.Hp
+        location: !keyloc line.de.1215 5,8
+        name: Averlak
+        service: passenger
+        staff: none
+    -   date: !date 1969-09-27?
+        status: closed
+
+    -   date: !!null
+        site: !noderef path.de.1215 ave left
+
+
+---
+key: point.de.Blangenmoor
+type: point
+events:
+    -   date: !!null
+        name: Blangenmoor
+        de.lknr: 01 094
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: IV
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 01 508
+        sources: !keyref src.de.Bfv.1933
+    -   date: !date c1930
+        staff: agent
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location: !keyloc line.de.1215 7,75
+        sources: !keyref src.de.DRG.Alt.Karte.1949
+    -   date: !date c1970
+        status: closed
+
+    -   date: !!null
+        site: !noderef path.de.1215 bla left
+
+
+---
+key: point.de.Blangenmoor-Lehe
+type: point
+events:
+    -   date: !date c1950
+        status: open
+        category: de.Hp
+        location: !keyloc line.de.1215 8,7
+        name: Blangenmoor-Lehe
+        service: passenger
+        staff: none
+    -   date: !date 1969-09-27?
+        status: closed
+
+    -   date: !!null
+        site: !noderef path.de.1215 ble left
+
+
+---
+key: point.de.Brunsbuettel-Condea
+type: point
+events:
+    -   date: !date c1970
+        status: open
+    -   date: !!null
+        category: de.Anst
+        name: Condea
+        de.DS100: ASDC
+        sources: !keyref src.de.DS100.1984
+    -   date: !!null
+        location: !keyloc line.de.1215 9,964
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.1215 con right
+
+
+---
+key: point.de.Josenburg
+type: point
+events:
+    -   date: !!null
+        name: Josenburg
+        de.lknr: 01 357
+        service: passenger
+        staff: none
+        master: !keyref point.de.Brunsbuettel-Nord
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Hp
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 01 509
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location: !keyloc line.de.1215 10,16
+        sources: !keyref src.de.DRG.Alt.Karte.1949
+    -   date: !date 1969-09-27?
+        status: closed
+
+    -   date: !!null
+        site: !noderef path.de.1215 jos left
+
+
+---
+key: point.de.Brunsbuettel-Nord
+type: point
+events:
+    -   date: !!null
+        name: Brunsbüttelkoog Nord
+        de.lknr: 01 095
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: IV
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 01 510
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location: !keyloc line.de.1215 12,06
+        sources: !keyref src.de.DRG.Alt.Karte.1949
+    -   date: !!null
+        de.DS100: ABKN
+        de.dstnr: !!str 015107
+        sources: !keyref src.de.DS100.1984
+    -   date: !date c1970
+        name: Brunsbüttel Nord
+        staff: none
+        sources: !keyref src.de.DS100.1984
+
+    -   date: !!null
+        site: !noderef path.de.1215 bru left
+
