@@ -1,0 +1,336 @@
+# DE 1214.  Wilster - Brunsbüttel
+#
+---
+key: line.de.1214
+type: line
+events:
+    -   date: !!null
+        region:
+            - !keyref org.de
+            - !keyref org.de.l.sh
+
+    -   date: !!null
+        de.VzG: !!str 1214
+        sources: !keyref src.de.VzG
+
+    #   Genehmigung
+    #
+    -   date: !date 1888-09-22
+        start: !keyref point.de.St-Margarethen
+        concession:
+            by: !keyref org.de.l.pre
+            document: !keyref src.de.l.pre.sle.1888.51
+        sources: !keyref src.de.DRG.1935
+
+    #   Eröffnung und Einstellung
+    #
+    -   date: !date 1893-05-01
+        start: !keyref point.de.St-Margarethen
+        status: open
+        sources: !keyref src.de.DRG.1935
+    -   date: !date 1920-06-01
+        end: !keyref point.de.St-Margarethen
+        status: open
+        sources: !keyref src.de.DRG.1935
+
+    -   date: !date 1988-05-29
+        passenger: none
+        sources: !keyref src.de.web.Dammbrueck.News
+
+    #   Eigenschaften
+    #
+    -   date: !!null
+        category: de.Nebenbahn
+        tracks: 1
+        gauge: 1435
+
+    #   Eigentümer etc.
+    #
+    -   date: !!null
+        owner: !keyref org.de.l.pre
+        operator: !keyref org.de.e.KPEV.Alt
+        sources: !keyref src.de.DRG.1935
+
+    -   date: !date 1920-04-01
+        owner: !keyref org.de
+        operator: !keyref org.de.r.RVM.PH
+    -   date: !date 1924-02-12
+        operator: !keyref org.de.e.DREb
+    -   date: !date 1924-08-30
+        operator: !keyref org.de.e.DRG
+
+    -   date: !var org.de.DB.start
+        operator: !keyref org.de.e.DB
+
+    -   date: !var org.de.DBAG.start
+        owner: !keyref org.de.e.DBAG
+        operator: !keyref org.de.e.DBAG
+    -   date: !var org.de.DBNetz.start
+        owner: !keyref org.de.e.DBNetz
+        operator: !keyref org.de.e.DBNetz
+
+    #   Verlauf
+    #
+    -   date: !!null
+        course:
+            - !pathref path.de.1210  abrx abru  0.0
+            - !pathref path.de.1214  a    f     0.0
+
+points:
+    - !keyref point.de.Wilster                          # line.de.1210
+    - !keyref point.de.Rumfleth
+    - !keyref point.de.Schotten-Steinburg
+    - !keyref point.de.Nortorf-Steinburg
+    - !keyref point.de.Landscheide
+    - !keyref point.de.St-Margarethen
+    - !keyref point.de.Kudensee
+    - !keyref point.de.Brunsbuettel-Ost
+    - !keyref point.de.Brunsbuettel
+
+
+---
+key: point.de.Rumfleth
+type: point
+events:
+    -   date: !date c1950
+        status: open
+    -   date: !!null
+        category: de.Hp
+        name: Rumfleth
+        staff: none
+        de.DS100: ARUM
+        de.dstnr: !!str 010017
+        sources: !keyref src.de.DS100.1984
+    -   date: !!null
+        location: !keyloc line.de.1214 1,2
+        service: passenger
+    -   date: !date 1988-05-29?
+        status: closed
+
+    -   date: !!null
+        site: !noderef path.de.1214 rum
+
+
+---
+key: point.de.Schotten-Steinburg
+type: point
+events:
+    -   date: !date c1950
+        status: open
+    -   date: !!null
+        category: de.Hp
+        name: Schotten (Kr Steinburg)
+        staff: none
+        de.DS100: ASHO
+        de.dstnr: !!str 010033
+        sources: !keyref src.de.DS100.1984
+    -   date: !!null
+        location: !keyloc line.de.1214 4,3
+        service: passenger
+    -   date: !date 1980-09-27?
+        status: closed
+
+    -   date: !!null
+        site: !noderef path.de.1214 sot left
+
+
+---
+key: point.de.Nortorf-Steinburg
+type: point
+events:
+    -   date: !date c1950
+        status: open
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: II
+        location: !keyloc line.de.1214 5,5
+    -   date: !!null
+        name: Nortorf (Kr Steinburg)
+        de.DS100: ANOR
+        de.dstnr: !!str 010041
+        sources: !keyref src.de.DS100.1984
+    -   date: !date c1960
+        category: de.Hp
+        sources: !keyref src.de.DS100.1984
+    -   date: !date c1990
+        status: closed
+
+    -   date: !!null
+        site: !noderef path.de.1214 nor left
+
+
+---
+key: point.de.Landscheide
+type: point
+events:
+    -   date: !date c1950
+        status: open
+    -   date: !!null
+        category: de.Hp
+        name: Landscheide
+        staff: none
+        de.DS100: ALDS
+        de.dstnr: !!str 010058
+        sources: !keyref src.de.DS100.1984
+    -   date: !!null
+        location: !keyloc line.de.1214 7,3
+        service: passenger
+    -   date: !date 1988-05-29?
+        status: closed
+
+    -   date: !!null
+        site: !noderef path.de.1214 lan
+
+
+---
+key: point.de.St-Margarethen
+type: point
+junction: True
+events:
+    -   date: !!null
+        name: St Margarethen
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        location: !keyloc line.de.1210c 46,6
+    -   date: !!null
+        de.lknr: 01 088
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: IV
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 01 500
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location: !keyloc line.de.1214 8,82
+        sources: !keyref src.de.DRG.Alt.Karte.1949
+    -   date: !!null
+        de.DS100: ASM
+        de.dstnr: !!str 015008
+        sources: !keyref src.de.DS100.1984
+    -   date: !date c1960
+        name: St Margarethen (Holst)
+        sources: !keyref src.de.DS100.1984
+    -   date: !date 1988-05-29
+        category: de.Anst
+        sources: !keyref src.de.Bock.1989
+
+    -   date: !!null
+        site: !noderef path.de.1214 sma left
+
+
+
+---
+key: point.de.Kudensee
+type: point
+events:
+    -   date: !date c1950
+        status: open
+    -   date: !!null
+        category: de.Hst
+        name: Kudensee
+        staff: none
+        de.DS100: AKUD
+        de.dstnr: !!str 010066
+        sources: !keyref src.de.DS100.1984
+    -   date: !!null
+        location: !keyloc line.de.1214 10,9
+        sources: !keyref src.de.SuW.2005
+    -   date: !date c1990
+        category: de.Awanst
+
+    -   date: !!null
+        site: !noderef path.de.1214 kud left
+
+
+---
+key: point.de.Brunsbuettel-Ost
+type: point
+events:
+    -   date: !date c1950
+        status: open
+    -   date: !!null
+
+    -   date: !!null
+        category: de.Awanst
+        location: !keyloc line.de.1214 14,2
+        name: Brunsbüttel Ost
+        de.DS100: ABKO
+        sources:
+            - !keyref src.de.SuW.2005
+            - !keyref src.de.TPP.2006
+
+
+---
+key: point.de.Brunsbuettel-Ost
+type: point
+events:
+    -   date: !!null
+        name: Ostermoor
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        service: passenegr
+        de.lknr: 01 356
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Hp
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 01 501
+        sources: !keyref src.de.Bfv.1933
+    -   date: !date c1938
+        category: de.Bf
+        de.Rangklasse: IV
+        sources: !keyref src.de.Bfv.1938
+    -   date: !!null
+        location: !keyloc line.de.1214 13,80
+        sources: !keyref src.de.DRG.Alt.Karte.1949
+    -   date: !date c1960
+        category: de.Hst
+        staff: none
+        name: Brunsbüttel Ost
+        sources: !keyref src.de.DS100.1984
+    -   date: !!null
+        de.DS100: ABKO
+        de.dstnr: !!str 015016
+    -   date: !date c1990
+        category: de.Awanst
+
+    -   date: !!null
+        site: !noderef path.de.1214 bro left
+
+
+---
+key: point.de.Brunsbuettel
+type: point
+junction: True
+events:
+    -   date: !!null
+        name: Brunsbüttelkoog
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        de.lknr: 01 089
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: II
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 01 502
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location: !keyloc line.de.1214 15,64
+        sources: !keyref src.de.DRG.Alt.Karte.1949
+    -   date: !!null
+        de.DS100: ABK
+        de.dstnr: !!str 015024
+        sources: !keyref src.de.DS100.1984
+    -   date: !date c1960
+        name: Brunsbüttel
+        sources: !keyref src.de.DS100.1984
+    -   date: !date 1988-05-29
+        service: freight
+
+    -   date: !!null
+        site: !noderef path.de.1214 bru left
