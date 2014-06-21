@@ -1,6 +1,8 @@
+# DE 1213.  Glückstadt - Glückstadt Hafen
 ---
 key: line.de.12030
 type: line
+label: port
 progress: stub
 events:
     -   date: !!null
@@ -12,9 +14,17 @@ events:
         de.VzG: !!str 1213
         sources: !keyref src.de.VzG
 
+    #   Verlauf
+    #
+    -   date: !!null
+        course:
+            - !pathref path.de.1210 ghw fglh 0.5
+            - !pathref path.de.1213 a   f    0.0
+
 points:
-    - !keyref point.de.Glueckstadt              # line.de.12000
+    - !keyref point.de.Glueckstadt-Hafenweiche          # line.de.1210
     - !keyref point.de.Glueckstadt-Hafen
+
 
 ---
 key: point.de.Glueckstadt-Hafen
@@ -22,4 +32,5 @@ type: point
 events:
     -   date: !!null
         name: Glückstadt Hafen
+        site: !noderef path.de.1213 glh right
 
