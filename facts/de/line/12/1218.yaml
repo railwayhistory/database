@@ -1,0 +1,68 @@
+# DE 1218.  Itzehoe Alsen - Lägerdorf
+#
+---
+key: line.de.1218
+type: line
+label: freight
+events:
+    -   date: !!null
+        region:
+            - !keyref org.de
+            - !keyref org.de.l.sh
+
+    -   date: !!null
+        de.VzG: !!str 1218
+        sources: !keyref src.de.VzG
+
+    #   Eröffnung
+    #
+    -   date: !date 1951-11-19
+        status: open
+        passenger: none
+        sources: !keyref src.de.DB.Hmb.1984
+
+    #   Eigenschaften
+    #
+    -   date: !!null
+        category: de.Anschl
+        tracks: 1
+        gauge: 1435
+        sources: !keyref src.de.SuW.2005
+
+    #   Eigentümer etc.
+    #
+    -   date: !!null
+        owner: !keyref org.de.u.APZ
+        operator: !keyref org.de.e.DB
+        sources: !keyref src.de.DB.Hmb.1984
+    -   date: !var org.de.DBAG.start
+        operator: !keyref org.de.e.DBAG
+    -   date: !var org.de.DBNetz.start
+        operator: !keyref org.de.e.DBNetz
+
+    #   Verlauf
+    #
+    -   date: !!null
+        course:
+            - !pathref path.de.1210 als  flag -1.5
+            - !pathref path.de.1218 a    f     0.0
+
+points:
+    - !keyref point.de.Itzehoe-Alsen                    # line.de.1210
+    - !keyref point.de.Laegerdorf
+
+
+---
+key: point.de.Laegerdorf
+type: point
+events:
+    -   date: !!null
+        category: de.Anst
+        location: !keyloc line.de.1218 7,7
+        name: Lägerdorf
+        de.DS100: ALGD
+        sources: !keyref src.de.SuW.2005
+
+    -   date: !!null
+        site: !noderef path.de.1218 lag right
+
