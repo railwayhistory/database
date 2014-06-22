@@ -1,7 +1,7 @@
-#
+# DE 8618.  Pritzwalk Kleinb - Vettin
 #
 ---
-key: line.de.8617
+key: line.de.8618
 type: line
 events:
     -   date: !!null
@@ -11,7 +11,7 @@ events:
 
     #   Eröffnung und Einstellung
     #
-    -   date: !date 1897-10-15
+    -   date: !date 1908-01-08
         status: open
         sources: !keyref src.de.WP.Kleinbahnen-der-Kreise-West-und-Ostprignitz
     -   date: !date 1969-05-31
@@ -48,44 +48,96 @@ events:
     #
     -   date: !!null
         course:
-            - !pathref path.de.8616  rea  abre  0.0
-            - !pathref path.de.8617  a    f     0.0
-            - !pathref path.de.6100  areh brk  -1.5
+            - !pathref path.de.6938  prk  xprk  2.0
+            - !pathref path.de.6941  aprk flin -1.0
+            - !pathref path.de.8618  a    f    -1.5
+            - !pathref path.de.8616  fpri vet   0.0
 
 points:
-    - !keyref point.de.Rehfeld-Prign-Abzw               # line.de.8616
-    - !keyref point.de.Berlitt
-    - !keyref point.de.Barenthin-Abbau
-    - !keyref point.de.Barenthin
-    - !keyref point.de.Koetzlin
-    - !keyref point.de.Breddin-Kleinb
+    - !keyref point.de.Pritzwalk-Kleinb                 # line.de.6945
+    - !keyref point.de.Holzlaenderhof
+    - !keyref point.de.Kuhsdorf
+    - !keyref point.de.Bullendorf-Prign
+    - !keyref point.de.Mesendorf
+    - !keyref point.de.Klenzenhof
+    - !keyref point.de.Bruenkendorf
+    - !keyref point.de.Vettin                           # line.de.8616
 
 
 ---
-key: point.de.Berlitt
+key: point.de.Holzlaenderhof
 type: point
 events:
-    -   date: !date c1910
+    -   date: !!null
+        category: de.Hp
+        name: Holzländerhof
+        sources: !keyref src.de.mtbl.2838.1926
+
+    -   date: !!null
+        site: !noderef path.de.8618 hol right
+
+
+---
+key: point.de.Kuhsdorf
+type: point
+events:
+    -   date: !!null
+        name: Kuhsdorf
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        category: de.Hp
+        sources: !keyref src.de.mtbl.2838.1926
+    -   date: !var lknr.kb
+        de.lknr: 46 022
+        sources: !keyref src.de.Bfv.1938
+
+    -   date: !!null
+        site: !noderef path.de.8618 kuh right
+
+
+---
+key: point.de.Bullendorf-Prign
+type: point
+events:
+    -   date: !date c1920
         status: open
         sources:
-            - !keyref src.de.Kb.1905
             - !keyref src.de.Kb.1914
+            - !keyref src.de.Bfv.1928
     -   date: !!null
-        name: Berlitt
+        category: de.Hp
+        sources: !keyref src.de.mtbl.2838.1926
+    -   date: !!null
+        name: Bullendorf
+        sources: !keyref src.de.Bfv.1928
+    -   date: !var lknr.kb
+        de.lknr: 46 021
+        sources: !keyref src.de.Bfv.1938
+    -   date: !date c1940
+        name: Bullendorf (Prign)
+        sources: !keyref src.de.Bfv.1944
+
+    -   date: !!null
+        site: !noderef path.de.8618 bul right
+
+
+---
+key: point.de.Mesendorf
+type: point
+events:
+    -   date: !!null
+        name: Mesendorf
         sources: !keyref src.de.Kb.1914
     -   date: !var lknr.kb
-        de.lknr: 46 009
+        de.lknr: 46 020
         sources: !keyref src.de.Bfv.1938
-    -   date: !!null
-        category: de.Bf
-        sources: !keyref src.de.mtbl.3039.1898
 
     -   date: !!null
-        site: !noderef path.de.8617 ber right
+        site: !noderef path.de.8618 mes right
 
 
 ---
-key: point.de.Barenthin-Abbau
+key: point.de.Klenzenhof
 type: point
 events:
     -   date: !date c1920
@@ -94,42 +146,20 @@ events:
             - !keyref src.de.Kb.1914
             - !keyref src.de.Bfv.1928
     -   date: !!null
-        name: Barenthin-Abbau
+        name: Klenzenhof
         sources: !keyref src.de.Bfv.1928
-    -   date: !date c1930
-        name: Barenthin Abbau
-        sources: !keyref src.de.Bfv.1933
     -   date: !var lknr.kb
-        de.lknr: 46 010
+        de.lknr: 46 019
         sources: !keyref src.de.Bfv.1938
     -   date: !!null
-        category: de.Bf
-        sources: !keyref src.de.mtbl.3039.1898
+        category: de.Hp
 
     -   date: !!null
-        site: !noderef path.de.8617 baa left
+        site: !noderef path.de.8618 kle right
 
 
 ---
-key: point.de.Barenthin
-type: point
-events:
-    -   date: !!null
-        name: Barenthin
-        sources: !keyref src.de.Kb.1905
-    -   date: !var lknr.kb
-        de.lknr: 46 011
-        sources: !keyref src.de.Bfv.1938
-    -   date: !!null
-        category: de.Bf
-        sources: !keyref src.de.mtbl.3039.1898
-
-    -   date: !!null
-        site: !noderef path.de.8617 bar left
-
-
----
-key: point.de.Koetzlin
+key: point.de.Bruenkendorf
 type: point
 events:
     -   date: !date c1920
@@ -138,37 +168,14 @@ events:
             - !keyref src.de.Kb.1914
             - !keyref src.de.Bfv.1928
     -   date: !!null
-        name: Kötzlin
+        name: Brünkendorf
         sources: !keyref src.de.Bfv.1928
     -   date: !var lknr.kb
-        de.lknr: 46 012
+        de.lknr: 46 018
         sources: !keyref src.de.Bfv.1938
-    -   date: !!null
-        category: de.Bf
-        sources: !keyref src.de.mtbl.3039.1898
 
     -   date: !!null
-        site: !noderef path.de.8617 kot right
+        site: !noderef path.de.8618 bru left
 
 
----
-key: point.de.Breddin-Kleinb
-type: point
-junction: True
-events:
-    -   date: !!null
-        name: Breddin
-        sources: !keyref src.de.Kb.1905
-    -   date: !date c1930
-        name: Breddin Kleinb
-        sources: !keyref src.de.Bfv.1933
-    -   date: !var lknr.kb
-        de.lknr: 46 013
-        sources: !keyref src.de.Bfv.1938
-    -   date: !!null
-        category: de.Bf
-
-    -   date: !!null
-        site: !noderef path.de.6100 brk right
-        connection: !keyref point.de.Breddin
 
