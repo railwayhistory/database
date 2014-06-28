@@ -1,0 +1,484 @@
+# DE 1206.  Heide (Holst) - Büsum
+#
+---
+key: line.de.1206
+type: line
+events:
+    -   date: !!null
+        region:
+            - !keyref org.de
+            - !keyref org.de.l.sh
+
+    -   date: !!null
+        de.VzG: !!str 1206
+        sources: !keyref src.de.VzG
+
+    #   Genehmigungen
+    #
+    -   date: !date 1875-07-21
+        end: !keyref point.de.Weddinghusen
+        concession:
+            by: !keyref org.de.l.pre
+            for: !keyref org.de.e.WHEG
+            document: !keyref src.de.l.pre.sle.1875.49.395
+        sources: !keyref src.de.DRG.1935
+    -   date: !date 1878-07-22
+        start: !keyref point.de.Weddinghusen
+        end: !keyref point.de.Wesselburen
+        concession:
+            by: !keyref org.de.l.pre
+            for: !keyref org.de.e.WbHEG
+            document: !keyref src.de.l.pre.sle.1878.45
+        sources: !keyref src.de.DRG.1935
+    -   date: !date 1883-09-12
+        start: !keyref point.de.Wesselburen
+        concession:
+            by: !keyref org.de.l.pre
+            for: !keyref org.de.e.WHEG
+            document: !keyref src.de.l.pre.sle.1883.49.575
+        sources: !keyref src.de.DRG.1935
+
+    #   Eröffnung und Einstellung
+    #
+    -   date: !date 1877-08-22
+        end: !keyref point.de.Weddinghusen
+        status: open
+        sources: !keyref src.de.DRG.1935
+    -   date: !date 1878-11-01
+        start: !keyref point.de.Weddinghusen
+        end: !keyref point.de.Wesselburen
+        status: open
+        sources: !keyref src.de.DRG.1935
+    -   date: !date 1883-11-01
+        start: !keyref point.de.Wesselburen
+        status: open
+        passenger: none
+        sources: !keyref src.de.DRG.1935
+    -   date: !date 1883-11-15
+        start: !keyref point.de.Wesselburen
+        passenger: full
+        sources: !keyref src.de.DRG.1935
+
+    #   Eigenschaften
+    #
+    -   date: !!null
+        category: de.Nebenbahn
+        tracks: 1
+        gauge: 1435
+        sources: !keyref src.de.DRG.1927
+
+    #   Eigentümer etc.
+    #
+    -   date: !!null
+        end: !keyref point.de.Weddinghusen
+        owner: !keyref org.de.e.WHEG
+        operator: !keyref org.de.e.WHEG
+        sources: !keyref src.de.DRG.1935
+    -   date: !!null
+        start: !keyref point.de.Weddinghusen
+        end: !keyref point.de.Wesselburen
+        owner: !keyref org.de.e.WbHEG
+        operator: !keyref org.de.e.WHEG
+        sources: !keyref src.de.DRG.1935
+    -   date: !!null
+        start: !keyref point.de.Wesselburen
+        owner: !keyref org.de.e.WHEG
+        operator: !keyref org.de.e.WHEG
+        sources: !keyref src.de.DRG.1935
+
+    -   date: !date 1881-04-01
+        owner: !keyref org.de.e.WHEG
+        end: !keyref point.de.Wesselburen
+        note: |
+            „Durch Kaufvertrag vom 23. Dezember 1880 ging diese Bahn
+            am 1. April 1881 auf die Westholsteinische
+            Eisenbahn-Gesellschaft über.“
+        sources: !keyref src.de.DRG.1935
+
+    -   date: !date 1890-04-01
+        owner: !keyref org.de.l.pre
+        operator: !keyref org.de.e.KPEV.Alt
+
+    -   date: !date 1920-04-01
+        owner: !keyref org.de
+        operator: !keyref org.de.r.RVM.PH
+    -   date: !date 1924-02-12
+        operator: !keyref org.de.e.DREb
+    -   date: !date 1924-08-30
+        operator: !keyref org.de.e.DRG
+
+    -   date: !var org.de.DB.start
+        operator: !keyref org.de.e.DB
+
+    -   date: !var org.de.DBAG.start
+        owner: !keyref org.de.e.DBAG
+        operator: !keyref org.de.e.DBAG
+    -   date: !var org.de.DBNetz.start
+        owner: !keyref org.de.e.DBNetz
+        operator: !keyref org.de.e.DBNetz
+
+    #   Verlauf
+    #
+    -   date: !!null
+        course:
+            - !pathref path.de.1210  hei  awex  1.5
+            - !pathref path.de.1210  fwex abus -1.5
+            - !pathref path.de.1206  a    f     0.0
+
+points:
+    - !keyref point.de.Heide-Holst                      # line.de.1210
+    - !keyref point.de.Weddinghusen
+    - !keyref point.de.Dellweg
+    - !keyref point.de.Tiebensee
+    - !keyref point.de.Haferwisch
+    - !keyref point.de.Jarrenwisch
+    - !keyref point.de.Wesselburen
+    - !keyref point.de.Suederdeich
+    - !keyref point.de.Reinsbuettel
+    - !keyref point.de.Osterhof
+    - !keyref point.de.Buesum
+
+
+---
+key: point.de.Weddinghusen
+type: point
+junction: True
+events:
+    -   date: !!null
+        name: Weddinghusen
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        location:
+            - !keyloc line.de.1206 3,33
+            - !keyloc line.de.1207 3,33
+        sources: !keyref src.de.DRG.Alt.Karte.1949
+    -   date: !!null
+        de.lknr: 01 111
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: IV
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 01 534
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        de.DS100: AWDH
+        de.dstnr: !!str 015347
+        sources: !keyref src.de.DS100.1984
+    -   date: !date c1970
+        category: de.Hst
+        staff: none
+        sources: !keyref src.de.DS100.1984
+    -   date: !date c1990
+        status: closed
+
+    -   date: !!null
+        site:
+            - !noderef path.de.1210 weh left
+            - !noderef path.de.1206 weh right
+
+
+---
+key: point.de.Dellweg
+type: point
+events:
+    -   date: !date c1950
+        status: open
+        category: de.Hp
+        location: !keyloc line.de.1206 6,0
+        name: Dellweg
+        service: passenger
+        staff: none
+    -   date: !date c1980
+        status: closed
+
+    -   date: !!null
+        site: !noderef path.de.1206 del
+
+
+---
+key: point.de.Tiebensee
+type: point
+events:
+    -   date: !!null
+        name: Tiebensee
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        de.lknr: 01 112
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: IV
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 01 535
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location: !keyloc line.de.1206 8,08
+        sources: !keyref src.de.DRG.Alt.Karte.1949
+    -   date: !!null
+        de.DS100: ATB
+        de.dstnr: !!str 015354
+        sources: !keyref src.de.DS100.1984
+    -   date: !date c1970
+        category: de.Hst
+        staff: none
+        sources: !keyref src.de.DS100.1984
+    -   date: !date c1990
+        location: !keyloc line.de.1206 8,167
+        category: de.Hp
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.1206 tie left
+
+
+---
+key: point.de.Haferwisch
+type: point
+events:
+    -   date: !!null
+        name: Haferwisch
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        de.lknr: 01 113
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: IV
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 01 536
+        sources: !keyref src.de.Bfv.1933
+    -   date: !date c1930
+        staff: agent
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location: !keyloc line.de.1206 10,52
+        sources: !keyref src.de.DRG.Alt.Karte.1949
+    -   date: !!null
+        de.DS100: AHAH
+        de.dstnr: !!str 015362
+        sources: !keyref src.de.DS100.1984
+    -   date: !date c1980
+        category: de.Hp
+        staff: none
+        sources: !keyref src.de.DS100.1984
+    -   date: !date 2006
+        status: closed
+        sources: !keyref src.de.TPP.2007
+
+    -   date: !!null
+        site: !noderef path.de.1206 haf left
+
+
+---
+key: point.de.Jarrenwisch
+type: point
+events:
+    -   date: !!null
+        name: Jarrenwisch
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        de.lknr: 01 114
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: IV
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 01 537
+        sources: !keyref src.de.Bfv.1933
+    -   date: !date c1930
+        staff: agent
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location: !keyloc line.de.1206 11,90
+        sources: !keyref src.de.DRG.Alt.Karte.1949
+    -   date: !!null
+        de.DS100: AJHH
+        de.dstnr: !!str 015370
+        sources: !keyref src.de.DS100.1984
+    -   date: !date c1980
+        category: de.Hp
+        service: passenger
+        sources: !keyref src.de.DS100.1984
+
+    -   date: !!null
+        site: !noderef path.de.1206 jar left
+
+
+---
+key: point.de.Wesselburen
+type: point
+junction: True
+events:
+    -   date: !!null
+        name: Wesselburen
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        de.lknr: 01 115
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: III
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 01 538
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location: !keyloc line.de.1206 13,96
+        sources: !keyref src.de.DRG.Alt.Karte.1949
+    -   date: !!null
+        de.DS100: AWBU
+        de.dstnr: !!str 015388
+        sources: !keyref src.de.DS100.1984
+    -   date: !date c2000
+        category: de.Hp
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.1206 wes right
+
+
+---
+key: point.de.Suederdeich
+type: point
+events:
+    -   date: !!null
+        name: Süderdeich
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        de.lknr: 01 116
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: IV
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 01 539
+        sources: !keyref src.de.Bfv.1933
+    -   date: !date c1930
+        staff: agent
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location: !keyloc line.de.1206 15,64
+        sources: !keyref src.de.DRG.Alt.Karte.1949
+    -   date: !!null
+        de.DS100: ASDD
+        de.dstnr: !!str 015396
+        sources: !keyref src.de.DS100.1984
+    -   date: !date c1970
+        category: de.Hst
+        staff: none
+        sources: !keyref src.de.DS100.1984
+    -   date: !date c1990
+        category: de.Hp
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.1206 sde right
+
+
+---
+key: point.de.Reinsbuettel
+type: point
+events:
+    -   date: !!null
+        name: Reinsbüttel
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        de.lknr: 01 117
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: IV
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 01 540
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location: !keyloc line.de.1206 17,68
+        sources: !keyref src.de.DRG.Alt.Karte.1949
+    -   date: !!null
+        de.DS100: ARE
+        de.dstnr: !!str 015404
+        sources: !keyref src.de.DS100.1984
+    -   date: !date c1980
+        category: de.Hp
+        staff: none
+        sources: !keyref src.de.DS100.1984
+
+    -   date: !!null
+        site: !noderef path.de.1206 rei left
+
+
+---
+key: point.de.Osterhof
+type: point
+events:
+    -   date: !!null
+        name: Osterhof
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        de.lknr: 01 118
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: IV
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 01 541
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location: !keyloc line.de.1206 20,27
+        sources: !keyref src.de.DRG.Alt.Karte.1949
+    -   date: !!null
+        de.DS100: AOHF
+        de.dstnr: !!str 015412
+        sources: !keyref src.de.DS100.1984
+    -   date: !date c1970
+        category: de.Hst
+        staff: none
+        sources: !keyref src.de.DS100.1984
+    -   date: !date c1990
+        category: de.Hp
+    -   date: !date 2006
+        status: closed
+        sources: !keyref src.de.TPP.2007
+
+    -   date: !!null
+        site: !noderef path.de.1206 oho left
+
+
+---
+key: point.de.Buesum
+type: point
+junction: True
+events:
+    -   date: !!null
+        name: Büsum
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        de.lknr: 01 119
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: III
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 01 542
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location: !keyloc line.de.1206 23,90
+        sources: !keyref src.de.DRG.Alt.Karte.1949
+    -   date: !!null
+        de.DS100: ABSM
+        de.dstnr: !!str 015420
+        sources: !keyref src.de.DS100.1984
+
+
+    -   date: !!null
+        site: !noderef path.de.1206 bus right
+
