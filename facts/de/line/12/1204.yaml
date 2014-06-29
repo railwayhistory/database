@@ -1,0 +1,316 @@
+# DE 1204.  Abzw Hörn - Tönning
+#
+---
+key: line.de.1204
+type: line
+events:
+    -   date: !!null
+        region:
+            - !keyref org.de
+            - !keyref org.de.l.sh
+
+    -   date: !!null
+        de.VzG: !!str 1204
+        sources: !keyref src.de.VzG
+
+    #   Genehmigungen
+    #
+    -   date: !date 1852-09-08
+        start: !keyref point.de.Platenhoern-Sued
+        concession:
+            by: !keyref org.dk
+            for: !keyref org.gb.Morton-Peto
+        sources: !keyref src.de.DRG.1935
+    -   date: !date 1865-03-20
+        start: !keyref point.de.Platenhoern-Sued
+        concession:
+            by: !keyref org.de.l.pre
+            for: !keyref org.de.e.SEG
+        sources: !keyref src.de.DRG.1935
+
+    #   Eröffnung und Einstellung
+    #
+    -   date: !date 1854-10-25
+        start: !keyref point.de.Platenhoern-Sued
+        status: open
+        sources: !keyref src.de.DRG.1935
+    -   date: !date 1902-05-01
+        end: !keyref point.de.Platenhoern-Sued
+        status: open
+        sources: !keyref src.de.DRG.1935
+
+    -   date: !date c1990
+        start: !keyref point.de.Toenning
+        status: closed
+
+    #   Eigenschaften
+    #
+    -   date: !!null
+        category: de.Nebenbahn
+        tracks: 1
+        gauge: 1435
+        sources: !keyref src.de.DRG.1927
+    -   date: !date c1920
+        start: !keyref point.de.Toenning
+        category: de.Bfgleis
+        sources: !keyref src.de.DRG.1935
+
+    #   Eigentümer etc.
+    #
+    -   date: !!null
+        start: !keyref point.de.Platenhoern-Sued
+        owner: !keyref org.gb.Morton-Peto
+        operator: !keyref org.gb.Morton-Peto
+        sources: !keyref src.de.DRG.1935
+    -   date: !date 1854-03-20
+        start: !keyref point.de.Platenhoern-Sued
+        owner: !keyref org.de.e.FHTE
+        operator: !keyref org.de.e.FHTE
+        sources: !keyref src.de.DRG.1935
+    -   date: !date 1854-10-25
+        start: !keyref point.de.Platenhoern-Sued
+        owner: !keyref org.de.e.SSEG
+        operator: !keyref org.de.e.SSEG
+        sources: !keyref src.de.DRG.1935
+    -   date: !date 1865-03-20
+        start: !keyref point.de.Platenhoern-Sued
+        owner: !keyref org.de.e.SEG
+        operator: !keyref org.de.e.SEG
+        sources: !keyref src.de.DRG.1935
+    -   date: !date 1870-01-01
+        start: !keyref point.de.Platenhoern-Sued
+        operator: !keyref org.de.e.AKE
+        sources: !keyref src.de.DRG.1935
+    -   date: !date 1885-03-01
+        start: !keyref point.de.Platenhoern-Sued
+        owner: !keyref org.de.l.pre
+        operator: !keyref org.de.e.KPEV.Alt
+
+    -   date: !date 1920-04-01
+        owner: !keyref org.de
+        operator: !keyref org.de.r.RVM.PH
+    -   date: !date 1924-02-12
+        operator: !keyref org.de.e.DREb
+    -   date: !date 1924-08-30
+        operator: !keyref org.de.e.DRG
+
+    -   date: !var org.de.DB.start
+        operator: !keyref org.de.e.DB
+
+    -   date: !var org.de.DBAG.start
+        owner: !keyref org.de.e.DBAG
+        operator: !keyref org.de.e.DBAG
+    -   date: !var org.de.DBNetz.start
+        owner: !keyref org.de.e.DBNetz
+        operator: !keyref org.de.e.DBNetz
+
+    #   Verlauf
+    #
+    -   date: !!null
+        course:
+            - !pathref path.de.1210  hor  fton  0.5
+            - !pathref path.de.1204  a    f     0.0
+
+points:
+    - !keyref point.de.Hoern                            # line.de.1210
+    - !keyref point.de.Platenhoern
+    - !keyref point.de.Platenhoern-Sued
+    - !keyref point.de.Buettel
+    - !keyref point.de.Witzwort
+    - !keyref point.de.Harblek
+    - !keyref point.de.Toenning
+    - !keyref point.de.Toenning-Hafen
+
+
+---
+key: point.de.Platenhoern
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.1204 176,02
+    -   date: !!null
+        name: Platenhörn
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        service: passenger
+        staff: none
+        master: !keyref point.de.Husum
+        de.lknr: 01 360
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Hp
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 01 555
+        sources: !keyref src.de.Bfv.1933
+    -   date: !date c1930
+        location: !keyloc line.de.1204 5,62
+        sources: !keyref src.de.DRG.Alt.Karte.1949
+    -   date: !date 1981-05-30?
+        status: closed
+        note: Einstellung Personenzug-Halte
+
+    -   date: !!null
+        site: !noderef path.de.1210 pla left
+
+
+---
+key: point.de.Platenhoern-Sued
+type: point
+subtype: reference
+junction: True
+events:
+    -   date: !!null
+        name: Platenhörn Süd
+        site: !noderef path.de.1210 pls
+
+
+---
+key: point.de.Buettel
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.1204 180,25
+    -   date: !!null
+        name: Friedrichstadt-Chaussee
+    -   date: !date 1887
+        name: Büttel
+    -   date: !!null
+        de.lknr: 01 130
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: IV
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 01 556
+        sources: !keyref src.de.Bfv.1933
+    -   date: !date c1930
+        location: !keyloc line.de.1204 9,86
+        sources: !keyref src.de.DRG.Alt.Karte.1949
+    -   date: !date 1981-05-30
+        service: freight
+    -   date: !date c1982
+        status: closed
+
+    -   date: !!null
+        site: !noderef path.de.1210 but left
+
+
+---
+key: point.de.Witzwort
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.1204 183,16
+    -   date: !!null
+        name: Witzwort
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        service: passenger
+        de.lknr: 01 368
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Hp
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 01 557
+        sources: !keyref src.de.Bfv.1933
+    -   date: !date c1930
+        staff: agent
+        sources: !keyref src.de.Bfv.1933
+    -   date: !date c1930
+        location: !keyloc line.de.1204 11,77
+        sources: !keyref src.de.DRG.Alt.Karte.1949
+    -   date: !!null
+        de.DS100: AWRT
+        de.dstnr: !!str 015578
+        sources: !keyref src.de.DS100.1984
+    -   date: !date c1980
+        staff: none
+        sources: !keyref src.de.DS100.1984
+
+    -   date: !!null
+        site: !noderef path.de.1210 wit left
+
+
+---
+key: point.de.Harblek
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.1204 185,73
+    -   date: !!null
+        name: Harblek
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        de.lknr: 01 131
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: IV
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 01 558
+        sources: !keyref src.de.Bfv.1933
+    -   date: !date c1930
+        location: !keyloc line.de.1204 15,35
+        sources: !keyref src.de.DRG.Alt.Karte.1949
+    -   date: !!null
+        de.DS100: AHA
+        de.dstnr: !!str 015586
+        sources: !keyref src.de.DS100.1984
+    -   date: !date c1980
+        category: de.Hp
+        staff: none
+        sources: !keyref src.de.DS100.1984
+
+    -   date: !!null
+        site: !noderef path.de.1210 har right
+
+
+---
+key: point.de.Toenning
+type: point
+junction: True
+events:
+    -   date: !!null
+        location: !keyloc line.de.1204 191,56
+    -   date: !!null
+        name: Tönning
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        de.lknr: 01 132
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: III
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 01 559
+        sources: !keyref src.de.Bfv.1933
+    -   date: !date c1930
+        location: !keyloc line.de.1204 21,19
+        sources: !keyref src.de.DRG.Alt.Karte.1949
+    -   date: !!null
+        location: !keyloc line.de.12220 0,00
+        sources: !keyref src.de.DRG.Alt.Karte.1949
+    -   date: !!null
+        de.DS100: ATG
+        de.dstnr: !!str 015545
+        sources: !keyref src.de.DS100.1984
+    -   date: !date c1980
+        location: !keyloc line.de.12220 21,075
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.1210 ton left
+
+
+---
+key: point.de.Toenning-Hafen
+type: point
+junction: True
+events:
+    -   date: !!null
+        name: Tönning Hafen
