@@ -1,7 +1,7 @@
 # DE 1203.  Husum Nord - Husum Außenhafen
 #
 ---
-key: line.de.1203
+key: line.de.1203a
 type: line
 label: port
 events:
@@ -9,10 +9,6 @@ events:
         region:
             - !keyref org.de
             - !keyref org.de.l.sh
-
-    -   date: !!null
-        de.VzG: !!str 1203
-        sources: !keyref src.de.VzG
 
     #   Genehmigungen
     #
@@ -24,11 +20,14 @@ events:
 
     #   Eröffnung und Einstellung
     #
-    -   date: !date 1891-09-16
+    -   date: !date 1890-05
         status: open
         passenger: none
-        note: nur Teilstrecke 0,18 km
+        note: nur Teilstrecke 0,29 km
         sources: !keyref src.de.DRG.1935
+    -   date: !date 1960-12-31
+        status: closed
+        sources: !keyref src.de.web.Kokert
 
     #   Eigenschaften
     #
@@ -37,9 +36,6 @@ events:
         tracks: 1
         gauge: 1435
         sources: !keyref src.de.DRG.1927
-    -   date: !date 1960-12-31
-        category: de.Anschl
-        sources: !keyref src.de.web.Kokert
 
     #   Eigentümer etc.
     #
@@ -69,19 +65,19 @@ events:
     #
     -   date: !!null
         course:
-            - !pathref path.de.1210  hun  fhuh  0.5
-            - !pathref path.de.1203  a    f     0.0
+            - !pathref path.de.1210  hun  fhub -0.5
+            - !pathref path.de.1203a a    f     0.0
 
 points:
     - !keyref point.de.Husum-Nord                       # line.de.1210
-    - !keyref point.de.Husum-Aussenhafen
+    - !keyref point.de.Husum-Binnenhafen
 
 
 ---
-key: point.de.Husum-Aussenhafen
+key: point.de.Husum-Binnenhafen
 type: point
 events:
     -   date: !!null
-        name: Husum Außenhafen
-        site: !noderef path.de.1203 hua right
+        name: Husum Binnenhafen
+        site: !noderef path.de.1203a hub left
 
