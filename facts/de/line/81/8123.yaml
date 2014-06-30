@@ -1,16 +1,40 @@
+# DE 8123.  Munkmarsch - Westerland (Sylt) Inselbf
 ---
-key: line.de.12320
+key: line.de.8123
 type: line
 events:
     -   date: !!null
         region:
             - !keyref org.de
             - !keyref org.de.l.sh
+
+    #   Genehmigungen
+    #
+
+    #   Eröffnung und Einstellung
+    #
+    -   date: !date 1888-07-08
+        status: open
+        sources: !keyref src.de.WP.Sylter-Inselbahn
+    -   date: !date 1927-06-01
+        status: closed
+        sources: !keyref src.de.Wolff.1972
+    -   date: !date 1931
+        status: removed
+        sources: !keyref src.de.WP.Sylter-Inselbahn
+
+    #   Eigenschaften
+    #
     -   date: !!null
         category: de.Kleinbahn
         gauge: 1000
         name: Sylter Ostbahn
-        owner: !keyref org.de.e.Sylter-Badedirektion
+        sources: !keyref src.de.Wolff.1972
+
+    #   Eigentümer etc.
+    #
+    -   date: !!null
+        owner: !keyref org.de.Sylter-Badedirektion
         operator: !keyref org.de.e.Kuhrt
         sources: !keyref src.de.Wolff.1972
     -   date: !date 1892
@@ -22,59 +46,73 @@ events:
     -   date: !date 1926
         owner: !keyref org.de.e.SIB
         sources: !keyref src.de.WP.Sylter-Inselbahn
-    -   date: !date 1927-06-01
-        status: closed
-        sources: !keyref src.de.Wolff.1972
-    -   date: !date 1931
-        status: removed
-        sources: !keyref src.de.WP.Sylter-Inselbahn
+
+
+    #   Verlauf
+    #
+    -   date: !!null
+        course:
+            - !pathref path.de.8123  a    f     0.0
+
 points:
     - !keyref point.de.Munkmarsch
     - !keyref point.de.Lornsenhain
     - !keyref point.de.Westerland-Inselbf
 
----
 
+---
 key: point.de.Munkmarsch
 type: point
+junction: True
 events:
     -   date: !!null
         category: de.Bf
-        location: !keyloc line.de.12320 0,0
+        location: !keyloc line.de.8123 0,0
         name: Munkmarsch
         sources: !keyref src.de.WP.Sylter-Inselbahn
 
----
+    -   date: !!null
+        site: !noderef path.de.8123 mun right
 
+
+---
 key: point.de.Lornsenhain
 type: point
 events:
     -   date: !!null
         category: de.Hp
-        location: !keyloc line.de.12320 1,5
+        location: !keyloc line.de.8123 1,5
         name: Lornsenhain
         sources: !keyref src.de.WP.Sylter-Inselbahn
 
----
+    -   date: !!null
+        site: !noderef path.de.8123 lor left
 
+
+---
 key: point.de.Westerland-Inselbf
 type: point
+junction: True
 events:
     -   date: !!null
         category: de.Bf
-        location: !keyloc line.de.12320 3,2
+        location: !keyloc line.de.8123 4,2
         sources: !keyref src.de.WP.Sylter-Inselbahn
     -   date: !!null
         name: Westerland Ostbf
         location: !keyloc line.de.12360 0,0
-    -   date: !!null
-        de.lknr: 47 540
-        sources: !keyref src.de.Bfv.1944
     -   date: !date 1917
         name: Westerland Nordbf
     -   date: !date c1930
         name: Westerland (Sylt) Kleinbf
         sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.kb
+        de.lknr: 47 540
+        sources: !keyref src.de.Bfv.1938
     -   date: !date c1950
         name: Westerland (Sylt) Inselbf
+
+    -   date: !!null
+        site: !noderef path.de.8123 wes right
+
 
