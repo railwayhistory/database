@@ -1,0 +1,240 @@
+# DE 1201.  Niebüll - Süderlügum Grenze
+#
+---
+key: line.de.1201
+type: line
+events:
+    -   date: !!null
+        region:
+            - !keyref org.de
+            - !keyref org.de.l.sh
+
+    -   date: !!null
+        de.VzG: !!str 1201
+        sources: !keyref src.de.VzG
+
+    #   Genehmigungen
+    #
+    -   date: !date 1884-07-25
+        concession:
+            by: !keyref org.de.l.pre
+            document: !keyref src.de.l.pre.sle.1884.50
+        sources: !keyref src.de.DRG.1935
+
+    #   Eröffnung und Einstellung
+    #
+    -   date: !date 1887-11-15
+        status: open
+        sources: !keyref src.de.DRG.1935
+    -   date: !date 1980-06-01
+        passenger: none
+        sources: !keyref src.de.WP.Marschbahn
+    -   date: !date 1999-08-01
+        freight: none
+        sources: !keyref src.de.WP.Marschbahn
+    -   date: !date 2000-07-02
+        passenger: tourist
+    -   date: !date 2003
+        passenger: full
+
+    #   Eigenschaften
+    #
+    -   date: !!null
+        category: de.Hauptbahn
+        tracks: 2
+        gauge: 1435
+        sources: !keyref src.de.DRG.1927
+    -   date: !date c1950
+        category: de.Nebenbahn
+        tracks: 1
+
+    #   Eigentümer etc.
+    #
+    -   date: !!null
+        owner: !keyref org.de.e.SHMG
+        operator: !keyref org.de.e.SHMG
+        sources: !keyref src.de.DRG.1935
+
+    -   date: !date 1890-07-01
+        owner: !keyref org.de.l.pre
+        operator: !keyref org.de.e.KPEV.Alt
+
+    -   date: !date 1920-04-01
+        owner: !keyref org.de
+        operator: !keyref org.de.r.RVM.PH
+    -   date: !date 1924-02-12
+        operator: !keyref org.de.e.DREb
+    -   date: !date 1924-08-30
+        operator: !keyref org.de.e.DRG
+
+    -   date: !var org.de.DB.start
+        operator: !keyref org.de.e.DB
+
+    -   date: !date 2003-04
+        owner: !keyref org.de.neg-Niebuell
+        operator: !keyref org.de.neg-Niebuell
+
+    -   date: !date 2008?
+        start: !keyref point.de.Suederluegum-EGr
+        owner: !keyref org.de.neg-Suederau
+        operator: !keyref org.de.neg-Suederau
+        sources: !keyref src.de.web.EBA.EIU
+
+    #   Verlauf
+    #
+    -   date: !!null
+        course:
+            - !pathref path.de.1210  nie  aton 0.0
+            - !pathref path.de.1201  a    gsud 0.0
+
+points:
+    - !keyref point.de.Niebuell                         # line.de.1210
+    - !keyref point.de.Uphusum
+    - !keyref point.de.Suederluegum-Awanst
+    - !keyref point.de.Suederluegum
+    - !keyref point.de.Suederluegum-EGr
+    - !keyref point.int.Suederluegum-Tonder
+
+
+---
+key: point.de.Uphusum
+type: point
+events:
+    -   date: !!null
+        name: Holm
+        sources: !keyref src.de.Kb.1905
+    -   date: !date c1910
+        name: Uphusum
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        de.lknr: 01 147
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: IV
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 01 576
+        sources: !keyref src.de.Bfv.1933
+    -   date: !date c1935
+        category: de.Hst
+        sources: !keyref src.de.Bfv.1938
+    -   date: !!null
+        location: !keyloc line.de.1201 167,77
+        sources: !keyref src.de.DRG.Alt.Karte.1949
+    -   date: !!null
+        de.DS100: ANBU
+        de.dstnr: !!str 015768
+        sources: !keyref src.de.DS100.1984
+    -   date: !date 1984-05-27
+        category: de.Anst
+    -   date: !date 1984-09-30
+        status: closed
+    -   date: !date 2007-05-17
+        status: open
+    -   date: !date 2007-05-17
+        location: !keyloc line.de.1201 167,790
+        category: de.Hp
+        de.DS100: AUP
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.1201 uph right
+
+
+---
+key: point.de.Suederluegum-Awanst
+type: point
+events:
+    -   date: !date 2001?
+        status: open
+        split_from: !keyref point.de.Suederluegum
+    -   date: !!null
+        category: de.Awanst
+        name: Süderlügum Awanst
+        de.DS100: ANBA
+        sources: !keyref src.de.Abk100.2014
+
+    -   date: !!null
+        site: !noderef path.de.1201 sua left
+
+
+---
+key: point.de.Suederluegum
+type: point
+events:
+    -   date: !!null
+        name: Süderlügum
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        de.lknr: 01 148
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: III
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 01 577
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location: !keyloc line.de.1201 171,64
+        sources: !keyref src.de.DRG.Alt.Karte.1949
+    -   date: !!null
+        de.DS100: ANBS
+        de.dstnr: !!str 015776
+        sources: !keyref src.de.DS100.1984
+    -   date: !date 1980
+        category: de.Anst
+        sources: !keyref src.de.Bock.1989
+    -   date: !date 2001-06-17
+        category: de.Hp
+
+    -   date: !!null
+        site: !noderef path.de.1201 sud right
+
+
+---
+key: point.de.Suederluegum-EGr
+type: point
+subtype: reference
+events:
+    -   date: !!null
+        location: !keyloc line.de.1201 175,000
+        name: Süderlügum EGr
+
+    -   date: !!null
+        site: !noderef path.de.1201 esud
+
+ 
+---
+key: point.int.Suederluegum-Tonder
+type: point
+subtype: border
+events:
+    -   date: !date 1920-06-15
+        status: open
+    -   date: !!null
+        category: de.Gp
+        local_name:
+            de: Süderlügum Grenze
+        de.lknr: 01 327
+        sources: !keyref src.de.Bfv.1928
+    -   date: !var lknr.30
+        de.lknr: 01 578
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location: !keyloc line.de.1201 175,290
+        sources: !keyref src.de.DRG.Alt.Karte.1949
+    -   date: !!null
+        de.DS100: AGRT
+        de.dstnr: !!str 015784
+        sources: !keyref src.de.DS100.1984
+    -   date: !date c1990
+        de.DS100: AXS
+    -   date: !!null
+        local_name:
+            da: Tønder Grænse
+
+    -   date: !!null
+        site: !noderef path.de.1201 gsud
+
