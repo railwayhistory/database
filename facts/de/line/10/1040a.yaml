@@ -1,0 +1,122 @@
+# DE 1040a.  Osterrönfeld - Rendsburg
+#
+#            Verlauf vor Bau der Rendsburger Hochbrücke
+#
+---
+key: line.de.1040a
+type: line
+events:
+    -   date: !!null
+        region:
+            - !keyref org.de
+            - !keyref org.de.l.sh
+
+    #   Genehmigungen
+    #
+    -   date: !date 1845-04-04
+        end: !keyref point.de.Rendsburg-Glacis
+        concession:
+            by: !keyref org.dk
+            for: !keyref org.de.e.RNE
+        sources: !keyref src.de.DRG.1935
+    -   date: !date 1877-09-09
+        end: !keyref point.de.Rendsburg-Glacis
+        concession:
+            by: !keyref org.de.l.pre
+            document: !keyref src.de.l.pre.sle.1877.51.285
+        sources: !keyref src.de.DRG.1935
+
+    #   Eröffnung und Einstellung
+    #
+    -   date: !date 1845-09-18
+        end: !keyref point.de.Rendsburg-Glacis
+        status: open
+        sources: !keyref src.de.DRG.1935
+
+    -   date: !date 1856-01-22
+        start: !keyref point.de.Rendsburg-Glacis
+        status: open
+        passenger: none
+        sources: !keyref src.de.DB.Hmb.1984
+    -   date: !date 1856-05-17
+        start: !keyref point.de.Rendsburg-Glacis
+        passenger: full
+        sources: !keyref src.de.DB.Hmb.1984
+
+    -   date: !date c1913
+        status: removed
+
+    #   Eigenschaften
+    #
+    -   date: !!null
+        category: de.Hauptbahn
+        tracks: 2
+        gauge: 1435
+
+    #   Eigentümer etc.
+    #
+    -   date: !!null
+        end: !keyref point.de.Rendsburg-Glacis
+        owner: !keyref org.de.e.RNE
+        operator: !keyref org.de.e.RNE
+
+    -   date: !date 1862-02-18
+        end: !keyref point.de.Rendsburg-Glacis
+        owner: !keyref org.gb.Morton-Peto
+        sources: !keyref src.de.DRG.1935
+    -   date: !date 1864-01-01
+        end: !keyref point.de.Rendsburg-Glacis
+        owner: !keyref org.de.e.AKE
+        sources: !keyref src.de.DRG.1935
+
+    -   date: !date 1886-07-01
+        owner: !keyref org.de.l.pre
+        operator: !keyref org.de.e.KPEV.Alt
+        sources: !keyref src.de.DRG.1935
+
+    #   Verlauf
+    #
+    -   date: !!null
+        course:
+            - !pathref path.de.1040  osh  agla  0.0
+            - !pathref path.de.1040a a    f     0.0
+            - !pathref path.de.1040  fgla ren   0.0
+
+points:
+    - !keyref point.de.Osterroenfeld-Heidkrug           # line.de.1040
+    - !keyref point.de.Osterroenfeld-RNE
+    - !keyref point.de.Rendsburg-Glacis
+    - !keyref point.de.Rendsburg                        # line.de.1040
+
+
+---
+key: point.de.Osterroenfeld-RNE
+type: point
+junction: True
+events:
+    -   date: !!null
+        category: de.Bf
+        name: Osterrönfeld
+    -   date: !date c1913
+        status: closed
+        name: Osterrönfeld RN
+
+    -   date: !!null
+        site: !noderef path.de.1040a oro
+
+
+---
+key: point.de.Rendsburg-Glacis
+type: point
+events:
+    -   date: !!null
+        category: de.Bf
+        name: Rendsburg Glacis
+    -   date: !date 1860
+        status: closed
+
+    -   date: !!null
+        site: !noderef path.de.1040a reg
+
+
+
