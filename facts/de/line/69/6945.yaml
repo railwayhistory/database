@@ -1,4 +1,126 @@
+# DE 6945.  Pritzwalk - Suckow
+#
+---
+key: line.de.6945
+type: line
+events:
+    -   date: !!null
+        region: !keyref org.de
+    -   date: !!null
+        end: !keyref point.de.Porep-LGr
+        region: !keyref org.de.l.bb
+    -   date: !!null
+        start: !keyref point.de.Porep-LGr
+        region: !keyref org.de.l.mv
 
+    -   date: !!null
+        end: !keyref point.de.Putlitz
+        de.VzG: !!str 6945
+        sources: !keyref src.de.VzG
+
+    #   Genehmigungen
+    #
+
+    #   Eröffnung und Einstellung
+    #
+    -   date: !date 1896-06-04
+        end: !keyref point.de.Putlitz
+        status: open
+        sources: !keyref src.de.WP.Bahnstrecke-Pritzwalk-Suckow
+    -   date: !date 1912-10-01
+        start: !keyref point.de.Putlitz
+        status: open
+        sources: !keyref src.de.WP.Bahnstrecke-Pritzwalk-Suckow
+
+    -   date: !date 1979-10-15
+        start: !keyref point.de.Putlitz
+        freight: none
+        sources: !keyref src.de.WP.Bahnstrecke-Pritzwalk-Suckow
+    -   date: !date 1980-06-01
+        start: !keyref point.de.Porep
+        status: closed
+        sources: !keyref src.de.WP.Bahnstrecke-Pritzwalk-Suckow
+    -   date: !date 1980-09-28
+        start: !keyref point.de.Putlitz
+        end: !keyref point.de.Porep
+        status: closed
+        sources: !keyref src.de.WP.Bahnstrecke-Pritzwalk-Suckow
+    -   date: !date c1981
+        start: !keyref point.de.Putlitz
+        status: removed
+
+    -   date: !date 2006-12-16
+        end: !keyref point.de.Putlitz
+        passenger: none
+        sources: !keyref src.de.WP.Bahnstrecke-Pritzwalk-Suckow
+    -   date: !date 2007
+        end: !keyref point.de.Putlitz
+        passenger: full
+        sources: !keyref src.de.WP.Bahnstrecke-Pritzwalk-Suckow
+
+    #   Eigenschaften
+    #
+    -   date: !!null
+        category: de.Kleinbahn
+        tracks: 1
+        gauge: 1435
+    -   date: !date 1949-04-01
+        category: de.Nebenbahn
+
+    #   Eigentümer etc.
+    #
+    -   date: !!null
+        owner: !keyref org.de.Kreis-Ostprignitz
+        operator: !keyref org.de.e.PEAG
+        sources: !keyref src.de.WP.Kleinbahnen-der-Kreise-West-und-Ostprignitz
+    -   date: !date c1918
+        operator: !keyref org.de.e.LVABB
+        sources: !keyref src.de.WP.Kleinbahnen-der-Kreise-West-und-Ostprignitz
+    -   date: !date 1946
+        owner: !keyref org.de.l.bb
+    -   date: !date 1949-04-01
+        operator: !keyref org.dd.DR
+    -   date: !date 1949-10-07
+        owner: !keyref org.dd
+
+    -   date: !date 1990-10-03
+        owner: !keyref org.de
+    -   date: !var org.de.DBAG.start
+        owner: !keyref org.de.e.DBAG
+        operator: !keyref org.de.e.DBAG
+    -   date: !var org.de.DBNetz.start
+        owner: !keyref org.de.e.DBNetz
+        operator: !keyref org.de.e.DBNetz
+
+    -   date: !date 2004-01-01
+        owner: !keyref org.de.Landkreis-Prignitz
+        operator: !keyref org.de.e.PEG
+        sources: !keyref src.de.WP.Bahnstrecke-Pritzwalk-Suckow
+    -   date: !date 2012-06-12
+        operator: !keyref org.de.e.RIN
+
+    #   Verlauf
+    #
+    -   date: !!null
+        course:
+            - !pathref path.de.6938  prk  xprk  3.0
+            - !pathref path.de.6941  aprk fput  1.0
+            - !pathref path.de.6945  a    suc   0.0
+
+points:
+    - !keyref point.de.Pritzwalk-Kleinb
+    - !keyref point.de.Pritzwalk-West
+    - !keyref point.de.Kuhbier
+    - !keyref point.de.Gross-Langerwisch
+    - !keyref point.de.Jakobsdorf-Prign
+    - !keyref point.de.Laaske
+    - !keyref point.de.Putlitz
+    - !keyref point.de.Nettelbeck
+    - !keyref point.de.Porep
+    - !keyref point.de.Porep-LGr
+    - !keyref point.de.Drenkow
+    - !keyref point.de.Suckow-Parchim-Hp
+    - !keyref point.de.Suckow-Parchim
 
 
 ---
@@ -25,3 +147,332 @@ events:
     -   date: !!null
         site: !noderef path.de.6938 prk left
         connection: !keyref point.de.Pritzwalk
+
+
+---
+key: point.de.Pritzwalk-West
+type: point
+events:
+    -   date: !date 2007-08-27
+        status: open
+        sources: !keyref src.de.WP.Bahnstrecke-Pritzwalk-Suckow
+    -   date: !!null
+        location: !keyloc line.de.6945 1,35
+        category: de.Hp
+        name: Pritzwalk West
+        de.DS100: WPRW
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.6941 prw left
+
+
+---
+key: point.de.Kuhbier
+type: point
+events:
+    -   date: !!null
+        name: Kuhbier
+        sources: !keyref src.de.Kb.1905
+    -   date: !var lknr.kb
+        de.lknr: 45 675
+        sources: !keyref src.de.Bfv.1938
+    -   date: !!null
+        location: !keyloc line.de.6945 5,74
+        category: [de.Hp, de.Anst]
+        de.VBL: Kbr
+        sources: !keyref src.dd.DR.1976
+    -   date: !var ds100.dr
+        de.DS100: WKBR
+        sources: !keyref src.de.TPP.2006
+    -   date: !date c2000
+        category: de.Hp
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.6945 kuh right
+
+
+---
+key: point.de.Gross-Langerwisch
+type: point
+events:
+    -   date: !date c1920
+        status: open
+        sources:
+            - !keyref src.de.Kb.1914
+            - !keyref src.de.Bfv.1928
+    -   date: !!null
+        name: Groß Langerwisch
+        sources: !keyref src.de.Bfv.1928
+    -   date: !var lknr.kb
+        de.lknr: 45 676
+        sources: !keyref src.de.Bfv.1938
+    -   date: !!null
+        location: !keyloc line.de.6945 8,25
+        category: [de.Hp, de.Anst]
+        de.VBL: Glg
+        sources: !keyref src.dd.DR.1976
+    -   date: !date c1960
+        staff: none
+        sources: !keyref src.dd.DR.1976
+    -   date: !var ds100.dr
+        de.DS100: WGLG
+        sources: !keyref src.de.TPP.2006
+    -   date: !date c2000
+        category: de.Hp
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.6945 gla right
+
+
+---
+key: point.de.Jakobsdorf-Prign
+type: point
+events:
+    -   date: !date c1920
+        status: open
+        sources:
+            - !keyref src.de.Kb.1914
+            - !keyref src.de.Bfv.1928
+    -   date: !!null
+        name: Jakobsdorf (Prignitz)
+        sources: !keyref src.de.Bfv.1928
+    -   date: !date c1930
+        name: Jakobsdorf (Prign)
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.kb
+        de.lknr: 45 677
+        sources: !keyref src.de.Bfv.1938
+    -   date: !!null
+        location: !keyloc line.de.6945 10,22
+        category: [de.Hp, de.Anst]
+        de.VBL: Jad
+        sources: !keyref src.dd.DR.1976
+    -   date: !date c1960
+        staff: none
+        sources: !keyref src.dd.DR.1976
+    -   date: !var ds100.dr
+        de.DS100: WJAD
+        sources: !keyref src.de.TPP.2006
+    -   date: !date c2000
+        category: de.Hp
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.6945 jak right
+
+
+---
+key: point.de.Laaske
+type: point
+events:
+    -   date: !!null
+        name: Laaske
+        sources: !keyref src.de.Kb.1905
+    -   date: !var lknr.kb
+        de.lknr: 45 678
+        sources: !keyref src.de.Bfv.1938
+    -   date: !!null
+        location: !keyloc line.de.6945 12,45
+        category: [de.Hp, de.Anst]
+        de.VBL: Lsk
+        sources: !keyref src.dd.DR.1976
+    -   date: !date c1960
+        staff: none
+        sources: !keyref src.dd.DR.1976
+    -   date: !var ds100.dr
+        de.DS100: WLSK
+        sources: !keyref src.de.TPP.2006
+    -   date: !date c2000
+        category: de.Hp
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.6945 laa right
+
+
+---
+key: point.de.Putlitz
+type: point
+junction: True
+events:
+    -   date: !!null
+        name: Putlitz
+        sources: !keyref src.de.Kb.1905
+    -   date: !var lknr.kb
+        de.lknr: 45 679
+        sources: !keyref src.de.Bfv.1938
+    -   date: !!null
+        location: !keyloc line.de.6945 17,05
+        category: de.Bf
+        de.Rangklasse: IV
+        de.VBL: Pu
+        sources: !keyref src.dd.DR.1976
+    -   date: !date c1985
+        location: !keyloc line.de.6956 17,03
+        sources: !keyref src.dd.DR.1989
+    -   date: !var ds100.dr
+        de.DS100: WPUZ
+        sources: !keyref src.de.TPP.2006
+    -   date: !date c1995
+        location: !keyloc line.de.6945 17,00
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.6945 put right
+
+
+---
+key: point.de.Nettelbeck
+type: point
+events:
+    -   date: !!null
+        name: Nettelbeck
+        sources: !keyref src.de.Kb.1914
+    -   date: !var lknr.kb
+        de.lknr: 45 684
+        sources: !keyref src.de.Bfv.1938
+    -   date: !!null
+        location: !keyloc line.de.6945 21,69
+        category: [de.Hp, de.Anst]
+        de.VBL: Net
+        sources: !keyref src.dd.DR.1976
+    -   date: !date c1960
+        staff: none
+        sources: !keyref src.dd.DR.1976
+
+    -   date: !!null
+        site: !noderef path.de.6945 net right
+
+
+---
+key: point.de.Porep
+type: point
+events:
+    -   date: !date c1920
+        status: open
+        sources:
+            - !keyref src.de.Kb.1914
+            - !keyref src.de.Bfv.1928
+    -   date: !!null
+        name: Porep
+        sources: !keyref src.de.Bfv.1928
+    -   date: !var lknr.kb
+        de.lknr: 45 685
+        sources: !keyref src.de.Bfv.1938
+    -   date: !!null
+        location: !keyloc line.de.6945 24,23
+        category: [de.Hp, de.Anst]
+        de.VBL: Por
+        sources: !keyref src.dd.DR.1976
+    -   date: !date c1960
+        staff: none
+        sources: !keyref src.dd.DR.1976
+
+    -   date: !!null
+        site: !noderef path.de.6945 por left
+
+
+---
+key: point.de.Porep-LGr
+type: point
+subtype: border
+events:
+    -   date: !!null
+        name: Porel BB/MV
+        site: !noderef path.de.6945 gpor
+
+
+---
+key: point.de.Drenkow
+type: point
+events:
+    -   date: !date c1920
+        status: open
+        sources:
+            - !keyref src.de.Kb.1914
+            - !keyref src.de.Bfv.1928
+    -   date: !!null
+        name: Drenkow
+        sources: !keyref src.de.Bfv.1928
+    -   date: !var lknr.kb
+        de.lknr: 45 686
+        sources: !keyref src.de.Bfv.1938
+    -   date: !!null
+        location: !keyloc line.de.6945 26,12
+        category: de.Hp
+        de.VBL: Dk
+        sources: !keyref src.dd.DR.1976
+    -   date: !date c1960
+        staff: none
+        sources: !keyref src.dd.DR.1976
+
+    -   date: !!null
+        site: !noderef path.de.6945 dre left
+
+
+---
+key: point.de.Suckow-Parchim-Hp
+type: point
+events:
+    -   date: !!null
+        name: Suckow Hp
+        sources: !keyref src.de.Kb.W1937
+    -   date: !date c1930
+        name: Suckow (Amt Parchim) Hp
+    -   date: !date c1935
+        name: Suckow (Kr Parchim) Hp
+        sources: !keyref src.de.Kb.W1937
+    -   date: !!null
+        location: !keyloc line.de.6945 28,33
+        category: de.Hp
+        de.VBL: Suh
+        sources: !keyref src.dd.DR.1976
+    -   date: !date c1960
+        staff: none
+        sources: !keyref src.dd.DR.1976
+
+    -   date: !!null
+        site: !noderef path.de.6945 suh left
+
+
+---
+key: point.de.Suckow-Parchim
+type: point
+junction: True
+events:
+    -   date: !!null
+        name: Suckow Grenze
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        de.lknr: 27 091
+        sources: !keyref src.de.Bfv.1928
+    -   date: !date c1920
+        name: Suckow (Grenze)
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: IV
+        sources: !keyref src.de.Bfv.1933
+    -   date: !date c1930
+        name: Suckow (Amt Parchim)
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 27 134
+        sources: !keyref src.de.Bfv.1933
+    -   date: !date c1935
+        name: Suckow (Kr Parchim)
+        sources: !keyref src.de.Kb.W1937
+    -   date: !!null
+        location: !keyloc line.de.6945 28,88
+        de.VBL: Sug
+        sources: !keyref src.dd.DR.1976
+    -   date: !var dr.rkl.65
+        de.Rangklasse: U
+        sources: !keyref src.dd.DR.1976
+
+    -   date: !!null
+        site: !noderef path.de.6945 suc left
+
