@@ -1,0 +1,292 @@
+# DE 6556.  Bötzow (Kr Oranienburg) - Berlin-Spandau Osth E
+#
+---
+key: line.de.6556
+type: line
+events:
+    -   date: !!null
+        region: !keyref org.de
+    -   date: !!null
+        end: !keyref point.de.Papenberge-LGr
+        region: !keyref org.de.l.bb
+    -   date: !!null
+        start: !keyref point.de.Papenberge-LGr
+        region: !keyref org.de.l.be
+
+    -   date: !var vzg.dr
+        de.VzG: !!str 6556
+        sources: !keyref src.de.VzG
+
+    #   Genehmigungen
+    #
+
+    #   Eröffnung und Einstellung
+    #
+    -   date: !date 1908-07-01
+        end: !keyref point.de.Berlin-Spandau-Johannesstift
+        status: open
+        passenger: none
+        sources:
+            - !keyref src.de.Kuhlmann.2000
+            - !keyref src.de.WP.Osthavelländische-Kreisbahnen
+    -   date: !date 1909-05-01
+        passenger: full 
+        sources: !keyref src.de.WP.Osthavelländische-Kreisbahnen
+    -   date: !date 1912-05-01
+        start: !keyref point.de.Berlin-Spandau-Johannesstift
+        status: open
+        sources: !keyref src.de.Kuhlmann.2000
+
+    -   date: !date 1950-08-21
+        passenger: none
+        sources: !keyref src.de.web.HVLE
+    -   date: !date 1952
+        end: !keyref point.de.Bürgerablage
+        status: closed
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !date c1960
+        end: !keyref point.de.Bürgerablage
+        status: removed
+
+    #   Eigenschaften
+    #
+    -   date: !!null
+        category: de.Kleinbahn
+        tracks: 1
+        gauge: 1435
+    -   date: !date 1949-04-01
+        end: !keyref point.de.Papenberge-LGr
+        category: de.Nebenbahn
+
+    #   Eigentümer etc.
+    #
+    -   date: !!null
+        owner: !keyref org.de.Landkreis-Osthavelland
+        operator: !keyref org.de.e.HVLE
+        sources: !keyref src.de.WP.Osthavelländische-Kreisbahnen
+    -   date: !date 1924
+        owner: !keyref org.de.e.HVLE
+        sources: !keyref src.de.WP.Osthavelländische-Kreisbahnen
+    -   date: !date 1946-09-09
+        end: !keyref point.de.Papenberge-LGr
+        owner: !keyref org.de.l.bb
+        sources: !keyref src.de.web.HVLE
+    -   date: !date 1949-04-01
+        end: !keyref point.de.Papenberge-LGr
+        operator: !keyref org.dd.DR
+    -   date: !date c1950
+        end: !keyref point.de.Papenberge-LGr
+        owner: !keyref org.dd
+
+    #   Verlauf
+    #
+    -   date: !!null
+        course:
+            - !pathref path.de.6509  bot  aspa  1.0
+            - !pathref path.de.6556  a    aspa  0.0
+            - !pathref path.de.6107  anau fspo -3.5
+            - !pathref path.de.6556  fspa f     0.0
+
+points:
+    - !keyref point.de.Bötzow                           # line.de.6509
+    - !keyref point.de.Blockbrück
+    - !keyref point.de.Forsthaus-Nieder-Neuendorf
+    - !keyref point.de.Nieder-Neuendorf
+    - !keyref point.de.Papenberge
+    - !keyref point.de.Papenberge-LGr
+    - !keyref point.de.Bürgerablage
+    - !keyref point.de.Berlin-Spandau-Johannesstift
+    - !keyref point.de.Berlin-Spandau-Radelandstraße
+    - !keyref point.de.Berlin-Spandau-Osth-E
+
+
+---
+key: point.de.Blockbrück
+type: point
+events:
+    -   date: !date c1930
+        status: open
+        sources:
+            - !keyref src.de.DRG.Bln.1927
+            - !keyref src.de.DRG.Bln.1932
+    -   date: !!null
+        name: Blockbrück
+        sources: !keyref src.de.DRG.Bln.1932
+    -   date: !!null
+        category: de.Hp
+        sources: !keyref src.de.mtbl.3344.1941
+    -   date: !!null
+        service: passenger
+    
+    -   date: !!null
+        site: !noderef path.de.6556 blo left
+
+
+---
+key: point.de.Forsthaus-Nieder-Neuendorf
+type: point
+events:
+    -   date: !date c1930
+        status: open
+        sources:
+            - !keyref src.de.DRG.Bln.1927
+            - !keyref src.de.DRG.Bln.1932
+    -   date: !!null
+        name: Forsthaus Nieder Neuendorf
+        sources: !keyref src.de.DRG.Bln.1932
+    -   date: !!null
+        category: de.Hp
+        sources: !keyref src.de.mtbl.3345.1938
+    -   date: !!null
+        service: passenger
+    
+    -   date: !!null
+        site: !noderef path.de.6556 for left
+
+
+---
+key: point.de.Nieder-Neuendorf
+type: point
+events:
+    -   date: !!null
+        name: Nieder Neuendorf
+        sources: !keyref src.de.Kb.1914
+    -   date: !var lknr.kb
+        de.lknr: 45 523
+        sources: !keyref src.de.Bfv.1938
+    -   date: !!null
+        category: de.Bf
+        sources: !keyref src.de.mtbl.3345.1938
+    -   date: !date c1940
+        name: Nieder Neuendorf (Kr Osthavelland)
+        sources: !keyref src.de.Bfv.1944
+    
+    -   date: !!null
+        site: !noderef path.de.6556 nne left
+
+
+---
+key: point.de.Papenberge
+type: point
+events:
+    -   date: !!null
+        name: Papenberge
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        category: de.Hp
+        sources: !keyref src.de.mtbl.3445.1918
+    -   date: !!null
+        service: passenger
+
+    -   date: !!null
+        site: !noderef path.de.6556 pap left
+
+
+---
+key: point.de.Papenberge-LGr
+type: point
+subtype: border
+events:
+    -   date: !!null
+        name: Papenberge BB/BE
+        site: !noderef path.de.6556 gpap
+
+
+---
+key: point.de.Bürgerablage
+type: point
+events:
+    -   date: !!null
+        name: Bürgerablage
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        category: de.Hp
+        sources: !keyref src.de.mtbl.3445.1918
+    -   date: !!null
+        service: passenger
+    -   date: !!null
+        location: !keyloc line.de.6556 9,2
+        sources: !keyref src.dd.DR.Bln.1959
+
+    -   date: !!null
+        site: !noderef path.de.6556 bur left
+
+
+---
+key: point.de.Berlin-Spandau-Johannesstift
+type: point
+events:
+    -   date: !!null
+        name: Spandau Johannesstift
+        sources: !keyref src.de.Kb.1914
+    -   date: !var lknr.kb
+        de.lknr: 45 326
+        sources: !keyref src.de.Bfv.1938
+    -   date: !date c1940
+        name: Berlin-Spandau Johannesstift
+        sources: !keyref src.de.Bfv.1944
+    -   date: !!null
+        category: de.Bf
+        sources: !keyref src.de.mtbl.3445.1918
+    -   date: !!null
+        location: !keyloc line.de.6556 11,7
+        sources: !keyref src.dd.DR.Bln.1959
+    -   date: !var ds100.dr
+        de.DS100: BSPJ
+        sources: !keyref src.de.SuW.2005
+
+    -   date: !!null
+        site: !noderef path.de.6556 joh right
+
+
+---
+key: point.de.Berlin-Spandau-Radelandstraße
+type: point
+events:
+    -   date: !date c1950
+        status: open
+        sources:
+            - !keyref src.de.DRG.Bln.1946
+            - !keyref src.dd.DR.Bln.1953
+    -   date: !!null
+        name: Radelandstraße (Waldkrankenhaus)
+        sources: !keyref src.dd.DR.Bln.1953
+    -   date: !date c1995
+        status: closed
+
+    -   date: !!null
+        site: !noderef path.de.6556 rad right
+
+
+---
+key: point.de.Berlin-Spandau-Osth-E
+type: point
+junction: True
+events:
+    -   date: !!null
+        name: Spandau West Klbf
+        sources: !keyref src.de.Kb.1914
+    -   date: !date c1920
+        name: Spandau West Kleinbf
+        sources: !keyref src.de.Bfv.1928
+    -   date: !date c1930
+        name: Spandau West Kleinb
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.kb
+        de.lknr: 45 327
+        sources: !keyref src.de.Bfv.1938
+    -   date: !date c1940
+        name: Berlin-Spandau Osth E
+        sources: !keyref src.de.Bfv.1944
+    -   date: !!null
+        location: !keyloc line.de.6556 17,2
+        sources: !keyref src.dd.DR.Bln.1959
+    -   date: !!null
+        category: de.Bf
+    -   date: !var ds100.dr
+        de.DS100: BSPO
+        sources: !keyref src.de.SuW.2005
+
+    -   date: !!null
+        site: !noderef path.de.6179 spo right
+        connection: !keyref point.de.Berlin-Spandau-Gbf # line.de.6179
