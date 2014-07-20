@@ -1,0 +1,447 @@
+# DE 1012.  Büdelsdorf - Husum
+#
+---
+key: line.de.1012
+type: line
+events:
+    -   date: !!null
+        region:
+            - !keyref org.de
+            - !keyref org.de.l.sh
+
+    -   date: !!null
+        de.VzG: !!str 1012
+        sources: !keyref src.de.VzG
+
+    #   Genehmigungen
+    #
+    -   date: !date 1904-06-25
+        concession:
+            by: !keyref org.de.l.pre
+            document: !keyref src.de.l.pre.1904.16.113
+        sources: !keyref src.de.DRG.1935
+
+    #   Eröffnung und Einstellung
+    #
+    -   date: !date 1910-09-01
+        status: open
+        sources: !keyref src.de.DRG.1935
+
+    -   date: !date 1974-05-25
+        start: !keyref point.de.Hohn
+        end: !keyref point.de.Erfde
+        status: closed
+        sources: !keyref src.de.WP.Bahnstrecke-Husum-Kiel
+    -   date: !date 1974-05-25
+        passenger: none
+        sources: !keyref src.de.WP.Bahnstrecke-Husum-Kiel
+    -   date: !date 1988-05-28
+        start: !keyref point.de.Fockbek
+        end: !keyref point.de.Hohn
+        status: closed
+        sources: !keyref src.de.WP.Bahnstrecke-Husum-Kiel
+    -   date: !date 1988-09-24
+        start: !keyref point.de.Erfde
+        end: !keyref point.de.Schwabstedt
+        status: closed
+        sources: !keyref src.de.WP.Bahnstrecke-Husum-Kiel
+    -   date: !date 1989-05-27
+        start: !keyref point.de.Schwabstedt
+        end: !keyref point.de.Mildstedt
+        status: closed
+        sources: !keyref src.de.WP.Bahnstrecke-Husum-Kiel
+
+    -   date: !date 1993-05-22
+        start: !keyref point.de.Mildstedt
+        category: de.Bfgleis
+        sources: !keyref src.de.WP.Bahnstrecke-Husum-Kiel
+    -   date: !date 1999-07-01
+        start: !keyref point.de.Rendsburg-Gewerbegebiet-Nord
+        end: !keyref point.de.Fockbek
+        freight: none
+        sources: !keyref src.de.WP.Bahnstrecke-Husum-Kiel
+    -   date: !date 2000-12-31
+        start: !keyref point.de.Rendsburg-Gewerbegebiet-Nord
+        end: !keyref point.de.Fockbek
+        status: closed
+        sources: !keyref src.de.web.EBA.Still
+    -   date: !date 2000-12-31
+        end: !keyref point.de.Rendsburg-Gewerbegebiet-Nord
+        category: de.Bfgleis
+        sources: !keyref src.de.web.EBA.Still
+    -   date: !date c2003
+        start: !keyref point.de.Mildstedt
+        freight: none
+        sources: !keyref src.de.WP.Bahnstrecke-Husum-Kiel
+
+    -   date: !date c1990
+        start: !keyref point.de.Fockbek
+        end: !keyref point.de.Mildstedt
+        status: removed
+    -   date: !date c2001
+        start: !keyref point.de.Rendsburg-Gewerbegebiet-Nord
+        end: !keyref point.de.Fockbek
+        status: removed
+    -   date: !date c2005
+        start: !keyref point.de.Mildstedt
+        status: removed
+
+    #   Eigenschaften
+    #
+    -   date: !!null
+        category: de.Nebenbahn
+        tracks: 1
+        gauge: 1435
+        sources: !keyref src.de.DRG.1927
+
+    #   Eigentümer etc.
+    #
+    -   date: !!null
+        owner: !keyref org.de.l.pre
+        operator: !keyref org.de.e.KPEV.Alt
+        sources: !keyref src.de.DRG.1935
+
+    -   date: !date 1920-04-01
+        owner: !keyref org.de
+        operator: !keyref org.de.r.RVM.PH
+    -   date: !date 1924-02-12
+        operator: !keyref org.de.e.DREb
+    -   date: !date 1924-08-30
+        operator: !keyref org.de.e.DRG
+
+    -   date: !var org.de.DB.start
+        owner: !keyref org.de
+        operator: !keyref org.de.e.DB
+
+    -   date: !var org.de.DBAG.start
+        owner: !keyref org.de.e.DBAG
+        operator: !keyref org.de.e.DBAG
+    -   date: !var org.de.DBNetz.start
+        owner: !keyref org.de.e.DBNetz
+        operator: !keyref org.de.e.DBNetz
+
+    #   Verlauf
+    #
+    -   date: !!null
+        course:
+            - !pathref path.de.1040  bud  aerf -0.5
+            - !pathref path.de.1012  a    f     0.0
+            - !pathref path.de.1210  fren hus   1.5
+
+points:
+    - !keyref point.de.Buedelsdorf                      # line.de.1040
+    - !keyref point.de.Rendsburg-Gewerbegebiet-Nord
+    - !keyref point.de.Fockbek
+    - !keyref point.de.Garlbek
+    - !keyref point.de.Hohn
+    - !keyref point.de.Christiansholm
+    - !keyref point.de.Erfde
+    - !keyref point.de.Norderstapel
+    - !keyref point.de.Schwabstedt
+    - !keyref point.de.Rantrum
+    - !keyref point.de.Mildstedt
+    - !keyref point.de.Husum                            # line.de.1210
+
+
+---
+key: point.de.Rendsburg-Gewerbegebiet-Nord
+type: point
+subtype: reference
+events:
+    -   date: !!null
+        name: Rendsburg Gewerbegebiet Nord
+    -   date: !!null
+        location: !keyloc line.de.1012 3,072
+        sources: !keyref src.de.web.EBA.Still
+
+    -   date: !!null
+        site: !noderef path.de.1012 gen
+
+
+---
+key: point.de.Fockbek
+type: point
+events:
+    -   date: !!null
+        name: Fockbek
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        de.lknr: 01 166
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: IV
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 01 453
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location: !keyloc line.de.1012 4,26
+        sources: !keyref src.de.DRG.Alt.Karte.1949
+    -   date: !!null
+        de.DS100: AFC
+        de.dstnr: !!str 014530
+        sources: !keyref src.de.DS100.1984
+    -   date: !date c1975
+        staff: none
+        sources: !keyref src.de.DS100.1984
+    -   date: !date c1990
+        category: de.Anst
+
+    -   date: !!null
+        site: !noderef path.de.1012 foc left
+
+
+---
+key: point.de.Garlbek
+type: point
+events:
+    -   date: !!null
+        name: Garlbek
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        service: passenger
+        staff: none
+        master: !keyref point.de.Husum
+        de.lknr: 01 365
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Hp
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 01 454
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location: !keyloc line.de.1012 7,38
+        sources: !keyref src.de.DRG.Alt.Karte.1949
+    -   date: !date c1975
+        status: closed
+        sources: !keyref src.de.DS100.1984
+
+    -   date: !!null
+        site: !noderef path.de.1012 gar right
+
+
+---
+key: point.de.Hohn
+type: point
+events:
+    -   date: !!null
+        name: Hohn
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        de.lknr: 01 165
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: IV
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 01 455
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location: !keyloc line.de.1012 10,75
+        sources: !keyref src.de.DRG.Alt.Karte.1949
+    -   date: !!null
+        de.DS100: AHON
+        de.dstnr: !!str 014455
+        sources: !keyref src.de.DS100.1984
+    -   date: !date c1975
+        staff: none
+        sources: !keyref src.de.DS100.1984
+
+    -   date: !!null
+        site: !noderef path.de.1012 hoh left
+
+
+---
+key: point.de.Christiansholm
+type: point
+events:
+    -   date: !!null
+        name: Christiansholm
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        de.lknr: 01 164
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: IV
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 01 456
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location: !keyloc line.de.1012 17,42
+        sources: !keyref src.de.DRG.Alt.Karte.1949
+
+    -   date: !!null
+        site: !noderef path.de.1012 chr left
+
+
+---
+key: point.de.Erfde
+type: point
+events:
+    -   date: !!null
+        name: Erfde
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        de.lknr: 01 163
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: IV
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 01 457
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location: !keyloc line.de.1012 23,03
+        sources: !keyref src.de.DRG.Alt.Karte.1949
+    -   date: !!null
+        de.DS100: AER
+        de.dstnr: !!str 014571
+        sources: !keyref src.de.DS100.1984
+    -   date: !date c1975
+        staff: none
+        sources: !keyref src.de.DS100.1984
+
+    -   date: !!null
+        site: !noderef path.de.1012 erf left
+
+
+---
+key: point.de.Norderstapel
+type: point
+junction: True
+events:
+    -   date: !!null
+        name: Norderstapel
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        de.lknr: 01 162
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: III
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 01 458
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location: !keyloc line.de.1012 31,04
+        sources: !keyref src.de.DRG.Alt.Karte.1949
+    -   date: !!null
+        de.DS100: ANO
+        de.dstnr: !!str 014589
+        sources: !keyref src.de.DS100.1984
+    -   date: !date c1975
+        category: de.Anst
+        sources: !keyref src.de.DS100.1984
+
+    -   date: !!null
+        site: !noderef path.de.1012 nor right
+
+
+---
+key: point.de.Schwabstedt
+type: point
+events:
+    -   date: !!null
+        name: Schwabstedt
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        de.lknr: 01 161
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: IV
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 01 459
+        sources: !keyref src.de.Bfv.1933
+    -   date: !date c1935
+        category: de.Hst
+        sources: !keyref src.de.Bfv.1938
+    -   date: !!null
+        location: !keyloc line.de.1012 36,44
+        sources: !keyref src.de.DRG.Alt.Karte.1949
+    -   date: !!null
+        de.DS100: ASWS
+        de.dstnr: !!str 014597
+        sources: !keyref src.de.DS100.1984
+    -   date: !date c1975
+        category: de.Anst
+        sources: !keyref src.de.DS100.1984
+
+    -   date: !!null
+        site: !noderef path.de.1012 swa left
+
+
+---
+key: point.de.Rantrum
+type: point
+events:
+    -   date: !!null
+        name: Rantrum
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        de.lknr: 01 160
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: IV
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 01 460
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location: !keyloc line.de.1012 42,29
+        sources: !keyref src.de.DRG.Alt.Karte.1949
+    -   date: !!null
+        de.DS100: ART
+        de.dstnr: !!str 014605
+        sources: !keyref src.de.DS100.1984
+    -   date: !date c1975
+        staff: none
+        sources: !keyref src.de.DS100.1984
+
+    -   date: !!null
+        site: !noderef path.de.1012 ran left
+
+
+---
+key: point.de.Mildstedt
+type: point
+events:
+    -   date: !!null
+        name: Mildstedt
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        de.lknr: 01 159
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: IV
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 01 461
+        sources: !keyref src.de.Bfv.1933
+    -   date: !date c1935
+        category: de.Hst
+        sources: !keyref src.de.Bfv.1938
+    -   date: !!null
+        location: !keyloc line.de.1012 45,95
+        sources: !keyref src.de.DRG.Alt.Karte.1949
+    -   date: !!null
+        de.DS100: AMI
+        de.dstnr: !!str 014613
+        sources: !keyref src.de.DS100.1984
+    -   date: !date c1975
+        category: de.Anst
+        sources: !keyref src.de.DS100.1984
+
+    -   date: !!null
+        site: !noderef path.de.1012 mil left
+
