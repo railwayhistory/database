@@ -1,0 +1,110 @@
+# DE 8108.  Ohrstedt - Klosterkrug
+#
+---
+key: line.de.8108
+type: line
+events:
+    -   date: !!null
+        region:
+            - !keyref org.de
+            - !keyref org.de.l.sh
+
+    #   Genehmigungen
+    #
+    -   date: !date 1852-09-08
+        concession:
+            by: !keyref org.dk
+            for: !keyref org.gb.Morton-Peto
+        sources: !keyref src.de.DRG.1935
+    -   date: !date 1865-03-20
+        concession:
+            by: !keyref org.de.l.pre
+        sources: !keyref src.de.DRG.1935
+
+    #   Eröffnung und Einstellung
+    #
+    -   date: !date 1854-10-25
+        status: open
+        sources: !keyref src.de.DRG.1935
+    -   date: !date 1869-12-29
+        status: closed
+
+    #   Eigenschaften
+    #
+    -   date: !!null
+        category: de.Hauptbahn
+        tracks: 1
+        gauge: 1435
+
+    #   Eigentümer etc.
+    #
+    -   date: !!null
+        owner: !keyref org.gb.Morton-Peto
+        operator: !keyref org.gb.Morton-Peto
+        sources: !keyref src.de.DRG.1935
+    -   date: !date 1854-03-20
+        owner: !keyref org.de.e.FHTE
+        sources: !keyref src.de.DRG.1935
+    -   date: !date 1854-10-25
+        owner: !keyref org.de.e.SSEG
+        operator: !keyref org.de.e.SSEG
+        sources: !keyref src.de.DRG.1935
+    -   date: !date 1854-10-25
+        owner: !keyref org.de.e.SEG
+        operator: !keyref org.de.e.SEG
+        sources: !keyref src.de.DRG.1935
+
+    #   Verlauf
+    #
+    -   date: !!null
+        course:
+            - !pathref path.de.1011  ohr  fklo  0.0
+            - !pathref path.de.8108  a    f     0.0
+            - !pathref path.de.1040  aohr klg   0.5
+
+points:
+    - !keyref point.de.Ohrstedt                         # line.de.1011
+    - !keyref point.de.Holm
+    - !keyref point.de.Ellingstedt
+    - !keyref point.de.Klosterkrug      
+    - !keyref point.de.Klosterkrug-Gabelung             # line.de.1040
+
+
+---
+key: point.de.Holm
+type: point
+events:
+    -   date: !!null
+        category: de.Bf
+        name: Holm
+        sources: !keyref src.de.SuW.2011
+
+    -   date: !!null
+        site: !noderef path.de.8108 hol right
+
+
+---
+key: point.de.Ellingstedt
+type: point
+events:
+    -   date: !!null
+        category: de.Bf
+        name: Ellingstedt
+        sources: !keyref src.de.SuW.2011
+
+    -   date: !!null
+        site: !noderef path.de.8108 ell right
+
+
+---
+key: point.de.Klosterkrug
+type: point
+junction: True
+events:
+    -   date: !!null
+        category: de.Bf
+        name: Klosterkrug
+
+    -   date: !!null
+        site: !noderef path.de.8108 klo right
+
