@@ -1,20 +1,61 @@
+# DE 1011.  Jübeck - Husum
+#
 ---
-key: line.de.12500
+key: line.de.1011
 type: line
 events:
     -   date: !!null
         region:
             - !keyref org.de
             - !keyref org.de.l.sh
-    -   date: !!null
-        category: de.Nebenbahn
+
     -   date: !!null
         de.VzG: !!str 1011
         sources: !keyref src.de.VzG
+
+    #   Genehmigungen
+    #
     -   date: !date 1852-09-08
         start: !keyref point.de.Ohrstedt
         concession:
             by: !keyref org.dk
+            for: !keyref org.gb.Morton-Peto
+        sources: !keyref src.de.DRG.1935
+    -   date: !date 1857-03-28
+        end: !keyref point.de.Ohrstedt
+        concession:
+            by: !keyref org.dk
+            for: !keyref org.de.e.KSE
+        sources: !keyref src.de.DRG.1935
+    -   date: !date 1865-03-20
+        start: !keyref point.de.Ohrstedt
+        concession:
+            by: !keyref org.de.l.pre
+            for: !keyref org.de.e.SEG
+        sources: !keyref src.de.DRG.1935
+
+    #   Eröffnung und Einstellung
+    #
+    -   date: !date 1854-10-25
+        start: !keyref point.de.Ohrstedt
+        status: open
+        sources: !keyref src.de.DRG.1935
+    -   date: !date 1869-12-29
+        end: !keyref point.de.Ohrstedt
+        status: open
+        sources: !keyref src.de.DRG.1935
+
+    #   Eigenschaften
+    #
+    -   date: !!null
+        category: de.Nebenbahn
+        tracks: 1
+        gauge: 1435
+        sources: !keyref src.de.DRG.1927
+
+    #   Eigentümer etc.
+    #
+    -   date: !!null
         owner: !keyref org.gb.Morton-Peto
         operator: !keyref org.gb.Morton-Peto
         sources: !keyref src.de.DRG.1935
@@ -25,21 +66,16 @@ events:
         sources: !keyref src.de.DRG.1935
     -   date: !date 1854-10-25
         start: !keyref point.de.Ohrstedt
-        status: open
         owner: !keyref org.de.e.SSEG
         operator: !keyref org.de.e.SSEG
         sources: !keyref src.de.DRG.1935
     -   date: !date 1857-03-28
         end: !keyref point.de.Ohrstedt
-        concession:
-            by: !keyref org.dk
         owner: !keyref org.de.e.KSE
         operator: !keyref org.de.e.KSE
         sources: !keyref src.de.DRG.1935
     -   date: !date 1865-03-20
         start: !keyref point.de.Ohrstedt
-        concession:
-            by: !keyref org.de.l.pre
         owner: !keyref org.de.e.SEG
         operator: !keyref org.de.e.SEG
         sources: !keyref src.de.DRG.1935
@@ -48,16 +84,13 @@ events:
         owner: !keyref org.de.e.SEG
         operator: !keyref org.de.e.SEG
         sources: !keyref src.de.DRG.1935
-    -   date: !date 1869-12-29
-        end: !keyref point.de.Ohrstedt
-        status: open
-        sources: !keyref src.de.DRG.1935
     -   date: !date 1870-01-01
         operator: !keyref org.de.e.AKE
         sources: !keyref src.de.DRG.1935
     -   date: !date 1885-03-01
         owner: !keyref org.de.l.pre
         operator: !keyref org.de.e.KPEV.Alt
+
     -   date: !date 1920-04-01
         owner: !keyref org.de
         operator: !keyref org.de.r.RVM.PH
@@ -65,62 +98,96 @@ events:
         operator: !keyref org.de.e.DREb
     -   date: !date 1924-08-30
         operator: !keyref org.de.e.DRG
+
     -   date: !var org.de.DB.start
         operator: !keyref org.de.e.DB
+
     -   date: !var org.de.DBAG.start
         owner: !keyref org.de.e.DBAG
         operator: !keyref org.de.e.DBAG
     -   date: !var org.de.DBNetz.start
         owner: !keyref org.de.e.DBNetz
         operator: !keyref org.de.e.DBNetz
+
+    #   Verlauf
+    #
+    -   date: !!null
+        course:
+            - !pathref path.de.1040  jub  ahus -1.5
+            - !pathref path.de.1011  a    f     0.0
+            - !pathref path.de.1210  fjub hus   2.5
+
 points:
     - !keyref point.de.Juebek               # line.de.1040
     - !keyref point.de.Sollbrueck
-    - !keyref point.de.Ahrenvioel
+    - !keyref point.de.Ahrenviöl
     - !keyref point.de.Ohrstedt
     - !keyref point.de.Wester-Ohrstedt
     - !keyref point.de.Schwesing
     - !keyref point.de.Rosendahl
     - !keyref point.de.Husum                # line.de.1210
 
+
 ---
 key: point.de.Sollbrueck
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.12500 5,00
-        sources: !keyref src.de.DRG.Alt.Karte.1949
-    -   date: !!null
         name: Sollbrück
-        sources: !keyref src.de.Kb.1914
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        de.lknr: 01 155
+        sources: !keyref src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
         de.Rangklasse: IV
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 01 463
         sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location: !keyloc line.de.1011 5,00
+        sources: !keyref src.de.DRG.Alt.Karte.1949
+    -   date: !!null
+        de.DS100: ASK
+        de.dstnr: !!str 014639
+        sources: !keyref src.de.DS100.1984
+    -   date: !date c1975
+        category: de.Hst
+        staff: none
+        sources: !keyref src.de.DS100.1984
     -   date: !date 1984-06-02
         service: freight
     -   date: !date 1990
         status: closed
 
+    -   date: !!null
+        site: !noderef path.de.1011 sol right
+
+
 ---
-key: point.de.Ahrenvioel
+key: point.de.Ahrenviöl
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.12500 9,35
-        sources: !keyref src.de.DRG.Alt.Karte.1949
-    -   date: !!null
         name: Ahrenviöl
-        sources: !keyref src.de.Kb.1914
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        de.lknr: 01 156
+        sources: !keyref src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
         de.Rangklasse: IV
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 01 464
         sources: !keyref src.de.Bfv.1933
-    -   date: !date c1940
+    -   date: !date c1935
         category: de.Hst
-        sources: !keyref src.de.Bfv.1944
+        sources: !keyref src.de.Bfv.1938
+    -   date: !!null
+        location: !keyloc line.de.1011 9,35
+        sources: !keyref src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.DS100: AARL
         de.dstnr: !!str 014647
@@ -131,29 +198,40 @@ events:
     -   date: !date 1990
         status: closed
 
+    -   date: !!null
+        site: !noderef path.de.1011 ahr left
+
+
 ---
 key: point.de.Ohrstedt
 type: point
 junction: True
 events:
     -   date: !!null
-        location: !keyloc line.de.12500 14,15
-        sources: !keyref src.de.DRG.Alt.Karte.1949
-    -   date: !!null
         name: Oster Ohrstedt
+    -   date: !date c1900
+        name: Ohrstedt
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        de.lknr: 01 157
+        sources: !keyref src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
         de.Rangklasse: IV
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 01 465
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
+        location: !keyloc line.de.1011 14,15
+        sources: !keyref src.de.DRG.Alt.Karte.1949
+    -   date: !!null
         de.DS100: AOR
-        sources: !keyref src.de.TPP.2006
-    -   date: !date c1900
-        name: Ohrstedt
-        sources: !keyref src.de.Kb.1914
-    -   date: !date c1980
+        de.dstnr: !!str 014654
+        sources: !keyref src.de.DS100.1984
+    -   date: !date c1990
         category: de.Awanst
+        sources: !keyref src.de.SuW.2005
 
     -   date: !!null
         site: !noderef path.de.1011 ohr right
@@ -165,7 +243,7 @@ type: point
 events:
     -   date: !date c1950
         status: open
-        location: !keyloc line.de.12500 15,8
+        location: !keyloc line.de.1011 15,8
         category: de.Hp
         service: passenger
         staff: none
@@ -173,23 +251,36 @@ events:
     -   date: !date c1980
         status: closed
 
+    -   date: !!null
+        site: !noderef path.de.1011 wes left
+
+
 ---
 key: point.de.Schwesing
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.12500 20,50
-        sources: !keyref src.de.DRG.Alt.Karte.1949
-    -   date: !!null
         name: Schwesing
-        sources: !keyref src.de.Kb.1914
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        de.lknr: 01 158
+        sources: !keyref src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
         de.Rangklasse: IV
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 01 466
         sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location: !keyloc line.de.1011 20,50
+        sources: !keyref src.de.DRG.Alt.Karte.1949
     -   date: !date c1980
         status: closed
+
+    -   date: !!null
+        site: !noderef path.de.1011 swe right
+
 
 ---
 key: point.de.Rosendahl
@@ -197,10 +288,14 @@ type: point
 events:
     -   date: !date c1960
         status: open
-        location: !keyloc line.de.12500 23,0
+        location: !keyloc line.de.1011 23,0
         name: Rosendahl
         category: de.Hp
         service: passenger
         staff: none
     -   date: !date 1981-05-03?
         status: closed
+
+    -   date: !!null
+        site: !noderef path.de.1011 ros left
+
