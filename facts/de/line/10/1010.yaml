@@ -1,0 +1,167 @@
+# DE 1010.  Schlewsig - Schleswig Altstadt
+#
+---
+key: line.de.1010
+type: line
+events:
+    -   date: !!null
+        region:
+            - !keyref org.de
+            - !keyref org.de.l.sh
+
+    -   date: !!null
+        de.VzG: !!str 1010
+        sources: !keyref src.de.VzG
+
+    #   Genehmigungen
+    #
+    -   date: !date 1865-03-20
+        concession:
+            by: !keyref org.dk
+            for: !keyref org.de.e.KSE
+        sources: !keyref src.de.DRG.1935
+
+    #   Eröffnung und Einstellung
+    #
+    -   date: !date 1880-11-15
+        status: open
+        freight: none
+        sources: !keyref src.de.DRG.1935
+    -   date: !date 1881-05-15
+        freight: full
+        sources: !keyref src.de.DRG.1935
+
+    -   date: !date 1950-05-13
+        passenger: none
+        sources: !keyref src.de.DB.Hmb.1984
+    -   date: !date 1992-12-01
+        status: closed
+    -   date: !date c2000
+        status: removed
+
+    #   Eigenschaften
+    #
+    -   date: !!null
+        category: de.Nebenbahn
+        tracks: 1
+        gauge: 1435
+        sources: !keyref src.de.DRG.1927
+
+    #   Eigentümer etc.
+    #
+    -   date: !!null
+        owner: !keyref org.de.e.KSE
+        operator: !keyref org.de.e.KSE
+        sources: !keyref src.de.DRG.1935
+    -   date: !date 1868-10-20
+        owner: !keyref org.de.e.SEG
+        operator: !keyref org.de.e.SEG
+    -   date: !date 1885-03-01
+        owner: !keyref org.de.l.pre
+        operator: !keyref org.de.e.KPEV.Alt
+
+    -   date: !date 1920-04-01
+        owner: !keyref org.de
+        operator: !keyref org.de.r.RVM.PH
+    -   date: !date 1924-02-12
+        operator: !keyref org.de.e.DREb
+    -   date: !date 1924-08-30
+        operator: !keyref org.de.e.DRG
+
+    -   date: !var org.de.DB.start
+        operator: !keyref org.de.e.DB
+
+    -   date: !var org.de.DBAG.start
+        owner: !keyref org.de.e.DBAG
+        operator: !keyref org.de.e.DBAG
+    -   date: !var org.de.DBNetz.start
+        owner: !keyref org.de.e.DBNetz
+        operator: !keyref org.de.e.DBNetz
+
+    #   Verlauf
+    #
+    -   date: !!null
+        course:
+            - !pathref path.de.1040 sle  asla  1.5
+            - !pathref path.de.1010 a    sla   0.0
+
+points:
+    - !keyref point.de.Schleswig                        # line.de.1040
+    - !keyref point.de.Gottorf
+    - !keyref point.de.Schleihalle
+    - !keyref point.de.Domziegelhof
+    - !keyref point.de.Schleswig-Altstadt
+
+
+---
+key: point.de.Gottorf
+type: point
+events:
+    -   date: !!null
+        name: Gottorf
+        sources: !keyref src.de.Kb.1905
+    -   date: !date c1920
+        status: closed
+
+    -   date: !!null
+        site: !noderef path.de.1010 got right
+
+
+---
+key: point.de.Schleihalle
+type: point
+events:
+    -   date: !!null
+        name: Schleihalle
+        sources: !keyref src.de.Kb.1905
+    -   date: !date c1920
+        status: closed
+
+    -   date: !!null
+        site: !noderef path.de.1010 slh left
+
+
+---
+key: point.de.Domziegelhof
+type: point
+events:
+    -   date: !!null
+        name: Domziegelhof
+        sources: !keyref src.de.Kb.1905
+    -   date: !date c1920
+        status: closed
+
+    -   date: !!null
+        site: !noderef path.de.1010 dom left
+
+
+---
+key: point.de.Schleswig-Altstadt
+type: point
+junction: True
+events:
+    -   date: !!null
+        name: Schleswig Altstadt
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        de.lknr: 01 072
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: IV
+        name: Schleswig Altstadt
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 01 417
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location: !keyloc line.de.1010 136,01
+        sources: !keyref src.de.DRG.Alt.Karte.1949
+    -   date: !!null
+        de.DS100: ASLW
+        de.dstnr: !!str 014175
+        sources: !keyref src.de.DS100.1984
+
+    -   date: !!null
+        site: !noderef path.de.1010 sla left
+
