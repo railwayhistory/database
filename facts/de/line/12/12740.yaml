@@ -15,11 +15,11 @@ events:
         owner: !keyref org.de.k.fll
         operator: !keyref org.de.e.FbKb
     -   date: !date 1901-12-13
-        end: !keyref point.de.Satrup-Angeln
+        end: !keyref point.de.Satrup-Angeln-Flensb
         status: open
         sources: !keyref src.de.WP.Flensburger-Kreisbahn
     -   date: !date 1902-06-01
-        start: !keyref point.de.Satrup-Angeln
+        start: !keyref point.de.Satrup-Angeln-Flensb
         status: open
         sources: !keyref src.de.WP.Flensburger-Kreisbahn
     -   date: !date 1938-10-31
@@ -38,7 +38,7 @@ points:
     - !keyref point.de.Muehlenbrueck
     - !keyref point.de.Bistoft
     - !keyref point.de.Obdrup
-    - !keyref point.de.Satrup-Angeln        # line.de.12580
+    - !keyref point.de.Satrup-Angeln-Flensb
     - !keyref point.de.Gross-Ruede
     - !keyref point.de.Klein-Ruede
     - !keyref point.de.Muehlenholz
@@ -135,7 +135,6 @@ events:
         name: Bistoft
 
 ---
-
 key: point.de.Obdrup
 type: point
 events:
@@ -144,8 +143,24 @@ events:
         name: Obdrup
         sources: !keyref src.de.Kb.1914
 
----
 
+---
+key: point.de.Satrup-Angeln-Flensb
+type: point
+junction: True
+events:
+    -   date: !!null
+        name: Satrup
+        sources: !keyref src.de.Kb.1905
+    -   date: !date c1920
+        name: Satrup (Angeln)
+        sources: !keyref src.de.Bfv.1928
+    -   date: !var lknr.kb
+        de.lknr: 41 474
+        sources: !keyref src.de.Bfv.1938
+
+
+---
 key: point.de.Gross-Ruede
 type: point
 events:
