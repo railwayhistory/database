@@ -1,20 +1,51 @@
+# DE 1000. Flensburg Weiche - Harrislee Grenze
+#
 ---
-key: line.de.12600
+key: line.de.1000
 type: line
 events:
     -   date: !!null
         region:
             - !keyref org.de
             - !keyref org.de.l.sh
-    -   date: !!null
-        category: de.Hauptbahn
-        sources: !keyref src.de.DRG.1927
+
     -   date: !!null
         de.VzG: !!str 1000
         sources: !keyref src.de.VzG
+
+    #   Genehmigungen
+    #
     -   date: !!null
         concession:
             by: !keyref org.dk
+            for: !keyref org.gb.Morton-Peto
+        sources: !keyref src.de.DRG.1935
+    -   date: !date 1865-03-20?
+        concession:
+            by: !keyref org.de.l.pre
+            for: !keyref org.de.e.SEG
+
+    #   Eröffnung und Einstellung
+    #
+    -   date: !date 1864-04-15
+        status: open
+        sources: !keyref src.de.DRG.1935
+
+    #   Eigenschaften
+    #
+    -   date: !!null
+        category: de.Hauptbahn
+        tracks: 2
+        gauge: 1435
+        sources: !keyref src.de.DRG.1927
+    -   date: !date 1996-03-03
+        electrified:
+            overhead: !var el.de
+        sources: !keyref src.de.WP.Chronik-Streckenelektrifizierung-DBAG
+
+    #   Eigentümer etc.
+    #
+    -   date: !!null
         owner: !keyref org.gb.Morton-Peto
         operator: !keyref org.gb.Morton-Peto
         sources: !keyref src.de.DRG.1935
@@ -22,23 +53,18 @@ events:
         owner: !keyref org.de.e.NSEG
         operator: !keyref org.de.e.NSEG
         sources: !keyref src.de.DRG.1935
-    -   date: !date 1864-04-15
-        status: open
-        sources: !keyref src.de.DRG.1935
     -   date: !date 1865-03-20?
-        concession:
-            by: !keyref org.de.l.pre
         owner: !keyref org.de.e.SEG
         operator: !keyref org.de.e.SEG
     -   date: !date 1865-08-04
         operator: !keyref org.de.e.AKE
         sources: !keyref src.de.DRG.1935
+
     -   date: !date 1885-03-01
         owner: !keyref org.de.l.pre
         operator: !keyref org.de.e.KPEV.Alt
         sources: !keyref src.de.DRG.1935
-    -   date: !date c1900
-        tracks: 2
+
     -   date: !date 1920-04-01
         owner: !keyref org.de
         operator: !keyref org.de.r.RVM.PH
@@ -46,83 +72,126 @@ events:
         operator: !keyref org.de.e.DREb
     -   date: !date 1924-08-30
         operator: !keyref org.de.e.DRG
+
     -   date: !var org.de.DB.start
         operator: !keyref org.de.e.DB
+
     -   date: !var org.de.DBAG.start
         owner: !keyref org.de.e.DBAG
         operator: !keyref org.de.e.DBAG
-    -   date: !date 1995
-        electrified:
-            overhead: !var el.de
     -   date: !var org.de.DBNetz.start
         owner: !keyref org.de.e.DBNetz
         operator: !keyref org.de.e.DBNetz
+
+    #   Verlauf
+    #
+    -   date: !!null
+        course:
+            - !pathref path.de.1040  flw  apad -2.0
+            - !pathref path.de.1000  a    ghar  0.0
+
 points:
-    - !keyref point.de.Flensburg-Weiche         # line.de.1040
+    - !keyref point.de.Flensburg-Weiche                 # line.de.1040
     - !keyref point.de.Flensburg-Friedensweg
     - !keyref point.de.Harrislee
-    - !keyref point.de.Flensburg-Grenze
+    - !keyref point.int.Harrislee-Padborg
+
 
 ---
 key: point.de.Flensburg-Friedensweg
 type: point
+junction: True
 events:
     -   date: !!null
         location:
-            - !keyloc line.de.12600 168,75
+            - !keyloc line.de.1000 168,75
             - !keyloc line.de.12640 5,49
         name: Np
         sources: !keyref src.de.DRG.Alt.Karte.1931
-    -   date: !!null
-        de.DS100: AFR
-        sources: !keyref src.de.TPP.2006
     -   date: !date c1940
         name: Friedensweg
         sources: !keyref src.de.DRG.Alt.Karte.1949
     -   date: !date 1981
-        location: !keyloc line.de.12600 174,57
+        location: !keyloc line.de.1000 174,57
+    -   date: !!null
+        de.DS100: AFR
+        de.dstnr: !!str 017046
+        sources: !keyref src.de.DS100.1984
     -   date: !date c2000
         name: Flensburg Friedensweg
         sources: !keyref src.de.TPP.2006
+
+    -   date: !!null
+        site: !noderef path.de.1000 fri right
+
 
 ---
 key: point.de.Harrislee
 type: point
 events:
-    -   date: !!null
-        location: !keyloc line.de.12600 171,87
-        sources: !keyref src.de.DRG.Alt.Karte.1949
+    -   date: !date c1910
+        status: open
+        sources:
+            - !keyref src.de.Kb.1905
+            - !keyref src.de.Kb.1914
     -   date: !!null
         name: Harrislee
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 01 079
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: IV
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 01 434
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
+        location: !keyloc line.de.1000 171,87
+        sources: !keyref src.de.DRG.Alt.Karte.1949
+    -   date: !!null
         de.DS100: AHAL
+        de.dstnr: !!str 014340
+        sources: !keyref src.de.DS100.1984
     -   date: !date 1981
-        location: !keyloc line.de.12600 177,43
+        location: !keyloc line.de.1000 177,43
     -   date: !date c1995
         status: closed
 
+    -   date: !!null
+        site: !noderef path.de.1000 har right
+
+
 ---
-key: point.de.Flensburg-Grenze
+key: point.int.Harrislee-Padborg
 type: point
+junction: True
 events:
     -   date: !!null
-        location: !keyloc line.de.12600 174,21
-        sources: !keyref src.de.DRG.Alt.Karte.1949
+        name: Flensburg Grenze
+        de.lknr: 01 326
+        sources: !keyref src.de.Bfv.1928
     -   date: !!null
         category: de.Gp
-        name: Flensburg Grenze
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 01 430
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
+        location: !keyloc line.de.1000 174,21
+        sources: !keyref src.de.DRG.Alt.Karte.1949
+    -   date: !date 1981
+        location: !keyloc line.de.1000 179,784
+        sources: !keyref src.de.VzG
+    -   date: !!null
+        de.DS100: AGRP
+        de.dstnr: !!str 014308
+        sources: !keyref src.de.DS100.1984
+    -   date: !date c1995
         de.DS100: AXFW
         sources: !keyref src.de.TPP.2006
-    -   date: !date 1981
-        location: !keyloc line.de.12600 179,784
-        sources: !keyref src.de.VzG
+
+    -   date: !!null
+        site: !noderef path.de.1000 ghar
 
