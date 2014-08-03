@@ -1,26 +1,47 @@
+# DE 1003.  Flensburg Alter Bf - Flensburg Hafen West
 ---
-key: line.de.12655
+key: line.de.1003
 type: line
 events:
     -   date: !!null
         region:
             - !keyref org.de
             - !keyref org.de.l.sh
+
     -   date: !!null
         de.VzG: !!str 1203
         sources: !keyref src.de.VzG
+
+    #   Genehmigungen
+    #
     -   date: !date 1886-01-14
         concession:
             by: !keyref org.de.l.pre
-        owner: !keyref org.de.l.pre
-        operator: !keyref org.de.e.KPEV.Alt
-        sources:
-            - !keyref src.de.DRG.1935
-            - !keyref src.de.Schleswig.1886.4
+            document: !keyref src.de.l.pre.sle.1886.4
+        sources: !keyref src.de.DRG.1935
+
+    #   Eröffnung und Einstellung
+    #
     -   date: !date 1886-04-06
         status: open
-        service: freight
+        passenger: none
         sources: !keyref src.de.DRG.1935
+
+    #   Eigenschaften
+    #
+    -   date: !!null
+        category: de.Nebenbahn
+        tracks: 1
+        gauge: 1435
+        sources: !keyref src.de.DRG.1927
+
+    #   Eigentümer etc.
+    #
+    -   date: !!null
+        owner: !keyref org.de.l.pre
+        operator: !keyref org.de.e.KPEV.Alt
+        sources: !keyref src.de.DRG.1935
+
     -   date: !date 1920-04-01
         owner: !keyref org.de
         operator: !keyref org.de.r.RVM.PH
@@ -28,16 +49,23 @@ events:
         operator: !keyref org.de.e.DREb
     -   date: !date 1924-08-30
         operator: !keyref org.de.e.DRG
-    -   date: !date 1927-12-01?
-        service: freight
+
     -   date: !var org.de.DB.start
         operator: !keyref org.de.e.DB
+
     -   date: !var org.de.DBAG.start
         owner: !keyref org.de.e.DBAG
         operator: !keyref org.de.e.DBAG
     -   date: !var org.de.DBNetz.start
         owner: !keyref org.de.e.DBNetz
         operator: !keyref org.de.e.DBNetz
+
+    #   Verlauf
+    #
+    -   date: !!null
+        course:
+            - !pathref path.de.1002 fla  afhw  0.0
+
 points:
     - !keyref point.de.Flensburg-Alter-Bf
     - !keyref point.de.Flensburg-Hafen-West
@@ -50,3 +78,4 @@ subtype: reference
 events:
     -   date: !!null
         name: Flensburg, westliches Hafengleis
+        site: !noderef path.de.1003 fhw left
