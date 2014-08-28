@@ -1,22 +1,23 @@
+# DE 8103.  Eckernförde - Kappeln (Schlei)
+#
 ---
-key: line.de.12950
+key: line.de.8103
 type: line
 events:
     -   date: !!null
         region:
             - !keyref org.de
             - !keyref org.de.l.sh
-    -   date: !!null
-        category: de.Nebenbahn
-        gauge: 1000
-    -   date: !!null
-        owner: !keyref org.de.e.EKSG
-        operator: !keyref org.de.e.EKSG
-        sources: !keyref src.de.Schoening.1998
+
+    #   Genehmigungen
+    #
     -   date: !date 1887-06-29
         concession:
             by: !keyref org.de.l.pre
         sources: !keyref src.de.DRG.1935
+
+    #   Eröffnung und Einstellung
+    #
     -   date: !date 1889-01-26
         end: !keyref point.de.Ellenberg
         status: open
@@ -25,62 +26,100 @@ events:
         start: !keyref point.de.Ellenberg
         status: open
         sources: !keyref src.de.DRG.1935
-    -   date: !date 1904-03-28
-        owner: !keyref org.de.k.eck
-        operator: !keyref org.de.e.KbEK
+
     -   date: !date 1958-05-31
-        start: !keyref point.de.Doerphof
+        start: !keyref point.de.Dörphof
         status: closed
         sources: !keyref src.de.Schoening.1998
     -   date: !date 1958-06-30
-        start: !keyref point.de.Vogelsang-Gruenholz
-        end: !keyref point.de.Doerphof
+        start: !keyref point.de.Vogelsang-Grünholz
+        end: !keyref point.de.Dörphof
         status: closed
         sources: !keyref src.de.Schoening.1998
     -   date: !date 1958-07-31
-        start: !keyref point.de.Loose
-        end: !keyref point.de.Vogelsang-Gruenholz
+        start: !keyref point.de.Loose-Eckernförde
+        end: !keyref point.de.Vogelsang-Grünholz
         status: closed
         sources: !keyref src.de.Schoening.1998
     -   date: !date 1958-09-10
-        end: !keyref point.de.Loose
+        end: !keyref point.de.Loose-Eckernförde
         status: closed
         sources: !keyref src.de.Schoening.1998
+
     -   date: !date c1960
         status: removed
+
+    #   Eigenschaften
+    #
+    -   date: !!null
+        category: de.Nebenbahn
+        gauge: 1000
+        tracks: 1
+
+    #   Eigentümer etc.
+    #
+    -   date: !!null
+        owner: !keyref org.de.Eckernförde-Kappelner-Schmalspurbahn
+        operator: !keyref org.de.Eckernförde-Kappelner-Schmalspurbahn
+        sources: !keyref src.de.Schoening.1998
+
+    -   date: !date 1904-03-28
+        owner: !keyref org.de.Kreis-Eckernförde
+        operator: !keyref org.de.Kreisbahn-Eckernförde-Kappeln
+
+    #   Verlauf
+    #
+    -   date: !!null
+        course:
+            - !pathref path.de.1020  eck  aows  2.0
+            - !pathref path.de.8102  a    akap  1.0
+            - !pathref path.de.8103  a    f     0.0
+            - !pathref path.de.8106  f    kap   1.0
+
 points:
     - !keyref point.de.Eckernförde                      # line.de.1020
-    - !keyref point.de.Eckernfoerde-Kreisb
+    - !keyref point.de.Eckernförde-Kreisb
     - !keyref point.de.Hasenheide
     - !keyref point.de.Barkeslsby
-    - !keyref point.de.Loose
-    - !keyref point.de.Moorbruecke
-    - !keyref point.de.Holzdorf-Eckernfoerde
-    - !keyref point.de.Soeby
-    - !keyref point.de.Vogelsang-Gruenholz
-    - !keyref point.de.Schuby-Eckernfoerde
-    - !keyref point.de.Doerphof
+    - !keyref point.de.Loose-Eckernförde
+    - !keyref point.de.Moorbrücke
+    - !keyref point.de.Holzdorf-Eckernförde
+    - !keyref point.de.Söby
+    - !keyref point.de.Vogelsang-Grünholz
+    - !keyref point.de.Schuby-Eckernförde
+    - !keyref point.de.Dörphof
     - !keyref point.de.Karby
     - !keyref point.de.Brodersby
     - !keyref point.de.Ellenberg
     - !keyref point.de.Kappeln-Eckernförder-Bf
 
+
 ---
-key: point.de.Eckernfoerde-Kreisb
+key: point.de.Eckernförde-Kreisb
 type: point
+junction: True
 events:
     -   date: !!null
-        location:
-            - !keyloc line.de.12950 0,5
-            - !keyloc line.de.12970 0,5
-        name: Eckernförde Kreisb
+        name: Eckernförde Krbf
+        sources: !keyref src.de.Kb.1905
+    -   date: !date c1910
+        name: Eckernförde Kreisbf
         sources: !keyref src.de.Kb.1914
+    -   date: !date c1920
+        name: Eckernförde Kreisbahnhof
+        sources: !keyref src.de.Bfv.1928
     -   date: !!null
         de.lknr: 40 821
-        sources: !keyref src.de.Bfv.1933
+        sources: !keyref src.de.Bfv.1928
+    -   date: !date c1930
+        name: Eckernförde Kreisb
     -   date: !!null
         category: de.Bf
         sources: !keyref src.de.Schoening.1998
+
+    -   date: !!null
+        site: !noderef path.de.1020 eck right
+
 
 ---
 key: point.de.Hasenheide
@@ -89,51 +128,59 @@ events:
     -   date: !date 1947
         status: open
         category: de.Hp
-        location: !keyloc line.de.12950 1,46
         name: Hasenheide
         sources: !keyref src.de.Schoening.1998
+
+    -   date: !!null
+        site: !noderef path.de.8103 has right
+
 
 ---
 key: point.de.Barkeslsby
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.12950 4,0
         name: Barkelsby
-        sources: !keyref src.de.Kb.1914
+        sources: !keyref src.de.Kb.1905
     -   date: !!null
         de.lknr: 41 821
-        sources: !keyref src.de.Bfv.1933
+        sources: !keyref src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
         sources: !keyref src.de.Schoening.1998
 
+    -   date: !!null
+        site: !noderef path.de.8103 bar left
+
+
 ---
-key: point.de.Loose
+key: point.de.Loose-Eckernförde
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.12950 8,5
         name: Loose
-        sources: !keyref src.de.Kb.1914
+        sources: !keyref src.de.Kb.1905
     -   date: !!null
         de.lknr: 42 821
-        sources: !keyref src.de.Bfv.1933
+        sources: !keyref src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
         sources: !keyref src.de.Schoening.1998
 
+    -   date: !!null
+        site: !noderef path.de.8103 loo right
+
+
 ---
-key: point.de.Moorbruecke
+key: point.de.Moorbrücke
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.12950 10,7
         name: Moorbrücke
-        sources: !keyref src.de.Kb.1914
+        sources: !keyref src.de.Kb.1905
     -   date: !!null
         de.lknr: 43 821
-        sources: !keyref src.de.Bfv.1933
+        sources: !keyref src.de.Bfv.1928
     -   date: !!null
         category: de.Hp
         sources: !keyref src.de.Schoening.1998
@@ -141,79 +188,95 @@ events:
         category: de.Bf
         sources: !keyref src.de.Schoening.1998
 
+    -   date: !!null
+        site: !noderef path.de.8103 moo right
+
+
 ---
-key: point.de.Holzdorf-Eckernfoerde
+key: point.de.Holzdorf-Eckernförde
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.12950 12,2
+        name: Holzdorf (Schleswig)
+        sources: !keyref src.de.Kb.1905
+    -   date: !date c1910
         name: Holzdorf (Kr Eckernförde)
         sources: !keyref src.de.Kb.1914
     -   date: !!null
         de.lknr: 44 821
-        sources: !keyref src.de.Bfv.1933
+        sources: !keyref src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
         sources: !keyref src.de.Schoening.1998
 
+    -   date: !!null
+        site: !noderef path.de.8103 hol left
+
+
 ---
-key: point.de.Soeby
+key: point.de.Söby
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.12950 13,7
         name: Söby
-        sources: !keyref src.de.Kb.1914
+        sources: !keyref src.de.Kb.1905
     -   date: !!null
         de.lknr: 45 821
-        sources: !keyref src.de.Bfv.1933
+        sources: !keyref src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
         sources: !keyref src.de.Schoening.1998
 
+    -   date: !!null
+        site: !noderef path.de.8103 sob left
+
+
 ---
-key: point.de.Vogelsang-Gruenholz
+key: point.de.Vogelsang-Grünholz
 type: point
 events:
-    -   date: !!null
-        location: !keyloc line.de.12950 16,6
-        sources: !keyref src.de.Kb.1914
-    -   date: !!null
-        de.lknr: 46 821
-        sources: !keyref src.de.Bfv.1933
     -   date: !!null
         category: de.Bf
         name: Vogelsang
         sources: !keyref src.de.Schoening.1998
     -   date: !date 1892
         name: Vogelsang-Grünholz
+    -   date: !!null
+        de.lknr: 46 821
+        sources: !keyref src.de.Bfv.1928
+
+    -   date: !!null
+        site: !noderef path.de.8103 vog left
+
 
 ---
-key: point.de.Schuby-Eckernfoerde
+key: point.de.Schuby-Eckernförde
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.12950 20,8
         name: Schuby (Kr Eckernförde)
-        sources: !keyref src.de.Kb.1914
+        sources: !keyref src.de.Kb.1905
     -   date: !!null
         de.lknr: 47 821
-        sources: !keyref src.de.Bfv.1933
+        sources: !keyref src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
         sources: !keyref src.de.Schoening.1998
 
+    -   date: !!null
+        site: !noderef path.de.8103 sub right
+
+
 ---
-key: point.de.Doerphof
+key: point.de.Dörphof
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.12950 22,4
         name: Dörphof
-        sources: !keyref src.de.Kb.1914
+        sources: !keyref src.de.Kb.1905
     -   date: !!null
         de.lknr: 48 821
-        sources: !keyref src.de.Bfv.1933
+        sources: !keyref src.de.Bfv.1928
     -   date: !!null
         category: de.Hp
         sources: !keyref src.de.Schoening.1998
@@ -221,66 +284,84 @@ events:
         category: de.Bf
         sources: !keyref src.de.Schoening.1998
 
+    -   date: !!null
+        site: !noderef path.de.8103 dor left
+
+
 ---
 key: point.de.Karby
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.12950 23,0
         name: Karby
-        sources: !keyref src.de.Kb.1914
+        sources: !keyref src.de.Kb.1905
     -   date: !!null
         de.lknr: 49 821
-        sources: !keyref src.de.Bfv.1933
+        sources: !keyref src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
         sources: !keyref src.de.Schoening.1998
+
+    -   date: !!null
+        site: !noderef path.de.8103 kar left
+
 
 ---
 key: point.de.Brodersby
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.12950 24,4
         name: Brodersby
-        sources: !keyref src.de.Kb.1914
+        sources: !keyref src.de.Kb.1905
     -   date: !!null
         de.lknr: 50 821
-        sources: !keyref src.de.Bfv.1933
+        sources: !keyref src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
         sources: !keyref src.de.Schoening.1998
+
+    -   date: !!null
+        site: !noderef path.de.8103 bro left
+
 
 ---
 key: point.de.Ellenberg
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.12950 28,5
         name: Ellenberg
         sources: !keyref src.de.Kb.1914
     -   date: !!null
         de.lknr: 51 821
-        sources: !keyref src.de.Bfv.1933
+        sources: !keyref src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
         sources: !keyref src.de.Schoening.1998
+
+    -   date: !!null
+        site: !noderef path.de.8103 ell right
+
 
 ---
 key: point.de.Kappeln-Eckernförder-Bf
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.12950 28,7
         name: Kappeln (Schlei) Kreisbf
-        sources: !keyref src.de.Kb.1914
+        sources: !keyref src.de.Kb.1905
     -   date: !!null
         de.lknr: 52 821
-        sources: !keyref src.de.Bfv.1933
+        sources: !keyref src.de.Bfv.1928
+    -   date: !date c1920
+        name: Kappeln (Schlei)
+        sources: !keyref src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
         sources: !keyref src.de.Schoening.1998
-    -   date: !date 1920
-        name: Kappeln (Schlei)
-        sources: !keyref src.de.Bfv.1933
+
+    -   date: !!null
+        site: !noderef path.de.8106 kap left
+        connection:
+            - !keyref point.de.Kappeln-Schlei
+            - !keyref point.de.Kappeln-Flensburger-Bf
 
