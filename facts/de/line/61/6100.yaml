@@ -1,3 +1,5 @@
+# line.de.6100. Berlin-Spandau - Wittenberge - Hamburg-Altona
+#
 ---
 key: line.de.6100
 type: line
@@ -380,21 +382,28 @@ points:
     - !keyref point.de.Brieselang
     - !keyref point.de.Graben-Nauen
     - !keyref point.de.Nauen
+    - !keyref point.de.Nauen-Lietzow
     - !keyref point.de.Berger-Damm
+    - !keyref point.de.Selbelang
     - !keyref point.de.Paulinenaue
+    - !keyref point.de.Brädikow
     - !keyref point.de.Vietznitz
     - !keyref point.de.Friesack
     - !keyref point.de.Segeletz
+    - !keyref point.de.Schäferberg
+    - !keyref point.de.Neustadt-Dosse-Ns
     - !keyref point.de.Neustadt-Dosse
-    - !keyref point.de.Plaenitz
+    - !keyref point.de.Plänitz
     - !keyref point.de.Zernitz
     - !keyref point.de.Stuedenitz
     - !keyref point.de.Breddin
     - !keyref point.de.Damelak
-    - !keyref point.de.Gloewen
+    - !keyref point.de.Glöwen
     - !keyref point.de.Roddan
     - !keyref point.de.Bad-Wilsnack
+    - !keyref point.de.Lüben
     - !keyref point.de.Kuhblank
+    - !keyref point.de.Breese
     - !keyref point.de.Wittenberge-Sued
     - !keyref point.de.Wittenberge
     - !keyref point.de.Wittenberge-Nord
@@ -413,14 +422,18 @@ points:
     - !keyref point.de.Niendorf-Ludwigslust
     - !keyref point.de.Jasnitz
     - !keyref point.de.Strohkirchen
+    - !keyref point.de.Moraas
     - !keyref point.de.Hagenow-Land
+    - !keyref point.de.Paetow
     - !keyref point.de.Warlitz
     - !keyref point.de.Pritzier
     - !keyref point.de.Melkof
     - !keyref point.de.Brahlstorf
     - !keyref point.de.Kuhlenfeld
     - !keyref point.de.Boizenburg
+    - !keyref point.de.Metlitzhof
     - !keyref point.de.Schwanheide
+    - !keyref point.de.Zweedorf
     - !keyref point.de.Schwanheide-LGr
     - !keyref point.de.Buechen
     - !keyref point.de.Buechen-Bbf
@@ -441,6 +454,7 @@ points:
     - !keyref point.de.Hamburg-Nettelnburg
     - !keyref point.de.Hamburg-Bergedorf-Ba
     - !keyref point.de.Hamburg-Allermoehe-S-Bahn
+    - !keyref point.de.Hamburg-Bergedorf-Bs
     - !keyref point.de.Hamburg-Allermoehe
     - !keyref point.de.Hamburg-Mittlerer-Landweg
     - !keyref point.de.Hamburg-Billwerder-Moorfleet-Abzw
@@ -491,7 +505,8 @@ events:
         sources: !keyref src.de.DRG.Bln.1943
 
     -   date: !!null
-        site: !noderef path.de.6100 szw
+        site: !noderef path.de.6100 szw right
+
 
 ---
 key: point.de.Berlin-Albrechtshof-Gr
@@ -815,6 +830,26 @@ events:
         connection:
             - !keyref point.de.Nauen-Osth-E             # line.de.6509
 
+# src.de.DRG.Alt.Karte.1931: RBD-Grenze 36,96
+
+
+---
+key: point.de.Nauen-Lietzow
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.6100 38,12
+        category: de.Bk
+        name: Lietzow
+        sources: !keyref src.de.DRG.Alt.Karte.1931
+    -   date: !date c1945
+        status: closed
+        sources: !keyref src.dd.DR.Bln.1953
+
+    -   date: !!null
+        site: !noderef path.de.6100 lie left
+
+
 ---
 key: point.de.Berger-Damm
 type: point
@@ -826,12 +861,10 @@ events:
         de.lknr: 01 001
         sources: !keyref src.de.Bfv.1928
     -   date: !!null
+        location: !keyloc line.de.6100 42,21
         category: de.Bf
         de.Rangklasse: IV
-        sources: !keyref src.de.Bfv.1933
-    -   date: !!null
-        location: !keyloc line.de.6100 42,21
-        sources: !keyref src.dd.DR.1976
+        sources: !keyref src.de.DRG.Alt.Karte.1931
     -   date: !!null
         de.VBL: Bd
         sources: !keyref src.dd.DR.Bln.1953
@@ -850,7 +883,25 @@ events:
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.6100 bed
+        site: !noderef path.de.6100 bed right
+
+
+---
+key: point.de.Selbelang
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.6100 45,38
+        category: de.Bk
+        name: Selbelang
+        sources: !keyref src.de.DRG.Alt.Karte.1931
+    -   date: !date c1945
+        status: closed
+        sources: !keyref src.dd.DR.Bln.1953
+
+    -   date: !!null
+        site: !noderef path.de.6100 sel right
+
 
 ---
 key: point.de.Paulinenaue
@@ -867,13 +918,12 @@ events:
         de.lknr: 01 002
         sources: !keyref src.de.Bfv.1928
     -   date: !!null
+        location: !keyloc line.de.6100 48,99
         category: de.Bf
         de.Rangklasse: II
-        sources: !keyref src.de.Bfv.1933
+        sources: !keyref src.de.DRG.Alt.Karte.1931
     -   date: !!null
-        location:
-            - !keyloc line.de.6100 48,99
-            - !keyloc line.de.6948  0,00
+        location: !keyloc line.de.6948  0,00
         de.VBL: Pau
         sources: !keyref src.dd.DR.1976
     -   date: !date c1950
@@ -887,7 +937,25 @@ events:
         sources: !keyref src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.6100 pau
+        site: !noderef path.de.6100 pau left
+
+
+---
+key: point.de.Brädikow
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.6100 53,09
+        category: de.Bk
+        name: Brädikow
+        sources: !keyref src.de.DRG.Alt.Karte.1931
+    -   date: !!null
+        status: closed
+        sources: !keyref src.dd.DR.Bln.1953
+
+    -   date: !!null
+        site: !noderef path.de.6100 bra left
+
 
 ---
 key: point.de.Vietznitz
@@ -900,12 +968,10 @@ events:
         de.lknr: 01 003
         sources: !keyref src.de.Bfv.1928
     -   date: !!null
+        location: !keyloc line.de.6100 57,15
         category: de.Bf
         de.Rangklasse: IV
-        sources: !keyref src.de.Bfv.1933
-    -   date: !!null
-        location: !keyloc line.de.6100 57,15
-        sources: !keyref src.dd.DR.1976
+        sources: !keyref src.de.DRG.Alt.Karte.1931
     -   date: !!null
         de.VBL: Vz
         sources: !keyref src.dd.DR.Bln.1953
@@ -922,7 +988,8 @@ events:
         de.DS100: WVZ
 
     -   date: !!null
-        site: !noderef path.de.6100 viz
+        site: !noderef path.de.6100 viz left
+
 
 ---
 key: point.de.Friesack
@@ -935,12 +1002,10 @@ events:
         de.lknr: 01 004
         sources: !keyref src.de.Bfv.1928
     -   date: !!null
+        location: !keyloc line.de.6100 61,67
         category: de.Bf
         de.Rangklasse: III
-        sources: !keyref src.de.Bfv.1933
-    -   date: !!null
-        location: !keyloc line.de.6100 61,67
-        sources: !keyref src.dd.DR.1976
+        sources: !keyref src.de.DRG.Alt.Karte.1931
     -   date: !!null
         de.VBL: Frk
         sources: !keyref src.dd.DR.Bln.1953
@@ -955,7 +1020,8 @@ events:
         sources: !keyref src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.6100 frk
+        site: !noderef path.de.6100 frk left
+
 
 ---
 key: point.de.Segeletz
@@ -963,6 +1029,10 @@ type: point
 events:
     -   date: !!null
         location: !keyloc line.de.6100 66,58
+        category: de.Bk
+        name: Segeletz
+        sources: !keyref src.de.DRG.Alt.Karte.1931
+    -   date: !date c1950
         category: de.Bf
         de.Rangklasse: U
         de.VBL: Sgl
@@ -977,7 +1047,42 @@ events:
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.6100 sgl
+        site: !noderef path.de.6100 sgl right
+
+
+---
+key: point.de.Schäferberg
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.6100 70,68
+        category: de.Bk
+        name: Schäferberg
+        sources: !keyref src.de.DRG.Alt.Karte.1931
+    -   date: !!null
+        status: closed
+        sources: !keyref src.dd.DR.Bln.1953
+
+    -   date: !!null
+        site: !noderef path.de.6100 saf right
+
+
+---
+key: point.de.Neustadt-Dosse-Ns
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.6100 73,9
+        category: de.Bk
+        name: Ns
+        sources: !keyref src.de.DRG.Alt.Karte.1931
+    -   date: !!null
+        status: closed
+        sources: !keyref src.dd.DR.Bln.1953
+
+    -   date: !!null
+        site: !noderef path.de.6100 nns right
+
 
 ---
 key: point.de.Neustadt-Dosse
@@ -994,17 +1099,17 @@ events:
         de.lknr: 01 005
         sources: !keyref src.de.Bfv.1928
     -   date: !!null
-        category: de.Bf
-        de.Rangklasse: I
-        sources: !keyref src.de.Bfv.1933
-    -   date: !!null
-        de.VBL: Nst
-        sources: !keyref src.dd.DR.Bln.1953
-    -   date: !!null
         location:
             - !keyloc line.de.6100 75,44
             - !keyloc line.de.6938  0,00
             - !keyloc line.de.6946  0,00
+        category: de.Bf
+        de.Rangklasse: I
+        sources: !keyref src.de.DRG.Alt.Karte.1931
+    -   date: !!null
+        de.VBL: Nst
+        sources: !keyref src.dd.DR.Bln.1953
+    -   date: !!null
         sources: !keyref src.dd.DR.1976
     -   date: !date c1965
         de.Rangklasse: II
@@ -1014,26 +1119,34 @@ events:
         sources: !keyref src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.6100 nst
+        site: !noderef path.de.6100 nst left
+
 
 ---
-key: point.de.Plaenitz
+key: point.de.Plänitz
 type: point
 events:
+    -   date: !!null
+        location: !keyloc line.de.6100 79,24
+        category: de.Bk
+        name: Plänitz
+        sources: !keyref src.de.DRG.Alt.Karte.1931
+    -   date: !!null
+        status: closed
+        sources: !keyref src.dd.DR.1976
     -   date: !date c1985
         status: open
         sources: !keyref src.dd.DR.1989
     -   date: !!null
         location: !keyloc line.de.6100 79,246
-        category: de.Bk
-        name: Plänitz
         note: Bedarfs-Bk
         sources: !keyref src.dd.DR.1989
     -   date: !date c1995
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.6100 plz
+        site: !noderef path.de.6100 plz left
+
 
 ---
 key: point.de.Zernitz
@@ -1046,11 +1159,11 @@ events:
         de.lknr: 01 006
         sources: !keyref src.de.Bfv.1928
     -   date: !!null
+        location: !keyloc line.de.6100 83,50
         category: de.Bf
         de.Rangklasse: III
-        sources: !keyref src.de.Bfv.1933
+        sources: !keyref src.de.DRG.Alt.Karte.1931
     -   date: !!null
-        location: !keyloc line.de.6100 83,50
         de.VBL: Zrn
         sources: !keyref src.dd.DR.1976
     -   date: !date c1965
@@ -1064,7 +1177,8 @@ events:
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.6100 zrn
+        site: !noderef path.de.6100 zrn right
+
 
 ---
 key: point.de.Stuedenitz
@@ -1077,11 +1191,11 @@ events:
         de.lknr: 01 007
         sources: !keyref src.de.Bfv.1928
     -   date: !!null
+        location: !keyloc line.de.6100 88,83
         category: de.Bf
         de.Rangklasse: IV
-        sources: !keyref src.de.Bfv.1933
+        sources: !keyref src.de.DRG.Alt.Karte.1931
     -   date: !!null
-        location: !keyloc line.de.6100 88,83
         de.VBL: Stü
         sources: !keyref src.dd.DR.1976
     -   date: !date c1960
@@ -1094,7 +1208,8 @@ events:
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.6100 stn
+        site: !noderef path.de.6100 stn left
+
 
 ---
 key: point.de.Breddin
@@ -1108,11 +1223,11 @@ events:
         de.lknr: 01 008
         sources: !keyref src.de.Bfv.1928
     -   date: !!null
+        location: !keyloc line.de.6100 92,12
         category: de.Bf
         de.Rangklasse: III
-        sources: !keyref src.de.Bfv.1933
+        sources: !keyref src.de.DRG.Alt.Karte.1931
     -   date: !!null
-        location: !keyloc line.de.6100 92,12
         de.VBL: Bi
         sources: !keyref src.dd.DR.1976
     -   date: !date c1925
@@ -1129,26 +1244,34 @@ events:
         site: !noderef path.de.6100 bre left
         connection: !keyref point.de.Breddin-Kleinb
 
+
 ---
 key: point.de.Damelak
 type: point
 events:
+    -   date: !!null
+        location: !keyloc line.de.6100 97,12
+        category: de.Bk
+        name: Damelak
+        sources: !keyref src.de.DRG.Alt.Karte.1931
+    -   date: !!null
+        status: closed
+        sources: !keyref src.dd.DR.1976
     -   date: !date c1985
         status: open
         location: !keyloc line.de.6100 97,125
-        category: de.Bk
         note: Bedarfs-Bk
-        name: Damelak
         de.VBL: Dak
         sources: !keyref src.dd.DR.1989
     -   date: !date c1995
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.6100 dak
+        site: !noderef path.de.6100 dak right
+
 
 ---
-key: point.de.Gloewen
+key: point.de.Glöwen
 type: point
 junction: True
 events: 
@@ -1159,14 +1282,16 @@ events:
         de.lknr: 01 009
         sources: !keyref src.de.Bfv.1928
     -   date: !!null
+        location:
+            - !keyloc line.de.6100 101,81
+            - !keyloc line.de.8621   0,00
         category: de.Bf
         de.Rangklasse: II
-        sources: !keyref src.de.Bfv.1933
+        sources: !keyref src.de.DRG.Alt.Karte.1931
     -   date: !date c1925
         name: Glöwen
         sources: !keyref src.de.Bfv.1933
     -   date: !!null    
-        location: !keyloc line.de.6100 101,81
         de.VBL: Gl
         sources: !keyref src.dd.DR.1976
     -   date: !date c1965
@@ -1178,26 +1303,33 @@ events:
 
     -   date: !!null
         site: !noderef path.de.6100 glo left
-        connection: !keyref point.de.Gloewen-Kleinb
+        connection: !keyref point.de.Glöwen-Kleinb
 
 
 ---
 key: point.de.Roddan
 type: point
 events:
+    -   date: !!null
+        location: !keyloc line.de.6100 107,55
+        category: de.Bk
+        name: Roddan
+        sources: !keyref src.de.DRG.Alt.Karte.1931
+    -   date: !!null
+        status: closed
+        sources: !keyref src.dd.DR.1976
     -   date: !date c1985
         status: open
         location: !keyloc line.de.6100 107,526
-        category: de.Bk
         note: Bedarfs-Bk
-        name: Roddan
         de.VBL: Ron
         sources: !keyref src.dd.DR.1989
     -   date: !date c1995
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.6100 ron
+        site: !noderef path.de.6100 ron left
+
 
 ---
 key: point.de.Bad-Wilsnack
@@ -1210,14 +1342,14 @@ events:
         de.lknr: 01 012
         sources: !keyref src.de.Bfv.1928
     -   date: !!null
+        location: !keyloc line.de.6100 112,80
         category: de.Bf
         de.Rangklasse: III
-        sources: !keyref src.de.Bfv.1933
+        sources: !keyref src.de.DRG.Alt.Karte.1931
     -   date: !var lknr.30
         de.lknr: 01 011
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        location: !keyloc line.de.6100 112,80
         de.VBL: Wil
         sources: !keyref src.dd.DR.1976
     -   date: !date c1925
@@ -1231,7 +1363,25 @@ events:
         sources: !keyref src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.6100 wil
+        site: !noderef path.de.6100 wil left
+
+
+---
+key: point.de.Lüben
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.6100 116,63
+        category: de.Bk
+        name: Lüben
+        sources: !keyref src.de.DRG.Alt.Karte.1931
+    -   date: !date c1950
+        status: closed
+        sources: !keyref src.dd.DR.1976
+
+    -   date: !!null
+        site: !noderef path.de.6100 lun right
+
 
 ---
 key: point.de.Kuhblank
@@ -1245,13 +1395,17 @@ events:
         service: passenger
         sources: !keyref src.de.Bfv.1928
     -   date: !!null
+        location: !keyloc line.de.6100 119,96
+        category: de.Bf
+        de.Rangklasse: IV
+        sources: !keyref src.de.DRG.Alt.Karte.1931
+    -   date: !date c1932
         category: de.Hp
         sources: !keyref src.de.Bfv.1933
     -   date: !var lknr.30
         de.lknr: 01 010
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        location: !keyloc line.de.6100 119,96
         de.VBL: Ku
         sources: !keyref src.dd.DR.1976
     -   date: !date c1940
@@ -1269,7 +1423,27 @@ events:
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.6100 kuh
+        site: !noderef path.de.6100 kuh right
+
+# src.de.DRG.Alt.Karte.1931: 119,30 BA Wittenberge 1/Wittenberge 2
+
+
+---
+key: point.de.Breese
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.6100 122,92
+        category: de.Bk
+        name: Breese
+        sources: !keyref src.de.DRG.Alt.Karte.1931
+    -   date: !date c1950
+        status: closed
+        sources: !keyref src.dd.DR.1976
+
+    -   date: !!null
+        site: !noderef path.de.6100 brs right
+
 
 ---
 key: point.de.Wittenberge-Sued
@@ -1282,13 +1456,15 @@ events:
         staff: none
         name: Wittenberge Süd
         de.VBL: Wis
+        sources: !keyref src.dd.DR.1976
     -   date: !var ds100.dr
         de.DS100: WWS
     -   date: !date c2000
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.6100 wis
+        site: !noderef path.de.6100 wis left
+
 
 ---
 key: point.de.Wittenberge
@@ -1302,16 +1478,18 @@ events:
         de.lknr: 01 013
         sources: !keyref src.de.Bfv.1928
     -   date: !!null
+        location:
+            - !keyloc line.de.6100 126,62
+#           - !keyloc line.de.6401  53,64            
         category: de.Bf
         de.Rangklasse: I
-        sources: !keyref src.de.Bfv.1933
+        sources: !keyref src.de.DRG.Alt.Karte.1931
     -   date: !var lknr.30
         de.lknr: 01 012
         sources: !keyref src.de.Bfv.1933
     -   date: !!null    
         location:
-            - !keyloc line.de.6100 126,62
-            - !keyloc line.de.6941   0,00
+            - !keyloc line.de.6941 0,00
         de.VBL: Wit
         sources: !keyref src.dd.DR.1976
     -   date: !var ds100.dr
@@ -1319,7 +1497,8 @@ events:
         sources: !keyref src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.6100 wit
+        site: !noderef path.de.6100 wit left
+
 
 ---
 key: point.de.Wittenberge-Nord
@@ -1338,7 +1517,8 @@ events:
         sources: !keyref src.de.SuW.2005
 
     -   date: !!null
-        site: !noderef path.de.6100 win
+        site: !noderef path.de.6100 win left
+
 
 ---
 key: point.de.Schilde
@@ -1347,6 +1527,9 @@ events:
     -   date: !!null
         location: !keyloc line.de.6100 132,10
         category: de.Bk
+        name: Bentwisch
+        sources: !keyref src.de.DRG.Alt.Karte.1931
+    -   date: !date c1960
         name: Schilde
         de.VBL: Sld
         sources: !keyref src.dd.DR.1976
@@ -1354,7 +1537,8 @@ events:
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.6100 sld
+        site: !noderef path.de.6100 sld right
+
 
 ---
 key: point.de.Dergenthin
@@ -1367,14 +1551,17 @@ events:
         de.lknr: 01 014
         sources: !keyref src.de.Bfv.1928
     -   date: !!null
+        location: !keyloc line.de.6100 135,77
         category: de.Bf
+        de.Rangklasse: III
+        sources: !keyref src.de.DRG.Alt.Karte.1931
+    -   date: !date c1932
         de.Rangklasse: IV
         sources: !keyref src.de.Bfv.1933
     -   date: !var lknr.30
         de.lknr: 01 039
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        location: !keyloc line.de.6100 135,78
         de.VBL: Dn
         sources: !keyref src.dd.DR.1976
     -   date: !var ds100.dr
@@ -1382,7 +1569,10 @@ events:
         sources: !keyref src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.6100 der
+        site: !noderef path.de.6100 der left
+
+# src.de.DRG.Alt.Karte.1931: 136,85 BA Wittenberge 2/Ludwigslust
+
 
 ---
 key: point.de.Nebelin
@@ -1392,13 +1582,16 @@ events:
         location: !keyloc line.de.6100 139,29
         category: de.Bk
         name: Nebelin
+        sources: !keyref src.de.DRG.Alt.Karte.1931
+    -   date: !!null
         de.VBL: Ne
         sources: !keyref src.dd.DR.1976
     -   date: !date c1995
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.6100 neb
+        site: !noderef path.de.6100 neb right
+
 
 ---
 key: point.de.Karstaedt
@@ -1412,14 +1605,14 @@ events:
         de.lknr: 01 015
         sources: !keyref src.de.Bfv.1928
     -   date: !!null
+        location: !keyloc line.de.6100 144,32
         category: de.Bf
         de.Rangklasse: III
-        sources: !keyref src.de.Bfv.1933
+        sources: !keyref src.de.DRG.Alt.Karte.1931
     -   date: !var lknr.30
         de.lknr: 01 040
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        location: !keyloc line.de.6100 144,32
         de.VBL: Kt
         sources: !keyref src.dd.DR.1976
     -   date: !date c1950
@@ -1439,9 +1632,13 @@ key: point.de.Streesow
 type: point
 events:
     -   date: !!null
+        location: !keyloc line.de.6100 149,92
+        category: de.Bk
+        name: Streesow
+        sources: !keyref src.de.DRG.Alt.Karte.1931
+    -   date: !date c1960
         location: !keyloc line.de.6100 150,76
         category: de.Uest
-        name: Streesow
         de.VBL: Ste
         sources: !keyref src.dd.DR.1976
     -   date: !var ds100.dr
@@ -1450,7 +1647,8 @@ events:
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.6100 stw
+        site: !noderef path.de.6100 stw right
+
 
 ---
 key: point.de.Klein-Warnow
@@ -1463,14 +1661,17 @@ events:
         de.lknr: 01 016
         sources: !keyref src.de.Bfv.1928
     -   date: !!null
+        location: !keyloc line.de.6100 154,83
         category: de.Bf
+        de.Rangklasse: III
+        sources: !keyref src.de.DRG.Alt.Karte.1931
+    -   date: !date c1932
         de.Rangklasse: IV
         sources: !keyref src.de.Bfv.1933
     -   date: !var lknr.30
         de.lknr: 01 041
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        location: !keyloc line.de.6100 154,83
         de.VBL: Wrn
         sources: !keyref src.dd.DR.1976
     -   date: !date c1940
@@ -1481,7 +1682,8 @@ events:
         sources: !keyref src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.6100 wrn
+        site: !noderef path.de.6100 wrn left
+
 
 ---
 key: point.de.Klein-Warnow-LGr
@@ -1497,6 +1699,7 @@ events:
     -   date: !!null
         site: !noderef path.de.6100 gwrn
 
+
 ---
 key: point.de.Neese
 type: point
@@ -1505,13 +1708,16 @@ events:
         location: !keyloc line.de.6100 158,56
         category: de.Bk
         name: Neese
+        sources: !keyref src.de.DRG.Alt.Karte.1931
+    -   date: !!null
         de.VBL: Nee
         sources: !keyref src.dd.DR.1976
     -   date: !date c1995
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.6100 nee
+        site: !noderef path.de.6100 nee right
+
 
 ---
 key: point.de.Grabow-Meckl
@@ -1524,14 +1730,14 @@ events:
         de.lknr: 01 017
         sources: !keyref src.de.Bfv.1928
     -   date: !!null
+        location: !keyloc line.de.6100 163,21
         category: de.Bf
         de.Rangklasse: II
-        sources: !keyref src.de.Bfv.1933
+        sources: !keyref src.de.DRG.Alt.Karte.1931
     -   date: !var lknr.30
         de.lknr: 01 042
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        location: !keyloc line.de.6100 163,21
         de.VBL: Grb
         sources: !keyref src.dd.DR.1976
     -   date: !date c1965
@@ -1542,23 +1748,30 @@ events:
         sources: !keyref src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.6100 grb
+        site: !noderef path.de.6100 grb left
+
 
 ---
 key: point.de.Gruenhof
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.6100 166,21
+        location: !keyloc line.de.6100 166,19
         category: de.Bk
         name: Grünhof
+        sources: !keyref src.de.DRG.Alt.Karte.1931
+    -   date: !!null
         de.VBL: Gh
+        sources: !keyref src.dd.DR.1976
+    -   date: !date c1960
+        location: !keyloc line.de.6100 166,21
         sources: !keyref src.dd.DR.1976
     -   date: !date c1995
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.6100 grh
+        site: !noderef path.de.6100 grh right
+
 
 ---
 key: point.de.Ludwigslust
@@ -1572,15 +1785,15 @@ events:
         de.lknr: 01 018
         sources: !keyref src.de.Bfv.1928
     -   date: !!null
+        location: 
+            - !keyloc line.de.6100 170,76
         category: de.Bf
         de.Rangklasse: I
-        sources: !keyref src.de.Bfv.1933
+        sources: !keyref src.de.DRG.Alt.Karte.1931
     -   date: !var lknr.30
         de.lknr: 01 043
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        location: 
-            - !keyloc line.de.6100 170,76
         de.VBL: Lud
         sources: !keyref src.dd.DR.1976
     -   date: !date c1965
@@ -1591,7 +1804,8 @@ events:
         sources: !keyref src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.6100 lud
+        site: !noderef path.de.6100 lud left
+
 
 ---
 key: point.de.Weselsdorf
@@ -1611,16 +1825,20 @@ events:
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.6100 wes
+        site: !noderef path.de.6100 wes left
+
 
 ---
 key: point.de.Niendorf-Ludwigslust
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.6100 175,67
+        location: !keyloc line.de.6100 175,65
         category: de.Bk
         name: Niendorf
+        sources: !keyref src.de.DRG.Alt.Karte.1931
+    -   date: !date c1965
+        location: !keyloc line.de.6100 175,67
         sources: !keyref src.dd.DR.1976
     -   date: !!null
         de.VBL: Ni
@@ -1629,7 +1847,8 @@ events:
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.6100 nie
+        site: !noderef path.de.6100 nie right
+
 
 ---
 key: point.de.Jasnitz
@@ -1642,14 +1861,17 @@ events:
         de.lknr: 01 019
         sources: !keyref src.de.Bfv.1928
     -   date: !!null
+        location: !keyloc line.de.6100 180,63
         category: de.Bf
+        de.Rangklasse: III
+        sources: !keyref src.de.DRG.Alt.Karte.1931
+    -   date: !date c1932
         de.Rangklasse: IV
         sources: !keyref src.de.Bfv.1933
     -   date: !var lknr.30
         de.lknr: 01 045
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        location: !keyloc line.de.6100 180,63
         de.VBL: Jas
         sources: !keyref src.dd.DR.1976
     -   date: !date c1965
@@ -1660,7 +1882,8 @@ events:
         sources: !keyref src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.6100 jas
+        site: !noderef path.de.6100 jas right
+
 
 ---
 key: point.de.Strohkirchen
@@ -1673,11 +1896,13 @@ events:
         de.lknr: 01 342
         service: passenger
         sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        location: !keyloc line.de.6100 184,73
+        sources: !keyref src.de.DRG.Alt.Karte.1931
     -   date: !var lknr.30
         de.lknr: 01 046
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        location: !keyloc line.de.6100 184,73
         category: [ de.Hp, de.Bk ]
         de.VBL: Str
         sources: !keyref src.dd.DR.1976
@@ -1689,7 +1914,24 @@ events:
         sources: !keyref src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.6100 str
+        site: !noderef path.de.6100 str right
+
+
+---
+key: point.de.Moraas
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.6100 188,74
+        category: de.Bk
+        name: Moraas
+        sources: !keyref src.de.DRG.Alt.Karte.1931
+    -   date: !date c1945
+        status: closed
+        sources: !keyref src.dd.DR.1976
+
+    -   date: !!null
+        site: !noderef path.de.6100 mor right
 
 
 ---
@@ -1704,15 +1946,15 @@ events:
         de.lknr: 01 020
         sources: !keyref src.de.Bfv.1928
     -   date: !!null
+        location:
+            - !keyloc line.de.6100 191,83
         category: de.Bf
         de.Rangklasse: I
-        sources: !keyref src.de.Bfv.1933
+        sources: !keyref src.de.DRG.Alt.Karte.1931
     -   date: !var lknr.30
         de.lknr: 01 048
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        location:
-            - !keyloc line.de.6100 191,83
         de.VBL: Hgn
         sources: !keyref src.dd.DR.1976
     -   date: !date c1965
@@ -1726,7 +1968,24 @@ events:
         sources: !keyref src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.6100 hgn
+        site: !noderef path.de.6100 hgn center
+
+
+---
+key: point.de.Paetow
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.6100 194,65
+        category: de.Bk
+        name: Paetow
+        sources: !keyref src.de.DRG.Alt.Karte.1931
+    -   date: !date c1945
+        status: closed
+        sources: !keyref src.dd.DR.1976
+
+    -   date: !!null
+        site: !noderef path.de.6100 pat right
 
 
 ---
@@ -1734,10 +1993,15 @@ key: point.de.Warlitz
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.6100 198,57
+        location: !keyloc line.de.6100 198,36
         category: de.Bk
         name: Warlitz
+        sources: !keyref src.de.DRG.Alt.Karte.1931
+    -   date: !!null
         de.VBL: Waz
+        sources: !keyref src.dd.DR.1976
+    -   date: !date c1965
+        location: !keyloc line.de.6100 198,57
         sources: !keyref src.dd.DR.1976
     -   date: !var ds100.dr
         de.DS100: WWAZ
@@ -1745,7 +2009,8 @@ events:
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.6100 waz
+        site: !noderef path.de.6100 waz left
+
 
 ---
 key: point.de.Pritzier
@@ -1758,14 +2023,14 @@ events:
         de.lknr: 01 021
         sources: !keyref src.de.Bfv.1928
     -   date: !!null
+        location: !keyloc line.de.6100 202,60
         category: de.Bf
         de.Rangklasse: III
-        sources: !keyref src.de.Bfv.1933
+        sources: !keyref src.de.DRG.Alt.Karte.1931
     -   date: !var lknr.30
         de.lknr: 01 049
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        location: !keyloc line.de.6100 202,60
         de.VBL: Prz
         sources: !keyref src.dd.DR.1976
     -   date: !date c1965
@@ -1776,23 +2041,30 @@ events:
         sources: !keyref src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.6100 prz
+        site: !noderef path.de.6100 prz left
+
 
 ---
 key: point.de.Melkof
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.6100 206,539
+        location: !keyloc line.de.6100 206,56
         category: de.Bk
         name: Melkof
+        sources: !keyref src.de.DRG.Alt.Karte.1931
+    -   date: !!null
         de.VBL: Mlk
+        sources: !keyref src.dd.DR.1976
+    -   date: !date c1965
+        location: !keyloc line.de.6100 206,539
         sources: !keyref src.dd.DR.1976
     -   date: !date c1995
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.6100 mlk
+        site: !noderef path.de.6100 mlk left
+
 
 ---
 key: point.de.Brahlstorf
@@ -1806,14 +2078,14 @@ events:
         de.lknr: 01 022
         sources: !keyref src.de.Bfv.1928
     -   date: !!null
+        location: !keyloc line.de.6100 211,54
         category: de.Bf
         de.Rangklasse: III
-        sources: !keyref src.de.Bfv.1933
+        sources: !keyref src.de.DRG.Alt.Karte.1931
     -   date: !var lknr.30
         de.lknr: 01 050
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        location: !keyloc line.de.6100 211,54
         de.VBL: Brh
         sources: !keyref src.dd.DR.1976
     -   date: !date c1965
@@ -1827,6 +2099,7 @@ events:
         connection: !keyref point.de.Brahlstorf-Kleinb
         site: !noderef path.de.6100 brh right
 
+
 ---
 key: point.de.Kuhlenfeld
 type: point
@@ -1838,15 +2111,21 @@ events:
         de.lknr: 01 023
         sources: !keyref src.de.Bfv.1928
     -   date: !!null
+        location: !keyloc line.de.6100 218,16
         category: de.Bf
+        de.Rangklasse: III
+        sources: !keyref src.de.DRG.Alt.Karte.1931
+    -   date: !date c1932
         de.Rangklasse: IV
         sources: !keyref src.de.Bfv.1933
     -   date: !var lknr.30
         de.lknr: 01 051
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        location: !keyloc line.de.6100 218,17
         de.VBL: Kd
+        sources: !keyref src.dd.DR.1976
+    -   date: !date c1965
+        location: !keyloc line.de.6100 218,17
         sources: !keyref src.dd.DR.1976
     -   date: !date c1965
         de.Rangklasse: III
@@ -1859,7 +2138,10 @@ events:
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.6100 kfd
+        site: !noderef path.de.6100 kfd left
+
+# src.de.DRG.Alt.Karte.1931: unbenannter Bk links
+
 
 ---
 key: point.de.Boizenburg
@@ -1873,14 +2155,14 @@ events:
         de.lknr: 01 024
         sources: !keyref src.de.Bfv.1928
     -   date: !!null
+        location: !keyloc line.de.6100 224,93
         category: de.Bf
         de.Rangklasse: II
-        sources: !keyref src.de.Bfv.1933
+        sources: !keyref src.de.DRG.Alt.Karte.1931
     -   date: !var lknr.30
         de.lknr: 01 052
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        location: !keyloc line.de.6100 224,93
         de.VBL: Bzb
         sources: !keyref src.dd.DR.1976
     -   date: !date c1925
@@ -1900,7 +2182,25 @@ events:
 
     -   date: !!null
         connection: !keyref point.de.Boizenburg-Kleinb
-        site: !noderef path.de.6100 bzb
+        site: !noderef path.de.6100 bzb left
+
+
+---
+key: point.de.Metlitzhof
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.6100 228,27
+        category: de.Bk
+        name: Metlitzhof
+        sources: !keyref src.de.DRG.Alt.Karte.1931
+    -   date: !date c1945
+        status: closed
+        sources: !keyref src.dd.DR.1976
+
+    -   date: !!null
+        site: !noderef path.de.6100 met right
+
 
 ---
 key: point.de.Schwanheide
@@ -1913,15 +2213,21 @@ events:
         de.lknr: 01 025
         sources: !keyref src.de.Bfv.1928
     -   date: !!null
+        location: !keyloc line.de.6100 232,52
         category: de.Bf
+        de.Rangklasse: III
+        sources: !keyref src.de.DRG.Alt.Karte.1931
+    -   date: !date c1932
         de.Rangklasse: IV
         sources: !keyref src.de.Bfv.1933
     -   date: !var lknr.30
         de.lknr: 01 053
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        location: !keyloc line.de.6100 232,02
         de.VBL: Sa
+        sources: !keyref src.dd.DR.1976
+    -   date: !date c1965
+        location: !keyloc line.de.6100 232,02
         sources: !keyref src.dd.DR.1976
     -   date: !date c1965
         de.Rangklasse: III
@@ -1940,14 +2246,31 @@ events:
         sources: !keyref src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.6100 sah
+        site: !noderef path.de.6100 sah right
+
+
+---
+key: point.de.Zweedorf
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.6100 234,92
+        category: de.Bk
+        name: Zweedorf
+        sources: !keyref src.de.DRG.Alt.Karte.1931
+    -   date: !date c1945
+        status: closed
+        sources: !keyref src.dd.DR.1976
+
+    -   date: !!null
+        site: !noderef path.de.6100 zwe left
+
 
 ---
 key: point.de.Schwanheide-LGr
 type: point
 subtype: border
 events:
-    -   date: !!null
     -   date: !!null
         name: Büchen Grenze
         de.DS100: AGRS
@@ -1965,6 +2288,7 @@ events:
     -   date: !!null
         site: !noderef path.de.6100 gsah
 
+
 ---
 key: point.de.Buechen
 type: point
@@ -1977,17 +2301,18 @@ events:
         de.lknr: 01 026
         sources: !keyref src.de.Bfv.1928
     -   date: !!null
+        location:
+            - !keyloc line.de.13200 161,31
+            - !keyloc line.de.6100 238,90
         category: de.Bf
         de.Rangklasse: I
-        sources: !keyref src.de.Bfv.1933
+        sources: !keyref src.de.DRG.Alt.Karte.1931
     -   date: !var lknr.30
         de.lknr: 01 054
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
         location:
             - !keyloc line.de.1121 47,61
-            - !keyloc line.de.13200 161,31
-            - !keyloc line.de.6100 238,90
         sources: !keyref src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.DS100: ABCH
@@ -1995,7 +2320,8 @@ events:
         sources: !keyref src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.6100 bch
+        site: !noderef path.de.6100 bch center
+
 
 ---
 key: point.de.Buechen-Bbf
@@ -2029,13 +2355,14 @@ events:
         de.lknr: 01 027
         sources: !keyref src.de.Bfv.1928
     -   date: !!null
+        location: !keyloc line.de.6100 244,07
         category: de.Bf
         de.Rangklasse: IV
-        sources: !keyref src.de.Bfv.1933
+        sources: !keyref src.de.DRG.Alt.Karte.1931
     -   date: !var lknr.30
         de.lknr: 01 056
         sources: !keyref src.de.Bfv.1933
-    -   date: !!null
+    -   date: !date c1940
         location: !keyloc line.de.6100 244,02
         sources: !keyref src.de.DRG.Alt.Karte.1949
     -   date: !!null
@@ -2047,7 +2374,10 @@ events:
         sources: !keyref src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.6100 mus
+        site: !noderef path.de.6100 mus left
+
+# src.de.DRG.Alt.Karte.1931: 248,65 BA Ludwigslust/Hamburg
+
 
 ---
 key: point.de.Schwarzenbek
@@ -2061,22 +2391,23 @@ events:
         de.lknr: 01 028
         sources: !keyref src.de.Bfv.1928
     -   date: !!null
+        location:
+            - !keyloc line.de.1141 249,26
+            - !keyloc line.de.6100 249,26
         category: de.Bf
         de.Rangklasse: II
-        sources: !keyref src.de.Bfv.1933
+        sources: !keyref src.de.DRG.Alt.Karte.1931
     -   date: !var lknr.30
         de.lknr: 01 057
         sources: !keyref src.de.Bfv.1933
-    -   date: !!null
-        location: !keyloc line.de.1141 249,26
-        sources: !keyref src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.DS100: ASWA
         de.dstnr: !!str 010579
         sources: !keyref src.de.DS100.1984
 
     -   date: !!null
-        site: !noderef path.de.6100 swa
+        site: !noderef path.de.6100 swa left
+
 
 ---
 key: point.de.Radekamp
@@ -2084,16 +2415,17 @@ type: point
 events:
     -   date: !!null
         location: !keyloc line.de.6100 251,86
-        category: de.Bk
+        category: [de.Bk, de.Anst]
         name: Radekamp
-        sources: !keyref src.de.DRG.Alt.Karte.1949
+        sources: !keyref src.de.DRG.Alt.Karte.1931
     -   date: !!null
         de.DS100: ARAP
     -   date: !date c1990
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.6100 rap
+        site: !noderef path.de.6100 rap right
+
 
 ---
 key: point.de.Sachsenwald
@@ -2101,9 +2433,9 @@ type: point
 events:
     -   date: !!null
         location: !keyloc line.de.6100 255,20
-        category: de.Bk
+        category: [de.Bk, de.Anst]
         name: Sachsenwald
-        sources: !keyref src.de.DRG.Alt.Karte.1949
+        sources: !keyref src.de.DRG.Alt.Karte.1931
     -   date: !!null
         de.DS100: ASAD
         sources: !keyref src.de.DS100.1984
@@ -2111,7 +2443,8 @@ events:
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.6100 sad
+        site: !noderef path.de.6100 sad right
+
 
 ---
 key: point.de.Friedrichsruh
@@ -2124,15 +2457,13 @@ events:
         de.lknr: 01 029
         sources: !keyref src.de.Bfv.1928
     -   date: !!null
+        location: !keyloc line.de.6100 259,57
         category: de.Bf
         de.Rangklasse: III
-        sources: !keyref src.de.Bfv.1933
+        sources: !keyref src.de.DRG.Alt.Karte.1931
     -   date: !var lknr.30
         de.lknr: 01 058
         sources: !keyref src.de.Bfv.1933
-    -   date: !!null
-        location: !keyloc line.de.6100 259,57
-        sources: !keyref src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.DS100: AFRD
         de.dstnr: !!str 010587
@@ -2142,7 +2473,8 @@ events:
         sources: !keyref src.de.DS100.1984
 
     -   date: !!null
-        site: !noderef path.de.6100 frr
+        site: !noderef path.de.6100 frr right
+
 
 ---
 key: point.de.Aumuehle-Abzw
@@ -2184,9 +2516,10 @@ events:
         name: Aumühle b Friedrichsruh
         sources: !keyref src.de.Bfv.1928
     -   date: !!null
+        location: !keyloc line.de.6100 261,34
         category: de.Bf
         de.Rangklasse: III
-        sources: !keyref src.de.Bfv.1933
+        sources: !keyref src.de.DRG.Alt.Karte.1931
     -   date: !date c1930
         name: Aumühle
         sources: !keyref src.de.Bfv.1933
@@ -2194,7 +2527,6 @@ events:
         de.lknr: 01 059
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        location: !keyloc line.de.6100 261,34
         sources: !keyref src.de.DRG.Alt.Karte.1949
     -   date: !!null    
         de.DS100: AAH
@@ -2209,7 +2541,9 @@ events:
         sources: !keyref src.de.TPP.2012
 
     -   date: !!null
-        site: !noderef path.de.6100 aum
+        site: !noderef path.de.6100 aum right
+
+# src.de.DRG.Alt.Karte.1931 Anst right
 
 
 ---
@@ -2222,11 +2556,14 @@ events:
     -   date: !!null
         de.lknr: 01 344
         sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: [de.Hp, de.Bk]
+        location: !keyloc line.de.6100 264,08
+        sources: !keyref src.de.DRG.Alt.Karte.1931
     -   date: !var lknr.30
         de.lknr: 01 060
         sources: !keyref src.de.Bfv.1933
-    -   date: !!null
-        category: [de.Hp, de.Bk]
+    -   date: !date c1940
         location: !keyloc line.de.6100 264,07
         sources: !keyref src.de.DRG.Alt.Karte.1949
     -   date: !!null
@@ -2249,7 +2586,7 @@ events:
         sources: !keyref src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.6100 woh
+        site: !noderef path.de.6100 woh right
 
 
 ---
@@ -2263,15 +2600,13 @@ events:
         de.lknr: 01 030
         sources: !keyref src.de.Bfv.1928
     -   date: !!null
+        location: !keyloc line.de.6100 266,34
         category: de.Bf
         de.Rangklasse: III
-        sources: !keyref src.de.Bfv.1933
+        sources: !keyref src.de.DRG.Alt.Karte.1931
     -   date: !var lknr.30
         de.lknr: 01 061
         sources: !keyref src.de.Bfv.1933
-    -   date: !!null
-        location: !keyloc line.de.6100 266,34
-        sources: !keyref src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.DS100: ARBK
         de.dstnr: !!str 010611
@@ -2286,7 +2621,7 @@ events:
         sources: !keyref src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.6100 rei
+        site: !noderef path.de.6100 rei right
 
 
 ---
@@ -2307,6 +2642,9 @@ events:
 key: point.de.Hamburg-Moerkenweg
 type: point
 events:
+    -   date: !date c1940
+        status: open
+        sources: !keyref src.de.DRG.Alt.Karte.1949
     -   date: !!null
         location: !keyloc line.de.6100 268,90
         category: de.Bk
@@ -2322,7 +2660,7 @@ events:
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.6100 moe
+        site: !noderef path.de.6100 moe right
 
 
 ---
@@ -2337,18 +2675,18 @@ events:
         de.lknr: 01 031
         sources: !keyref src.de.Bfv.1928
     -   date: !!null
+        location: !keyloc line.de.6100 270,01
         category: de.Bf
         de.Rangklasse: II
-        sources: !keyref src.de.Bfv.1933
+        sources: !keyref src.de.DRG.Alt.Karte.1931
     -   date: !var lknr.30
         de.lknr: 01 062
         sources: !keyref src.de.Bfv.1933
     -   date: !date 1938-05-15
         name: Hamburg-Bergedorf
         sources: !keyref src.de.web.Nosske
-    -   date: !!null
-        location:
-            - !keyloc line.de.6100 270,08
+    -   date: !date c1940
+        location: !keyloc line.de.6100 270,08
         sources: !keyref src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.DS100: ABGF
@@ -2358,7 +2696,7 @@ events:
         sources: !keyref src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.6100 ber
+        site: !noderef path.de.6100 ber left
 
 
 ---
@@ -2366,12 +2704,18 @@ key: point.de.Hamburg-Bergedorf-Bk
 type: point
 events:
     -   date: !!null
+        location: !keyloc line.de.6100 271,17
+        name: Ba
+        sources: !keyref src.de.DRG.Alt.Karte.1931
+    -   date: !date c1940
         location: !keyloc line.de.6100 271,18
+        name: Bk
         sources: !keyref src.de.DRG.Alt.Karte.1949
-    -   date: !!null
+    -   date: !date c1960
         master: !keyref point.de.Hamburg-Bergedorf
         category: de.Glgr
         name: Hamburg-Bergedorf (Bk)
+    -   date: !!null
         de.DS100: ABGFK
     -   date: !date c1990
         category: de.Bft
@@ -2381,7 +2725,7 @@ events:
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.6100 bek
+        site: !noderef path.de.6100 bek left
 
 
 ---
@@ -2438,12 +2782,16 @@ events:
 key: point.de.Hamburg-Bergedorf-Ba
 type: point
 events:
-    -   date: !!null
+    -   date: !date c1940
+        status: open
+        name: Ba
         location: !keyloc line.de.6100 272,44
         sources: !keyref src.de.DRG.Alt.Karte.1949
-    -   date: !!null
+    -   date: !date c1960
         category: de.Glgr
         name: Hamburg-Bergedorf (Ba)
+        master: !keyref point.de.Hamburg-Bergedorf
+    -   date: !!null
         de.DS100: ABGFA
         master: !keyref point.de.Hamburg-Bergedorf
         sources: !keyref src.de.DS100.1984
@@ -2455,7 +2803,7 @@ events:
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.6100 bea
+        site: !noderef path.de.6100 bea left
 
 
 ---
@@ -2478,6 +2826,22 @@ events:
 
     -   date: !!null
         site: !noderef path.de.6100 als
+
+
+---
+key: point.de.Hamburg-Bergedorf-Bs
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.6100 273,65
+        name: Bs
+        sources: !keyref src.de.DRG.Alt.Karte.1931
+    -   date: !date c1940
+        status: closed
+        sources: !keyref src.de.DRG.Alt.Karte.1949
+
+    -   date: !!null
+        site: !noderef path.de.6100 bes right
 
 
 ---
@@ -2514,14 +2878,12 @@ events:
         service: passenger
         sources: !keyref src.de.Bfv.1928
     -   date: !!null
+        location: !keyloc line.de.6100 275,38
         category: de.Hp
-        sources: !keyref src.de.Bfv.1933
+        sources: !keyref src.de.DRG.Alt.Karte.1931
     -   date: !var lknr.30
         de.lknr: 01 064
         sources: !keyref src.de.Bfv.1933
-    -   date: !!null
-        location: !keyloc line.de.6100 275,38
-        sources: !keyref src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.DS100: AML
         de.dstnr: !!str 010645
@@ -2536,7 +2898,7 @@ events:
         sources: !keyref src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.6100 mit
+        site: !noderef path.de.6100 mit right
 
 
 ---
@@ -2575,14 +2937,12 @@ events:
         service: passenger
         sources: !keyref src.de.Bfv.1928
     -   date: !!null
+        location: !keyloc line.de.6100 278,48
         category: de.Hp
-        sources: !keyref src.de.Bfv.1933
+        sources: !keyref src.de.DRG.Alt.Karte.1931
     -   date: !var lknr.30
         de.lknr: 01 065
         sources: !keyref src.de.Bfv.1933
-    -   date: !!null
-        location: !keyloc line.de.6100 278,48
-        sources: !keyref src.de.DRG.Alt.Karte.1949
     -   date: !date c1945
         name: Billwerder-Moorfleth
         sources: !keyref src.de.DRG.Alt.Karte.1949
@@ -2640,6 +3000,9 @@ events:
         service: passenger
         sources: !keyref src.de.Bfv.1928
     -   date: !!null
+        location: !keyloc line.de.6100 281,29
+        sources: !keyref src.de.DRG.Alt.Karte.1931
+    -   date: !!null
         category: de.Hp
         sources: !keyref src.de.Bfv.1933
     -   date: !var lknr.30
@@ -2665,7 +3028,7 @@ events:
         sources: !keyref src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.6100 tie
+        site: !noderef path.de.6100 tie right
 
 
 ---
@@ -2703,14 +3066,12 @@ events:
         service: passenger
         sources: !keyref src.de.Bfv.1928
     -   date: !!null
+        location: !keyloc line.de.6100 283,11
         category: de.Hp
-        sources: !keyref src.de.Bfv.1933
+        sources: !keyref src.de.DRG.Alt.Karte.1931
     -   date: !var lknr.30
         de.lknr: 01 068
         sources: !keyref src.de.Bfv.1933
-    -   date: !!null
-        location: !keyloc line.de.6100 283,11
-        sources: !keyref src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.DS100: AROP
         de.dstnr: !!str 010686
@@ -2764,7 +3125,7 @@ events:
         location:
             - !keyloc line.de.1244 1,53
             - !keyloc line.de.6100 285,13
-        sources: !keyref src.de.DRG.Alt.Karte.1949
+        sources: !keyref src.de.DRG.Alt.Karte.1931
     -   date: !date c1995
         category: [de.Hp, de.Bft]
         name: Hamburg Berliner Tor (Bergedorf)
@@ -2774,7 +3135,8 @@ events:
         location: !keyloc line.de.6100 -
 
     -   date: !!null
-        site: !noderef path.de.6100 btb
+        site: !noderef path.de.6100 btb center
+
 
 ---
 key: point.de.Hamburg-Hbf
@@ -2792,9 +3154,11 @@ events:
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
         location:
-            - !keyloc line.de.1120 63,86
             - !keyloc line.de.15000 355,31
             - !keyloc line.de.6100 286,66
+        sources: !keyref src.de.DRG.Alt.Karte.1931
+    -   date: !!null
+        location: !keyloc line.de.1120 63,86
         sources: !keyref src.de.DRG.Alt.Karte.1949
     -   date: !!null
         location: !keyloc line.de.1245 2,734
@@ -2804,7 +3168,7 @@ events:
         sources: !keyref src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.6100 ham
+        site: !noderef path.de.6100 ham center
 
 
 ---
@@ -2834,7 +3198,7 @@ events:
         location:
             - !keyloc line.de.1240 288,11
             - !keyloc line.de.6100 288,11
-        sources: !keyref src.de.DRG.Alt.Karte.1949
+        sources: !keyref src.de.DRG.Alt.Karte.1931
     -   date: !date c1970
         category: de.Hp
         sources: !keyref src.de.DS100.1984
@@ -2846,7 +3210,7 @@ events:
         location: !keyloc line.de.1240 -
 
     -   date: !!null
-        site: !noderef path.de.6100 dam
+        site: !noderef path.de.6100 dam center
 
 
 ---
@@ -2872,7 +3236,7 @@ events:
         location:
             - !keyloc line.de.1240 289,81
             - !keyloc line.de.6100 289,81
-        sources: !keyref src.de.DRG.Alt.Karte.1949
+        sources: !keyref src.de.DRG.Alt.Karte.1931
     -   date: !!null
         de.DS100: ASTZ
         de.dstnr: 010900
@@ -2884,7 +3248,9 @@ events:
         sources: !keyref src.de.SuW.2005
 
     -   date: !!null
-        site: !noderef path.de.6100 ste
+        site: !noderef path.de.6100 ste center
+
+# src.de.DRG.Alt.Karte.1931 290,15 LGr Hamburg/Pr 
 
 
 ---
@@ -2905,6 +3271,7 @@ events:
 
     -   date: !!null
         site: !noderef path.de.6100 sul
+
 
 ---
 key: point.de.Hamburg-Rainweg
