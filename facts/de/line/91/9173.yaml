@@ -1,0 +1,625 @@
+# DE 9173.  Celle Nord - Wittingen West
+#
+---
+key: line.de.9173
+type: line
+events:
+    -   date: !!null
+        region:
+            - !keyref org.de
+            - !keyref org.de.l.ni
+
+    -   date: !!null
+        de.VzG: !!str 9173
+        sources: !keyref src.de.SuW.2005
+
+    #   Genehmigungen und Verträge
+    #
+
+    #   Eröffnung und Verkehrseinstellung
+    #
+    -   date: !date 1904-08-15
+        status: open
+        sources: !keyref src.de.WP.Kleinbahn-Celle-Wittingen
+
+    -   date: !date 1974-05-25
+        start: !keyref point.de.Steinhorst
+        passenger: none
+        sources: !keyref src.de.WP.Bahnstrecke-Celle-Wittingen
+    -   date: !date 1976-06-24
+        end: !keyref point.de.Steinhorst
+        passenger: none
+        sources: !keyref src.de.WP.Bahnstrecke-Celle-Wittingen
+
+    #   Eigenschaften
+    #
+    -   date: !!null
+        category: de.Kleinbahn
+        tracks: 1
+        gauge: 1435
+        sources: !keyref src.de.WP.Kleinbahn-Celle-Wittingen
+    -   date: !date 1940-11-08
+        category: de.Nebenbahn
+        sources: !keyref src.de.WP.Kleinbahn-Celle-Wittingen
+
+    #   Eigentümer etc.
+    #
+    -   date: !!null
+        owner: !keyref org.de.e.CEAG
+        operator: !keyref org.de.e.CEAG
+        sources: !keyref src.de.WP.Kleinbahn-Celle-Wittingen
+    -   date: !date 1944-07-10
+        owner: !keyref org.de.e.OHE
+        operator: !keyref org.de.e.OHE
+        sources: !keyref src.de.WP.Bahnstrecke-Celle-Wittingen
+
+    #   Verlauf
+    #
+    -   date: !!null
+        course:
+            - !pathref path.de.1720     cen  acev  3.5
+            - !pathref path.de.9173     a    alac  0.0
+            - !pathref path.de.9173.lac a    f     0.0
+            - !pathref path.de.9173     flac f     0.0
+    -   date: !date 1999
+        course:
+            - !pathref path.de.1720 cen  acev  3.5
+            - !pathref path.de.9173 a    f     0.0
+
+points:
+    - !keyref point.de.Celle-Nord
+    - !keyref point.de.Celle-Vorstadt
+    - !keyref point.de.Altenhagen-Celle
+    - !keyref point.de.Gockenholz
+    - !keyref point.de.Lachendorf
+    - !keyref point.de.Beedenbostel
+    - !keyref point.de.Luttern
+    - !keyref point.de.Eldingen
+    - !keyref point.de.Metzingen-Steinhorst
+    - !keyref point.de.Steinhorst
+    - !keyref point.de.Groß-Oesingen
+    - !keyref point.de.Dedelstorf
+    - !keyref point.de.Repke
+    - !keyref point.de.Hankensbüttel-DEA
+    - !keyref point.de.Hankensbüttel
+    - !keyref point.de.Alt-Isenhagen
+    - !keyref point.de.Glüsingen
+    - !keyref point.de.Wittingen-Kleinb
+    - !keyref point.de.Wittingen-West
+
+
+---
+key: point.de.Celle-Nord
+type: point
+events:
+    -   date: !!null
+        name: Celle Stadt
+        sources: !keyref src.de.Kb.1905
+    -   date: !var lknr.kb
+        de.lknr: 40 607
+        sources: !keyref src.de.Bfv.1938
+    -   date: !date 1940-11-08
+        de.lknr: 72 869
+        sources: !keyref src.de.Bfv.1944
+    -   date: !!null
+        de.DS100: HCN
+        de.dstnr: !!str 516013
+        sources: !keyref src.de.DS100.1984
+    -   date: !date c1970
+        name: Celle Stadt OHE
+        sources: !keyref src.de.DS100.1984
+    -   date: !!null
+        location:
+            - !keyloc line.de.9173 0,0
+            - !keyloc line.de.13300 0,0
+        category: de.Bf
+        sources: !keyref src.de.DBAG.ISR
+    -   date: !date c1990
+        name: Celle Stadt
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        connection: !keyref point.de.Celle
+
+    -   date: !!null
+        site: !noderef path.de.1720 cen right
+
+
+---
+key: point.de.Celle-Vorstadt
+type: point
+junction: True
+events:
+    -   date: !!null
+        name: Celle Vorstadt
+        sources: !keyref src.de.Kb.1905
+    -   date: !var lknr.kb
+        de.lknr: 40 608
+        sources: !keyref src.de.Bfv.1938
+    -   date: !date 1940-11-08
+        de.lknr: 73 869
+        sources: !keyref src.de.Bfv.1944
+    -   date: !!null
+        de.DS100: HCVO
+        de.dstnr: !!str 516039
+        sources: !keyref src.de.DS100.1984
+    -   date: !!null
+        location:
+            - !keyloc line.de.9173 2,0
+            - !keyloc line.de.13300 2,0
+        category: de.Bf
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.9173 cev left
+
+
+---
+key: point.de.Altenhagen-Celle
+type: point
+events:
+    -   date: !!null
+        name: Altenhagen
+        sources: !keyref src.de.Kb.1905
+    -   date: !var lknr.kb
+        de.lknr: 40 609
+        sources: !keyref src.de.Bfv.1938
+    -   date: !date 1940-11-08
+        de.lknr: 74 869
+        sources: !keyref src.de.Bfv.1944
+    -   date: !!null
+        de.DS100: HAHG
+        de.dstnr: !!str 516047
+        sources: !keyref src.de.DS100.1984
+    -   date: !date c1970
+        name: Altenhagen (Kr Celle)
+        sources: !keyref src.de.DS100.1984
+    -   date: !!null
+        location: !keyloc line.de.9173 4,0
+        category: de.Bf
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.9173 alt right
+
+
+---
+key: point.de.Gockenholz
+type: point
+events:
+    -   date: !!null
+        name: Gockenholz
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        de.lknr: 40 610
+        sources: !keyref src.de.Bfv.1938
+    -   date: !date 1940-11-08
+        de.lknr: 75 869
+        sources: !keyref src.de.Bfv.1944
+    -   date: !!null
+        de.DS100: HGHK
+        de.dstnr: !!str 516054
+        sources: !keyref src.de.DS100.1984
+    -   date: !date c2000
+        status: closed
+
+    -   date: !!null
+        site: !noderef path.de.9173 goc left
+
+---
+key: point.de.Lachendorf
+type: point
+events:
+    -   date: !!null
+        name: Lachendorf
+        sources: !keyref src.de.Kb.1905
+    -   date: !var lknr.kb
+        de.lknr: 40 611
+        sources: !keyref src.de.Bfv.1938
+    -   date: !date 1940-11-08
+        de.lknr: 76 869
+        sources: !keyref src.de.Bfv.1944
+    -   date: !!null
+        de.DS100: HLDF
+        de.dstnr: !!str 516062
+        sources: !keyref src.de.DS100.1984
+    -   date: !!null
+        location: !keyloc line.de.9173 13,6
+        category: de.Bf
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.9173.lac lac left
+    -   date: !date 1999
+        site: !noderef path.de.9173 lac left
+
+
+---
+key: point.de.Beedenbostel
+type: point
+junction: True
+events:
+    -   date: !!null
+        name: Beedenbostel
+        sources: !keyref src.de.Kb.1905
+    -   date: !var lknr.30
+        de.lknr: 40 612
+        sources: !keyref src.de.Bfv.1938
+    -   date: !date 1940-11-08
+        de.lknr: 77 869
+        sources: !keyref src.de.Bfv.1944
+    -   date: !!null
+        de.DS100: HBBT
+        de.dstnr: !!str 516070
+        sources: !keyref src.de.DS100.1984
+    -   date: !!null
+        location:
+            - !keyloc line.de.9173 16,0
+            - !keyloc line.de.13160 0,0
+        category: de.Bf
+        sources: !keyref src.de.SuW.2005
+
+    -   date: !!null
+        site: !noderef path.de.9173 bee left
+
+
+---
+key: point.de.Luttern
+type: point
+events:
+    -   date: !!null
+        name: Luttern
+        sources: !keyref src.de.Kb.1905
+    -   date: !var lknr.kb
+        de.lknr: 40 613
+        sources: !keyref src.de.Bfv.1938
+    -   date: !date 1940-11-08
+        de.lknr: 78 869
+        sources: !keyref src.de.Bfv.1944
+    -   date: !!null
+        de.DS100: HLTN
+        de.dstnr: !!str 516104
+        sources: !keyref src.de.DS100.1984
+    -   date: !!null
+        location: !keyloc line.de.9173 20,3
+        category: de.Bf
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.9173 lut left
+
+
+---
+key: point.de.Eldingen
+type: point
+events:
+    -   date: !!null
+        name: Eldingen
+        sources: !keyref src.de.Kb.1905
+    -   date: !var lknr.kb
+        de.lknr: 40 614
+        sources: !keyref src.de.Bfv.1938
+    -   date: !date 1940-11-08
+        de.lknr: 79 869
+        sources: !keyref src.de.Bfv.1944
+    -   date: !!null
+        de.DS100: HED
+        de.dstnr: !!str 516112
+        sources: !keyref src.de.DS100.1984
+    -   date: !!null
+        location: !keyloc line.de.9173 23,4
+        category: de.Bf
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.9173 eld left
+
+
+---
+key: point.de.Metzingen-Steinhorst
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.9173 25,3
+        name: Metzingen
+        sources: !keyref src.de.Kb.W1937
+    -   date: !!null
+        service: passenger
+        sources: !keyref src.de.Bfv.1944
+    -   date: !date 1940-11-08
+        de.lknr: 80 869
+        sources: !keyref src.de.Bfv.1944
+    -   date: !date c1975
+        status: closed
+
+    -   date: !!null
+        site: !noderef path.de.9173 met right
+
+
+---
+key: point.de.Steinhorst
+type: point
+events:
+    -   date: !!null
+        name: Steinhorst
+        sources: !keyref src.de.Kb.1905
+    -   date: !var lknr.kb
+        de.lknr: 40 616
+        sources: !keyref src.de.Bfv.1938
+    -   date: !date 1940-11-08
+        de.lknr: 81 869
+        sources: !keyref src.de.Bfv.1944
+    -   date: !!null
+        de.DS100: HSTN
+        de.dstnr: !!str 516138
+        sources: !keyref src.de.DS100.1984
+    -   date: !date c1970
+        name: Steinhorst OHE
+        sources: !keyref src.de.DS100.1984
+    -   date: !!null
+        location: !keyloc line.de.9173 27,6
+        category: de.Bf
+        sources: !keyref src.de.DBAG.ISR
+    -   date: !date c1990
+        name: Steinhorst
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.9173 ste left
+
+
+---
+key: point.de.Groß-Oesingen
+type: point
+events:
+    -   date: !!null
+        name: Großösingen-Mahrenholz
+        sources: !keyref src.de.Kb.1905
+    -   date: !date c1920
+        name: Groß Oesingen
+        sources: !keyref src.de.Bfv.1928
+    -   date: !var lknr.kb
+        de.lknr: 40 617
+        sources: !keyref src.de.Bfv.1938
+    -   date: !date 1940-11-08
+        de.lknr: 82 869
+        sources: !keyref src.de.Bfv.1944
+    -   date: !!null
+        de.DS100: HGOS
+        de.dstnr: !!str 516146
+        sources: !keyref src.de.DS100.1984
+    -   date: !!null
+        location: !keyloc line.de.9173 32,0
+        category: de.Bf
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.9173 gos right
+
+
+---
+key: point.de.Dedelstorf
+type: point
+events:
+    -   date: !!null
+        name: Dedelstorf
+        service: passenger
+        staff: none
+        master: !keyref point.de.Repke
+        sources: !keyref src.de.Bfv.1944
+    -   date: !date 1940-11-08
+        de.lknr: 83 869
+        sources: !keyref src.de.Bfv.1944
+    -   date: !!null
+        de.DS100: HDET
+        de.dstnr: !!str 516153
+        sources: !keyref src.de.DS100.1984
+    -   date: !!null
+        location: !keyloc line.de.9173 34,8
+        category: de.Bf
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.9173 ded left
+
+---
+key: point.de.Repke
+type: point
+events:
+    -   date: !!null
+        name: Repke
+        sources: !keyref src.de.Kb.1905
+    -   date: !var lknr.kb
+        de.lknr: 40 619
+        sources: !keyref src.de.Bfv.1938
+    -   date: !date 1940-11-08
+        de.lknr: 84 869
+        sources: !keyref src.de.Bfv.1944
+    -   date: !!null
+        de.DS100: HRPK
+        de.dstnr: !!str 516161
+        sources: !keyref src.de.DS100.1984
+    -   date: !!null
+        location: !keyloc line.de.9173 36,8
+        category: de.Bf
+        sources: !keyref src.de.SuW.2005
+    -   date: !date c2010
+        category: de.Hp
+        sources: !keyref src.de.SuW.2011
+
+    -   date: !!null
+        site: !noderef path.de.9173 rep left
+
+---
+key: point.de.Hankensbüttel-DEA
+type: point
+events:
+    -   date: !!null
+        name: Hankensbüttel DEA
+        de.DS100: HHBD
+        sources: !keyref src.de.DS100.1984
+    -   date: !!null
+        location: !keyloc line.de.9173 39,9
+        sources: !keyref src.de.SuW.2011
+    
+    -   date: !!null
+        site: !noderef path.de.9173 had right
+
+
+---
+key: point.de.Hankensbüttel
+type: point
+events:
+    -   date: !!null
+        name: Hankensbüttel-Isenhagen
+        sources: !keyref src.de.Kb.1905
+    -   date: !date c1920
+        name: Hankensbüttel
+        sources: !keyref src.de.Bfv.1928
+    -   date: !date c1930
+        name: Isenhagen-Hankensbüttel
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.kb
+        de.lknr: 40 620
+        sources: !keyref src.de.Bfv.1938
+    -   date: !date 1940-11-08
+        de.lknr: 85 869
+        sources: !keyref src.de.Bfv.1944
+    -   date: !!null
+        de.DS100: HHBU
+        de.dstnr: !!str 516179
+        sources: !keyref src.de.DS100.1984
+    -   date: !date c1970
+        name: Hankensbüttel
+        sources: !keyref src.de.DS100.1984
+    -   date: !!null
+        location: !keyloc line.de.9173 42,6
+        category: de.Bf
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.9173 han left
+
+
+---
+key: point.de.Alt-Isenhagen
+type: point
+events:
+    -   date: !!null
+        name: Alt Isenhagen
+        sources: !keyref src.de.Kb.1905
+    -   date: !date 1940-11-08
+        de.lknr: 86 869
+        sources: !keyref src.de.Bfv.1944
+    -   date: !date c1970
+        status: closed
+
+    -   date: !!null
+        site: !noderef path.de.9173 ais left
+
+
+---
+key: point.de.Wittingen-Hafen
+type: point
+events:
+    -   date: !date c1970
+        status: open
+    -   date: !!null
+        name: Wittingen Hafen
+        de.DS100: HWGH
+        sources: !keyref src.de.DS100.1984
+    -   date: !!null
+        location: !keyloc line.de.9173 47,5
+        sources: !keyref src.de.SuW.2011
+
+    -   date: !!null
+        site: !noderef path.de.9173 wih left
+
+
+---
+key: point.de.Glüsingen
+type: point
+events:
+    -   date: !!null
+        name: Alt Isenhagen
+        sources: !keyref src.de.Kb.W1937
+    -   date: !date 1940-11-08
+        de.lknr: 87 869
+        sources: !keyref src.de.Bfv.1944
+    -   date: !date c1970
+        status: closed
+
+    -   date: !!null
+        site: !noderef path.de.9173 glu left
+
+
+---
+key: point.de.Wittingen-Kleinb
+type: point
+junction: True
+events:
+    -   date: !!null
+        name: Wittingen Kleinbf
+        sources: !keyref src.de.Bfv.1928
+    -   date: !date c1930
+        name: Wittingen Kleinb
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.kb
+        de.lknr: 48 501
+        sources: !keyref src.de.Bfv.1938
+    -   date: !!null
+        location:
+            - !keyloc line.de.9173 51,0
+            - !keyloc line.de.13180 0,0
+        category: de.Bf
+    -   date: !date c1940
+        location: !keyloc line.de.9173 -
+    -   date: !date c1944?
+        location: !keyloc line.de.13180 -
+
+    -   date: !!null
+        connection:
+            - !keyref point.de.Wittingen
+            - !keyref point.de.Wittingen-Kleinb
+
+    -   date: !!null
+        site: !noderef path.de.9173 wit left
+
+
+---
+key: point.de.Wittingen-West
+type: point
+junction: True
+events:
+    -   date: !date 1940-11-08?
+        status: open
+        split_from: !keyref point.de.Wittingen-Kleinb
+    -   date: !!null
+        name: Wittingen West
+        de.lknr: 88 869
+        sources: !keyref src.de.Bfv.1944
+    -   date: !date 1944?
+        location: !keyloc line.de.13180 0,0
+    -   date: !!null
+        de.DS100: HWTW
+        de.dstnr: !!str 516203
+        sources: !keyref src.de.DS100.1984
+    -   date: !date c1970
+        name: Wittingen West OHE
+        sources: !keyref src.de.DS100.1984
+    -   date: !!null
+        location: !keyloc line.de.9173 51,0
+        category: de.Bf
+        sources: !keyref src.de.DBAG.ISR
+    -   date: !date c1990
+        name: Wittingen West
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        connection:
+            - !keyref point.de.Wittingen
+            - !keyref point.de.Wittingen-West
+
+    -   date: !!null
+        site: !noderef path.de.9173 wit left
+
