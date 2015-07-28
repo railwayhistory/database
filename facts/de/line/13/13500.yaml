@@ -41,7 +41,7 @@ events:
         operator: !keyref org.de.e.DBNetz
 points:
     - !keyref point.de.Buchholz-Nordheide                   # line.de.13300
-    - !keyref point.de.Jesteburg                            # line.de.13300
+    - !keyref point.de.Jesteburg
     - !keyref point.de.Maschen-Rbf-Süd
     - !keyref point.de.Maschen-Rbf-Msof
     - !keyref point.de.Maschen-Rbf-Mswf
@@ -63,6 +63,31 @@ points:
     - !keyref point.de.Hamburg-Billwerder
     - !keyref point.de.Hamburg-Billwerder-Ubf
     - !keyref point.de.Hamburg-Allermoehe                   # line.de.6100
+
+
+---
+key: point.de.Jesteburg
+type: point
+junction: True
+events:
+    -   date: !!null
+        category: de.Abzw
+        name: Jesteburg
+        de.DS100: AJF
+        de.dstnr: !!str 017087
+        sources: !keyref src.de.DS100.1984
+    -   date: !!null
+        location:
+            - !keyloc line.de.1151 260,35
+            - !keyloc line.de.13500   7,97
+        sources: !keyref src.de.DB.Hmb.Karte.1984
+    -   date: !date 1994-10-01?
+        category: de.Uest
+        sources: !keyref src.de.SuW.2005
+
+    -   date: !!null
+        site: !noderef path.de.1280 jes left
+
 
 ---
 key: point.de.Maschen-Rbf-Süd
