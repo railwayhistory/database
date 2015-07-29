@@ -1,38 +1,53 @@
+# DE 8118.  Dahlenburg - Brackede
+#
 ---
-key: line.de.13240
+key: line.de.8118
 type: line
 events:
     -   date: !!null
         region:
             - !keyref org.de
             - !keyref org.de.l.ni
-    -   date: !!null
-        category: de.Kleinbahn
-        gauge: 750
-        owner: !keyref org.de.e.BlKb
-        operator: !keyref org.de.e.Lenz
-        sources: !keyref src.de.WP.Bleckeder-Kreisbahn
+
+    #   Genehmigungen
+    #
+
+    #   Eröffnung und Einstellung
+    #
     -   date: !date 1895-12-17
         status: open
         sources: !keyref src.de.WP.Bleckeder-Kreisbahn
-    -   date: !date 1904
-        start: !keyref point.de.Wendewisch
-        status: closed
-        sources: !keyref src.de.WP.Bleckeder-Kreisbahn
-    -   date: !date 1910
-        operator: !keyref org.de.e.BlKb
-        sources: !keyref src.de.WP.Bleckeder-Kreisbahn
-    -   date: !date 1921-09-01
-        start: !keyref point.de.Brackede
-        end: !keyref point.de.Wendewisch
-        status: closed
-        sources: !keyref src.de.WP.Bleckeder-Kreisbahn
     -   date: !date 1922-01-21
-        end: !keyref point.de.Brackede
         status: closed
         sources: !keyref src.de.WP.Bleckeder-Kreisbahn
     -   date: !date c1925
         status: removed
+
+    #   Eigenschaften
+    #
+    -   date: !!null
+        category: de.Kleinbahn
+        gauge: 750
+        tracks: 1
+        sources: !keyref src.de.WP.Bleckeder-Kreisbahn
+
+    #   Eigentümer etc.
+    #
+    -   date: !!null
+        owner: !keyref org.de.e.BlKb
+        operator: !keyref org.de.e.Lenz
+        sources: !keyref src.de.WP.Bleckeder-Kreisbahn
+    -   date: !date 1910
+        operator: !keyref org.de.e.BlKb
+        sources: !keyref src.de.WP.Bleckeder-Kreisbahn
+
+    #   Verlauf
+    #
+    -   date: !!null
+        course:
+            - !pathref path.de.1151 dah  fech -1.0
+            - !pathref path.de.8118 a    f     0.0
+
 points:
     - !keyref point.de.Dahlenburg-Stbf
     - !keyref point.de.Dahlenburg-Ort
@@ -40,7 +55,7 @@ points:
     - !keyref point.de.Tosterglope
     - !keyref point.de.Forsthaus-Schieringen
     - !keyref point.de.Barscamp
-    - !keyref point.de.Goeddingen
+    - !keyref point.de.Göddingen
     - !keyref point.de.Nindorf-Bleckede
     - !keyref point.de.Bleckede-Bf
     - !keyref point.de.Bleckede-Markt
@@ -48,64 +63,75 @@ points:
     - !keyref point.de.Carze-Anschlbf
     - !keyref point.de.Carze-Ort
     - !keyref point.de.Brackede
-    - !keyref point.de.Garlsdorf-Bleckede
-    - !keyref point.de.Wendewisch
-    - !keyref point.de.Juergenstorf
-    - !keyref point.de.Luedersburg
-    - !keyref point.de.Echem                        # line.de.13200
+
 
 ---
-
 key: point.de.Dahlenburg-Stbf
 type: point
+junction: True
 events:
     -   date: !!null
-        category: de.Bf
-        location: !keyloc line.de.13240 0,0
-        sources: !keyref src.de.WP.Bleckeder-Kreisbahn
-    -   date: !!null
         name: Dahlenburg Stbf
-        sources: !keyref src.de.Kb.1914
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        category: de.Bf
+        location: !keyloc line.de.8118 0,0
+        sources: !keyref src.de.WP.Bleckeder-Kreisbahn
+
+    -   date: !!null
+        connection: !keyref point.de.Dahlenburg
+
+    -   date: !!null
+        site: !noderef path.de.1151 dah left
+
 
 ---
-
 key: point.de.Dahlenburg-Ort
 type: point
 events:
     -   date: !!null
-        category: de.Bf
-        location: !keyloc line.de.13240 3,3
-        sources: !keyref src.de.WP.Bleckeder-Kreisbahn
-    -   date: !!null
         name: Dahlenburg Ort
-        sources: !keyref src.de.Kb.1914
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        category: de.Bf
+        location: !keyloc line.de.8118 3,3
+        sources: !keyref src.de.WP.Bleckeder-Kreisbahn
+
+    -   date: !!null
+        site: !noderef path.de.8118 dao right
+
 
 ---
-
 key: point.de.Horndorf
 type: point
 events:
     -   date: !!null
         category: de.Hp
-        location: !keyloc line.de.13240 7,14
+        location: !keyloc line.de.8118 7,14
         name: Horndorf
         sources: !keyref src.de.WP.Bleckeder-Kreisbahn
 
----
+    -   date: !!null
+        site: !noderef path.de.8118 hor left
 
+
+---
 key: point.de.Tosterglope
 type: point
 events:
     -   date: !!null
-        category: de.Bf
-        location: !keyloc line.de.13240 9,97
-        sources: !keyref src.de.WP.Bleckeder-Kreisbahn
-    -   date: !!null
         name: Tosterglope
-        sources: !keyref src.de.Kb.1914
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        category: de.Bf
+        location: !keyloc line.de.8118 9,97
+        sources: !keyref src.de.WP.Bleckeder-Kreisbahn
+
+    -   date: !!null
+        site: !noderef path.de.8118 tos
+
 
 ---
-
 key: point.de.Forsthaus-Schieringen
 type: point
 events:
@@ -114,177 +140,157 @@ events:
         name: Forsthaus Schieringen
         sources: !keyref src.de.WP.Bleckeder-Kreisbahn
 
----
+    -   date: !!null
+        site: !noderef path.de.8118 for
 
+
+---
 key: point.de.Barscamp
 type: point
 events:
     -   date: !!null
-        category: de.Bf
-        location: !keyloc line.de.13240 14,74
-        sources: !keyref src.de.WP.Bleckeder-Kreisbahn
-    -   date: !!null
         name: Barscamp
-        sources: !keyref src.de.Kb.1914
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        category: de.Bf
+        location: !keyloc line.de.8118 14,74
+        sources: !keyref src.de.WP.Bleckeder-Kreisbahn
+
+    -   date: !!null
+        site: !noderef path.de.8118 bar right
+
 
 ---
-
-key: point.de.Goeddingen
+key: point.de.Göddingen
 type: point
 events:
     -   date: !!null
-        category: de.Bf
-        location: !keyloc line.de.13240 16,88
-        sources: !keyref src.de.WP.Bleckeder-Kreisbahn
-    -   date: !!null
         name: Göddingen
-        sources: !keyref src.de.Kb.1914
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        category: de.Bf
+        location: !keyloc line.de.8118 16,88
+        sources: !keyref src.de.WP.Bleckeder-Kreisbahn
+
+    -   date: !!null
+        site: !noderef path.de.8118 god right
+
 
 ---
-
 key: point.de.Nindorf-Bleckede
 type: point
 events:
     -   date: !!null
-        category: de.Hp
-        location: !keyloc line.de.13240 18,54
-        sources: !keyref src.de.WP.Bleckeder-Kreisbahn
-    -   date: !!null
         name: Nindorf (Kr Beleckede)
-        sources: !keyref src.de.Kb.1914
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        category: de.Hp
+        location: !keyloc line.de.8118 18,54
+        sources: !keyref src.de.WP.Bleckeder-Kreisbahn
+
+    -   date: !!null
+        site: !noderef path.de.8118 nin right
+
 
 ---
 key: point.de.Bleckede-Bf
 type: point
 events:
     -   date: !!null
-        category: de.Bf
-        location: !keyloc line.de.13240 21,55
-        sources: !keyref src.de.WP.Bleckeder-Kreisbahn
-    -   date: !!null
         name: Bleckede Bf
         sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        category: de.Bf
+        location: !keyloc line.de.8118 21,55
+        sources: !keyref src.de.WP.Bleckeder-Kreisbahn
+
+    -   date: !!null
+        site: !noderef path.de.8118 blb right
 
 
 ---
-
 key: point.de.Bleckede-Markt
 type: point
 events:
     -   date: !!null
-        category: de.Hp
-        location: !keyloc line.de.13240 22,34
-        sources: !keyref src.de.WP.Bleckeder-Kreisbahn
-    -   date: !!null
         name: Bleckede Markt
-        sources: !keyref src.de.Kb.1914
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        category: de.Hp
+        location: !keyloc line.de.8118 22,34
+        sources: !keyref src.de.WP.Bleckeder-Kreisbahn
+
+    -   date: !!null
+        site: !noderef path.de.8118 blm
+
 
 ---
-
 key: point.de.Garze
 type: point
 events:
     -   date: !!null
-        category: de.Hp
-        location: !keyloc line.de.13240 25,63
-        sources: !keyref src.de.WP.Bleckeder-Kreisbahn
-    -   date: !!null
         name: Garze
-        sources: !keyref src.de.Kb.1914
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        category: de.Hp
+        location: !keyloc line.de.8118 25,63
+        sources: !keyref src.de.WP.Bleckeder-Kreisbahn
+
+    -   date: !!null
+        site: !noderef path.de.8118 gar
+
 
 
 ---
 key: point.de.Carze-Anschlbf
 type: point
+junction: True
 events:
     -   date: !!null
-        location:
-            - !keyloc line.de.8117 22,0
-            - !keyloc line.de.13240 26,3
         name: Carze Anschlbf
         sources: !keyref src.de.Kb.1905
     -   date: !!null
+        location: !keyloc line.de.8118 26,33
         category: de.Bf
+        sources: !keyref src.de.WP.Bleckeder-Kreisbahn
 
     -   date: !!null
         site:
             - !noderef path.de.8117 caa left
+            - !noderef path.de.8118 caa left
 
 
 ---
-
 key: point.de.Carze-Ort
 type: point
 events:
     -   date: !!null
-        category: de.Bf
-        location: !keyloc line.de.13240 27,1
-        sources: !keyref src.de.WP.Bleckeder-Kreisbahn
-    -   date: !!null
         name: Carze Ort
-        sources: !keyref src.de.Kb.1914
----
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        category: de.Bf
+        location: !keyloc line.de.8118 27,1
+        sources: !keyref src.de.WP.Bleckeder-Kreisbahn
 
+    -   date: !!null
+        site: !noderef path.de.8118 car
+
+
+---
 key: point.de.Brackede
 type: point
+junction: True
 events:
-    -   date: !!null
-        category: de.Bf
-        location: !keyloc line.de.13240 32,0
-        sources: !keyref src.de.WP.Bleckeder-Kreisbahn
     -   date: !!null
         name: Brackede
-        sources: !keyref src.de.Kb.1914
-
----
-
-key: point.de.Garlsdorf-Bleckede
-type: point
-events:
+        sources: !keyref src.de.Kb.1905
     -   date: !!null
         category: de.Bf
-        location: !keyloc line.de.13240 34,5
+        location:
+            - !keyloc line.de.8118 32,0
+            - !keyloc line.de.8119 32,0
         sources: !keyref src.de.WP.Bleckeder-Kreisbahn
-    -   date: !!null
-        name: Garlsdorf (Kr Bleckede)
-        sources: !keyref src.de.Kb.1914
 
----
-
-key: point.de.Wendewisch
-type: point
-events:
     -   date: !!null
-        category: de.Bf
-        location: !keyloc line.de.13240 37,0
-        sources: !keyref src.de.WP.Bleckeder-Kreisbahn
-    -   date: !!null
-        name: Wendewisch
-        sources: !keyref src.de.Kb.1914
-
----
-
-key: point.de.Juergenstorf
-type: point
-events:
-    -   date: !!null
-        category: de.Hp
-        location: !keyloc line.de.13240 42,07
-        sources: !keyref src.de.WP.Bleckeder-Kreisbahn
-    -   date: !!null
-        name: Jürgenstorf
-        sources: !keyref src.de.Kb.1914
-
----
-
-key: point.de.Luedersburg
-type: point
-events:
-    -   date: !!null
-        category: de.Bf
-        location: !keyloc line.de.13240 43,5
-        sources: !keyref src.de.WP.Bleckeder-Kreisbahn
-    -   date: !!null
-        name: Lüdersburg
-        sources: !keyref src.de.Kb.1914
+        site: !noderef path.de.8118 bra
 
