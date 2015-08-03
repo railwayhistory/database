@@ -1,0 +1,522 @@
+# DE 9112.  Winsen (Luhe) Süd - Hützel (Lüneb)
+#
+---
+key: line.de.9112
+type: line
+events:
+    -   date: !!null
+        region:
+            - !keyref org.de
+            - !keyref org.de.l.ni
+
+    -   date: !!null
+        de.VzG: !!str 9112
+        sources: !keyref src.de.SuW.2005
+
+    #   Genehmigungen
+    #
+
+    #   Eröffnung und Einstellung
+    #
+    -   date: !date 1906-07-20
+        end: !keyref point.de.Egestorf-Lüneburg
+        status: open
+        sources: !keyref src.de.WP.Bahnstrecke-Winsen-Huetzel
+    -   date: !date 1910-07-08
+        start: !keyref point.de.Egestorf-Lüneburg
+        status: open
+        sources: !keyref src.de.WP.Bahnstrecke-Winsen-Huetzel
+
+    -   date: !date 1970-05-30
+        passenger: none
+        sources: !keyref src.de.WP.Bahnstrecke-Winsen-Huetzel
+
+    #   Eigenschaften
+    #
+    -   date: !!null
+        category: de.Kleinbahn
+        tracks: 1
+        gauge: 1435
+        sources: !keyref src.de.WP.Bahnstrecke-Winsen-Huetzel
+    -   date: !date c1950
+        category: de.Nebenbahn
+
+    #   Eigentümer etc.
+    #
+    -   date: !!null
+        owner: !keyref org.de.e.KbWEH
+        operator: !keyref org.de.e.KbWEH
+        sources: !keyref src.de.WP.Bahnstrecke-Winsen-Huetzel
+    -   date: !date 1933
+        operator: !keyref org.de.e.NLEA
+        sources: !keyref src.de.WP.Bahnstrecke-Winsen-Huetzel
+    -   date: !date 1944-01-01
+        owner: !keyref org.de.e.WinE
+        sources: !keyref src.de.WP.Bahnstrecke-Winsen-Huetzel
+    -   date: !date 1944-07-11
+        owner: !keyref org.de.e.OHE
+        operator: !keyref org.de.e.OHE
+        sources: !keyref src.de.WP.Bahnstrecke-Winsen-Huetzel
+
+    #   Verlauf
+    #
+    -   date: !!null
+        course:
+            - !pathref path.de.9112 win  f   0.0
+            - !pathref path.de.9111 fwin hut 1.0
+
+points:
+    - !keyref point.de.Winsen-Luhe-Süd
+    - !keyref point.de.Luhdorf
+    - !keyref point.de.Pattensen-Lüneb
+    - !keyref point.de.Wulfsen-Nord
+    - !keyref point.de.Garstedt-Lüneburg
+    - !keyref point.de.Neu-Garstedt
+    - !keyref point.de.Toppenstedt
+    - !keyref point.de.Garlstorf-Harburg
+    - !keyref point.de.Gödenstorf-Oelstorf
+    - !keyref point.de.Salzhausen-Lüneburg
+    - !keyref point.de.Eyendorf
+    - !keyref point.de.Lübberstedt-Lüneburg
+    - !keyref point.de.Egestorf-Lüneburg
+    - !keyref point.de.Döhle
+    - !keyref point.de.Evendorf-Hörpel
+    - !keyref point.de.Druhwald
+    - !keyref point.de.Hützel-Lüneb                         # line.de.9111
+
+---
+key: point.de.Winsen-Luhe-Süd
+type: point
+junction: True
+events:
+    -   date: !!null
+        name: Winsen (Luhe)
+        sources: !keyref src.de.Kb.1914
+    -   date: !var lknr.kb
+        de.lknr: 48 470
+        sources: !keyref src.de.Bfv.1938
+    -   date: !date c1935
+        name: Winsen (Luhe) Kleinb
+        sources: !keyref src.de.Bfv.1938
+    -   date: !date c1940
+        name: Winsen (Luhe) Süd
+        sources: !keyref src.de.Bfv.1944
+    -   date: !!null
+        de.DS100: AWIS
+        sources: !keyref src.de.DS100.1984
+    -   date: !!null
+        category: de.Bf
+        location:
+            - !keyloc line.de.9112 0,0
+            - !keyloc line.de.13380 0,0
+        sources: !keyref src.de.DBAG.ISR
+    -   date: !date c1995
+        de.DS100: HWID
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        connection: !keyref point.de.Winsen-Luhe
+
+    -   date: !!null
+        site: !noderef path.de.9112 win down
+
+
+---
+key: point.de.Luhdorf
+type: point
+events:
+    -   date: !!null
+        name: Luhdorf
+        sources: !keyref src.de.Kb.1914
+    -   date: !var lknr.kb
+        de.lknr: 48 471
+        sources: !keyref src.de.Bfv.1938
+    -   date: !!null
+        de.DS100: HLHD
+        de.dstnr: !!str 521146
+        sources: !keyref src.de.DS100.1984
+    -   date: !!null
+        category: de.Bf
+        location: !keyloc line.de.9112 3,6
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.9112 luh right
+
+
+---
+key: point.de.Pattensen-Lüneb
+type: point
+events:
+    -   date: !!null
+        name: Pattensen
+        sources: !keyref src.de.Kb.1914
+    -   date: !date c1930
+        name: Pattensen (Lünebg)
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.kb
+        de.lknr: 48 472
+        sources: !keyref src.de.Bfv.1938
+    -   date: !date c1938
+        name: Pattensen (Lüneb)
+        sources: !keyref src.de.Bfv.1938
+    -   date: !!null
+        de.DS100: HPTS
+        de.dstnr: !!str 521138
+        sources: !keyref src.de.DS100.1984
+    -   date: !!null
+        category: de.Bf
+        location: !keyloc line.de.9112 7,6
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.9112 pat right
+
+
+---
+key: point.de.Wulfsen-Nord
+type: point
+events:
+    -   date: !!null
+        name: Wulfsen i Lbg
+        sources: !keyref src.de.Kb.1914
+    -   date: !date c1935
+        name: Wulfsen Kleinb
+        sources: !keyref src.de.Bfv.1938
+    -   date: !var lknr.kb
+        de.lknr: 48 473
+        sources: !keyref src.de.Bfv.1938
+    -   date: !date c1940
+        name: Wulfsen (b Lüneburg) Nord
+        sources: !keyref src.de.Bfv.1944
+    -   date: !date c1970
+        status: closed
+        sources: !keyref src.de.DS100.1984
+    -   date: !date c1990
+        status: open
+        location: !keyloc line.de.9112 9,4
+        category: de.Hp
+        name: Wulfsen Nord
+        de.DS100: HWUF
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.9112 wul left
+
+
+---
+key: point.de.Garstedt-Lüneburg
+type: point
+events:
+    -   date: !!null
+        name: Garstedt
+        sources: !keyref src.de.Bfv.1928
+    -   date: !date c1930
+        name: Garstedt (Lünebg)
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.kb
+        de.lknr: 48 474
+        sources: !keyref src.de.Bfv.1938
+    -   date: !date c1935
+        name: Garstedt (Lüneb)
+        sources: !keyref src.de.Bfv.1938
+    -   date: !!null
+        de.DS100: HGAS
+        de.dstnr: !!str 521112
+        sources: !keyref src.de.DS100.1984
+    -   date: !date c1970
+        name: Garstedt (Lüneburg)
+        sources: !keyref src.de.DS100.1984
+    -   date: !!null
+        category: de.Bf
+        sources: !keyref src.de.SuW.2005
+    -   date: !!null
+        location: !keyloc line.de.9112 10,2
+        sources: !keyref src.de.DBAG.ISR
+    -   date: !date c2010
+        category: de.Anst
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.9112 gar right
+
+
+---
+key: point.de.Neu-Garstedt
+type: point
+events:
+    -   date: !!null
+        name: Neu-Garstedt
+        sources: !keyref src.de.Kb.W1937
+    -   date: !date c1970
+        status: closed
+        sources: !keyref src.de.DS100.1984
+    -   date: !date c1990
+        status: open
+        category: de.Hp
+        location: !keyloc line.de.9112 12,5
+        de.DS100: HNGS
+        sources: !keyref src.de.SuW.2005
+
+    -   date: !!null
+        site: !noderef path.de.9112 nga left
+
+
+---
+key: point.de.Toppenstedt
+type: point
+events:
+    -   date: !!null
+        name: Toppenstedt
+        sources: !keyref src.de.Kb.1914
+    -   date: !var lknr.kb
+        de.lknr: 48 475
+        sources: !keyref src.de.Bfv.1938
+    -   date: !!null
+        de.DS100: HTPP
+        de.dstnr: !!str 521096
+        sources: !keyref src.de.DS100.1984
+    -   date: !!null
+        category: de.Bf
+        location: !keyloc line.de.9112 13,9
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.9112 top right
+
+
+---
+key: point.de.Garlstorf-Harburg
+type: point
+events:
+    -   date: !!null
+        name: Garlstorf
+        sources: !keyref src.de.Kb.1914
+    -   date: !date c1930
+        name: Garlstorf (Lünebg)
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.kb
+        de.lknr: 48 476
+        sources: !keyref src.de.Bfv.1938
+    -   date: !date c1935
+        name: Garlstorf (Lüneb)
+        sources: !keyref src.de.Bfv.1938
+    -   date: !date c1940
+        name: Garlstorf (Kr Harburg)
+        sources: !keyref src.de.Bfv.1944
+    -   date: !!null
+        de.DS100: HGAT
+        de.dstnr: !!str 521088
+        sources: !keyref src.de.DS100.1984
+    -   date: !!null
+        category: de.Bf
+        location: !keyloc line.de.9112 16,8
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.9112 gat right
+
+
+---
+key: point.de.Gödenstorf-Oelstorf
+type: point
+events:
+    -   date: !!null
+        name: Gödenstorf-Ölstorf
+        sources: !keyref src.de.Bfv.1928
+    -   date: !var lknr.kb
+        de.lknr: 48 477
+        sources: !keyref src.de.Bfv.1944
+    -   date: !date c1940
+        name: Gödenstorf-Oelstorf
+        sources: !keyref src.de.Bfv.1944
+    -   date: !!null
+        de.DS100: HGTD
+        de.dstnr: !!str 521070
+        sources: !keyref src.de.DS100.1984
+    -   date: !!null
+        category: de.Bf
+        location: !keyloc line.de.9112 18,8
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.9112 god right
+
+
+---
+key: point.de.Salzhausen-Lüneburg
+type: point
+events:
+    -   date: !!null
+        name: Salzhausen
+        sources: !keyref src.de.Kb.1914
+    -   date: !date c1930
+        name: Salzhausen (Lünebg)
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.kb
+        de.lknr: 48 478
+        sources: !keyref src.de.Bfv.1938
+    -   date: !date c1935
+        name: Salzhausen (Lüneb)
+        sources: !keyref src.de.Bfv.1938
+    -   date: !!null
+        de.DS100: HSHL
+        de.dstnr: !!str 521062
+        sources: !keyref src.de.DS100.1984
+    -   date: !!null
+        category: de.Bf
+        location: !keyloc line.de.9112 21,4
+        sources: !keyref src.de.DBAG.ISR
+    -   date: !date c1990
+        name: Salzhausen (b Lüneburg)
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.9112 sal left
+
+
+---
+key: point.de.Eyendorf
+type: point
+events:
+    -   date: !!null
+        name: Eyendorf
+        sources: !keyref src.de.Kb.1914
+    -   date: !var lknr.kb
+        de.lknr: 48 479
+        sources: !keyref src.de.Bfv.1938
+    -   date: !!null
+        de.DS100: HEYD
+        de.dstnr: !!str 521054
+        sources: !keyref src.de.DS100.1984
+    -   date: !!null
+        category: de.Bf
+        location: !keyloc line.de.9112 23,4
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.9112 eye left
+
+
+---
+key: point.de.Lübberstedt-Lüneburg
+type: point
+events:
+    -   date: !!null
+        name: Lübberstedt
+        sources: !keyref src.de.Kb.1914
+    -   date: !date c1930
+        name: Lübberstedt (Lünebg)
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.kb
+        de.lknr: 48 480
+        sources: !keyref src.de.Bfv.1938
+    -   date: !date c1935
+        name: Lübberstedt (Lüneb)
+        sources: !keyref src.de.Bfv.1938
+    -   date: !date c1970
+        status: closed
+        sources: !keyref src.de.DS100.1984
+    -   date: !date c1995
+        location: !keyloc line.de.9112 27,7
+        category: de.Hp
+        name: Lübberstedt (Lüneburg)
+        de.DS100: HLUL
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.9112 lub right
+
+
+---
+key: point.de.Egestorf-Lüneburg
+type: point
+events:
+    -   date: !!null
+        name: Egestorf
+        sources: !keyref src.de.Kb.1914
+    -   date: !date c1930
+        name: Egestorf (Lünebg)
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.kb
+        de.lknr: 48 481
+        sources: !keyref src.de.Bfv.1938
+    -   date: !date c1935
+        name: Egestorf (Lüneb)
+        sources: !keyref src.de.Bfv.1938
+    -   date: !date c1970
+        status: closed
+        sources: !keyref src.de.DS100.1984
+    -   date: !date c1995
+        status: open
+        location: !keyloc line.de.9112 31,0
+        category: de.Bf
+        name: Egestorf (b Lüneburg)
+        de.DS100: HEGL
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.9112 ege right
+
+
+---
+key: point.de.Döhle
+type: point
+events:
+    -   date: !!null
+        name: Döhle
+        sources: !keyref src.de.Kb.1914
+    -   date: !var lknr.kb
+        de.lknr: 48 482
+        sources: !keyref src.de.Bfv.1938
+    -   date: !date c1970
+        status: closed
+        sources: !keyref src.de.DS100.1984
+    -   date: !date c1995
+        status: open
+        location: !keyloc line.de.9112 33,4
+        category: de.Hp
+        de.DS100: HDLE
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.9112 doh right
+
+
+---
+key: point.de.Evendorf-Hörpel
+type: point
+events:
+    -   date: !!null
+        name: Evendorf-Hörpel
+        sources: !keyref src.de.Kb.1914
+    -   date: !var lknr.kb
+        de.lknr: 48 483
+        sources: !keyref src.de.Bfv.1938
+    -   date: !!null
+        de.DS100: HEVH
+        de.dstnr: !!str 521013
+        sources: !keyref src.de.DS100.1984
+    -   date: !!null
+        category: de.Hp
+        location: !keyloc line.de.9112 35,6
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.9112 eve left
+
+
+---
+key: point.de.Druhwald
+type: point
+events:
+    -   date: !date c1950
+        status: open
+        name: Druhwald
+        sources: !keyref src.de.WP.Bahnstrecke-Winsen-Huetzel
+    -   date: !date c1970
+        status: closed
+
+    -   date: !!null
+        site: !noderef path.de.9112 dru left
+
