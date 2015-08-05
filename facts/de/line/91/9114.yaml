@@ -1,21 +1,47 @@
+# DE 9114.  Lüchow Süd - Schmarsau (Lemgow)
+#
 ---
-key: line.de.13430
+key: line.de.9114
 type: line
 events:
     -   date: !!null
         region:
             - !keyref org.de
             - !keyref org.de.l.ni
+
     -   date: !!null
         de.VzG: !!str 9114
-        sources: !keyref src.de.VzG
-    -   date: !!null
-        category: de.Kleinbahn
-        owner: !keyref org.de.e.LSE
-        operator: !keyref org.de.e.LSE
-        sources: !keyref src.de.WP.Luechow-Schmarsauer-Eisenbahn
+        sources: !keyref src.de.SuW.2005
+
+    #   Genehmigungen
+    #
+
+    #   Eröffnung und Einstellung
+    #
     -   date: !date 1911-12-15
         status: open
+        sources: !keyref src.de.WP.Luechow-Schmarsauer-Eisenbahn
+    -   date: !date 1969-03-31
+        status: closed
+        sources: !keyref src.de.web.Troeger
+    -   date: !date c1975
+        status: removed
+
+    #   Eigenschaften
+    #
+    -   date: !!null
+        category: de.Kleinbahn
+        tracks: 1
+        gauge: 1435
+        sources: !keyref src.de.WP.Luechow-Schmarsauer-Eisenbahn
+    -   date: !date c1950
+        category: de.Nebenbahn
+
+    #   Eigentümer etc.
+    #
+    -   date: !!null
+        owner: !keyref org.de.e.LSE
+        operator: !keyref org.de.e.LSE
         sources: !keyref src.de.WP.Luechow-Schmarsauer-Eisenbahn
     -   date: !date 1932-04-01
         operator: !keyref org.de.e.NLEA
@@ -23,45 +49,56 @@ events:
     -   date: !date 1959-10-01
         operator: !keyref org.de.e.OHE
         sources: !keyref src.de.WP.Luechow-Schmarsauer-Eisenbahn
-    -   date: !date 1969-03-31
-        status: closed
-        sources: !keyref src.de.web.Troeger
-    -   date: !date c1975
-        status: removed
+
+    #   Verlauf
+    #
+    -   date: !!null
+        course:
+            - !pathref path.de.9114 a f 0.0
+
 points:
-    - !keyref point.de.Luechow-Sued
+    - !keyref point.de.Lüchow-Süd
     - !keyref point.de.Woltersdorf-Dannenberg
     - !keyref point.de.Oerenburg
     - !keyref point.de.Thurau
     - !keyref point.de.Lichtenberg-Dannenberg
     - !keyref point.de.Schweskau
     - !keyref point.de.Prezier
-    - !keyref point.de.Grosswitzeetze
+    - !keyref point.de.Großwitzeetze
     - !keyref point.de.Bockleben
-    - !keyref point.de.Schmarsau
+    - !keyref point.de.Schmarsau-Lemgow
+
 
 ---
-key: point.de.Luechow-Sued
+key: point.de.Lüchow-Süd
 type: point
+junction: true
 events:
     -   date: !!null
         name: Lüchow
         sources: !keyref src.de.Kb.1914
     -   date: !!null
-        location: !keyloc line.de.13430 0,0
+        location: !keyloc line.de.9114 0,0
         sources: !keyref src.de.Kb.W1937
+    -   date: !var lknr.kb
+        de.lknr: 44 520
+        sources: !keyref src.de.Bfv.1938
+    -   date: !date c1938
+        name: Lüchow Kleinb
+        sources: !keyref src.de.Bfv.1938
     -   date: !!null
         category: de.Bf
         de.VBL: Lü
         sources: !keyref src.de.web.Troeger
-    -   date: !var lknr.kb
-        de.lknr: 44 520
-        sources: !keyref src.de.Bfv.1944
-    -   date: !date c1940
-        name: Lüchow Kleinb
-        sources: !keyref src.de.Bfv.1944
     -   date: !date 1950-01-01?
         name: Lüchow Süd
+
+    -   date: !!null
+        connection: !keyref point.de.Lüchow
+
+    -   date: !!null
+        site: !noderef path.de.9114 luc left
+
 
 ---
 key: point.de.Woltersdorf-Dannenberg
@@ -71,7 +108,7 @@ events:
         name: Woltersdorf
         sources: !keyref src.de.Kb.1914
     -   date: !!null
-        location: !keyloc line.de.13430 3,8
+        location: !keyloc line.de.9114 3,8
         sources: !keyref src.de.Kb.W1937
     -   date: !!null
         category: de.Bf
@@ -79,10 +116,14 @@ events:
         sources: !keyref src.de.web.Troeger
     -   date: !var lknr.kb
         de.lknr: 44 521
-        sources: !keyref src.de.Bfv.1944
-    -   date: !date c1940
+        sources: !keyref src.de.Bfv.1938
+    -   date: !date c1938
         name: Woltersdorf (Kr Dannenberg)
-        sources: !keyref src.de.Bfv.1944
+        sources: !keyref src.de.Bfv.1938
+
+    -   date: !!null
+        site: !noderef path.de.9114 wol right
+
 
 ---
 key: point.de.Oerenburg
@@ -90,9 +131,9 @@ type: point
 events:
     -   date: !!null
         name: Oerenburg
-        sources: !keyref src.de.Bfv.1933
+        sources: !keyref src.de.Bfv.1928
     -   date: !!null
-        location: !keyloc line.de.13430 6,1
+        location: !keyloc line.de.9114 6,1
         sources: !keyref src.de.Kb.W1937
     -   date: !!null
         category: de.Bf
@@ -100,20 +141,26 @@ events:
         sources: !keyref src.de.web.Troeger
     -   date: !var lknr.kb
         de.lknr: 44 522
-        sources: !keyref src.de.Bfv.1944
+        sources: !keyref src.de.Bfv.1938
+
+    -   date: !!null
+        site: !noderef path.de.9114 oer left
+
 
 ---
 key: point.de.Thurau
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.13430 7,3
+        location: !keyloc line.de.9114 7,3
         name: Thurau
         sources: !keyref src.de.Kb.W1937
     -   date: !!null
         category: de.Hp
-    -   date: !var lknr.kb
-        de.lknr: 44 523
+
+    -   date: !!null
+        site: !noderef path.de.9114 thu right
+
 
 ---
 key: point.de.Lichtenberg-Dannenberg
@@ -123,7 +170,7 @@ events:
         name: Lichtenberg
         sources: !keyref src.de.Kb.1914
     -   date: !!null
-        location: !keyloc line.de.13430 9,6
+        location: !keyloc line.de.9114 9,6
         sources: !keyref src.de.Kb.W1937
     -   date: !!null
         category: de.Bf
@@ -131,10 +178,14 @@ events:
         sources: !keyref src.de.web.Troeger
     -   date: !var lknr.kb
         de.lknr: 44 524
-        sources: !keyref src.de.Bfv.1944
-    -   date: !date c1940
+        sources: !keyref src.de.Bfv.1938
+    -   date: !date c1938
         name: Lichtenberg (Kr Dannenberg)
-        sources: !keyref src.de.Bfv.1944
+        sources: !keyref src.de.Bfv.1938
+
+    -   date: !!null
+        site: !noderef path.de.9114 lic right
+
 
 ---
 key: point.de.Schweskau
@@ -144,7 +195,7 @@ events:
         name: Schweskau
         sources: !keyref src.de.Kb.1914
     -   date: !!null
-        location: !keyloc line.de.13430 12,2
+        location: !keyloc line.de.9114 12,2
         sources: !keyref src.de.Kb.W1937
     -   date: !!null
         category: de.Bf
@@ -152,36 +203,42 @@ events:
         sources: !keyref src.de.web.Troeger
     -   date: !var lknr.kb
         de.lknr: 44 525
-        sources: !keyref src.de.Bfv.1944
+        sources: !keyref src.de.Bfv.1938
+
+    -   date: !!null
+        site: !noderef path.de.9114 swe left
+
 
 ---
 key: point.de.Prezier
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.13430 13,6
+        location: !keyloc line.de.9114 13,6
         name: Prezier
         sources: !keyref src.de.Kb.W1937
     -   date: !!null
         category: de.Hp
-    -   date: !var lknr.kb
-        de.lknr: 44 526
+
+    -   date: !!null
+        site: !noderef path.de.9114 pre
+
 
 ---
-key: point.de.Grosswitzeetze
+key: point.de.Großwitzeetze
 type: point
 events:
     -   date: !!null
         name: Witzeetze
         sources: !keyref src.de.Kb.1914
     -   date: !!null
-        location: !keyloc line.de.13430 14,7
+        location: !keyloc line.de.9114 14,7
         sources: !keyref src.de.Kb.W1937
     -   date: !!null
         category: de.Bf
         de.VBL: Gw
         sources: !keyref src.de.web.Troeger
-    -   date: !date c1925
+    -   date: !date c1930
         name: Witzeetze (Lemgow)
         sources: !keyref src.de.Bfv.1933
     -   date: !date c1935
@@ -189,7 +246,11 @@ events:
         sources: !keyref src.de.Kb.W1937
     -   date: !var lknr.kb
         de.lknr: 44 527
-        sources: !keyref src.de.Bfv.1944
+        sources: !keyref src.de.Bfv.1938
+
+    -   date: !!null
+        site: !noderef path.de.9114 gwi right
+
 
 ---
 key: point.de.Bockleben
@@ -199,32 +260,37 @@ events:
         name: Bockleben
         sources: !keyref src.de.Kb.1914
     -   date: !!null
-        location: !keyloc line.de.13430 16,2
+        location: !keyloc line.de.9114 16,2
         sources: !keyref src.de.Kb.W1937
     -   date: !!null
         category: de.Hp
-    -   date: !var lknr.kb
-        de.lknr: 44 528
+
+    -   date: !!null
+        site: !noderef path.de.9114 boc
+
 
 ---
-key: point.de.Schmarsau
+key: point.de.Schmarsau-Lemgow
 type: point
+junction: true
 events:
     -   date: !!null
         name: Schmarsau
         sources: !keyref src.de.Kb.1914
     -   date: !!null
-        location: !keyloc line.de.13430 17,2
+        location: !keyloc line.de.9114 17,2
         sources: !keyref src.de.Kb.W1937
     -   date: !!null
         category: de.Bf
         de.VBL: Schm
         sources: !keyref src.de.web.Troeger
-    -   date: !date c1925
+    -   date: !date c1930
         name: Schmarsau (Lemgow)
         sources: !keyref src.de.Bfv.1933
     -   date: !var lknr.kb
         de.lknr: 44 529
-        sources: !keyref src.de.Bfv.1944
+        sources: !keyref src.de.Bfv.1938
 
+    -   date: !!null
+        site: !noderef path.de.9114 sma left
 
