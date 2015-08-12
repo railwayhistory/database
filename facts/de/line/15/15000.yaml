@@ -369,6 +369,7 @@ points:
     - !keyref point.de.Hamburg-Neuland
     - !keyref point.de.Hamburg-Suederelbbruecke
     - !keyref point.de.Hamburg-Wilhelmsburg-Hp
+    - !keyref point.de.Hamburg-Wilhelmsburg-Abzw
     - !keyref point.de.Veddel-Hp
     - !keyref point.de.Hamburg-Veddel
     - !keyref point.de.Hamburg-Elbbruecke-Bk
@@ -3758,7 +3759,8 @@ events:
             - !keyloc line.de.15000 323,20
         sources: !keyref src.de.DRG.Alt.Karte.1949
     -   date: !!null
-        location: !keyloc line.de.13500 0,0
+        location: !keyloc line.de.1280 0,001
+        sources: !keyref src.de.DBAG.ISR
     -   date: !!null
         name: Buchholz (Kr Harburg)
         sources: !keyref src.de.Kb.1914
@@ -3960,9 +3962,9 @@ events:
         sources: !keyref src.de.Bfv.1938
     -   date: !!null
         location:
-            - !keyloc line.de.13500 29,3
-            - !keyloc line.de.13550 4,7
-        sources: !keyref src.de.SuW.2005
+            - !keyloc line.de.1280 29,400
+            - !keyloc line.de.13550  4,800
+        sources: !keyref src.de.DBAG.ISR
     -   date: !!null
         de.DS100: AHAR
         sources: !keyref src.de.TPP.2006
@@ -4058,6 +4060,24 @@ events:
     -   date: !!null
         site: !noderef path.de.15000 wih
 
+
+---
+key: point.de.Hamburg-Wilhelmsburg-Abzw
+type: point
+events:
+    -   date: !!null
+        location:
+            - !keyloc line.de.1280  34,960
+            - !keyloc line.de.15000 348,70
+        category: [de.Bft, de.Abzw]
+        name: Hamburg-Wilhelmsburg Abzw
+        de.DS100: AWLBA
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.15000 wla left
+
+
 # point.de.Hamburg-Wilhelmsburg-Wp              wip
 # point.de.Hamburg-Wilhelmsburg-Wa              wia
 # point.de.Hamburg-Wilhelmsburg-Wk              wik
@@ -4103,15 +4123,16 @@ events:
         name: Veddel
         sources: !keyref src.de.DRG.Alt.Karte.1949
     -   date: !!null
-        location:
-            - !keyloc line.de.13500 37,6
-        sources: !keyref src.de.SuW.2005
-    -   date: !!null
         de.DS100: AVL
         sources: !keyref src.de.TPP.2006
     -   date: !date c2000
         name: Hamburg-Veddel
         sources: !keyref src.de.TPP.2006
+    -   date: !date 1996-08-13?
+        location:
+            - !keyloc line.de.1280  37,574
+            - !keyloc line.de.15000 351,331
+        sources: !keyref src.de.DBAG.ISR
 
     -   date: !!null
         site: !noderef path.de.15000 vea
