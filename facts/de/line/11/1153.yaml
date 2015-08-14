@@ -1,0 +1,72 @@
+# DE 1153.  Lüneburg - Stelle
+#
+#           - drittes Gleis -
+#
+---
+key: line.de.1153
+type: line
+events:
+    -   date: !!null
+        region:
+            - !keyref org.de
+            - !keyref org.de.l.ni
+
+    -   date: !!null
+        de.VzG: !!str 1153
+        sources: !keyref src.de.VzG
+
+    #   Genehmigungen
+    #
+
+    #   Eröffnung und Einstellung
+    #
+    -   date: !date 2011-12-11
+        start: !keyref point.de.Ashausen
+        status: open
+        sources: !keyref src.de.Bundestag.18.580
+    -   date: !date 2012-12-09
+        end: !keyref point.de.Radbruch
+        status: open
+        sources: !keyref src.de.Bundestag.18.580
+    -   date: !date 2013-12-08
+        start: !keyref point.de.Winsen-Luhe
+        end: !keyref point.de.Ashausen
+        status: open
+        sources: !keyref src.de.Bundestag.18.5520
+    -   date: !date 2014-07-10
+        start: !keyref point.de.Radbruch
+        end: !keyref point.de.Winsen-Luhe
+        status: open
+        sources: !keyref src.de.Bundestag.18.5520
+
+    #   Eigenschaften
+    #
+    -   date: !!null
+        category: de.Hauptbahn
+    -   date: !!null
+        electrified:
+            overhead: !var el.de
+        tracks: 1
+        gauge: 1435
+        sources: !keyref src.de.DBAG.ISR
+
+    #   Eigentümer etc.
+    #
+    -   date: !!null
+        owner: !keyref org.de.e.DBNetz
+        operator: !keyref org.de.e.DBNetz
+
+    #   Verlauf
+    #
+    -   date: !!null
+        course:
+            - !pathref path.de.1720 lun ste -1.5
+
+points:
+    - !keyref point.de.Lüneburg                             # line.de.1720
+    - !keyref point.de.Bardowick                            # line.de.1720
+    - !keyref point.de.Radbruch                             # line.de.1720
+    - !keyref point.de.Winsen-Luhe                          # line.de.1720
+    - !keyref point.de.Ashausen                             # line.de.1720
+    - !keyref point.de.Stelle                               # line.de.1720
+
