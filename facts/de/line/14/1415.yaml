@@ -1,0 +1,50 @@
+---
+key: line.de.1415
+type: line
+progress: stub
+events:
+    -   date: !!null
+        region:
+            - !keyref org.de
+            - !keyref org.de.l.hb
+
+    -   date: !!null
+        de.VzG: !!str 1415
+        sources: !keyref src.de.VzG
+
+points:
+    - !keyref point.de.Bremen-Neustadt                      # line.de.1500
+    - !keyref point.de.Bremen-Grolland-EGr
+    - !keyref point.de.Bremen-Grolland
+    - !keyref point.de.Bremen-Grolland-Rablinghausen
+
+---
+key: point.de.Bremen-Grolland-EGr
+type: point
+subtype: border
+events:
+    -   date: !!null
+        name: Bremen-Grolland DB-Grenze
+        de.DS100: HBGG
+    -   date: !!null
+        location: !keyloc line.de.1415 0,124
+        sources: !keyref src.de.web.BHaE
+
+---
+key: point.de.Bremen-Grolland
+type: point
+events:
+    -   date: !!null
+        name: Bremen-Grolland
+        category: de.Bf
+        de.DS100: HBG
+
+---
+key: point.de.Bremen-Grolland-Rablinghausen
+type: point
+events:
+    -   date: !!null
+        name: Bremen-Grolland (Rablinghausen)
+        category: de.Bft
+        master: !keyref point.de.Bremen-Grolland
+        de.DS100: HBG R

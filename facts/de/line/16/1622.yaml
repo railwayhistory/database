@@ -1,0 +1,107 @@
+---
+key: line.de.1622
+type: line
+events:
+    -   date: !!null
+        region:
+            - !keyref org.de
+            - !keyref org.de.l.ni
+
+    -   date: !!null
+        de.VzG: !!str 1622
+        sources: !keyref src.de.VzG
+
+    -   date: !!null
+        category: de.Hauptbahn
+        tracks: 2
+
+    -   date: !date 1907
+        concession:
+            by: !keyref org.de.l.pre
+        owner: !keyref org.de.l.pre
+        operator: !keyref org.de.e.KPEV.Mst
+        sources: !keyref src.de.DRG.1935
+    -   date: !date 1913-04-01
+        status: open
+        service: freight
+        sources: !keyref src.de.DRG.1935
+    -   date: !date 1920-04-01
+        owner: !keyref org.de
+        operator: !keyref org.de.r.RVM.PH
+    -   date: !date 1924-02-12
+        operator: !keyref org.de.e.DREb
+    -   date: !date 1924-08-30
+        operator: !keyref org.de.e.DRG
+    -   date: !var org.de.DB.start
+        operator: !keyref org.de.e.DB
+    -   date: !date 1976-05-30
+        electrified:
+            overhead: !var el.de
+    -   date: !var org.de.DBAG.start
+        owner: !keyref org.de.e.DBAG
+        operator: !keyref org.de.e.DBAG
+    -   date: !var org.de.DBNetz.start
+        owner: !keyref org.de.e.DBNetz
+        operator: !keyref org.de.e.DBNetz
+
+points:
+    - !keyref point.de.Luestringen                          # line.de.2992
+    - !keyref point.de.Osnabrück-Rbf-Oro
+    - !keyref point.de.Osnabrück-Rbf
+    - !keyref point.de.Osnabrück-Rbf-Ors
+    - !keyref point.de.Osnabrück-Hbf-Pu                     # line.de.2992
+
+---
+key: point.de.Osnabrück-Rbf-Oro
+type: point
+events:
+    -   date: !!null
+        category: de.Bft
+        sources: !keyref src.de.SuW.2005
+    -   date: !!null
+        name: Osnabrück Rbf Oro
+        de.DS100: HOR O
+    -   date: !date c1970
+        status: open
+        master: !keyref point.de.Osnabrück-Hbf
+
+---
+key: point.de.Osnabrück-Rbf
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.1622 2,0
+        sources: !keyref src.de.DRG.Mst.1946
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: I
+        name: Osnabrück Gbf
+        service: freight
+        de.lknr: 21 026
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        de.DS100: HOR
+    -   date: !date c1970
+        name: Osnabrück Rbf
+    -   date: !date c1980
+        category: de.Bft
+        master: !keyref point.de.Osnabrück-Hbf
+    -   date: !date c2005
+        status: closed
+        merged: !keyref point.de.Osnabrück-Hbf
+
+---
+key: point.de.Osnabrück-Rbf-Ors
+type: point
+events:
+    -   date: !!null
+        category: de.Bft
+        sources: !keyref src.de.SuW.2005
+    -   date: !!null
+        name: Osnabrück Rbf Ors
+        de.DS100: HOR S
+    -   date: !date c1970
+        status: open
+        master: !keyref point.de.Osnabrück-Hbf
+
+

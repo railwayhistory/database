@@ -1,0 +1,76 @@
+---
+key: line.de.2021
+type: line
+events:
+    -   date: !!null
+        region:
+            - !keyref org.de
+            - !keyref org.de.l.ni
+
+    -   date: !!null
+        de.VzG: !!str 2021
+        sources: !keyref src.de.VzG
+
+    -   date: !!null
+        owner: !keyref org.de.l.pre
+        operator: !keyref org.de.e.KPEV.Mst
+        sources: !keyref src.de.DRG.1935
+    -   date: !date 1918-10-01
+        status: open
+        service: freight
+        sources: !keyref src.de.DRG.1935
+
+    -   date: !date 1920-04-01
+        owner: !keyref org.de
+        operator: !keyref org.de.r.RVM.PH
+    -   date: !date 1924-02-12
+        operator: !keyref org.de.e.DREb
+    -   date: !date 1924-08-30
+        operator: !keyref org.de.e.DRG
+    -   date: !var org.de.DB.start
+        operator: !keyref org.de.e.DB
+
+    -   date: !date c1975
+        electrified:
+            overhead: !var el.de
+
+    -   date: !date 1993
+        status: closed
+    -   date: !date c2000
+        status: removed
+
+points:
+    - !keyref point.de.Rheine-Rs                            # line.de.2931
+    - !keyref point.de.Rheine-Rbf-Rgf
+    - !keyref point.de.Rheine-Rbf
+    - !keyref point.de.Rheine                               # line.de.2931
+
+---
+key: point.de.Rheine-Rbf-Rgf
+type: point
+junction: True
+events:
+    -   date: !!null
+        category: de.Glgr
+        name: Rheine Rbf Rgf
+
+---
+key: point.de.Rheine-Rbf
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.2021 1,55
+        sources: !keyref src.de.web.Joost
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: I
+        service: none
+        name: Rheine R
+        de.lknr: 21 065
+        sources: !keyref src.de.Bfv.1933
+    -   date: !date c1975
+        name: Rheine Rbf
+    -   date: !!null
+        de.VBL: Rg
+        de.DS100: HR R
+        sources: !keyref src.de.web.Joost
