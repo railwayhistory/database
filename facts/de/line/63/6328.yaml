@@ -36,7 +36,7 @@ events:
     -   date: !date c1945
         tracks: 1
     -   date: !date c1970
-        start: !keyref point.de.Angermuende
+        start: !keyref point.de.Angermünde
         end: !keyref point.de.Passow-Uckerm
         tracks: 2
         sources: !keyref src.dd.DR.1976
@@ -87,10 +87,10 @@ events:
             - !pathref path.de.6328 a    gtan  0.0
 
 points:
-    - !keyref point.de.Angermuende                          # line.de.6081
+    - !keyref point.de.Angermünde                           # line.de.6081
     - !keyref point.de.Kerkow
     - !keyref point.de.Welsow-Bruchhagen
-    - !keyref point.de.Schoenermark-Angermuende
+    - !keyref point.de.Schönermark-Angermünde
     - !keyref point.de.Briest
     - !keyref point.de.Passow-Uckerm
     - !keyref point.de.Schoenow
@@ -101,7 +101,7 @@ points:
     - !keyref point.de.Tantow
     - !keyref point.de.Radekow
     - !keyref point.de.Rosow
-    - !keyref point.int.Szczecin-Tantow
+    - !keyref point.int.Szczecin-Tantow                     # line.pl.409
 
 
 ---
@@ -153,7 +153,7 @@ events:
         staff: none
         sources: !keyref src.dd.DR.1989
     -   date: !date c1965
-        master: !keyref point.de.Schoenermark-Angermuende
+        master: !keyref point.de.Schönermark-Angermünde
         sources: !keyref src.dd.DR.Bln.1991
     -   date: !var ds100.dr
         de.DS100: WWBR
@@ -165,7 +165,7 @@ events:
 
 
 ---
-key: point.de.Schoenermark-Angermuende
+key: point.de.Schönermark-Angermünde
 type: point
 junction: True
 events:
@@ -202,6 +202,7 @@ events:
 
     -   date: !!null
         site: !noderef path.de.6328 son
+        connection: !keyref point.de.Schönermark-Angermünde-Nord
 
 
 ---
@@ -353,6 +354,7 @@ events:
         sources: !keyref src.de.DBAG.ISR
 
     -   date: !!null
+        connection: !keyref point.de.Casekow-Landesb        # line.de.8728
         site: !noderef path.de.6328 cas
 
 
@@ -495,21 +497,4 @@ events:
 
     -   date: !!null
         site: !noderef path.de.6328 ros
-
-
----
-key: point.int.Szczecin-Tantow
-type: point
-subtype: border
-events:
-    -   date: !!null
-        location: !keyloc line.de.6328 119,585
-        sources: !keyref src.dd.DR.1976
-    -   date: !!null
-        name: Tantow Grenze
-        de.DS100: WXT
-        sources: !keyref src.de.TPP.2006
-
-    -   date: !!null
-        site: !noderef path.de.6328 gtan
 

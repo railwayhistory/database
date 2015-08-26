@@ -29,7 +29,7 @@ events:
     -   date: !date 1845-04-14
         end: !keyref point.de.Bremen-Hbf
         contract:
-            partners:
+            parties:
                 - !keyref org.de.l.han
                 - !keyref org.de.l.hb
         owner: !keyref org.de.l.han
@@ -50,7 +50,7 @@ events:
         start: !keyref point.de.Bremen-Hbf
         end: !keyref point.de.Bremerhaven-Wulsdorf
         contract:
-            partners:
+            parties:
                 - !keyref org.de.l.han
                 - !keyref org.de.l.hb
         owner: !keyref org.de.l.han
@@ -378,24 +378,36 @@ type: point
 junction: True
 events:
     -   date: !!null
-        location:
-            - !keyloc line.de.1721 75,4
-            - !keyloc line.de.1740 83,3
-        sources: !keyref src.de.SuW.2005
-    -   date: !!null
         name: Wahnebergen
-        sources: !keyref src.de.Kb.1914
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        de.lknr: 13 201
+        sources: !keyref src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
         de.Rangklasse: III
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 13 739
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
         de.DS100: HWAB
+        de.dstnr: !!str 137398
+        sources: !keyref src.de.DS100.1984
+    -   date: !date c1970
+        staff: none
+        sources: !keyref src.de.DS100.1984
+    -   date: !!null
+        location:
+            - !keyloc line.de.1721 75,4
+            - !keyloc line.de.1740 83,3
         sources: !keyref src.de.SuW.2005
     -   date: !date c1990
         category: de.Uest
         sources: !keyref src.de.SuW.2005
+
+    -   date: !!null
+        site: !noderef path.de.1740 wah left
 
 ---
 key: point.de.Verden-Aller

@@ -1,0 +1,59 @@
+# DE 6788.  Stralsund Hbf - Stralsund Hafen
+#
+---
+key: line.de.6788
+type: line
+progress: stub
+events:
+    -   date: !!null
+        region:
+            - !keyref org.de
+            - !keyref org.de.l.mv
+
+    -   date: !var vzg.dr
+        de.VzG: !!str 6788
+        sources: !keyref src.de.VzG
+
+    #   Genehmigungen
+    #
+
+    #   Eröffnung und Einstellung
+    #
+    -   date: !!null
+        end: !keyref point.de.Stralsund-Rügendamm
+        status: closed
+        sources: !keyref src.de.SuW.2011
+    -   date: !!null
+        start: !keyref point.de.Stralsund-Rügendamm
+        status: open
+        sources: !keyref src.de.SuW.2011
+
+    #   Eigenschaften
+    #
+
+    #   Eigentümer etc.
+    #
+    -   date: !!null
+        start: !keyref point.de.Stralsund-Rügendamm
+        operator: !keyref org.de.e.SHL
+        sources: !keyref src.de.SuW.2011
+
+    #   Verlauf
+    #
+
+points:
+    - !keyref point.de.Stralsund-Hbf                        # line.de.6081
+    - !keyref point.de.Stralsund-Rügendamm                  # line.de.6321
+    - !keyref point.de.Stralsund-Hafen
+
+
+---
+key: point.de.Stralsund-Hafen
+type: point
+progress: stub
+events:
+    -   date: !!null
+        name: Stralsund Hafen
+        sources: !keyref src.de.SuW.2011
+
+
