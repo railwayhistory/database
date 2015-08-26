@@ -1,3 +1,5 @@
+# DE 1721.  Celle - Wahnebergen
+#
 ---
 key: line.de.1721
 type: line
@@ -6,56 +8,50 @@ events:
         region:
             - !keyref org.de
             - !keyref org.de.l.ni
-    -   date: !!null
-        category: de.Nebenbahn
-        sources: !keyref src.de.DRG.1927
+
     -   date: !!null
         de.VzG: !!str 1721
         sources: !keyref src.de.VzG
+
+    #   Genehmigungen
+    #
     -   date: !date 1898-05-20
         end: !keyref point.de.Schwarmstedt
         concession:
             by: !keyref org.de.l.pre
+            for: !keyref org.de.l.pre
             document: !keyref src.de.l.pre.1898.14.92
-        owner: !keyref org.de.l.pre
-        operator: !keyref org.de.e.KPEV.Han
         sources: !keyref src.de.DRG.1935
     -   date: !date 1900-05-25
         start: !keyref point.de.Schwarmstedt
         concession:
             by: !keyref org.de.l.pre
+            for: !keyref org.de.l.pre
             document: !keyref src.de.l.pre.1900.19.129
-        owner: !keyref org.de.l.pre
-        operator: !keyref org.de.e.KPEV.Han
         sources: !keyref src.de.DRG.1935
+
+    #   Eröffnung und Einstellung
+    #
     -   date: !date 1903-10-01
         end: !keyref point.de.Schwarmstedt
         status: open
         sources: !keyref src.de.DRG.1935
     -   date: !date 1904-10-20
-        start: !keyref point.de.Rethem
+        start: !keyref point.de.Rethem-Aller
         status: open
         sources: !keyref src.de.DRG.1935
     -   date: !date 1905-03-21
         start: !keyref point.de.Schwarmstedt
-        end: !keyref point.de.Rethem
+        end: !keyref point.de.Rethem-Aller
         status: open
         sources: !keyref src.de.DRG.1935
-    -   date: !date 1920-04-01
-        owner: !keyref org.de
-        operator: !keyref org.de.r.RVM.PH
-    -   date: !date 1924-02-12
-        operator: !keyref org.de.e.DREb
-    -   date: !date 1924-08-30
-        operator: !keyref org.de.e.DRG
-    -   date: !var org.de.DB.start
-        operator: !keyref org.de.e.DB
+
     -   date: !date 1966-09-25
-        service: freight
+        passenger: none
         sources: !keyref src.de.WP.Allertalbahn
     -   date: !date 1981-01-31
-        start: !keyref point.de.Ahlden
-        end: !keyref point.de.Rethem
+        start: !keyref point.de.Ahlden-Aller
+        end: !keyref point.de.Rethem-Aller
         status: closed
         sources: !keyref src.de.WP.Allertalbahn
     -   date: !date 1985-01-31
@@ -65,32 +61,26 @@ events:
         sources: !keyref src.de.WP.Allertalbahn
     -   date: !date 1988-12-31
         start: !keyref point.de.Gilten
-        end: !keyref point.de.Ahlden
+        end: !keyref point.de.Ahlden-Aller
         status: closed
         sources: !keyref src.de.WP.Allertalbahn
-    -   date: !var org.de.DBAG.start
-        owner: !keyref org.de.e.DBAG
-        operator: !keyref org.de.e.DBAG
     -   date: !date 1994-05-28
-        start: !keyref point.de.Rethem
+        start: !keyref point.de.Rethem-Aller
         status: closed
         sources: !keyref src.de.WP.Allertalbahn
     -   date: !date 1994-12-25
         start: !keyref point.de.Schwarmstedt
         end: !keyref point.de.Gilten
-        service: none
+        freight: none
         sources: !keyref src.de.Bundestag.13.2569
     -   date: !date 1994-12-31
         start: !keyref point.de.Schwarmstedt
         end: !keyref point.de.Gilten
         status: closed
         sources: !keyref src.de.web.EBA.Still
-    -   date: !var org.de.DBNetz.start
-        owner: !keyref org.de.e.DBNetz
-        operator: !keyref org.de.e.DBNetz
     -   date: !date 1998-07-31
         end: !keyref point.de.Wietzenbruch
-        service: none
+        freight: none
         sources: !keyref src.de.Bundestag.14.200
     -   date: !date 1998-11-01
         end: !keyref point.de.Wietzenbruch
@@ -98,10 +88,8 @@ events:
         sources: !keyref src.de.web.EBA.Still
     -   date: !date 1998?
         end: !keyref point.de.Wietzenbruch
-        owner: !keyref org.de.e.OHE
-        operator: !keyref org.de.e.OHE
         status: open
-        service: freight
+        freight: full
         sources:
             - !keyref src.de.web.EBA.Still
             - !keyref src.de.WP.Allertalbahn
@@ -111,175 +99,326 @@ events:
         sources: !keyref src.de.WP.Allertalbahn
     -   date: !date c2010
         status: removed
+
+    #   Eigenschaften
+    #
+    -   date: !!null
+        category: de.Nebenbahn
+        tracks: 1
+        gauge: 1435
+        sources: !keyref src.de.DRG.1927
+
+    #   Eigentümer etc.
+    #
+    -   date: !!null
+        owner: !keyref org.de.l.pre
+        operator: !keyref org.de.e.KPEV.Han
+        sources: !keyref src.de.DRG.1935
+
+    -   date: !date 1920-04-01
+        owner: !keyref org.de
+        operator: !keyref org.de.r.RVM.PH
+    -   date: !date 1924-02-12
+        operator: !keyref org.de.e.DREb
+    -   date: !date 1924-08-30
+        operator: !keyref org.de.e.DRG
+
+    -   date: !var org.de.DB.start
+        operator: !keyref org.de.e.DB
+
+    -   date: !var org.de.DBAG.start
+        owner: !keyref org.de.e.DBAG
+        operator: !keyref org.de.e.DBAG
+    -   date: !var org.de.DBNetz.start
+        owner: !keyref org.de.e.DBNetz
+        operator: !keyref org.de.e.DBNetz
+
+    -   date: !date 1998?
+        end: !keyref point.de.Wietzenbruch
+        owner: !keyref org.de.e.OHE
+        operator: !keyref org.de.e.OHE
+        sources:
+            - !keyref src.de.web.EBA.Still
+            - !keyref src.de.WP.Allertalbahn
+
+    #   Verlauf
+    #
+    -   date: !!null
+        course:
+            - !pathref path.de.1720 cel  fswa  1.5
+            - !pathref path.de.1721 a    aswa  0.0
+            - !pathref path.de.1711 fcel awah  1.0
+            - !pathref path.de.1721 fswa f     0.0
+            - !pathref path.de.1740 fswa wah   1.5
+
 points:
     - !keyref point.de.Celle                                # line.de.1720
     - !keyref point.de.Wietzenbruch
-    - !keyref point.de.Hambuehren
+    - !keyref point.de.Hambühren
     - !keyref point.de.Oldau
     - !keyref point.de.Winsen-Aller
-    - !keyref point.de.Wietze-Steinfoerde
+    - !keyref point.de.Wietze-Steinförde
     - !keyref point.de.Jeversen
     - !keyref point.de.Marklendorf
     - !keyref point.de.Buchholz-Aller
     - !keyref point.de.Schwarmstedt                         # line.de.1711
     - !keyref point.de.Bothmer
     - !keyref point.de.Gilten
-    - !keyref point.de.Buechten
-    - !keyref point.de.Ahlden
+    - !keyref point.de.Büchten
+    - !keyref point.de.Ahlden-Aller
     - !keyref point.de.Eilte
     - !keyref point.de.Bosse
     - !keyref point.de.Hedern
     - !keyref point.de.Hedern-West
-    - !keyref point.de.Rethem
-    - !keyref point.de.Huelsen
-    - !keyref point.de.Huelsen-Nord
+    - !keyref point.de.Rethem-Aller
+    - !keyref point.de.Hülsen
+    - !keyref point.de.Hülsen-Nord
     - !keyref point.de.Westen
     - !keyref point.de.Wahnebergen                          # line.de.1740
+
 
 ---
 key: point.de.Wietzenbruch
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.1721 4,27
-        sources: !keyref src.de.DRG.Han.1945
-    -   date: !!null
         name: Wietzenbruch
-        sources: !keyref src.de.Kb.1914
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        de.lknr: 13 479
+        service: passenger
+        sources: !keyref src.de.Bfv.1928
     -   date: !!null
         category: de.Hp
-        service: passenger
         staff: agent
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 13 657
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
+        location: !keyloc line.de.1721 4,27
+        sources: !keyref src.de.DRG.Han.1945
+    -   date: !!null
         de.DS100: HCWB
-        sources: !keyref src.de.SuW.2005
+        sources: !keyref src.de.DS100.1984
     -   date: !date c1970
         category: de.Anst
-        sources: !keyref src.de.SuW.2005
+        sources: !keyref src.de.DS100.1984
+
+    -   date: !!null
+        site: !noderef path.de.1721 wie right
+
 
 ---
-key: point.de.Hambuehren
+key: point.de.Hambühren
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.1721 8,58
-        sources: !keyref src.de.DRG.Han.1945
-    -   date: !!null
         name: Hambühren
-        sources: !keyref src.de.Kb.1914
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        de.lknr: 13 153
+        sources: !keyref src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
         de.Rangklasse: IV
         staff: agent
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 13 658
         sources: !keyref src.de.Bfv.1933
-    -   date: !date c1940
+    -   date: !date c1935
         staff: full
-        sources: !keyref src.de.Bfv.1944
+        sources: !keyref src.de.Bfv.1938
+    -   date: !!null
+        location: !keyloc line.de.1721 8,58
+        sources: !keyref src.de.DRG.Han.1945
+    -   date: !!null
+        de.DS100: HCHA
+        sources: !keyref src.de.DS100.1984
+    -   date: !date c1970
+        category: de.Anst
+        sources: !keyref src.de.DS100.1984
+
+    -   date: !!null
+        site: !noderef path.de.1721 ham right
+
 
 ---
 key: point.de.Oldau
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.1721 12,60
-        sources: !keyref src.de.DRG.Han.1945
-    -   date: !!null
         name: Oldau
-        sources: !keyref src.de.Kb.1914
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        de.lknr: 13 152
+        sources: !keyref src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
         de.Rangklasse: IV
         staff: agent
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 13 659
         sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location: !keyloc line.de.1721 12,60
+        sources: !keyref src.de.DRG.Han.1945
+    -   date: !date c1970
+        status: closed
+        sources: !keyref src.de.DS100.1984
+
+    -   date: !!null
+        site: !noderef path.de.1721 old right
+
 
 ---
 key: point.de.Winsen-Aller
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.1721 15,45
-        sources: !keyref src.de.DRG.Han.1945
-    -   date: !!null
         name: Winsen (Aller)
-        sources: !keyref src.de.Kb.1914
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        de.lknr: 13 151
+        sources: !keyref src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
         de.Rangklasse: III
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 13 660
         sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location: !keyloc line.de.1721 15,45
+        sources: !keyref src.de.DRG.Han.1945
+    -   date: !!null
+        de.DS100: HCWS
+        de.dstnr: !!str 136606
+        sources: !keyref src.de.DS100.1984
+    -   date: !date c1970
+        category: de.Anst
+        sources: !keyref src.de.DS100.1984
+
+    -   date: !!null
+        site: !noderef path.de.1721 win right
+
 
 ---
-key: point.de.Wietze-Steinfoerde
+key: point.de.Wietze-Steinförde
 type: point
 events:
+    -   date: !!null
+        name: Wietze-Steinförde
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        de.lknr: 13 150
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: III
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 13 661
+        sources: !keyref src.de.Bfv.1933
     -   date: !!null
         location: !keyloc line.de.1721 19,93
         sources: !keyref src.de.DRG.Han.1945
     -   date: !!null
-        name: Wietze-Steinförde
-        sources: !keyref src.de.Kb.1914
+        de.DS100: HWZF
+        de.dstnr: !!str 136614
+        sources: !keyref src.de.DS100.1984
+    -   date: !date c1970
+        staff: none
+        sources: !keyref src.de.DS100.1984
+
     -   date: !!null
-        category: de.Bf
-        de.Rangklasse: III
-        de.lknr: 13 661
-        sources: !keyref src.de.Bfv.1933
+        site: !noderef path.de.1721 wis right
+
 
 ---
 key: point.de.Jeversen
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.1721 25,31
-        sources: !keyref src.de.DRG.Han.1945
-    -   date: !!null
         name: Jeversen
-        sources: !keyref src.de.Kb.1914
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        de.lknr: 13 149
+        sources: !keyref src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
         de.Rangklasse: IV
         staff: agent
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 13 662
         sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location: !keyloc line.de.1721 25,31
+        sources: !keyref src.de.DRG.Han.1945
+
+    -   date: !!null
+        site: !noderef path.de.1721 jev right
+
 
 ---
 key: point.de.Marklendorf
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.1721 28,42
-        sources: !keyref src.de.DRG.Han.1945
-    -   date: !!null
         name: Marklendorf
-        sources: !keyref src.de.Kb.1914
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        de.lknr: 13 478
+        service: passenger
+        sources: !keyref src.de.Bfv.1928
     -   date: !!null
         category: de.Hp
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 13 663
         sources: !keyref src.de.Bfv.1933
-    -   date: !date c1940
+    -   date: !date c1935
         staff: none
-        master: !keyref point.de.Wietze-Steinfoerde
-        sources: !keyref src.de.Bfv.1944
+        master: !keyref point.de.Wietze-Steinförde
+        sources: !keyref src.de.Bfv.1938
+    -   date: !!null
+        location: !keyloc line.de.1721 28,42
+        sources: !keyref src.de.DRG.Han.1945
+
+    -   date: !!null
+        site: !noderef path.de.1721 mar right
+
 
 ---
 key: point.de.Buchholz-Aller
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.1721 31,02
-        sources: !keyref src.de.DRG.Han.1945
-    -   date: !!null
         name: Buchholz (Aller)
-        sources: !keyref src.de.Kb.1914
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        de.lknr: 13 148
+        sources: !keyref src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
         de.Rangklasse: IV
         staff: agent
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 13 664
         sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        location: !keyloc line.de.1721 31,02
+        sources: !keyref src.de.DRG.Han.1945
+
+    -   date: !!null
+        site: !noderef path.de.1721 buc right
+
+
+# 36,0 point.de.Schwarmstedt
 
 ---
 key: point.de.Bothmer
@@ -288,16 +427,33 @@ events:
     -   date: !!null
         location: !keyloc line.de.1721 38,7
         name: Bothmer
-        sources: !keyref src.de.Kb.1914
+        sources: !keyref src.de.Kb.1905
     -   date: !!null
-        category: de.Hp
+        de.lknr: 13 477
         service: passenger 
-        de.lknr: 13 693
-        sources: !keyref src.de.Bfv.1933
-    -   date: !date c1940
         staff: none
         master: !keyref point.de.Schwarmstedt
-        sources: !keyref src.de.Bfv.1944
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Hp
+        sources: !keyref src.de.Bfv.1933
+    -   date: !date c1930
+        staff: full
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 13 693
+        sources: !keyref src.de.Bfv.1933
+    -   date: !date c1935
+        staff: none
+        master: !keyref point.de.Schwarmstedt
+        sources: !keyref src.de.Bfv.1938
+    -   date: !date c1970
+        status: closed
+        sources: !keyref src.de.DS100.1984
+
+    -   date: !!null
+        site: !noderef path.de.1721 bot left
+
 
 ---
 key: point.de.Gilten
@@ -306,59 +462,125 @@ events:
     -   date: !!null
         location: !keyloc line.de.1721 41,6
         name: Gilten
-        sources: !keyref src.de.Kb.1914
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        de.lknr: 13 147
+        sources: !keyref src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
         de.Rangklasse: IV
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 13 694
         sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        de.DS100: HGLT
+        de.dstnr: !!str 136945
+        sources: !keyref src.de.DS100.1984
+    -   date: !date c1970
+        staff: none
+        sources: !keyref src.de.DS100.1984
+
+    -   date: !!null
+        site: !noderef path.de.1721 gil left
+
 
 ---
-key: point.de.Buechten
+key: point.de.Büchten
 type: point
 events:
     -   date: !!null
         location: !keyloc line.de.1721 44,3
         name: Büchten
-        sources: !keyref src.de.Kb.1914
+        sources: !keyref src.de.Kb.1905
     -   date: !!null
-        category: de.Hp
         service: passenger
-        de.lknr: 13 695
-        sources: !keyref src.de.Bfv.1933
-    -   date: !date c1940
         staff: none
         master: !keyref point.de.Gilten
-        sources: !keyref src.de.Bfv.1944
+        de.lknr: 13 476
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Hp
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 13 695
+        sources: !keyref src.de.Bfv.1933
+    -   date: !date c1930
+        staff: full
+        sources: !keyref src.de.Bfv.1933
+    -   date: !date c1935
+        staff: none
+        master: !keyref point.de.Gilten
+        sources: !keyref src.de.Bfv.1938
+    -   date: !date c1970
+        status: closed
+        sources: !keyref src.de.DS100.1984
+
+    -   date: !!null
+        site: !noderef path.de.1721 but right
+
 
 ---
-key: point.de.Ahlden
+key: point.de.Ahlden-Aller
 type: point
 events:
     -   date: !!null
         location: !keyloc line.de.1721 47,5
+        sources: !keyref src.de.Kb.1905
+    -   date: !date c1910
         name: Ahlden (Aller)
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 13 146
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: IV
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 13 696
         sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        de.DS100: HVAD
+        de.dstnr: !!str 136960
+        sources: !keyref src.de.DS100.1984
+    -   date: !date c1970
+        category: de.Anst
+        sources: !keyref src.de.DS100.1984
+
+    -   date: !!null
+        site: !noderef path.de.1721 ahl right
+
 
 ---
 key: point.de.Eilte
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.1721 50,7
+        location: !keyloc line.de.1721 50,8
         name: Eilte
-        sources: !keyref src.de.Kb.1914
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        de.lknr: 13 145
+        sources: !keyref src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
         de.Rangklasse: IV
         staff: agent
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 13 697
         sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        de.DS100: HVEL
+        sources: !keyref src.de.DS100.1984
+    -   date: !date c1970
+        category: de.Anst
+        sources: !keyref src.de.DS100.1984
+
+    -   date: !!null
+        site: !noderef path.de.1721 eil right
+
 
 ---
 key: point.de.Bosse
@@ -366,10 +588,16 @@ type: point
 events:
     -   date: !date c1950
         status: open
+        location: !keyloc line.de.1721 53,2
         category: de.Hp
         name: Bosse
-        location: !keyloc line.de.1721 53,2
         sources: !keyref src.de.WP.Allertalbahn
+    -   date: !date c1965
+        status: closed
+
+    -   date: !!null
+        site: !noderef path.de.1721 bos
+
 
 ---
 key: point.de.Hedern
@@ -378,13 +606,29 @@ events:
     -   date: !!null
         location: !keyloc line.de.1721 54,8
         name: Hedern
-        sources: !keyref src.de.Kb.1914
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        de.lknr: 13 144
+        sources: !keyref src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
         de.Rangklasse: IV
         staff: agent
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 13 698
         sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        de.DS100: HVHE
+        de.dstnr: !!str 136986
+        sources: !keyref src.de.DS100.1984
+    -   date: !date c1970
+        category: de.Anst
+        sources: !keyref src.de.DS100.1984
+
+    -   date: !!null
+        site: !noderef path.de.1721 hed right
+
 
 ---
 key: point.de.Hedern-West
@@ -396,38 +640,79 @@ events:
         name: Hedern West
         location: !keyloc line.de.1721 56,3
         sources: !keyref src.de.WP.Allertalbahn
+    -   date: !date c1965
+        status: closed
+
+    -   date: !!null
+        site: !noderef path.de.1721 hew
+
 
 ---
-key: point.de.Rethem
+key: point.de.Rethem-Aller
 type: point
 events:
     -   date: !!null
         location: !keyloc line.de.1721 59,5
+        name: Rethem
+        sources: !keyref src.de.Kb.1905
+    -   date: !date c1910
         name: Rethem (Aller)
         sources: !keyref src.de.Kb.1914
     -   date: !!null
+        de.lknr: 13 143
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
         category: de.Bf
         de.Rangklasse: IV
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 13 699
         sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        de.DS100: HRTM
+        de.dstnr: !!str 136994
+        sources: !keyref src.de.DS100.1984
+    -   date: !date c1970
+        staff: none
+        sources: !keyref src.de.DS100.1984
+
+    -   date: !!null
+        site: !noderef path.de.1721 ret right
+
 
 ---
-key: point.de.Huelsen
+key: point.de.Hülsen
 type: point
 events:
     -   date: !!null
         location: !keyloc line.de.1721 63,5
         name: Hülsen
-        sources: !keyref src.de.Kb.1914
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        de.lknr: 13 142
+        sources: !keyref src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
         de.Rangklasse: IV
         staff: agent
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 13 700
         sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        de.DS100: HVHS
+        de.dstnr: !!str 137000
+        sources: !keyref src.de.DS100.1984
+    -   date: !date c1970
+        category: de.Anst
+        sources: !keyref src.de.DS100.1984
+
+    -   date: !!null
+        site: !noderef path.de.1721 hul right
+
 
 ---
-key: point.de.Huelsen-Nord
+key: point.de.Hülsen-Nord
 type: point
 events:
     -   date: !date c1950
@@ -436,6 +721,12 @@ events:
         name: Hülsen Nord
         location: !keyloc line.de.1721 65,4
         sources: !keyref src.de.WP.Allertalbahn
+    -   date: !date c1965
+        status: closed
+
+    -   date: !!null
+        site: !noderef path.de.1721 hun
+
 
 ---
 key: point.de.Westen
@@ -444,11 +735,26 @@ events:
     -   date: !!null
         location: !keyloc line.de.1721 67,8
         name: Westen
-        sources: !keyref src.de.Kb.1914
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        de.lknr: 13 141
+        sources: !keyref src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
         de.Rangklasse: IV
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
         de.lknr: 13 701
         sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        de.DS100: HVWN
+        de.dstnr: !!str 137018
+        sources: !keyref src.de.DS100.1984
+    -   date: !date c1970
+        category: de.Anst
+        sources: !keyref src.de.DS100.1984
+
+    -   date: !!null
+        site: !noderef path.de.1721 wes right
 
 
