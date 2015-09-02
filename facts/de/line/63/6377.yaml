@@ -51,6 +51,8 @@ events:
 
 points:
     - !keyref point.de.Leipzig-Bayer-Bf
+    - !keyref point.de.Leipzig-MDR
+    - !keyref point.de.Leipzig-Bayer-Bf-Stw-3
     - !keyref point.de.Leipzig-Connewitz                    # line.de.6362
     - !keyref point.de.Markkleeberg-Gaschwitz               # line.de.6362
 
@@ -61,9 +63,43 @@ type: point
 progress: stub
 events:
     -   date: !!null
+        location:
+            - !keyloc line.de.6377 0,195
+            - !keyloc line.de.6396 1,700
+        category: de.Bft
         name: Leipzig Bayerischer Bahnhof
         de.DS100: LLB
-        sources: !keyref src.de.TPP.2015
+        master: !keyref point.de.Leipzig-Hbf
+        sources: !keyref src.de.DBAG.ISR
 
+
+---
+key: point.de.Leipzig-MDR
+type: point
+progress: stub
+events:
+    -   date: !!null
+        location:
+            - !keyloc line.de.6376 0,986
+            - !keyloc line.de.6377 1,202
+        category: de.Bft
+        name: Leipzig MDR
+        de.DS100: LMDR
+        master: !keyref point.de.Leipzig-Hbf
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Leipzig-Bayer-Bf-Stw-3
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Bft
+        name: Leipzig Bayer Bf Stw 3
+        de.DS100: LLB D
+        master: !keyref point.de.Leipzig-Bayer-Bf
+    -   date: !date c2005
+        status: closed
 
 

@@ -1,0 +1,101 @@
+# DE 6396.  Leipzig Bayerischer Bahnhof - Leipzig Nordkopf
+#
+---
+key: line.de.6396
+type: line
+progress: stub
+events:
+    -   date: !!null
+        region:
+            - !keyref org.de
+            - !keyref org.de.l.sn
+
+    -   date: !var vzg.dr
+        de.VzG: !!str 6396
+        sources: !keyref src.de.VzG
+
+    #   Genehmigungen
+    #
+
+    #   Eröffnung und Einstellung
+    #
+    -   date: !!null
+        status: open
+        freight: none
+        sources: !keyref src.de.DBAG.ISR
+
+    #   Eigenschaften
+    #
+
+    #   Eigentümer etc.
+    #
+
+    #   Verlauf
+    #
+
+points:
+    - !keyref point.de.Leipzig-Bayer-Bf                     # line.de.6377
+    - !keyref point.de.Leipzig-Wilhelm-Leuschner-Platz
+    - !keyref point.de.Leipzig-Markt
+    - !keyref point.de.Leipzig-Hbf-Tiefgleise
+    - !keyref point.de.Leipzig-Nord
+    - !keyref point.de.Leipzig-Nordkopf                     # line.de.6411
+
+
+---
+key: point.de.Leipzig-Wilhelm-Leuschner-Platz
+type: point
+progress: stub
+events:
+    -   date: !!null
+        location: !keyloc line.de.6396 2,438
+        category: de.Bft
+        name: Leipzig Wilhelm-Leuschner-Platz
+        de.DS100: LLWP
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Leipzig-Markt
+type: point
+progress: stub
+events:
+    -   date: !!null
+        location: !keyloc line.de.6396 3,000
+        category: de.Bft
+        name: Leipzig Markt
+        de.DS100: LLMK
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Leipzig-Hbf-Tiefgleise
+type: point
+progress: stub
+events:
+    -   date: !!null
+        location:
+            - !keyloc line.de.6382 9,299
+            - !keyloc line.de.6396 3,649
+        category: de.Bft
+        name: Leipzig Hbf (Tiefgleise)
+        de.DS100: LL T
+        master: !keyref point.de.Leipzig-Hbf
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Leipzig-Nord
+type: point
+progress: stub
+events:
+    -   date: !!null
+        location: !keyloc line.de.6396 6,401
+        category: de.Bft
+        name: Leipzig Nord
+        de.DS100: LLN
+        master: !keyref point.de.Leipzig-Hbf
+        sources: !keyref src.de.DBAG.ISR
+
+
+

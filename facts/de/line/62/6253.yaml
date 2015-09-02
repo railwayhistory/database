@@ -1,3 +1,188 @@
+# DE 6253.  Großenhain Cottb Bf - Frankfurt (Oder) Pbf
+#
+---
+key: line.de.6253
+type: line
+progress: stub
+events:
+    -   date: !!null
+        region: !keyref org.de
+    -   date: !!null
+        end: !keyref point.de.Ortrand-LGr
+        region: !keyref org.de.l.sn
+    -   date: !!null
+        start: !keyref point.de.Ortrand-LGr
+        region: !keyref org.de.l.bb
+
+    -   date: !var vzg.dr
+        de.VzG: !!str 6253
+        sources: !keyref src.de.VzG
+
+    #   Genehmigungen
+    #
+
+    #   Eröffnung und Einstellung
+    #
+    -   date: !!null
+        end: !keyref point.de.Cottbus
+        status: open
+        sources: !keyref src.de.SuW.2011
+    -   date: !!null
+        start: !keyref point.de.Cottbus
+        end: !keyref point.de.Weichensdorf
+        status: closed
+        sources: !keyref src.de.SuW.2011
+    -   date: !!null
+        start: !keyref point.de.Weichensdorf
+        end: !keyref point.de.Grunow-Niederlausitz
+        status: open
+        passenger: none
+        freight: none
+        sources: !keyref src.de.SuW.2011
+    -   date: !!null
+        start: !keyref point.de.Grunow-Niederlausitz
+        status: open
+        sources: !keyref src.de.SuW.2011
+
+    #   Eigenschaften
+    #
+
+    #   Eigentümer etc.
+    #
+
+    #   Verlauf
+    #
+
+points:
+    - !keyref point.de.Großenhain-Cottb-Bf
+    - !keyref point.de.Ortrand-LGr
+    - !keyref point.de.Ruhland                              # line.de.6207
+    - !keyref point.de.Brieske
+    - !keyref point.de.Senftenberg
+    - !keyref point.de.Senftenberg-B10
+    - !keyref point.de.Sedlitz-Ost
+    - !keyref point.de.Sornoer-Buden-West
+    - !keyref point.de.Sornoer-Buden-Nord
+    - !keyref point.de.Neupetershain
+    - !keyref point.de.Cottbus-Südwest
+    - !keyref point.de.Cottbus-B12
+    - !keyref point.de.Cottbus                              # line.de.6142
+    - !keyref point.de.Preilack
+    - !keyref point.de.Jamlitz
+    - !keyref point.de.Weichensdorf
+    - !keyref point.de.Groß-Briesen-Abzw
+    - !keyref point.de.Grunow-Niederlausitz
+    - !keyref point.de.Frankfurt-Oder-Fauler-See
+    - !keyref point.de.Frankfurt-Oder-Afs
+    - !keyref point.de.Frankfurt-Oder-Pbf                   # line.de.6153
+
+
+---
+key: point.de.Großenhain-Cottb-Bf
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Bf
+        name: Großenhain Cottb Bf
+        de.DS100: DGC
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Ortrand-LGr
+type: point
+subtype: border
+progress: stub
+events:
+    -   date: !!null
+        name: Ortrand BB/SN
+        de.DS100: BQOR
+
+
+---
+key: point.de.Brieske
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Bf
+        name: Brieske
+        de.DS100: BBS
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Senftenberg
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Bf
+        name: Senftenberg
+        de.DS100: BSN
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Senftenberg-B10
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Bft
+        name: Senftenberg Stw B 10
+        de.DS100: BSN E
+        master: !keyref point.de.Senftenberg
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Sedlitz-Ost
+type: point
+junction: false
+progress: stub
+events:
+    -   date: !!null
+        category: de.Bft
+        name: Sedlitz Ost
+        de.DS100: BSEO
+        master: !keyref point.de.Senftenberg
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Sornoer-Buden-West
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Abzw
+        name: Sornoer Buden West
+        de.DS100: BASW
+
+
+---
+key: point.de.Sornoer-Buden-Nord
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Abzw
+        name: Sornoer Buden Nord
+        de.DS100: BASN
+
+
+---
+key: point.de.Neupetershain
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Hp
+        name: Neupetershain
+        de.DS100: BNP
+        sources: !keyref src.de.DBAG.ISR
 
 
 ---
@@ -20,6 +205,16 @@ events:
 
 
 ---
+key: point.de.Preilack
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Abzw
+        name: Preilack
+
+
+---
 key: point.de.Jamlitz
 type: point
 progress: stub
@@ -27,6 +222,16 @@ events:
     -   date: !!null
         name: Jamlitz
         connection: !keyref point.de.Lieberose-Spreewaldbf
+
+
+---
+key: point.de.Weichensdorf
+type: point
+progress: stub
+events:
+    -   date: !!null
+        name: Weichensdorf
+        de.DS100: BWFD
 
 
 ---

@@ -69,6 +69,10 @@ events:
         status: open
         sources: !keyref src.de.DRG.1935 # 1840/7
 
+    -   date: !date c2005
+        start: !keyref point.de.Leipzig-Messe-Süd
+        status: closed
+        reused: !keyref line.de.5919
 
     #   Eigenschaften
     #
@@ -102,15 +106,27 @@ points:
     - !keyref point.de.Magdeburg-Buckau
     - !keyref point.de.Magdeburg-Südost
     - !keyref point.de.Schönebeck-Elbe
+    - !keyref point.de.Tornitz-Seehof
     - !keyref point.de.Calbe-Saale-Ost
     - !keyref point.de.Köthen
+    - !keyref point.de.Köthen-W3
+    - !keyref point.de.Köthen-B6
+    - !keyref point.de.Köthen-W7
     - !keyref point.de.Stumsdorf
+    - !keyref point.de.Niemberg
+    - !keyref point.de.Halle-Saale-Gbf-Am
+    - !keyref point.de.Halle-Saale-Hno                      # line.de.6132
     - !keyref point.de.Halle-Saale-Hbf
+    - !keyref point.de.Halle-Saale-Leuchtturm
+    - !keyref point.de.Halle-Kanena
     - !keyref point.de.Dieskau
     - !keyref point.de.Großkugel-LGr
     - !keyref point.de.Schkeuditz
+    - !keyref point.de.Leipzig-Wahren-Westkopf
+    - !keyref point.de.Leipzig-Wahren-Ubf
     - !keyref point.de.Leipzig-Wahren
-
+    - !keyref point.de.Wiederitzsch
+    - !keyref point.de.Leipzig-Messe-Süd                    # line.de.6411
     - !keyref point.de.Leipzig-Hbf                          # line.de.6363
 
 
@@ -146,6 +162,17 @@ events:
 
 
 ---
+key: point.de.Tornitz-Seehof
+type: point
+progress: stub
+events:
+    -   date: !!null
+        name: Tornitz Seehof
+        de.DS100: LSEE
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
 key: point.de.Calbe-Saale-Ost
 type: point
 progress: stub
@@ -168,6 +195,42 @@ events:
 
 
 ---
+key: point.de.Köthen-W3
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Bft
+        name: Köthen Gbf Stw W 3
+        de.DS100: LK D
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Köthen-B6
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Bft
+        name: Köthen Gbf Stw B 6
+        de.DS100: LK C
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Köthen-W7
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Bft
+        name: Köthen Gbf Stw W 7
+        de.DS100: LK R
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
 key: point.de.Stumsdorf
 type: point
 progress: stub
@@ -176,6 +239,29 @@ events:
         name: Stumsdorf
         de.DS100: LSTF
         sources: !keyref src.de.TPP.2015
+
+
+---
+key: point.de.Niemberg
+type: point
+progress: stub
+events:
+    -   date: !!null
+        name: Niemberg
+        de.DS100: LNM
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Halle-Saale-Gbf-Am
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Bft
+        name: Halle (Saale) Gbf Am
+        de.DS100: LHG M
+        sources: !keyref src.de.DBAG.ISR
 
 
 ---
@@ -218,15 +304,64 @@ events:
     -   date: !!null
         site: !noderef path.de.6132 hal
 
+
+---
+key: point.de.Halle-Saale-Leuchtturm
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Abzw
+        name: Halle (Saale) Leuchtturm
+        de.DS100: LHAL
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Halle-Kanena
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Abzw
+        name: Halle-Kanena
+        de.DS100: LKAN
+        sources: !keyref src.de.DBAG.ISR
+
+
 ---
 key: point.de.Dieskau
 type: point
 progress: stub
 events:
     -   date: !!null
+        category: [de.Hp, de.Uest]
         name: Dieskau
         de.DS100: LDI
-        sources: !keyref src.de.TPP.2015
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Gröbers
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Bf
+        name: Gröbers
+        de.DS100: LGOS
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Gröbers-Süd
+type: point
+progress: stub
+events:
+    -   date: !!null
+        name: Gröbers Süd
+        de.DS100: LGOSS
+        sources: !keyref src.de.DBAG.ISR
 
 
 ---
@@ -252,6 +387,32 @@ events:
 
 
 ---
+key: point.de.Leipzig-Wahren-Westkopf
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Bft
+        name: Leipzig-Wahren
+        de.DS100: LLW L
+        master: !keyref point.de.Leipzig-Wahren
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Leipzig-Wahren-Ubf
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Bft
+        name: Leipzig-Wahren Ubf
+        de.DS100: LLW U
+        master: !keyref point.de.Leipzig-Wahren
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
 key: point.de.Leipzig-Wahren
 type: point
 progress: stub
@@ -260,5 +421,17 @@ events:
         name: Leipzig-Wahren
         de.DS100: LLW
         sources: !keyref src.de.TPP.2015
+
+
+---
+key: point.de.Wiederitzsch
+type: point
+progress: stub
+events:
+    -   date: !!null
+        name: Wiederitzsch
+        de.DS100: LWI
+        sources: !keyref src.de.DBAG.ISR
+
 
 
