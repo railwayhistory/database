@@ -1,3 +1,79 @@
+# DE 6343.  Halle (Salle) Hbf - Hann Münden
+#
+---
+key: line.de.6343
+type: line
+progress: stub
+events:
+    -   date: !!null
+        region: !keyref org.de
+    -   date: !!null
+        end: !keyref point.de.Berga-Kelbra-LGr
+        region: !keyref org.de.l.st
+    -   date: !!null
+        start: !keyref point.de.Berga-Kelbra-LGr
+        end: !keyref point.de.Arenshausen-LGr
+        region: !keyref org.de.l.th
+    -   date: !!null
+        start: !keyref point.de.Arenshausen-LGr
+        end: !keyref point.de.Eichenberg-LGr
+        region: !keyref org.de.l.ni
+    -   date: !!null
+        start: !keyref point.de.Eichenberg-LGr
+        end: !keyref point.de.Gertenbach-LGr
+        region: !keyref org.de.l.he
+
+    -   date: !var vzg.dr
+        de.VzG: !!str 6343
+        sources: !keyref src.de.VzG
+
+    #   Genehmigungen
+    #
+
+    #   Eröffnung und Einstellung
+    #
+    -   date: !!null
+        status: open
+        sources: !keyref src.de.SuW.2011
+
+    #   Eigenschaften
+    #
+
+    #   Eigentümer etc.
+    #
+
+    #   Verlauf
+    #
+
+points:
+    - !keyref point.de.Halle-Saale-Hbf                      # line.de.6403
+    - !keyref point.de.Halle-Kasseler-Bahn
+    - !keyref point.de.Halle-Wörmlitz
+    - !keyref point.de.Halle-Wörmlitz-West
+    - !keyref point.de.Halle-Südstadt-Sa
+    - !keyref point.de.Angersdorf-Awo
+    - !keyref point.de.Angersdorf
+    - !keyref point.de.Teutschenthal
+    - !keyref point.de.Röblingen-am-See
+    - !keyref point.de.Lutherstadt-Eisleben
+    - !keyref point.de.Blankenheim-Trennungsbf
+    - !keyref point.de.Blankenheim-Sangerhausen
+    - !keyref point.de.Sangerhausen
+    - !keyref point.de.Berga-Kelbra
+    - !keyref point.de.Berga-Kelbra-LGr
+    - !keyref point.de.Nordhausen
+    - !keyref point.de.Wolkramshausen
+    - !keyref point.de.Bleicherode-Ost
+    - !keyref point.de.Bernterode-West
+    - !keyref point.de.Leinefelde
+    - !keyref point.de.Heilbad-Heiligenstadt
+    - !keyref point.de.Arenshausen
+    - !keyref point.de.Arenshausen-LGr
+    - !keyref point.de.Eichenberg-Ostkopf
+    - !keyref point.de.Eichenberg-LGr
+    - !keyref point.de.Eichenberg                           # line.de.3600
+    - !keyref point.de.Gertenbach-LGr
+    - !keyref point.de.Hann-Münden                          # line.de.1732
 
 
 ---
@@ -54,8 +130,22 @@ type: point
 progress: stub
 events:
     -   date: !!null
+        category: de.Bft
         name: Angersdorf Abzw Awo
         de.DS100: "LAG O"
+        master: !keyref point.de.Angersdorf
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Angersdorf
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Bf
+        name: Angersdorf
+        de.DS100: LAG
         sources: !keyref src.de.DBAG.ISR
 
 
@@ -68,6 +158,30 @@ events:
         category: de.Bf
         name: Teutschenthal
         de.DS100: LTT
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Röblingen-am-See
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Bf
+        name: Röblingen am See
+        de.DS100: LRN
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Lutherstadt-Eisleben
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Bf
+        name: Lutherstadt Eisleben
+        de.DS100: LEL
         sources: !keyref src.de.DBAG.ISR
 
 
@@ -107,8 +221,186 @@ events:
         name: Blankenheim (Kr Sgh) Bez. Trennungsbf
         location:
             - !keyloc line.de.6118 188,088
+        master: !keyref point.de.Blankenheim-Sangerhausen
         sources: !keyref src.de.DBAG.ISR
 
     -   date: !!null
         site: !noderef path.de.38000 blt
+
+
+---
+key: point.de.Blankenheim-Sangerhausen
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Bf
+        name: Blankenheim (Kr Sgh) Bez. Kreis
+        de.DS100: UBM
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Sangerhausen
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Bf
+        name: Sangerhausen
+        de.DS100: USG
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Berga-Kelbra
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Bf
+        name: Berga-Kelbra
+        de.DS100: UBK
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Berga-Kelbra-LGr
+type: point
+subtype: border
+progress: stub
+events:
+    -   date: !!null
+        name: Berga-Kelbra ST/TH
+        de.DS100: UQBK
+
+
+---
+key: point.de.Nordhausen
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Bf
+        name: Nordhausen
+        de.DS100: UN
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Wolkramshausen
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Bf
+        name: Wolkramshausen
+        de.DS100: UWK
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Bleicherode-Ost
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Bf
+        name: Bleicherode Ost
+        de.DS100: UBD
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Bernterode-West
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Abzw
+        name: Bernterode West
+        de.DS100: UBEW
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Leinefelde
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Bf
+        name: Leinefelde
+        de.DS100: UL
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Heilbad-Heiligenstadt
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Bf
+        name: Heilbad Heiligenstedt
+        de.DS100: UHT
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Arenshausen
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Hp
+        name: Arenshausen
+        de.DS100: UAR
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Arenshausen-LGr
+type: point
+subtype: border
+progress: stub
+events:
+    -   date: !!null
+        name: Arenshausen TH/NI 6343
+        de.DS100: UQAR
+
+
+---
+key: point.de.Eichenberg-Ostkopf
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Bft
+        name: Eichenberg Ostkopf
+        de.DS100: HEBGO
+        master: !keyref point.de.Eichenberg
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Eichenberg-LGr
+type: point
+subtype: border
+progress: stub
+events:
+    -   date: !!null
+        name: Eichenberg NI/HE 6343
+        de.DS100: HQEB
+
+
+---
+key: point.de.Gertenbach-LGr
+type: point
+subtype: border
+progress: stub
+events:
+    -   date: !!null
+        name: Gertenbach HE/NI
+        de.DS100: FQGT
 

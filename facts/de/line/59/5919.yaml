@@ -19,13 +19,18 @@ events:
     #   Eröffnung und Einstellung
     #
     -   date: !!null
+        start: !keyref point.de.Erfurt-Hbf
+        end: !keyref point.de.Erfurt-Linderbach
+        status: open 
+        sources: !keyref src.de.DBAG.ISR
+    -   date: !!null
+        start: !keyref point.de.Erfurt-Linderbach
         end: !keyref point.de.Gröbers
         status: construction
-        sources: !keyref src.de.SuW.2011
     -   date: !!null
         start: !keyref point.de.Gröbers
         status: open 
-        sources: !keyref src.de.SuW.2011
+        sources: !keyref src.de.DBAG.ISR
 
     #   Eigenschaften
     #
@@ -37,6 +42,11 @@ events:
     #
 
 points:
+    - !keyref point.de.Erfurt-Hbf                           # line.de.6340
+    - !keyref point.de.Erfurt-Güterbahnhof
+    - !keyref point.de.Erfurt-Güterbahnhof-Ost              # line.de.6340
+    - !keyref point.de.Erfurt-Fahrzeugwerk
+    - !keyref point.de.Erfurt-Linderbach                    # line.de.6340
     - !keyref point.de.Gröbers-West
     - !keyref point.de.Gröbers                              # line.de.6403
     - !keyref point.de.Gröbers-Ost
@@ -44,6 +54,31 @@ points:
     - !keyref point.de.Leipzig-Messe-Hp
     - !keyref point.de.Leipzig-Mockau                       # line.de.6369
     - !keyref point.de.Leipzig-Hbf                          # line.de.6363
+
+
+---
+key: point.de.Erfurt-Güterbahnhof
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Bft
+        name: Erfurt Güterbahnhof
+        de.DS100: UE G
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Erfurt-Fahrzeugwerk
+type: point
+junction: False
+progress: stub
+events:
+    -   date: !!null
+        category: de.Bft
+        name: Erfurt Fahrzeugwerk
+        de.DS100: UE F
+        sources: !keyref src.de.DBAG.ISR
 
 
 ---
