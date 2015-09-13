@@ -1,9 +1,69 @@
+# DE 1705.  Hannover Hbf - Seelze
+#
+---
+key: line.de.1705
+type: line
+progress: stub
+events:
+    -   date: !!null
+        region:
+            - !keyref org.de
+            - !keyref org.de.l.ni
+
+    -   date: !!null
+        de.VzG: !!str 1705
+        sources: !keyref src.de.VzG
+
+    #   Genehmigungen
+    #
+
+    #   Eröffnung und Einstellung
+    #
+    -   date: !!null
+        status: open
+        sources: !keyref src.de.SuW.2011
+
+    #   Eigenschaften
+    #
+
+    #   Eigentümer etc.
+    #
+
+    #   Verlauf
+    #
+
+points:
+    - !keyref point.de.Hannover-Hbf                         # line.de.1710
+    - !keyref point.de.Hannover-Hainholz
+    - !keyref point.de.Hannover-Nordstadt
+    - !keyref point.de.Hannover-Leinhausen
+    - !keyref point.de.Letter
+    - !keyref point.de.Seelze                               # line.de.1700
+
+
+---
+key: point.de.Hannover-Hainholz
+type: point
+events:
+    -   date: !!null
+        location:
+            - !keyloc line.de.1710 2,67
+        sources: !keyref src.de.DRG.Han.1945
+    -   date: !!null
+        name: Hannover-Hainholz
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        category: de.Hp
+        de.lknr: 13 553
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        de.DS100: HHZ
+        sources: !keyref src.de.TPP.2006
 
 
 ---
 key: point.de.Hannover-Nordstadt
 type: point
-junction: True
 events:
     -   date: !date 1997-06-01
         status: open
@@ -18,3 +78,28 @@ events:
 
     -   date: !!null
         site: !noderef path.de.1705 nor left
+
+
+---
+key: point.de.Hannover-Leinhausen
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Hp
+        name: Hannover-Leinhausen
+        de.DS100: HLEI
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Letter
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Hp
+        name: Letter
+        de.DS100: HLT
+        sources: !keyref src.de.DBAG.ISR
+

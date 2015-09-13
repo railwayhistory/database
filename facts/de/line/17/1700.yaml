@@ -1,3 +1,151 @@
+# DE 1700.  Hannover Hbf - Hamm (Westf)
+#
+---
+key: line.de.1700
+type: line
+progress: stub
+events:
+    -   date: !!null
+        region: !keyref org.de
+    -   date: !!null
+        end: !keyref point.de.Minden-Westf-LGr
+        region: !keyref org.de.l.ni
+    -   date: !!null
+        start: !keyref point.de.Minden-Westf-LGr
+        region: !keyref org.de.l.nw
+
+    -   date: !!null
+        de.VzG: !!str 1700
+        sources: !keyref src.de.VzG
+
+    #   Genehmigungen
+    #
+
+    #   Eröffnung und Einstellung
+    #
+    -   date: !!null
+        status: open
+        sources: !keyref src.de.SuW.2011
+
+    #   Eigenschaften
+    #
+
+    #   Eigentümer etc.
+    #
+
+    #   Verlauf
+    #
+
+points:
+    - !keyref point.de.Hannover-Hbf
+    - !keyref point.de.Hannover-Burg
+    - !keyref point.de.Letter-Abzw
+    - !keyref point.de.Seelze
+    - !keyref point.de.Seelze-West
+    - !keyref point.de.Dedensen-Gümmer
+    - !keyref point.de.Wunstorf
+    - !keyref point.de.Haste
+    - !keyref point.de.Stadthagen
+    - !keyref point.de.Bückeburg
+    - !keyref point.de.Minden-Westf-LGr
+    - !keyref point.de.Minden-Westf-Gbf
+    - !keyref point.de.Minden-Westf
+    - !keyref point.de.Porta-Po
+    - !keyref point.de.Löhne-Westf-Pbf
+    - !keyref point.de.Löhne-Westf-Gbf
+    - !keyref point.de.Herford
+    - !keyref point.de.Bielefeld-Hbf
+    - !keyref point.de.Bielefeld-Hbf-Pbf
+    - !keyref point.de.Brackwede
+    - !keyref point.de.Gütersloh-Hbf
+    - !keyref point.de.Rheda-Wiedenbrueck
+    - !keyref point.de.Neubeckum
+    - !keyref point.de.Neubeckum-Gbf
+    - !keyref point.de.Heessen
+    - !keyref point.de.Hamm-Westf-Pbf                       # line.de.2931
+
+
+---
+key: point.de.Hannover-Hbf
+type: point
+events:
+    -   date: !!null
+        location:
+            - !keyloc line.de.1710 0,0
+    -   date: !!null
+        name: Hannover Hbf
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: I
+        service: passenger
+        de.lknr: 13 547
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        de.DS100: HH
+        sources: !keyref src.de.TPP.2006
+
+
+---
+key: point.de.Hannover-Burg
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Bft
+        name: Hannover Burg
+        de.DS100: HBUG
+        master: !keyref point.de.Hannover-Hbf
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Letter-Abzw
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Abzw
+        name: Letter (Abzw)
+        de.DS100: HLTA
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Seelze
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Bf
+        name: Seelze
+        de.DS100: HS
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Seelze-West
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Bft
+        name: Seelze West
+        de.DS100: HSR W
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Dedensen-Gümmer
+type: point
+junction: false
+progress: stub
+events:
+    -   date: !!null
+        category: de.Hp
+        name: Dedensen-Gümmer
+        de.DS100: HDED
+        sources: !keyref src.de.DBAG.ISR
 
 
 ---
@@ -28,6 +176,18 @@ events:
 
 
 ---
+key: point.de.Haste
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Bf
+        name: Haste
+        de.DS100: HHAS
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
 key: point.de.Stadthagen
 type: point
 junction: True
@@ -51,6 +211,32 @@ events:
     -   date: !date c1950
         name: Stadthagen
         sources: !keyref src.de.TPP.2006
+    -   date: !!null
+        connection: !keyref point.de.Stadthagen-West        # line.de.9177
+
+
+---
+key: point.de.Bückeburg
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Bf
+        name: Bückeburg
+        de.DS100: HBKB
+        sources: !keyref src.de.DBAG.ISR
+    -   date: !!null
+        connection: !keyref point.de.Bückeburg-Bf           # line.de.8173
+
+---
+key: point.de.Minden-Westf-LGr
+type: point
+subtype: border
+progress: stub
+events:
+    -   date: !!null
+        name: Minden (Westf) NRW/NI
+        de.DS100: HQM
 
 
 ---
@@ -70,6 +256,7 @@ events:
     -   date: !!null
         de.VBL: Mt
         sources: !keyref src.de.web.Joost
+
 
 ---
 key: point.de.Minden-Westf
@@ -155,6 +342,45 @@ events:
         de.DS100: HL G
         sources: !keyref src.de.TPP.2006
 
+
+---
+key: point.de.Herford
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Bf
+        name: Herford
+        de.DS100: EHFD
+        sources: !keyref src.de.DBAG.ISR
+    -   date: !!null
+        connection: !keyref point.de.Herford-Kleinb         # line.de.8291
+
+---
+key: point.de.Bielefeld-Hbf
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Bf
+        name: Bielefeld Hbf
+        de.DS100: EBIL
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Bielefeld-Hbf-Pbf
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Bft
+        name: Bielefeld Hbf Pbf
+        de.DS100: EBILP
+        master: !keyref point.de.Bielefeld-Hbf
+        sources: !keyref src.de.DBAG.ISR
+
+
 ---
 key: point.de.Brackwede
 type: point
@@ -180,6 +406,18 @@ events:
     -   date: !date c1940
         de.Rangklasse: I
         sources: !keyref src.de.Bfv.1944
+
+
+---
+key: point.de.Gütersloh-Hbf
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Bf
+        name: Gütersloh Hbf
+        de.DS100: EGLO
+        sources: !keyref src.de.DBAG.ISR
 
 
 ---
@@ -271,3 +509,29 @@ events:
     -   date: !!null
         de.DS100: ENBM
         sources: !keyref src.de.TPP.2006
+
+
+---
+key: point.de.Neubeckum-Gbf
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Bft
+        name: Neubeckum Gbf
+        de.DS100: ENBMG
+        master: !keyref point.de.Neubeckum
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Heessen
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Bf
+        name: Heessen
+        de.DS100: EHE
+        sources: !keyref src.de.DBAG.ISR
+

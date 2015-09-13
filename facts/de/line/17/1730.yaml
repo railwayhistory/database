@@ -1,3 +1,212 @@
+# DE 1730.  Hannover Hbf - Braunschweig Hbf
+#
+---
+key: line.de.1730
+type: line
+progress: stub
+events:
+    -   date: !!null
+        region:
+            - !keyref org.de
+            - !keyref org.de.l.ni
+
+    -   date: !!null
+        de.VzG: !!str 1730
+        sources: !keyref src.de.VzG
+
+    #   Genehmigungen
+    #
+
+    #   Eröffnung und Einstellung
+    #
+    -   date: !!null
+        status: open
+        sources: !keyref src.de.SuW.2011
+
+    #   Eigenschaften
+    #
+
+    #   Eigentümer etc.
+    #
+
+    #   Verlauf
+    #
+
+points:
+    - !keyref point.de.Hannover-Hbf                         # line.de.1700
+    - !keyref point.de.Hannover-Hbf-Pferdeturm
+    - !keyref point.de.Hannover-Karl-Wiechert-Allee
+    - !keyref point.de.Hannover-Tiergarten
+    - !keyref point.de.Lehrte-West
+    - !keyref point.de.Lehrte
+    - !keyref point.de.Hämelerwald
+    - !keyref point.de.Peine
+    - !keyref point.de.Peine-Gbf
+    - !keyref point.de.Groß-Gleidingen
+    - !keyref point.de.Groß-Gleidingen-Ostkopf
+    - !keyref point.de.Braunschweig-Gabelung
+    - !keyref point.de.Braunschweig-Hbf
+
+
+---
+key: point.de.Hannover-Hbf-Pferdeturm
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Bft
+        name: Hannover Hbf Pferdeturm
+        de.DS100: HH P
+        master: !keyref point.de.Hannover-Hbf
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Hannover-Karl-Wiechert-Allee
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Bf
+        name: Hannover Karl-Wiechert-Allee
+        de.DS100: HKWA
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Hannover-Tiergarten
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Abzw
+        name: Tiergarten
+
+
+---
+key: point.de.Lehrte-West
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Bft
+        name: Lehrte West
+        de.DS100: HLERW
+        master: !keyref point.de.Lehrte
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Lehrte
+type: point
+junction: True
+events:
+    -   date: !!null
+        name: Lehrte
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        de.lknr: 13 289
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        location:
+            - !keyloc line.de.1720  16,36
+            - !keyloc line.de.6107 239,27
+        sources: !keyref src.de.DRG.Han.1931
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: I
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 13 539
+        sources: !keyref src.de.Bfv.1933
+    -   date: !!null
+        de.DS100: HLER
+        de.dstnr: !!str 135400
+        sources: !keyref src.de.DS100.1984
+    -   date: !date c2000
+        location:
+            - !keyloc line.de.1720  16,214
+            - !keyloc line.de.6107 238,534
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.44500 leh center
+
+
+---
+key: point.de.Hämelerwald
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Bf
+        name: Hämelerwald
+        de.DS100: HHAE
+        sources: !keyref src.de.DBAG.ISR
+    -   date: !!null
+        connection: !keyref point.de.Hämelerwald-Ost        # line.de.8175
+
+
+---
+key: point.de.Peine
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Bf
+        name: Peine
+        de.DS100: HP
+        sources: !keyref src.de.DBAG.ISR
+    -   date: !!null
+        connection: !keyref point.de.Peine-Ost              # line.de.9198
+
+---
+key: point.de.Peine-Gbf
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Bft
+        name: Peine Gbf
+        de.DS100: HP G
+        master: !keyref point.de.Peine
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Groß-Gleidingen
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Bf
+        name: Groß Gleidingen
+        de.DS100: HGGL
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Groß-Gleidingen-Ostkopf
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Bft
+        name: Groß Gleidingen Ostkopf
+        de.DS100: HGGLO
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Braunschweig-Gabelung
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Abzw
+        name: Braunschweig Gabelung
+        de.DS100: HGAA
+        sources: !keyref src.de.DBAG.ISR
 
 
 ---

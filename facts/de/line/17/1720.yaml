@@ -152,7 +152,8 @@ events:
             - !pathref path.de.1720 fhar f     0.0
 
 points:
-    - !keyref point.de.Lehrte
+    - !keyref point.de.Lehrte                               # line.de.1730
+    - !keyref point.de.Lehrte-Nord
     - !keyref point.de.Aligse
     - !keyref point.de.Burgdorf-Han
     - !keyref point.de.Otze
@@ -163,6 +164,7 @@ points:
     - !keyref point.de.Unterlüß
     - !keyref point.de.Suderburg
     - !keyref point.de.Klein-Süstedt
+    - !keyref point.de.Uelzen-Gbf
     - !keyref point.de.Uelzen
     - !keyref point.de.Emmendorf
     - !keyref point.de.Bad-Bevensen-DGr-I
@@ -222,40 +224,16 @@ points:
 
 
 ---
-key: point.de.Lehrte
+key: point.de.Lehrte-Nord
 type: point
-junction: True
+progress: stub
 events:
     -   date: !!null
-        name: Lehrte
-        sources: !keyref src.de.Kb.1905
-    -   date: !!null
-        de.lknr: 13 289
-        sources: !keyref src.de.Bfv.1928
-    -   date: !!null
-        location:
-            - !keyloc line.de.1720  16,36
-            - !keyloc line.de.6107 239,27
-        sources: !keyref src.de.DRG.Han.1931
-    -   date: !!null
-        category: de.Bf
-        de.Rangklasse: I
-        sources: !keyref src.de.Bfv.1933
-    -   date: !var lknr.30
-        de.lknr: 13 539
-        sources: !keyref src.de.Bfv.1933
-    -   date: !!null
-        de.DS100: HLER
-        de.dstnr: !!str 135400
-        sources: !keyref src.de.DS100.1984
-    -   date: !date c2000
-        location:
-            - !keyloc line.de.1720  16,214
-            - !keyloc line.de.6107 238,534
+        category: de.Bft
+        name: Lehrte Nord
+        de.DS100: HLERN
+        master: !keyref point.de.Lehrte
         sources: !keyref src.de.DBAG.ISR
-
-    -   date: !!null
-        site: !noderef path.de.44500 leh center
 
 
 ---
@@ -617,6 +595,19 @@ events:
 
     -   date: !!null
         site: !noderef path.de.1720 ksu left
+
+
+---
+key: point.de.Uelzen-Gbf
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Bft
+        name: Uelzen Gbf
+        de.DS100: HU G
+        master: !keyref point.de.Uelzen
+        sources: !keyref src.de.DBAG.ISR
 
 
 ---

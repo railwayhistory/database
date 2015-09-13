@@ -1,9 +1,98 @@
+# DE 6899.  Stendal - Uelzen
+#
+---
+key: line.de.6899
+type: line
+progress: stub
+events:
+    -   date: !!null
+        region: !keyref org.de
+    -   date: !!null
+        end: !keyref point.de.Salzwedel-LGr
+        region: !keyref org.de.l.st
+    -   date: !!null
+        start: !keyref point.de.Salzwedel-LGr
+        region: !keyref org.de.l.ni
+
+    -   date: !!null
+        start: !keyref point.de.Salzwedel-LGr
+        de.VzG: !!str 6899
+        sources: !keyref src.de.VzG
+    -   date: !var vzg.dr
+        de.VzG: !!str 6899
+        sources: !keyref src.de.VzG
+
+    #   Genehmigungen
+    #
+
+    #   Eröffnung und Einstellung
+    #
+    -   date: !!null
+        status: open
+        sources: !keyref src.de.SuW.2011
+
+    #   Eigenschaften
+    #
+
+    #   Eigentümer etc.
+    #
+
+    #   Verlauf
+    #
+
+points:
+    - !keyref point.de.Stendal                              # line.de.6107
+    - !keyref point.de.Stendal-Gbf                          # line.de.6107
+    - !keyref point.de.Hohenwulsch
+    - !keyref point.de.Pretzier-Altm
+    - !keyref point.de.Salzwedel-Gbf
+    - !keyref point.de.Salzwedel
+    - !keyref point.de.Salzwedel-LGr
+    - !keyref point.de.Wieren
+    - !keyref point.de.Uelzen-Gbf                           # line.de.1720
+    - !keyref point.de.Uelzen                               # line.de.1720
+
+
+---
+key: point.de.Hohenwulsch
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Bf
+        name: Hohenwulsch
+        de.DS100: LHWU
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Pretzier-Altm
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Hp
+        name: Pretzier (Altm)
+        de.DS100: LPRZ
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Salzwedel-Gbf
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Bft
+        name: Salzwedel Gbf
+        de.DS100: LSW G
+        master: !keyref point.de.Salzwedel
+        sources: !keyref src.de.DBAG.ISR
 
 
 ---
 key: point.de.Salzwedel
 type: point
-junction: true
 events:
     -   date: !!null
         name: Salzwedel Stsbf
@@ -35,6 +124,17 @@ events:
 
     -   date: !!null
         site: !noderef path.de.6899 sal left
+
+
+---
+key: point.de.Salzwedel-LGr
+type: point
+subtype: border
+progress: stub
+events:
+    -   date: !!null
+        name: Salzwedel ST/NI
+        de.DS100: LQSW
 
 
 ---
