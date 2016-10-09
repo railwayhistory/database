@@ -1,3 +1,638 @@
+# DE 2550.  Aachen Hbf - Kassel Hbf
+#
+---
+key: line.de.2550
+type: line
+progress: stub
+events:
+    -   date: !!null
+        region: !keyref org.de
+    -   date: !!null
+        end: !keyref point.de.Warburg-Westf-LGr-2550
+        region: !keyref org.de.l.nw
+    -   date: !!null
+        start: !keyref point.de.Warburg-Westf-LGr-2550
+        region: !keyref org.de.l.he
+
+    -   date: !!null
+        de.VzG: !!str 2550
+        sources: !keyref src.de.VzG
+
+    #   Genehmigungen
+    #
+    -   date: !date 1837-09-23
+        start: !keyref point.de.Düsseldorf-Hbf
+        end: !keyref point.de.Wuppertal-Vohwinkel
+        concession:
+            by: !keyref org.de.l.pre
+            for: !keyref org.de.Düsseldorf-Elberfelder-Eisenbahn-Gesellschaft
+        sources: !keyref src.de.DRG.1935 # 1838/11
+
+    #   Eröffnung und Einstellung
+    #
+    -   date: !date 1838-12-20
+        start: !keyref point.de.Düsseldorf-Hbf
+        end: !keyref point.de.Erkrath
+        status: open
+        freight: none
+        sources: !keyref src.de.DRG.1935 # 1838/11
+    -   date: !date 1841-04-10
+        start: !keyref point.de.Erkrath
+        end: !keyref point.de.Wuppertal-Vohwinkel
+        status: open
+        freight: none
+        sources: !keyref src.de.DRG.1935 # 1841/1
+    -   date: !date 1841-09-03
+        start: !keyref point.de.Wuppertal-Vohwinkel
+        end: !keyref point.de.Wuppertal-Steinbeck
+        status: open
+        freight: none
+        sources: !keyref src.de.DRG.1935 # 1841/6
+    -   date: !date 1841-12-01
+        start: !keyref point.de.Düsseldorf-Hbf
+        end: !keyref point.de.Wuppertal-Steinbeck
+        freight: full
+        sources: !keyref src.de.DRG.1935 # 1838/11, 1841/1 und 1841/6
+
+    #   Eigenschaften
+    #
+        # src.de.DRG.1935:
+        #   Düsseldorf Hbf - Erkrath:
+        #       1857-01-01 owner org.de.e.BMGE
+        #       1882-01-01 owner org.de.l.pre
+
+    #   Eigentümer etc.
+    #
+
+    #   Verlauf
+    #
+
+points:
+    - !keyref point.de.Aachen-Hbf
+    - !keyref point.de.Aachen-West-Pbf
+    - !keyref point.de.Aachen-West
+    - !keyref point.de.Aachen-West-Gbf
+    - !keyref point.de.Richterich
+    - !keyref point.de.Kohlscheid
+    - !keyref point.de.Herzogenrath
+    - !keyref point.de.Geilenkirchen
+    - !keyref point.de.Lindern
+    - !keyref point.de.Baal-Gbf
+    - !keyref point.de.Rheydt-Gbf
+    - !keyref point.de.Rheydt-Hbf
+    - !keyref point.de.Mönchengladbach-Hbf
+    - !keyref point.de.Neuss-Hbf
+    - !keyref point.de.Neuss-Pbf-Westseite
+    - !keyref point.de.Neuss-Erftkanal
+    - !keyref point.de.Düsseldorf-Bilk
+    - !keyref point.de.Düsseldorf-Hbf
+    - !keyref point.de.Düsseldorf-Dora
+    - !keyref point.de.Düsseldorf-Fortuna
+    - !keyref point.de.Düsseldorf-Gerresheim
+    - !keyref point.de.Erkrath
+    - !keyref point.de.Hochdahl
+    - !keyref point.de.Gruiten
+    - !keyref point.de.Wuppertal-Linden
+    - !keyref point.de.Wuppertal-Vohwinkel
+    - !keyref point.de.Wuppertal-Hammerstein
+    - !keyref point.de.Wuppertal-Steinbeck
+    - !keyref point.de.Wuppertal-Hbf
+    - !keyref point.de.Wuppertal-Oberbarmen
+    - !keyref point.de.Schwelm
+    - !keyref point.de.Hagen-Haspe
+    - !keyref point.de.Hagen-Rehsiepen
+    - !keyref point.de.Hagen-Hbf
+    - !keyref point.de.Westhofen-Westf
+    - !keyref point.de.Schwerte-Ruhr
+    - !keyref point.de.Schwerte-Ruhr-Ost
+    - !keyref point.de.Fröndenberg
+    - !keyref point.de.Neheim-Hüsten
+    - !keyref point.de.Wennemen
+    - !keyref point.de.Nuttlar
+    - !keyref point.de.Brilon-Wald
+    - !keyref point.de.Bredelar
+    - !keyref point.de.Scherfede
+    - !keyref point.de.Warburg-Westf
+    - !keyref point.de.Warburg-Westf-LGr-2550
+    - !keyref point.de.Hofgeismar-Hümme
+    - !keyref point.de.Vellmar-Obervellmar
+    - !keyref point.de.Kassel-Hbf                           # line.de.1732
+
+
+---
+key: point.de.Aachen-Hbf
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Bf
+        name: Aachen Hbf
+        de.DS100: KA
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Aachen-West-Pbf
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Bft
+        name: Aachen West Pbf
+        de.DS100: KAW P
+        master: !keyref point.de.Aachen-West
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Aachen-West
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Bf
+        name: Aachen West
+        de.DS100: KAW
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Aachen-West-Gbf
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Bft
+        name: Aachen West Gbf
+        de.DS100: KAW G
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Richterich
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Uest
+        name: Richterich
+        de.DS100: KRIC
+        sources: !keyref src.de.SuW.2011
+
+
+---
+key: point.de.Kohlscheid
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Bf
+        name: Kohlscheid
+        de.DS100: KKOS
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Herzogenrath
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Bf
+        name: Herzogenrath
+        de.DS100: KHEZ
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Geilenkirchen
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Bf
+        name: Geilenkirchen
+        de.DS100: KGEK
+        sources: !keyref src.de.DBAG.ISR
+    -   date: !!null
+        connection: !keyref point.de.Geilenkirchen-Kreisb   # line.de.9242
+
+
+---
+key: point.de.Lindern
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Bf
+        name: Lindern
+        de.DS100: KLD
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Baal-Gbf
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Bf
+        name: Baal Gbf
+        de.DS100: KBAG
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Rheydt-Gbf
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Bft
+        name: Rheydt Gbf
+        de.DS100: KRY G
+        master: !keyref point.de.Rheydt-Hbf
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Rheydt-Hbf
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Bf
+        name: Rheydt Hbf
+        de.DS100: KRY
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Rheydt-Pbf
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Bft
+        name: Rheydt Pbf
+        de.DS100: KRY P
+        master: !keyref point.de.Rheydt-Hbf
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Mönchengladbach-Hbf
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Bf
+        name: Mönchengladbach Hbf
+        de.DS100: KM
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Mönchengladbach-Gbf
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Bft
+        name: Mönchengladbach Gbf
+        de.DS100: KM G
+        master: !keyref point.de.Mönchengladbach-Hbf
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Neuss-Hbf
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Bf
+        name: Neuss Hbf
+        de.DS100: KN
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Neuss-Pbf-Westseite
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Bft
+        name: Neuss Pbf Westseite
+        de.DS100: KN W
+        master: !keyref point.de.Neuss-Hbf
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Neuss-Erftkanal
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Abzw
+        name: Neuss Erftkanal
+        de.DS100: KERF
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Düsseldorf-Bilk
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Bf
+        name: Düsseldorf-Bilk
+        de.DS100: KDBI
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Düsseldorf-Hbf
+type: point
+progress: stub
+events:
+    -   date: !!null
+        location:
+            - !keyloc line.de.2550 88,397
+            - !keyloc line.de.2650 39,471
+            - !keyloc line.de.2670 39,500
+        category: de.Bf
+        name: Düsseldorf Hbf
+        de.DS100: KD
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Düsseldorf-Dora
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Abzw
+        name: Düsseldorf Dora
+        de.DS100: KDOA
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Düsseldorf-Fortuna
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Abzw
+        name: Düsseldorf Fortuna
+        de.DS100: KFO
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Düsseldorf-Gerresheim
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Bf
+        name: Düsseldorf-Gerresheim
+        de.DS100: KDGE
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Erkrath
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Hp
+        name: Erkrath
+        de.DS100: KER
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Hochdahl
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Hp
+        name: Hochdahl
+        de.DS100: KHO
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Gruiten-Abzw
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: [de.Bft, de.Abzw]
+        name: Gruiten (Abzw)
+        de.DS100: KGUA
+        master: !keyref point.de.Gruiten
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Gruiten
+type: point
+progress: stub
+events:
+    -   date: !!null
+        location:
+            - !keyloc line.de.2730 0,019
+        category: de.Bf
+        name: Gruiten
+        de.DS100: KGUI
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Wuppertal-Linden
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Abzw
+        name: Wuppertal Linden
+        de.DS100: KLID
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Wuppertal-Vohwinkel
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Bf
+        name: Wuppertal-Vohwinkel
+        de.DS100: KWV
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Wuppertal-Hammerstein
+type: point
+progress: stub
+events:
+    -   date: !!null
+        name: Hammerstein
+
+
+---
+key: point.de.Wuppertal-Steinbeck
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Bft
+        name: Wuppertal-Steinbeck
+        de.DS100: KWS
+        master: !keyref point.de.Wuppertal-Hbf
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Wuppertal-Hbf
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Bf
+        name: Wuppertal Hbf
+        de.DS100: KW
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Wuppertal-Oberbarmen
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Bf
+        name: Wuppertal-Oberbarmen
+        de.DS100: KWO
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Schwelm
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Bf
+        name: Schwelm
+        de.DS100: LSWE
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Hagen-Haspe
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Bf
+        name: Hagen-Haspe
+        de.DS100: EHGP
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Hagen-Rehsiepen
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Abzw
+        name: Hagen Rehsiepen
+        de.DS100: EREH
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Hagen-Hbf
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Bf
+        name: Hagen Hbf
+        de.DS100: EHG
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Westhofen-Westf
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Bf
+        name: Westhofen (Westf)
+        de.DS100: EWEF
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Schwerte-Ruhr
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Bf
+        name: Schwerte (Ruhr)
+        de.DS100: ESRT
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Schwerte-Ruhr-Ost
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Bf
+        name: Schwerte (Ruhr) Ost
+        de.DS100: ESRO
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Fröndenberg
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Bf
+        name: Fröndenberg
+        de.DS100: EFOE
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Neheim-Hüsten
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Bf
+        name: Neheim-Hüsten
+        de.DS100: ENHH
+        sources: !keyref src.de.DBAG.ISR
 
 
 ---
@@ -37,6 +672,18 @@ events:
 
 
 ---
+key: point.de.Bredelar
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Hp
+        name: Bredelar
+        de.DS100: EBDL
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
 key: point.de.Scherfede
 type: point
 progress: stub
@@ -58,6 +705,17 @@ events:
         name: Warburg (Westf)
         de.DS100: HWAR
         sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Warburg-Westf-LGr-2550
+type: point
+subtype: border
+events:
+    -   date: !!null
+        name: Warburg (Westf) NRW/HE 2550
+        de.DS100: HQWA
+        sources: !keyref src.de.TPP.2015
 
 
 ---

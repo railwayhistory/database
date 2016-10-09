@@ -55,15 +55,25 @@ events:
 
 points:
     - !keyref point.de.Köln-Hbf
+    - !keyref point.de.Köln-Ehrenfeld-Pbf
     - !keyref point.de.Köln-Ehrenfeld
+    - !keyref point.de.Köln-Ehrenfeld-Gbf
     - !keyref point.de.Köln-Müngersdorf
     - !keyref point.de.Köln-Lövenich
+    - !keyref point.de.Horrem-Ostkopf
     - !keyref point.de.Horrem
+    - !keyref point.de.Düren-Vorbf
+    - !keyref point.de.Düren
     - !keyref point.de.Düren-Pbf
+    - !keyref point.de.Stolberg-Rheinl-Gbf
+    - !keyref point.de.Stolberg-Rheinl-Hbf
     - !keyref point.de.Stolberg-Rheinl-Pbf
+    - !keyref point.de.Aachen-Rothe-Erde-Gbf
+    - !keyref point.de.Aachen-Rothe-Erde
     - !keyref point.de.Aachen-Rothe-Erde-Pbf
-    - !keyref point.de.Aachen-Hbf                           # line.de.2525
+    - !keyref point.de.Aachen-Hbf                           # line.de.2550
     - !keyref point.de.Aachen-Süd
+    - !keyref point.de.Aachen-Buschtunnel
     - !keyref point.int.Aachen-Hergenrath
 
 
@@ -73,9 +83,33 @@ type: point
 progress: stub
 events:
     -   date: !!null
+        location:
+            - !keyloc line.de.2600 -0,002
+            - !keyloc line.de.2616  0,000
+            - !keyloc line.de.2617 -0,161
+            - !keyloc line.de.2618  0,909
+            - !keyloc line.de.2620  0,000
+            - !keyloc line.de.2608  0,000
+            - !keyloc line.de.2633  0,000
+            - !keyloc line.de.2639  0,000
+            - !keyloc line.de.2670  0,000
+        category: de.Bf
         name: Köln Hbf
         de.DS100: KK
-        sources: !keyref src.de.TPP.2015
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Köln-Ehrenfeld-Pbf
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Bft
+        name: Köln-Ehrenfeld Pbf
+        de.DS100: KKERP
+        master: !keyref point.de.Köln-Ehrenfeld
+        sources: !keyref src.de.DBAG.ISR
 
 
 ---
@@ -84,7 +118,26 @@ type: point
 progress: stub
 events:
     -   date: !!null
+        location:
+            - !keyloc line.de.2600 3,780
+            - !keyloc line.de.2622 3,780
+        category: de.Bf
         name: Köln-Ehrenfeld
+        de.DS100: KKER
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Köln-Ehrenfeld-Gbf
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Bft
+        name: Köln-Ehrenfeld Gbf
+        de.DS100: KKERG
+        master: !keyref point.de.Köln-Ehrenfeld
+        sources: !keyref src.de.DBAG.ISR
 
 
 ---
@@ -108,14 +161,57 @@ events:
 
 
 ---
+key: point.de.Horrem-Ostkopf
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Bft
+        name: Horrem W 4 Ostkopf
+        de.DS100: KHR H
+
+
+---
 key: point.de.Horrem
 type: point
 progress: stub
 events:
     -   date: !!null
+        location:
+            - !keyloc line.de.2600 18,800
+            - !keyloc line.de.2622 18,797
+        category: de.Bf
         name: Horrem
         de.DS100: KHR
-        sources: !keyref src.de.TPP.2015
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Düren-Vorbf
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Bft
+        name: Düren Vorbf
+        de.DS100: KDN G
+        master: !keyref point.de.Düren
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Düren
+type: point
+progress: stub
+events:
+    -   date: !!null
+        location:
+            - !keyloc line.de.2600 39,195
+            - !keyloc line.de.2622 39,195
+        category: de.Bf
+        name: Düren
+        de.DS100: KDN
+        sources: !keyref src.de.DBAG.ISR
 
 
 ---
@@ -124,9 +220,36 @@ type: point
 progress: stub
 events:
     -   date: !!null
+        category: de.Bft
         name: Düren Pbf
         de.DS100: KDN P
-        sources: !keyref src.de.TPP.2015
+        master: !keyref point.de.Düren
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Stolberg-Rheinl-Gbf
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Bft
+        name: Stolberg (Rheinl) Gbf
+        de.DS100: KST G
+        master: !keyref point.de.Stolberg-Rheinl-Hbf
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Stolberg-Rheinl-Hbf
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Bf
+        name: Stolberg (Rheinl) Hbf
+        de.DS100: KST
+        sources: !keyref src.de.DBAG.ISR
 
 
 ---
@@ -135,9 +258,36 @@ type: point
 progress: stub
 events:
     -   date: !!null
+        category: de.Bft
         name: Stolberg (Rheinl) Pbf
         de.DS100: KST P
-        sources: !keyref src.de.TPP.2015
+        master: !keyref point.de.Stolberg-Rheinl-Hbf
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Aachen-Rothe-Erde-Gbf
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Bft
+        name: Aachen Rothe Erde Gbf
+        de.DS100: KAREG
+        master: !keyref point.de.Aachen-Rothe-Erde
+        sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Aachen-Rothe-Erde
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Bf
+        name: Aachen Rothe Erder
+        de.DS100: KARE
+        sources: !keyref src.de.DBAG.ISR
 
 
 ---
@@ -146,8 +296,10 @@ type: point
 progress: stub
 events:
     -   date: !!null
+        category: de.Bft
         name: Aachen-Rothe Erde Pbf 
         de.DS100: KAREP
+        master: !keyref point.de.Aachen-Rothe-Erde
         sources: !keyref src.de.TPP.2015
 
 
@@ -161,6 +313,16 @@ events:
         name: Aachen Süd
         de.DS100: KAS
         sources: !keyref src.de.TPP.2015
+
+
+---
+key: point.de.Aachen-Buschtunnel
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Abzw
+        name: Buschtunnel
 
 
 ---

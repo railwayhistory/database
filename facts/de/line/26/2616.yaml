@@ -1,0 +1,54 @@
+# DE 2616.  Köln Hbf - Köln Bbf
+#
+---
+key: line.de.2616
+type: line
+progress: stub
+events:
+    -   date: !!null
+        region:
+            - !keyref org.de
+            - !keyref org.de.l.nw
+
+    -   date: !!null
+        de.VzG: !!str 2616
+        sources: !keyref src.de.VzG
+
+    #   Genehmigungen
+    #
+
+    #   Eröffnung und Einstellung
+    #
+    -   date: !!null
+        status: open
+        sources: !keyref src.de.SuW.2011
+
+    #   Eigenschaften
+    #
+
+    #   Eigentümer etc.
+    #
+
+    #   Verlauf
+    #
+
+points:
+    - !keyref point.de.Köln-Hbf                             # line.de.2600
+    - !keyref point.de.Köln-Bbf
+
+
+---
+key: point.de.Köln-Bbf
+type: point
+progress: stub
+events:
+    -   date: !!null
+        location:
+            - !keyloc line.de.2616 0,900
+            - !keyloc line.de.2617 0,000
+        category: de.Bft
+        name: Köln Bbf
+        de.DS100: KKB
+        master: !keyref point.de.Köln-Hbf
+        sources: !keyref src.de.DBAG.ISR
+
