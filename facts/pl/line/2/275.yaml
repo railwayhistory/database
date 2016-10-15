@@ -6,43 +6,68 @@ type: line
 progress: stub
 events:
 
-    -   date: !date 1843-11-27
-        end: !keyref point.pl.Miłkowice
+    -   date: 1843-11-27
+        end: point.pl.Miłkowice
         concession:
-            by: !keyref org.de.l.pre
-            for: !keyref org.de.Niederschlesisch-Märkischen-Eisenbahn
-            document: !keyref src.de.l.pre.1843.34.371
-        sources: !keyref src.de.DRG.1935 # 1844/12, 1845/7
+            by: org.de.l.pre
+            for: org.de.Niederschlesisch-Märkischen-Eisenbahn
+            document: src.de.l.pre.1843.34.371
+        sources: src.de.DRG.1935 # 1844/12, 1845/7
+    -   date: 1843-11-27
+        start: point.pl.Jasień
+        concession:
+            by: org.de.l.pre
+            for: org.de.Niederschlesisch-Märkischen-Eisenbahn
+            document: src.de.l.pre.1843.34.371
+        sources: src.de.DRG.1935 # 1846/14+15 → 1844/12
 
-    -   date: !date 1844-10-19
-        end: !keyref point.pl.Legnica
+    -   date: 1844-10-19
+        end: point.pl.Legnica
         status: open
-        sources: !keyref src.de.DRG.1935 # 1844/12
-    -   date: !date 1845-10-01
-        start: !keyref point.pl.Legnica
-        end: !keyref point.pl.Miłkowice
-        sources: !keyref src.de.DRG.1935 # 1845/7
+        sources: src.de.DRG.1935 # 1844/12
+    -   date: 1845-10-01
+        start: point.pl.Legnica
+        end: point.pl.Miłkowice
+        status: open
+        sources: src.de.DRG.1935 # 1845/7
+    -   date: 1846-09-01
+        start: point.pl.Jasień
+        status: open
+        sources: src.de.DRG.1935 # 1846/14, 1846/15
 
     -   date: !!null
         end: !keyref point.pl.Miłkowice
         owner: !keyref org.de.Niederschlesisch-Märkischen-Eisenbahn
         sources: !keyref src.de.DRG.1935 # 1844/12, 1845/7
+    -   date: !!null
+        start: point.pl.Jasień
+        owner: !keyref org.de.Niederschlesisch-Märkischen-Eisenbahn
+        sources: src.de.DRG.1935 # 1846/14+15 → 1844/12
     -   date: !date 1852-01-01
         end: !keyref point.pl.Miłkowice
         owner: !keyref org.de.l.pre
         sources: !keyref src.de.DRG.1935 # 1844/12, 1845/7
+    -   date: !date 1852-01-01
+        start: point.pl.Jasień
+        owner: !keyref org.de.l.pre
+        sources: src.de.DRG.1935 # 1846/14+15 → 1844/12
 
 points:
-    - !keyref point.pl.Wrocław-Muchobór                     # pl.273
-    - !keyref point.pl.Wrocław-Nowy-Dwór 
-    - !keyref point.pl.Malczyce
-    - !keyref point.pl.Legnica
-    - !keyref point.pl.Miłkowice
+    - point.pl.Wrocław-Muchobór                     # pl.273
+    - point.pl.Wrocław-Nowy-Dwór 
+    - point.pl.Malczyce
+    - point.pl.Legnica
+    - point.pl.Miłkowice
     # ...
-    - !keyref point.pl.Jasień
-    # ...
-    - !keyref point.int.Guben-Gubinek                       # de.6153
+    - point.pl.Żagań
+    - point.pl.Bieniów
+    - point.pl.Jasień
+    - point.pl.Lubsko
+    - point.int.Guben-Gubinek                       # de.6153
 
+#-----------------------------------------------------------------------------
+
+# point.pl.Wrocław-Muchobór pl.273
 
 
 ---
@@ -92,7 +117,32 @@ events:
     -   date: !date c1945
         name: Miłkowice
 
+
 # ...
+
+
+---
+key: point.pl.Żagań
+type: point
+progress: stub
+events:
+    -   date: !!null
+        name: Sagan
+        sources: src.de.DRG.1935
+    -   date: c1945
+        name: Żagań
+
+
+---
+key: point.pl.Bieniów
+type: point
+progress: stub
+events:
+    -   date: !!null
+        name: Benau
+        sources: src.de.DRG.1935
+    -   date: c1945
+        name: Bieniów
 
 
 ---
@@ -106,3 +156,18 @@ events:
     -   date: !date c1945
         name: Jasień
 
+
+
+---
+key: point.pl.Lubsko
+type: point
+progress: stub
+events:
+    -   date: !!null
+        name: Sommerfeld
+        sources: src.de.DRG.1935
+    -   date: !date c1945
+        name: Lubsko
+
+
+# point.int.Guben-Gubinek de.6153
