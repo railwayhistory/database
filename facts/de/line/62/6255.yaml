@@ -16,12 +16,25 @@ events:
 
     #   Genehmigungen
     #
+    -   date: 1845-04-01
+        end: point.de.Limmritz-Sachs
+        concession:
+            by: org.de.l.sn
+            for: org.de.Chemnitz-Riesaer-Eisenbahn
+            document: src.de.l.sn.1845.11.145
+        sources: src.de.DRG.1935 # 1847/18
 
     #   Eröffnung und Einstellung
     #
-    -   date: !!null
+    -   date: 1847-08-29
+        end: point.de.Döbeln-Hbf
         status: open
-        sources: !keyref src.de.SuW.2011
+        sources: src.de.DRG.1935 # 1847/18
+    -   date: 1847-09-22
+        start: point.de.Döbeln-Hbf
+        end: point.de.Limmritz-Sachs
+        status: open
+        sources: src.de.DRG.1935 # 1847/22
 
     #   Eigenschaften
     #
@@ -33,15 +46,21 @@ events:
     #
 
 points:
-    - !keyref point.de.Riesa                                # line.de.6363
-    - !keyref point.de.Riesa-Stw-4
-    - !keyref point.de.Döbeln-Gärtitz
-    - !keyref point.de.Döbeln-Hbf
-    - !keyref point.de.Waldheim
-    - !keyref point.de.Mittweida
-    - !keyref point.de.Chemnitz-Furth
-    - !keyref point.de.Chemnitz-Hbf                         # line.de.6258
+    -   point.de.Riesa                                # line.de.6363
+    -   point.de.Riesa-Stw-4
+    -   point.de.Döbeln-Gärtitz
+    -   point.de.Döbeln-Nord
+    -   point.de.Döbeln-Hbf
+    -   point.de.Limmritz-Sachs
+    -   point.de.Waldheim
+    -   point.de.Mittweida
+    -   point.de.Chemnitz-Furth
+    -   point.de.Chemnitz-Hbf                         # line.de.6258
 
+
+#-----------------------------------------------------------------------------
+
+# point.de.Riesa de.6363
 
 ---
 key: point.de.Riesa-Stw-4
@@ -66,6 +85,18 @@ events:
 
 
 ---
+key: point.de.Döbeln-Nord
+type: point
+progress: stub
+events:
+    -   date: !!null
+        name: Großbauchlitz
+        sources: src.de.DRG.1935 # 1847/18
+    -   date: c1935
+        name: Döbeln Nord
+
+
+---
 key: point.de.Döbeln-Hbf
 type: point
 progress: stub
@@ -75,6 +106,15 @@ events:
         name: Döbeln Hbf
         de.DS100: DDE
         sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Limmritz-Sachs
+type: point
+progress: stub
+events:
+    -   date: !!null
+        name: Limmritz (Sachs)
 
 
 ---
@@ -110,3 +150,5 @@ events:
         category: de.Abzw
         name: Chemnitz-Furth
 
+
+# point.de.Chemnitz-Hbf de.6258
