@@ -7,23 +7,16 @@ progress: stub
 events:
     -   date: !!null
         region:
-            - !keyref org.de
-            - !keyref org.de.l.sn
+            - org.de
+            - org.de.l.sn
 
     -   date: !var vzg.dr
         de.VzG: !!str 6258
-        sources: !keyref src.de.VzG
+        sources: src.de.VzG
 
-    #   Genehmigungen
+    #   Genehmigungen und Eröffnungen
     #
-    -   date: !date 1841-05-15
-        start: !keyref point.de.Zwickau-Sachs-Hbf
-        end: !keyref point.de.Werdau-Bogendreieck-Zwickauer-Spitze
-        concession:
-            by: !keyref org.de.l.sn
-            for: !keyref org.de.Sächsisch-Bayerische-Eisenbahn
-            document: !keyref src.de.l.sn.1841.7.45
-        sources: !keyref src.de.DRG.1935 # 1842/6
+    #   Dresden - Tharandt: Albertsbahn
     -   date: 1854-01-26
         end: point.de.Tharandt
         concession:
@@ -31,6 +24,28 @@ events:
             for: org.de.Albertsbahn
             document: src.de.l.sn.1854.3.29
         sources: src.de.DRG.1935 # 1855/4
+    -   date: 1855-06-28
+        end: point.de.Tharandt
+        status: open
+        sources: src.de.DRG.1935 # 1855/4
+
+    #   Tharandt - Freiberg
+    -   date: 1859-08-02
+        start: point.de.Tharandt
+        end: point.de.Freiberg-Sachs
+        concession:
+            by: org.de.l.sn
+            document: src.de.l.sn.1859.13.279
+        sources: src.de.DRG.1935 # 1862/14
+    -   date: 1859-08-04
+        start: point.de.Tharandt
+        end: point.de.Freiberg-Sachs
+        concession:
+            by: org.de.l.sn
+            document: src.de.l.sn.1859.13.280
+        sources: src.de.DRG.1935 # 1862/14
+
+    #   Chemnitz - Zwickau
     -   date: 1855-05-13
         start: point.de.Chemnitz-Hbf
         end: point.de.Zwickau-Sachs-Hbf
@@ -39,33 +54,38 @@ events:
             for: org.de.l.sn
             document: src.de.l.sn.1855.7.54
         soures: src.de.DRG.1935 # 1858/17
-    -   date: 1855-09-04
-        start: !keyref point.de.Werdau-Bogendreieck-Zwickauer-Spitze
-        concession:
-            by: org.de.l.sn
-            for: org.de.l.sn
-        sources: src.de.DRG.1935 # 1856/1
-
-    #   Eröffnung und Einstellung
-    #
-    -   date: !date 1845-09-09
-        start: !keyref point.de.Zwickau-Sachs-Hbf
-        end: !keyref point.de.Werdau-Bogendreieck-Zwickauer-Spitze
-        status: open
-        sources: !keyref src.de.DRG.1935 # 1845/5
-    -   date: 1855-06-28
-        end: point.de.Tharandt
-        status: open
-        sources: src.de.DRG.1935 # 1855/4
-    -   date: 1856-01-01
-        start: !keyref point.de.Werdau-Bogendreieck-Zwickauer-Spitze
-        status: open
-        sources: !keyref src.de.DRG.1935 # 1856/1
     -   date: 1858-11-15
         start: point.de.Chemnitz-Hbf
         end: point.de.Zwickau-Sachs-Hbf
         status: open
         soures: src.de.DRG.1935 # 1858/17
+
+    #   Zwickau - Werdau als Teil der Sächsisch-Bayerischen Eisenbahn
+    -   date: 1841-05-15
+        start: point.de.Zwickau-Sachs-Hbf
+        end: point.de.Werdau-Bogendreieck-Zwickauer-Spitze
+        concession:
+            by: org.de.l.sn
+            for: org.de.Sächsisch-Bayerische-Eisenbahn
+            document: src.de.l.sn.1841.7.45
+        sources: src.de.DRG.1935 # 1842/6
+    -   date: 1845-09-09
+        start: point.de.Zwickau-Sachs-Hbf
+        end: point.de.Werdau-Bogendreieck-Zwickauer-Spitze
+        status: open
+        sources: src.de.DRG.1935 # 1845/5
+
+    #   Werdau Bogendreieck
+    -   date: 1855-09-04
+        start: point.de.Werdau-Bogendreieck-Zwickauer-Spitze
+        concession:
+            by: org.de.l.sn
+            for: org.de.l.sn
+        sources: src.de.DRG.1935 # 1856/1
+    -   date: 1856-01-01
+        start: point.de.Werdau-Bogendreieck-Zwickauer-Spitze
+        status: open
+        sources: src.de.DRG.1935 # 1856/1
 
     #   Eigenschaften
     #
@@ -84,13 +104,13 @@ points:
     -   point.de.Freital-Deuben-Abzw
     -   point.de.Freital-Hainsberg
     -   point.de.Tharandt
-    - !keyref point.de.Klingenberg-Colmnitz
-    - !keyref point.de.Freiberg-Sachs
-    - !keyref point.de.Flöha
-    - !keyref point.de.Niederwiesa
-    - !keyref point.de.Chemnitz-Hilbersdorf-Strw
-    - !keyref point.de.Chemnitz-Hilbersdorf
-    - !keyref point.de.Chemnitz-Hbf-Strw
+    -   point.de.Klingenberg-Colmnitz
+    -   point.de.Freiberg-Sachs
+    - point.de.Flöha
+    - point.de.Niederwiesa
+    - point.de.Chemnitz-Hilbersdorf-Strw
+    - point.de.Chemnitz-Hilbersdorf
+    - point.de.Chemnitz-Hbf-Strw
     -   point.de.Chemnitz-Hbf
     -   point.de.Wüstenbrand-Stw-1
     -   point.de.Wüstenbrand
@@ -119,7 +139,7 @@ events:
         category: de.Bft
         name: Dresden-Altstadt
         de.DS100: DA
-        sources: !keyref src.de.DBAG.ISR
+        sources: src.de.DBAG.ISR
 
 
 ---
@@ -131,7 +151,7 @@ events:
         category: de.Bft
         name: Freital Ost
         de.DS100: DFBS
-        sources: !keyref src.de.DBAG.ISR
+        sources: src.de.DBAG.ISR
 
 
 ---
@@ -143,7 +163,7 @@ events:
         category: de.Bf
         name: Freital-Potschappel
         de.DS100: DPA
-        sources: !keyref src.de.DBAG.ISR
+        sources: src.de.DBAG.ISR
 
 
 ---
@@ -166,7 +186,7 @@ events:
         category: de.Bf
         name: Freital-Hainsberg
         de.DS100: DHG
-        sources: !keyref src.de.DBAG.ISR
+        sources: src.de.DBAG.ISR
 
 
 ---
@@ -178,7 +198,7 @@ events:
         category: de.Bf
         name: Tharandt
         de.DS100: DTH
-        sources: !keyref src.de.DBAG.ISR
+        sources: src.de.DBAG.ISR
 
 
 ---
@@ -190,7 +210,7 @@ events:
         category: de.Bf
         name: Klingenberg-Colmnitz
         de.DS100: DKC
-        sources: !keyref src.de.DBAG.ISR
+        sources: src.de.DBAG.ISR
 
 
 ---
@@ -202,7 +222,7 @@ events:
         category: de.Bf
         name: Freiberg (Sachs)
         de.DS100: DFR
-        sources: !keyref src.de.DBAG.ISR
+        sources: src.de.DBAG.ISR
 
 
 ---
@@ -214,7 +234,7 @@ events:
         category: de.Bf
         name: Flöha
         de.DS100: DFL
-        sources: !keyref src.de.DBAG.ISR
+        sources: src.de.DBAG.ISR
 
 
 ---
@@ -226,7 +246,7 @@ events:
         category: de.Bf
         name: Niederwiesa
         de.DS100: DNR
-        sources: !keyref src.de.DBAG.ISR
+        sources: src.de.DBAG.ISR
 
 
 ---
@@ -239,7 +259,7 @@ events:
         category: de.Strw
         name: Chemnitz-Hilbersdorf Strw 6258/6257
         de.DS100: YLLCI
-        sources: !keyref src.de.DBAG.ISR
+        sources: src.de.DBAG.ISR
 
 
 ---
@@ -261,7 +281,7 @@ events:
         category: de.Strw
         name: Chemnitz Hbf Streckenwechsel 6257/6258
         de.DS100: YLLCH
-        sources: !keyref src.de.DBAG.ISR
+        sources: src.de.DBAG.ISR
 
 
 ---
@@ -273,7 +293,7 @@ events:
         category: de.Bf
         name: Chemnitz Hbf
         de.DS100: DC
-        sources: !keyref src.de.DBAG.ISR
+        sources: src.de.DBAG.ISR
 
 
 ---
@@ -295,7 +315,7 @@ events:
         category: de.Bf
         name: Wüstenbrand
         de.DS100: DWD
-        sources: !keyref src.de.DBAG.ISR
+        sources: src.de.DBAG.ISR
 
 
 ---
@@ -307,7 +327,7 @@ events:
         category: de.Bf
         name: Hohenstein-Ernstthal
         de.DS100: DHO
-        sources: !keyref src.de.DBAG.ISR
+        sources: src.de.DBAG.ISR
 
 
 ---
@@ -319,7 +339,7 @@ events:
         category: de.Bf
         name: St Egidien
         de.DS100: DEG
-        sources: !keyref src.de.DBAG.ISR
+        sources: src.de.DBAG.ISR
 
 
 ---
@@ -331,7 +351,7 @@ events:
         category: de.Bf
         name: Glauchau (Sachs)
         de.DS100: DGL
-        sources: !keyref src.de.DBAG.ISR
+        sources: src.de.DBAG.ISR
 
 
 ---
@@ -343,7 +363,7 @@ events:
         category: [de.Hp, de.Abzw]
         name: Glauchau-Schönbörnchen
         de.DS100: DGLS
-        sources: !keyref src.de.DBAG.ISR
+        sources: src.de.DBAG.ISR
 
 
 ---
@@ -355,7 +375,7 @@ events:
         category: de.Bf
         name: Mosel
         de.DS100: DML
-        sources: !keyref src.de.DBAG.ISR
+        sources: src.de.DBAG.ISR
 
 
 ---
@@ -367,7 +387,7 @@ events:
         category: de.Bf
         name: Zwickau (Sachs) Hbf
         de.DS100: DZW
-        sources: !keyref src.de.DBAG.ISR
+        sources: src.de.DBAG.ISR
 
 
 ---
@@ -379,7 +399,7 @@ events:
         category: [de.Hp, de.Abzw]
         name: Lichtentanne (Sachs)
         de.DS100: DLI
-        sources: !keyref src.de.DBAG.ISR
+        sources: src.de.DBAG.ISR
 
 
 ---
@@ -391,6 +411,6 @@ events:
         category: de.Abzw
         name: Werdau Bogendreieck Zwickauer Spitze
         de.DS100: DWBZ
-        sources: !keyref src.de.DBAG.ISR
+        sources: src.de.DBAG.ISR
 
 # point.de.Werdau-Bogendreieck-Neumarker-Spitze de.6362
