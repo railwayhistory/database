@@ -1,3 +1,4 @@
+#   DE 1245.  Hamburg-Rothenburgsort - Hamburg Hbf
 ---
 key: line.de.1245
 type: line
@@ -5,42 +6,48 @@ label: freight
 events:
     -   date: !!null
         region:
-            - !keyref org.de
-            - !keyref org.de.l.hh
+            - org.de
+            - org.de.l.hh
 
     -   date: !!null
         de.VzG: !!str 1245
-        sources: !keyref src.de.VzG
+        sources: src.de.VzG
 
-    -   date: !date 1906
+    -   date: 1866-07-16
+        start: point.de.Hamburg-Berl
+        status: open
+        sources: src.de.DRG.1935 # 1866/21, 1866/21a, 1866/22
+
+    -   date: 1906
+        end: point.de.Hamburg-Berl
         status: open
 
     -   date: !!null
         category: de.Hauptbahn
         tracks: 1
         gauge: 1435
-        sources: !keyref src.de.SuW.2005
+        sources: src.de.SuW.2005
 
     #   Eigentümer und Betreiber
     #
     -   date: !!null
-        owner: !keyref org.de.e.KPEV.Alt
-        operator: !keyref org.de.e.KPEV.Alt
+        owner: org.de.e.KPEV.Alt
+        operator: org.de.e.KPEV.Alt
     -   date: !date 1920-04-01
-        owner: !keyref org.de
-        operator: !keyref org.de.r.RVM.PH
+        owner: org.de
+        operator: org.de.r.RVM.PH
     -   date: !date 1924-02-12
-        operator: !keyref org.de.e.DREb
+        operator: org.de.e.DREb
     -   date: !date 1924-08-30
-        operator: !keyref org.de.e.DRG
+        operator: org.de.e.DRG
     -   date: !var org.de.DB.start
-        operator: !keyref org.de.e.DB
+        operator: org.de.e.DB
     -   date: !var org.de.DBAG.start
-        owner: !keyref org.de.e.DBAG
-        operator: !keyref org.de.e.DBAG
+        owner: org.de.e.DBAG
+        operator: org.de.e.DBAG
     -   date: !var org.de.DBNetz.start
-        owner: !keyref org.de.e.DBNetz
-        operator: !keyref org.de.e.DBNetz
+        owner: org.de.e.DBNetz
+        operator: org.de.e.DBNetz
 
     #   Verlauf
     #
@@ -52,9 +59,16 @@ events:
             - !pathref path.de.6100  fhar ham
 
 points:
-    - !keyref point.de.Hamburg-Rothenburgsort-Ro            # line.de.1280
-    - !keyref point.de.Hamburg-Berl
-    - !keyref point.de.Hamburg-Hbf                          # line.de.6100
+    -   point.de.Hamburg-Rothenburgsort-Ro            # de.1280
+    -   point.de.Hamburg-Berl
+    -   point.de.Hamburg-Klosterthor
+    -   point.de.Hamburg-Hbf                          # de.6100
+
+
+#-----------------------------------------------------------------------------
+
+# point.de.Hamburg-Rothenburgsort-Ro            de.1280
+
 
 ---
 key: point.de.Hamburg-Berl
@@ -65,24 +79,35 @@ events:
     -   date: !!null
         name: Hamburg Hgbf (Berl)
         de.lknr: 01 032
-        sources: !keyref src.de.Bfv.1928
+        sources: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
         de.Rangklasse: I
         service: freight
-        sources: !keyref src.de.Bfv.1933
+        sources: src.de.Bfv.1933
     -   date: !date c1930
         name: Hamburg Hgbf Berl
-        sources: !keyref src.de.Bfv.1933
+        sources: src.de.Bfv.1933
     -   date: !var lknr.30
         de.lknr: 01 072
-        sources: !keyref src.de.Bfv.1933
+        sources: src.de.Bfv.1933
     -   date: !date c1940
         name: Hamburg Berl
-        sources: !keyref src.de.Bfv.1944
+        sources: src.de.Bfv.1944
     -   date: !date c1970
         status: closed
 
     -   date: !!null
         site: !noderef path.de.1245 ber
 
+
+---
+key: point.de.Hamburg-Klosterthor
+type: point
+progress: stub
+events:
+    -   date: !!null
+        name: Hamburg Klosterthor
+
+
+# point.de.Hamburg-Hbf                          de.6100

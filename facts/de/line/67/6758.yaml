@@ -7,21 +7,29 @@ progress: stub
 events:
     -   date: !!null
         region:
-            - !keyref org.de
-            - !keyref org.de.l.bb
+            - org.de
+            - org.de.l.bb
 
     -   date: !var vzg.dr
         de.VzG: !!str 6758
-        sources: !keyref src.de.VzG
+        sources: src.de.VzG
 
     #   Genehmigungen
     #
+    -   date: 1863-12-07
+        end: point.de.Wriezen
+        concession:
+            by: org.de.l.pre
+            for: org.de.Berlin-Stettiner-Eisenbahn
+            document: src.de.l.pre.1863.44.785
+        sources: src.de.DRG.1935 # 1866/43
 
     #   Eröffnung und Einstellung
     #
-    -   date: !!null
+    -   date: 1866-12-15
+        end: point.de.Wriezen
         status: open
-        sources: !keyref src.de.SuW.2011
+        sources: src.de.DRG.1935 # 1866/43
 
     #   Eigenschaften
     #
@@ -33,13 +41,13 @@ events:
     #
 
 points:
-    - !keyref point.de.Eberswalde-Hbf                       # line.de.6081
-    - !keyref point.de.Eberswalde-Forsthaus
-    - !keyref point.de.Bad-Freienwalde-Oder
-    - !keyref point.de.Wriezen
-    - !keyref point.de.Alt-Bliesdorf-Abzw
-    - !keyref point.de.Letschin
-    - !keyref point.de.Werbig-oben
+    - point.de.Eberswalde-Hbf                       # line.de.6081
+    - point.de.Eberswalde-Forsthaus
+    - point.de.Bad-Freienwalde-Oder
+    - point.de.Wriezen
+    - point.de.Alt-Bliesdorf-Abzw
+    - point.de.Letschin
+    - point.de.Werbig-oben
 
 
 ---
@@ -49,7 +57,7 @@ progress: stub
 events:
     -   date: !!null
         name: Forsthaus
-        sources: !keyref src.de.SuW.2011
+        sources: src.de.SuW.2011
 
 
 ---
@@ -60,9 +68,9 @@ events:
     -   date: !!null
         name: Bad Freiewalde (Oder)
         de.DS100: WFW
-        sources: !keyref src.de.DBAG.ISR
+        sources: src.de.DBAG.ISR
     -   date: !!null
-        connection: !keyref point.de.Bad-Freienwalde-Oder-Kleinb # line.de.8616
+        connection: point.de.Bad-Freienwalde-Oder-Kleinb # line.de.8616
 
 
 ---
@@ -72,31 +80,31 @@ junction: True
 events:
     -   date: !!null
         name: Wriezen
-        sources: !keyref src.de.Kb.1914
+        sources: src.de.Kb.1914
     -   date: !!null
         de.lknr: 28 154
-        sources: !keyref src.de.Bfv.1928
+        sources: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
         de.Rangklasse: I
-        sources: !keyref src.de.Bfv.1933
+        sources: src.de.Bfv.1933
     -   date: !var lknr.30
         de.lknr: 28 169
-        sources: !keyref src.de.Bfv.1933
+        sources: src.de.Bfv.1933
     -   date: !!null
         location:
             - !keyloc line.de.6528 61,22
         de.VBL: Wrz
-        sources: !keyref src.dd.DR.Bln.1959
-    -   date: !date c1965
+        sources: src.dd.DR.Bln.1959
+    -   date: c1965
         de.Rangklasse: II
-        sources: !keyref src.dd.DR.Bln.1968
+        sources: src.dd.DR.Bln.1968
     -   date: !var ds100.dr
         de.DS100: BWRZ
-        sources: !keyref src.de.TPP.2006
+        sources: src.de.TPP.2006
         
     -   date: !!null
-        connection: !keyref point.de.Wriezen-Kleinb         # line.de.6524
+        connection: point.de.Wriezen-Kleinb         # line.de.6524
         site: !noderef path.de.27200 wri
 
 
@@ -107,7 +115,7 @@ progress: stub
 events:
     -   date: !!null
         name: Alt Bliesdorf
-        sources: !keyref src.de.SuW.2011
+        sources: src.de.SuW.2011
 
 
 ---
@@ -118,7 +126,7 @@ events:
     -   date: !!null
         name: Letschin
         de.DS100: BLTS
-        sources: !keyref src.de.DBAG.ISR
+        sources: src.de.DBAG.ISR
 
 
 ---
@@ -129,5 +137,5 @@ events:
     -   date: !!null
         name: Werbig oben
         de.DS100: BWRA
-        sources: !keyref src.de.DBAG.ISR
+        sources: src.de.DBAG.ISR
 

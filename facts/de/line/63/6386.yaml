@@ -7,12 +7,12 @@ progress: stub
 events:
     -   date: !!null
         region:
-            - !keyref org.de
-            - !keyref org.de.l.sn
+            - org.de
+            - org.de.l.sn
 
     -   date: !var vzg.dr
         de.VzG: !!str 6386
-        sources: !keyref src.de.VzG
+        sources: src.de.VzG
 
     #   Genehmigungen
     #
@@ -23,6 +23,13 @@ events:
             for: org.de.Leipzig-Dresdener-Eisenbahn
             document: src.de.l.sn.1860.7.78
         sources: src.de.DRG.1935 # 1860/17
+    -   date: 1865-06-27
+        end: point.de.Meißen
+        concession:
+            by: org.de.l.sn
+            for: org.de.Leipzig-Dresdener-Eisenbahn
+            document: src.de.l.sn.1865.14.478
+        sources: src.de.DRG.1935 # 1866/12
 
     #   Eröffnung und Einstellung
     #
@@ -30,6 +37,10 @@ events:
         start: point.de.Meißen
         status: open
         sources: src.de.DRG.1935 # 1860/17
+    -   date: 1866-05-14
+        end: point.de.Grimma-ob-Bf
+        status: open
+        sources: src.de.DRG.1935 # 1866/12
 
     #   Eigenschaften
     #
@@ -42,16 +53,22 @@ events:
 
 points:
     -   point.de.Borsdorf-Sachs                     # de.6363
-    - !keyref point.de.Beucha
-    - !keyref point.de.Großbothen
-    - !keyref point.de.Muldebrücke
-    - !keyref point.de.Döbeln-Hbf                           # line.de.6255
-    - !keyref point.de.Roßwein
-    - !keyref point.de.Nossen
-    - !keyref point.de.Meißen-Triebischtal
+    -   point.de.Beucha
+    -   point.de.Grimma-ob-Bf
+    -   point.de.Großbothen
+    -   point.de.Muldebrücke
+    -   point.de.Döbeln-Hbf                         # de.6255
+    -   point.de.Roßwein
+    -   point.de.Nossen
+    -   point.de.Meißen-Triebischtal
     -   point.de.Meißen
-    - !keyref point.de.Neusörnewitz
-    - !keyref point.de.Coswig-Dresden-Stw-1                 # line.de.6363
+    -   point.de.Neusörnewitz
+    -   point.de.Coswig-Dresden-Stw-1               # de.6363
+
+
+#-----------------------------------------------------------------------------
+
+# point.de.Borsdorf-Sachs                     de.6363
 
 
 ---
@@ -63,7 +80,16 @@ events:
         category: de.Bf
         name: Beucha
         de.DS100: LBEU
-        sources: !keyref src.de.DBAG.ISR
+        sources: src.de.DBAG.ISR
+
+
+---
+key: point.de.Grimma-ob-Bf
+type: point
+progress: stub
+events:
+    -   date: !!null
+        name: Grimma ob Bf
 
 
 ---
@@ -75,7 +101,7 @@ events:
         category: de.Bf
         name: Großbothen
         de.DS100: DGR
-        sources: !keyref src.de.DBAG.ISR
+        sources: src.de.DBAG.ISR
 
 
 ---
@@ -89,6 +115,9 @@ events:
         de.DS100: DMU
 
 
+# point.de.Döbeln-Hbf                         de.6255
+
+
 ---
 key: point.de.Roßwein
 type: point
@@ -98,7 +127,7 @@ events:
         category: de.Bf
         name: Roßwein
         de.DS100: DRW
-        sources: !keyref src.de.DBAG.ISR
+        sources: src.de.DBAG.ISR
 
 
 ---
@@ -110,7 +139,7 @@ events:
         category: de.Bf
         name: Nossen
         de.DS100: DNO
-        sources: !keyref src.de.DBAG.ISR
+        sources: src.de.DBAG.ISR
 
 
 ---
@@ -131,7 +160,7 @@ events:
         category: de.Bft
         name: Meißen Triebischtal
         de.DS100: DMT
-        sources: !keyref src.de.DBAG.ISR
+        sources: src.de.DBAG.ISR
 
 
 ---
@@ -143,5 +172,7 @@ events:
         category: de.Hp
         name: Neusörnewitz
         de.DS100: DNZ
-        sources: !keyref src.de.DBAG.ISR
+        sources: src.de.DBAG.ISR
 
+
+# point.de.Coswig-Dresden-Stw-1               de.6363
