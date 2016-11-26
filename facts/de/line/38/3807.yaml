@@ -7,12 +7,12 @@ progress: stub
 events:
     -   date: !!null
         region:
-            - !keyref org.de
-            - !keyref org.de.l.he
+            - org.de
+            - org.de.l.he
 
     -   date: !!null
         de.VzG: !!str 3807
-        sources: !keyref src.de.VzG
+        sources: src.de.VzG
 
     #   Genehmigungen
     #
@@ -21,7 +21,7 @@ events:
     #
     -   date: !!null
         status: open
-        sources: !keyref src.de.SuW.2011
+        sources: src.de.SuW.2011
 
     #   Eigenschaften
     #
@@ -33,9 +33,30 @@ events:
     #
 
 points:
-    - !keyref point.de.Bebra-Blankenheim                    # line.de.3600
-    - !keyref point.de.Bebra-Berg
-    - !keyref point.de.Bebra-Ost                            # line.de.3801
+    -   point.de.Bebra-Blankenheim                  # de.3600
+    -   point.de.Bebra-Berg-Gleis-132
+    -   point.de.Bebra-Berg
+    -   point.de.Bebra-Ost                          # de.3801
+
+
+#-----------------------------------------------------------------------------
+
+# point.de.Bebra-Blankenheim                  # de.3600
+
+
+---
+key: point.de.Bebra-Berg-Gleis-132
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Bft
+        name: Bebra Berg (Gleis 132)
+        de.DS100: "FB  S"
+        sources: src.de.DBAG.BSV.2016
+    -   date: !!null
+        master: point.de.Bebra
+        sources: src.de.DBAG.ISR
 
 
 ---
@@ -46,7 +67,11 @@ events:
     -   date: !!null
         category: de.Bft
         name: Bebra Berg
-        de.DS100: FB B
-        master: !keyref point.de.Bebra
-        sources: !keyref src.de.DBAG.ISR
+        de.DS100: "FB  B"
+        sources: src.de.DBAG.BSV.2016
+    -   date: !!null
+        master: point.de.Bebra
+        sources: src.de.DBAG.ISR
 
+
+# point.de.Bebra-Ost                          # de.3801

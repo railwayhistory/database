@@ -1,3 +1,5 @@
+# DE 1400.  Bremen-Sebaldsbrück - Bremen-Sebaldsbrück Wbf
+#
 ---
 key: line.de.1400
 type: line
@@ -5,28 +7,35 @@ progress: stub
 events:
     -   date: !!null
         region:
-            - !keyref org.de
-            - !keyref org.de.l.hb
+            - org.de
+            - org.de.l.hb
 
     -   date: !!null
         de.VzG: !!str 1400
-        sources: !keyref src.de.VzG
+        sources: src.de.VzG
 
     -   date: !var org.de.DBNetz.start
-        owner: !keyref org.de.e.DBNetz
-        operator: !keyref org.de.e.DBNetz
+        owner: org.de.e.DBNetz
+        operator: org.de.e.DBNetz
 
 points:
-    - !keyref point.de.Bremen-Sebaldsbrueck
-    - !keyref point.de.Bremen-Sebaldsbrueck-Werkbf
+    -   point.de.Bremen-Sebaldsbrück
+    -   point.de.Bremen-Sebaldsbrück-Wbf
+
+
+#-----------------------------------------------------------------------------
 
 ---
-key: point.de.Bremen-Sebaldsbrueck-Werkbf
+key: point.de.Bremen-Sebaldsbrück-Wbf
 type: point
 events:
     -   date: !!null
         location: !keyloc line.de.1400 2,1
-        name: Bremen-Sebaldsbrück Werkbf
+        sources: src.de.SuW.2005
+    -   date: !!null
         category: de.Bf
+        name: Bremen-Sebaldsbrück Wbf
+        de.name16: Brm-Sebaldsb Wbf
         de.DS100: HBAW
-        sources: !keyref src.de.SuW.2005
+        sources: src.de.DBAB.BSV.2016
+

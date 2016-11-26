@@ -1,97 +1,114 @@
+# DE 1522.  Oldenburg (Oldb) Hbf - Wilhelmshaven Hbf
+#
 ---
 key: line.de.1522
 type: line
 events:
     -   date: !!null
         region:
-            - !keyref org.de
-            - !keyref org.de.l.ni
+            - org.de
+            - org.de.l.ni
 
     -   date: !!null
         de.VzG: !!str 1522
-        sources: !keyref src.de.VzG
+        sources: src.de.VzG
 
     -   date: !!null
         category: de.Hauptbahn
-        sources: !keyref src.de.DRG.1927
+        sources: src.de.DRG.1927
 
-    -   date: !date 1865-05-05
+    -   date: 1865-05-05
+        treaty:
+            parties:
+                -   org.de.l.old
+                -   org.de.l.pre
         concession:
-            by: !keyref org.de.l.old
-            document: !keyref src.de.l.old.1865.XIX.10.228
-        owner: !keyref org.de.l.pre
-        sources: !keyref src.de.DRG.1935
+            by: org.de.l.old
+            for: org.de.l.pre
+        document: src.de.l.old.1865.10.203
+        sources: src.de.DRG.1935 # 1867/22
+    -   date: 1865-05-05
+        concession:
+            by: org.de.l.old
+            document: src.de.l.old.1865.10.228
+        sources: src.de.DRG.1935 # 1867/22
     -   date: !!null
-        operator: !keyref org.de.e.GOE
-        sources: !keyref src.de.Kb.1914
-    -   date: !date 1867-09-30
+        operator: org.de.e.GOE
+        sources: src.de.Kb.1914
+    -   date: 1867-09-30
         status: open
-        sources: !keyref src.de.DRG.1935
+        sources: src.de.DRG.1935 # 1867/22
 
-    -   date: !date c1900
+    -   date: c1900
         tracks: 2
 
-    -   date: !date 1920-04-01
-        owner: !keyref org.de
-        operator: !keyref org.de.r.RVM.Old
-    -   date: !date 1924-02-12
-        operator: !keyref org.de.e.DREb
-    -   date: !date 1924-08-30
-        operator: !keyref org.de.e.DRG
+    -   date: 1920-04-01
+        owner: org.de
+        operator: org.de.r.RVM.Old
+    -   date: 1924-02-12
+        operator: org.de.e.DREb
+    -   date: 1924-08-30
+        operator: org.de.e.DRG
 
-    -   date: !date c1945
-        start: !keyref point.de.Rastede
-        end: !keyref point.de.Hahn
+    -   date: c1945
+        start: point.de.Rastede
+        end: point.de.Hahn
         tracks: 1
-    -   date: !date c1945
-        start: !keyref point.de.Jaderberg
-        end: !keyref point.de.Varel
+    -   date: c1945
+        start: point.de.Jaderberg
+        end: point.de.Varel
         tracks: 1
 
     -   date: !var org.de.DB.start
-        operator: !keyref org.de.e.DB
+        operator: org.de.e.DB
 
     -   date: !var org.de.DBAG.start
-        owner: !keyref org.de.e.DBAG
-        operator: !keyref org.de.e.DBAG
+        owner: org.de.e.DBAG
+        operator: org.de.e.DBAG
     -   date: !var org.de.DBNetz.start
-        owner: !keyref org.de.e.DBNetz
-        operator: !keyref org.de.e.DBNetz
+        owner: org.de.e.DBNetz
+        operator: org.de.e.DBNetz
 
 points:
-    - !keyref point.de.Oldenburg-Oldb-Hbf                   # line.de.1500
-    - !keyref point.de.Buergerfeld
-    - !keyref point.de.Ofenerdieck
-    - !keyref point.de.Neusüdende
-    - !keyref point.de.Rastede
-    - !keyref point.de.Hahn
-    - !keyref point.de.Jaderberg
-    - !keyref point.de.Varel
-    - !keyref point.de.Dangast
-    - !keyref point.de.Ellenserdamm
-    - !keyref point.de.Sande
-    - !keyref point.de.Mariensiel
-    - !keyref point.de.Wilhelmshaven-West
-    - !keyref point.de.Wilhelmshaven
+    -   point.de.Oldenburg-Oldb-Hbf                 # de.1502
+    -   point.de.Bürgerfeld
+    -   point.de.Ofenerdieck
+    -   point.de.Neusüdende
+    -   point.de.Rastede
+    -   point.de.Hahn-Oldb
+    -   point.de.Jaderberg
+    -   point.de.Varel-Oldb
+    -   point.de.Dangast
+    -   point.de.Ellenserdamm
+    -   point.de.Sande
+    -   point.de.Mariensiel
+    -   point.de.Wilhelmshaven-West
+    -   point.de.Wilhelmshaven
+
+
+#-----------------------------------------------------------------------------
+
+# point.de.Oldenburg-Oldb-Hbf                 de.1500
+
 
 ---
-key: point.de.Buergerfeld
+key: point.de.Bürgerfeld
 type: point
 events:
     -   date: !!null
         location: !keyloc line.de.1522 3,3
-        sources: !keyref src.de.DRG.Mst.1946
+        sources: src.de.DRG.Mst.1946
     -   date: !!null
         name: Bürgerfeld
-        sources: !keyref src.de.Kb.1914
-    -   date: !date c1925
+        sources: src.de.Kb.1914
+    -   date: c1925
         status: closed
-    -   date: !date c1940
+    -   date: c1940
         status: open
         category: de.Hp
         de.lknr: 21 225
-        sources: !keyref src.de.Bfv.1944
-    -   date: !date c1975
+        sources: src.de.Bfv.1944
+    -   date: c1975
         status: closed
 
 ---
@@ -100,23 +117,23 @@ type: point
 events:
     -   date: !!null
         location: !keyloc line.de.1522 5,6
-        sources: !keyref src.de.DRG.Mst.1946
-    -   date: !date c1925
+        sources: src.de.DRG.Mst.1946
+    -   date: c1925
         status: open
         name: Ofenerdieck
         category: de.Hp
         de.lknr: 23 023
-        sources: !keyref src.de.Bfv.1933
-    -   date: !date 1935-01-01
+        sources: src.de.Bfv.1933
+    -   date: 1935-01-01
         de.lknr: 21 211
-        sources: !keyref src.de.Bfv.1944
-    -   date: !date c1940
+        sources: src.de.Bfv.1944
+    -   date: c1940
         category: de.Bf
         de.Rangklasse: III
-        sources: !keyref src.de.Bfv.1944
+        sources: src.de.Bfv.1944
     -   date: !!null
         de.DS100: HOFD
-        sources: !keyref src.de.TPP.2006
+        sources: src.de.TPP.2006
 
 ---
 key: point.de.Neusüdende
@@ -124,18 +141,18 @@ type: point
 events:
     -   date: !!null
         location: !keyloc line.de.1522 8,6
-        sources: !keyref src.de.DRG.Mst.1946
+        sources: src.de.DRG.Mst.1946
     -   date: !!null
         name: Neusüdende
-        sources: !keyref src.de.Kb.1914
-    -   date: !date c1925
+        sources: src.de.Kb.1914
+    -   date: c1925
         status: closed
-    -   date: !date c1940
+    -   date: c1940
         status: open
         category: de.Hp
         de.lknr: 21 212
-        sources: !keyref src.de.Bfv.1944
-    -   date: !date c1975
+        sources: src.de.Bfv.1944
+    -   date: c1975
         status: closed
 
 ---
@@ -144,46 +161,46 @@ type: point
 events:
     -   date: !!null
         location: !keyloc line.de.1522 12,21
-        sources: !keyref src.de.DRG.Mst.1946
+        sources: src.de.DRG.Mst.1946
     -   date: !!null
         name: Rastede
-        sources: !keyref src.de.Kb.1914
+        sources: src.de.Kb.1914
     -   date: !!null
         category: de.Bf
         de.Rangklasse: III
         de.lknr: 23 025
-        sources: !keyref src.de.Bfv.1933
-    -   date: !date 1935-01-01
+        sources: src.de.Bfv.1933
+    -   date: 1935-01-01
         de.lknr: 21 213
-        sources: !keyref src.de.Bfv.1944
+        sources: src.de.Bfv.1944
     -   date: !!null
         de.DS100: HRST
-        sources: !keyref src.de.TPP.2006
+        sources: src.de.TPP.2006
 
 ---
-key: point.de.Hahn
+key: point.de.Hahn-Oldb
 type: point
 events:
     -   date: !!null
         location: !keyloc line.de.1522 17,6
-        sources: !keyref src.de.DRG.Mst.1946
+        sources: src.de.DRG.Mst.1946
     -   date: !!null
         name: Hahn (Oldbg)
-        sources: !keyref src.de.Kb.1914
+        sources: src.de.Kb.1914
     -   date: !!null
         category: de.Bf
         de.Rangklasse: III
         de.lknr: 23 026
-        sources: !keyref src.de.Bfv.1933
-    -   date: !date 1935-01-01
+        sources: src.de.Bfv.1933
+    -   date: 1935-01-01
         de.lknr: 21 214
-        sources: !keyref src.de.Bfv.1944
-    -   date: !date c1935
+        sources: src.de.Bfv.1944
+    -   date: c1935
         name: Hahn (Oldb)
-        sources: !keyref src.de.Kb.W1937
+        sources: src.de.Kb.W1937
     -   date: !!null
         de.DS100: HHAH
-        sources: !keyref src.de.TPP.2006
+        sources: src.de.TPP.2006
 
 ---
 key: point.de.Jaderberg
@@ -191,24 +208,24 @@ type: point
 events:
     -   date: !!null
         location: !keyloc line.de.1522 23,42
-        sources: !keyref src.de.DRG.Mst.1946
+        sources: src.de.DRG.Mst.1946
     -   date: !!null
         name: Jaderberg
-        sources: !keyref src.de.Kb.1914
+        sources: src.de.Kb.1914
     -   date: !!null
         category: de.Bf
         de.Rangklasse: III
         de.lknr: 23 027
-        sources: !keyref src.de.Bfv.1933
-    -   date: !date 1935-01-01
+        sources: src.de.Bfv.1933
+    -   date: 1935-01-01
         de.lknr: 21 215
-        sources: !keyref src.de.Bfv.1944
+        sources: src.de.Bfv.1944
     -   date: !!null
         de.DS100: HJAD
-        sources: !keyref src.de.TPP.2006
+        sources: src.de.TPP.2006
 
 ---
-key: point.de.Varel
+key: point.de.Varel-Oldb
 type: point
 junction: True
 events:
@@ -217,24 +234,24 @@ events:
             - !keyloc line.de.1522 30,8
             - !keyloc line.de.1531  0,0
             - !keyloc line.de.1532 -0,7
-        sources: !keyref src.de.SuW.2005
+        sources: src.de.SuW.2005
     -   date: !!null
         name: Varel (Oldbg)
-        sources: !keyref src.de.Kb.1914
+        sources: src.de.Kb.1914
     -   date: !!null
         category: de.Bf
         de.Rangklasse: I
         de.lknr: 23 028
-        sources: !keyref src.de.Bfv.1933
-    -   date: !date 1935-01-01
+        sources: src.de.Bfv.1933
+    -   date: 1935-01-01
         de.lknr: 21 216
-        sources: !keyref src.de.Bfv.1944
-    -   date: !date c1935
+        sources: src.de.Bfv.1944
+    -   date: c1935
         name: Varel (Oldb)
-        sources: !keyref src.de.Kb.W1937
+        sources: src.de.Kb.W1937
     -   date: !!null
         de.DS100: HVA
-        sources: !keyref src.de.TPP.2006
+        sources: src.de.TPP.2006
 
 ---
 key: point.de.Dangast
@@ -242,21 +259,21 @@ type: point
 events:
     -   date: !!null
         location: !keyloc line.de.1522 33,77
-        sources: !keyref src.de.DRG.Mst.1946
+        sources: src.de.DRG.Mst.1946
     -   date: !!null
         name: Dangastermoor
-        sources: !keyref src.de.Kb.1914
-    -   date: !date c1925
+        sources: src.de.Kb.1914
+    -   date: c1925
         name: Dangast
-        sources: !keyref src.de.Bfv.1933
+        sources: src.de.Bfv.1933
     -   date: !!null
         category: de.Hp
         de.lknr: 23 029
-        sources: !keyref src.de.Bfv.1933
-    -   date: !date 1935-01-01
+        sources: src.de.Bfv.1933
+    -   date: 1935-01-01
         de.lknr: 21 217
-        sources: !keyref src.de.Bfv.1944
-    -   date: !date c1975
+        sources: src.de.Bfv.1944
+    -   date: c1975
         status: closed
 
 ---
@@ -266,22 +283,22 @@ junction: True
 events:
     -   date: !!null
         location: !keyloc line.de.1522 38,92
-        sources: !keyref src.de.DRG.Mst.1946
+        sources: src.de.DRG.Mst.1946
     -   date: !!null
         location: !keyloc line.de.1534 0,0
-        sources: !keyref src.de.SuW.2005
+        sources: src.de.SuW.2005
     -   date: !!null
         name: Ellenserdamm
-        sources: !keyref src.de.Kb.1914
+        sources: src.de.Kb.1914
     -   date: !!null
         category: de.Bf
         de.Rangklasse: III
         de.lknr: 23 030
-        sources: !keyref src.de.Bfv.1933
-    -   date: !date 1935-01-01
+        sources: src.de.Bfv.1933
+    -   date: 1935-01-01
         de.lknr: 21 218
-        sources: !keyref src.de.Bfv.1944
-    -   date: !date c1975
+        sources: src.de.Bfv.1944
+    -   date: c1975
         status: closed
 
 ---
@@ -291,27 +308,27 @@ junction: True
 events:
     -   date: !!null
         location: !keyloc line.de.1522 45,0
-        sources: !keyref src.de.DRG.Mst.1946
+        sources: src.de.DRG.Mst.1946
     -   date: !!null
         location: !keyloc line.de.1540 0,0
-        sources: !keyref src.de.SuW.2005
+        sources: src.de.SuW.2005
     -   date: !!null
         name: Sande
-        sources: !keyref src.de.Kb.1914
+        sources: src.de.Kb.1914
     -   date: !!null
         category: de.Bf
         de.Rangklasse: II
         de.lknr: 23 031
-        sources: !keyref src.de.Bfv.1933
-    -   date: !date 1935-01-01
+        sources: src.de.Bfv.1933
+    -   date: 1935-01-01
         de.lknr: 21 219
-        sources: !keyref src.de.Bfv.1944
-    -   date: !date c1940
+        sources: src.de.Bfv.1944
+    -   date: c1940
         de.Rangklasse: I
-        sources: !keyref src.de.Bfv.1944
+        sources: src.de.Bfv.1944
     -   date: !!null
         de.DS100: HSAN
-        sources: !keyref src.de.TPP.2006
+        sources: src.de.TPP.2006
 
 ---
 key: point.de.Mariensiel
@@ -319,27 +336,27 @@ type: point
 events:
     -   date: !!null
         location: !keyloc line.de.1522 47,4
-        sources: !keyref src.de.DRG.Mst.1946
+        sources: src.de.DRG.Mst.1946
     -   date: !!null
         name: Mariensiel
-        sources: !keyref src.de.Kb.1914
+        sources: src.de.Kb.1914
     -   date: !!null
         category: de.Hp
         de.lknr: 23 032
-        sources: !keyref src.de.Bfv.1933
-    -   date: !date 1935-01-01
+        sources: src.de.Bfv.1933
+    -   date: 1935-01-01
         de.lknr: 21 220
-        sources: !keyref src.de.Bfv.1944
-    -   date: !date c1940
+        sources: src.de.Bfv.1944
+    -   date: c1940
         category: de.Bf
         de.Rangklasse: IV
-        sources: !keyref src.de.Bfv.1944
-    -   date: !date c1975
+        sources: src.de.Bfv.1944
+    -   date: c1975
         category: de.Dkst
-        sources: !keyref src.de.SuW.2005
+        sources: src.de.SuW.2005
     -   date: !!null
         de.DS100: HMAS
-        sources: !keyref src.de.TPP.2006
+        sources: src.de.TPP.2006
 
 ---
 key: point.de.Wilhelmshaven-West
@@ -347,28 +364,28 @@ type: point
 events:
     -   date: !!null
         location: !keyloc line.de.1522 50,50
-        sources: !keyref src.de.DRG.Mst.1946
+        sources: src.de.DRG.Mst.1946
     -   date: !!null
         name: Bant
-    -   date: !date c1910
+    -   date: c1910
         name: Rüstringen
-        sources: !keyref src.de.Kb.1914
-    -   date: !date 1937
+        sources: src.de.Kb.1914
+    -   date: 1937
         name: Wilhelmshaven West
-        sources: !keyref src.de.Kb.W1937
+        sources: src.de.Kb.W1937
     -   date: !!null
         category: de.Hp
         de.lknr: 23 033
-        sources: !keyref src.de.Bfv.1933
-    -   date: !date 1935-01-01
+        sources: src.de.Bfv.1933
+    -   date: 1935-01-01
         de.lknr: 21 221
-        sources: !keyref src.de.Bfv.1944
-    -   date: !date c1975
+        sources: src.de.Bfv.1944
+    -   date: c1975
         category: de.Awanst
-        sources: !keyref src.de.SuW.2005
+        sources: src.de.SuW.2005
     -   date: !!null
         de.DS100: HWW
-        sources: !keyref src.de.TPP.2006
+        sources: src.de.TPP.2006
 
 ---
 key: point.de.Wilhelmshaven
@@ -377,22 +394,22 @@ junction: True
 events:
     -   date: !!null
         location: !keyloc line.de.1522 52,38
-        sources: !keyref src.de.DRG.Mst.1946
+        sources: src.de.DRG.Mst.1946
     -   date: !!null
         name: Heppens
-    -   date: !date 1869-06-19
+    -   date: 1869-06-19
         name: Wilhelmshaven Hbf
-    -   date: !date c1900
+    -   date: c1900
         name: Wilhelmshaven
-        sources: !keyref src.de.Kb.1914
+        sources: src.de.Kb.1914
     -   date: !!null
         category: de.Bf
         de.Rangklasse: I
         de.lknr: 23 034
-        sources: !keyref src.de.Bfv.1933
-    -   date: !date 1935-01-01
+        sources: src.de.Bfv.1933
+    -   date: 1935-01-01
         de.lknr: 21 222
-        sources: !keyref src.de.Bfv.1944
+        sources: src.de.Bfv.1944
     -   date: !!null
         de.DS100: HW
-        sources: !keyref src.de.TPP.2006
+        sources: src.de.TPP.2006
