@@ -7,21 +7,28 @@ progress: stub
 events:
     -   date: !!null
         region:
-            - !keyref org.de
-            - !keyref org.de.l.ni
+            - org.de
+            - org.de.l.ni
 
     -   date: !!null
         de.VzG: !!str 1812
-        sources: !keyref src.de.VzG
+        sources: src.de.VzG
 
     #   Genehmigungen
     #
+    -   date: 1868-02-17
+        start: point.de.Osterode-Harz
+        concession:
+            by: org.de.l.pre
+            for: org.de.l.pre
+        document: src.de.l.pre.1868.8.71
 
     #   Eröffnung und Einstellung
     #
-    -   date: !!null
+    -   date: 1870-10-10
+        start: point.de.Osterode-Harz
         status: open
-        sources: !keyref src.de.SuW.2011
+        sources: src.de.DRG.1935 # 1870/42
 
     #   Eigenschaften
     #
@@ -33,14 +40,19 @@ events:
     #
 
 points:
-    - !keyref point.de.Seesen                               # line.de.1940
-    - !keyref point.de.Gittelde
-    - !keyref point.de.Osterode-Harz
-    - !keyref point.de.Herzberg-Harz                        # line.de.1810
+    -   point.de.Seesen                             # de.1940
+    -   point.de.Gittelde-Bad-Grund-Harz
+    -   point.de.Osterode-Harz
+    -   point.de.Herzberg-Harz                      # de.1810
+
+
+#-----------------------------------------------------------------------------
+
+# point.de.Seesen                             de.1940
 
 
 ---
-key: point.de.Gittelde
+key: point.de.Gittelde-Bad-Grund-Harz
 type: point
 progress: stub
 events:
@@ -48,7 +60,7 @@ events:
         category: de.Bf
         name: Gittelde/Bad Grund (Harz)
         de.DS100: HGT
-        sources: !keyref src.de.DBAG.ISR
+        sources: src.de.DBAG.ISR
 
 
 ---
@@ -57,6 +69,8 @@ type: point
 progress: stub
 events:
     -   date: !!null
-        name: Osterode am Harz
-        connection: !keyref point.de.Osterode-Harz-Nord     # line.de.8188
+        name: Osterode (Harz)
+        connection: point.de.Osterode-Harz-Nord     # line.de.8188
 
+
+# point.de.Herzberg-Harz                      de.1810
