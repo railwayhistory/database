@@ -1,5 +1,6 @@
 # DE 2200.  Wanne-Eickel Hbf - Hamburg Hbf
 #
+#           Ursprünglicher Verlauf Harburg - Hamburg Han: de.1250
 ---
 key: line.de.2200
 type: line
@@ -41,6 +42,8 @@ events:
         category: de.Hauptbahn
         sources: src.de.DRG.1927
 
+    #   Genemigungen
+    #
     -   date: 1866-05-28
         end: point.de.Osnabrück-Hbf
         concession:
@@ -48,6 +51,18 @@ events:
             for: org.de.Köln-Mindener-Eisenbahn
         document: src.de.l.pre.1866.28.331
         sources: src.de.DRG.1935 # 1870/1
+
+    -   date: 1868-06-20
+        start: point.de.Osnabrück-Hbf
+        end: point.de.Hamburg-Harburg
+        concession:
+            by: org.de.l.pre
+            for: org.de.Köln-Mindener-Eisenbahn
+        document: src.de.l.pre.1868.43.602
+        sources: src.de.DRG.1935 # 1872/63
+
+    #   Eröffnung
+    #
 
     -   date: 1870-01-01
         end: point.de.Münster-Westf-Hbf
@@ -59,21 +74,13 @@ events:
         status: open
         sources: src.de.DRG.1935 # 1871/29
 
-
-
-    -   date: 1868-06-20
-        start: point.de.Osnabrück-Hbf
-        end: point.de.Hamburg-Han-Abzw
-        concession:
-            by: org.de.l.pre
-            document: src.de.l.pre.1868.43.602
-        sources: src.de.DRG.1935
-    -   date: 1868-07-03
+    -   date: 1872-12-01
         start: point.de.Hamburg-Harburg
         end: point.de.Hamburg-Han-Abzw
-        concession:
-            by: org.de.l.hh
-        sources: src.de.DRG.1935
+        status: open
+        sources: src.de.DRG.1935 # 1872/63
+
+
     -   date: 1871-05-10
         start: point.de.Bremen-Hemelingen
         end: point.de.Sagehorn
@@ -83,11 +90,6 @@ events:
     -   date: 1871-09-01
         start: point.de.Münster-Westf-Hbf
         end: point.de.Osnabrück-Hbf
-        status: open
-        sources: src.de.DRG.1935
-    -   date: 1872-12-01
-        start: point.de.Hamburg-Harburg
-        end: point.de.Hamburg-Han-Abzw
         status: open
         sources: src.de.DRG.1935
     -   date: 1872-07-01
@@ -376,12 +378,12 @@ points:
     -   point.de.Hamburg-Süderelbbrücke
     -   point.de.Hamburg-Wilhelmsburg-Hp
     -   point.de.Hamburg-Wilhelmsburg-Abzw
+    -   point.de.Hamburg-Wilhelmsburg-LGr
     -   point.de.Veddel-Hp
     -   point.de.Hamburg-Veddel
     -   point.de.Hamburg-Elbbrücke-Bk
     -   point.de.Hamburg-Norderelbbrücke
     -   point.de.Elbbrücke-Hp
-    -   point.de.Hamburg-Han-Abzw
     -   point.de.Oberhafen-Hp
     -   point.de.Hamburg-Hbf                        # de.6100
 
@@ -4121,6 +4123,17 @@ events:
 # point.de.Hamburg-Wilhelmsburg-Wp              wip
 # point.de.Hamburg-Wilhelmsburg-Wa              wia
 # point.de.Hamburg-Wilhelmsburg-Wk              wik
+
+---
+key: point.de.Hamburg-Wilhelmsburg-LGr
+type: point
+subtype: border
+progress: stub
+events:
+    -   date: !!null
+        name: Wilhelmsburg Pre/Ham
+
+
 # point.de.Hamburg-Veddel-S-Bahn                vls
 
 ---
@@ -4240,17 +4253,6 @@ events:
 # point.de.Hamburg-Ericus-Awanst    era
 # point.de.Hamburg-Kai-Rechts       kar
 # point.de.Hamburg-Ericus           eri
-
----
-key: point.de.Hamburg-Han-Abzw
-type: point
-subtype: reference
-events:
-    -   date: !!null
-        name: Abzw Hamburg Han
-
-    -   date: !!null
-        site: !noderef path.de.2200 ahan
 
 
 ---

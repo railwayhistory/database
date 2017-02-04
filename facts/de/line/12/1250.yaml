@@ -1,20 +1,41 @@
+# DE 1250.  Hamburg-Harburg - Hamburg Hbf
+#
 ---
 key: line.de.1250
 type: line
 events:
     -   date: !!null
         region:
-            - !keyref org.de
-            - !keyref org.de.l.hh
+            - org.de
+            - org.de.l.hh
 
     -   date: !!null
         de.VzG: !!str 1250
-        sources: !keyref src.de.VzG
+        sources: src.de.VzG
     
-    #   Genehmigung und Eröffnung
+    #   Genehmigung
     #
-    -   date: !date c1900
+    -   date: 1868-06-20
+        end: point.de.Hamburg-Wilhelmsburg-LGr
+        concession:
+            by: org.de.l.pre
+            for: org.de.Köln-Mindener-Eisenbahn
+        document: src.de.l.pre.1868.43.602
+        sources: src.de.DRG.1935 # 1872/63
+    -   date: 1868-07-03
+        start: point.de.Hamburg-Wilhelmsburg-LGr
+        end: point.de.Hamburg-Hgbf
+        concession:
+            by: org.de.l.hh
+            for: org.de.Köln-Mindener-Eisenbahn
+        sources: src.de.DRG.1935 # 1872/63
+
+    #   Eröffnung
+    #
+    -   date: 1870-12-01
+        end: point.de.Hamburg-Hgbf
         status: open
+        sources: src.de.DRG.1935 # 1872/63
 
     #   Eigenschaften
     #
@@ -22,38 +43,38 @@ events:
         category: de.Hauptbahn
         tracks: 2
         gauge: 1435
-    -   date: !date 1965-04-06?
+    -   date: 1965-04-06?
         electrified:
             overhead: !var el.de
-        sources: !keyref src.ch.Schwach.1989
+        sources: src.ch.Schwach.1989
 
     #   Teilstilllegung
     #
-    -   date: !date c1990
-        end: !keyref point.de.Hamburg-Oberhafen
+    -   date: c1990
+        end: point.de.Hamburg-Oberhafen
         status: closed
-        reused: !keyref line.de.1280
+        reused: line.de.1280
 
     #   Eigentümer und Betreiber
     #
     -   date: !!null
-        owner: !keyref org.de.l.pre
-        operator: !keyref org.de.e.KPEV.Alt
-    -   date: !date 1920-04-01
-        owner: !keyref org.de
-        operator: !keyref org.de.r.RVM.PH
-    -   date: !date 1924-02-12
-        operator: !keyref org.de.e.DREb
-    -   date: !date 1924-08-30
-        operator: !keyref org.de.e.DRG
+        owner: org.de.l.pre
+        operator: org.de.e.KPEV.Alt
+    -   date: 1920-04-01
+        owner: org.de
+        operator: org.de.r.RVM.PH
+    -   date: 1924-02-12
+        operator: org.de.e.DREb
+    -   date: 1924-08-30
+        operator: org.de.e.DRG
     -   date: !var org.de.DB.start
-        operator: !keyref org.de.e.DB
+        operator: org.de.e.DB
     -   date: !var org.de.DBAG.start
-        owner: !keyref org.de.e.DBAG
-        operator: !keyref org.de.e.DBAG
+        owner: org.de.e.DBAG
+        operator: org.de.e.DBAG
     -   date: !var org.de.DBNetz.start
-        owner: !keyref org.de.e.DBNetz
-        operator: !keyref org.de.e.DBNetz
+        owner: org.de.e.DBNetz
+        operator: org.de.e.DBNetz
 
     # Verlauf
     #
@@ -62,21 +83,28 @@ events:
             - !pathref path.de.2200 har ham 2.0
 
 points:
-    - !keyref point.de.Hamburg-Harburg                      # line.de.2200
-    - !keyref point.de.Hamburg-Neuland                      # line.de.2200
-    - !keyref point.de.Hamburg-Süderelbbrücke             # line.de.2200
-    - !keyref point.de.Hamburg-Wilhelmsburg-Ws
-    - !keyref point.de.Hamburg-Wilhelmsburg
-    - !keyref point.de.Hamburg-Wilhelmsburg-Wp
-    - !keyref point.de.Hamburg-Wilhelmsburg-Wa
-    - !keyref point.de.Hamburg-Wilhelmsburg-Wk
-    - !keyref point.de.Hamburg-Veddel                       # line.de.2200
-    - !keyref point.de.Hamburg-Elbbrücke-Bk                # line.de.2200
-    - !keyref point.de.Hamburg-Oberhafen
-    - !keyref point.de.Hamburg-Hgbf
-    - !keyref point.de.Hamburg-Ericus
-    - !keyref point.de.Hamburg-Hbf                          # line.de.6100
+    -   point.de.Hamburg-Harburg                    # de.2200
+    -   point.de.Hamburg-Neuland                    # de.2200
+    -   point.de.Hamburg-Süderelbbrücke             # de.2200
+    -   point.de.Hamburg-Wilhelmsburg-Ws
+    -   point.de.Hamburg-Wilhelmsburg
+    -   point.de.Hamburg-Wilhelmsburg-Wp
+    -   point.de.Hamburg-Wilhelmsburg-Wa
+    -   point.de.Hamburg-Wilhelmsburg-Wk
+    -   point.de.Hamburg-Wilhelmsburg-LGr           # de.2200
+    -   point.de.Hamburg-Veddel                     # de.2200
+    -   point.de.Hamburg-Elbbrücke-Bk               # de.2200
+    -   point.de.Hamburg-Oberhafen
+    -   point.de.Hamburg-Hgbf
+    -   point.de.Hamburg-Ericus
+    -   point.de.Hamburg-Hbf                        # de.6100
 
+
+#-----------------------------------------------------------------------------
+
+# point.de.Hamburg-Harburg                    de.2200
+# point.de.Hamburg-Neuland                    de.2200
+# point.de.Hamburg-Süderelbbrücke             de.2200
 
 ---
 key: point.de.Hamburg-Wilhelmsburg-Ws
@@ -84,12 +112,12 @@ type: point
 events:
     -   date: !!null
         location: !keyloc line.de.1250 347,81
-        sources: !keyref src.de.DRG.Alt.Karte.1949
+        sources: src.de.DRG.Alt.Karte.1949
     -   date: !!null
         category: de.Glgr
         name: Hamburg-Wilhelmsburg (Ws)
         de.DS100: AWLBS
-        sources: !keyref src.de.DS100.1984
+        sources: src.de.DS100.1984
 
     -   date: !!null
         site: !noderef path.de.2200 wis
@@ -102,27 +130,27 @@ junction: True
 events:
     -   date: !!null
         location: !keyloc line.de.1250 348,53
-        sources: !keyref src.de.DRG.Alt.Karte.1949
+        sources: src.de.DRG.Alt.Karte.1949
     -   date: !!null
         location: !keyloc line.de.1255 9,6
-        sources: !keyref src.de.SuW.2005
+        sources: src.de.SuW.2005
     -   date: !!null
         category: de.Bf
         de.Rangklasse: I
         name: Wilhelmsburg Vbf
         de.lknr: 01 130
         service: none
-        sources: !keyref src.de.Bfv.1933
-    -   date: !date 1938
+        sources: src.de.Bfv.1933
+    -   date: 1938
         name: Hamburg-Wilhelmsburg Vbf
-        sources: !keyref src.de.Bfv.1944
+        sources: src.de.Bfv.1944
     -   date: !!null
         de.DS100: AWLB
         de.dstnr: !!str 011304
-        sources: !keyref src.de.DS100.1984
-    -   date: !date c1970
+        sources: src.de.DS100.1984
+    -   date: c1970
         name: Hamburg-Wilhelmsburg
-        sources: !keyref src.de.DS100.1984
+        sources: src.de.DS100.1984
 
     -   date: !!null
         site: !noderef path.de.2200 wil
@@ -137,7 +165,7 @@ events:
         location:
             - !keyloc line.de.1250 348,88
         name: Hamburg-Wilhelmsburg Wp
-        sources: !keyref src.de.DRG.Alt.Karte.1949
+        sources: src.de.DRG.Alt.Karte.1949
 
     -   date: !!null
         site: !noderef path.de.2200 wip
@@ -149,12 +177,12 @@ type: point
 events:
     -   date: !!null
         location: !keyloc line.de.1250 349,91
-        sources: !keyref src.de.DRG.Alt.Karte.1949
+        sources: src.de.DRG.Alt.Karte.1949
     -   date: !!null
         category: de.Glgr
         name: Hamburg-Wilhelmsburg (Wa)
         de.DS100: AWLBA
-        sources: !keyref src.de.DS100.1984
+        sources: src.de.DS100.1984
 
     -   date: !!null
         site: !noderef path.de.2200 wia
@@ -167,33 +195,37 @@ subtype: reference
 events:
     -   date: !!null
         location: !keyloc line.de.1250 350,43
-        sources: !keyref src.de.DRG.Alt.Karte.1949
+        sources: src.de.DRG.Alt.Karte.1949
     -   date: !!null
         category: de.Glgr
         name: Hamburg-Wilhelmsburg (Wk)
         de.DS100: AWLBK
-        sources: !keyref src.de.DS100.1984
+        sources: src.de.DS100.1984
 
     -   date: !!null
         site: !noderef path.de.2200 wik
 
 
+# point.de.Hamburg-Wilhelmsburg-LGr           de.2200
+# point.de.Hamburg-Veddel                     de.2200
+# point.de.Hamburg-Elbbrücke-Bk               de.2200
+
 ---
 key: point.de.Hamburg-Oberhafen
 type: point
 events:
-    -   date: !date c1990
+    -   date: c1990
         status: open
     -   date: !!null
         category: de.Abzw
         location:
             - !keyloc line.de.1250 352,456
             - !keyloc line.de.1280  38,514  
-        sources: !keyref src.de.DBAG.ISR
+        sources: src.de.DBAG.ISR
     -   date: !!null
         name: Hamburg-Oberhafen
         de.DS100: AOHA
-        sources: !keyref src.de.TPP.2006
+        sources: src.de.TPP.2006
 
     -   date: !!null
         site: !noderef path.de.2200 oha right
@@ -205,28 +237,39 @@ type: point
 junction: True
 events:
     -   date: !!null
-        category: de.Bf
-        de.Rangklasse: I
-        name: Hamburg Hgbf Han
-        service: freight
-        sources: !keyref src.de.Bfv.1933
+        name: Hamburg Hann Bf
+        sources: src.de.Kb.1905
     -   date: !!null
-        de.lknr: 01 074
-        sources: !keyref src.de.Bfv.1944
-    -   date: !date c1940
+        category: de.Bf
+        de.lknr: 01 033
+        sources: src.de.Bfv.1928
+    -   date: c1910
+        name: Hamburg Hgbf (Han)
+        service: freight
+        sources: src.de.Bfv.1928
+    -   date: !!null
+        de.Rangklasse: I
+        sources: src.de.Bfv.1933
+    -   date: !var lknr.30
+        de.lknr: 01 075
+        sources: src.de.Bfv.1933
+    -   date: c1930
+        name: Hamburg Hgbf Han
+        sources: src.de.Bfv.1933
+    -   date: c1935
         name: Hamburg Han
-        sources: !keyref src.de.Bfv.1944
+        sources: src.de.Bfv.1938
     -   date: !!null
         location: !keyloc line.de.1250 353,5
-        sources: !keyref src.de.DRG.Alt.Karte.1949
+        sources: src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.DS100: AHBN
         de.dstnr: !!str 010744
-        sources: !keyref src.de.DS100.1984
-    -   date: !date c1960
+        sources: src.de.DS100.1984
+    -   date: c1960
         name: Hamburg Hgbf
-        sources: !keyref src.de.DS100.1984
-    -   date: !date c1995
+        sources: src.de.DS100.1984
+    -   date: c1995
         status: closed
 
     -   date: !!null
@@ -238,20 +281,22 @@ key: point.de.Hamburg-Ericus
 type: point
 junction: True
 events:
-    -   date: !date c2000
+    -   date: c2000
         status: open
     -   date: !!null
         name: Hamburg Ericus
         de.DS100: AERI
-        sources: !keyref src.de.TPP.2006
+        sources: src.de.TPP.2006
     -   date: !!null
         category: de.Abzw
         location:
             - !keyloc line.de.1291 284,930
             - !keyloc line.de.1292 353,894
             - !keyloc line.de.1250 353,921
-        sources: !keyref src.de.DBAG.ISR
+        sources: src.de.DBAG.ISR
 
     -   date: !!null
         site: !noderef path.de.2200 eri
 
+
+# point.de.Hamburg-Hbf                        de.6100

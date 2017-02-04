@@ -7,21 +7,28 @@ progress: stub
 events:
     -   date: !!null
         region:
-            - !keyref org.de
-            - !keyref org.de.l.st
+            - org.de
+            - org.de.l.st
 
     -   date: !var vzg.dr
         de.VzG: !!str 6409
-        sources: !keyref src.de.VzG
+        sources: src.de.VzG
 
     #   Genehmigungen
     #
+    -   date: 1871-06-07
+        concession:
+            by: org.de.l.pre
+            for: org.de.Magdeburg-Halberstädter-Eisenbahn
+        document: src.de.l.pre.1871.17.251
+        sources: src.de.DRG.1935 # 1872/67
 
     #   Eröffnung und Einstellung
     #
-    -   date: !!null
+    -   date: 1872-12-16
+        end: point.de.Haldensleben
         status: open
-        sources: !keyref src.de.SuW.2011
+        sources: src.de.DRG.1935 # 1872/67
 
     #   Eigenschaften
     #
@@ -33,11 +40,16 @@ events:
     #
 
 points:
-    - !keyref point.de.Glindenberg                          # line.de.6402
-    - !keyref point.de.Haldensleben
-    - !keyref point.de.Bülstringen-Florastraße
-    - !keyref point.de.Wegenstedt
-    - !keyref point.de.Oebisfelde                           # line.de.6107
+    -   point.de.Glindenberg                        # de.6402
+    -   point.de.Haldensleben
+    -   point.de.Bülstringen-Florastraße
+    -   point.de.Wegenstedt
+    -   point.de.Oebisfelde                         # de.6107
+
+
+#-----------------------------------------------------------------------------
+
+# point.de.Glindenberg                        de.6402
 
 
 ---
@@ -49,7 +61,7 @@ events:
         category: de.Bf
         name: Haldensleben
         de.DS100: LHL
-        sources: !keyref src.de.DBAG.ISR
+        sources: src.de.DBAG.ISR
 
 
 ---
@@ -61,7 +73,7 @@ events:
         category: [de.Bf, de.Abzw]
         name: Bülstringen Florastraße
         de.DS100: LFLO
-        sources: !keyref src.de.DBAG.ISR
+        sources: src.de.DBAG.ISR
 
 
 ---
@@ -73,5 +85,7 @@ events:
         category: de.Hp
         name: Wegenstedt
         de.DS100: LWST
-        sources: !keyref src.de.DBAG.ISR
+        sources: src.de.DBAG.ISR
 
+
+# point.de.Oebisfelde                         de.6107

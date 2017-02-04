@@ -7,21 +7,39 @@ progress: stub
 events:
     -   date: !!null
         region:
-            - !keyref org.de
-            - !keyref org.de.l.ni
+            - org.de
+            - org.de.l.ni
 
     -   date: !!null
         de.VzG: !!str 1761
-        sources: !keyref src.de.VzG
+        sources: src.de.VzG
 
     #   Genehmigungen
     #
+    -   date: 1868-11-25
+        concession:
+            by: org.de.l.pre
+            for: org.de.Hannover-Altenbekener-Eisenbahn
+        document: src.de.l.pre.1869.1.1
+        sources: src.de.DRG.1935 # 1872/14
+    -   date: 1869-01-23
+        treaty:
+            parties:
+                -   org.de.l.pre
+                -   org.de.l.slp
+        document: src.de.l.pre.1869.24.455
+        sources: src.de.DRG.1935 # 1872/14
 
     #   Eröffnung und Einstellung
     #
-    -   date: !!null
+    -   date: 1872-05-01
+        end: point.de.Barsinghausen
         status: open
-        sources: !keyref src.de.SuW.2011
+        sources: src.de.DRG.1935 # 1872/16
+    -   date: 1872-08-15
+        start: point.de.Barsinghausen
+        status: open
+        sources: src.de.DRG.1935 # 1872/42
 
     #   Eigenschaften
     #
@@ -33,9 +51,24 @@ events:
     #
 
 points:
-    - !keyref point.de.Weetzen                              # line.de.1760
-    - !keyref point.de.Bad-Nenndorf
-    - !keyref point.de.Haste                                # line.de.1700
+    -   point.de.Weetzen                            # de.1760
+    -   point.de.Barsinghausen
+    -   point.de.Bad-Nenndorf
+    -   point.de.Haste                              # de.1700
+
+
+#-----------------------------------------------------------------------------
+
+# point.de.Weetzen                            de.1760
+
+
+---
+key: point.de.Barsinghausen
+type: point
+progress: stub
+events:
+    -   date: !!null
+        name: Barsinghausen
 
 
 ---
@@ -47,5 +80,8 @@ events:
         category: de.Hp
         name: Bad Nenndorf
         de.DS100: HNDF
-        sources: !keyref src.de.DBAG.ISR
+        sources: src.de.DBAG.ISR
+
+
+# point.de.Haste                              de.1700
 

@@ -7,23 +7,28 @@ progress: stub
 events:
     -   date: !!null
         region:
-            - !keyref org.de
-            - !keyref org.de.l.ni
+            - org.de
+            - org.de.l.ni
 
     -   date: !!null
-        start: !keyref point.de.Braunschweig-Hbf
+        start: point.de.Braunschweig-Hbf
         de.VzG: !!str 1900
-        sources: !keyref src.de.VzG
+        sources: src.de.VzG
 
     #   Genehmigungen
     #
+    -   date: 1867-04-22
+        concession:
+            by: org.de.l.bsw
+            for: org.de.l.bsw
+        sources: src.de.DRG.1935 # 1872/27
 
     #   Eröffnung und Einstellung
     #
-    -   date: !!null
-        start: !keyref point.de.Braunschweig-Hbf
+    -   date: 1872-06-01
         status: open
-        sources: !keyref src.de.SuW.2011
+        freight: none
+        sources: src.de.DRG.1935 # 1872/27
 
     #   Eigenschaften
     #
@@ -35,26 +40,23 @@ events:
     #
 
 points:
-    - !keyref point.de.Braunschweig-Hbf-alt                 # line.de.8195
-    - !keyref point.de.Braunschweig-Okerbrücke
-    - !keyref point.de.Braunschweig-Hbf                     # line.de.1730
-    - !keyref point.de.Braunschweig-Schmiedekamp
-    - !keyref point.de.Braunschweig-Buchhorst
-    - !keyref point.de.Weddel-Abzw
-    - !keyref point.de.Schandelah
-    - !keyref point.de.Helmstedt
+    -   point.de.Braunschweig-Hbf-alt               # de.8195
+    -   point.de.Braunschweig-Okerbrücke            # de.1910
+    -   point.de.Braunschweig-Hbf                   # de.1730
+    -   point.de.Braunschweig-Schmiedekamp
+    -   point.de.Braunschweig-Buchhorst
+    -   point.de.Weddel-Abzw
+    -   point.de.Schandelah
+    -   point.de.Helmstedt
 
 
----
-key: point.de.Braunschweig-Okerbrücke
-type: point
-progress: stub
-events:
-    -   date: !!null
-        category: de.Abzw
-        name: Braunschweig Okerbrücke
-        de.DS100: HOKB
-        sources: !keyref src.de.DBAG.ISR
+#-----------------------------------------------------------------------------
+
+# point.de.Braunschweig-Hbf-alt               de.8195
+
+# point.de.Braunschweig-Okerbrücke            de.1910
+
+# point.de.Braunschweig-Hbf                   de.1730
 
 
 ---
@@ -66,7 +68,7 @@ events:
         category: de.Abzw
         name: Braunschweig Schmiedekamp
         de.DS100: HSMK
-        sources: !keyref src.de.DBAG.ISR
+        sources: src.de.DBAG.ISR
 
 
 ---
@@ -78,7 +80,7 @@ events:
         category: de.Abzw
         name: Braunschweig-Buchhorst
         de.DS100: HBUH
-        sources: !keyref src.de.DBAG.ISR
+        sources: src.de.DBAG.ISR
 
 
 ---
@@ -90,7 +92,7 @@ events:
         category: de.Abzw
         name: Weddel (Abzw)
         de.DS100: HWEA
-        sources: !keyref src.de.DBAG.ISR
+        sources: src.de.DBAG.ISR
 
 
 ---
@@ -102,7 +104,7 @@ events:
         category: de.Bf
         name: Schandelah
         de.DS100: HSDL
-        sources: !keyref src.de.DBAG.ISR
+        sources: src.de.DBAG.ISR
 
 
 ---
@@ -114,5 +116,5 @@ events:
         category: de.Bf
         name: Helmstedt
         de.DS100: HHLM
-        sources: !keyref src.de.DBAG.ISR
+        sources: src.de.DBAG.ISR
 

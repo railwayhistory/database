@@ -1,43 +1,58 @@
+# DE 6874.  Eilsleben (b Magdeburg) - Schöningen
+#
 ---
 key: line.de.6874
 type: line
 events:
     -   date: !!null
-        region:
-            - !keyref org.de
-            - !keyref org.de.l.st
+        region: org.de
+    -   date: !!null
+        end: point.de.Offleben-LGr
+        region: org.de.l.st
+    -   date: !!null
+        start: point.de.Offleben-LGr
+        region: org.de.l.ni
 
     -   date: !var vzg.dr
+        end: point.de.Völpke-Streckenende
         de.VzG: !!str 6874
-        sources: !keyref src.de.VzG
+        sources: src.de.VzG
+    -   date: !!null
+        start: point.de.Offleben-LGr
+        de.VzG: !!str 1941
+        sources: src.de.VzG
 
     #   Genehmigung
     #
-    -   date: !date 1868-05-27
+    -   date: 1868-05-27
         treaty:
             parties:
-                - !keyref org.de.l.pre
-                - !keyref org.de.l.bsw
-            document: !keyref src.de.l.pre.1869.16.332
-        sources: !keyref src.de.DRG.1935
-    -   date: !date 1868-12-14
+                - org.de.l.pre
+                - org.de.l.bsw
+        document:
+            -   src.de.l.bsw.1869.13.73
+            -   src.de.l.pre.1869.16.332
+        sources: src.de.DRG.1935 # 1872/46
+    -   date: 1868-12-14
+        end: point.de.Offleben-LGr
         concession:
-            by: !keyref org.de.l.pre
-            for: !keyref org.de.Berlin-Potsdamer-Magdeburger-Eisenbahn
-            document: !keyref src.de.l.pre.1869.4.94
-        sources: !keyref src.de.DRG.1935
-    -   date: !date 1869-02-18
+            by: org.de.l.pre
+            for: org.de.Berlin-Potsdamer-Magdeburger-Eisenbahn
+        document: src.de.l.pre.1869.4.94
+        sources: src.de.DRG.1935 # 1872/46
+    -   date: 1869-02-18
+        start: point.de.Offleben-LGr
         concession:
-            by: !keyref org.de.l.bsw
-            for: !keyref org.de.Berlin-Potsdamer-Magdeburger-Eisenbahn
-            document: !keyref src.de.l.bsw.1869.13
-        sources: !keyref src.de.DRG.1935
+            by: org.de.l.bsw
+            for: org.de.Berlin-Potsdamer-Magdeburger-Eisenbahn
+        document: src.de.l.bsw.1869.13.81
+        sources: src.de.DRG.1935 # 1872/46
 
     #   Eröffnung
     #
-    -   date: !date 1872-09-15
+    -   date: 1872-09-15
         status: open
-        sources: !keyref src.de.DRG.1935
+        sources: src.de.DRG.1935 # 1872/46
     
     #   Eigenschaften
     #
@@ -45,82 +60,70 @@ events:
         category: de.Hauptbahn
         tracks: 2
         gauge: 1435
-        sources: !keyref src.de.DRG.1927
+        sources: src.de.DRG.1927
 
-    -   date: !date c1945
+    -   date: c1945
         tracks: 1
 
-    -   date: !date c1950
-        start: !keyref point.de.Eilsleben-Magdeburg
-        end: !keyref point.de.Voelpke-Streckenende
+    -   date: c1950
+        start: point.de.Eilsleben-Magdeburg
+        end: point.de.Völpke-Streckenende
         category: de.Nebenbahn
-        sources: !keyref src.dd.DR.1976
+        sources: src.dd.DR.1976
 
     #   Stilllegung
     #
-    -   date: !date c1945
-        start: !keyref point.de.Voelpke-Streckenende
+    -   date: c1945
+        start: point.de.Völpke-Streckenende
+        end: point.de.Offleben
         status: removed
-    -   date: !date 1971-09-25
-        end: !keyref point.de.Voelpke-Streckenende
+    -   date: 1971-09-25
+        end: point.de.Völpke-Streckenende
         service: freight
-        sources: !keyref src.de.WP.Bahnstrecke-Eilsleben-Schoeningen
-    -   date: !date 1994-12-31
-        end: !keyref point.de.Voelpke-Streckenende
-        service: none
-        sources: !keyref src.de.WP.Bahnstrecke-Eilsleben-Schoeningen
-    -   date: !date 1996-05-31
-        end: !keyref point.de.Voelpke-Streckenende
+        sources: src.de.WP.Bahnstrecke-Eilsleben-Schoeningen
+    -   date: 1974-04-01
+        start: point.de.Offleben
         status: closed
-        sources: !keyref src.de.web.EBA.Still
+        sources: src.de.WP.Bahnstrecke-Eilsleben-Schoeningen
+    -   date: c1980
+        start: point.de.Offleben
+        status: removed
+    -   date: 1994-12-31
+        end: point.de.Völpke-Streckenende
+        service: none
+        sources: src.de.WP.Bahnstrecke-Eilsleben-Schoeningen
+    -   date: 1996-05-31
+        end: point.de.Völpke-Streckenende
+        status: closed
+        sources: src.de.web.EBA.Still
 
     #   Eigentümer etc.
     #
-    -   date: !!null
-        owner: !keyref org.de.Berlin-Potsdamer-Magdeburger-Eisenbahn
-        operator: !keyref org.de.Berlin-Potsdamer-Magdeburger-Eisenbahn
-        sources: !keyref src.de.DRG.1935
-
-    -   date: !date 1880-04-01
-        owner: !keyref org.de.l.pre
-        operator: !keyref org.de.e.KPEV.Mg
-
-    -   date: !date 1920-04-01
-        owner: !keyref org.de
-        operator: !keyref org.de.r.RVM.PH
-    -   date: !date 1924-02-12
-        operator: !keyref org.de.e.DREb
-    -   date: !date 1924-08-30
-        operator: !keyref org.de.e.DRG
-
-    -   date: !date 1949-10-07
-        owner: !keyref org.dd
-    -   date: !var org.de.DR.start
-        operator: !keyref org.dd.DR
-    -   date: !date 1990-10-03
-        owner: !keyref org.de
-
-    -   date: !var org.de.DBAG.start
-        owner: !keyref org.de.e.DBAG
-        operator: !keyref org.de.e.DBAG
-    -   date: !var org.de.DBNetz.start
-        owner: !keyref org.de.e.DBNetz
-        operator: !keyref org.de.e.DBNetz
 
     #   Verlauf
     #
     -   date: !!null
         course:
             - !pathref path.de.6110 eil  f     0.0
-            - !pathref path.de.6874 a    goff  0.0
+            - !pathref path.de.6874 a    f     0.0
+            - !pathref path.de.1941 a    f     0.0
+            - !pathref path.de.1940 feis soe  -2.0
 
 points:
-    - !keyref point.de.Eilsleben-Magdeburg                  # line.de.6110
-    - !keyref point.de.Badeleben
-    - !keyref point.de.Voelpke
-    - !keyref point.de.Voelpke-Kohlensammelbf
-    - !keyref point.de.Voelpke-Streckenende
-    - !keyref point.de.Offleben-LGr
+    -   point.de.Eilsleben-Magdeburg                # de.6110
+    -   point.de.Badeleben
+    -   point.de.Völpke-Oschersleben
+    -   point.de.Völpke-Haldensleben-Kohlensammelbf
+    -   point.de.Völpke-Streckenende
+    -   point.de.Offleben-LGr
+    -   point.de.Offleben
+    -   point.de.Offleben-Kohlensammelbf
+    -   point.de.Schöningen                         # de.1940
+
+
+#-----------------------------------------------------------------------------
+
+# point.de.Eilsleben-Magdeburg                de.6110
 
 
 ---
@@ -131,7 +134,7 @@ events:
         location: !keyloc line.de.6874 176,04
         category: de.Bk
         name: Badeleben
-    -   date: !date c1950
+    -   date: c1950
         status: closed
 
     -   date: !!null
@@ -139,68 +142,68 @@ events:
 
 
 ---
-key: point.de.Voelpke
+key: point.de.Völpke-Oschersleben
 type: point
 events:
     -   date: !!null
         name: Völpke (Kr Neuhaldensleben)
-        sources: !keyref src.de.Kb.1914
+        sources: src.de.Kb.1914
     -   date: !!null
         de.lknr: 18 044
-        sources: !keyref src.de.Bfv.1928
+        sources: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
         de.Rangklasse: II
-        sources: !keyref src.de.Bfv.1933
-    -   date: !date 1931-10-01
+        sources: src.de.Bfv.1933
+    -   date: 1931-10-01
         de.lknr: 13 269
-        sources: !keyref src.de.Bfv.1933
-    -   date: !date c1935
+        sources: src.de.Bfv.1933
+    -   date: c1935
         de.Rangklasse: III
-        sources: !keyref src.de.Bfv.1938
-    -   date: !date c1940
+        sources: src.de.Bfv.1938
+    -   date: c1940
         name: Völpke (Kr Haldensleben)
-        sources: !keyref src.de.Bfv.1944
+        sources: src.de.Bfv.1944
     -   date: !!null
         location: !keyloc line.de.6874 179,48
         de.VBL: Vl
-        sources: !keyref src.dd.DR.1976
-    -   date: !date c1960
+        sources: src.dd.DR.1976
+    -   date: c1960
         de.Rangklasse: U
         name: Völpke (Kr Oschersleben)
-        sources: !keyref src.dd.DR.1976
+        sources: src.dd.DR.1976
     -   date: !var ds100.dr
         de.DS100: LVL
-        sources: !keyref src.de.SuW.2005
+        sources: src.de.SuW.2005
 
     -   date: !!null
         site: !noderef path.de.6874 voe
 
 
 ---
-key: point.de.Voelpke-Kohlensammelbf
+key: point.de.Völpke-Haldensleben-Kohlensammelbf
 type: point
 events:
     -   date: !!null
         de.lknr: 18 045
         name: Völpke (Kr Neuhaldensleben) Kohlensammelstation
-        sources: !keyref src.de.Bfv.1928
+        sources: src.de.Bfv.1928
     -   date: !!null
         category: de.Ahst
-        sources: !keyref src.de.Bfv.1933
-    -   date: !date c1930
+        sources: src.de.Bfv.1933
+    -   date: c1930
         name: Völpke (Kr Neuhaldensleben) Kohlensammelbf
-        sources: !keyref src.de.Bfv.1933
-    -   date: !date 1931-10-01
+        sources: src.de.Bfv.1933
+    -   date: 1931-10-01
         de.lknr: 13 270
-        sources: !keyref src.de.Bfv.1933
-    -   date: !date c1935
-        master: !keyref point.de.Voelpke
-        sources: !keyref src.de.Bfv.1938
-    -   date: !date c1940
+        sources: src.de.Bfv.1933
+    -   date: c1935
+        master: point.de.Völpke
+        sources: src.de.Bfv.1938
+    -   date: c1940
         name: Völpke (Kr Haldensleben) Kohlensammelbf
-        sources: !keyref src.de.Bfv.1944
-    -   date: !date c1950
+        sources: src.de.Bfv.1944
+    -   date: c1950
         status: closed
 
     -   date: !!null
@@ -208,16 +211,16 @@ events:
 
 
 ---
-key: point.de.Voelpke-Streckenende
+key: point.de.Völpke-Streckenende
 type: point
 subtype: reference
 events:
     -   date: !!null
         location: !keyloc line.de.6874 182,1
-        sources: !keyref src.dd.DR.1976
-    -   date: !date c1985
+        sources: src.dd.DR.1976
+    -   date: c1985
         location: !keyloc line.de.6874 181,902
-        sources: !keyref src.dd.DR.1989
+        sources: src.dd.DR.1989
 
     -   date: !!null
         site: !noderef path.de.6874 vox
@@ -229,13 +232,57 @@ type: point
 subtype: border
 events:
     -   date: !!null
-        location:
-            - !keyloc line.de.6874 184,96
-            - !keyloc line.de.1941 184,96
+        location: !keyloc line.de.6874 184,96
         name: Offleben LGr
 
     -   date: !!null
         site: !noderef path.de.6874 goff
 
 
+---
+key: point.de.Offleben
+type: point
+events:
+    -   date: !!null
+        name: Offleben
+        sources: src.de.Kb.1914
+    -   date: !!null
+        de.lknr: 18 046
+        sources: src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        de.Rangklasse: III
+        sources: src.de.Bfv.1933
+    -   date: 1931-10-01
+        de.lknr: 13 271
+        sources: src.de.Bfv.1933
+    -   date: !!null
+        location: !keyloc line.de.1941 184,96
 
+    -   date: !!null
+        site: !noderef path.de.1941 off
+
+
+---
+key: point.de.Offleben-Kohlensammelbf
+type: point
+events:
+    -   date: !!null
+        name: Offleben Kohlensammelstation
+        de.lknr: 18 047
+        sources: src.de.Bfv.1928
+    -   date: !!null
+        category: de.Ahst
+        sources: src.de.Bfv.1933
+    -   date: c1930
+        name: Offleben Kohlensammelbf
+        sources: src.de.Bfv.1933
+    -   date: 1931-10-01
+        de.lknr: 13 272
+        sources: src.de.Bfv.1933
+
+    -   date: !!null
+        site: !noderef path.de.1941 ofk
+
+
+# point.de.Schöningen                         de.1940
