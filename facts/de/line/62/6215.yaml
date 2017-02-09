@@ -7,21 +7,30 @@ progress: stub
 events:
     -   date: !!null
         region:
-            - !keyref org.de
-            - !keyref org.de.l.sn
+            - org.de
+            - org.de.l.sn
 
     -   date: !var vzg.dr
         de.VzG: !!str 6215
-        sources: !keyref src.de.VzG
+        sources: src.de.VzG
 
     #   Genehmigungen
     #
+    -   date: 1869-11-08
+        end: point.de.Sohland
+        concession:
+            by: org.de.l.sn
+            for: org.de.l.sn
+        document: src.de.l.sn.1869.21.325
+        sources: src.de.DRG.1935 # 1873-41
 
     #   Eröffnung und Einstellung
     #
-    -   date: !!null
+    -   date: 1873-11-01
+        start: point.de.Ebersbach-Sachs
+        end: point.de.Ebersbach-Sachs-Stw-W4
         status: open
-        sources: !keyref src.de.SuW.2011
+        sources: src.de.DRG.1935 # 1873/42
 
     #   Eigenschaften
     #
@@ -33,12 +42,21 @@ events:
     #
 
 points:
-    - !keyref point.de.Oberoderwitz-Abzw                    # line.de.6214
-    - !keyref point.de.Oberoderwitz                         # line.de.6214
-    - !keyref point.de.Eibau
-    - !keyref point.de.Ebersbach-Sachs
-    - !keyref point.de.Taubenheim-Spree
-    - !keyref point.de.Wilthen                              # line.de.6216
+    -   point.de.Oberoderwitz-Abzw                  # de.6214
+    -   point.de.Oberoderwitz                       # de.6214
+    -   point.de.Eibau
+    -   point.de.Ebersbach-Sachs
+    -   point.de.Ebersbach-Sachs-Stw-W4
+    -   point.de.Taubenheim-Spree
+    -   point.de.Sohland
+    -   point.de.Wilthen                            # de.6216
+
+
+#-----------------------------------------------------------------------------
+
+# point.de.Oberoderwitz-Abzw                  de.6214
+
+# point.de.Oberoderwitz                       de.6214
 
 
 ---
@@ -50,7 +68,7 @@ events:
         category: de.Bf
         name: Eibau
         de.DS100: DEIB
-        sources: !keyref src.de.DBAG.ISR
+        sources: src.de.DBAG.ISR
 
 
 ---
@@ -62,7 +80,17 @@ events:
         category: de.Bf
         name: Ebersbach (Sachs)
         de.DS100: DEB
-        sources: !keyref src.de.DBAG.ISR
+        sources: src.de.DBAG.ISR
+
+
+---
+key: point.de.Ebersbach-Sachs-Stw-W4
+type: point
+subtype: reference
+progress: stub
+events:
+    -   date: !!null
+        name: Ebersbach (Sachs) Stw W4
 
 
 ---
@@ -74,5 +102,17 @@ events:
         category: de.Hp
         name: Taubenheim (Spree)
         de.DS100: DTB
-        sources: !keyref src.de.DBAG.ISR
+        sources: src.de.DBAG.ISR
+
+
+---
+key: point.de.Sohland
+type: point
+progress: stub
+events:
+    -   date: !!null
+        name: Sohland
+
+
+# point.de.Wilthen                            de.6216
 
