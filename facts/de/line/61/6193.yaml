@@ -7,21 +7,29 @@ progress: stub
 events:
     -   date: !!null
         region:
-            - !keyref org.de
-            - !keyref org.de.l.bb
+            - org.de
+            - org.de.l.bb
 
     -   date: !var vzg.dr
         de.VzG: !!str 6193
-        sources: !keyref src.de.VzG
+        sources: src.de.VzG
 
     #   Genehmigungen
     #
+    -   date: 1871-10-09
+        end: point.de.Großräschen-Gabelung
+        concession:
+            by: org.de.l.pre
+            for: org.de.Berlin-Görlitzer-Eisenbahn
+        document: src.de.l.pre.ffo.1871.44.233
+        sources: src.de.DRG.1935 # 1874/2
 
     #   Eröffnung und Einstellung
     #
-    -   date: !!null
+    -   date: 1874-05-01
+        end: point.de.Großräschen-Gabelung
         status: open
-        sources: !keyref src.de.SuW.2011
+        sources: src.de.DRG.1935 # 1874/16
 
     #   Eigenschaften
     #
@@ -33,15 +41,24 @@ events:
     #
 
 points:
-    - !keyref point.de.Lübbenau-Spreewald                   # line.de.6142
-    - !keyref point.de.Calau-Niederlausitz                  # line.de.6345
-    - !keyref point.de.Altdöbern-Süd
-    - !keyref point.de.Großräschen
-    - !keyref point.de.Dörrwalde
-    - !keyref point.de.Sedlitz-Ost                          # line.de.6253
-    - !keyref point.de.Senftenberg-B10                      # line.de.6253
-    - !keyref point.de.Senftenberg-B7
-    - !keyref point.de.Senftenberg                          # line.de.6253
+    -   point.de.Lübbenau-Spreewald                 # de.6142
+    -   point.de.Calau-Niederlausitz                # de.6345
+    -   point.de.Altdöbern-Süd
+    -   point.de.Großräschen
+    -   point.de.Großräschen-Gabelung
+    -   point.de.Dörrwalde
+    -   point.de.Sedlitz-Ost                        # de.6253
+    -   point.de.Senftenberg-B10                    # de.6253
+    -   point.de.Senftenberg-B7
+    -   point.de.Senftenberg                        # de.6253
+
+
+#-----------------------------------------------------------------------------
+
+# point.de.Lübbenau-Spreewald                 de.6142
+
+
+# point.de.Calau-Niederlausitz                de.6345
 
 
 ---
@@ -53,7 +70,7 @@ events:
         category: de.Abzw
         name: Altdöbern Süd
         de.DS100: BADS
-        sources: !keyref src.de.DBAG.ISR
+        sources: src.de.DBAG.ISR
 
 
 ---
@@ -65,7 +82,17 @@ events:
         category: de.Bf
         name: Großräschen
         de.DS100: BGR
-        sources: !keyref src.de.DBAG.ISR
+        sources: src.de.DBAG.ISR
+
+
+---
+key: point.de.Großräschen-Gabelung
+type: point
+subtype: reference
+progress: stub
+events:
+    -   date: !!null
+        name: Großräschen Gabelung
 
 
 ---
@@ -77,6 +104,12 @@ events:
         name: Dörrwalde
 
 
+# point.de.Sedlitz-Ost                        de.6253
+
+
+# point.de.Senftenberg-B10                    de.6253
+
+
 ---
 key: point.de.Senftenberg-B7
 type: point
@@ -86,7 +119,8 @@ events:
         category: de.Bft
         name: Senftenberg B7
         de.DS100: BSN A
-        master: !keyref point.de.Senftenberg
-        sources: !keyref src.de.DBAG.ISR
+        master: point.de.Senftenberg
+        sources: src.de.DBAG.ISR
 
 
+# point.de.Senftenberg                        de.6253

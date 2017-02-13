@@ -6,27 +6,53 @@ type: line
 progress: stub
 events:
     -   date: !!null
-        region: !keyref org.de
+        region: org.de
     -   date: !!null
-        end: !keyref point.de.Groitzsch-LGr
-        region: !keyref org.de.l.sn
+        end: point.de.Groitzsch-LGr
+        region: org.de.l.sn
     -   date: !!null
-        start: !keyref point.de.Groitzsch-LGr
-        region: !keyref org.de.l.th
+        start: point.de.Groitzsch-LGr
+        region: org.de.l.th
 
     -   date: !var vzg.dr
-        start: !keyref point.de.Zwenkau-Leipzig
+        start: point.de.Zwenkau-Leipzig
         de.VzG: !!str 6821
-        sources: !keyref src.de.VzG
+        sources: src.de.VzG
+
+    #   Staatsverträge
+    #
+    -   date: 1872-02-09
+        treaty:
+            parties:
+                -   org.de.l.sn
+                -   org.de.l.sal
+        document:
+            -   src.de.l.sn.1872.10.203
+            -   src.de.l.sal.1872.7.67
+        sources: src.de.DRG.1935 # 1874/39
 
     #   Genehmigungen
     #
+    -   date: 1872-04-19
+        end: point.de.Groitzsch-LGr
+        concession:
+            by: org.de.l.sn
+            for: org.de.Leipzig-Gaschwitz-Meuselwitzer-Eisenbahn
+        document: src.de.l.sn.1872.10.217
+        sources: src.de.DRG.1935 # 1874/39
+    -   date: 1872-05-02
+        start: point.de.Groitzsch-LGr
+        concession:
+            by: org.de.l.sal
+            for: org.de.Leipzig-Gaschwitz-Meuselwitzer-Eisenbahn
+        document: src.de.l.sal.1872.7.66
+        sources: src.de.DRG.1935 # 1874/39
 
     #   Eröffnung und Einstellung
     #
-    -   date: !!null
-        status: closed
-        sources: !keyref src.de.SuW.2011
+    -   date: 1874-09-07
+        status: open
+        sources: src.de.DRG.1935 # 1874/39
 
     #   Eigenschaften
     #
@@ -38,11 +64,16 @@ events:
     #
 
 points:
-    - !keyref point.de.Markkleeberg-Gaschwitz               # line.de.6362
-    - !keyref point.de.Zwenkau-Leipzig
-    - !keyref point.de.Groitzsch
-    - !keyref point.de.Groitzsch-LGr
-    - !keyref point.de.Meuselwitz                           # line.de.6814
+    -   point.de.Markkleeberg-Gaschwitz             # de.6362
+    -   point.de.Zwenkau-Leipzig
+    -   point.de.Groitzsch
+    -   point.de.Groitzsch-LGr
+    -   point.de.Meuselwitz                         # de.6814
+
+
+#-----------------------------------------------------------------------------
+
+# point.de.Markkleeberg-Gaschwitz             de.6362
 
 
 ---
@@ -71,3 +102,5 @@ events:
     -   date: !!null
         name: Groitzsch SN/TH
 
+
+# point.de.Meuselwitz                         de.6814

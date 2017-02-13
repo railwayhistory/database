@@ -7,26 +7,37 @@ progress: stub
 events:
     -   date: !!null
         region:
-            - !keyref org.de
-            - !keyref org.de.l.sn
+            - org.de
+            - org.de.l.sn
 
     -   date: !var vzg.dr
         de.VzG: !!str 6360
-        sources: !keyref src.de.VzG
+        sources: src.de.VzG
 
     #   Genehmigungen
     #
+    -   date: 1872-07-17
+        start: point.de.Pönitz-Leipzig-LGr
+        concession:
+            by: org.de.l.pre
+            for: org.de.Halle-Sorau-Gubener-Eisenbahn
+        document: src.de.l.pre.mer.1872.36.197
+        sources: src.de.DRG.1935 # 1874/50
+    -   date: 1872-12-24
+        start: point.de.Leipzig-Heiterblick
+        end: point.de.Pönitz-Leipzig-LGr
+        concession:
+            by: org.de.l.sn
+            for: org.de.Halle-Sorau-Gubener-Eisenbahn
+        document: src.de.l.sn.1873.3.168
+        sources: src.de.DRG.1935 # 1874/50
 
     #   Eröffnung und Einstellung
     #
-    -   date: !!null
-        end: !keyref point.de.Leipzig-Nord
-        status: closed
-        sources: !keyref src.de.SuW.2011
-    -   date: !!null
-        start: !keyref point.de.Leipzig-Nord
+    -   date: 1874-11-01
+        start: point.de.Leipzig-Heiterblick
         status: open
-        sources: !keyref src.de.SuW.2011
+        sources: src.de.DRG.1935 # 1874/50
 
     #   Eigenschaften
     #
@@ -38,15 +49,27 @@ events:
     #
 
 points:
-    - !keyref point.de.Leipzig-Hbf                          # line.de.6363
-    - !keyref point.de.Leipzig-Berliner-Straße              # line.de.6411
-    - !keyref point.de.Leipzig-Nord                         # line.de.6396
-    - !keyref point.de.Leipzig-Thekla                       # line.de.6369
-    - !keyref point.de.Leipzig-Heiterblick
-    - !keyref point.de.Taucha-Leipzig
-    - !keyref point.de.Pönitz-Leipzig
-    - !keyref point.de.Jesewitz-Leipzig
-    - !keyref point.de.Eilenburg                            # line.de.6345
+    -   point.de.Leipzig-Hbf                        # de.6363
+    -   point.de.Leipzig-Berliner-Straße            # de.6411
+    -   point.de.Leipzig-Nord                       # de.6396
+    -   point.de.Leipzig-Thekla                     # de.6369
+    -   point.de.Leipzig-Heiterblick
+    -   point.de.Taucha-Leipzig
+    -   point.de.Pönitz-Leipzig
+    -   point.de.Pönitz-Leipzig-LGr
+    -   point.de.Jesewitz-Leipzig
+    -   point.de.Eilenburg                          # de.6345
+
+
+#-----------------------------------------------------------------------------
+
+# point.de.Leipzig-Hbf                        de.6363
+
+# point.de.Leipzig-Berliner-Straße            de.6411
+
+# point.de.Leipzig-Nord                       de.6396
+
+# point.de.Leipzig-Thekla                     de.6369
 
 
 ---
@@ -58,7 +81,7 @@ events:
         category: [de.Hp, de.Abzw]
         name: Leipzig-Heiterblick
         de.DS100: LLH
-        sources: !keyref src.de.DBAG.ISR
+        sources: src.de.DBAG.ISR
 
 
 ---
@@ -70,7 +93,7 @@ events:
         category: de.Bf
         name: Taucha (b Leipzig)
         de.DS100: LTC
-        sources: !keyref src.de.DBAG.ISR
+        sources: src.de.DBAG.ISR
 
 
 ---
@@ -82,7 +105,17 @@ events:
         category: de.Hp
         name: Pönitz (b Leipzig)
         de.DS100: LPOE
-        sources: !keyref src.de.DBAG.ISR
+        sources: src.de.DBAG.ISR
+
+
+---
+key: point.de.Pönitz-Leipzig-LGr
+type: point
+subtype: border
+progress: stub
+events:
+    -   date: !!null
+        name: Pönitz (b Leipzig) Sn/Pre
 
 
 ---
@@ -94,6 +127,7 @@ events:
         category: de.Bf
         name: Jesewitz (b Leipzig)
         de.DS100: LJES
-        sources: !keyref src.de.DBAG.ISR
+        sources: src.de.DBAG.ISR
 
 
+# point.de.Eilenburg                          de.6345

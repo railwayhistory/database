@@ -1,3 +1,5 @@
+# DE 6033.  Berlin Wannseebf - Berlin-Wannsee
+#
 ---
 key: line.de.6033
 type: line
@@ -5,86 +7,55 @@ label: de.S-Bahn
 events:
     -   date: !!null
         region:
-            - !keyref org.de
-            - !keyref org.de.l.be
+            - org.de
+            - org.de.l.be
 
     -   date: !var vzg.dr
         de.VzG: !!str 6033
-        sources: !keyref src.de.VzG
+        sources: src.de.VzG
 
-    -   date: !date 1871-05-31
-        start: !keyref point.de.Berlin-Zehlendorf
+    -   date: 1871-05-31
+        start: point.de.Berlin-Zehlendorf
         concession:
-            by: !keyref org.de.l.pre
-            for: !keyref org.de.Berlin-Potsdam-Magdeburger-Eisenbahn
-        sources:
-            - !keyref src.de.DRG.1935
-            - !keyref src.de.l.pre.1871.30.412
-    -   date: !date 1874-06-01
-        start: !keyref point.de.Berlin-Zehlendorf
-        status: open
-        sources: !keyref src.de.DRG.1935
+            by: org.de.l.pre
+            for: org.de.Berlin-Potsdam-Magdeburger-Eisenbahn
+        document: src.de.l.pre.1871.30.412
+        sources: src.de.DRG.1935 # 1874/25
 
-    -   date: !date 1891-10-01
-        end: !keyref point.de.Berlin-Zehlendorf
+    -   date: 1874-06-01
+        start: point.de.Berlin-Zehlendorf
         status: open
-        sources: !keyref src.de.Kuhlmann.2000
+        sources: src.de.DRG.1935 # 1874/25
 
-    -   date: !date 1933-05-15
+
+
+
+
+
+    -   date: 1891-10-01
+        end: point.de.Berlin-Zehlendorf
+        status: open
+        sources: src.de.Kuhlmann.2000
+
+    -   date: 1933-05-15
         electrified:
             rail: !var el.de.bln
-        sources: !keyref src.de.Kuhlmann.2000
+        sources: src.de.Kuhlmann.2000
 
-    -   date: !date 1939-10-09
-        end: !keyref point.de.Berlin-Schoeneberg-Strw
+    -   date: 1939-10-09
+        end: point.de.Berlin-Schöneberg-Strw
         status: closed
-        sources: !keyref src.de.Kuhlmann.2000
+        sources: src.de.Kuhlmann.2000
 
-    -   date: !date 1980-09-18
-        start: !keyref point.de.Berlin-Schoeneberg-Strw
+    -   date: 1980-09-18
+        start: point.de.Berlin-Schöneberg-Strw
         service: freight
-        sources: !keyref src.de.Kuhlmann.2000
+        sources: src.de.Kuhlmann.2000
 
-    -   date: !date 1985-02-01
-        start: !keyref point.de.Berlin-Schoeneberg-Strw
+    -   date: 1985-02-01
+        start: point.de.Berlin-Schöneberg-Strw
         service: passenger
-        sources: !keyref src.de.Kuhlmann.2000
-
-    # Eigentümer und Betreiber
-    #
-    -   date: !!null
-        start: !keyref point.de.Berlin-Zehlendorf
-        owner: !keyref org.de.Berlin-Potsdam-Magdeburger-Eisenbahn
-        operator: !keyref org.de.Berlin-Potsdam-Magdeburger-Eisenbahn
-    -   date: !date 1880-04-01
-        start: !keyref point.de.Berlin-Zehlendorf
-        owner: !keyref org.de.l.pre
-    -   date: !date c1885
-        operator: !keyref org.de.e.KPEV.Bln
-    -   date: !date 1891-10-01
-        end: !keyref point.de.Berlin-Zehlendorf
-        owner: !keyref org.de.l.pre
-        operator: !keyref org.de.e.KPEV.Bln
-
-    -   date: !date 1920-04-01
-        owner: !keyref org.de
-        operator: !keyref org.de.r.RVM.PH
-    -   date: !date 1924-02-12
-        operator: !keyref org.de.e.DREb
-    -   date: !date 1924-08-30
-        operator: !keyref org.de.e.DRG
-
-    -   date: !var dd.DR.start
-        operator: !keyref org.dd.DR
-    -   date: !date 1984-01-09
-        operator: !keyref org.de.e.BVG
-
-    -   date: !var org.de.DBAG.start
-        owner: !keyref org.de.e.DBAG
-        operator: !keyref org.de.e.DBAG
-    -   date: !var org.de.DBNetz.start
-        owner: !keyref org.de.e.DBNetz
-        operator: !keyref org.de.e.DBNetz
+        sources: src.de.Kuhlmann.2000
 
     #   Verlauf
     #
@@ -95,117 +66,122 @@ events:
             - !pathref path.de.6118 fnik wan  2.
 
 points:
-    - !keyref point.de.Berlin-Wannseebf
-    - !keyref point.de.Berlin-Grossgoerschenstrasse
-    - !keyref point.de.Berlin-Schoeneberg-Bk-7              # line.de.6177
-    - !keyref point.de.Berlin-Schoeneberg-Strw
-    - !keyref point.de.Berlin-Schoeneberg-Vorortbahn
-    - !keyref point.de.Berlin-Friedenau
-    - !keyref point.de.Berlin-Feuerbachstrasse
-    - !keyref point.de.Berlin-Rathaus-Steglitz
-    - !keyref point.de.Berlin-Botanischer-Garten
-    - !keyref point.de.Berlin-Lichterfelde-West             # line.de.6177
-    - !keyref point.de.Berlin-Lichterfelde-West-S-Bahn
-    - !keyref point.de.Berlin-Sundgauer-Strasse
-    - !keyref point.de.Berlin-Zehlendorf                    # line.de.6177
-    - !keyref point.de.Berlin-Zehlendorf-Zwt
-    - !keyref point.de.Berlin-Mexikoplatz
-    - !keyref point.de.Berlin-Schlachtensee
-    - !keyref point.de.Berlin-Nikolassee-Wannseebahn
-    - !keyref point.de.Berlin-Nikolassee
-    - !keyref point.de.Berlin-Wannsee                       # line.de.6118
-    - !keyref point.de.Berlin-Wannsee-S-Bahn
+    -   point.de.Berlin-Wannseebf
+    -   point.de.Berlin-Yorckstraße-Großgörschenstraße
+    -   point.de.Berlin-Schöneberg-Bk-7             # de.6177
+    -   point.de.Berlin-Schöneberg-Strw
+    -   point.de.Berlin-Schöneberg-Vorortbahn
+    -   point.de.Berlin-Friedenau
+    -   point.de.Berlin-Feuerbachstraße
+    -   point.de.Berlin-Rathaus-Steglitz
+    -   point.de.Berlin-Botanischer-Garten
+    -   point.de.Berlin-Lichterfelde-West           # de.6177
+    -   point.de.Berlin-Lichterfelde-West-S-Bahn
+    -   point.de.Berlin-Sundgauer-Strasse
+    -   point.de.Berlin-Zehlendorf                  # de.6177
+    -   point.de.Berlin-Zehlendorf-Zwt
+    -   point.de.Berlin-Mexikoplatz
+    -   point.de.Berlin-Schlachtensee
+    -   point.de.Berlin-Nikolassee-Wannseebahn
+    -   point.de.Berlin-Nikolassee
+    -   point.de.Berlin-Wannsee                     # de.6118
+    -   point.de.Berlin-Wannsee-S-Bahn
 
+
+#-----------------------------------------------------------------------------
 
 ---
 key: point.de.Berlin-Wannseebf
 type: point
 junction: True
 events:
-    -   date: !date 1891-10-01
+    -   date: 1891-10-01
         status: open
-        sources: !keyref src.de.Kuhlmann.2000
+        sources: src.de.Kuhlmann.2000
     -   date: !!null
         name: Berlin Wannseebf
-        sources: !keyref src.de.Kb.1914
+        sources: src.de.Kb.1914
     -   date: !!null
         location: !keyloc line.de.6033 0,00
         category: de.Bf
         de.Rangklasse: I
-        sources: !keyref src.de.DRG.Bln.1927
+        sources: src.de.DRG.Bln.1927
     -   date: !!null
-        master: !keyref point.de.Berlin-Potsd-Bf
-        sources: !keyref src.de.Bfv.1928
-    -   date: !date c1930
+        master: point.de.Berlin-Potsd-Bf
+        sources: src.de.Bfv.1928
+    -   date: c1930
         de.Rangklasse: II
-        sources: !keyref src.de.DRG.Bln.1932
+        sources: src.de.DRG.Bln.1932
     -   date: !!null
         service: passenger
-        sources: !keyref src.de.Bfv.1933
-    -   date: !date 1939-10-08
+        sources: src.de.Bfv.1933
+    -   date: 1939-10-08
         status: closed
-        sources: !keyref src.de.Kuhlmann.2000
+        sources: src.de.Kuhlmann.2000
 
     -   date: !!null
         site: !noderef path.de.6177 bwa
 
 
 ---
-key: point.de.Berlin-Grossgoerschenstrasse
+key: point.de.Berlin-Yorckstraße-Großgörschenstraße
 type: point
 events:
-    -   date: !date 1891-10-01
+    -   date: 1891-10-01
         status: open
-        sources: !keyref src.de.Kuhlmann.2000
+        sources: src.de.Kuhlmann.2000
     -   date: !!null
         name: Großgörschenstraße
-        sources: !keyref src.de.Kb.1914
+        sources: src.de.Kb.1914
     -   date: !!null
         location: !keyloc line.de.6033 1,90
         category: de.Bf
         de.Rangklasse: II
-        sources: !keyref src.de.DRG.Bln.1927
+        sources: src.de.DRG.Bln.1927
     -   date: !!null
         de.lknr: 03 281
         service: passenger
-        sources: !keyref src.de.Bfv.1928
-    -   date: !date c1930
+        sources: src.de.Bfv.1928
+    -   date: c1930
         de.Rangklasse: III
-        sources: !keyref src.de.DRG.Bln.1932
+        sources: src.de.DRG.Bln.1932
     -   date: !var lknr.30
         de.lknr: 03 124
-        sources: !keyref src.de.Bfv.1933
-    -   date: !date c1935
+        sources: src.de.Bfv.1933
+    -   date: c1935
         category: de.Hp
-        sources: !keyref src.de.Bfv.1938
+        sources: src.de.Bfv.1938
     -   date: !!null
         location: !keyloc line.de.6032 6,048
-        sources: !keyref src.de.DRG.Bln.1943
+        sources: src.de.DRG.Bln.1943
     -   date: !!null
         de.VBL: Gör
-        sources: !keyref src.de.DRG.Bln.1946
-    -   date: !date c1950
-        master: !keyref point.de.Berlin-Friedenau
-        sources: !keyref src.dd.DR.Bln.1959
-    -   date: !date c1980
-        master: !keyref point.de.Berlin-Wilmersdorf
-        sources: !keyref src.dd.DR.Bln.1983
-    -   date: !date 1992-05-31
+        sources: src.de.DRG.Bln.1946
+    -   date: c1950
+        master: point.de.Berlin-Friedenau
+        sources: src.dd.DR.Bln.1959
+    -   date: c1980
+        master: point.de.Berlin-Wilmersdorf
+        sources: src.dd.DR.Bln.1983
+    -   date: 1992-05-31
         name: Berlin Yorckstraße/Großgörschenstraße
         public_name: Yorckstraße (Großgörschenstraße)
         sources:
-            - !keyref src.de.Kuhlmann.2000
-            - !keyref src.de.TPP.2006
+            - src.de.Kuhlmann.2000
+            - src.de.TPP.2006
     -   date: !var ds100.dr
         de.DS100: BGGS
-        sources: !keyref src.de.TPP.2006
+        sources: src.de.TPP.2006
 
     -   date: !!null
         site: !noderef path.de.6177 ggo
 
 
+# point.de.Berlin-Schöneberg-Bk-7               de.6177
+
+
 ---
-key: point.de.Berlin-Schoeneberg-Strw
+key: point.de.Berlin-Schöneberg-Strw
 type: point
 subtype: reference
 events:
@@ -221,40 +197,40 @@ events:
 
 
 ---
-key: point.de.Berlin-Schoeneberg-Vorortbahn
+key: point.de.Berlin-Schöneberg-Vorortbahn
 type: point
 junction: True
 events:
-    -   date: !date 1933-03-01
+    -   date: 1933-03-01
         status: open
-        sources: !keyref src.de.Kuhlmann.2000
+        sources: src.de.Kuhlmann.2000
     -   date: !!null
         de.lknr: 03 040
         category: de.Hp
         name: Schöneberg
         service: passenger
-        sources: !keyref src.de.Bfv.1933
+        sources: src.de.Bfv.1933
     -   date: !!null
         location: !keyloc line.de.6033 3,49
-        sources: !keyref src.de.DRG.Bln.1943
+        sources: src.de.DRG.Bln.1943
     -   date: !!null
         de.VBL: Sg
-        sources: !keyref src.de.DRG.Bln.1946
-    -   date: !date c1950
-        master: !keyref point.de.Berlin-Friedenau
-        sources: !keyref src.dd.DR.Bln.1959
+        sources: src.de.DRG.Bln.1946
+    -   date: c1950
+        master: point.de.Berlin-Friedenau
+        sources: src.dd.DR.Bln.1959
     -   date: !var ds100.dr
         de.DS100: BSGRV
-        sources: !keyref src.de.TPP.2006
-    -   date: !date c1995
+        sources: src.de.TPP.2006
+    -   date: c1995
         category: de.Bf
         name: Berlin-Schöneberg (Vorortbahn)
-        sources: !keyref src.de.TPP.2006
-    -   date: !date c1995
+        sources: src.de.TPP.2006
+    -   date: c1995
         public_name: Berlin-Schöneberg
     -   date: !!null
         location: !keyloc line.de.6032 7,632
-        sources: !keyref src.de.DBAG.ISR
+        sources: src.de.DBAG.ISR
 
     -   date: !!null
         site: !noderef path.de.6177 sob
@@ -264,75 +240,75 @@ events:
 key: point.de.Berlin-Friedenau
 type: point
 events:
-    -   date: !date 1874-11-01
+    -   date: 1874-11-01
         status: open
-        sources: !keyref src.de.Kuhlmann.2000
+        sources: src.de.Kuhlmann.2000
     -   date: !!null
         name: Friedenau
-        sources: !keyref src.de.Kb.1914
+        sources: src.de.Kb.1914
     -   date: !!null
         location: !keyloc line.de.6033 4,75
         category: de.Bf
         de.Rangklasse: III
-        sources: !keyref src.de.DRG.Bln.1927
+        sources: src.de.DRG.Bln.1927
     -   date: !!null
         de.lknr: 03 122
         service: passenger
-        sources: !keyref src.de.Bfv.1928
+        sources: src.de.Bfv.1928
     -   date: !var lknr.30
         de.lknr: 03 126
-        sources: !keyref src.de.Bfv.1933
+        sources: src.de.Bfv.1933
     -   date: !!null
         de.VBL: Fr
-        sources: !keyref src.de.DRG.Bln.1946
-    -   date: !date c1980
+        sources: src.de.DRG.Bln.1946
+    -   date: c1980
         de.Rangklasse: U
-        master: !keyref point.de.Berlin-Rathaus-Steglitz
-        sources: !keyref src.dd.DR.Bln.1983
-    -   date: !date c1985
+        master: point.de.Berlin-Rathaus-Steglitz
+        sources: src.dd.DR.Bln.1983
+    -   date: c1985
         category: de.Hp
-        sources: !keyref src.dd.DR.Bln.1991
+        sources: src.dd.DR.Bln.1991
     -   date: !var ds100.dr
         de.DS100: BFRU
-        sources: !keyref src.de.TPP.2006
-    -   date: !date c1995
+        sources: src.de.TPP.2006
+    -   date: c1995
         name: Berlin-Friedenau
-        sources: !keyref src.de.TPP.2006
-    -   date: !date c2010
+        sources: src.de.TPP.2006
+    -   date: c2010
         category: de.Bft
-        sources: !keyref src.de.DBAG.ISR
+        sources: src.de.DBAG.ISR
 
     -   date: !!null
         site: !noderef path.de.6177 fri
 
 
 ---
-key: point.de.Berlin-Feuerbachstrasse
+key: point.de.Berlin-Feuerbachstraße
 type: point
 events:
-    -   date: !date 1933-05-15
+    -   date: 1933-05-15
         status: open
-        sources: !keyref src.de.Kuhlmann.2000
+        sources: src.de.Kuhlmann.2000
     -   date: !!null
         category: de.Hp
         name: Feuerbachstraße
         de.lknr: 03 127
-        sources: !keyref src.de.Bfv.1938
+        sources: src.de.Bfv.1938
     -   date: !!null
         location: !keyloc line.de.6033 5,65
-        sources: !keyref src.de.DRG.Bln.1943
+        sources: src.de.DRG.Bln.1943
     -   date: !!null
         de.VBL: Fb
-        sources: !keyref src.de.DRG.Bln.1946
-    -   date: !date c1950
-        master: !keyref point.de.Berlin-Rathaus-Steglitz
-        sources: !keyref src.dd.DR.Bln.1959
+        sources: src.de.DRG.Bln.1946
+    -   date: c1950
+        master: point.de.Berlin-Rathaus-Steglitz
+        sources: src.dd.DR.Bln.1959
     -   date: !var ds100.dr
         de.DS100: BFB
-        sources: !keyref src.de.TPP.2006
-    -   date: !date c1995
+        sources: src.de.TPP.2006
+    -   date: c1995
         name: Berlin Feuerbachstraße
-        sources: !keyref src.de.TPP.2006
+        sources: src.de.TPP.2006
 
     -   date: !!null
         site: !noderef path.de.6177 feu
@@ -342,51 +318,51 @@ events:
 key: point.de.Berlin-Rathaus-Steglitz
 type: point
 events:
-    -   date: !date 1839-06-13
+    -   date: 1839-06-13
         status: open
-        sources: !keyref src.de.Kuhlmann.2000
-    -   date: !date 1845-10
+        sources: src.de.Kuhlmann.2000
+    -   date: 1845-10
         status: closed
-        sources: !keyref src.de.Kuhlmann.2000
-    -   date: !date 1864-05-01
+        sources: src.de.Kuhlmann.2000
+    -   date: 1864-05-01
         status: open
-        sources: !keyref src.de.Kuhlmann.2000
+        sources: src.de.Kuhlmann.2000
     -   date: !!null
         location: !keyloc line.de.6177 6,8
-    -   date: !date 1874-06-01
+    -   date: 1874-06-01
         location: !keyloc line.de.6177 -
     -   date: !!null
         name: Steglitz
-        sources: !keyref src.de.Kb.1914
+        sources: src.de.Kb.1914
     -   date: !!null
         location: !keyloc line.de.6033 6,75
         category: de.Bf
         de.Rangklasse: II
-        sources: !keyref src.de.DRG.Bln.1927
+        sources: src.de.DRG.Bln.1927
     -   date: !!null
         de.lknr: 03 123
-        sources: !keyref src.de.Bfv.1928
+        sources: src.de.Bfv.1928
     -   date: !var lknr.30
         de.lknr: 03 128
-        sources: !keyref src.de.Bfv.1933
-    -   date: !date c1940
+        sources: src.de.Bfv.1933
+    -   date: c1940
         name: Berlin-Steglitz
-        sources: !keyref src.de.DRG.Bln.1943
+        sources: src.de.DRG.Bln.1943
     -   date: !!null
         de.VBL: Stz
-        sources: !keyref src.de.DRG.Bln.1946
-    -   date: !date c1965
+        sources: src.de.DRG.Bln.1946
+    -   date: c1965
         de.Rangklasse: III
-        sources: !keyref src.dd.DR.Bln.1968
-    -   date: !date c1985
+        sources: src.dd.DR.Bln.1968
+    -   date: c1985
         category: de.Hp
-        sources: !keyref src.dd.DR.Bln.1991
-    -   date: !date 1992-05-31
+        sources: src.dd.DR.Bln.1991
+    -   date: 1992-05-31
         name: Berlin Rathaus Steglitz
-        sources: !keyref src.de.Kuhlmann.2000
+        sources: src.de.Kuhlmann.2000
     -   date: !var ds100.dr
         de.DS100: BRST
-        sources: !keyref src.de.DBAG.ISR
+        sources: src.de.DBAG.ISR
 
     -   date: !!null
         site: !noderef path.de.6177 ste
@@ -396,60 +372,63 @@ events:
 key: point.de.Berlin-Botanischer-Garten
 type: point
 events:
-    -   date: !date 1909-05-01
+    -   date: 1909-05-01
         status: open
-        sources: !keyref src.de.Kuhlmann.2000
+        sources: src.de.Kuhlmann.2000
     -   date: !!null
         name: Botanischer Garten
-        sources: !keyref src.de.Kb.1914
+        sources: src.de.Kb.1914
     -   date: !!null
         location: !keyloc line.de.6033 8,13
         category: de.Bf
         de.Rangklasse: IV
-        sources: !keyref src.de.DRG.Bln.1927
+        sources: src.de.DRG.Bln.1927
     -   date: !!null
         de.lknr: 03 284
         service: passenger
-        sources: !keyref src.de.Bfv.1928
-    -   date: !date c1930
+        sources: src.de.Bfv.1928
+    -   date: c1930
         category: de.Hp
-        sources: !keyref src.de.DRG.Bln.1932
+        sources: src.de.DRG.Bln.1932
     -   date: !var lknr.30
         de.lknr: 03 130
-        sources: !keyref src.de.Bfv.1933
-    -   date: !date c1935
+        sources: src.de.Bfv.1933
+    -   date: c1935
         service: full
-        sources: !keyref src.de.Bfv.1938
+        sources: src.de.Bfv.1938
     -   date: !!null
         de.VBL: Bgt
-        sources: !keyref src.de.DRG.Bln.1946
-    -   date: !date c1950
-        master: !keyref point.de.Berlin-Rathaus-Steglitz
-        sources: !keyref src.dd.DR.Bln.1959
+        sources: src.de.DRG.Bln.1946
+    -   date: c1950
+        master: point.de.Berlin-Rathaus-Steglitz
+        sources: src.dd.DR.Bln.1959
     -   date: !var ds100.dr
         de.DS100: BBGT
-        sources: !keyref src.de.TPP.2006
-    -   date: !date c1995
+        sources: src.de.TPP.2006
+    -   date: c1995
         name: Berlin Botanischer Garten
-        sources: !keyref src.de.TPP.2006
+        sources: src.de.TPP.2006
 
     -   date: !!null
         site: !noderef path.de.6177 bot
+
+
+# point.de.Berlin-Lichterfelde-West             de.6177
 
 
 ---
 key: point.de.Berlin-Lichterfelde-West-S-Bahn
 type: point
 events:
-    -   date: !date c2010
+    -   date: c2010
         status: open
-        split_from: !keyref point.de.Berlin-Lichterfelde-West
+        split_from: point.de.Berlin-Lichterfelde-West
     -   date: !!null
         location: !keyloc line.de.6033 9,235
         category: de.Hp
         name: Berlin-Lichterfelde West S-Bahn
         de.DS100: BLWE
-        sources: !keyref src.de.DBAG.ISR
+        sources: src.de.DBAG.ISR
     -   date: !!null
         public_name: Berlin Lichterfelde West
 
@@ -461,36 +440,39 @@ events:
 key: point.de.Berlin-Sundgauer-Strasse
 type: point
 events:
-    -   date: !date 1934-07-01
+    -   date: 1934-07-01
         status: open
-        sources: !keyref src.de.Kuhlmann.2000
+        sources: src.de.Kuhlmann.2000
     -   date: !!null
         name: Sundgauer Straße
         category: de.Hp
         de.lknr: 03 132
         service: passenger
-        sources: !keyref src.de.Bfv.1938
+        sources: src.de.Bfv.1938
     -   date: !!null    
         location: !keyloc line.de.6033 10,87
-        sources: !keyref src.de.DRG.Bln.1943
+        sources: src.de.DRG.Bln.1943
     -   date: !!null
         de.VBL: Stg
-        sources: !keyref src.de.DRG.Bln.1946
-    -   date: !date c1950
+        sources: src.de.DRG.Bln.1946
+    -   date: c1950
         de.VBL: Sdg
-        sources: !keyref src.dd.DR.Bln.1953
-    -   date: !date c1950
-        master: !keyref point.de.Berlin-Lichterfelde-West
-        sources: !keyref src.dd.DR.Bln.1959
+        sources: src.dd.DR.Bln.1953
+    -   date: c1950
+        master: point.de.Berlin-Lichterfelde-West
+        sources: src.dd.DR.Bln.1959
     -   date: !var ds100.dr
         de.DS100: BSDG
-        sources: !keyref src.de.TPP.2006
-    -   date: !date c1995
+        sources: src.de.TPP.2006
+    -   date: c1995
         name: Berlin Sundgauer Straße
-        sources: !keyref src.de.TPP.2006
+        sources: src.de.TPP.2006
 
     -   date: !!null
         site: !noderef path.de.6177 sun
+
+
+# point.de.Berlin-Zehlendorf                  de.6177
 
 
 ---
@@ -502,12 +484,12 @@ events:
         location: !keyloc line.de.6033 12,95
         category: de.Glgr
         name: Zwt
-        master: !keyref point.de.Berlin-Zehlendorf
-        sources: !keyref src.de.DRG.Bln.1927
+        master: point.de.Berlin-Zehlendorf
+        sources: src.de.DRG.Bln.1927
     -   date: !!null
         location:
             - !keyloc line.de.6184 12,95
-    -   date: !date c1985
+    -   date: c1985
         status: closed
 
     -   date: !!null
@@ -518,58 +500,58 @@ events:
 key: point.de.Berlin-Mexikoplatz
 type: point
 events:
-    -   date: !date 1904-11-01
+    -   date: 1904-11-01
         status: open
         name: Zehlendorf Beerenstraße
-        sources: !keyref src.de.Kuhlmann.2000
-    -   date: !date 1911-12-15
+        sources: src.de.Kuhlmann.2000
+    -   date: 1911-12-15
         name: Zehlendorf West
-        sources: !keyref src.de.Kuhlmann.2000
+        sources: src.de.Kuhlmann.2000
     -   date: !!null
         location: !keyloc line.de.6033 13,91
         category: de.Hp
-        sources: !keyref src.de.DRG.Bln.1927
+        sources: src.de.DRG.Bln.1927
     -   date: !!null
         de.lknr: 03 285
         service: passenger
-        sources: !keyref src.de.Bfv.1928
-    -   date: !date c1930
+        sources: src.de.Bfv.1928
+    -   date: c1930
         category: de.Bf
         de.Rangklasse: IV
-        sources: !keyref src.de.DRG.Bln.1932
+        sources: src.de.DRG.Bln.1932
     -   date: !var lknr.30
         de.lknr: 03 134
-        sources: !keyref src.de.Bfv.1933
-    -   date: !date c1935
+        sources: src.de.Bfv.1933
+    -   date: c1935
         category: de.Hp
-        sources: !keyref src.de.Bfv.1938
+        sources: src.de.Bfv.1938
 
     # lt Dir-Karten 1943 und 1946 Bf IV, 1953 und 1959 Bf U (zu Zfm)
     # lt Bfv 1944 Hp
 
     -   date: !!null
         de.VBL: Zfw
-        sources: !keyref src.de.DRG.Bln.1946
-    -   date: !date c1950
-        master: !keyref point.de.Berlin-Zehlendorf
-        sources: !keyref src.dd.DR.Bln.1959
-    -   date: !date 1958-09-28
+        sources: src.de.DRG.Bln.1946
+    -   date: c1950
+        master: point.de.Berlin-Zehlendorf
+        sources: src.dd.DR.Bln.1959
+    -   date: 1958-09-28
         name: Lindenthaler Allee
-        sources: !keyref src.de.Kuhlmann.2000
-    -   date: !date 1958-09-28?
+        sources: src.de.Kuhlmann.2000
+    -   date: 1958-09-28?
         de.VBL: Lda
-        sources: !keyref src.dd.DR.Bln.1959
-    -   date: !date 1987-03-07
+        sources: src.dd.DR.Bln.1959
+    -   date: 1987-03-07
         name: Mexikoplatz
-        sources: !keyref src.de.Kuhlmann.2000
-    -   date: !date 1987-03-07?
+        sources: src.de.Kuhlmann.2000
+    -   date: 1987-03-07?
         de.VBL: Mex
     -   date: !var ds100.dr
         de.DS100: BMEX
-        sources: !keyref src.de.TPP.2006
-    -   date: !date c1995
+        sources: src.de.TPP.2006
+    -   date: c1995
         name: Berlin Mexikoplatz
-        sources: !keyref src.de.TPP.2006
+        sources: src.de.TPP.2006
 
     -   date: !!null
         site: !noderef path.de.6033 mex
@@ -579,41 +561,41 @@ events:
 key: point.de.Berlin-Schlachtensee
 type: point
 events:
-    -   date: !date 1874-06-01
+    -   date: 1874-06-01
         status: open
-        sources: !keyref src.de.Kuhlmann.2000
+        sources: src.de.Kuhlmann.2000
     -   date: !!null
         name: Schlachtensee
-        sources: !keyref src.de.Kb.1914
+        sources: src.de.Kb.1914
     -   date: !!null
         location:
             - !keyloc line.de.6033 15,42
             - !keyloc line.de.6184 15,42
         category: de.Bf
         de.Rangklasse: II
-        sources: !keyref src.de.DRG.Bln.1927
+        sources: src.de.DRG.Bln.1927
     -   date: !!null
         de.lknr: 03 126
-        sources: !keyref src.de.Bfv.1928
+        sources: src.de.Bfv.1928
     -   date: !var lknr.30
         de.lknr: 03 135
-        sources: !keyref src.de.Bfv.1933
+        sources: src.de.Bfv.1933
     -   date: !!null
         de.VBL: Sts
-        sources: !keyref src.de.DRG.Bln.1946
-    -   date: !date c1950
+        sources: src.de.DRG.Bln.1946
+    -   date: c1950
         de.Rangklasse: U
         name: Berlin-Schlachtensee
-        sources: !keyref src.dd.DR.Bln.1953
-    -   date: !date c1950
-        master: !keyref point.de.Berlin-Wannsee
-        sources: !keyref src.dd.DR.Bln.1959
-    -   date: !date c1985
+        sources: src.dd.DR.Bln.1953
+    -   date: c1950
+        master: point.de.Berlin-Wannsee
+        sources: src.dd.DR.Bln.1959
+    -   date: c1985
         category: de.Hp
-        sources: !keyref src.dd.DR.Bln.1991
+        sources: src.dd.DR.Bln.1991
     -   date: !var ds100.dr
         de.DS100: BSLS
-        sources: !keyref src.de.TPP.2006
+        sources: src.de.TPP.2006
 
     -   date: !!null
         site: !noderef path.de.6033 sla
@@ -624,9 +606,9 @@ key: point.de.Berlin-Nikolassee
 type: point
 junction: True
 events:
-    -   date: !date 1902-05-01
+    -   date: 1902-05-01
         status: open
-        sources: !keyref src.de.Kuhlmann.2000
+        sources: src.de.Kuhlmann.2000
     -   date: !!null
         location:
             - !keyloc line.de.6033 17,12
@@ -634,33 +616,33 @@ events:
         category: de.Bf
         de.Rangklasse: III
         name: Nikolassee
-        sources: !keyref src.de.DRG.Bln.1927
+        sources: src.de.DRG.Bln.1927
     -   date: !!null
         de.lknr: 03 225
         service: passenger
-        sources: !keyref src.de.Bfv.1928
+        sources: src.de.Bfv.1928
     -   date: !var lknr.30
         de.lknr: 03 136
-        sources: !keyref src.de.Bfv.1933
-    -   date: !date 1937-04-16
+        sources: src.de.Bfv.1933
+    -   date: 1937-04-16
         location: !keyloc line.de.6118 -
-        sources: !keyref src.de.web.Krebs
+        sources: src.de.web.Krebs
     -   date: !!null
         location: !keyloc line.de.6024 22,49
-        sources: !keyref src.de.DRG.Bln.1943
+        sources: src.de.DRG.Bln.1943
     -   date: !!null
         de.VBL: Ni
-        sources: !keyref src.de.DRG.Bln.1946
-    -   date: !date c1950
+        sources: src.de.DRG.Bln.1946
+    -   date: c1950
         de.Rangklasse: U
-        master: !keyref point.de.Berlin-Wannsee
+        master: point.de.Berlin-Wannsee
         sources:
-            - !keyref src.dd.DR.Bln.1953
-            - !keyref src.dd.DR.Bln.1959
-    -   date: !date c1965
+            - src.dd.DR.Bln.1953
+            - src.dd.DR.Bln.1959
+    -   date: c1965
         category: de.Hp
-        sources: !keyref src.dd.DR.Bln.1968
-    -   date: !date c2000
+        sources: src.dd.DR.Bln.1968
+    -   date: c2000
         status: closed
 
     -   date: !!null
@@ -673,15 +655,15 @@ events:
 key: point.de.Berlin-Nikolassee-Wannseebahn
 type: point
 events:
-    -   date: !date c2000
+    -   date: c2000
         status: open
-        split_from: !keyref point.de.Berlin-Nikolassee
+        split_from: point.de.Berlin-Nikolassee
     -   date: !!null
         location: !keyloc line.de.6033 17,014
         category: de.Hp
         name: Berlin-Nikolassee (Wannseebahn)
         de.DS100: BNIW
-        sources: !keyref src.de.TPP.2006
+        sources: src.de.TPP.2006
     -   date: !!null
         public_name: Berlin-Nikolassee
 
@@ -689,13 +671,16 @@ events:
         site: !noderef path.de.6033 nik
 
 
+# point.de.Berlin-Wannsee                     de.6118
+
+
 ---
 key: point.de.Berlin-Wannsee-S-Bahn
 type: point
 events:
-    -   date: !date c2007
+    -   date: c2007
         status: open
-        split_from: !keyref point.de.Berlin-Wannsee
+        split_from: point.de.Berlin-Wannsee
         location:
             - !keyloc line.de.6033 18,61
             - !keyloc line.de.6024 24,06
@@ -703,10 +688,10 @@ events:
         name: Berlin-Wannsee S-Bahn
         public_name: Berlin-Wannsee
         de.DS100: BWSS
-        sources: !keyref src.de.TPP.2007
+        sources: src.de.TPP.2007
     -   date: !!null
         category: de.Bf
-        sources: !keyref src.de.DBAG.ISR
+        sources: src.de.DBAG.ISR
 
     -   date: !!null
         site: !noderef path.de.6118 wan
