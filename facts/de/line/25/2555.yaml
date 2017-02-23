@@ -7,28 +7,35 @@ progress: stub
 events:
     -   date: !!null
         region:
-            - !keyref org.de
-            - !keyref org.de.l.nw
+            - org.de
+            - org.de.l.nw
 
     -   date: !!null
         de.VzG: !!str 2555
-        sources: !keyref src.de.VzG
+        sources: src.de.VzG
 
     #   Genehmigungen
     #
+    -   date: 1872-11-23
+        end: point.de.Mariagrube
+        concession:
+            by: org.de.l.pre
+            for: org.de.Aachen-Jülicher-Eisenbahn
+        document: src.de.l.pre.aac.1873.29.115
+        sources: src.de.DRG.1935 # 1875/46
 
     #   Eröffnung und Einstellung
     #
-    -   date: !!null
-        end: !keyref point.de.Haaren-Aachen-Weiche
+    -   date: 1875-09-26
+        start: point.de.Würselen
+        end: point.de.Mariagrube
         status: open
-        passenger: none
-        sources: !keyref src.de.SuW.2011
-    -   date: !!null
-        start: !keyref point.de.Haaren-Aachen-Weiche
-        status: closed
-        sources: !keyref src.de.SuW.2011
-
+        sources: src.de.DRG.1935 # 1875/46
+    -   date: 1875-12-31
+        end: point.de.Würselen
+        status: open
+        sources: src.de.DRG.1935 # 1875/86
+ 
     #   Eigenschaften
     #
 
@@ -39,13 +46,15 @@ events:
     #
 
 points:
-    - !keyref point.de.Aachen-Nord
-    - !keyref point.de.Haaren-Aachen-Weiche
-    - !keyref point.de.Haaren-Aachen-W8
-    - !keyref point.de.Würselen                             # line.de.2544
-    - !keyref point.de.Mariagrube
-    - !keyref point.de.Kirchberg-Jülich
+    -   point.de.Aachen-Nord
+    -   point.de.Haaren-Aachen-Weiche
+    -   point.de.Haaren-Aachen-W8
+    -   point.de.Würselen
+    -   point.de.Mariagrube
+    -   point.de.Kirchberg-Jülich
 
+
+#-----------------------------------------------------------------------------
 
 ---
 key: point.de.Aachen-Nord
@@ -56,7 +65,7 @@ events:
         category: de.Bft
         name: Aachen Nord
         de.DS100: KAN
-        sources: !keyref src.de.DBAG.ISR
+        sources: src.de.DBAG.ISR
 
 
 ---
@@ -79,6 +88,15 @@ events:
 
 
 ---
+key: point.de.Würselen
+type: point
+progress: stub
+events:
+    -   date: !!null
+        name: Würselen
+
+
+---
 key: point.de.Mariagrube
 type: point
 progress: stub
@@ -96,7 +114,7 @@ events:
         category: de.Bf
         name: Kirchberg (b Jülich)
         de.DS100: KKIB
-        sources: !keyref src.de.DBAG.ISR
+        sources: src.de.DBAG.ISR
     -   date: !!null
-        connection: !keyref point.de.Kirchberg-Jülich-Nord  # line.de.9241
+        connection: point.de.Kirchberg-Jülich-Nord  # line.de.9241
 

@@ -7,26 +7,33 @@ progress: stub
 events:
     -   date: !!null
         region:
-            - !keyref org.de
-            - !keyref org.de.l.sn
+            - org.de
+            - org.de.l.sn
 
     -   date: !var vzg.dr
         de.VzG: !!str 6619
-        sources: !keyref src.de.VzG
+        sources: src.de.VzG
 
     #   Genehmigungen
     #
+    -   date: 1871-12-07
+        concession:
+            by: org.de.l.sn
+            for: org.de.Chemnitz-Commotauer-Eisenbahn
+        document: src.de.l.sn.1871.21.341
+        sources: src.de.DRG.1935 # 1875/17
 
     #   Eröffnung und Einstellung
     #
-    -   date: !!null
-        end: !keyref point.de.Marienberg-Sachs
-        status: closed
-        sources: !keyref src.de.SuW.2011
-    -   date: !!null
-        start: !keyref point.de.Marienberg-Sachs
+    -   date: 1875-05-24
+        start: point.de.Marienberg-Sachs
         status: open
-        sources: !keyref src.de.SuW.2011
+        sources: src.de.DRG.1935 # 1875/17
+    -   date: 1875-07-12
+        end: point.de.Marienberg-Sachs
+        status: open
+        sources: src.de.DRG.1935 # 1875/36
+        
 
     #   Eigenschaften
     #
@@ -38,12 +45,14 @@ events:
     #
 
 points:
-    - !keyref point.int.Pohraniční-Reitzenhain
-    - !keyref point.de.Marienberg-Sachs
-    - !keyref point.de.Pockau-Lengefeld
-    - !keyref point.de.Hetzdorf-Flöhatal
-    - !keyref point.de.Flöha                                # line.de.6258
+    -   point.int.Pohraniční-Reitzenhain
+    -   point.de.Marienberg-Sachs
+    -   point.de.Pockau-Lengefeld
+    -   point.de.Hetzdorf-Flöhatal
+    -   point.de.Flöha                              # de.6258
 
+
+#-----------------------------------------------------------------------------
 
 ---
 key: point.int.Pohraniční-Reitzenhain
@@ -65,7 +74,7 @@ events:
         category: de.Bf
         name: Marienberg (Sachs)
         de.DS100: DMG
-        sources: !keyref src.de.DBAG.ISR
+        sources: src.de.DBAG.ISR
 
 
 ---
@@ -77,7 +86,7 @@ events:
         category: de.Bf
         name: Pockau-Lengefeld
         de.DS100: DPF
-        sources: !keyref src.de.DBAG.ISR
+        sources: src.de.DBAG.ISR
 
 
 ---
@@ -89,5 +98,7 @@ events:
         category: de.Bf
         name: Hetzdorf (Flöhatal)
         de.DS100: DHZF
-        sources: !keyref src.de.DBAG.ISR
+        sources: src.de.DBAG.ISR
 
+
+# point.de.Flöha                              de.6258

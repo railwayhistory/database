@@ -1,3 +1,5 @@
+# DE 2014.  Münster (Westf) Hbf - Gronau Grenze
+#
 ---
 key: line.de.2014
 type: line
@@ -20,59 +22,33 @@ events:
         end: point.de.Gronau-Westf
         concession:
             by: org.de.l.pre
-            document: src.de.l.pre.1872.15.260
-        owner: org.de.e.MEE
-        operator: org.de.e.MEE
-        sources: src.de.DRG.1935
-    -   date: 1875-06-01
-        end: point.de.Gronau-Westf
-        operator: org.de.e.KWE
-        sources: src.de.DRG.1935
-    -   date: 1875-09-30
-        end: point.de.Gronau-Westf
-        status: open
-        sources: src.de.DRG.1935
-    -   date: 1884-04-01
-        end: point.de.Gronau-Westf
-        owner: org.de.l.pre
-        sources: src.de.DRG.1935
-    -   date: 1895-04-01
-        end: point.de.Gronau-Westf
-        operator: org.de.e.KPEV.Mst
-        sources: src.de.web.Joost        
-
+            for: org.de.Münster-Enscheder-Eisenbahn
+        sources:
+            -   src.de.l.pre.1872.15.260
+            -   src.de.DRG.1935 # 1875/48
     -   date: 1872-01-08
         start: point.de.Gronau-Westf
         concession:
             by: org.de.l.pre
-            document: src.de.l.pre.arn.1872.24.227
-        owner: org.de.e.DGEE
-        operator: org.de.e.DGEE
-        note:
-            de: gemeinschaftliches Eigentum und Betrieb mit org.de.e.MEE
-        sources: src.de.DRG.1935
+            for: org.de.Dortmund-Gronau-Enscheder-Eisenbahn
+        document: src.de.l.pre.arn.1872.24.227
+        sources: src.de.DRG.1935 # 1875/58 ref 1874/57
+    -   date: !!null
+        start: point.de.Gronau-Westf
+        owner:
+            -   org.de.Dortmund-Gronau-Enscheder-Eisenbahn
+            -   org.de.Münster-Enscheder-Eisenbahn
+        sources: src.de.DRG.1935 # 1875/58
+
+    -   date: 1875-09-30
+        end: point.de.Gronau-Westf
+        status: open
+        sources: src.de.DRG.1935 # 1875/48
     -   date: 1875-10-15
         start: point.de.Gronau-Westf
         status: open
-        sources: src.de.DRG.1935
-    -   date: 1903-01-01
-        start: point.de.Gronau-Westf
-        owner: org.de.l.pre
-        sources: src.de.DRG.1935
-    -   date: 1903-07-01
-        start: point.de.Gronau-Westf
-        operator: org.de.e.KPEV.Mst
-        sources: src.de.web.Joost        
+        sources: src.de.DRG.1935 # 1875/58
 
-    -   date: 1920-04-01
-        owner: org.de
-        operator: org.de.r.RVM.PH
-    -   date: 1924-02-12
-        operator: org.de.e.DREb
-    -   date: 1924-08-30
-        operator: org.de.e.DRG
-    -   date: !var org.de.DB.start
-        operator: org.de.e.DB
 
     -   date: 1940
         start: point.de.Gronau-Westf
@@ -113,21 +89,21 @@ points:
     -   point.de.Münster-Westf-Hbf                  # de.2200
     -   point.de.Nevinghof                          # de.2931
     -   point.de.Kinderhaus
-    - point.de.Muenster-Haeger
-    - point.de.Altenberge
-    - point.de.Nordwalde
-    - point.de.Steinfurt-Borghorst
-    - point.de.Borghorst-Grottenkamp
-    - point.de.Borghorst-Westf-VEW
-    - point.de.Steinfurt-Burgsteinfurt
-    - point.de.Metelen-Land
-    - point.de.Ochtrup
-    - point.de.Goorbach
-    - point.de.Gronau-Westf-Urenco
-    - point.de.Gronau-Westf-Stadt
+    -   point.de.Münster-Häger
+    -   point.de.Altenberge
+    -   point.de.Nordwalde
+    -   point.de.Steinfurt-Borghorst
+    -   point.de.Borghorst-Grottenkamp
+    -   point.de.Borghorst-Westf-VEW
+    -   point.de.Steinfurt-Burgsteinfurt
+    -   point.de.Metelen-Land
+    -   point.de.Ochtrup
+    -   point.de.Goorbach
+    -   point.de.Gronau-Westf-Urenco
+    -   point.de.Gronau-Westf-Stadt
     -   point.de.Gronau-Westf
-    - point.de.Eilermark
-    - point.de.Gronau-Westf-Grenze
+    -   point.de.Eilermark
+    -   point.int.Glanerburg-Gronau-Westf
 
 
 #-----------------------------------------------------------------------------
@@ -168,7 +144,7 @@ events:
         sources: src.de.web.Joost
 
 ---
-key: point.de.Muenster-Haeger
+key: point.de.Münster-Häger
 type: point
 events:
     -   date: !!null
@@ -492,7 +468,7 @@ events:
         sources: src.de.web.Joost
 
 ---
-key: point.de.Gronau-Westf-Grenze
+key: point.int.Glanerburg-Gronau-Westf
 type: point
 subtype: border
 events:
@@ -500,14 +476,16 @@ events:
         location: !keyloc line.de.2014 59,030
         sources: src.de.VzG
     -   date: !!null
-        name: Gronau (Westf) Grenze
+        local_name:
+            de: Gronau (Westf) Grenze
         category: de.Tp
         de.lknr: 21 130
         sources: src.de.Bfv.1933
     -   date: c1975
         category: de.Gp
     -   date: c1975
-        name: Gronau Grenze
+        local_name:
+            de: Gronau Grenze
         sources: src.de.TPP.2006
     -   date: !!null
         de.DS100: EXGR

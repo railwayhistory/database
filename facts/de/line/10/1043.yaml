@@ -1,73 +1,77 @@
+# DE 1043.  Neumünster - Bad Oldesloe
+#
 ---
 key: line.de.1043
 type: line
 events:
     -   date: !!null
         region:
-            - !keyref org.de
-            - !keyref org.de.l.sh
+            - org.de
+            - org.de.l.sh
 
     -   date: !!null
         de.VzG: !!str 1043
-        sources: !keyref src.de.VzG
+        sources: src.de.VzG
 
     #   Genehmigung und Eröffnung
     #
-    -   date: !date 1872-03-13
+    -   date: 1872-03-13
         concession:
-            by: !keyref org.de.l.pre
-            for: !keyref org.de.Altona-Kieler-Eisenbahn
+            by: org.de.l.pre
+            for: org.de.Altona-Kieler-Eisenbahn
+        document: src.de.l.rep.sle.1872.20.141
         sources:
-            - !keyref src.de.DRG.1935
-            - !keyref src.de.Preussen.1872.20.328
-    -   date: !date 1875-12-10
+            -   src.de.DRG.1935 # 1875/82
+            -   src.de.l.pre.1872.20.328
+
+    -   date: 1875-12-10
         status: open
-        sources: !keyref src.de.DRG.1935
+        sources: src.de.DRG.1935 # 1875/82
 
     #   Eigenschaften
     #
     -   date: !!null
         category: de.Hauptbahn
-        sources: !keyref src.de.DRG.1927
+        sources: src.de.DRG.1927
     -   date: !!null
         tracks: 1
         gauge: 1435
-    -   date: !date 1907
+    -   date: 1907
         tracks: 2
-        sources: !keyref src.de.web.EFM
-    -   date: !date 1954
+        sources: src.de.web.EFM
+    -   date: 1954
         tracks: 1
-        sources: !keyref src.de.web.EFM
+        sources: src.de.web.EFM
 
     #   PV-Einstellung und Wiedereröffnung
     #
-    -   date: !date 1984-09-30
-        end: !keyref point.de.Bad-Segeberg
+    -   date: 1984-09-30
+        end: point.de.Bad-Segeberg
         service: freight
-        sources: !keyref src.de.DB.Hmb.1984
-    -   date: !date 2002-12-15
-        end: !keyref point.de.Bad-Segeberg
+        sources: src.de.DB.Hmb.1984
+    -   date: 2002-12-15
+        end: point.de.Bad-Segeberg
         service: full
 
     #   Eigentümer etc.
     #
     -   date: !!null
-        owner: !keyref org.de.Altona-Kieler-Eisenbahn
-        operator: !keyref org.de.Altona-Kieler-Eisenbahn
-    -   date: !date 1886-07-01
-        owner: !keyref org.de.l.pre
-        operator: !keyref org.de.e.KPEV.Alt
-        sources: !keyref src.de.DRG.1935
+        owner: org.de.Altona-Kieler-Eisenbahn
+        operator: org.de.Altona-Kieler-Eisenbahn
+    -   date: 1886-07-01
+        owner: org.de.l.pre
+        operator: org.de.e.KPEV.Alt
+        sources: src.de.DRG.1935
 
-    -   date: !date 1920-04-01
-        owner: !keyref org.de
-        operator: !keyref org.de.r.RVM.PH
-    -   date: !date 1924-02-12
-        operator: !keyref org.de.e.DREb
-    -   date: !date 1924-08-30
-        operator: !keyref org.de.e.DRG
+    -   date: 1920-04-01
+        owner: org.de
+        operator: org.de.r.RVM.PH
+    -   date: 1924-02-12
+        operator: org.de.e.DREb
+    -   date: 1924-08-30
+        operator: org.de.e.DRG
     -   date: !var org.de.DB.start
-        operator: !keyref org.de.e.DB
+        operator: org.de.e.DB
 
     #   Verlauf
     #
@@ -78,19 +82,24 @@ events:
             - !pathref path.de.1120 fseg old   2
 
 points:
-    - !keyref point.de.Neumünster                          # line.de.1220
-    - !keyref point.de.Neumünster-Süd
-    - !keyref point.de.Kleinkummerfeld
-    - !keyref point.de.Rickling-Oelweiche
-    - !keyref point.de.Rickling
-    - !keyref point.de.Wahlstedt
-    - !keyref point.de.Fahrenkrug
-    - !keyref point.de.Bad-Segeberg
-    - !keyref point.de.Altengoers
-    - !keyref point.de.Wakendorf
-    - !keyref point.de.Fresenburg
-    - !keyref point.de.Poggensee
-    - !keyref point.de.Bad-Oldesloe                         # line.de.1120
+    -   point.de.Neumünster                        # de.1220
+    -   point.de.Neumünster-Süd
+    -   point.de.Kleinkummerfeld
+    -   point.de.Rickling-Ölweiche
+    -   point.de.Rickling
+    -   point.de.Wahlstedt
+    -   point.de.Fahrenkrug
+    -   point.de.Bad-Segeberg
+    -   point.de.Altengörs
+    -   point.de.Wakendorf
+    -   point.de.Fresenburg
+    -   point.de.Poggensee
+    -   point.de.Bad-Oldesloe                       # de.1120
+
+
+#-----------------------------------------------------------------------------
+
+# point.de.Neumünster                        de.1220
 
 
 ---
@@ -101,17 +110,17 @@ events:
         category: de.Abzw
         location: !keyloc line.de.1043 76,70
         name: AK
-        sources: !keyref src.de.DRG.Alt.Karte.1949
-    -   date: !date 1953-03-31
+        sources: src.de.DRG.Alt.Karte.1949
+    -   date: 1953-03-31
         category: de.Bf
         name: Neumünster Süd
     -   date: !!null
         de.DS100: ANAK
         de.dstnr: !!str 013102
-        sources: !keyref src.de.DS100.1984
-    -   date: !date c1990
+        sources: src.de.DS100.1984
+    -   date: c1990
         de.DS100: ANMS
-        sources: !keyref src.de.TPP.2006
+        sources: src.de.TPP.2006
 
     -   date: !!null
         site: !noderef path.de.1043 nes right
@@ -123,28 +132,28 @@ type: point
 events:
     -   date: !!null
         name: Boostedt
-        sources: !keyref src.de.Kb.1914
-    -   date: !date 1916-01-13
+        sources: src.de.Kb.1914
+    -   date: 1916-01-13
         name: Kleinkummerfeld
-        sources: !keyref src.de.web.EFM
+        sources: src.de.web.EFM
     -   date: !!null
         de.lknr: 01 246
-        sources: !keyref src.de.Bfv.1928
+        sources: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
         de.Rangklasse: IV
-        sources: !keyref src.de.Bfv.1933
+        sources: src.de.Bfv.1933
     -   date: !var lknr.30
         de.lknr: 01 342
-        sources: !keyref src.de.Bfv.1933
+        sources: src.de.Bfv.1933
     -   date: !!null
         location: !keyloc line.de.1043 83,25
-        sources: !keyref src.de.DRG.Alt.Karte.1949
+        sources: src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.DS100: AKD
         de.dstnr: !!str 013425
-        sources: !keyref src.de.DS100.1984
-    -   date: !date 2002-12-15
+        sources: src.de.DS100.1984
+    -   date: 2002-12-15
         status: closed
 
     -   date: !!null
@@ -152,10 +161,10 @@ events:
 
 
 ---
-key: point.de.Rickling-Oelweiche
+key: point.de.Rickling-Ölweiche
 type: point
 events:
-    -   date: !date c1950
+    -   date: c1950
         location: !keyloc line.de.1043 85,8
         status: open
     -   date: !!null
@@ -163,8 +172,8 @@ events:
         category: de.Anst
         de.DS100: AROW
         de.dstnr: !!str 013623
-        sources: !keyref src.de.DS100.1984
-    -   date: !date 1984-09-30
+        sources: src.de.DS100.1984
+    -   date: 1984-09-30
         status: closed
 
     -   date: !!null
@@ -177,32 +186,32 @@ type: point
 events:
     -   date: !!null
         name: Rickling
-        sources: !keyref src.de.Kb.1914
+        sources: src.de.Kb.1914
     -   date: !!null
         de.lknr: 01 245
-        sources: !keyref src.de.Bfv.1928
+        sources: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
         de.Rangklasse: IV
-        sources: !keyref src.de.Bfv.1933
+        sources: src.de.Bfv.1933
     -   date: !var lknr.30
         de.lknr: 01 341
-        sources: !keyref src.de.Bfv.1933
+        sources: src.de.Bfv.1933
     -   date: !!null
         location: !keyloc line.de.1043 91,09
-        sources: !keyref src.de.DRG.Alt.Karte.1949
+        sources: src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.DS100: ARL
         de.dstnr: !!str 013417
-        sources: !keyref src.de.DS100.1984
-    -   date: !date 2002
+        sources: src.de.DS100.1984
+    -   date: 2002
         location: !keyloc line.de.1043 91,007
         category: de.Hp
-        sources: !keyref src.de.DBAG.ISR
+        sources: src.de.DBAG.ISR
 
     -   date: !!null
         site: !noderef path.de.1043 ric left
-    -   date: !date 2002
+    -   date: 2002
         site: !noderef path.de.1043 rin left
 
 
@@ -210,14 +219,14 @@ events:
 key: point.de.Wahlstedt
 type: point
 events:
-    -   date: !date 2002-12-15
+    -   date: 2002-12-15
         status: open
     -   date: !!null
         category: de.Hp
         location: !keyloc line.de.1043 96,832
         name: Wahlstedt
         de.DS100: AWAH
-        sources: !keyref src.de.DBAG.ISR
+        sources: src.de.DBAG.ISR
 
     -   date: !!null
         site: !noderef path.de.1043 wah left
@@ -229,36 +238,36 @@ type: point
 events:
     -   date: !!null
         name: Fahrenkrug
-        sources: !keyref src.de.Kb.1914
+        sources: src.de.Kb.1914
     -   date: !!null
         de.lknr: 01 244
-        sources: !keyref src.de.Bfv.1928
+        sources: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
         de.Rangklasse: III
-        sources: !keyref src.de.Bfv.1933
+        sources: src.de.Bfv.1933
     -   date: !var lknr.30
         de.lknr: 01 340
-        sources: !keyref src.de.Bfv.1933
+        sources: src.de.Bfv.1933
     -   date: !!null
         location: !keyloc line.de.1043 99,26
-        sources: !keyref src.de.DRG.Alt.Karte.1949
+        sources: src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.DS100: AFK
         de.dstnr: !!str 013409
-        sources: !keyref src.de.DS100.1984
-    -   date: !date 2002
+        sources: src.de.DS100.1984
+    -   date: 2002
         category: [de.Hp, de.Awanst]
-    -   date: !date 2002
+    -   date: 2002
         location: !keyloc line.de.1043 99,363
-        sources: !keyref src.de.DBAG.ISR
-    -   date: !date c2010
+        sources: src.de.DBAG.ISR
+    -   date: c2010
         category: de.Bft
-        sources: !keyref src.de.DBAG.ISR
+        sources: src.de.DBAG.ISR
 
     -   date: !!null
         site: !noderef path.de.1043 fah right
-    -   date: !date c2002
+    -   date: c2002
         site: !noderef path.de.1043 fak left
 
 
@@ -269,63 +278,63 @@ junction: True
 events:
     -   date: !!null
         name: Segeberg
-        sources: !keyref src.de.Kb.1914
-    -   date: !date c1924-11-01
+        sources: src.de.Kb.1914
+    -   date: c1924-11-01
         name: Bad Segeberg
     -   date: !!null
         de.lknr: 01 243
-        sources: !keyref src.de.Bfv.1928
+        sources: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
         de.Rangklasse: II
-        sources: !keyref src.de.Bfv.1933
+        sources: src.de.Bfv.1933
     -   date: !var lknr.30
         de.lknr: 01 339
-        sources: !keyref src.de.Bfv.1933
+        sources: src.de.Bfv.1933
     -   date: !!null
         location: !keyloc line.de.1043 103,41
-        sources: !keyref src.de.DRG.Alt.Karte.1949
+        sources: src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.DS100: ASB
         de.dstnr: !!str 013391
-        sources: !keyref src.de.DS100.1984
-    -   date: !date c2002
+        sources: src.de.DS100.1984
+    -   date: c2002
         location: !keyloc line.de.1043 103,143
-        sources: !keyref src.de.DBAG.ISR
+        sources: src.de.DBAG.ISR
  
     -   date: !!null
         site: !noderef path.de.1043 seg left
-    -   date: !date c2002
+    -   date: c2002
         site: !noderef path.de.1043 seb left
 
 
 ---
-key: point.de.Altengoers
+key: point.de.Altengörs
 type: point
 events:
     -   date: !!null
         name: Altengörs
-        sources: !keyref src.de.Kb.1914
+        sources: src.de.Kb.1914
     -   date: !!null
         service: passenger
         de.lknr: 01 371
-        sources: !keyref src.de.Bfv.1928
+        sources: src.de.Bfv.1928
     -   date: !!null
         category: de.Hp
-        sources: !keyref src.de.Bfv.1933
+        sources: src.de.Bfv.1933
     -   date: !var lknr.30
         de.lknr: 01 338
-        sources: !keyref src.de.Bfv.1933
+        sources: src.de.Bfv.1933
     -   date: !!null
         location: !keyloc line.de.1043 108,19
-        sources: !keyref src.de.DRG.Alt.Karte.1949
+        sources: src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.DS100: AAT
         de.dstnr: !!str 013383
-        sources: !keyref src.de.DS100.1984
-    -   date: !date c1970
+        sources: src.de.DS100.1984
+    -   date: c1970
         staff: none
-        sources: !keyref src.de.DS100.1984
+        sources: src.de.DS100.1984
  
     -   date: !!null
         site: !noderef path.de.1043 ago left
@@ -337,27 +346,27 @@ type: point
 events:
     -   date: !!null
         name: Wakendorf
-        sources: !keyref src.de.Kb.1914
+        sources: src.de.Kb.1914
     -   date: !!null
         de.lknr: 01 242
-        sources: !keyref src.de.Bfv.1928
+        sources: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
         de.Rangklasse: IV
-        sources: !keyref src.de.Bfv.1933
+        sources: src.de.Bfv.1933
     -   date: !var lknr.30
         de.lknr: 01 337
-        sources: !keyref src.de.Bfv.1933
+        sources: src.de.Bfv.1933
     -   date: !!null
         location: !keyloc line.de.1043 111,98
-        sources: !keyref src.de.DRG.Alt.Karte.1949
+        sources: src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.DS100: AWK
         de.dstnr: !!str 013375
-        sources: !keyref src.de.DS100.1984
-    -   date: !date c1990
+        sources: src.de.DS100.1984
+    -   date: c1990
         category: de.Hp
-        sources: !keyref src.de.SuW.2005
+        sources: src.de.SuW.2005
  
     -   date: !!null
         site: !noderef path.de.1043 wak right
@@ -369,28 +378,28 @@ type: point
 events:
     -   date: !!null
         name: Fresenburg
-        sources: !keyref src.de.Kb.1914
+        sources: src.de.Kb.1914
     -   date: !!null    
         de.lknr: 01 241
-        sources: !keyref src.de.Bfv.1928
+        sources: src.de.Bfv.1928
     -   date: !!null    
         category: de.Bf
         de.Rangklasse: IV
-        sources: !keyref src.de.Bfv.1933
+        sources: src.de.Bfv.1933
     -   date: !var lknr.30
         de.lknr: 01 336
-        sources: !keyref src.de.Bfv.1933
+        sources: src.de.Bfv.1933
     -   date: !!null
         location: !keyloc line.de.1043 115,35
-        sources: !keyref src.de.DRG.Alt.Karte.1949
+        sources: src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.DS100: AFN
         de.dstnr: !!str 013367
-        sources: !keyref src.de.DS100.1984
-    -   date: !date c1970
+        sources: src.de.DS100.1984
+    -   date: c1970
         category: de.Hp
         staff: none
-        sources: !keyref src.de.DS100.1984
+        sources: src.de.DS100.1984
  
     -   date: !!null
         site: !noderef path.de.1043 fre right
@@ -404,12 +413,14 @@ events:
         location: !keyloc line.de.1043 117,7
         name: Poggensee
         category: de.Hp
-    -   date: !date c1950
+    -   date: c1950
         status: open
-    -   date: !date c1980
+    -   date: c1980
         status: closed
  
     -   date: !!null
         site: !noderef path.de.1043 pog
 
+
+# point.de.Bad-Oldesloe                       de.1120
 

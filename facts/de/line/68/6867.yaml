@@ -7,22 +7,39 @@ progress: stub
 events:
     -   date: !!null
         region:
-            - !keyref org.de
-            - !keyref org.de.l.st
+            - org.de
+            - org.de.l.st
 
     -   date: !var vzg.dr
         de.VzG: !!str 6867
-        sources: !keyref src.de.VzG
+        sources: src.de.VzG
 
     #   Genehmigungen
     #
+    -   date: 1874-10-30
+        end: point.de.Blankenburg-Harz-Hüttenplatz
+        concession:
+            by: org.de.l.bsw
+            for: org.de.Halberstadt-Blankenburger-Eisenbahn
+        document: src.de.l.bsw.1874.65.283
+        sources: src.de.DRG.1935 # 1875/37
+    
+    -   date: 1875-07-12
+        end: point.de.Blankenburg-Harz-Hüttenplatz
+        status: open
+        passenger: none
+        sources: src.de.DRG.1935 # 1875/37
+    -   date: 1886-05-01
+        end: point.de.Blankenburg-Harz-Hüttenplatz
+        passenger: full
+        sources: src.de.DRG.1935 # 1875/37
 
     #   Eröffnung und Einstellung
     #
     -   date: !!null
         status: open
         passenger: none
-        sources: !keyref src.de.SuW.2011
+        sources: src.de.SuW.2011
 
     #   Eigenschaften
     #
@@ -34,9 +51,26 @@ events:
     #
 
 points:
-    - !keyref point.de.Blankenburg-Harz                     # line.de.6866
-    - !keyref point.de.Blankenburg-Harz-Nord
-    - !keyref point.de.Michaelstein
+    -   point.de.Blankenburg-Harz                   # de.6866
+    -   point.de.Blankenburg-Harz-Nord
+    -   point.de.Blankenburg-Harz-Hüttenplatz
+    -   point.de.Michaelstein
+
+
+#-----------------------------------------------------------------------------
+
+# point.de.Blankenburg-Harz                   de.6866
+
+
+---
+key: point.de.Blankenburg-Harz-Hüttenplatz
+type: point
+progress: stub
+events:
+    -   date: !!null
+        name: Blankenburg (Harz) Hüttenplatz
+        note:
+            de: in km 3,40
 
 
 ---
@@ -48,8 +82,8 @@ events:
         category: de.Bft
         name: Blankenburg (Harz) Nord
         de.DS100: LBK N
-        master: !keyref point.de.Blankenburg-Harz
-        sources: !keyref src.de.DBAG.ISR
+        master: point.de.Blankenburg-Harz
+        sources: src.de.DBAG.ISR
 
 
 ---
@@ -61,5 +95,5 @@ events:
         category: de.Bf
         name: Michaelstein
         de.DS100: LMIN
-        sources: !keyref src.de.DBAG.ISR
+        sources: src.de.DBAG.ISR
 

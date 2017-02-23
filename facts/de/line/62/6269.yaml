@@ -1,4 +1,4 @@
-# DE 6269.  Gera Süd - Weischlitz
+# DE 6269.  Wolfsgefährth Bf - Weischlitz
 #
 ---
 key: line.de.6269
@@ -6,28 +6,67 @@ type: line
 progress: stub
 events:
     -   date: !!null
-        region: !keyref org.de
+        region: org.de
     -   date: !!null
-        end: !keyref point.de.Greiz-Döhlau-LGr
-        region: !keyref org.de.l.th
+        end: point.de.Greiz-Döhlau-LGr
+        region: org.de.l.th
 
     -   date: !var vzg.dr
         de.VzG: !!str 6269
-        sources: !keyref src.de.VzG
+        sources: src.de.VzG
+
+    #   Staatsverträge
+    #
+    -   date: 1871-12-19
+        treaty:
+            parties:
+                -   org.de.l.ral
+                -   org.de.l.sn
+                -   org.de.l.swe
+        document:
+            -   src.de.l.sn.1872.8.148
+            -   src.de.l.swe.1872.23.215
+            -   src.de.l.ral.1872.4.69
 
     #   Genehmigungen
     #
+    -   date: 1872-03-23
+        start: point.de.Neumühle-Elster-LGr
+        end: point.de.Greiz-Döhlau-LGr
+        concession:
+            by: org.de.l.ral
+            for: org.de.Sächsisch-Thüringische-Eisenbahn
+        document: src.de.l.ral.1872.4.69
+        sources: src.de.DRG.1935 # 1875/38
+    -   date: 1872-04-11
+        end: point.de.Neumühle-Elster-LGr
+        concession:
+            by: org.de.l.swe
+            for: org.de.Sächsisch-Thüringische-Eisenbahn
+        document: src.de.l.swe.1872.23.213
+    -   date: 1872-04-13
+        start: point.de.Greiz-Döhlau-LGr
+        concession:
+            by: org.de.l.sn
+            for: org.de.Sächsisch-Thüringische-Eisenbahn
+        document: src.de.l.sn.1872.8.165
+        sources: src.de.DRG.1935 # 1875/38
 
     #   Eröffnung und Einstellung
     #
-    -   date: !!null
-        end: !keyref point.de.Gera-Debschwitz
-        status: closed
-        sources: !keyref src.de.SuW.2011
-    -   date: !!null
-        start: !keyref point.de.Gera-Debschwitz
+    -   date: 1875-07-17
+        end: point.de.Greiz
         status: open
-        sources: !keyref src.de.SuW.2011
+        sources: src.de.DRG.1935 # 1875/38
+    -   date: 1875-09-08
+        start: point.de.Greiz
+        end: point.de.Plauen-Vogtl-unt-Bf
+        status: open
+        sources: src.de.DRG.1935 # 1875/44
+    -   date: 1875-09-20
+        start: point.de.Plauen-Vogtl-unt-Bf
+        status: open
+        sources: src.de.DRG.1935 # 1875/45
 
     #   Eigenschaften
     #
@@ -39,26 +78,30 @@ events:
     #
 
 points:
-    - !keyref point.de.Gera-Süd                             # line.de.6383
-    - !keyref point.de.Gera-Debschwitz                      # line.de.6383
-    - !keyref point.de.Gera-Ost
-    - !keyref point.de.Wünschendorf-Elster
-    - !keyref point.de.Greiz
-    - !keyref point.de.Greiz-Döhlau-LGr
-    - !keyref point.de.Plauen-Vogtl-Chrieschwitz
-    - !keyref point.de.Weischlitz                           # line.de.6270
+    -   point.de.Wolfsgefärth-Bf                    # de.6383
+    -   point.de.Wolfsgefärth-Gabelung
+    -   point.de.Wünschendorf-Elster
+    -   point.de.Neumühle-Elster-LGr
+    -   point.de.Greiz
+    -   point.de.Greiz-Döhlau-LGr
+    -   point.de.Plauen-Vogtl-Chrieschwitz
+    -   point.de.Plauen-Vogtl-unt-Bf
+    -   point.de.Weischlitz                         # de.6270
+
+
+#-----------------------------------------------------------------------------
+
+# point.de.Wolfsgefärth-Bf                    de.6383
 
 
 ---
-key: point.de.Gera-Ost
+key: point.de.Wolfsgefärth-Gabelung
 type: point
+subtype: reference
 progress: stub
 events:
     -   date: !!null
-        category: de.Hp
-        name: Gera Ost
-        de.DS100: UGOT
-        sources: !keyref src.de.DBAG.ISR
+        name: Wolfsgefährth Gabelung
 
 
 ---
@@ -70,7 +113,19 @@ events:
         category: de.Bf
         name: Wünschendorf (Elster)
         de.DS100: UWF
-        sources: !keyref src.de.DBAG.ISR
+        sources: src.de.DBAG.ISR
+
+
+---
+key: point.de.Neumühle-Elster-LGr
+type: point
+subtype: border
+progress: stub
+events:
+    -   date: !!null
+        name: Neumühle (Elster) SWE/RÄL
+        note:
+            de: an der Gemeindegrenze Teichwolframsdorf/Greiz vor Neumühle
 
 
 ---
@@ -82,7 +137,7 @@ events:
         category: de.Bf
         name: Greiz
         de.DS100: UGR
-        sources: !keyref src.de.DBAG.ISR
+        sources: src.de.DBAG.ISR
 
 
 ---
@@ -105,5 +160,17 @@ events:
         category: de.Anst
         name: Plauen (Vogtl)-Chrieschwitz
         de.DS100: DPC
-        sources: !keyref src.de.SuW.2011
+        sources: src.de.SuW.2011
+
+
+---
+key: point.de.Plauen-Vogtl-unt-Bf
+type: point
+progress: stub
+events:
+    -   date: !!null
+        name: Plauen (Vogtl) unt Bf
+
+
+# point.de.Weischlitz                         de.6270
 

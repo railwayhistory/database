@@ -7,21 +7,28 @@ progress: stub
 events:
     -   date: !!null
         region:
-            - !keyref org.de
-            - !keyref org.de.l.sn
+            - org.de
+            - org.de.l.sn
 
     -   date: !var vzg.dr
         de.VzG: !!str 6651
-        sources: !keyref src.de.VzG
+        sources: src.de.VzG
 
     #   Genehmigungen
     #
+    -   date: 1872-12-07
+        concession:
+            by: org.de.l.sn
+            for: org.de.Chemnitz-Aue-Adorfer-Eisenbahn
+        document: src.de.l.sn.1872.23.590
+        sources: src.de.DRG.1935 # 1875/85 ref 1875/43
 
     #   Eröffnung und Einstellung
     #
-    -   date: !!null
+    -   date: 1875-12-24
+        end: point.de.Klingenthal
         status: open
-        sources: !keyref src.de.SuW.2011
+        sources: src.de.DRG.1935 # 1875/85
 
     #   Eigenschaften
     #
@@ -33,9 +40,14 @@ events:
     #
 
 points:
-    - !keyref point.de.Zwotental                            # line.de.6663
-    - !keyref point.de.Klingenthal
-    - !keyref point.int.Klingenthal-Kraslice
+    -   point.de.Zwotental                          # de.6663
+    -   point.de.Klingenthal
+    -   point.int.Klingenthal-Kraslice
+
+
+#-----------------------------------------------------------------------------
+
+# point.de.Zwotental                          de.6663
 
 
 ---
@@ -47,7 +59,7 @@ events:
         category: [de.Hp, de.Anst]
         name: Klingenthal
         de.DS100: DKN
-        sources: !keyref src.de.DBAG.ISR
+        sources: src.de.DBAG.ISR
 
 
 ---
@@ -60,5 +72,5 @@ events:
         local_name: 
             de: Klingenthal Grenze
         de.DS100: DXK
-        sources: !keyref src.de.DBAG.ISR
+        sources: src.de.DBAG.ISR
 
