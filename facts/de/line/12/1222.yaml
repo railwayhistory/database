@@ -1,34 +1,37 @@
+# DE 1222.  Hamburg-Altona Kai - Hamburg-Altona (Tu)
+#
 ---
 key: line.de.1222
 type: line
 events:
     -   date: !!null
         region:
-            - !keyref org.de
-            - !keyref org.de.l.hh
+            - org.de
+            - org.de.l.hh
 
     -   date: !!null
         de.VzG: !!str 1222
-        sources: !keyref src.de.VzG
+        sources: src.de.VzG
 
 
     #   Genehmigung und Eröffnung
     #
-    -   date: !date 1874-04-01
-        start: !keyref point.de.Hamburg-Altona-Kai
+    -   date: 1874-04-01
+        start: point.de.Hamburg-Altona-Kai
         concession:
-            by: !keyref org.de.l.pre
-            document: !keyref src.de.l.pre.1874.24.313
-        sources: !keyref src.de.DRG.1935
+            by: org.de.l.pre
+            for: org.de.Altona-Kieler-Eisenbahn
+        document: src.de.l.pre.1874.24.313
+        sources: src.de.DRG.1935
 
-    -   date: !date 1876-01-18
-        start: !keyref point.de.Hamburg-Altona-Kai
-        end: !keyref point.de.Altona-Palmaille
+    -   date: 1876-01-18
+        start: point.de.Hamburg-Altona-Kai
+        end: point.de.Altona-Palmaille
         service: freight
         status: open
-        sources: !keyref src.de.DRG.1935
-    -   date: !date 1895-11-16?
-        start: !keyref point.de.Altona-Palmaille
+        sources: src.de.DRG.1935 # 1876/4
+    -   date: 1895-11-16?
+        start: point.de.Altona-Palmaille
         service: freight
         status: open
 
@@ -38,52 +41,52 @@ events:
         category: de.Nebenbahn
         tracks: 1
         gauge: 1435
-    -   date: !date 1911
+    -   date: 1911
         electrified:
             overhead:
                 type: AC
                 voltage: 6300
                 frequency: 25.
-        sources: !keyref src.de.WP.Schellfischtunnel
+        sources: src.de.WP.Schellfischtunnel
 
     #   Stilllegung
     #
-    -   date: !date 1954
+    -   date: 1954
         electrified:
             overhead: !var el.none
-        sources: !keyref src.de.WP.Schellfischtunnel
-    -   date: !date 1992
+        sources: src.de.WP.Schellfischtunnel
+    -   date: 1992
         status: closed
-        sources: !keyref src.de.WP.Schellfischtunnel
-    -   date: !date c2000
+        sources: src.de.WP.Schellfischtunnel
+    -   date: c2000
         status: removed
 
     #   Eigentümer und Betreiber
     #
     -   date: !!null
-        owner: !keyref org.de.Altona-Kieler-Eisenbahn
-        operator: !keyref org.de.Altona-Kieler-Eisenbahn
-        sources: !keyref src.de.DRG.1935
-    -   date: !date 1886-07-01
-        owner: !keyref org.de.l.pre
-        operator: !keyref org.de.e.KPEV.Alt
-        sources: !keyref src.de.DRG.1935
-    -   date: !date 1920-04-01
-        owner: !keyref org.de
-        operator: !keyref org.de.r.RVM.PH
-    -   date: !date 1924-02-12
-        operator: !keyref org.de.e.DREb
-    -   date: !date 1924-08-30
-        operator: !keyref org.de.e.DRG
+        owner: org.de.Altona-Kieler-Eisenbahn
+        operator: org.de.Altona-Kieler-Eisenbahn
+        sources: src.de.DRG.1935
+    -   date: 1886-07-01
+        owner: org.de.l.pre
+        operator: org.de.e.KPEV.Alt
+        sources: src.de.DRG.1935
+    -   date: 1920-04-01
+        owner: org.de
+        operator: org.de.r.RVM.PH
+    -   date: 1924-02-12
+        operator: org.de.e.DREb
+    -   date: 1924-08-30
+        operator: org.de.e.DRG
     -   date: !var org.de.DB.start
-        operator: !keyref org.de.e.DB
+        operator: org.de.e.DB
 
     -   date: !var org.de.DBAG.start
-        owner: !keyref org.de.e.DBAG
-        operator: !keyref org.de.e.DBAG
+        owner: org.de.e.DBAG
+        operator: org.de.e.DBAG
     -   date: !var org.de.DBNetz.start
-        owner: !keyref org.de.e.DBNetz
-        operator: !keyref org.de.e.DBNetz
+        owner: org.de.e.DBNetz
+        operator: org.de.e.DBNetz
 
     #   Verlauf
     #
@@ -94,9 +97,11 @@ events:
             - !pathref path.de.1220 pal alt  -1.5
 
 points:
-    - !keyref point.de.Hamburg-Altona-Kai
-    - !keyref point.de.Altona-Palmaille                     # line.de.1220
-    - !keyref point.de.Hamburg-Altona                       # line.de.1220
+    -   point.de.Hamburg-Altona-Kai
+    -   point.de.Altona-Palmaille                   # de.1220
+    -   point.de.Hamburg-Altona-Tu                  # de.1220
+
+#-----------------------------------------------------------------------------
 
 ---
 key: point.de.Hamburg-Altona-Kai
@@ -106,17 +111,17 @@ events:
         category: de.Ldst
         name: Altona Hgbf Kai
         de.lknr: 01 096
-        sources: !keyref src.de.Bfv.1933
-    -   date: !date c1940
+        sources: src.de.Bfv.1933
+    -   date: c1940
         category: [de.Ldst, de.Ahst]
         name: Hamburg-Altona Kai
-        sources: !keyref src.de.Bfv.1944
+        sources: src.de.Bfv.1944
     -   date: !!null
         de.DS100: "AA  W"
-        sources: !keyref src.de.DS100.1984
-    -   date: !date c1970
+        sources: src.de.DS100.1984
+    -   date: c1970
         category: de.Glgr
-        sources: !keyref src.de.DS100.1984
+        sources: src.de.DS100.1984
     
     -   date: !!null
         site: !noderef path.de.1223 kai
@@ -130,5 +135,9 @@ events:
     -   date: !!null
         length: 961
         name: Schellfischtunnel
-        sources: !keyref src.de.WP.Schellfischtunnel
+        sources: src.de.WP.Schellfischtunnel
 
+
+# point.de.Altona-Palmaille                   de.1220
+
+# point.de.Hamburg-Altona-Tu                  de.1220

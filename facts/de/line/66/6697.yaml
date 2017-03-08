@@ -7,22 +7,29 @@ progress: stub
 events:
     -   date: !!null
         region:
-            - !keyref org.de
-            - !keyref org.de.l.th
+            - org.de
+            - org.de.l.th
 
     -   date: !var vzg.dr
         de.VzG: !!str 6697
-        sources: !keyref src.de.VzG
+        sources: src.de.VzG
 
     #   Genehmigungen
     #
+    -   date: 1875-01-19
+        start: point.de.Ohrdruf
+        concession:
+            by: org.de.l.scg
+            for: org.de.Gotha-Ohrdrufer-Eisenbahn
+        document: src.de.l.scg.g.1875.1.2
+        sources: src.de.DRG.1935 # 1876/14
 
     #   Eröffnung und Einstellung
     #
     -   date: !!null
+        start: point.de.Ohrdruf
         status: open
-        passenger: none
-        sources: !keyref src.de.SuW.2011
+        sources: src.de.DRG.1935 # 1876/14
 
     #   Eigenschaften
     #
@@ -34,9 +41,15 @@ events:
     #
 
 points:
-    - !keyref point.de.Gotha                                # line.de.6340
-    - !keyref point.de.Georgenthal-Thür
-    - !keyref point.de.Gräfenroda                           # line.de.6298
+    -   point.de.Gotha                              # de.6340
+    -   point.de.Georgenthal-Thür
+    -   point.de.Ohrdruf
+    -   point.de.Gräfenroda                         # de.6298
+
+
+#-----------------------------------------------------------------------------
+
+# point.de.Gotha                              de.6340
 
 
 ---
@@ -48,5 +61,16 @@ events:
         category: de.Bf
         name: Georgenthal (Thür)
         de.DS100: UGTT
-        sources: !keyref src.de.DBAG.ISR
+        sources: src.de.DBAG.ISR
 
+
+---
+key: point.de.Ohrdruf
+type: point
+progress: stub
+events:
+    -   date: !!null
+        name: Ohrdruf
+
+
+# point.de.Gräfenroda                         de.6298

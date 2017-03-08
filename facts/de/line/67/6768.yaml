@@ -6,37 +6,40 @@ type: line
 progress: stub
 events:
     -   date: !!null
-        end: !keyref point.int.Kutzow-Świnoujście
+        end: point.int.Kutzow-Świnoujście
         region:
-            - !keyref org.de
-            - !keyref org.de.l.mv
+            - org.de
+            - org.de.l.mv
     -   date: !!null
-        start: !keyref point.int.Kutzow-Świnoujście
-        end: !keyref point.int.Ahlbeck-Świnoujście
-        region: !keyref org.pl
+        start: point.int.Kutzow-Świnoujście
+        end: point.int.Ahlbeck-Świnoujście
+        region: org.pl
     -   date: !!null
-        end: !keyref point.int.Ahlbeck-Świnoujście
+        end: point.int.Ahlbeck-Świnoujście
         region:
-            - !keyref org.de
-            - !keyref org.de.l.mv
+            - org.de
+            - org.de.l.mv
 
     -   date: !var vzg.dr
         de.VzG: !!str 6768
-        sources: !keyref src.de.VzG
+        sources: src.de.VzG
 
     #   Genehmigungen
     #
+    -   date: 1872-12-11
+        end: point.pl.Świnoujście-Główne
+        concession:
+            by: org.de.l.pre
+            for: org.de.Berlin-Stettiner-Eisenbahn
+        document: src.de.l.pre.ste.1873.26.101
+        sources: src.de.DRG.1935 # 1876/18
 
     #   Eröffnung und Einstellung
     #
-    -   date: !!null
-        end: !keyref point.pl.Świnoujście-Centrum
-        status: closed
-        sources: !keyref src.de.SuW.2011
-    -   date: !!null
-        start: !keyref point.pl.Świnoujście-Centrum
+    -   date: 1876-05-15
+        end: point.pl.Świnoujście-Główne
         status: open
-        sources: !keyref src.de.SuW.2011
+        sources: src.de.DRG.1935 # 1876/18
 
     #   Eigenschaften
     #
@@ -48,11 +51,17 @@ events:
     #
 
 points:
-    - !keyref point.de.Ducherow                             # line.de.6081
-    - !keyref point.int.Kutzow-Świnoujście
-    - !keyref point.pl.Świnoujście-Centrum
-    - !keyref point.int.Ahlbeck-Świnoujście
-    - !keyref point.de.Seebad-Heringsdorf
+    -   point.de.Ducherow                           # de.6081
+    -   point.int.Kutzow-Świnoujście
+    -   point.pl.Świnoujście-Główne
+    -   point.pl.Świnoujście-Centrum
+    -   point.int.Ahlbeck-Świnoujście
+    -   point.de.Seebad-Heringsdorf
+
+
+#-----------------------------------------------------------------------------
+
+# point.de.Ducherow                           de.6081
 
 
 ---
@@ -67,6 +76,15 @@ events:
 
 
 ---
+key: point.pl.Świnoujście-Główne
+type: point
+progress: stub
+events:
+    -   date: !!null
+        name: Świnoujście Główne
+
+
+---
 key: point.pl.Świnoujście-Centrum
 type: point
 progress: stub
@@ -75,7 +93,7 @@ events:
         name: Świnoujście Centrum
     -   date: !!null
         de.DS100: XPSM
-        sources: !keyref src.de.DBAG.ISR
+        sources: src.de.DBAG.ISR
 
 
 ---
@@ -97,6 +115,6 @@ events:
     -   date: !!null
         name: Seebad Heringsdorf
         de.DS100: WHF
-        sources: !keyref src.de.DBAG.ISR
+        sources: src.de.DBAG.ISR
 
 

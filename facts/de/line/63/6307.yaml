@@ -7,15 +7,26 @@ progress: stub
 events:
     -   date: !!null
         region:
-            - !keyref org.de
-            - !keyref org.de.l.th
+            - org.de
+            - org.de.l.th
 
     -   date: !var vzg.dr
         de.VzG: !!str 6307
-        sources: !keyref src.de.VzG
+        sources: src.de.VzG
 
     #   Staatsverträge
     #
+    -   date: 1872-03-26
+        treaty:
+            parties:
+                -   org.de.l.swe
+                -   org.de.l.sal
+                -   org.de.l.rjl
+        document:
+            -   src.de.l.swe.1872.28.323
+            -   src.de.l.sal.1872.10.95
+            -   src.de.l.rjl.1872.349.72
+        sources: src.de.DRG.1935 # 1876/29
     -   date: 1895-05-27
         treaty:
             parties:
@@ -43,12 +54,34 @@ events:
 
     #   Genehmigungen
     #
+    -   date: 1872-06-08
+        end: point.de.Neue-Schenke-LGr
+        concession:
+            by: org.de.l.swe
+            for: org.de.Weimar-Geraer-Eisenbahn
+        document: src.de.l.swe.1872.28.321a
+        sources: src.de.DRG.1935 # 1876/29
+    -   date: 1872-06-08
+        start: point.de.Neue-Schenke-LGr
+        end: point.de.Kraftsdorf-LGr
+        concession:
+            by: org.de.l.sal
+            for: org.de.Weimar-Geraer-Eisenbahn
+        document: src.de.l.sal.1872.10.94
+        sources: src.de.DRG.1935 # 1876/29
+    -   date: 1872-06-08
+        start: point.de.Kraftsdorf-LGr
+        concession:
+            by: org.de.l.rjl
+            for: org.de.Weimar-Geraer-Eisenbahn
+        document: src.de.l.rjl.1872.349.89
+        sources: src.de.DRG.1935 # 1876/29
 
     #   Eröffnung und Einstellung
     #
-    -   date: !!null
+    -   date: 1876-06-29
         status: open
-        sources: !keyref src.de.SuW.2011
+        sources: src.de.DRG.1935 # 1876/29
 
     #   Eigenschaften
     #
@@ -60,8 +93,57 @@ events:
     #
 
 points:
-    - !keyref point.de.Weimar                               # line.de.6340
-    - !keyref point.de.Jena-Göschwitz                       # line.de.6305
-    - !keyref point.de.Gera-Tinz                            # line.de.6383
-    - !keyref point.de.Gera-Hbf                             # line.de.6383
+    -   point.de.Weimar                             # de.6340
+    -   point.de.Jena-Göschwitz                     # de.6305
+    -   point.de.Neue-Schenke-LGr
+    -   point.de.Kraftsdorf-LGr
+    -   point.de.Gera-Tinz                          # de.6383
+    -   point.de.Gera-Hbf                           # de.6383
+
+
+#-----------------------------------------------------------------------------
+
+# point.de.Weimar                             de.6340
+
+
+---
+key: point.de.Jena-West
+type: point
+progress: stub
+events:
+    -   date: !!null
+        name: Jena West
+
+
+# point.de.Jena-Göschwitz                     de.6305
+
+
+---
+key: point.de.Neue-Schenke-LGr
+type: point
+subtype: border
+progress: stub
+events:
+    -   date: !!null
+        name: Neue Schenke Swe/Sal
+        note:
+            de: An der Gemeindegrenze Sulza/Zöllnitz
+
+
+---
+key: point.de.Kraftsdorf-LGr
+type: point
+subtype: border
+progress: stub
+events:
+    -   date: !!null
+        name: Kraftsdorf Sal/Rjl
+        note:
+            de: zwischen Oberndorf und Kraftsdorf
+
+
+# point.de.Gera-Tinz                          de.6383
+
+
+# point.de.Gera-Hbf                           de.6383
 
