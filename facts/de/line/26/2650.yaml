@@ -1,4 +1,4 @@
-# DE 2650.  Köln-Deutz - Hamm (Westf)
+# DE 2650.  Köln-Deutz - Essen-Altenessen - Hamm (Westf) Pbf
 #
 ---
 key: line.de.2650
@@ -12,7 +12,7 @@ events:
 
     -   date: !!null
         de.VzG: !!str 2650
-        sources: !keyref src.de.VzG
+        sources: src.de.DBAG.Geo-Strecke.2017
 
     #   Genehmigungen
     #
@@ -78,6 +78,7 @@ points:
     -   point.de.Essen-Bergeborbeck
     -   point.de.Essen-Altenessen
     -   point.de.Gelsenkirchen-Hbf
+    -   point.de.Wanne-Eickel-Pluto
     -   point.de.Wanne-Eickel-Hbf                   # de.2200
     -   point.de.Herne
     -   point.de.Herne-Hot
@@ -91,6 +92,7 @@ points:
     -   point.de.Dortmund-Scharnhorst
     -   point.de.Kamen
     -   point.de.Selmig
+    -   point.de.Hamm-Westf-Rbf-Hps
     -   point.de.Hamm-Westf-Pbf                     # de.2931
 
 
@@ -257,11 +259,15 @@ type: point
 progress: stub
 events:
     -   date: !!null
-        location:
-            - !keyloc line.de.2650 41,100
         category: de.Abzw
         name: Düsseldorf Rethel
+        de.name16: Rethel
         de.DS100: KRET
+        PLC: DE12537
+        sources: src.de.DBAG.BSV.2017
+    -   date: !!null
+        location:
+            - !keyloc line.de.2650 41,100
         sources: !keyref src.de.DBAG.ISR
 
 
@@ -271,7 +277,19 @@ type: point
 progress: stub
 events:
     -   date: !!null
+        location:
+            - !keyloc line.de.2670 42,69
+            #   38,31 v. D-Reisholz
+            - !keyloc line.de.2400  3,18
+            #    3,15 v. D Hbf (Gz Gl)
+        sources: src.de.DB.Köl.1984
+    -   date: !!null
+        category: de.Bf
         name: Düsseldorf-Derendorf
+        de.name16: D-Derendorf
+        de.DS100: KDD
+        PLC: DE12548
+        sources: src.de.DBAG.BSV.2017
 
 
 ---
@@ -435,6 +453,16 @@ events:
 
 
 ---
+key: point.de.Wanne-Eickel-Pluto
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Abzw
+        name: Wanne-Eickel Pluto
+
+
+---
 key: point.de.Herne
 type: point
 progress: stub
@@ -595,6 +623,19 @@ events:
         name: Selmig (Abzw)
         de.DS100: ESMG
         sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Hamm-Westf-Rbf-Hps
+type: point
+events:
+    -   date: !!null
+        category: de.Bft
+        name: Hamm (Westf) Rbf Hps
+        de.name16: Hamm Rbf Hps
+        de.DS100: EHRBZ
+        PLC: DE14515
+        sources: src.de.DBAG.BSV.2017
 
 
 # point.de.Hamm-Westf-Pbf                     de.2931

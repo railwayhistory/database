@@ -1,3 +1,5 @@
+# DE 9131  Bremerhaven Seehafen DB-Grenze - Bremerhafen Freihafen
+#
 ---
 key: line.de.9131
 type: line
@@ -10,25 +12,36 @@ events:
     -   date: !!null
         de.VzG: !!str 9131
         sources: !keyref src.de.SuW.2011
-
-    -   date: !!null
-        category: de.Hauptbahn
-        tracks: 2
-        electrified:
-            overhead: !var el.de
         
     -   date: !!null
         owner: !keyref org.de.e.BHaE
         operator: !keyref org.de.e.BHaE
 
 points:
-    - !keyref point.de.Bremerhaven-Seehafen-EGr             # line.de.1740
-    - !keyref point.de.Bremerhaven-Kaiserhafen
+    -   point.de.Bremerhaven-Seehafen-EGr           # de.1740
+    -   point.de.Bremerhaven-Kaiserhafen            # de.9130
+    -   point.de.Bremerhaven-Freihafen
+
+
+#-----------------------------------------------------------------------------
+
+#    point.de.Bremerhaven-Seehafen-EGr           de.1740
+
+#    point.de.Bremerhaven-Kaiserhafen            de.9130
+
 
 ---
-key: point.de.Bremerhaven-Kaiserhafen
+key: point.de.Bremerhaven-Freihafen
 type: point
-junction: True
 events:
     -   date: !!null
-        name: Bremerhaven Kaiserhafen
+        category: de.Bf
+        name: Bremerhaven Freihafen
+        de.name16: Brhv Freihafen
+        de.DS100: HBHH
+        PLC: DE11667
+        sources: src.de.DBAG.BSV.2017
+    -   date: 2008-01-01?
+        status: closed
+        sources: src.de.DBAG.BSV.2017
+

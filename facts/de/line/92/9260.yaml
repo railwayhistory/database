@@ -1,4 +1,4 @@
-# DE 9260.  Köln Mühlheimer Brücke - Bonn Rheinuferbahnhof
+# DE 9260.  Köln Mühlheimer Brücke - Bonn West
 #
 ---
 key: line.de.9260
@@ -11,8 +11,10 @@ events:
             - !keyref org.de.l.nw
 
     -   date: !!null
+        start: point.de.Köln-Heinrich-Lübke-Ufer
+        end: point.de.Bornheim-Hersel
         de.VzG: !!str 9260
-        sources: !keyref src.de.DBAG.ISR
+        sources: src.de.DBAG.Geo-Strecke.2017
 
     #   Genehmigungen
     #
@@ -36,8 +38,7 @@ points:
     - !keyref point.de.Wesseling-Nord
     - !keyref point.de.Wesseling
     - !keyref point.de.Bornheim-Hersel
-    - !keyref point.de.Bonn-West
-    - !keyref point.de.Bonn-Rheinuferbf
+    -   point.de.Bonn-West                          # de.9261
 
 
 ---
@@ -116,32 +117,3 @@ events:
         de.DS100: KHRS
         sources: !keyref src.de.DBAG.ISR
 
----
-key: point.de.Bonn-West
-type: point
-progress: stub
-events:
-    -   date: !!null
-        location:
-            - !keyloc line.de.9260 28,0
-            - !keyloc line.de.9261 31,1
-        category: de.Bf
-        sources: !keyref src.de.DB.Köl.1984
-    -   date: !!null
-        name: Bonn West
-        de.DS100: KBWS
-        sources: !keyref src.de.DS100.1984
-
----
-key: point.de.Bonn-Rheinuferbf
-type: point
-progress: stub
-events:
-    -   date: !!null
-        location: !keyloc line.de.9260 29,0
-        category: de.Bf
-        sources: !keyref src.de.DB.Köl.1984
-    -   date: !!null
-        name: Bonn Rheinuferbahnhof
-        de.DS100: KBRH
-        sources: !keyref src.de.DS100.1984

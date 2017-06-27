@@ -1,4 +1,4 @@
-# DE 1032 - Meimersdorf Mf - Rbf Meimersdorf - Kiel Hbf
+# DE 1032.  Meimersdorf Ost - Kiel Hbf
 #
 ---
 key: line.de.1032
@@ -12,7 +12,7 @@ events:
 
     -   date: !!null
         de.VzG: !!str 1032
-        sources: !keyref src.de.VzG
+        sources: src.de.DBAG.Geo-Strecke.2017
 
     #   Genehmigung
     #
@@ -59,77 +59,14 @@ events:
 
     #   Verlauf
     #
-    -   date: !!null
-        course:
-            - !pathref path.de.1220 mef  mmo  -1.5
-            - !pathref path.de.1220 meo  akie  1.5
-            - !pathref path.de.1220 fasc kkp   2.5
+#    -   date: !!null
+#        course:
+#            - !pathref path.de.1220 mef  mmo  -1.5
+#            - !pathref path.de.1220 meo  akie  1.5
+#            - !pathref path.de.1220 fasc kkp   2.5
 
 points:
-    - !keyref point.de.Meimersdorf-Mf                   # line.de.1220
-    - !keyref point.de.Meimersdorf-Rbf                  # line.de.1220
-    - !keyref point.de.Meimersdorf-Mitte
-    - !keyref point.de.Meimersdorf-Mo
-    - !keyref point.de.Meimersdorf-Ost
+    - !keyref point.de.Meimersdorf-Ost                  # de.1033
     - !keyref point.de.Kiel-Hbf-Ko                      # line.de.1220
     - !keyref point.de.Kiel-Hbf                         # line.de.1220
-
-
----
-key: point.de.Meimersdorf-Mitte
-type: point
-events:
-    -   date: !!null
-        category: de.Glgr
-        name: Meimersdorf Meg
-    -   date: !date c1995
-        category: de.Bft
-        name: Meimersdorf (Mitte)
-        de.DS100: AMR M
-    -   date: !date 2001-10
-        status: closed
-        sources: !keyref src.de.web.Butenschoen
-
-    -   date: !!null
-        site: !noderef path.de.1220 mer left
-
-
----
-key: point.de.Meimersdorf-Mo
-type: point
-events:
-    -   date: !!null
-        category: de.Glgr
-        location:
-            - !keyloc line.de.1032 102,90
-            - !keyloc line.de.1033 102,90
-        name: Meimersdorf Mo
-        sources: !keyref src.de.DRG.Alt.Karte.1931
-
-    -   date: !!null
-        site: !noderef path.de.1220 mmo left
-
-
----
-key: point.de.Meimersdorf-Ost
-type: point
-events:
-    -   date: !date c1990
-        status: open
-        category: de.Awanst
-        name: Meimersdorf Ost
-        de.DS100: AMRO
-        sources: !keyref src.de.SuW.2005
-    -   date: !date c2010
-        category: de.Abzw
-        sources: !keyref src.de.SuW.2011
-    -   date: !!null
-        location:
-            - !keyloc line.de.1032 102,976
-            - !keyloc line.de.1033 102,976
-        sources: !keyref src.de.DBAG.ISR
-
-    -   date: !!null
-        site: !noderef path.de.1220 meo right
-
 

@@ -1,3 +1,5 @@
+# DE 9213.  Neubeckum - Münster (Westf) Hbf
+#
 ---
 key: line.de.9213
 type: line
@@ -8,8 +10,18 @@ events:
             - !keyref org.de.l.nw
 
     -   date: !!null
+        de.VzG: !!str 2943
+        end: point.de.Neubeckum-EGr-9213
+        sources: src.de.DBAG.Geo-Strecke.2017
+    -   date: !!null
+        start: point.de.Neubeckum-EGr-9213
+        end: point.de.Münster-Westf-EGr
         de.VzG: !!str 9213
-        sources: !keyref src.de.SuW.2005
+        sources: src.de.DBAG.Geo-Strecke.2017
+    -   date: !!null
+        start: point.de.Münster-Westf-EGr
+        de.VzG: !!str 2004
+        sources: src.de.DBAG.Geo-Strecke.2017
 
     -   date: !!null
         category: de.Nebenbahn
@@ -29,7 +41,8 @@ events:
         sources: !keyref src.de.WP.Westfaelische-Landes-Eisenbahn
 
 points:
-    - !keyref point.de.Neubeckum                            # line.de.1700
+    -   point.de.Neubeckum                          # de.1700
+    -   point.de.Neubeckum-EGr-9213
     - !keyref point.de.Enniger
     - !keyref point.de.Toennishaeuschen
     - !keyref point.de.Herkules
@@ -40,8 +53,22 @@ points:
     - !keyref point.de.Angelmodde
     - !keyref point.de.Gremmendorf
     - !keyref point.de.Münster-Westf-Ost
-    - !keyref point.de.Münster-Westf-Hbf                    # line.de.2200
+    -   point.de.Münster-Westf-EGr
+    -   point.de.Münster-Westf-Hbf                  # de.2200
 
+
+#-----------------------------------------------------------------------------
+
+#    point.de.Neubeckum                          de.1700
+
+
+---
+key: point.de.Neubeckum-EGr-9213
+type: point
+subtype: border
+events:
+    -   date: !!null
+        name: Neubeckum DB-Grenze 9213
 
 
 ---
@@ -227,4 +254,16 @@ events:
     -   date: !!null
         de.DS100: EMSO
         sources: !keyref src.de.SuW.2005
+
+
+---
+key: point.de.Münster-Westf-EGr
+type: point
+subtype: border
+events:
+    -   date: !!null
+        name: Münster (Westf) DB-Grenze
+
+
+#    point.de.Münster-Westf-Hbf                  de.2200
 

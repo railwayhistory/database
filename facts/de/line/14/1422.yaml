@@ -1,3 +1,5 @@
+# DE 1422.  Bremen Rbf Bvl - Bremen Inlandshafen EGr
+#
 ---
 key: line.de.1422
 type: line
@@ -9,16 +11,30 @@ events:
             - !keyref org.de.l.hb
 
     -   date: !!null
-        end: !keyref point.de.Bremen-Inlandshafen-EGr
         de.VzG: !!str 1422
-        sources: !keyref src.de.VzG
+        sources: src.de.DBAG.Geo-Strecke.2017
 
 points:
-    - !keyref point.de.Bremen-Rbf-Bvf                       # line.de.1401
-    - !keyref point.de.Bremen-Rbf-Bve                       # line.de.1401
-    - !keyref point.de.Bremen-Inlandshafen-EGr
-    - !keyref point.de.Bremen-Inlandshafen
-    - !keyref point.de.Bremen-Inlandshafen-If
+    -   point.de.Bremen-Rbf-Bvl                     # de.1401
+    -   point.de.Bremen-Rbf-Bve                     # de.1401
+    -   point.de.Bremen-Inlandshafen-W-K11
+    -   point.de.Bremen-Inlandshafen-EGr
+
+
+#-----------------------------------------------------------------------------
+
+#   point.de.Bremen-Rbf-Bvl                     de.1401
+#   point.de.Bremen-Rbf-Bve                     de.1401
+
+
+---
+key: point.de.Bremen-Inlandshafen-W-K11
+type: point
+subtype: reference
+events:
+    -   date: !!null
+        name: Bremen Inlandshafen, W K11
+
 
 ---
 key: point.de.Bremen-Inlandshafen-EGr
@@ -28,26 +44,8 @@ events:
     -   date: !!null
         name: Bremen-Inlandshafen EGr
     -   date: !!null
-        location: !keyloc line.de.1422 2,271
-        sources: !keyref src.de.web.BHaE
+        location:
+            - !keyloc line.de.1422 2,271
+            - !keyloc line.de.9146 2,271
+        sources: src.de.DBAG.Geo-Strecke.2017
 
----
-key: point.de.Bremen-Inlandshafen
-type: point
-events:
-    -   date: !!null
-        location: !keyloc line.de.1422 2,3
-        name: Bremen Inlandshafen
-        category: de.Bf
-        de.DS100: HBI
-        sources: !keyref src.de.SuW.2005
-
-
----
-key: point.de.Bremen-Inlandshafen-If
-type: point
-events:
-    -   date: !!null
-        name: Bremen-Inlandshafen Stw If
-        category: de.Bft
-        de.DS100: HBI F

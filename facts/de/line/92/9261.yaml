@@ -1,4 +1,4 @@
-# DE 9261.  Köln Barbarossaplatz - Bonn West
+# DE 9261.  Köln Barbarossaplatz - Bonn Rheinuferbahnhof
 #
 ---
 key: line.de.9261
@@ -12,7 +12,7 @@ events:
 
     -   date: !!null
         de.VzG: !!str 9261
-        sources: !keyref src.de.DBAG.ISR
+        sources: src.de.DBAG.Geo-Strecke.2017
 
     #   Genehmigungen
     #
@@ -35,7 +35,10 @@ points:
     - !keyref point.de.Hürth-Hermülheim
     - !keyref point.de.Fischenich
     - !keyref point.de.Brühl-Vochem
-    - !keyref point.de.Bonn-West                            # line.de.9260
+    -   point.de.Brühl-Nord
+    -   point.de.Bonn-Dransdorf
+    - !keyref point.de.Bonn-West
+    - !keyref point.de.Bonn-Rheinuferbf
 
 
 ---
@@ -111,4 +114,59 @@ events:
     -   date: !!null
         name: Brühl-Vochem
         de.DS100: KBRV
+        sources: !keyref src.de.DS100.1984
+
+
+---
+key: point.de.Brühl-Nord
+type: point
+events:
+    -   date: !!null
+        category: de.Bf
+        name: Brühl Nord
+        de.name16: Brühl Nord
+        de.DS100: KBLN
+        sources: src.de.DBAG.BSV.2017
+
+
+---
+key: point.de.Bonn-Dransdorf
+type: point
+events:
+    -   date: !!null
+        category: de.Bf
+        name: Bonn-Dransdorf
+        de.name16: Bonn-Dransdorf
+        de.DS100: KBDF
+        sources: src.de.DBAG.BSV.2017
+
+
+---
+key: point.de.Bonn-West
+type: point
+progress: stub
+events:
+    -   date: !!null
+        location:
+            - !keyloc line.de.9260 28,0
+            - !keyloc line.de.9261 31,1
+        category: de.Bf
+        sources: !keyref src.de.DB.Köl.1984
+    -   date: !!null
+        name: Bonn West
+        de.DS100: KBWS
+        sources: !keyref src.de.DS100.1984
+
+---
+key: point.de.Bonn-Rheinuferbf
+type: point
+progress: stub
+events:
+    -   date: !!null
+        location: !keyloc line.de.9260 29,0
+        category: de.Bf
+        sources: !keyref src.de.DB.Köl.1984
+    -   date: !!null
+        name: Bonn Rheinuferbahnhof
+        de.DS100: KBRH
         sources: !keyref src.de.DS100.1984

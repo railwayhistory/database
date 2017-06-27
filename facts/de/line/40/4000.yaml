@@ -24,7 +24,7 @@ events:
 
     -   date: !!null
         de.VzG: !!str 4000
-        sources: src.de.VzG
+        sources: src.de.DBAG.Geo-Strecke.2017
 
     #   Genehmigungen
     #
@@ -168,12 +168,18 @@ events:
 points:
     -   point.de.Mannheim-Hbf
     -   point.de.Mannheim-Hbf-Ost
+    -   point.de.Mannheim-Maimarkt-Hp
+    -   point.de.Mannheim-Seckenheim
     -   point.de.Mannheim-Friedrichsfeld-Südeinf-Ausf
+    -   point.de.Mannheim-Friedrichsfeld-Süd-Hp
     -   point.de.Heidelberg-Wieblingen
+    -   point.de.Heidelberg-Pfaffengrund-Wieblingen
     -   point.de.Heidelberg-Czernybrücke
     -   point.de.Heidelberg-Hbf
     -   point.de.Heidelberg-Kirchheim-Rohrbach
     -   point.de.Wiesloch-Walldorf
+    -   point.de.Ubstadt-Weiher-Abzw
+    -   point.de.Bruchsal-Nord
     -   point.de.Bruchsal
     -   point.de.Karlsruhe-Durlach
     -   point.de.Karlsruhe-Durlach-Gabelung
@@ -181,12 +187,16 @@ points:
     -   point.de.Karlsruhe-Brunnenstück
     -   point.de.Ettlingen-West
     -   point.de.Rastatt
+    -   point.de.Rastatt-Süd
     -   point.de.Baden-Baden
     -   point.de.Bühl-Baden
     -   point.de.Achern
+    -   point.de.Appenweier-Nord
     -   point.de.Appenweier
     -   point.de.Appenweier-Muhrhaag
+    -   point.de.Windschläg
     -   point.de.Offenburg
+    -   point.de.Offenburg-Ülp-südl-Esig
     -   point.de.Lahr-Schwarzw
     -   point.de.Orschweier
     -   point.de.Riegel-Malterdingen
@@ -196,6 +206,7 @@ points:
     -   point.de.Leutersberg
     -   point.de.Bad-Krozingen
     -   point.de.Müllheim-Baden
+    -   point.de.Schliengen-Nord
     -   point.de.Schliengen
     -   point.de.Efringen-Kirchen
     -   point.de.Haltingen
@@ -216,7 +227,7 @@ points:
     -   point.de.Radolfzell
     -   point.de.Konstanz-Petershausen
     -   point.de.Konstanz
-    -   point.int.Kontanz-Kreuzlingen
+    -   point.int.Konstanz-Kreuzlingen
 
 
 #-----------------------------------------------------------------------------
@@ -224,41 +235,104 @@ points:
 ---
 key: point.de.Mannheim-Hbf
 type: point
-progress: stub
 events:
     -   date: !!null
         name: Mannheim Hbf
+        de.name16: Mannheim Hbf
         de.DS100: RM
-        sources: src.de.TPP.2015
+        PLC: DE16741
+        sources: src.de.DBAG.BSV.2017
 
 
 ---
 key: point.de.Mannheim-Hbf-Ost
 type: point
-progress: stub
 events:
     -   date: !!null
-        name: Mannheim-Hbf-Ost
+        category: de.Bft
+        name: Mannheim Hbf Ost
+        de.name16: Mannheim Hbf Ost
+        de.DS100: "RM  O"
+        PLC: DE16742
+        sources: src.de.DBAG.BSV.2017
+
+
+---
+key: point.de.Mannheim-Maimarkt-Hp
+type: point
+events:
+    -   date: !!null
+        category: de.Hp
+        name: Mannheim-SAP-Arena/Maimarkt
+        de.name16: Mhm Maimarkt Hp
+        de.DS100: RMSM
+        PLC: DE16769
+        sources: src.de.DBAG.BSV.2017
+
+
+---
+key: point.de.Mannheim-Seckenheim
+type: point
+events:
+    -   date: !!null
+        category: de.Hp
+        name: Mannheim-Seckenheim
+        de.name16: Mannh-Seckenheim
+        de.DS100: RMSE
+        PLC: DE16770
+        sources: src.de.DBAG.BSV.2017
 
 
 ---
 key: point.de.Mannheim-Friedrichsfeld-Südeinf-Ausf
 type: point
-progress: stub
 events:
     -   date: !!null
+        category: de.Bft
         name: Mannheim-Friedrichsfeld Südeinf/Ausf
+        de.name16: M-Fr Südein/Ausf
+        de.DS100: RMFE
+        PLC: DE16761
+        sources: src.de.DBAG.BSV.2017
+
+
+---
+key: point.de.Mannheim-Friedrichsfeld-Süd-Hp
+type: point
+events:
+    -   date: !!null
+        category: de.Hp
+        name: Mannheim-Friedrichsfeld Süd Hp
+        de.name16: Ma-Friedr Süd Hp
+        de.DS100: RMFS
+        PLC: DE16760
+        sources: src.de.DBAG.BSV.2017
 
 
 ---
 key: point.de.Heidelberg-Wieblingen
 type: point
-progress: stub
 events:
     -   date: !!null
+        category: de.Abzw
         name: Heidelberg-Wieblingen
+        de.name16: Heidelb-Wiebl
         de.DS100: RHBW
-        sources: src.de.TPP.2015
+        PLC: DE14683
+        sources: src.de.DBAG.BSV.2017
+
+
+---
+key: point.de.Heidelberg-Pfaffengrund-Wieblingen
+type: point
+events:
+    -   date: !!null
+        category: de.Hp
+        name: Heidelberg-Pfaffengrund/Wieblingen
+        de.name16: Pfaffengr/Wiebl
+        de.DS100: RHBP
+        PLC: DE14680
+        sources: src.de.DBAG.BSV.2017
 
 
 ---
@@ -274,23 +348,27 @@ events:
 ---
 key: point.de.Heidelberg-Hbf
 type: point
-progress: stub
 events:
     -   date: !!null
+        category: de.Bf
         name: Heidelberg Hbf
+        de.name16: Heidelberg Hbf
         de.DS100: RH
-        sources: src.de.TPP.2015
+        PLC: DE14673
+        sources: src.de.DBAG.BSV.2017
 
 
 ---
 key: point.de.Heidelberg-Kirchheim-Rohrbach
 type: point
-progress: stub
 events:
     -   date: !!null
+        category: de.Bf
         name: Heidelberg-Kirchheim/Rohrbach
+        de.name16: HD-Kirchh/Rohrb
         de.DS100: RHKM
-        sources: src.de.TPP.2015
+        PLC: DE14679
+        sources: src.de.DBAG.BSV.2017
 
 
 ---
@@ -302,6 +380,32 @@ events:
         name: Wiesloch-Walldorf
         de.DS100: RWS
         sources: src.de.TPP.2015
+
+
+---
+key: point.de.Ubstadt-Weiher-Abzw
+type: point
+events:
+    -   date: !!null
+        category: de.Abzw
+        name: Ubstadt-Weiher (Abzw)
+        de.name16: Ubstadt-W Abzw
+        de.DS100: RUWA
+        PLC: DE20410
+        sources: src.de.DBAG.BSV.2017
+
+
+---
+key: point.de.Bruchsal-Nord
+type: point
+events:
+    -   date: !!null
+        category: de.Abzw
+        name: Bruchsal Nord
+        de.name16: Bruchsal Nord
+        de.DS100: RBRR
+        PLC: DE11736
+        sources: src.de.DBAG.BSV.2017
 
 
 ---
@@ -378,6 +482,19 @@ events:
 
 
 ---
+key: point.de.Rastatt-Süd
+type: point
+events:
+    -   date: !!null
+        category: de.Abzw
+        name: Rastatt-Süd
+        de.name16: Rastatt-Süd
+        de.DS100: RRAS
+        PLC: DE18652
+        sources: src.de.DBAG.BSV.2017
+
+
+---
 key: point.de.Baden-Baden
 type: point
 progress: stub
@@ -411,6 +528,19 @@ events:
 
 
 ---
+key: point.de.Appenweier-Nord
+type: point
+events:
+    -   date: !!null
+        category: de.Bft
+        name: Appenweier Nord
+        de.name16: Appenweier Nord
+        de.DS100: RAPR
+        PLC: DE10267
+        sources: src.de.DBAG.BSV.2017
+
+
+---
 key: point.de.Appenweier
 type: point
 progress: stub
@@ -424,23 +554,53 @@ events:
 ---
 key: point.de.Appenweier-Muhrhaag
 type: point
-progress: stub
 events:
     -   date: !!null
-        name: Appenweier-Murhaag
+        category: de.Bft
+        name: Appenweier-Muhrhaag
+        de.name16: RAP Muhrhaag
         de.DS100: RAPM
-        sources: src.de.TPP.2015
+        PLC: DE10268
+        sources: src.de.DBAG.BSV.2017
+
+
+---
+key: point.de.Windschläg
+type: point
+events:
+    -   date: !!null
+        category: de.Abzw
+        name: Windschläg
+        de.name16: Windschläg
+        de.DS100: RWAE
+        PLC: DE21191
+        sources: src.de.DBAG.BSV.2017
 
 
 ---
 key: point.de.Offenburg
 type: point
-progress: stub
 events:
     -   date: !!null
+        category: de.Bf
         name: Offenburg
+        de.name16: Offenburg
         de.DS100: RO
-        sources: src.de.TPP.2015
+        PLC: DE18080
+        sources: src.de.DBAG.BSV.2017
+
+
+---
+key: point.de.Offenburg-Ülp-südl-Esig
+type: point
+events:
+    -   date: !!null
+        category: de.Bft
+        name: Offenburg Ülp südl Esig
+        de.name16: Offenbg südl Es
+        de.DS100: "RO  S"
+        PLC: DE18086
+        sources: src.de.DBAG.BSV.2017
 
 
 ---
@@ -540,6 +700,19 @@ events:
         name: Müllheim (Baden)
         de.DS100: RML
         sources: src.de.TPP.2015
+
+
+---
+key: point.de.Schliengen-Nord
+type: point
+events:
+    -   date: !!null
+        category: de.Bft
+        name: Schliengen Abzweig Rtb/NBS
+        de.name16: Schliengen Nord
+        de.DS100: RSG N
+        PLC: DE19371
+        sources: src.de.DBAG.BSV.2017
 
 
 ---
@@ -762,15 +935,15 @@ events:
 
 
 ---
-key: point.int.Kontanz-Kreuzlingen
+key: point.int.Konstanz-Kreuzlingen
 type: point
-progress: stub
 events:
     -   date: !!null
-        name: Konstanz Grenze 
+        category: de.Gp
+        local_name:
+            de: Konstanz Grenze 
+        de.name16: Konstanz Gr
         de.DS100: RXKZ
-        sources: src.de.TPP.2015
-
-
-
+        PLC: DE15801
+        sources: src.de.DBAG.BSV.2017
 

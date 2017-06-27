@@ -13,7 +13,7 @@ events:
     -   date: !!null
         end: point.de.Wiesbaden-Hbf
         de.VzG: !!str 3603
-        sources: !keyref src.de.VzG
+        sources: src.de.DBAG.Geo-Strecke.2017
 
     #   Genehmigungen
     #
@@ -72,13 +72,18 @@ events:
 
 points:
     -   point.de.Frankfurt-Main-Hbf                   # de.3600
-    #   ...
+    -   point.de.Frankfurt-Main-Gutleuthof
+    -   point.de.Frankfurt-Mainzer-Landstraße
     -   point.de.Frankfurt-Main-Frz
     -   point.de.Frankfurt-Höchst
+    -   point.de.Frankfurt-Höchst-S-Bahn-Fernbahn
+    -   point.de.Frankfurt-Höchst-Pbf-Gbf-Ültg
     -   point.de.Hattersheim-Main
     -   point.de.Hochheim-Main
+    -   point.de.Kostheim
     -   point.de.Mainz-Kastel
     -   point.de.Wiesbaden-Ost
+    -   point.de.Wiesbaden-Salzbach                 # de.3505
     -   point.de.Wiesbaden-Hbf
     -   point.de.Wiesbaden-Taunusbf
 
@@ -88,29 +93,83 @@ points:
 
 # point.de.Frankfurt-Main-Hbf                 # de.3600
 
-# ...
+
+---
+key: point.de.Frankfurt-Main-Gutleuthof
+type: point
+events:
+    -   date: !!null
+        category: de.Abzw
+        name: Frankfurt (Main) Gutleuthof
+        de.name16: Gutleuthof
+        de.DS100: FGUR
+        PLC: DE13274
+        sources: src.de.DBAG.BSV.2017
+
+
+---
+key: point.de.Frankfurt-Mainzer-Landstraße
+type: point
+events:
+    -   date: !!null
+        category: de.Abzw
+        name: Frankfurt Mainzer Landstraße
+        de.name16: Mainzer Landstr
+        de.DS100: FMLA
+        PLC: DE13325
+        sources: src.de.DBAG.BSV.2017
 
 
 ---
 key: point.de.Frankfurt-Main-Frz
 type: point
-progress: stub
 events:
     -   date: !!null
-        name: Frankfurt (Main) FRZ
+        category: de.Üst
+        name: Frankfurt (Main) Frz
+        de.name16: Ffm Frz
         de.DS100: FFTGF
-        sources: !keyref src.de.TPP.2015
+        PLC: DE13272
+        sources: src.de.DBAG.BSV.2017
 
 
 ---
 key: point.de.Frankfurt-Höchst
 type: point
-progress: stub
 events:
     -   date: !!null
+        category: de.Bf
         name: Frankfurt-Höchst
+        de.name16: Ff-Höchst
         de.DS100: FHOE
-        sources: !keyref src.de.TPP.2015
+        PLC: DE13336
+        sources: src.de.DBAG.BSV.2017
+
+
+---
+key: point.de.Frankfurt-Höchst-S-Bahn-Fernbahn
+type: point
+events:
+    -   date: !!null
+        category: de.Bft
+        name: Frankfurt-Höchst S-Bahn/Fernbahn
+        de.name16: Ff-Höchst S-B/F
+        de.DS100: FHOES
+        PLC: DE13341
+        sources: src.de.DBAG.BSV.2017
+
+
+---
+key: point.de.Frankfurt-Höchst-Pbf-Gbf-Ültg
+type: point
+events:
+    -   date: !!null
+        category: de.Bft
+        name: Frankfurt-Höchst Pbf/Gbf Ültg
+        de.name16: Ff-Höchst Pbf/Gb
+        de.DS100: FHOEA
+        PLC: DE13340
+        sources: src.de.DBAG.BSV.2017
 
 
 ---
@@ -136,6 +195,19 @@ events:
 
 
 ---
+key: point.de.Kostheim
+type: point
+events:
+    -   date: !!null
+        category: de.Abzw
+        name: Kostheim
+        de.name16: Kostheim
+        de.DS100: FKOS
+        PLC: DE15835
+        sources: src.de.DBAG.BSV.2017
+
+
+---
 key: point.de.Mainz-Kastel
 type: point
 progress: stub
@@ -155,6 +227,9 @@ events:
         name: Wiesbaden Ost
         de.DS100: FWO
         sources: !keyref src.de.TPP.2015
+
+
+#    point.de.Wiesbaden-Salzbach                 de.3505
 
 
 ---

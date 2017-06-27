@@ -17,9 +17,9 @@ events:
         category: de.Hauptbahn
 
     -   date: !!null
-        end: !keyref point.de.Emden-Sued-Es
+        end: !keyref point.de.Emden-Rbf-Es
         de.VzG: !!str 2931
-        sources: !keyref src.de.VzG
+        sources: src.de.DBAG.Geo-Strecke.2017
 
     #   Genehmigungen und Verträge
     #
@@ -227,7 +227,7 @@ points:
     -   point.de.Hamm-Westf-Pbf
     -   point.de.Hamm-Feldmark
     - !keyref point.de.Bockum-Hoevel-DGr
-    - !keyref point.de.Bockum-Hoevel
+    -   point.de.Bockum-Hövel
     - !keyref point.de.Hoelter
     - !keyref point.de.Mersch
     - !keyref point.de.Drensteinfurt
@@ -237,7 +237,7 @@ points:
     - !keyref point.de.Steinersee
     - !keyref point.de.D-Weil
     - !keyref point.de.Muenster-Hiltrup
-    - !keyref point.de.Lechtenberg
+    - !keyref point.de.Münster-Lechtenberg
     - !keyref point.de.Münster-Westf-Hbf                   # line.de.2200
     - !keyref point.de.Schnorrenburg
     - !keyref point.de.Nevinghof-Fehlstelle
@@ -290,8 +290,8 @@ points:
     - !keyref point.de.Rorichum
     - !keyref point.de.Oldersum
     - !keyref point.de.Petkum
-    - !keyref point.de.Emden-Sued-Es
-    - !keyref point.de.Emden-Sued
+    -   point.de.Emden-Rbf-Es
+    -   point.de.Emden-Süd
 
 
 #-----------------------------------------------------------------------------
@@ -357,7 +357,7 @@ events:
         sources: !keyref src.de.DRG.Mst.1946
 
 ---
-key: point.de.Bockum-Hoevel
+key: point.de.Bockum-Hövel
 type: point
 events:
     -   date: !!null
@@ -562,9 +562,8 @@ events:
         sources: !keyref src.de.web.Joost
 
 ---
-key: point.de.Lechtenberg
+key: point.de.Münster-Lechtenberg
 type: point
-junction: True
 events:
     -   date: !!null
         location:
@@ -853,7 +852,7 @@ events:
         de.DS100: HRSA
         sources: !keyref src.de.web.Joost
     -   date: !date 1998-11-28
-        category: de.Uest
+        category: de.Üst
         sources: !keyref src.de.web.Joost
     -   date: !date 2001-12-09
         status: closed
@@ -1286,7 +1285,7 @@ events:
         name: Lehe
         sources: !keyref src.de.DRG.Mst.1946
     -   date: !date c1970
-        category: de.Uest
+        category: de.Üst
         sources: !keyref src.de.SuW.2005
     -   date: !date c2000
         name: Dörpen-Lehe
@@ -1426,7 +1425,7 @@ events:
         master: !keyref point.de.Leer-Ostfriesl
         name: Leer (Ostfriesl) Süd
     -   date: !date c2000
-        category: de.Uest
+        category: de.Üst
         sources: !keyref src.de.SuW.2005
     -   date: !!null
         de.DS100: HLEEA
@@ -1578,25 +1577,23 @@ events:
         sources: !keyref src.de.Janssen.2002
 
 ---
-key: point.de.Emden-Sued-Es
+key: point.de.Emden-Rbf-Es
 type: point
-junction: True
 events:
     -   date: !!null
         location:
             - !keyloc line.de.2931 348,12
             - !keyloc line.de.1570   0,00
-        category: de.Glgr
+        category: de.Stw
         name: Emden Es
-        master: !keyref point.de.Emden-Sued
-        sources: !keyref src.de.DRG.Mst.1946
+        master: point.de.Emden-Süd
+        sources: src.de.DRG.Mst.1946
     -   date: !date c1970
         status: closed
 
 ---
-key: point.de.Emden-Sued
+key: point.de.Emden-Süd
 type: point
-junction: True
 events:
     -   date: !!null
         location: !keyloc line.de.2931 348,60

@@ -1,3 +1,5 @@
+# DE 1253.  Hamburg Süderelbbrücke - Hamburg-Waltershof Dradenau
+#
 ---
 key: line.de.1253
 type: line
@@ -10,7 +12,7 @@ events:
 
     -   date: !!null
         de.VzG: !!str 1253
-        sources: !keyref src.de.VzG
+        sources: src.de.DBAG.Geo-Strecke.2017
 
     -   date: !!null
         category: de.Nebenbahn
@@ -70,9 +72,10 @@ points:
     - !keyref point.de.Hamburg-Hohe-Schaar
     - !keyref point.de.Kattwykbruecke
     - !keyref point.de.Hamburg-Hausbruch-Mitte
-    - !keyref point.de.Hamburg-Waltershof-Alte-Suederelbe
+    -   point.de.Hamburg-Waltershof-Alte-Süderelbe
     - !keyref point.de.Hamburg-Waltershof-W318
     - !keyref point.de.Hamburg-Waltershof
+    -   point.de.Hamburg-Waltershof-Dradenau
 
 
 ---
@@ -166,17 +169,19 @@ events:
 
 
 ---
-key: point.de.Hamburg-Waltershof-Alte-Suederelbe
+key: point.de.Hamburg-Waltershof-Alte-Süderelbe
 type: point
 events:
     -   date: !!null
-        category: de.Bft
         location: !keyloc line.de.1253 13,6
         sources: !keyref src.de.SuW.2005
     -   date: !!null
+        category: de.Bft
         name: Hamburg-Waltershof Alte Süderelbe
         de.DS100: AWHOS
-        sources: !keyref src.de.TPP.2006
+        sources: src.de.DBAG.BSV.2017
+    -   date: !!null
+        master: point.de.Hamburg-Waltershof
 
     -   date: !!null
         site: !noderef path.de.1253 asu
@@ -214,3 +219,17 @@ events:
 
     -   date: !!null
         site: !noderef path.de.1253 wal
+
+
+---
+key: point.de.Hamburg-Waltershof-Dradenau
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Bft
+        name: Hamburg-Waltershof Dradenau
+        de.DS100: AWHOD
+        sources: src.de.DBAG.BSV.2017
+    -   date: !!null
+        master: point.de.Hamburg-Waltershof

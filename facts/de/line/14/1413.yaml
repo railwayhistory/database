@@ -1,3 +1,5 @@
+# DE 1413.  Bremen Hbf Bwn - Bremen Zollausschluß EGr
+#
 ---
 key: line.de.1413
 type: line
@@ -13,22 +15,24 @@ events:
         sources: !keyref src.de.VzG
 
 points:
-    - !keyref point.de.Bremen-Hbf-Bwn                       # line.de.1500
-    - !keyref point.de.Bremen-Zollausschluss
+    -   point.de.Bremen-Hbf-Bwn                     # de.1500
+    -   point.de.Bremen-Zollausschluß-EGr
+
+
+#-----------------------------------------------------------------------------
+
+# point.de.Bremen-Hbf-Bwn                     de.1500
 
 ---
-key: point.de.Bremen-Zollausschluss
+key: point.de.Bremen-Zollausschluß-EGr
 type: point
+subtype: border
 events:
     -   date: !!null
-        name: Bremen Zollausschluß
-        category: de.Bf
-        de.Rangklasse: I
-        service: freight
-        de.lknr: 13 758
-        sources: !keyref src.de.Bfv.1933
+        name: Bremen Zollausschluß EGr
     -   date: !!null
-        de.DS100: HBZ
-        sources: !keyref src.de.SuW.2005
-    -   date: !date c2000
-        status: closed
+        location:
+            -   !keyloc line.de.1413 0,259
+            -   !keyloc line.de.9147 0,259
+        sources: src.de.DBAG.Geo-Strecke.2017
+

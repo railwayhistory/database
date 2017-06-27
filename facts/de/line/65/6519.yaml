@@ -1,3 +1,5 @@
+# DE 6519.  Berlin-Grünau - Berlin-Schönefeld Flughafen Süd
+#
 ---
 key: line.de.6519
 type: line
@@ -14,14 +16,18 @@ events:
 
     -   date: !!null
         de.VzG: !!str 6519
-        sources: !keyref src.de.DBAG.ISR
+        sources: src.de.DBAG.Geo-Strecke.2017
 
     #   Eröffnung
     #
-    -   date: !date 2012-06-02?
+    -   date: !date 1963-09-03
         status: open
-        service: none
-        sources: !keyref src.de.WP.Bahnhof-Flughafen-Berlin-Brandenburg
+        service: freight
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !date c2010
+        start: point.de.Bohnsdorf-West
+        end: !keyref point.de.Diepensee-Abzw-Cargo
+        status: removed
 
     #   Eigenschaften
     #
@@ -53,6 +59,8 @@ points:
     - !keyref point.de.Berlin-Gruenau                       # line.de.6142
     - !keyref point.de.Bohnsdorf-Nord-LGr
     - !keyref point.de.Bohnsdorf-West                       # line.de.6151
+    - !keyref point.de.Diepensee-Abzw-Cargo                 # line.de.6151
+    - !keyref point.de.Berlin-Schoenefeld-Flughafen-Sued
 
 
 ---
@@ -68,4 +76,34 @@ events:
     -   date: !!null
         site: !noderef path.de.6519 gboh
 
+
+---
+key: point.de.Berlin-Schoenefeld-Flughafen-Sued
+type: point
+junction: True
+events:
+    -   date: !!null
+        name: Zentralflughafen Süd
+        sources: !keyref src.dd.DR.Bln.1968
+    -   date: !date c1975
+        name: Flughafen Süd
+        de.VBL: Fha
+        sources: !keyref src.dd.DR.Bln.1978
+    -   date: !!null
+        category: de.Ldst
+        master: !keyref point.de.Berlin-Gruenau
+        sources: !keyref src.dd.DR.Bln.1991
+    -   date: !var ds100.dr
+        de.DS100: BFSS
+        name: Berlin-Schönefeld Flughafen Süd
+        sources: !keyref src.de.TPP.2006
+    -   date: !!null
+        location: !keyloc line.de.6519 6,850
+        sources: !keyref src.de.DBAG.ISR
+    -   date: !date c2010
+        category: de.Bf
+        sources: !keyref src.de.DBAG.ISR
+
+    -   date: !!null
+        site: !noderef path.de.6519a.fls fls left
 

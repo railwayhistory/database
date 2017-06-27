@@ -1,6 +1,6 @@
 # DE 2670.  Köln Hbf - Duisburg Hbf
 #
-#           S-Bahn
+#           - S-Bahn -
 #
 ---
 key: line.de.2670
@@ -14,7 +14,7 @@ events:
 
     -   date: !!null
         de.VzG: !!str 2670
-        sources: !keyref src.de.VzG
+        sources: src.de.DBAG.Geo-Strecke.2017
 
     #   Genehmigungen
     #
@@ -58,13 +58,14 @@ points:
     - !keyref point.de.Düsseldorf-Reisholz-Hp
     - !keyref point.de.Düsseldorf-Eller-Süd
     - !keyref point.de.Düsseldorf-Oberbilk
-    - !keyref point.de.Düsseldorf-Wersten
-    - !keyref point.de.Düsseldorf-Emma                      # line.de.2650
-    - !keyref point.de.Düsseldorf-Hbf                       # line.de.2550
-    - !keyref point.de.Düsseldorf-Hbf-Nordkopf
-    - !keyref point.de.Düsseldorf-Heinrich
-    - !keyref point.de.Düsseldorf-Unterrath
-    - !keyref point.de.Düsseldorf-Unterrath-Karthäuser-Weg
+    -   point.de.Düsseldorf-Wersten
+    -   point.de.Düsseldorf-Emma                    # de.2650
+    -   point.de.Düsseldorf-Hbf                     # de.2550
+    -   point.de.Düsseldorf-Hbf-Nordkopf
+    -   point.de.Düsseldorf-Derendorf               # de.2650
+    -   point.de.Düsseldorf-Heinrich
+    -   point.de.Düsseldorf-Unterrath
+    -   point.de.Düsseldorf-Unterrath-Karthäuser-Weg
     - !keyref point.de.Düsseldorf-Flughafen-Hp
     - !keyref point.de.Angermund
     - !keyref point.de.Duisburg-Rahm
@@ -72,6 +73,7 @@ points:
     - !keyref point.de.Duisburg-Buchholz
     - !keyref point.de.Duisburg-Buchholz-Abzw
     - !keyref point.de.Duisburg-Schlenk
+    -   point.de.Duisburg-Hbf                       # de.2650
 
 
 ---
@@ -158,7 +160,7 @@ progress: stub
 events:
     -   date: !!null
         location: !keyloc line.de.2670 9,430
-        category: [de.Hp, de.Uest]
+        category: [de.Hp, de.Üst]
         name: Leverkusen Chempark Hp
         de.DS100: KBAY
         sources: !keyref src.de.DBAG.ISR
@@ -184,7 +186,7 @@ progress: stub
 events:
     -   date: !!null
         location: !keyloc line.de.2670 12,356
-        category: de.Uest
+        category: de.Üst
         name: Leverkusen-Küppersteg Üst
         de.DS100: KLKS
         sources: !keyref src.de.DBAG.ISR
@@ -210,7 +212,7 @@ progress: stub
 events:
     -   date: !!null
         location: !keyloc line.de.2670 16,074
-        category: [de.Hp, de.Uest]
+        category: [de.Hp, de.Üst]
         name: Leverkusen-Rheindorf
         de.DS100: KLRH
         sources: !keyref src.de.DBAG.ISR
@@ -287,11 +289,15 @@ type: point
 progress: stub
 events:
     -   date: !!null
+        category: [ de.Hp, de.Abzw ]
+        name: Düsseldorf-Oberbilk
+        de.name16: D-Oberbilk
+        de.DS100: KDOB
+        PLC: DE12564
+        sources: src.de.DBAG.BSV.2017
+    -   date: !!null
         location:
             - !keyloc line.de.2670 35,698
-        category: [de.Hp, de.Abzw]
-        name: Düsseldorf-Oberbilk
-        de.DS100: KDOB
         sources: !keyref src.de.DBAG.ISR
 
 
@@ -301,12 +307,15 @@ type: point
 progress: stub
 events:
     -   date: !!null
-        location:
-            - !keyloc line.de.2670 36,015
         category: de.Abzw
         name: Düsseldorf-Wersten
+        de.name16: D-Wersten
         de.DS100: KWST
-        sources: !keyref src.de.DBAG.ISR
+        PLC: DE12575
+        sources: src.de.DBAG.BSV.2017
+
+
+#    point.de.Düsseldorf-Hbf                     de.2550
 
 
 ---
@@ -317,9 +326,16 @@ events:
     -   date: !!null
         category: de.Bft
         name: Düsseldorf Hbf Nordkopf
+        de.name16: Düsseldorf Nordk
         de.DS100: "KD  N"
+        PLC: DE12535
+        sources: src.de.DBAG.BSV.2017
+    -   date: !!null
         master: !keyref point.de.Düsseldorf-Hbf
         sources: !keyref src.de.DBAG.ISR
+
+
+#    point.de.Düsseldorf-Derendorf               de.2650
 
 
 ---
@@ -328,9 +344,11 @@ type: point
 progress: stub
 events:
     -   date: !!null
-        category: de.Abzw
+        category: [ de.Bft, de.Abzw ]
         name: Düsseldorf Heinrich
+        de.name16: Heinrich
         de.DS100: KHCH
+        PLC: DE12536
         sources: !keyref src.de.DBAG.TPN.2017
 
 
@@ -340,12 +358,12 @@ type: point
 progress: stub
 events:
     -   date: !!null
-        location:
-            - !keyloc line.de.2670 46,020
         category: de.Bf
         name: Düsseldorf-Unterrath
+        de.name16: D-Unterrath
         de.DS100: KDU
-        sources: !keyref src.de.DBAG.ISR
+        PLC: DE12573
+        sources: src.de.DBAG.BSV.2017
 
 
 ---
@@ -356,9 +374,10 @@ events:
     -   date: !!null
         category: de.Bft
         name: Düsseldorf-Unterrath Karthäuser Weg
+        de.name16: D Karthäuser Weg
         de.DS100: KDU K
-        master: !keyref point.de.Düsseldorf-Unterrath
-        sources: !keyref src.de.DBAG.ISR
+        PLC: DE12574
+        sources: src.de.DBAG.BSV.2017
 
 
 ---
@@ -439,3 +458,5 @@ events:
         de.DS100: EDSL
         sources: !keyref src.de.DBAG.ISR
 
+
+#    point.de.Duisburg-Hbf                       de.2650

@@ -1,10 +1,13 @@
-# DE 3530.  Mainz-Bischofsheim - Darmstadt Hbf
+# DE 3530.  Mainz-Bischofsheim Pbf - Darmstadt Hbf
 #
 ---
 key: line.de.3530
 type: line
 progress: stub
 events:
+    -   date: !!null
+        de.VzG: !!str 3530
+        sources: src.de.DBAG.Geo-Strecke.2017
 
     -   date: 1856-01-03
         concession:
@@ -22,8 +25,11 @@ events:
         sources: src.de.DRG.1935 # 1858/9
 
 points:
+    -   point.de.Mainz-Bischofsheim-Pbf             # de.3520
     -   point.de.Mainz-Bischofsheim                 # de.3520
+    -   point.de.Mainz-Bishofsheim-Überltg-I
     -   point.de.Groß-Gerau
+    -   point.de.Klein-Gerau-Eichmühle
     -   point.de.Weisterstadt-Stockschneise
     -   point.de.Darmstadt-Bergschneise
     -   point.de.Darmstadt-Hbf                      # de.3601
@@ -31,7 +37,22 @@ points:
 
 #-----------------------------------------------------------------------------
 
+# point.de.Mainz-Bischofsheim-Pbf             de.3520
+
 # point.de.Mainz-Bischofsheim                 de.3520
+
+
+---
+key: point.de.Mainz-Bishofsheim-Überltg-I
+type: point
+events:
+    -   date: !!null
+        category: de.Bft
+        name: Mainz-Bischofsheim Überltg I
+        de.name16: Mz-Bisch Überl I
+        de.DS100: FMB A
+        PLC: DE16707
+        sources: src.de.DBAG.BSV.2017
 
 
 ---
@@ -41,6 +62,19 @@ progress: stub
 events:
     -   date: !!null
         name: Groß-Gerau
+
+
+---
+key: point.de.Klein-Gerau-Eichmühle
+type: point
+events:
+    -   date: !!null
+        category: [ de.Bft, de.Abzw ]
+        name: Klein-Gerau Eichmühle
+        de.name16: Eichmühle
+        de.DS100: FEIM
+        PLC: DE15588
+        sources: src.de.DBAG.BSV.2017
 
 
 ---
@@ -55,10 +89,14 @@ events:
 ---
 key: point.de.Darmstadt-Bergschneise
 type: point
-progress: stub
 events:
     -   date: !!null
+        category: de.Abzw
         name: Darmstadt Bergschneise
+        de.name16: Bergschneise
+        de.DS100: FBSN
+        PLC: DE12069
+        sources: src.de.DBAG.BSV.2017
 
 
 # point.de.Darmstadt-Hbf                      de.3601

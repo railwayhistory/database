@@ -1,0 +1,83 @@
+# DE 6540.  Berlin Nordend - Berlin-Niederschönhausen
+#
+---
+key: line.de.6540
+type: line
+events:
+    -   date: !!null
+        region:
+            - !keyref org.de
+            - !keyref org.de.l.be
+
+    #   Eröffnung
+    #
+    -   date: !date 1908-08-17
+        status: open
+        sources: !keyref src.de.Kuhlmann.2000
+
+    #   Eigenschaften
+    #
+    -   date: !!null
+        category: de.Kleinbahn
+        tracks: 1
+        gauge: 1435
+        service: freight
+    -   date: !date c1950
+        category: de.Nebenbahn
+
+    #   Stilllegung und Abbau
+    #
+    -   date: !date 1952
+        status: removed
+        sources: !keyref src.de.Kuhlmann.2000
+
+    #   Eigentümer etc.
+    #
+    -   date: !!null
+        owner: !keyref org.de.e.ITF
+        operator: !keyref org.de.e.ITF
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !date 1925-07-01
+        owner: !keyref org.de.e.NEB
+        operator: !keyref org.de.e.NEB
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !date 1950-07-01
+        operator: !keyref org.dd.DR
+
+    #   Verlauf
+    #
+    -   date: !!null
+        course:
+            - !pathref path.de.6550  nor  ansc 1.0
+            - !pathref path.de.6550b a    f    0.0
+
+points:
+    - !keyref point.de.Berlin-Nordend                       # line.de.6550
+    - !keyref point.de.Berlin-Niederschoenhausen
+
+
+---
+key: point.de.Berlin-Niederschoenhausen
+type: point
+junction: True
+events:
+    -   date: !date 1908-08-17
+        status: open
+        service: freight
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !!null
+        name: Niederschönhausen
+        sources: !keyref src.de.Bfv.1928
+    -   date: !var lknr.kb
+        de.lknr: 43 056
+        sources: !keyref src.de.Bfv.1938
+    -   date: !date c1940
+        name: Berlin-Niederschönhausen
+        sources: !keyref src.de.Bfv.1944
+    -   date: !date c1950
+        de.VBL: Nsch
+        sources: !keyref src.dd.DR.Bln.1953
+
+    -   date: !!null
+        site: !noderef path.de.6550b nsc right
+
