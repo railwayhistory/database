@@ -1,101 +1,62 @@
-# DE 8705.  Anklam MPSB - Janow
+# DE 8705.  Berlin-Tempelhof Vdp - Berlin Anh Bf
 #
 ---
 key: line.de.8705
 type: line
-progress: stub
+label: connection
 events:
     -   date: !!null
         region:
             - !keyref org.de
-            - !keyref org.de.l.mv
+            - !keyref org.de.l.be
 
-    #   Genehmigungen
+    #   Genehmigung
     #
+    -   date: !date 1877-11-10
+        concession:
+            by: !keyref org.de.l.pre
+            for: !keyref org.de.l.pre
+        sources: !keyref src.de.DRG.1935
 
     #   Eröffnung und Einstellung
     #
-    -   date: !!null
-        status: closed
-        sources: !keyref src.de.SuW.2011
+    -   date: !date 1879-05-15
+        status: open
+        service: passenger
+        sources: !keyref src.de.DRG.1935
+    -   date: !date 1930
+        status: removed
+        sources: !keyref src.de.DRG.1935
 
     #   Eigenschaften
     #
+    -   date: !!null
+        category: de.Hauptbahn
+        tracks: 1
+        gauge: 1435
+        sources: !keyref src.de.DRG.Bln.1927
 
     #   Eigentümer etc.
     #
+    -   date: !!null
+        owner: !keyref org.de.l.pre
+        operator: !keyref org.de.e.KPEV.Bln
+    -   date: !date 1920-04-01
+        owner: !keyref org.de
+        operator: !keyref org.de.r.RVM.PH
+    -   date: !date 1924-02-12
+        operator: !keyref org.de.e.DREb
+    -   date: !date 1924-08-30
+        operator: !keyref org.de.e.DRG
 
     #   Verlauf
     #
+    -   date: !!null
+        course:
+            - !pathref path.de.6020 vdp  fanh  0.0
+            - !pathref path.de.6132 avdp anh  -1.5
 
 points:
-    - !keyref point.de.Anklam-MPSB
-    - !keyref point.de.Gellendin
-    - !keyref point.de.Blesewitz
-    - !keyref point.de.Nerdin
-    - !keyref point.de.Thurow-Anklam
-    - !keyref point.de.Dennin                               # line.de.8700
-    - !keyref point.de.Janow
-
-
----
-key: point.de.Anklam-MPSB
-type: point
-progress: stub
-events:
-    -   date: !!null
-        name: Anklam MPSB
-        connection:
-            - !keyref point.de.Anklam                       # line.de.6081
-            - !keyref point.de.Anklam-ALK                   # line.de.8723
-
----
-key: point.de.Gellendin
-type: point
-progress: stub
-events:
-    -   date: !!null
-        name: Gellendin
-        sources: !keyref src.de.SuW.2011
-
-
----
-key: point.de.Blesewitz
-type: point
-progress: stub
-events:
-    -   date: !!null
-        name: Blesewitz
-        sources: !keyref src.de.SuW.2011
-
-
----
-key: point.de.Nerdin
-type: point
-progress: stub
-events:
-    -   date: !!null
-        name: Nerdin
-        sources: !keyref src.de.SuW.2011
-
-
----
-key: point.de.Thurow-Anklam
-type: point
-progress: stub
-events:
-    -   date: !!null
-        name: Thurow (Kr Anklam)
-        sources: !keyref src.de.SuW.2011
-
-
----
-key: point.de.Janow
-type: point
-progress: stub
-events:
-    -   date: !!null
-        name: Janow
-        sources: !keyref src.de.SuW.2011
-
+    - !keyref point.de.Berlin-Tempelhof-Vdp                 # line.de.6170
+    - !keyref point.de.Berlin-Anh-Bf                        # line.de.6132
 

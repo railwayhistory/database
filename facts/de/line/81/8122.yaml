@@ -1,5 +1,6 @@
-# DE 8121.  Heide (Holst) Kreisb - Tellingstedt - Pallhude
+# DE 8122.  Lathen Kleinb - Werlte
 #
+#           - Alte Schmalspurbahn Strecke 9200 -
 ---
 key: line.de.8122
 type: line
@@ -7,215 +8,158 @@ events:
     -   date: !!null
         region:
             - !keyref org.de
-            - !keyref org.de.l.sh
+            - !keyref org.de.l.ni
 
-    #   Genehmigungen
-    #
-
-    #   Eröffnung und Einstellung
-    #
-    -   date: !date 1905
-        status: open
-        sources: !keyref src.de.WP.Kreisbahn-Norderdithmarschen
-    -   date: !date 1937-10-02
-        status: closed
-        sources: !keyref src.de.WP.Kreisbahn-Norderdithmarschen
-    -   date: !date c1938
-        status: removed
-
-    #   Eigenschaften
-    #
     -   date: !!null
         category: de.Kleinbahn
-        gauge: 1000
-        tracks: 1
-
-    #   Eigentümer etc.
-    #
-    -   date: !!null
-        owner: !keyref org.de.e.KbNDM
-        operator: !keyref org.de.e.KbNDM
-
-    #   Verlauf
-    #
-    -   date: !!null
-        course:
-            - !pathref path.de.1210  hek  apah  2.5
-            - !pathref path.de.8121  a    atel  1.0
-            - !pathref path.de.8122  a    f     0.0
-            - !pathref path.de.8121  f    pah   0.0
+        gauge: 750
+        owner: !keyref org.de.e.HuemKb
+        operator: !keyref org.de.e.HuemKb
+        sources: !keyref src.de.WP.Huemmlinger-Kreisbahn
+    -   date: !date 1898-08-13
+        status: open
+        sources: !keyref src.de.WP.Huemmlinger-Kreisbahn
+    -   date: !date c1950
+        category: de.Nebenbahn
+    -   date: !date 1957
+        status: closed
+        sources: !keyref src.de.WP.Huemmlinger-Kreisbahn
 
 points:
-    - !keyref point.de.Heide-Kreisbf                    # line.de.8121
-    - !keyref point.de.Suederhol
-    - !keyref point.de.Bennewohld
-    - !keyref point.de.Gaushorn
-    - !keyref point.de.Welmbuettel
-    - !keyref point.de.Tellingstedt
-    - !keyref point.de.Wellerhoop
-    - !keyref point.de.Schelrade
-    - !keyref point.de.Wrohm
-    - !keyref point.de.Dellstedt
-    - !keyref point.de.Doerpling
-    - !keyref point.de.Pahlhude                         # line.de.8121
-
+    - !keyref point.de.Lathen-Kleinb
+    - !keyref point.de.Rupennest
+    - !keyref point.de.Lathen-Wahn
+    - !keyref point.de.Hohenheide
+    - !keyref point.de.Soegel
+    - !keyref point.de.Waldhoefe
+    - !keyref point.de.Ostenwalde
+    - !keyref point.de.Werlte
 
 ---
-key: point.de.Suederhol
+key: point.de.Lathen-Kleinb
 type: point
 events:
     -   date: !!null
-        name: Süderhol
+        name: Lathen
         sources: !keyref src.de.Kb.1914
+    -   date: !date c1925
+        name: Lathen Kleinb
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.kb
+        de.lknr: 43 030
+        sources: !keyref src.de.Bfv.1944
     -   date: !!null
-        category: de.Bf
-        sources: !keyref src.de.mtbl.1720.1919
-
-    -   date: !!null
-        site: !noderef path.de.8122 sho left
-
+        connection: !keyref point.de.Lathen
 
 ---
-key: point.de.Bennewohld
+key: point.de.Rupennest
 type: point
 events:
-    -   date: !date c1920
-        status: open
-        sources:
-            - !keyref src.de.Kb.1914
-            - !keyref src.de.Bfv.1928
     -   date: !!null
-        name: Bennewohld
-        sources: !keyref src.de.Bfv.1928
-    -   date: !!null
+        location: !keyloc line.de.9200 3,7
         category: de.Hp
-        sources: !keyref src.de.mtbl.1821.1921
-
+        sources: !keyref src.de.web.EEB.SNB
     -   date: !!null
-        site: !noderef path.de.8122 ben right
-
+        name: Rupennest
+        sources: !keyref src.de.Kb.W1937
+    -   date: !!null
+        service: passenger
 
 ---
-key: point.de.Gaushorn
+key: point.de.Lathen-Wahn
 type: point
 events:
     -   date: !!null
-        name: Gaushorn
+        name: Wahn (Hnvr)
         sources: !keyref src.de.Kb.1914
-    -   date: !!null
-        category: de.Bf
-        sources: !keyref src.de.mtbl.1821.1921
-
-    -   date: !!null
-        site: !noderef path.de.8122 gau right
-
+    -   date: !date c1925
+        name: Wahn (Han)
+        sources: !keyref src.de.Bfv.1933
+    -   date: !date c1940
+        name: Lathen-Wahn
+        sources: !keyref src.de.Bfv.1944
+    -   date: !var lknr.kb
+        de.lknr: 43 031
+        sources: !keyref src.de.Bfv.1944
 
 ---
-key: point.de.Welmbuettel
+key: point.de.Hohenheide
 type: point
 events:
     -   date: !!null
-        name: Welmbüttel
+        name: Hohenheide
+        sources: !keyref src.de.Kb.W1937
+    -   date: !!null
+        service: passenger
+
+---
+key: point.de.Soegel
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.9200 18,0
+        category: de.Bf
+        sources: !keyref src.de.web.EEB.SNB
+    -   date: !!null
+        name: Sögel
         sources: !keyref src.de.Kb.1914
+    -   date: !var lknr.kb
+        de.lknr: 43 032
+        sources: !keyref src.de.Bfv.1944
     -   date: !!null
-        category: de.Bf
-        sources: !keyref src.de.mtbl.1721.1928
-
-    -   date: !!null
-        site: !noderef path.de.8122 web right
-
+        de.DS100: HSOG
+        sources: !keyref src.de.SuW.2005
 
 ---
-key: point.de.Tellingstedt
+key: point.de.Waldhoefe
 type: point
 events:
     -   date: !!null
-        name: Tellingstedt
+        location: !keyloc line.de.9200 16,8
+        category: de.Hp
+        sources: !keyref src.de.web.EEB.SNB
+    -   date: !!null
+        name: Waldhöfe
         sources: !keyref src.de.Kb.1914
+    -   date: !var lknr.kb
+        de.lknr: 43 033
+        sources: !keyref src.de.Bfv.1944
     -   date: !!null
-        category: de.Bf
-        sources: !keyref src.de.mtbl.1721.1928
-
-    -   date: !!null
-        site: !noderef path.de.8122 tel left
-
+        de.DS100: HWHF
+        sources: !keyref src.de.SuW.2005
 
 ---
-key: point.de.Wellerhoop
-type: point
-events:
-    -   date: !date c1920
-        status: open
-        sources:
-            - !keyref src.de.Kb.1914
-            - !keyref src.de.Bfv.1928
-    -   date: !!null
-        name: Wellerhoop
-        sources: !keyref src.de.Bfv.1928
-    -   date: !!null
-        category: de.Bf
-        sources: !keyref src.de.mtbl.1721.1928
-
-    -   date: !!null
-        site: !noderef path.de.8122 weh left
-
-
----
-key: point.de.Schelrade
+key: point.de.Ostenwalde
 type: point
 events:
     -   date: !!null
-        name: Schelrade
+        location: !keyloc line.de.9200 22,5
+        category: de.Bf
+        sources: !keyref src.de.web.EEB.SNB
+    -   date: !!null
+        name: Ostenwalde
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.kb
+        de.lknr: 43 034
+        sources: !keyref src.de.Bfv.1944
+    -   date: !!null
+        de.DS100: HOSW
+        sources: !keyref src.de.SuW.2005
+
+---
+key: point.de.Werlte
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.9200 28,9
+        category: de.Bf
+        sources: !keyref src.de.web.EEB.SNB
+    -   date: !!null
+        name: Werlte
         sources: !keyref src.de.Kb.1914
+    -   date: !var lknr.kb
+        de.lknr: 43 035
+        sources: !keyref src.de.Bfv.1944
     -   date: !!null
-        category: de.Bf
-        sources: !keyref src.de.mtbl.1722.1906
-
-    -   date: !!null
-        site: !noderef path.de.8122 sel right
-
-
----
-key: point.de.Wrohm
-type: point
-events:
-    -   date: !!null
-        name: Wrohm
-        sources: !keyref src.de.Kb.1914
-    -   date: !!null
-        category: de.Bf
-        sources: !keyref src.de.mtbl.1722.1906
-
-    -   date: !!null
-        site: !noderef path.de.8122 wro left
-
-
----
-key: point.de.Dellstedt
-type: point
-events:
-    -   date: !!null
-        name: Dellstedt
-        sources: !keyref src.de.Kb.1914
-    -   date: !!null
-        category: de.Bf
-        sources: !keyref src.de.mtbl.1722.1906
-
-    -   date: !!null
-        site: !noderef path.de.8122 del left
-
-
----
-key: point.de.Doerpling
-type: point
-events:
-    -   date: !!null
-        name: Dörpling
-        sources: !keyref src.de.Kb.1914
-    -   date: !!null
-        category: de.Bf
-        sources: !keyref src.de.mtbl.1721.1928
-
-    -   date: !!null
-        site: !noderef path.de.8122 dor left
-
+        de.DS100: HWRT
+        sources: !keyref src.de.SuW.2005

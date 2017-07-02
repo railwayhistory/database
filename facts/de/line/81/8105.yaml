@@ -1,189 +1,63 @@
-# DE 8105.  Hohenwestedt Kreisbf - Schenefeld (Mittelholst)
+# DE 8105.  Braunschweig Gabelung - Braunschweig Hbf alt
 #
+#           Altes Ende Strecke 1730.
 ---
 key: line.de.8105
 type: line
+progress: stub
 events:
     -   date: !!null
         region:
-            - !keyref org.de
-            - !keyref org.de.l.sh
+            - org.de
+            - org.de.l.ni
 
     #   Genehmigungen
     #
-    -   date: !date 1893-07-03
+    -   date: 1841-02-22
         concession:
-            by: !keyref org.de.l.pre
-        sources: !keyref src.de.WP.Rendsburger-Kreisbahn
+            by: org.de.l.bsw
+            for: org.de.l.bsw
+        sources: src.de.DRG.1935  # 1844/5
 
     #   Eröffnung und Einstellung
     #
-    -   date: !date 1916-11-10
+    -   date: 1844-05-19
         status: open
-        sources: !keyref src.de.WP.Rendsburger-Kreisbahn
-    -   date: !date 1954-10-18
-        status: closed
-        sources: !keyref src.de.WP.Rendsburger-Kreisbahn
-    -   date: !date c1955
-        status: removed
+        sources: src.de.DRG.1935  # 1844/5
 
     #   Eigenschaften
     #
-    -   date: !!null
-        category: de.Kleinbahn
-        tracks: 1
-        gauge: 1000
-    -   date: !date c1950
-        category: de.Nebenbahn
 
     #   Eigentümer etc.
     #
     -   date: !!null
-        owner: !keyref org.de.Kreis-Rendsburg
-        operator: !keyref org.de.Kreis-Rendsburg
-        sources: !keyref src.de.WP.Rendsburger-Kreisbahn
+        owner: org.de.l.bsw
+        sources: src.de.DRG.1935 # 1844/5
+    -   date: 1869-01-01
+        owner: org.de.Braunschweigische-Eisenbahn
+        sources: src.de.DRG.1935 # 1844/5
+    -   date: 1884-01-01
+        owner: org.de.l.pre
+        sources: src.de.DRG.1935 # 1844/5
 
     #   Verlauf
     #
-    -   date: !!null
-        course:
-            - !pathref path.de.8104  hoh  fsen 0.0
-            - !pathref path.de.8105  a    f    0.0
 
 points:
-    - !keyref point.de.Hohenwestedt-Kreisbf             # line.de.8104
-    - !keyref point.de.Wapelfeld
-    - !keyref point.de.Reher-Holst
-    - !keyref point.de.Viehhorn
-    - !keyref point.de.Puls
-    - !keyref point.de.Oldenborstel
-    - !keyref point.de.Schenefeld-Mittelholst
+    -   point.de.Braunschweig-Gabelung              # de.1730
+    -   point.de.Braunschweig-Hbf-alt
+
+
+#-----------------------------------------------------------------------------
+
+# point.de.Braunschweig-Gabelung              de.1730
 
 
 ---
-key: point.de.Wapelfeld
+key: point.de.Braunschweig-Hbf-alt
 type: point
+progress: stub
 events:
     -   date: !!null
-        name: Wapelfeld
-        sources: !keyref src.de.Bfv.1928
-    -   date: !!null
-        location: !keyloc line.de.8105 34,4
-        sources: !keyref src.de.Kb.W1937
-    -   date: !var lknr.kb
-        de.lknr: 46 415
-        sources: !keyref src.de.Bfv.1938
-    -   date: !!null
-        category: de.Bf
-        sources: !keyref src.de.DRG.Alt.Karte.1949
-
-    -   date: !!null
-        site: !noderef path.de.8105 wap left
-
-
----
-key: point.de.Reher-Holst
-type: point
-events:
-    -   date: !!null
-        name: Reher
-        sources: !keyref src.de.Bfv.1928
-    -   date: !!null
-        location: !keyloc line.de.8105 37,0
-        sources: !keyref src.de.Kb.W1937
-    -   date: !var lknr.kb
-        de.lknr: 46 416
-        sources: !keyref src.de.Bfv.1938
-    -   date: !date c1940
-        name: Reher (Holst)
-        sources: !keyref src.de.Bfv.1944
-    -   date: !!null
-        category: de.Bf
-        sources: !keyref src.de.DRG.Alt.Karte.1949
-
-    -   date: !!null
-        site: !noderef path.de.8105 reh right
-
-
----
-key: point.de.Viehhorn
-type: point
-events:
-    -   date: !!null
-        location: !keyloc line.de.8105 37,0
-        name: Viehhorn
-        sources: !keyref src.de.Kb.W1937
-    -   date: !!null
-        category: de.Hp
-        sources: !keyref src.de.DRG.Alt.Karte.1949
-
-    -   date: !!null
-        site: !noderef path.de.8105 vie left
-
-
----
-key: point.de.Puls
-type: point
-events:
-    -   date: !!null
-        name: Puls
-        sources: !keyref src.de.Bfv.1928
-    -   date: !!null
-        location: !keyloc line.de.8105 40,6
-        sources: !keyref src.de.Kb.W1937
-    -   date: !var lknr.kb
-        de.lknr: 46 418
-        sources: !keyref src.de.Bfv.1938
-    -   date: !!null
-        category: de.Bf
-        sources: !keyref src.de.DRG.Alt.Karte.1949
-
-    -   date: !!null
-        site: !noderef path.de.8105 pul right
-
-
----
-key: point.de.Oldenborstel
-type: point
-events:
-    -   date: !!null
-        name: Oldenborstel
-        sources: !keyref src.de.Bfv.1928
-    -   date: !!null
-        location: !keyloc line.de.8105 42,9
-        sources: !keyref src.de.Kb.W1937
-    -   date: !var lknr.kb
-        de.lknr: 46 419
-        sources: !keyref src.de.Bfv.1938
-    -   date: !!null
-        category: de.Bf
-        sources: !keyref src.de.DRG.Alt.Karte.1949
-
-    -   date: !!null
-        site: !noderef path.de.8105 old left
-
-
----
-key: point.de.Schenefeld-Mittelholst
-type: point
-junction: True
-events:
-    -   date: !!null
-        name: Schenefeld
-        sources: !keyref src.de.Bfv.1928
-    -   date: !date c1930
-        name: Schenefeld (Mittelholst)
-        sources: !keyref src.de.Bfv.1933
-    -   date: !!null
-        location: !keyloc line.de.8105 45,4
-        sources: !keyref src.de.Kb.W1937
-    -   date: !var lknr.kb
-        de.lknr: 46 420
-        sources: !keyref src.de.Bfv.1938
-    -   date: !!null
-        category: de.Bf
-        sources: !keyref src.de.DRG.Alt.Karte.1949
-
-    -   date: !!null
-        site: !noderef path.de.8105 sen right
+        name: Braunschweig Hbf alt
 

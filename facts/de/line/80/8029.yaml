@@ -1,0 +1,142 @@
+# DE 8029.  Brackede - Echem
+#
+---
+key: line.de.8029
+type: line
+events:
+    -   date: !!null
+        region:
+            - !keyref org.de
+            - !keyref org.de.l.ni
+
+    #   Genehmigungen
+    #
+
+    #   Eröffnung und Einstellung
+    #
+    -   date: !date 1895-12-17
+        status: open
+        sources: !keyref src.de.WP.Bleckeder-Kreisbahn
+    -   date: !date 1904
+        start: !keyref point.de.Wendewisch
+        status: closed
+        sources: !keyref src.de.WP.Bleckeder-Kreisbahn
+    -   date: !date 1921-09-01
+        end: !keyref point.de.Wendewisch
+        status: closed
+        sources: !keyref src.de.WP.Bleckeder-Kreisbahn
+    -   date: !date c1925
+        status: removed
+
+    #   Eigenschaften
+    #
+    -   date: !!null
+        category: de.Kleinbahn
+        gauge: 750
+        tracks: 1
+        sources: !keyref src.de.WP.Bleckeder-Kreisbahn
+
+    #   Eigentümer etc.
+    #
+    -   date: !!null
+        owner: !keyref org.de.e.BlKb
+        operator: !keyref org.de.e.Lenz
+        sources: !keyref src.de.WP.Bleckeder-Kreisbahn
+    -   date: !date 1910
+        operator: !keyref org.de.e.BlKb
+        sources: !keyref src.de.WP.Bleckeder-Kreisbahn
+
+    #   Verlauf
+    #
+    -   date: !!null
+        course:
+            - !pathref path.de.8118 bra  fech  1.0
+            - !pathref path.de.8119 a    f     0.0
+
+points:
+    - !keyref point.de.Brackede                             # line.de.8020
+    - !keyref point.de.Garlsdorf-Bleckede
+    - !keyref point.de.Wendewisch
+    - !keyref point.de.Jürgenstorf
+    - !keyref point.de.Lüdersburg
+    - !keyref point.de.Echem-Kreisb
+
+
+---
+key: point.de.Garlsdorf-Bleckede
+type: point
+events:
+    -   date: !!null
+        name: Garlsdorf (Kr Bleckede)
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        category: de.Bf
+        location: !keyloc line.de.8029 34,5
+        sources: !keyref src.de.WP.Bleckeder-Kreisbahn
+
+    -   date: !!null
+        site: !noderef path.de.8119 gar
+
+
+---
+key: point.de.Wendewisch
+type: point
+junction: True
+events:
+    -   date: !!null
+        name: Wendewisch
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        category: de.Bf
+        location: !keyloc line.de.8029 37,0
+        sources: !keyref src.de.WP.Bleckeder-Kreisbahn
+
+    -   date: !!null
+        site: !noderef path.de.8119 wen
+
+
+---
+key: point.de.Jürgenstorf
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.8029 42,07
+        category: de.Hp
+        name: Jürgenstorf
+        sources: !keyref src.de.WP.Bleckeder-Kreisbahn
+
+    -   date: !!null
+        site: !noderef path.de.8119 jur
+
+
+---
+key: point.de.Lüdersburg
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.8029 43,5
+        category: de.Bf
+        name: Lüdersburg
+        sources: !keyref src.de.WP.Bleckeder-Kreisbahn
+
+    -   date: !!null
+        site: !noderef path.de.8119 lud
+
+
+---
+key: point.de.Echem-Kreisb
+type: point
+junction: True
+events:
+    -   date: !!null
+        location: !keyloc line.de.8029 47,24
+        category: de.Bf
+        name: Echem
+        sources: !keyref src.de.WP.Bleckeder-Kreisbahn
+
+    -   date: !!null
+        connection: !keyref point.de.Echem
+
+    -   date: !!null
+        site: !noderef path.de.8119 ech left
+

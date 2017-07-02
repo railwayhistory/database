@@ -1,0 +1,91 @@
+# DE 8013.  Bad Schwartau - Neustadt (Holst)
+#
+---
+key: line.de.8013
+type: line
+events:
+    -   date: !!null
+        region:
+            - !keyref org.de
+            - !keyref org.de.l.sh
+
+    #   Genehmigung
+    #
+    -   date: !date 1913-05-28
+        concession:
+            by: !keyref org.de.l.pre
+            for: !keyref org.de.l.pre
+            document: !keyref src.de.l.pre.1913.26.277
+        sources: !keyref src.de.DRG.1935
+
+    #   Eröffnung und Einstellung
+    #
+    -   date: !date 1925-07-01
+        end: !keyref point.de.Timmendorferstrand
+        service: passenger
+        status: open
+        sources: !keyref src.de.DRG.1935
+    -   date: !date 1925-07-08
+        start: !keyref point.de.Timmendorferstrand
+        end: !keyref point.de.Scharbeutz
+        service: passenger
+        status: open
+        sources: !keyref src.de.DRG.1935
+    -   date: !date 1925-08-18
+        start: !keyref point.de.Scharbeutz
+        end: !keyref point.de.Haffkrug
+        service: passenger
+        status: open
+        sources: !keyref src.de.DRG.1935
+    -   date: !date 1928-06-01
+        start: !keyref point.de.Haffkrug
+        status: open
+        sources: !keyref src.de.DRG.1935
+    -   date: !date 1928-06-01
+        service: full
+        sources: !keyref src.de.DRG.1935
+
+    -   date: !date 1963-05-14
+        status: closed
+        reused: !keyref line.de.1100
+
+    #   Eigenschaften
+    #
+    -   date: !!null
+        category: de.Nebenbahn
+        sources: !keyref src.de.DRG.1927
+
+    #   Eigentümer und Betreiber
+    #
+    -   date: !!null
+        owner: !keyref org.de.l.pre
+        operator: !keyref org.de.e.KPEV.Alt
+        sources: !keyref src.de.DRG.1935
+    -   date: !date 1920-04-01
+        owner: !keyref org.de
+        operator: !keyref org.de.r.RVM.PH
+    -   date: !date 1924-02-12
+        operator: !keyref org.de.e.DREb
+    -   date: !date 1924-08-30
+        operator: !keyref org.de.e.DRG
+
+    -   date: !var org.de.DB.start
+        operator: !keyref org.de.e.DB
+
+    #   Verlauf
+    #
+    -   date: !!null
+        course:
+            - !pathref path.de.1100     swr  anst 0.0
+            - !pathref path.de.1023.nst a    nst  1.0
+
+points:
+    - !keyref point.de.Bad-Schwartau            # line.de.1100
+    - !keyref point.de.Ratekau                  # line.de.1100
+    - !keyref point.de.Timmendorferstrand       # line.de.1100
+    - !keyref point.de.Scharbeutz               # line.de.1100
+    - !keyref point.de.Haffkrug                 # line.de.1100
+    - !keyref point.de.Sierksdorf-Hp            # line.de.1100
+    - !keyref point.de.Neustadt-Holst-Gbf       # line.de.1023
+    - !keyref point.de.Neustadt-Holst           # line.de.1023
+

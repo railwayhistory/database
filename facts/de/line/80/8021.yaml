@@ -1,0 +1,62 @@
+# DE 8021.  Lübeck alter Bf - Genin Abzw
+#
+#           - Alter Verlauf Strecke DE 1120 -
+---
+key: line.de.8021
+type: line
+events:
+    -   date: !!null
+        region:
+            - !keyref org.de
+            - !keyref org.de.l.sh
+
+    #   Verträge und Konzessionen
+    #
+    -   date: !date 1862-11-29
+        concession:
+            by: !keyref org.de.l.lüb
+            for: !keyref org.de.Lübeck-Büchener-Eisenbahn
+        sources: !keyref src.de.DRG.1935 # 1865/11
+
+    #   Eröffnung
+    #
+    -   date: !date 1865-08-01
+        status: open
+        service: passenger
+        sources: !keyref src.de.DRG.1935 # 1865/11
+    -   date: !date 1865-08-08
+        service: full
+        sources: !keyref src.de.DRG.1935 # 1865/11
+    -   date: !date 1908-05-01
+        status: closed
+
+    #   Eigenschaften
+    #
+    -   date: !!null
+        category: de.Hauptbahn
+        tracks: 1
+        gauge: 1435
+        sources: !keyref src.de.DRG.1927
+    -   date: !date 1870
+        tracks: 2
+        sources: !keyref src.de.Hecht.2001
+
+    #   Eigentümer und Betreiber
+    #
+    -   date: !!null
+        owner: !keyref org.de.Lübeck-Büchener-Eisenbahn
+        operator: !keyref org.de.Lübeck-Büchener-Eisenbahn
+        sources: !keyref src.de.DRG.1935
+
+    #   Verlauf
+    #
+    -   date: !!null
+        course:
+            - !pathref path.de.1121a lua  aold 1.5
+            - !pathref path.de.1120a a    f    0.0
+            - !pathref path.de.1120  flua gea  0.0
+
+points:
+    - !keyref point.de.Lübeck-alter-Bf                 # line.de.8020
+    - !keyref point.de.Lübeck-Genin-Abzw               # line.de.1120
+

@@ -1,0 +1,135 @@
+# DE 8061.  Hoya - Eystrup
+#
+---
+key: line.de.8061
+type: line
+events:
+    -   date: !!null
+        region:
+            - !keyref org.de
+            - !keyref org.de.l.ni
+
+    -   date: !!null
+        de.VzG: !!str 9142
+        sources: src.de.DBAG.Geo-Strecke.2017
+
+    -   date: !!null
+        category: de.Nebenbahn
+
+    -   date: !date 1880-04-24
+        start: point.de.Hoya-alter-Bf
+        concession:
+            by: !keyref org.de.l.pre
+            document: !keyref src.de.l.pre.ha.1880.44.449
+        owner: !keyref org.de.e.HEG
+        operator: !keyref org.de.e.HEG
+        sources: !keyref src.de.DRG.1935
+
+    -   date: !date 1881-11-23
+        start: point.de.Hoya-alter-Bf
+        status: open
+        service: passenger
+        sources: !keyref src.de.DRG.1935
+    -   date: !date 1881-11-26
+        start: point.de.Hoya-alter-Bf
+        service: freight
+        sources: !keyref src.de.DRG.1935
+
+    -   date: !date 1911-11-30
+        end: point.de.Hoya-alter-Bf
+        concession:
+            by: !keyref org.de.l.pre
+            document: !keyref src.de.l.pre.ha.1912.17.109
+        owner: !keyref org.de.e.KbHSA
+        operator: !keyref org.de.e.HEG
+        sources: !keyref src.de.DRG.1935
+
+    -   date: !date 1912-10-05
+        end: point.de.Hoya-alter-Bf
+        status: open
+        sources: !keyref src.de.DRG.1935
+
+points:
+    -   point.de.Hoya                               # de.9142
+    -   point.de.Hoya-alter-Bf
+    -   point.de.Europa-Carton
+    -   point.de.Hassel-Hoya-Ida
+    -   point.de.Hassel-Hoya
+    -   point.de.Eystrup-NE
+
+
+#-----------------------------------------------------------------------------
+
+#    point.de.Hoya                               de.9142
+
+
+---
+key: point.de.Hoya-alter-Bf
+type: point
+events:
+    -   date: !!null
+        name: Hoya (alter Bf)
+
+
+---
+key: point.de.Europa-Carton
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.8061 1,7
+        category: de.Awanst
+        name: Europa-Carton
+        sources: !keyref src.de.web.VGH
+
+
+---
+key: point.de.Hassel-Hoya-Ida
+type: point
+events:
+    -   date: !!null
+        category: de.Hp
+        name: Hassel Ida
+        sources: !keyref src.de.web.VGH
+
+
+---
+key: point.de.Hassel-Hoya
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.8061 5,1
+        de.DS100: HHSG
+        sources: !keyref src.de.SuW.2005
+    -   date: !!null
+        name: Hassel
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        de.lknr: 41 842
+        sources: !keyref src.de.Bfv.1933
+    -   date: !date c1920
+        name: Hassel (Kr Hoya)
+        sources: !keyref src.de.Bfv.1933
+    -   date: !date c1940
+        name: Hassel (Kr Grafsch Hoya)
+        sources: !keyref src.de.Bfv.1944
+
+
+---
+key: point.de.Eystrup-NE
+type: point
+junction: False
+events:
+    -   date: !!null
+        location: !keyloc line.de.8061 7,9
+        sources: !keyref src.de.web.VGH
+    -   date: !!null
+        name: Eystrup NE
+        category: de.Bf
+        de.DS100: HETRN
+        sources: !keyref src.de.SuW.2005
+    -   date: !date c1980
+        status: open
+
+    -   date: !!null
+        connection: !keyref point.de.Eystrup
+

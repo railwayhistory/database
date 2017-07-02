@@ -1,0 +1,276 @@
+# DE 8041.  Heide (Holst) Kreisb - Hennstedt - Pallhude
+#
+---
+key: line.de.8041
+type: line
+events:
+    -   date: !!null
+        region:
+            - !keyref org.de
+            - !keyref org.de.l.sh
+
+    #   Genehmigungen
+    #
+
+    #   Eröffnung und Einstellung
+    #
+    -   date: !date 1905-05-17
+        end: !keyref point.de.Delve
+        status: open
+        sources:
+            - !keyref src.de.WP.Kreisbahn-Norderdithmarschen
+            - !keyref src.de.Kb.1905
+    -   date: !date 1905-10-05
+        start: !keyref point.de.Delve
+        status: open
+        sources:
+            - !keyref src.de.WP.Kreisbahn-Norderdithmarschen
+            - !keyref src.de.Kb.1905
+    -   date: !date 1936-02-29
+        passenger: none
+        sources: !keyref src.de.WP.Kreisbahn-Norderdithmarschen
+    -   date: !date 1937-10-02
+        status: closed
+        sources: !keyref src.de.WP.Kreisbahn-Norderdithmarschen
+    -   date: !date c1938
+        status: removed
+
+    #   Eigenschaften
+    #
+    -   date: !!null
+        category: de.Kleinbahn
+        gauge: 1000
+        tracks: 1
+
+    #   Eigentümer etc.
+    #
+    -   date: !!null
+        owner: !keyref org.de.e.KbNDM
+        operator: !keyref org.de.e.KbNDM
+
+    #   Verlauf
+    #
+    -   date: !!null
+        course:
+            - !pathref path.de.1210  hek  apah  1.5
+            - !pathref path.de.8121  a    pah   0.0
+
+points:
+    - !keyref point.de.Heide-Kreisbf
+    - !keyref point.de.Ostrohe
+    - !keyref point.de.Aukrug-Heide
+    - !keyref point.de.Suederheistedt
+    - !keyref point.de.Barkenholm
+    - !keyref point.de.Linden-Holst
+    - !keyref point.de.Hennstedt
+    - !keyref point.de.Hollingstedt-Dithm
+    - !keyref point.de.Delve
+    - !keyref point.de.Schwienhusen
+    - !keyref point.de.Wallen
+    - !keyref point.de.Pahlhude
+
+
+---
+key: point.de.Heide-Kreisbf
+type: point
+junction: True
+events:
+    -   date: !!null
+        category: de.Bf
+    -   date: !!null
+        name: Heide (Holst)
+        sources: !keyref src.de.Bfv.1928
+
+    -   date: !!null
+        site: !noderef path.de.1210 hek right
+        connection: !keyref point.de.Heide-Holst
+
+
+---
+key: point.de.Ostrohe
+type: point
+events:
+    -   date: !date c1910
+        status: open
+        sources:
+            - !keyref src.de.Kb.1905
+            - !keyref src.de.Kb.1914
+    -   date: !!null
+        name: Ostrohe
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        category: de.Bf
+        sources: !keyref src.de.mtbl.1720.1919
+
+    -   date: !!null
+        site: !noderef path.de.8121 oro right
+
+
+---
+key: point.de.Aukrug-Heide
+type: point
+events:
+    -   date: !!null
+        name: Aukrug
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        category: de.Hp
+        sources: !keyref src.de.mtbl.1720.1919
+    -   date: !!null
+        service: passenger
+
+    -   date: !!null
+        site: !noderef path.de.8121 auk left
+
+
+---
+key: point.de.Suederheistedt
+type: point
+events:
+    -   date: !!null
+        name: Süderheistedt
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        category: de.Bf
+        sources: !keyref src.de.mtbl.1720.1919
+
+    -   date: !!null
+        site: !noderef path.de.8121 she left
+
+
+---
+key: point.de.Barkenholm
+type: point
+events:
+    -   date: !!null
+        name: Barkenholm
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        category: de.Bf
+        sources: !keyref src.de.mtbl.1721.1928
+
+    -   date: !!null
+        site: !noderef path.de.8121 bar right
+
+
+---
+key: point.de.Linden-Holst
+type: point
+events:
+    -   date: !!null
+        name: Linden Holstein
+        sources: !keyref src.de.Kb.1905
+    -   date: !date c1910
+        name: Linden
+        sources: !keyref src.de.Kb.1914
+    -   date: !date c1920
+        name: Linden (Holst)
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        sources: !keyref src.de.mtbl.1721.1928
+
+    -   date: !!null
+        site: !noderef path.de.8121 lin left
+
+
+---
+key: point.de.Hennstedt
+type: point
+events:
+    -   date: !!null
+        name: Hennstedt
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        category: de.Bf
+        sources: !keyref src.de.mtbl.1721.1928
+
+    -   date: !!null
+        site: !noderef path.de.8121 hen left
+
+
+---
+
+key: point.de.Hollingstedt-Dithm
+type: point
+events:
+    -   date: !!null
+        name: Hollingstedt bei Delve
+        sources: !keyref src.de.Kb.1905
+    -   date: !date c1910
+        name: Hollingstedt
+        sources: !keyref src.de.Kb.1914
+    -   date: !date c1920
+        name: Hollingstedt (Dithm)
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        sources: !keyref src.de.mtbl.1721.1928
+
+    -   date: !!null
+        site: !noderef path.de.8121 hol right
+
+
+---
+
+key: point.de.Delve
+type: point
+events:
+    -   date: !!null
+        name: Delve
+        sources: !keyref src.de.Kb.1905
+    -   date: !!null
+        category: de.Bf
+        sources: !keyref src.de.mtbl.1721.1928
+
+    -   date: !!null
+        site: !noderef path.de.8121 del left
+
+
+---
+
+key: point.de.Schwienhusen
+type: point
+events:
+    -   date: !!null
+        name: Schwienhusen
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        category: de.Hp
+        sources: !keyref src.de.mtbl.1721.1928
+
+    -   date: !!null
+        site: !noderef path.de.8121 swi right
+
+
+---
+key: point.de.Wallen
+type: point
+events:
+    -   date: !!null
+        name: Wallen
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        category: de.Bf
+        sources: !keyref src.de.mtbl.1721.1928
+
+    -   date: !!null
+        site: !noderef path.de.8121 wal left
+
+
+---
+key: point.de.Pahlhude
+type: point
+junction: True
+events:
+    -   date: !!null
+        name: Pahlhude
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        category: de.Bf
+        sources: !keyref src.de.mtbl.1721.1928
+
+    -   date: !!null
+        site: !noderef path.de.8121 pal right
+
+

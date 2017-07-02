@@ -1,45 +1,50 @@
-# DE 8729. Tantow - Gartz (Oder)
+# DE 8729.  Berlin Magerviehhof Aff - Berlin-Springpfuhl Nord
 #
 ---
 key: line.de.8729
 type: line
-progress: stub
+label: connection
 events:
     -   date: !!null
         region:
             - !keyref org.de
-            - !keyref org.de.l.bb
+            - !keyref org.de.l.be
 
-    #   Genehmigungen
+    #   Eröffnung
     #
-
-    #   Eröffnung und Einstellung
-    #
-    -   date: !!null
-        status: closed
-        sources: !keyref src.de.SuW.2011
+    -   date: !date 1950-05-24
+        status: open
+        sources: !keyref src.de.Kuhlmann.2000
 
     #   Eigenschaften
     #
+    -   date: !!null
+        category: de.Hauptbahn
+        tracks: 2
+        gauge: 1435
+        sources: !keyref src.dd.DR.Bln.1953
 
-    #   Eigentümer etc.
+    #   Stilllegung und Abbau
     #
+    -   date: !date 1971
+        status: removed
+        sources: !keyref src.de.Kuhlmann.2000
+
+    #   Eigentümer und Betriebsführer
+    #
+    -   date: !!null
+        owner: !keyref org.dd
+        operator: !keyref org.dd.DR
 
     #   Verlauf
     #
+    -   date: !!null
+        course:
+            - !pathref path.de.6531 aff  abno -1.0
+            - !pathref path.de.8611 a    f     0.0
+            - !pathref path.de.6080 fmag spn  -0.5
 
 points:
-    - !keyref point.de.Tantow                               # line.de.6328
-    - !keyref point.de.Gartz-Oder
-
-
----
-key: point.de.Gartz-Oder
-type: point
-progress: stub
-events:
-    -   date: !!null
-        name: Gartz (Oder)
-        sources: !keyref src.de.SuW.2011
-
+    - !keyref point.de.Berlin-Magerviehhof-Aff              # line.de.6531
+    - !keyref point.de.Berlin-Springpfuhl-Nord              # line.de.6067
 

@@ -1,45 +1,53 @@
-# DE 8706.  Blesewitz - Medow
+# DE 8706.  Berlin-Charlottenburg - Berlin Mbf
 #
 ---
 key: line.de.8706
 type: line
-progress: stub
+label: connection
 events:
     -   date: !!null
         region:
             - !keyref org.de
-            - !keyref org.de.l.mv
+            - !keyref org.de.l.pre
 
-    #   Genehmigungen
-    #
+    -   date: !!null
+        category: de.Hauptbahn
+        tracks: 2
+        sources: !keyref src.de.DRG.1927
 
-    #   Eröffnung und Einstellung
+    -   date: !date 1882-02-07
+        status: open
+        service: passenger
+        sources: !keyref src.de.DRG.1935
+
+    -   date: !date c1950
+        status: removed
+        sources: !keyref src.dd.DR.Bln.1959
+
+    #   Eigentümer und Betriebsführer
     #
     -   date: !!null
-        status: closed
-        sources: !keyref src.de.SuW.2011
-
-    #   Eigenschaften
-    #
-
-    #   Eigentümer etc.
-    #
+        owner: !keyref org.de.l.pre
+        operator: !keyref org.de.e.KPEV.Bln
+        sources: !keyref src.de.DRG.1935
+    -   date: !date 1920-04-01
+        owner: !keyref org.de
+        operator: !keyref org.de.r.RVM.PH
+    -   date: !date 1924-02-12
+        operator: !keyref org.de.e.DREb
+    -   date: !date 1924-08-30
+        operator: !keyref org.de.e.DRG
+    -   date: !var org.de.DR.start
+        operator: !keyref org.dd.DR
 
     #   Verlauf
     #
+    -   date: !!null
+        course:
+            - !pathref path.de.6109 cha  ambf 0.
+            - !pathref path.de.8602 a    f    0.
+            - !pathref path.de.6020 fcha mbf  0.
 
 points:
-    - !keyref point.de.Blesewitz
-    - !keyref point.de.Medow
-
-
----
-key: point.de.Medow
-type: point
-progress: stub
-events:
-    -   date: !!null
-        name: medow
-        sources: !keyref src.de.SuW.2011
-
-
+    - !keyref point.de.Berlin-Charlottenburg        # line.de.6109
+    - !keyref point.de.Berlin-Mbf                   # line.de.6170

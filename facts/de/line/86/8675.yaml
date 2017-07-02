@@ -1,209 +1,43 @@
-# DE 8620.  Glöwen - Viesecke
+# DE 8675.  Passau Hbf - Passau Donaulände
 #
 ---
 key: line.de.8675
 type: line
+progress: stub
 events:
-    -   date: !!null
-        region:
-            - !keyref org.de
-            - !keyref org.de.l.bb
+    -   date: 1854-01-15
+        concession:
+            by: org.de.l.by
+            for: org.de.l.by
+            document: src.de.l.by.1853.4.17
+        sources: src.de.DRG.1935 # 1858/15
+    -   date: 1856-04-12
+        concession:
+            by: org.de.l.by
+            for: org.de.Bayerische-Ostbahnen
+            document: src.de.l.by.reg.1856.17.313
+        sources: src.de.DRG.1935 # 1858/15
 
-    #   Eröffnung und Einstellung
-    #
-    -   date: !date 1900-07-15
+    -   date: 1865-10-01
         status: open
-        sources: !keyref src.de.WP.Kleinbahnen-der-Kreise-West-und-Ostprignitz
-    -   date: !date 1948
-        start: !keyref point.de.Kreuzweg
-        status: removed
-        sources: !keyref src.de.WP.Kleinbahnen-der-Kreise-West-und-Ostprignitz
-    -   date: !date 1967-12-31
-        status: closed
-        sources: !keyref src.de.WP.Kleinbahnen-der-Kreise-West-und-Ostprignitz
-    -   date: !date c1968
-        status: removed
-
-    #   Eigenschaften
-    #
-    -   date: !!null
-        category: de.Kleinbahn
-        tracks: 1
-        gauge: 750
-        sources: !keyref src.de.WP.Kleinbahnen-der-Kreise-West-und-Ostprignitz
-    -   date: !date 1949-04-01
-        category: de.Nebenbahn
-
-    #   Eigentümer etc.
-    #
-    -   date: !!null
-        owner: !keyref org.de.Kreis-Westprignitz
-        operator: !keyref org.de.e.PEAG
-        sources: !keyref src.de.WP.Kleinbahnen-der-Kreise-West-und-Ostprignitz
-    -   date: !date c1918
-        operator: !keyref org.de.e.LVABB
-        sources: !keyref src.de.WP.Kleinbahnen-der-Kreise-West-und-Ostprignitz
-    -   date: !date 1946
-        owner: !keyref org.de.l.bb
-    -   date: !date 1949-04-01
-        operator: !keyref org.dd.DR
-
-    #   Verlauf
-    #
-    -   date: !!null
-        course:
-            - !pathref path.de.6100  glo  fvie -1.5
-            - !pathref path.de.8675  a    f     0.0
-            - !pathref path.de.8671  fglo vie  -1.0
+        passenger: none
+        sources: src.de.DRG.1935 # 1865/21
 
 points:
-    - !keyref point.de.Glöwen-Kleinb
-    - !keyref point.de.Glöwen-Dorf
-    - !keyref point.de.Schwanensee
-    - !keyref point.de.Klein-Leppin
-    - !keyref point.de.Kreuzweg
-    - !keyref point.de.Zernickow
-    - !keyref point.de.Kletzke
-    - !keyref point.de.Viesecke                         # line.de.8671
+    -   point.de.Passau-Hbf                         # de.5830
+    -   point.de.Passau-Donaulände
+
+
+#-----------------------------------------------------------------------------
+
+# point.de.Passau-Hbf                         de.5830
 
 
 ---
-key: point.de.Glöwen-Kleinb
+key: point.de.Passau-Donaulände
 type: point
-junction: True
+progress: stub
 events:
     -   date: !!null
-        name: Glöwen Bf
-        sources: !keyref src.de.Kb.1905
-    -   date: !date c1935
-        name: Glöwen Kleinb
-        sources: !keyref src.de.Bfv.1938
-    -   date: !var lknr.kb
-        de.lknr: 48 388
-        sources: !keyref src.de.Bfv.1938
-    -   date: !!null
-        category: de.Bf
-
-    -   date: !!null
-        site: !noderef path.de.6100 glo right
-        connection: !keyref point.de.Glöwen
-
-
----
-key: point.de.Glöwen-Dorf
-type: point
-events:
-    -   date: !!null
-        name: Glöwen Dorf
-        sources: !keyref src.de.Kb.1905
-    -   date: !var lknr.kb
-        de.lknr: 48 387
-        sources: !keyref src.de.Bfv.1938
-    -   date: !!null
-        category: de.Hp
-        sources: !keyref src.de.mtbl.3038.1943
-
-    -   date: !!null
-        site: !noderef path.de.8675 gld right
-
-
----
-key: point.de.Schwanensee
-type: point
-events:
-    -   date: !date c1930
-        status: open
-    -   date: !!null
-        name: Schwanensee
-        sources: !keyref src.de.Kb.W1937
-    -   date: !!null
-        category: de.Hp
-        sources: !keyref src.de.mtbl.3038.1943
-    -   date: !!null
-        service: passenger
-
-    -   date: !!null
-        site: !noderef path.de.8675 swa right
-
-
----
-key: point.de.Klein-Leppin
-type: point
-events:
-    -   date: !!null
-        name: Klein-Leppin
-        sources: !keyref src.de.Kb.1905
-    -   date: !date c1910
-        name: Klein Leppin
-        sources: !keyref src.de.Kb.1914
-    -   date: !var lknr.kb
-        de.lknr: 46 386
-        sources: !keyref src.de.Bfv.1938
-    -   date: !!null
-        category: de.Bf
-        sources: !keyref src.de.mtbl.3038.1943
-
-    -   date: !!null
-        site: !noderef path.de.8675 klp right
-
-
----
-key: point.de.Kreuzweg
-type: point
-junction: True
-events:
-    -   date: !date 1912-07-02?
-        status: open
-        sources:
-            - !keyref src.de.Kb.1905
-            - !keyref src.de.Kb.1914
-    -   date: !!null
-        name: Kreuzweg
-        sources: !keyref src.de.Kb.1914
-    -   date: !var lknr.kb
-        de.lknr: 48 385
-        sources: !keyref src.de.Bfv.1938
-    -   date: !!null
-        category: de.Bf
-        sources: !keyref src.de.mtbl.3038.1943
-
-    -   date: !!null
-        site: !noderef path.de.8675 kre left
-
-
----
-key: point.de.Zernickow
-type: point
-events:
-    -   date: !!null
-        name: Zernikow
-        sources: !keyref src.de.Kb.1905
-    -   date: !var lknr.kb
-        de.lknr: 48 384
-        sources: !keyref src.de.Bfv.1938
-    -   date: !!null
-        category: de.Bf
-        sources: !keyref src.de.mtbl.3038.1943
-
-    -   date: !!null
-        site: !noderef path.de.8675 zer left
-
-
----
-key: point.de.Kletzke
-type: point
-events:
-    -   date: !!null
-        name: Kletzke
-        sources: !keyref src.de.Kb.1905
-    -   date: !var lknr.kb
-        de.lknr: 48 383
-        sources: !keyref src.de.Bfv.1938
-    -   date: !!null
-        category: de.Bf
-        sources: !keyref src.de.mtbl.3038.1943
-
-    -   date: !!null
-        site: !noderef path.de.8675 kle left
-
+        name: Passau Donaulände
 
