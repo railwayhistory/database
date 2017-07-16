@@ -1,4 +1,4 @@
-# DE 8088.  Wunstorf West - Loccum StMB
+# DE 8088.  Wunstorf West - Uchte Kleinb
 #
 ---
 key: line.de.8088
@@ -14,6 +14,7 @@ events:
         gauge: 1000
         owner: !keyref org.de.e.StMB
         operator: !keyref org.de.e.StMB
+
     -   date: !date 1896-10-09
         concession:
             by: !keyref org.de.l.slp
@@ -22,9 +23,11 @@ events:
         concession:
             by: !keyref org.de.l.pre
         sources: !keyref src.de.web.StMB
+
     -   date: !date 1897-05-15
         status: construction
         sources: !keyref src.de.web.StMB
+
     -   date: !date 1898-05-21
         end: !keyref point.de.Bad-Rehburg
         status: open
@@ -36,8 +39,19 @@ events:
         sources: !keyref src.de.web.StMB
     -   date: !date 1899-12-07
         start: !keyref point.de.Rehburg-Stadt
+        end: !keyref point.de.Stolzenau
         status: open
         sources: !keyref src.de.web.StMB
+    -   date: !date 1899-04-01
+        start: !keyref point.de.Stolzenau
+        end: !keyref point.de.Nendorf
+        status: open
+        sources: !keyref src.de.web.StMB
+    -   date: !date 1899-05-02
+        start: !keyref point.de.Nendorf
+        status: open
+        sources: !keyref src.de.web.StMB
+
     -   date: !date 1906-01-23
         end: !keyref point.de.Wunstorf-Stadt
         status: closed
@@ -90,6 +104,12 @@ points:
     - !keyref point.de.Rehburg-Stadt
     - !keyref point.de.Hormannshausen
     - !keyref point.de.Loccum-StMB
+    - !keyref point.de.Leese-StMB
+    - !keyref point.de.Stolzenau
+    - !keyref point.de.Boethel
+    - !keyref point.de.Alterkamp
+    - !keyref point.de.Nendorf
+    - !keyref point.de.Uchte-Kleinb
 
 ---
 key: point.de.Wunstorf-West
@@ -290,4 +310,73 @@ events:
         name: Loccum Steinhuder Meer-Bahn
         sources: !keyref src.de.Bfv.1933
 
+
+---
+key: point.de.Leese-StMB
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.8088 36,8
+        name: Leese
+        sources: !keyref src.de.Kb.1914
+    -   date: !date c1925
+        name: Leese (Steinhuder Meer-Bahn)
+        sources: !keyref src.de.Bfv.1933
+
+---
+key: point.de.Stolzenau
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.8088 40,0
+        name: Stolzenau
+        sources: !keyref src.de.Kb.1914
+
+---
+key: point.de.Boethel
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.8088 42,9
+        name: Böthel
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        service: passenger
+        sources: !keyref src.de.Bfv.1933
+
+---
+key: point.de.Alterkamp
+type: point
+events:
+    -   date: !!null
+        name: Alterkamp
+        sources: !keyref src.de.WP.Steinhuder-Meer-Bahn
+    -   date: !!null
+        service: passenger
+        sources: !keyref src.de.Bfv.1933
+
+---
+key: point.de.Nendorf
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.8088 46,8
+        name: Nendorf
+        sources: !keyref src.de.Kb.1914
+
+---
+key: point.de.Uchte-Kleinb
+type: point
+junction: True
+events:
+    -   date: !!null
+        location: !keyloc line.de.8088 52,4
+        name: Uchte
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        location: !keyloc line.de.9290 28,4
+        sources: !keyref src.de.WP.Mindener-Kreisbahnen
+
+    -   date: !!null
+        connection: !keyref point.de.Uchte
 
