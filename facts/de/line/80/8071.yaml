@@ -1,4 +1,4 @@
-# DE 8071.  Ogenbargen - Bensersiel
+# DE 8071.  Glückstadt Rhin - Glückstadt Alter Bf
 #
 ---
 key: line.de.8071
@@ -7,120 +7,65 @@ events:
     -   date: !!null
         region:
             - !keyref org.de
-            - !keyref org.de.l.ni
+            - !keyref org.de.l.sh
 
-    -   date: !!null
-        category: de.Kleinbahn
-        gauge: 1000
-        owner: !keyref org.de.e.KbLAW
-        operator: !keyref org.de.e.KbLAW
-    -   date: !date 1909-07-01
+    #   Genehmigung
+    #
+    -   date: !date 1844-07-26
+        concession:
+            by: !keyref org.dk
+        sources: !keyref src.de.DRG.1935
+
+    #   Eröffnung und Einstellung
+    #
+    -   date: !date 1845-07-20
         status: open
-        sources: !keyref src.de.web.Feldmann
-    -   date: !date 1931-10-14
-        owner: !keyref org.de.e.KbAur
-        operator: !keyref org.de.e.NLEA
-        sources: !keyref src.de.web.Feldmann
-    -   date: !date c1950
-        category: de.Nebenbahn
-    -   date: !date 1953-05-17
-        end: !keyref point.de.Esens-Kleinb
+        sources: !keyref src.de.DRG.1935
+    -   date: !date 1857-10-15
         status: closed
-        sources: !keyref src.de.web.Feldmann
-    -   date: !date c1955
-        end: !keyref point.de.Esens-Kleinb
+    -   date: !date c1860
         status: removed
-    -   date: !date 1966-09-15
-        start: !keyref point.de.Esens-Kleinb
-        service: passenger
-        sources: !keyref src.de.web.Feldmann
-    -   date: !date 1967-02-06
-        start: !keyref point.de.Esens-Kleinb
-        service: none
-        sources: !keyref src.de.web.Feldmann
-    -   date: !date 1967-04-15
-        start: !keyref point.de.Esens-Kleinb
-        status: closed
-        sources: !keyref src.de.web.Feldmann
-    -   date: !date 1967
-        start: !keyref point.de.Esens-Kleinb
-        status: removed
-        sources: !keyref src.de.web.Feldmann
+
+    #   Eigenschaften
+    #
+    -   date: !!null
+        category: de.Hauptbahn
+        tracks: 1
+        gauge: 1435
+ 
+    #   Eigentümer etc.
+    #
+    -   date: !!null
+        owner: !keyref org.de.e.SHMG
+        operator: !keyref org.de.Altona-Kieler-Eisenbahn
+    -   date: !date 1863-01-01
+        operator: !keyref org.de.e.SHMG
+
+    #   Verlauf
+    #
+    -   date: !!null
+        course:
+            - !pathref path.de.1210  gla  agla  0.0
+            - !pathref path.de.1210a a    gla   0.0
 
 points:
-    - !keyref point.de.Ogenbargen                           # line.de.8070
-    - !keyref point.de.Brill
-    - !keyref point.de.Dunum
-    - !keyref point.de.Folstenhausen
-    - !keyref point.de.Esens-Haltep
-    - !keyref point.de.Esens-Kleinb
-    -   point.de.Bensersiel
+    - !keyref point.de.Glueckstadt-Rhin                 # line.de.1210
+    - !keyref point.de.Glueckstadt-Alter-Bf
+
 
 ---
-key: point.de.Brill
+key: point.de.Glueckstadt-Alter-Bf
 type: point
 events:
     -   date: !!null
-        name: Brill
-        sources: !keyref src.de.Bfv.1933
-    -   date: !var lknr.kb
-        de.lknr: 44 408
-        sources: !keyref src.de.Bfv.1944
+        name: Glückstadt
+    -   date: !!null
+        location: !keyloc line.de.8071 16,72
+        sources: !keyref src.de.DRG.1935
+    -   date: !date 1857-10-15
+        name: Glückstadt Alter Bf
+        status: closed
 
----
-key: point.de.Dunum
-type: point
-events:
     -   date: !!null
-        name: Dunum
-        sources: !keyref src.de.Kb.1914
-    -   date: !var lknr.kb
-        de.lknr: 44 409
-        sources: !keyref src.de.Bfv.1944
+        site: !noderef path.de.1210a gla left
 
----
-key: point.de.Folstenhausen
-type: point
-events:
-    -   date: !!null
-        name: Folstenhausen
-        sources: !keyref src.de.Bfv.1933
-    -   date: !var lknr.kb
-        de.lknr: 44 410
-        sources: !keyref src.de.Bfv.1944
-
----
-key: point.de.Esens-Haltep
-type: point
-events:
-    -   date: !!null
-        name: Esens Haltep
-        sources: !keyref src.de.Kb.1914
-    -   date: !!null
-        service: passenger
-
----
-key: point.de.Esens-Kleinb
-type: point
-junction: True
-events:
-    -   date: !!null
-        name: Esens Kleinb
-        sources: !keyref src.de.Bfv.1933
-    -   date: !var lknr.kb
-        de.lknr: 44 412
-        sources: !keyref src.de.Bfv.1944
-    -   date: !!null
-        connection: !keyref point.de.Esens
-
----
-key: point.de.Bensersiel
-type: point
-junction: True
-events:
-    -   date: !!null
-        name: Bensersiel
-        sources: !keyref src.de.Kb.1914
-    -   date: !var lknr.kb
-        de.lknr: 44 413
-        sources: !keyref src.de.Bfv.1944

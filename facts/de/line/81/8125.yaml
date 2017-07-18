@@ -1,45 +1,138 @@
-# DE 8125.  Dortmund Tierpark Gabelung - Dortmund Süd
+# DE 8125.  Ihrhove Kleinb - Westrhauderfehn
 #
 ---
 key: line.de.8125
 type: line
-progress: stub
-events:
-
-    -   date: 1871-11-20
-        start: point.de.Dortmund-Hacheney
-        concession:
-            by: org.de.l.pre
-            for: org.de.Rheinische-Eisenbahn
-        document:
-            -   src.de.l.pre.düs.1871.51.387
-            -   src.de.l.pre.köl.1871.50.235a
-        sources: src.de.DRG.1935 # 1875/73 ref 1874/45
-
-    -   date: 1875-11-12
-        start: point.de.Dortmund-Hacheney
-        status: open
-        sources: src.de.DRG.1935 # 1875/73
-
-points:
-    -   point.de.Dortmund-Tierpark-Gabelung         # de.2423
-    -   point.de.Dortmund-Hacheney
-    -   point.de.Dortmund-Süd                       # de.2126
-
-
-#-----------------------------------------------------------------------------
-
-# point.de.Dortmund-Tierpark-Gabelung         de.2423
-
-
----
-key: point.de.Dortmund-Hacheney
-type: point
-progress: stub
 events:
     -   date: !!null
-        name: Dortmund-Hacheney
+        region:
+            - !keyref org.de
+            - !keyref org.de.l.ni
 
+    -   date: !!null
+        category: de.Kleinbahn
+        owner: !keyref org.de.e.KbIW
+        operator: !keyref org.de.e.KbIW
+        sources: !keyref src.de.WP.Kleinbahn-Ihrhove-Westrhauderfehn
+    -   date: !date 1912-11-03
+        status: open
+        sources: !keyref src.de.WP.Kleinbahn-Ihrhove-Westrhauderfehn
+    -   date: !date 1947-04-01
+        operator: !keyref org.de.e.NLEA
+        sources: !keyref src.de.WP.Kleinbahn-Ihrhove-Westrhauderfehn
+    -   date: !date c1950
+        category: de.Nebenbahn
+    -   date: !date 1959-10-01
+        operator: !keyref org.de.e.BE
+        sources: !keyref src.de.WP.Kleinbahn-Ihrhove-Westrhauderfehn
+    -   date: !date 1961-05-27
+        service: freight
+        sources: !keyref src.de.WP.Kleinbahn-Ihrhove-Westrhauderfehn
+    -   date: !date 1973-03-31
+        status: closed
+        sources: !keyref src.de.WP.Kleinbahn-Ihrhove-Westrhauderfehn
+    -   date: !date 1974
+        status: removed
 
-# point.de.Dortmund-Süd                       de.2126
+points:
+    - !keyref point.de.Ihrhove-Kleinb
+    - !keyref point.de.Ihren
+    - !keyref point.de.Glansdorf
+    - !keyref point.de.Collinghorst
+    - !keyref point.de.Rhaude
+    - !keyref point.de.Bardel-Leer
+    - !keyref point.de.Westrhauderfehn
+    
+
+---
+key: point.de.Ihrhove-Kleinb
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.8125 0,0
+        name: Ihrhove
+        sources: !keyref src.de.Kb.1914
+    -   date: !date c1925
+        name: Ihrhove Kleinb
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.kb
+        de.lknr: 43 041
+        sources: !keyref src.de.Bfv.1944
+    -   date: !!null
+        connection: !keyref point.de.Ihrhove
+
+---
+key: point.de.Ihren
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.8125 2,3
+        sources: !keyref src.de.Kb.W1937
+    -   date: !!null
+        name: Ihren
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.kb
+        de.lknr: 43 042
+        sources: !keyref src.de.Bfv.1944
+
+---
+key: point.de.Glansdorf
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.8125 4,3
+        sources: !keyref src.de.Kb.W1937
+    -   date: !!null
+        name: Glansdorf
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.kb
+        de.lknr: 43 043
+        sources: !keyref src.de.Bfv.1944
+
+---
+key: point.de.Collinghorst
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.8125 6,1
+        name: Collinghorst
+        sources: !keyref src.de.Kb.1914
+    -   date: !var lknr.kb
+        de.lknr: 43 044
+        sources: !keyref src.de.Bfv.1944
+
+---
+key: point.de.Rhaude
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.8125 8,0
+        name: Rhaude (Marienheil)
+        sources: !keyref src.de.Kb.1914
+    -   date: !var lknr.kb
+        de.lknr: 43 045
+        sources: !keyref src.de.Bfv.1944
+
+---
+key: point.de.Bardel-Leer
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.8125 8,3
+        name: Bardel
+        sources: !keyref src.de.WP.Kleinbahn-Ihrhove-Westrhauderfehn
+    -   date: !date c1950
+        status: open
+
+---
+key: point.de.Westrhauderfehn
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.8125 11,1
+        name: Westrhauderfehn
+        sources: !keyref src.de.Kb.1914
+    -   date: !var lknr.kb
+        de.lknr: 43 046
+        sources: !keyref src.de.Bfv.1944
 

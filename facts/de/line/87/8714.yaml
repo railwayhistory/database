@@ -1,36 +1,42 @@
-# DE 8714.  Berlin-Wilhelmsruh - Berlin-Schönholz
+# DE 8714.  Schönefeld (Kr Teltow) Mitte - Berlin-Schönefeld Flughafen
 #
 ---
 key: line.de.8714
 type: line
-progress: stub
+label: connection
 events:
     -   date: !!null
         region:
             - !keyref org.de
             - !keyref org.de.l.be
 
-    #   Genehmigungen
-    #
+    -   date: !!null
+        category: de.Nebenbahn
+        tracks: 1
+        gauge: 1435
 
-    #   Eröffnung und Einstellung
+    #   Eröffnung und Stilllegung
+    #
+    -   date: !date 1951-07-08
+        status: open
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !date c1965
+        status: removed
+
+    #   Eigentümer und Betriebsführer
     #
     -   date: !!null
-        status: closed
-        sources: !keyref src.de.SuW.2011
-
-    #   Eigenschaften
-    #
-
-    #   Eigentümer etc.
-    #
+        owner: !keyref org.dd
+        operator: !keyref org.dd.DR
 
     #   Verlauf
     #
+    -   date: !!null
+        course:
+            - !pathref path.de.6541.lic son  abar     0
+            - !pathref path.de.8606     a    f        0
+            - !pathref path.de.6126     fgar son.fhs -0.5
 
 points:
-    - !keyref point.de.Berlin-Schoenholz                    # line.de.6088
-    - !keyref point.de.Berlin-Wilhelmsruh                   # line.de.6030
-
-
-
+    - !keyref point.de.Schoenefeld-Teltow-Mitte
+    - !keyref point.de.Berlin-Schoenefeld-Flughafen

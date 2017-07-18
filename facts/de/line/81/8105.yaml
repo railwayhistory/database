@@ -1,63 +1,135 @@
-# DE 8105.  Braunschweig Gabelung - Braunschweig Hbf alt
+# DE 8105.  Hoya - Eystrup
 #
-#           Altes Ende Strecke 1730.
 ---
 key: line.de.8105
 type: line
-progress: stub
 events:
     -   date: !!null
         region:
-            - org.de
-            - org.de.l.ni
+            - !keyref org.de
+            - !keyref org.de.l.ni
 
-    #   Genehmigungen
-    #
-    -   date: 1841-02-22
-        concession:
-            by: org.de.l.bsw
-            for: org.de.l.bsw
-        sources: src.de.DRG.1935  # 1844/5
-
-    #   Eröffnung und Einstellung
-    #
-    -   date: 1844-05-19
-        status: open
-        sources: src.de.DRG.1935  # 1844/5
-
-    #   Eigenschaften
-    #
-
-    #   Eigentümer etc.
-    #
     -   date: !!null
-        owner: org.de.l.bsw
-        sources: src.de.DRG.1935 # 1844/5
-    -   date: 1869-01-01
-        owner: org.de.Braunschweigische-Eisenbahn
-        sources: src.de.DRG.1935 # 1844/5
-    -   date: 1884-01-01
-        owner: org.de.l.pre
-        sources: src.de.DRG.1935 # 1844/5
+        de.VzG: !!str 9142
+        sources: src.de.DBAG.Geo-Strecke.2017
 
-    #   Verlauf
-    #
+    -   date: !!null
+        category: de.Nebenbahn
+
+    -   date: !date 1880-04-24
+        start: point.de.Hoya-alter-Bf
+        concession:
+            by: !keyref org.de.l.pre
+            document: !keyref src.de.l.pre.ha.1880.44.449
+        owner: !keyref org.de.e.HEG
+        operator: !keyref org.de.e.HEG
+        sources: !keyref src.de.DRG.1935
+
+    -   date: !date 1881-11-23
+        start: point.de.Hoya-alter-Bf
+        status: open
+        service: passenger
+        sources: !keyref src.de.DRG.1935
+    -   date: !date 1881-11-26
+        start: point.de.Hoya-alter-Bf
+        service: freight
+        sources: !keyref src.de.DRG.1935
+
+    -   date: !date 1911-11-30
+        end: point.de.Hoya-alter-Bf
+        concession:
+            by: !keyref org.de.l.pre
+            document: !keyref src.de.l.pre.ha.1912.17.109
+        owner: !keyref org.de.e.KbHSA
+        operator: !keyref org.de.e.HEG
+        sources: !keyref src.de.DRG.1935
+
+    -   date: !date 1912-10-05
+        end: point.de.Hoya-alter-Bf
+        status: open
+        sources: !keyref src.de.DRG.1935
 
 points:
-    -   point.de.Braunschweig-Gabelung              # de.1730
-    -   point.de.Braunschweig-Hbf-alt
+    -   point.de.Hoya                               # de.9142
+    -   point.de.Hoya-alter-Bf
+    -   point.de.Europa-Carton
+    -   point.de.Hassel-Hoya-Ida
+    -   point.de.Hassel-Hoya
+    -   point.de.Eystrup-NE
 
 
 #-----------------------------------------------------------------------------
 
-# point.de.Braunschweig-Gabelung              de.1730
+#    point.de.Hoya                               de.9142
 
 
 ---
-key: point.de.Braunschweig-Hbf-alt
+key: point.de.Hoya-alter-Bf
 type: point
-progress: stub
 events:
     -   date: !!null
-        name: Braunschweig Hbf alt
+        name: Hoya (alter Bf)
+
+
+---
+key: point.de.Europa-Carton
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.8105 1,7
+        category: de.Awanst
+        name: Europa-Carton
+        sources: !keyref src.de.web.VGH
+
+
+---
+key: point.de.Hassel-Hoya-Ida
+type: point
+events:
+    -   date: !!null
+        category: de.Hp
+        name: Hassel Ida
+        sources: !keyref src.de.web.VGH
+
+
+---
+key: point.de.Hassel-Hoya
+type: point
+events:
+    -   date: !!null
+        location: !keyloc line.de.8105 5,1
+        de.DS100: HHSG
+        sources: !keyref src.de.SuW.2005
+    -   date: !!null
+        name: Hassel
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        de.lknr: 41 842
+        sources: !keyref src.de.Bfv.1933
+    -   date: !date c1920
+        name: Hassel (Kr Hoya)
+        sources: !keyref src.de.Bfv.1933
+    -   date: !date c1940
+        name: Hassel (Kr Grafsch Hoya)
+        sources: !keyref src.de.Bfv.1944
+
+
+---
+key: point.de.Eystrup-NE
+type: point
+junction: False
+events:
+    -   date: !!null
+        location: !keyloc line.de.8105 7,9
+        sources: !keyref src.de.web.VGH
+    -   date: !!null
+        name: Eystrup NE
+        category: de.Bf
+        de.DS100: HETRN
+        sources: !keyref src.de.SuW.2005
+    -   date: !date c1980
+        status: open
+
+    -   date: !!null
+        connection: !keyref point.de.Eystrup
 

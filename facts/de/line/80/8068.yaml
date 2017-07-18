@@ -1,141 +1,79 @@
-# DE 8068.  Vechta - Cloppenburg
+# DE 8068.  Kronprinzenkoog Nord - Norderfleth
 #
 ---
 key: line.de.8068
 type: line
+label: freight
 events:
     -   date: !!null
         region:
             - !keyref org.de
-            - !keyref org.de.l.ni
+            - !keyref org.de.l.sh
 
-    -   date: !!null
-        category: de.Kleinbahn
-        owner: !keyref org.de.e.BVVC
-        operator: !keyref org.de.e.BVVC
-    -   date: !date 1914-05-08
-        end: !keyref point.de.Schwichteler
+    #   Genehmigungen
+    #
+    -   date: !date 1884-06-14
+        concession:
+            by: !keyref org.de.l.pre
+            document: !keyref src.de.l.pre.1884.21
+        sources: !keyref src.de.DRG.1935
+
+    #   Eröffnung und Einstellung
+    #
+    -   date: !date 1884-10-17
         status: open
-        sources: !keyref src.de.WP.Bahnverband-Vechta-Cloppenburg
-    -   date: !date 1914-06-06
-        start: !keyref point.de.Schwichteler
-        status: open
-        sources: !keyref src.de.WP.Bahnverband-Vechta-Cloppenburg
-    -   date: !date 1949-09-01
-        operator: !keyref org.de.e.DB
-        sources: !keyref src.de.WP.Bahnverband-Vechta-Cloppenburg
-    -   date: !date c1950
-        category: de.Nebenbahn
-    -   date: !date 1965-11-30
+        passenger: none
+        sources: !keyref src.de.DRG.1935
+    -   date: !date 1927-08-01
         status: closed
-        sources: !keyref src.de.WP.Bahnverband-Vechta-Cloppenburg
-    -   date: !date c1970
+        sources: !keyref src.de.DRG.1935
+    -   date: !date c1928
         status: removed
 
+    #   Eigenschaften
+    #
+    -   date: !!null
+        category: de.Nebenbahn
+        tracks: 1
+        gauge: 1435
+
+    #   Eigentümer etc.
+    #
+    -   date: !!null
+        owner: !keyref org.de.e.SHMG
+        operator: !keyref org.de.e.SHMG
+        sources: !keyref src.de.DRG.1935
+
+    -   date: !date 1890-07-01
+        owner: !keyref org.de.l.pre
+        operator: !keyref org.de.e.KPEV.Alt
+
+    -   date: !date 1920-04-01
+        owner: !keyref org.de
+        operator: !keyref org.de.r.RVM.PH
+    -   date: !date 1924-02-12
+        operator: !keyref org.de.e.DREb
+    -   date: !date 1924-08-30
+        operator: !keyref org.de.e.DRG
+
+    #   Verlauf
+    #
+    -   date: !!null
+        course:
+            - !pathref path.de.8120 krn  fnor  1.0
+
 points:
-    - !keyref point.de.Vechta                               # line.de.1560
-    - !keyref point.de.Schledehausen
-    - !keyref point.de.Daren
-    - !keyref point.de.Bakum
-    - !keyref point.de.Vestrup
-    - !keyref point.de.Schwichteler
-    - !keyref point.de.Tenstedt
-    - !keyref point.de.Cappeln
-    - !keyref point.de.Emstek
-    - !keyref point.de.Cloppenburg                          # line.de.1502
+    - !keyref point.de.Kronprinzenkoog-Nord
+    - !keyref point.de.Norderfleth
+
 
 ---
-key: point.de.Schledehausen
+key: point.de.Norderfleth
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.8068 3,2
-        category: de.Hp
-        name: Schledehausen
-        sources: !keyref src.de.WP.Bahnverband-Vechta-Cloppenburg
-    -   date: !date c1950
-        status: open
-
----
-key: point.de.Daren
-type: point
-events:
+        location: !keyloc line.de.8068 1,08
+        name: Norderfleth
+    
     -   date: !!null
-        location: !keyloc line.de.8068 4,8
-        name: Daren
-        sources: !keyref src.de.Kb.1914
-    -   date: !var lknr.kb
-        de.lknr: 47 642
-
----
-key: point.de.Bakum
-type: point
-events:
-    -   date: !!null
-        location: !keyloc line.de.8068 7,5
-        name: Bakum
-        sources: !keyref src.de.Kb.1914
-    -   date: !var lknr.kb
-        de.lknr: 47 643
-        sources: !keyref src.de.Bfv.1944
-
----
-key: point.de.Vestrup
-type: point
-events:
-    -   date: !!null
-        location: !keyloc line.de.8068 10,6
-        name: Vestrup
-        sources: !keyref src.de.Kb.1914
-    -   date: !var lknr.kb
-        de.lknr: 47 644
-        sources: !keyref src.de.Bfv.1944
-
----
-key: point.de.Schwichteler
-type: point
-events:
-    -   date: !!null
-        location: !keyloc line.de.8068 13,7
-        name: Schwichteler
-        sources: !keyref src.de.Kb.1914
-    -   date: !var lknr.kb
-        de.lknr: 47 645
-        sources: !keyref src.de.Bfv.1944
-
----
-key: point.de.Tenstedt
-type: point
-events:
-    -   date: !!null
-        location: !keyloc line.de.8068 16,0
-        category: de.Hp
-        name: Tenstedt
-        sources: !keyref src.de.WP.Bahnverband-Vechta-Cloppenburg
-    -   date: !date c1950
-        status: open
-
----
-key: point.de.Cappeln
-type: point
-events:
-    -   date: !!null
-        location: !keyloc line.de.8068 17,4
-        name: Cappeln
-        sources: !keyref src.de.Kb.1914
-    -   date: !var lknr.kb
-        de.lknr: 47 647
-        sources: !keyref src.de.Bfv.1944
-
----
-key: point.de.Emstek
-type: point
-events:
-    -   date: !!null
-        location: !keyloc line.de.8068 20,5
-        name: Emstek
-        sources: !keyref src.de.Kb.1914
-    -   date: !var lknr.kb
-        de.lknr: 47 648
-        sources: !keyref src.de.Bfv.1944
-
+        site: !noderef path.de.8120 nor left

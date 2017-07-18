@@ -1,74 +1,104 @@
-# DE 8027.  Lüneburg Nord - Carze Anschlbf
+# DE 8027.  Lütjenbrode - Großenbroder Fähre
 #
 ---
 key: line.de.8027
 type: line
 events:
-    -   date: !!null
+    -   date: !!null    
         region:
             - !keyref org.de
-            - !keyref org.de.l.ni
-
-    #   Genehmigungen
-    #
+            - !keyref org.de.l.sh
 
     #   Eröffnung und Einstellung
     #
-    -   date: !date 1904-08-25
+    -   date: !date 1903-10-23
         status: open
-        sources: !keyref src.de.WP.Bleckeder-Kreisbahn
-    -   date: !date 1918-08-24
+        sources: !keyref src.de.web.Kuestenbahn
+
+    -   date: !date 1963-04-30
+        end: !keyref point.de.Grossenbrode
         status: closed
+        reused:
+            - !keyref line.de.1101
+            - !keyref line.de.1100
+    -   date: !date 1963-04-30
+        start: !keyref point.de.Grossenbrode
+        status: closed
+        sources:
+            - !keyref src.de.web.Kuestenbahn
+            - !keyref src.de.DB.Hmb.1984
+
+    -   date: !date c1970
+        start: !keyref point.de.Grossenbrode
+        status: removed
 
     #   Eigenschaften
     #
     -   date: !!null
         category: de.Kleinbahn
         tracks: 1
-        gauge: 750
-        sources: !keyref src.de.WP.Bleckeder-Kreisbahn
+        gauge: 1435
+    -   date: !date 1941-07-31
+        category: de.Nebenbahn
 
-    #   Eigentümer etc.
+    #   Eigentümer und Betriebsführer
     #
     -   date: !!null
-        owner: !keyref org.de.e.BlKb
-        operator: !keyref org.de.e.Lenz
-        sources: !keyref src.de.WP.Bleckeder-Kreisbahn
-    -   date: !date 1910
-        operator: !keyref org.de.e.BlKb
-        sources: !keyref src.de.WP.Bleckeder-Kreisbahn
+        owner: !keyref org.de.e.KOE
+        operator: !keyref org.de.e.KPEV.Alt
+        sources: !keyref src.de.WP.Kreis-Oldenburger-Eisenbahn
+    -   date: !date 1923
+        operator: !keyref org.de.e.DRG
+        sources: !keyref src.de.WP.Kreis-Oldenburger-Eisenbahn
+    -   date: !date 1925-01-01
+        operator: !keyref org.de.e.EBOE
+        sources: !keyref src.de.WP.Kreis-Oldenburger-Eisenbahn
+    -   date: !date 1931-07-01
+        operator: !keyref org.de.e.KOE
+        sources: !keyref src.de.WP.Kreis-Oldenburger-Eisenbahn
+    -   date: !date 1941-07-31
+        owner: !keyref org.de
+        operator: !keyref org.de.e.DRG
+        sources: !keyref src.de.WP.Kreis-Oldenburger-Eisenbahn
+    -   date: !var org.de.DB.start
+        operator: !keyref org.de.e.DB
 
     #   Verlauf
     #
     -   date: !!null
         course:
-            - !pathref path.de.1150 lun  able  1.0
-            - !pathref path.de.9110 a    acar  0.0
-            - !pathref path.de.8117 a    f     0.0
-
+            - !pathref path.de.1101 lut  f    0.0
+            - !pathref path.de.1100 fhei agbf 0.0
+            - !pathref path.de.8111 a    f    0.0
 
 points:
-    - !keyref point.de.Lüneburg-Nord                        # line.de.9110
-    - !keyref point.de.Erbstorf-Ziegelei                    # line.de.9110
-    - !keyref point.de.Erbstorf                             # line.de.9110
-    - !keyref point.de.Scharnebeck                          # line.de.9110
-    - !keyref point.de.Rullstorf                            # line.de.9110
-    - !keyref point.de.Boltersen                            # line.de.9110
-    - !keyref point.de.Neetze                               # line.de.9110
-    - !keyref point.de.Bleckeder-Moor
-    - !keyref point.de.Carze-Anschlbf                       # line.de.8028
- 
+    -   !keyref point.de.Luetjenbrode           # line.de.1101
+    -   !keyref point.de.Luetjenbrode-Ost       # line.de.1100
+    -   !keyref point.de.Grossenbrode           # line.de.1100
+    -   !keyref point.de.Grossenbroder-Faehre
+
 
 ---
-key: point.de.Bleckeder-Moor
+key: point.de.Grossenbroder-Faehre
 type: point
 events:
     -   date: !!null
-        name: Bleckeder Moor
-        category: de.Bf
-        sources: !keyref src.de.WP.Bleckeder-Kreisbahn
-    
+        name: Großenbroder Fähre
+        sources: !keyref src.de.Kb.1914
+    -   date: !var lknr.kb
+        de.lknr: 44 178
+        sources: !keyref src.de.Bfv.1938
     -   date: !!null
-        site: !noderef path.de.8117 ble right
+        category: de.Bf
+        sources: !keyref src.de.Bfv.1944
+    -   date: !!null
+        location: !keyloc line.de.8027 7,10
+        sources: !keyref src.de.DRG.Alt.Karte.1949
+    -   date: !date 1941-07-31
+        de.Rangklasse: IV
+        de.lknr: 27 386
+        sources: !keyref src.de.Bfv.1944
 
+    -   date: !!null
+        site: !noderef path.de.8111 grf right
 

@@ -1,4 +1,4 @@
-# DE 8046.  Glückstadt Rhin - Glückstadt Alter Bf
+# DE 8046.  Echem - Hohnstorf Uferladestelle
 #
 ---
 key: line.de.8046
@@ -7,65 +7,84 @@ events:
     -   date: !!null
         region:
             - !keyref org.de
-            - !keyref org.de.l.sh
+            - !keyref org.de.l.ni
 
-    #   Genehmigung
+    #   Genehmigungen
     #
-    -   date: !date 1844-07-26
+    -   date: 1860-12-28
         concession:
-            by: !keyref org.dk
-        sources: !keyref src.de.DRG.1935
+            for: org.de.l.han
+        sources: src.de.DRG.1935 # 1864/4
 
     #   Eröffnung und Einstellung
     #
-    -   date: !date 1845-07-20
+    -   date: !date 1864-03-15
         status: open
+        sources: !keyref src.de.DRG.1935 # 1864/4
+    -   date: !date 1878-11-01
+        passenger: none
         sources: !keyref src.de.DRG.1935
-    -   date: !date 1857-10-15
+
+    -   date: !date 1930
         status: closed
-    -   date: !date c1860
+    -   date: !date c1935
         status: removed
 
     #   Eigenschaften
     #
     -   date: !!null
-        category: de.Hauptbahn
+        category: de.Nebenbahn
         tracks: 1
         gauge: 1435
- 
+        sources: !keyref src.de.DRG.1927
+
     #   Eigentümer etc.
     #
-    -   date: !!null
-        owner: !keyref org.de.e.SHMG
-        operator: !keyref org.de.Altona-Kieler-Eisenbahn
-    -   date: !date 1863-01-01
-        operator: !keyref org.de.e.SHMG
+    -   date: !date 1860-12-28
+        owner: !keyref org.de.l.han
+        operator: !keyref org.de.e.KHStE
+        sources: !keyref src.de.DRG.1935
+    -   date: !date 1866-12-15
+        owner: !keyref org.de.l.pre
+        operator: !keyref org.de.e.KPEV.Han
+    -   date: !date 1900
+        operator: !keyref org.de.e.KPEV.Alt
+
+    -   date: !date 1920-04-01
+        owner: !keyref org.de
+        operator: !keyref org.de.r.RVM.PH
+    -   date: !date 1924-02-12
+        operator: !keyref org.de.e.DREb
+    -   date: !date 1924-08-30
+        operator: !keyref org.de.e.DRG
 
     #   Verlauf
     #
     -   date: !!null
         course:
-            - !pathref path.de.1210  gla  agla  0.0
-            - !pathref path.de.1210a a    gla   0.0
+            - !pathref path.de.1150 ech  ahoh  1.0
+            - !pathref path.de.8116 a    f     0.0
+
 
 points:
-    - !keyref point.de.Glueckstadt-Rhin                 # line.de.1210
-    - !keyref point.de.Glueckstadt-Alter-Bf
-
+    - !keyref point.de.Echem                                # line.de.1150
+    - !keyref point.de.Hohnstorf-Gbf
+    - !keyref point.de.Hohnstorf-Uferldst
 
 ---
-key: point.de.Glueckstadt-Alter-Bf
+key: point.de.Hohnstorf-Gbf
 type: point
 events:
     -   date: !!null
-        name: Glückstadt
-    -   date: !!null
-        location: !keyloc line.de.8046 16,72
-        sources: !keyref src.de.DRG.1935
-    -   date: !date 1857-10-15
-        name: Glückstadt Alter Bf
-        status: closed
+        name: Hohnstorf Gbf
+        site: !noderef path.de.8116 gbf left
 
+
+---
+key: point.de.Hohnstorf-Uferldst
+type: point
+events:
     -   date: !!null
-        site: !noderef path.de.1210a gla left
+        name: Hohnstorf Uferladestelle
+        site: !noderef path.de.8116 ufe right
 

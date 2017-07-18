@@ -1,49 +1,60 @@
-# DE 8178.  Duisburg Hbf - Duisburg Innenhafen Süd
+# DE 8178.  Brunnenbachsmühle - Tanne
 #
 ---
 key: line.de.8178
 type: line
 progress: stub
 events:
-
-    -   date: 1847-05-15
-        end: point.de.Duisburg-West-Hafen
-        status: open
-        passenger: none
-        sources: src.de.DRG.1935 # 1847/8
-
     -   date: !!null
-        end: point.de.Duisburg-West-Hafen
-        owner: !keyref org.de.Köln-Mindener-Eisenbahn
-        sources: !keyref src.de.DRG.1935 # 1847/8
-    -   date: !date 1880-02-01
-        end: point.de.Duisburg-West-Hafen
-        owner: !keyref org.de.l.pre
-        sources: !keyref src.de.DRG.1935 # 1847/8
+        region: !keyref org.de
+    -   date: !!null
+        end: !keyref point.de.Sorge-LGr
+        region: !keyref org.de.l.ni
+    -   date: !!null
+        start: !keyref point.de.Sorge-LGr
+        region: !keyref org.de.l.st
+
+    #   Genehmigungen
+    #
+
+    #   Eröffnung und Einstellung
+    #
+    -   date: !!null
+        status: closed
+        sources: !keyref src.de.SuW.2011
+
+    #   Eigenschaften
+    #
+
+    #   Eigentümer etc.
+    #
+
+    #   Verlauf
+    #
 
 points:
-    -   point.de.Duisburg-Hbf                       # de.2650
-    -   point.de.Duisburg-West-Hafen
-    -   point.de.Duisburg-Innenhafen-Süd
-
-
-# point.de.Duisburg-Hbf de.2650
+    - !keyref point.de.Brunnenbachsmühle                    # line.de.8176
+    - !keyref point.de.Sorge-LGr
+    - !keyref point.de.Sorge-Abzw
+    - !keyref point.de.Sorge-Bf                             # line.de.9700
+    - !keyref point.de.Tanne                                # line.de.6864
 
 
 ---
-key: point.de.Duisburg-West-Hafen
+key: point.de.Sorge-LGr
+type: point
+subtype: border
+progress: stub
+events:
+    -   date: !!null
+        name: Sorge ST/NI
+
+
+---
+key: point.de.Sorge-Abzw
 type: point
 progress: stub
 events:
     -   date: !!null
-        name: Duisburg West Hafen
-
-
----
-key: point.de.Duisburg-Innenhafen-Süd
-type: point
-progress: stub
-events:
-    -   date: !!null
-        name: Duisburg Innenhafen Süd
+        name: Sorge Abzw
 

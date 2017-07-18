@@ -1,208 +1,91 @@
-# DE 8023.  Ratzeburg Rbf - Klein Thurow
+# DE 8023.  Bad Schwartau - Neustadt (Holst)
 #
 ---
 key: line.de.8023
 type: line
 events:
     -   date: !!null
-        region: !keyref org.de
-    -   date: !!null
-        end: !keyref point.de.Mustin-LGr
-        region: !keyref org.de.l.sh
-    -   date: !!null
-        start: !keyref point.de.Mustin-LGr
-        region: !keyref org.de.l.mv
+        region:
+            - !keyref org.de
+            - !keyref org.de.l.sh
+
+    #   Genehmigung
+    #
+    -   date: !date 1913-05-28
+        concession:
+            by: !keyref org.de.l.pre
+            for: !keyref org.de.l.pre
+            document: !keyref src.de.l.pre.1913.26.277
+        sources: !keyref src.de.DRG.1935
 
     #   Eröffnung und Einstellung
     #
-    -   date: !date 1903-06-27
-        end: !keyref point.de.Ratzeburg-Stadt
+    -   date: !date 1925-07-01
+        end: !keyref point.de.Timmendorferstrand
+        service: passenger
         status: open
-        sources: !keyref src.de.web.Rhenius
-    -   date: !date 1908-06-30
-        start: !keyref point.de.Ratzeburg-Stadt
+        sources: !keyref src.de.DRG.1935
+    -   date: !date 1925-07-08
+        start: !keyref point.de.Timmendorferstrand
+        end: !keyref point.de.Scharbeutz
+        service: passenger
         status: open
-        sources: !keyref src.de.web.Rhenius
-    -   date: !date 1933-10-08
-        passenger: none
-        sources: !keyref src.de.web.Rhenius
-    -   date: !date 1934-04-01
+        sources: !keyref src.de.DRG.1935
+    -   date: !date 1925-08-18
+        start: !keyref point.de.Scharbeutz
+        end: !keyref point.de.Haffkrug
+        service: passenger
+        status: open
+        sources: !keyref src.de.DRG.1935
+    -   date: !date 1928-06-01
+        start: !keyref point.de.Haffkrug
+        status: open
+        sources: !keyref src.de.DRG.1935
+    -   date: !date 1928-06-01
+        service: full
+        sources: !keyref src.de.DRG.1935
+
+    -   date: !date 1963-05-14
         status: closed
-        sources: !keyref src.de.WP.Ratzeburger-Kleinbahn
-    -   date: !date c1940
-        status: removed
+        reused: !keyref line.de.1100
 
     #   Eigenschaften
-    #   
-    -   date: !!null
-        category: de.Kleinbahn
-        operator: !keyref org.de.e.Lenz
-        sources: !keyref src.de.Bfv.1933
-    
-    #   Eigentümer etc.
     #
     -   date: !!null
-        owner: !keyref org.de.Ratzenburger-Kleinbahn
-        operator: !keyref org.de.e.Lenz
-        sources: !keyref src.de.WP.Ratzeburger-Kleinbahn
+        category: de.Nebenbahn
+        sources: !keyref src.de.DRG.1927
+
+    #   Eigentümer und Betreiber
+    #
+    -   date: !!null
+        owner: !keyref org.de.l.pre
+        operator: !keyref org.de.e.KPEV.Alt
+        sources: !keyref src.de.DRG.1935
+    -   date: !date 1920-04-01
+        owner: !keyref org.de
+        operator: !keyref org.de.r.RVM.PH
+    -   date: !date 1924-02-12
+        operator: !keyref org.de.e.DREb
+    -   date: !date 1924-08-30
+        operator: !keyref org.de.e.DRG
+
+    -   date: !var org.de.DB.start
+        operator: !keyref org.de.e.DB
 
     #   Verlauf
     #
     -   date: !!null
         course:
-            - !pathref path.de.6928 rat  akth 1.0
-            - !pathref path.de.8113 a    f    0.0
+            - !pathref path.de.1100     swr  anst 0.0
+            - !pathref path.de.1023.nst a    nst  1.0
 
 points:
-    - !keyref point.de.Ratzeburg-Rbf
-    - !keyref point.de.St-Georgsberg
-    - !keyref point.de.Ratzeburg-Stadt
-    - !keyref point.de.Dermin
-    - !keyref point.de.Ziethen
-    - !keyref point.de.Mustin
-    - !keyref point.de.Mustin-LGr
-    - !keyref point.de.Gross-Thurow
-    - !keyref point.de.Klein-Thurow
-
-
----
-key: point.de.Ratzeburg-Rbf
-type: point
-junction: True
-events:
-    -   date: !!null
-        name: Ratzenburg Lauenb Stsbf
-        sources: !keyref src.de.Kb.1905
-    -   date: !date c1920
-        name: Ratzeburg Rbf
-        sources: !keyref src.de.Bfv.1928
-
-    -   date: !!null
-        connection: !keyref point.de.Ratzeburg
-        site: !noderef path.de.6928 rat right
-
-
----
-key: point.de.St-Georgsberg
-type: point
-events:
-    -   date: !date c1910
-        status: open
-        sources: !keyref src.de.Kb.1914
-    -   date: !!null
-        location: !keyloc line.de.8023 2,0
-        name: St Georgsberg
-        sources: !keyref src.de.Kb.1914
-
-    -   date: !!null
-        site: !noderef path.de.8113 geo right
-
-
----
-key: point.de.Ratzeburg-Stadt
-type: point
-events:
-    -   date: !!null
-        name: Ratzeburg Stadt
-        location: !keyloc line.de.8023 2,7
-        sources: !keyref src.de.Kb.1905
-
-    -   date: !!null
-        site: !noderef path.de.8113 ras left
-
-
----
-key: point.de.Dermin
-type: point
-junction: True
-events:
-    -   date: !!null
-        name: Dermin
-        sources: !keyref src.de.Bfv.1928
-    -   date: !!null
-        location:
-            - !keyloc line.de.8023 5,2
-            - !keyloc line.de.8024 0,0
-        sources: !keyref src.de.SuW.2005
-
-    -   date: !!null
-        site: !noderef path.de.8113 der left
-
-
----
-key: point.de.Ziethen
-type: point
-events:
-    -   date: !!null
-        name: Ziethen
-        location: !keyloc line.de.8023 6,6
-        sources: !keyref src.de.Kb.1914
-
-    -   date: !!null
-        site: !noderef path.de.8113 zie right
-
-
----
-key: point.de.Chausseehaus-Mustin
-type: point
-events:
-    -   date: !!null
-        location: !keyloc line.de.8023 10,5
-        name: Chausseehaus Mustin
-        sources: !keyref src.de.WP.Ratzeburger-Kleinbahn
-
-    -   date: !!null
-        site: !noderef path.de.8113 cha right
-
-
----
-key: point.de.Mustin
-type: point
-events:
-    -   date: !!null
-        name: Mustin
-        location: !keyloc line.de.8023 11,8
-        sources: !keyref src.de.Kb.1914
-
-    -   date: !!null
-        site: !noderef path.de.8113 mus right
-
-
----
-key: point.de.Mustin-LGr
-type: point
-subtype: border
-events:
-    -   date: !!null
-        name: Mustin SH/MV
-
-    -   date: !!null
-        site: !noderef path.de.8113 gmus
-
-
----
-key: point.de.Gross-Thurow
-type: point
-events:
-    -   date: !!null
-        name: Groß Thurow
-        location: !keyloc line.de.8023 15,4
-        sources: !keyref src.de.Kb.1914
-
-    -   date: !!null
-        site: !noderef path.de.8113 gth right
-
-
----
-key: point.de.Klein-Thurow
-type: point
-junction: True
-events:
-    -   date: !!null
-        name: Klein Thurow
-        location: !keyloc line.de.8023 18,5
-        sources: !keyref src.de.Kb.1914
-
-    -   date: !!null
-        site: !noderef path.de.8113 kth right
+    - !keyref point.de.Bad-Schwartau            # line.de.1100
+    - !keyref point.de.Ratekau                  # line.de.1100
+    - !keyref point.de.Timmendorferstrand       # line.de.1100
+    - !keyref point.de.Scharbeutz               # line.de.1100
+    - !keyref point.de.Haffkrug                 # line.de.1100
+    - !keyref point.de.Sierksdorf-Hp            # line.de.1100
+    - !keyref point.de.Neustadt-Holst-Gbf       # line.de.1023
+    - !keyref point.de.Neustadt-Holst           # line.de.1023
 

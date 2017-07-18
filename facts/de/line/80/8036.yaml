@@ -1,6 +1,6 @@
-# DE 8036.  Nebel - Norddorf Brücke
+# DE 8036.  Lübeck alter Bf - Lübeck Mönkhof
 #
-#           - Alter Verlauf Strecke 8035 -
+#           - Ursprünglicher Verlauf Strecke 1121 -
 ---
 key: line.de.8036
 type: line
@@ -10,55 +10,60 @@ events:
             - !keyref org.de
             - !keyref org.de.l.sh
 
-    -   date: !!null
-        gauge: 900
-        category: de.Kleinbahn
-        owner: !keyref org.de.e.AGWA
-        operator: !keyref org.de.e.AGWA
+    #   Staatsverträge und Genehmigung
+    #
+    -   date: !date 1850-03-02
+        concession:
+            by: !keyref org.de.l.lüb
+            for: !keyref org.de.Lübeck-Büchener-Eisenbahn
+        sources: !keyref src.de.DRG.1935 # 1851/10
 
-    -   date: !date 1902
+    #   Eröffnung und Einstellung
+    #
+    -   date: !date 1851-10-16
         status: open
-        sources: !keyref src.de.web.Werning
-    -   date: !date 1909-09-10
-        electrified:
-            overhead: !var el.700-dc
-        sources: !keyref src.de.web.Werning
-    -   date: !date 1920-01
-        owner: !keyref org.de.e.AIAG
-        operator: !keyref org.de.e.AIAG
-        sources: !keyref src.de.web.Werning
-    -   date: !date 1920?
-        electrified:
-            overhead: !!null
-    -   date: !date 1931
-        owner: !keyref org.de.e.AIG
-        operator: !keyref org.de.e.AIG
-        sources: !keyref src.de.web.Werning
-    -   date: !date 1939-10-31
+        sources: !keyref src.de.DRG.1935 # 1851/10
+    -   date: !date 1908-05-01
         status: closed
-        sources: !keyref src.de.web.Werning
-    -   date: !date 1940
+    -   date: !date c1910
         status: removed
-        sources: !keyref src.de.web.Werning
+
+    #   Eigenschaften
+    #
+    -   date: !!null
+        category: de.Hauptbahn
+        tracks: 1
+        gauge: 1435
+
+    #   Eigentümer etc.
+    #
+    -   date: !!null
+        owner: !keyref org.de.Lübeck-Büchener-Eisenbahn
+        operator: !keyref org.de.Lübeck-Büchener-Eisenbahn
+        sources: !keyref src.de.DRG.1935
+    
+    #   Verlauf
+    #
+    -   date: !!null
+        course:
+            - !pathref path.de.1121a lua  f    0.0
+            - !pathref path.de.1121  flua mon  0.0
 
 points:
-    - !keyref point.de.Nebel                                # line.de.8035
-    - !keyref point.de.Norddorf
-    - !keyref point.de.Norddorf-Bruecke
+    - !keyref point.de.Lübeck-alter-Bf
+    - !keyref point.de.Lübeck-Mönkhof                 # line.de.1121
+
 
 ---
-key: point.de.Norddorf
+key: point.de.Lübeck-alter-Bf
 type: point
+junction: True
 events:
     -   date: !!null
-        name: Norddorf (Amrum)
-        sources: !keyref src.de.Bfv.1933
+        name: Lübeck
+        sources: !keyref src.de.Kb.1905
 
----
-key: point.de.Norddorf-Bruecke
-type: point
-events:
     -   date: !!null
-        name: Norddorf Brücke
-        sources: !keyref src.de.web.Werning
+        short_name: Lübeck alter Bf
+        site: !noderef path.de.1121a lua left
 

@@ -1,91 +1,53 @@
-# DE 8035.  Wittdün - Norddorf
+# DE 8035.  Lübeck Nord - Lübeck alter Bf
 #
+#           - Ursprünglicher Verlauf Strecke 1110 -
 ---
 key: line.de.8035
 type: line
 events:
     -   date: !!null
         region:
-            - !keyref org.de
-            - !keyref org.de.l.sh
+            - org.de
+            - org.de.l.sh
 
-    -   date: !!null
-        gauge: 900
-        category: de.Kleinbahn
-        owner: !keyref org.de.e.AGWA
-        operator: !keyref org.de.e.AGWA
+    #   Verträge und Genehmigungen
+    #
+    -   date: 1870-07-02
+        concession:
+            by: org.de.l.lüb
+            for: org.de.Eutin-Lübecker-Eisenbahn
+        document: src.de.l.lüb.1870.350
+        sources: src.de.DRG.1935 # 1873/9
 
-    -   date: !date 1901-07-01
-        end: !keyref point.de.Nebel
+    #   Eröffnung und Einstellung
+    #
+    -   date: 1873-04-10
         status: open
-        sources: !keyref src.de.web.Werning
-    -   date: !date 1909-09-10
-        electrified:
-            overhead: !var el.700-dc
-        sources: !keyref src.de.web.Werning
-    -   date: !date 1920-01
-        owner: !keyref org.de.e.AIAG
-        operator: !keyref org.de.e.AIAG
-        sources: !keyref src.de.web.Werning
-    -   date: !date 1920?
-        electrified:
-            overhead: !!null
-    -   date: !date 1931
-        owner: !keyref org.de.e.AIG
-        operator: !keyref org.de.e.AIG
-        sources: !keyref src.de.web.Werning
-    -   date: !date 1939-10-31
+        sources: src.de.DRG.1935 # 1873/9
+    -   date: 1908-05-01
         status: closed
-        sources: !keyref src.de.web.Werning
-    -   date: !date 1940
+    -   date: c1910
         status: removed
-        sources: !keyref src.de.web.Werning
+
+    
+    #   Eigenschaften
+    #
+    -   date: !!null
+        category: de.Hauptbahn
+        tracks: 1
+        gauge: 1435
+
+    #   Eigentümer und Betriebsführer
+    #
+
+    #   Verlauf
+    #
+    -   date: !!null
+        course:
+            - !pathref path.de.1100  lun  flua 0.0
+            - !pathref path.de.1121a a    lua  0.0
 
 points:
-    - !keyref point.de.Wittduen
-    - !keyref point.de.Leuchtturm
-    - !keyref point.de.Sueddorf
-    - !keyref point.de.Sattelduene
-    - !keyref point.de.Nebel
-    - !keyref point.de.Norddorf
-
----
-key: point.de.Wittduen
-type: point
-events:
-    -   date: !!null
-        name: Wittdün (Amrum)
-        sources: !keyref src.de.Bfv.1933
-
----
-key: point.de.Leuchtturm
-type: point
-events:
-    -   date: !!null
-        name: Leuchtturm
-        sources: !keyref src.de.web.Werning
-
----
-key: point.de.Sueddorf
-type: point
-events:
-    -   date: !!null
-        name: Süddorf
-        sources: !keyref src.de.web.Werning
-
----
-key: point.de.Sattelduene
-type: point
-events:
-    -   date: !!null
-        name: Satteldüne
-        sources: !keyref src.de.web.Werning
-
----
-key: point.de.Nebel
-type: point
-events:
-    -   date: !!null
-        name: Nebel (Amrum)
-        sources: !keyref src.de.Bfv.1933
+    -   point.de.Lübeck-Nord                        # line.de.1110
+    -   point.de.Lübeck-alter-Bf                    # line.de.8036
 

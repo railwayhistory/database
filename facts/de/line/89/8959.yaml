@@ -1,4 +1,4 @@
-# DE 8959.  Roskow - Brandenburg-Altstadt
+# DE 8959.  Oschersleben (Bode) Nord - Schöningen Süd
 #
 ---
 key: line.de.8959
@@ -6,13 +6,13 @@ type: line
 progress: stub
 events:
     -   date: !!null
-        region:
-            - !keyref org.de
-            - !keyref org.de.l.bb
-
-    -   date: !var vzg.dr
-        de.VzG: !!str 8747
-        sources: !keyref src.de.VzG
+        region: !keyref org.de
+    -   date: !!null
+        end: !keyref point.de.Hötensleben-LGr
+        region: !keyref org.de.l.st
+    -   date: !!null
+        start: !keyref point.de.Hötensleben-LGr
+        region: !keyref org.de.l.ni
 
     #   Genehmigungen
     #
@@ -33,7 +33,27 @@ events:
     #
 
 points:
-    - !keyref point.de.Roskow                               # line.de.8958
-    - !keyref point.de.Brandenburg-Altstadt                 # line.de.6512
+    - !keyref point.de.Oschersleben-Bode-Nord
+    - !keyref point.de.Hötensleben-LGr
+    - !keyref point.de.Schöningen-Süd                       # line.de.8197
 
+
+---
+key: point.de.Oschersleben-Bode-Nord
+type: point
+progress: stub
+events:
+    -   date: !!null
+        name: Oschersleben (Bode) Nord
+        connection: !keyref point.de.Oschersleben-Bode      # line.de.6404
+
+
+---
+key: point.de.Hötensleben-LGr
+type: point
+subtype: border
+progress: stub
+events:
+    -   date: !!null
+        name: Hötensleben ST/NI
 

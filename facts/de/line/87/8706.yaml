@@ -1,4 +1,4 @@
-# DE 8706.  Berlin-Charlottenburg - Berlin Mbf
+# DE 8706.  Berlin-Springpfuhl GAR - Berlin Ffo
 #
 ---
 key: line.de.8706
@@ -8,46 +8,39 @@ events:
     -   date: !!null
         region:
             - !keyref org.de
-            - !keyref org.de.l.pre
+            - !keyref org.de.l.be
 
     -   date: !!null
-        category: de.Hauptbahn
-        tracks: 2
-        sources: !keyref src.de.DRG.1927
+        category: de.Nebenbahn
+        tracks: 1
+        gauge: 1435
+        sources: !keyref src.dd.DR.Bln.1953
 
-    -   date: !date 1882-02-07
-        status: open
-        service: passenger
-        sources: !keyref src.de.DRG.1935
 
-    -   date: !date c1950
+    #   Eröffnung und Schließung
+    #
+    -   date: !date 1950-12
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !date 1975-01-24
         status: removed
-        sources: !keyref src.dd.DR.Bln.1959
+        sources: !keyref src.de.Kuhlmann.2000
 
     #   Eigentümer und Betriebsführer
     #
     -   date: !!null
-        owner: !keyref org.de.l.pre
-        operator: !keyref org.de.e.KPEV.Bln
-        sources: !keyref src.de.DRG.1935
-    -   date: !date 1920-04-01
-        owner: !keyref org.de
-        operator: !keyref org.de.r.RVM.PH
-    -   date: !date 1924-02-12
-        operator: !keyref org.de.e.DREb
-    -   date: !date 1924-08-30
-        operator: !keyref org.de.e.DRG
-    -   date: !var org.de.DR.start
+        owner: !keyref org.dd
         operator: !keyref org.dd.DR
 
     #   Verlauf
     #
     -   date: !!null
         course:
-            - !pathref path.de.6109 cha  ambf 0.
-            - !pathref path.de.8602 a    f    0.
-            - !pathref path.de.6020 fcha mbf  0.
+            - !pathref path.de.8604.spr spr  fffo  0.0
+            - !pathref path.de.8609     a    f     0.0
+            - !pathref path.de.6078     fspr ffo  -0.5
 
 points:
-    - !keyref point.de.Berlin-Charlottenburg        # line.de.6109
-    - !keyref point.de.Berlin-Mbf                   # line.de.6170
+    - !keyref point.de.Berlin-Springpfuhl-GAR               # line.de.8704
+    - !keyref point.de.Berlin-Ffo                           # line.de.6078
+
+

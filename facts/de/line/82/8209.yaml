@@ -1,25 +1,42 @@
-# DE 8209.  Stolberg (Rheinl) Saubach - Weiden (b Aachen)
+# DE 8209.  Lingen (Ems) Kleinb - Lingen Kanalhafen
 #
-#           - Ursprünglicher Verlauf Strecke 2544 -
 ---
 key: line.de.8209
 type: line
-progress: stub
 events:
+    -   date: !!null
+        region:
+            - !keyref org.de
+            - !keyref org.de.l.ni
 
-    -   date: 1872-11-23
-        concession:
-            by: org.de.l.pre
-            for: org.de.Aachen-Jülicher-Eisenbahn
-        document: src.de.l.pre.aac.1873.29.115
-        sources: src.de.DRG.1935 # 1875/46
-
-    -   date: 1875-09-26
+    -   date: !!null
+        category: de.Kleinbahn
+        gauge: 750
+        owner: !keyref org.de.e.KbLBQ
+        operator: !keyref org.de.e.KbLBQ
+        sources: !keyref src.de.WP.Kleinbahn-Lingen-Berge-Quakenbrueck
+    -   date: !date 1902-06?
+        status: construction
+    -   date: !date 1904-05-31?
         status: open
-        sources: src.de.DRG.1935 # 1875/47
+        sources: !keyref src.de.WP.Kleinbahn-Lingen-Berge-Quakenbrueck
+    -   date: !date 1952-05-31?
+        status: closed
+        sources: !keyref src.de.WP.Kleinbahn-Lingen-Berge-Quakenbrueck
+    -   date: !date c1955?
+        status: removed
 
 points:
-    -   point.de.Stolberg-Rheinl-Saubach            # de.2570
-    -   point.de.Stolberg-Rheinl-Quinx              # de.8208
-    -   point.de.Weiden-Aachen                      # de.2544
-
+    - !keyref point.de.Lingen-Kleinb                        # line.de.8208
+    - !keyref point.de.Lingen-Kanalhafen
+ 
+---
+key: point.de.Lingen-Kanalhafen
+type: point
+events:
+    -   date: !!null
+        name: Lingen Kanalhafen
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.kb
+        de.lknr: 44 457
+        sources: !keyref src.de.Bfv.1944

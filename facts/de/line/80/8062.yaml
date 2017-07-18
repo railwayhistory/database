@@ -1,4 +1,4 @@
-# DE 8062.  Hoya HSA - Bücken
+# DE 8062.  Heide (Holst) Kreisb - Tellingstedt - Pallhude
 #
 ---
 key: line.de.8062
@@ -7,53 +7,215 @@ events:
     -   date: !!null
         region:
             - !keyref org.de
-            - !keyref org.de.l.ni
+            - !keyref org.de.l.sh
 
+    #   Genehmigungen
+    #
+
+    #   Eröffnung und Einstellung
+    #
+    -   date: !date 1905
+        status: open
+        sources: !keyref src.de.WP.Kreisbahn-Norderdithmarschen
+    -   date: !date 1937-10-02
+        status: closed
+        sources: !keyref src.de.WP.Kreisbahn-Norderdithmarschen
+    -   date: !date c1938
+        status: removed
+
+    #   Eigenschaften
+    #
     -   date: !!null
         category: de.Kleinbahn
         gauge: 1000
-        owner: !keyref org.de.e.KbHSA
-        operator: !keyref org.de.e.KbHSA
-        sources: !keyref src.de.WP.Verkehrsbetriebe-Grafschaft-Hoya
-    -   date: !date 1905-06-01
-        status: open
-        sources: !keyref src.de.WP.Verkehrsbetriebe-Grafschaft-Hoya
-    -   date: !date 1924
-        operator: !keyref org.de.e.NLEA
-        sources: !keyref src.de.WP.Verkehrsbetriebe-Grafschaft-Hoya
-    -   date: !date c1950
-        category: de.Nebenbahn
-    -   date: !date 1959
-        operator: !keyref org.de.e.KbHSA
-        sources: !keyref src.de.WP.Verkehrsbetriebe-Grafschaft-Hoya
-    -   date: !date 1960-08-01
-        service: freight
-        sources: !keyref src.de.WP.Verkehrsbetriebe-Grafschaft-Hoya
-    -   date: !date 1963-05-20
-        status: closed
-        sources: !keyref src.de.WP.Verkehrsbetriebe-Grafschaft-Hoya
-    -   date: !date c1965
-        status: removed
+        tracks: 1
+
+    #   Eigentümer etc.
+    #
+    -   date: !!null
+        owner: !keyref org.de.e.KbNDM
+        operator: !keyref org.de.e.KbNDM
+
+    #   Verlauf
+    #
+    -   date: !!null
+        course:
+            - !pathref path.de.1210  hek  apah  2.5
+            - !pathref path.de.8121  a    atel  1.0
+            - !pathref path.de.8122  a    f     0.0
+            - !pathref path.de.8121  f    pah   0.0
 
 points:
-    - !keyref point.de.Hoya-HSA                             # line.de.9142
-    - !keyref point.de.Buecken
+    - !keyref point.de.Heide-Kreisbf                    # line.de.8061
+    - !keyref point.de.Suederhol
+    - !keyref point.de.Bennewohld
+    - !keyref point.de.Gaushorn
+    - !keyref point.de.Welmbuettel
+    - !keyref point.de.Tellingstedt
+    - !keyref point.de.Wellerhoop
+    - !keyref point.de.Schelrade
+    - !keyref point.de.Wrohm
+    - !keyref point.de.Dellstedt
+    - !keyref point.de.Doerpling
+    - !keyref point.de.Pahlhude                         # line.de.8061
+
 
 ---
-key: point.de.Buecken
+key: point.de.Suederhol
 type: point
-junction: True
 events:
     -   date: !!null
-        location: !keyloc line.de.8062 3,2
-        sources: !keyref src.de.SuW.2005
+        name: Süderhol
+        sources: !keyref src.de.Kb.1914
     -   date: !!null
         category: de.Bf
-    -   date: !!null
-        name: Bücken
-        sources: !keyref src.de.Kb.1914
-    -   date: !var lknr.kb
-        de.lknr: 43 027
-        sources: !keyref src.de.Bfv.1944
+        sources: !keyref src.de.mtbl.1720.1919
 
+    -   date: !!null
+        site: !noderef path.de.8122 sho left
+
+
+---
+key: point.de.Bennewohld
+type: point
+events:
+    -   date: !date c1920
+        status: open
+        sources:
+            - !keyref src.de.Kb.1914
+            - !keyref src.de.Bfv.1928
+    -   date: !!null
+        name: Bennewohld
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Hp
+        sources: !keyref src.de.mtbl.1821.1921
+
+    -   date: !!null
+        site: !noderef path.de.8122 ben right
+
+
+---
+key: point.de.Gaushorn
+type: point
+events:
+    -   date: !!null
+        name: Gaushorn
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        category: de.Bf
+        sources: !keyref src.de.mtbl.1821.1921
+
+    -   date: !!null
+        site: !noderef path.de.8122 gau right
+
+
+---
+key: point.de.Welmbuettel
+type: point
+events:
+    -   date: !!null
+        name: Welmbüttel
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        category: de.Bf
+        sources: !keyref src.de.mtbl.1721.1928
+
+    -   date: !!null
+        site: !noderef path.de.8122 web right
+
+
+---
+key: point.de.Tellingstedt
+type: point
+events:
+    -   date: !!null
+        name: Tellingstedt
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        category: de.Bf
+        sources: !keyref src.de.mtbl.1721.1928
+
+    -   date: !!null
+        site: !noderef path.de.8122 tel left
+
+
+---
+key: point.de.Wellerhoop
+type: point
+events:
+    -   date: !date c1920
+        status: open
+        sources:
+            - !keyref src.de.Kb.1914
+            - !keyref src.de.Bfv.1928
+    -   date: !!null
+        name: Wellerhoop
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        sources: !keyref src.de.mtbl.1721.1928
+
+    -   date: !!null
+        site: !noderef path.de.8122 weh left
+
+
+---
+key: point.de.Schelrade
+type: point
+events:
+    -   date: !!null
+        name: Schelrade
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        category: de.Bf
+        sources: !keyref src.de.mtbl.1722.1906
+
+    -   date: !!null
+        site: !noderef path.de.8122 sel right
+
+
+---
+key: point.de.Wrohm
+type: point
+events:
+    -   date: !!null
+        name: Wrohm
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        category: de.Bf
+        sources: !keyref src.de.mtbl.1722.1906
+
+    -   date: !!null
+        site: !noderef path.de.8122 wro left
+
+
+---
+key: point.de.Dellstedt
+type: point
+events:
+    -   date: !!null
+        name: Dellstedt
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        category: de.Bf
+        sources: !keyref src.de.mtbl.1722.1906
+
+    -   date: !!null
+        site: !noderef path.de.8122 del left
+
+
+---
+key: point.de.Doerpling
+type: point
+events:
+    -   date: !!null
+        name: Dörpling
+        sources: !keyref src.de.Kb.1914
+    -   date: !!null
+        category: de.Bf
+        sources: !keyref src.de.mtbl.1721.1928
+
+    -   date: !!null
+        site: !noderef path.de.8122 dor left
 

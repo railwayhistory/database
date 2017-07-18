@@ -1,0 +1,80 @@
+# DE 8718.  Teltow Industriebahn - Teltow Großbeerener Weg
+#
+#           - Alter Verlauf Strecke 6517 -
+---
+key: line.de.8718
+type: line
+label: freight
+events:
+    -   date: !!null
+        region:
+            - !keyref org.de
+            - !keyref org.de.l.bb
+
+    #   Eröffnung
+    #
+    -   date: !date 1909-07-21
+        status: open
+        service: freight
+        sources: !keyref src.de.Kuhlmann.2000
+
+    #   Stilllegung
+    #
+    -   date: !date c1965
+        status: removed
+        sources: !keyref src.dd.DR.Bln.1968
+
+    #   Eigenschaften
+    #
+    -   date: !!null
+        category: de.Kleinbahn
+        tracks: 1
+        gauge: 1435
+    -   date: !date 1949-04-01?
+        category: de.Nebenbahn
+
+    #   Eigentümer und Betriebsführer
+    #
+    -   date: !!null
+        owner: !keyref org.de.e.Teltower-Industriebahn
+        operator: !keyref org.de.e.ADEG
+    -   date: !date 1928
+        owner: !keyref org.de.e.Teltower-Eisenbahn
+    -   date: !date 1947
+        owner: !keyref org.de.e.Landesbahnen-Brandenburg
+        operator: !keyref org.de.e.Landesbahnen-Brandenburg
+        sources: !keyref src.de.Kuhlmann.2000
+    -   date: !date 1949-04-01
+        owner: !keyref org.dd
+        operator: !keyref org.dd.DR
+
+    #   Verlauf
+    #
+    -   date: !!null
+        course:
+            - !pathref path.de.6132  tel  ateh 1.5
+            - !pathref path.de.6517a a    f    0.0
+            - !pathref path.de.6517  fgro tgw  0.0
+
+points:
+    - !keyref point.de.Teltow-Industriebahn
+    - !keyref point.de.Teltow-Grossbeerener-Weg             # line.de.6517
+
+
+---
+key: point.de.Teltow-Industriebahn
+type: point
+junction: True
+events:
+    -   date: !!null
+        name: Teltow
+        sources: !keyref src.de.Bfv.1928
+    -   date: !var lknr.kb
+        de.lknr: 47 553
+        sources: !keyref src.de.Bfv.1938
+    -   date: !!null
+        connection: !keyref point.de.Teltow
+        site: !noderef path.de.6132 tel
+
+
+

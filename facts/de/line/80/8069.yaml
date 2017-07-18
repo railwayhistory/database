@@ -1,5 +1,6 @@
-# DE 8069.  Ihrhove Kleinb - Westrhauderfehn
+# DE 8069.  Wilster - St Michaelisdonn
 #
+#           - Alter Verlauf Strecke 1210 -
 ---
 key: line.de.8069
 type: line
@@ -7,132 +8,75 @@ events:
     -   date: !!null
         region:
             - !keyref org.de
-            - !keyref org.de.l.ni
+            - !keyref org.de.l.sh
 
-    -   date: !!null
-        category: de.Kleinbahn
-        owner: !keyref org.de.e.KbIW
-        operator: !keyref org.de.e.KbIW
-        sources: !keyref src.de.WP.Kleinbahn-Ihrhove-Westrhauderfehn
-    -   date: !date 1912-11-03
+    #   Genehmigung
+    #
+    -   date: !date 1876-09-02
+        concession:
+            by: !keyref org.de.l.pre
+            document:
+                - !keyref src.de.l.pre.sle.1876.46.355
+                - !keyref src.de.l.pre.1876.33.458
+        sources: !keyref src.de.DRG.1935
+
+    # Eröffnung und Einstellung
+    #
+    -   date: !date 1878-11-01
         status: open
-        sources: !keyref src.de.WP.Kleinbahn-Ihrhove-Westrhauderfehn
-    -   date: !date 1947-04-01
-        operator: !keyref org.de.e.NLEA
-        sources: !keyref src.de.WP.Kleinbahn-Ihrhove-Westrhauderfehn
-    -   date: !date c1950
-        category: de.Nebenbahn
-    -   date: !date 1959-10-01
-        operator: !keyref org.de.e.BE
-        sources: !keyref src.de.WP.Kleinbahn-Ihrhove-Westrhauderfehn
-    -   date: !date 1961-05-27
-        service: freight
-        sources: !keyref src.de.WP.Kleinbahn-Ihrhove-Westrhauderfehn
-    -   date: !date 1973-03-31
+        sources: !keyref src.de.DRG.1935
+    -   date: !date 1920-06-01
         status: closed
-        sources: !keyref src.de.WP.Kleinbahn-Ihrhove-Westrhauderfehn
-    -   date: !date 1974
+    -   date: !date 1920-06-01
+        end: !keyref point.de.St-Margarethen
+        reused: !keyref line.de.1214
+    -   date: !date 1920-06-01
+        start: !keyref point.de.Eddelak
+        reused: !keyref line.de.1215
+    -   date: !date c1921
+        start: !keyref point.de.St-Margarethen
+        end: !keyref point.de.Eddelak
         status: removed
 
+    #   Eigenschaften
+    #
+    -   date: !!null
+        category: de.Hauptbahn
+        tracks: 1
+        gauge: 1435
+    -   date: !date c1900
+        tracks: 2
+
+    #   Eigentümer etc.
+    #
+    -   date: !!null
+        owner: !keyref org.de.e.SHMG
+        operator: !keyref org.de.Altona-Kieler-Eisenbahn
+    -   date: !date 1863-01-01
+        operator: !keyref org.de.e.SHMG
+    -   date: !date 1890-07-01
+        owner: !keyref org.de.l.pre
+        operator: !keyref org.de.e.KPEV.Alt
+        sources: !keyref src.de.DRG.1935
+
+    -   date: !date 1920-04-01
+        owner: !keyref org.de
+        operator: !keyref org.de.r.RVM.PH
+
+
+    #   Verlauf
+    #
+    -   date: !!null
+        course:
+            - !pathref path.de.1210  abrx abru  0.0
+            - !pathref path.de.1214  a    asmi  0.0
+            - !pathref path.de.1210c a    f     0.0
+            - !pathref path.de.1215  awil a     0.0
+            - !pathref path.de.1210  fbrk smi   0.0
+
 points:
-    - !keyref point.de.Ihrhove-Kleinb
-    - !keyref point.de.Ihren
-    - !keyref point.de.Glansdorf
-    - !keyref point.de.Collinghorst
-    - !keyref point.de.Rhaude
-    - !keyref point.de.Bardel-Leer
-    - !keyref point.de.Westrhauderfehn
-    
-
----
-key: point.de.Ihrhove-Kleinb
-type: point
-events:
-    -   date: !!null
-        location: !keyloc line.de.8069 0,0
-        name: Ihrhove
-        sources: !keyref src.de.Kb.1914
-    -   date: !date c1925
-        name: Ihrhove Kleinb
-        sources: !keyref src.de.Bfv.1933
-    -   date: !var lknr.kb
-        de.lknr: 43 041
-        sources: !keyref src.de.Bfv.1944
-    -   date: !!null
-        connection: !keyref point.de.Ihrhove
-
----
-key: point.de.Ihren
-type: point
-events:
-    -   date: !!null
-        location: !keyloc line.de.8069 2,3
-        sources: !keyref src.de.Kb.W1937
-    -   date: !!null
-        name: Ihren
-        sources: !keyref src.de.Bfv.1933
-    -   date: !var lknr.kb
-        de.lknr: 43 042
-        sources: !keyref src.de.Bfv.1944
-
----
-key: point.de.Glansdorf
-type: point
-events:
-    -   date: !!null
-        location: !keyloc line.de.8069 4,3
-        sources: !keyref src.de.Kb.W1937
-    -   date: !!null
-        name: Glansdorf
-        sources: !keyref src.de.Bfv.1933
-    -   date: !var lknr.kb
-        de.lknr: 43 043
-        sources: !keyref src.de.Bfv.1944
-
----
-key: point.de.Collinghorst
-type: point
-events:
-    -   date: !!null
-        location: !keyloc line.de.8069 6,1
-        name: Collinghorst
-        sources: !keyref src.de.Kb.1914
-    -   date: !var lknr.kb
-        de.lknr: 43 044
-        sources: !keyref src.de.Bfv.1944
-
----
-key: point.de.Rhaude
-type: point
-events:
-    -   date: !!null
-        location: !keyloc line.de.8069 8,0
-        name: Rhaude (Marienheil)
-        sources: !keyref src.de.Kb.1914
-    -   date: !var lknr.kb
-        de.lknr: 43 045
-        sources: !keyref src.de.Bfv.1944
-
----
-key: point.de.Bardel-Leer
-type: point
-events:
-    -   date: !!null
-        location: !keyloc line.de.8069 8,3
-        name: Bardel
-        sources: !keyref src.de.WP.Kleinbahn-Ihrhove-Westrhauderfehn
-    -   date: !date c1950
-        status: open
-
----
-key: point.de.Westrhauderfehn
-type: point
-events:
-    -   date: !!null
-        location: !keyloc line.de.8069 11,1
-        name: Westrhauderfehn
-        sources: !keyref src.de.Kb.1914
-    -   date: !var lknr.kb
-        de.lknr: 43 046
-        sources: !keyref src.de.Bfv.1944
+    - !keyref point.de.Wilster                          # line.de.1210
+    - !keyref point.de.St-Margarethen                   # line.de.1214
+    - !keyref point.de.Eddelak                          # line.de.1215
+    - !keyref point.de.St-Michaelisdonn                 # line.de.1210
 

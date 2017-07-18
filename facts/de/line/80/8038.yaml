@@ -1,84 +1,60 @@
-# DE 8038.  Husum Nord - Husum Binnenhafen
+# DE 8038.  Lübeck alter Bf - Strecknitz
 #
 ---
 key: line.de.8038
 type: line
-label: port
 events:
     -   date: !!null
         region:
             - !keyref org.de
             - !keyref org.de.l.sh
 
-    #   Genehmigungen
-    #
-    -   date: !date 1889-11-09
+    -   date: 1865-12-20
         concession:
-            by: !keyref org.de.l.pre
-            for: !keyref org.de.e.SHMG
-        sources: !keyref src.de.DRG.1935
+            by: org.de.l.msw
+            for: org.de.Lübeck-Kleinen-Eisenbahn
+        document: src.de.l.msw.1866.6.47
+        sources: src.de.DRG.1935 # 1870/26
 
     #   Eröffnung und Einstellung
     #
-    -   date: !date 1890-05
+    -   date: !date 1870-07-01
         status: open
-        passenger: none
-        note:
-            de: nur Teilstrecke 0,29 km
         sources: !keyref src.de.DRG.1935
-    -   date: !date 1960-12-31
+    -   date: !date 1908-05-01
         status: closed
-        sources: !keyref src.de.web.Kokert
+    -   date: !date c1910
+        status: removed
 
     #   Eigenschaften
     #
     -   date: !!null
-        category: de.Nebenbahn
-        tracks: 1
+        category: de.Hauptbahn
+        tracks: 2
         gauge: 1435
-        sources: !keyref src.de.DRG.1927
 
     #   Eigentümer etc.
     #
     -   date: !!null
-        owner: !keyref org.de.l.pre
-        operator: !keyref org.de.e.KPEV.Alt
+        owner: !keyref org.de.Lübeck-Kleinen-Eisenbahn
+    -   date: !date 1868
+        owner: !keyref org.de.l.msw
+    -   date: !!null
+        operator: !keyref org.de.l.msw
 
-    -   date: !date 1920-04-01
-        owner: !keyref org.de
-        operator: !keyref org.de.r.RVM.PH
-    -   date: !date 1924-02-12
-        operator: !keyref org.de.e.DREb
-    -   date: !date 1924-08-30
-        operator: !keyref org.de.e.DRG
+    -   date: !date 1873-04-02
+        owner: !keyref org.de.e.MFFE
+        operator: !keyref org.de.e.MFFE
+        sources: !keyref src.de.DRG.1935
 
-    -   date: !var org.de.DB.start
-        operator: !keyref org.de.e.DB
-
-    -   date: !var org.de.DBAG.start
-        owner: !keyref org.de.e.DBAG
-        operator: !keyref org.de.e.DBAG
-    -   date: !var org.de.DBNetz.start
-        owner: !keyref org.de.e.DBNetz
-        operator: !keyref org.de.e.DBNetz
-    
     #   Verlauf
     #
     -   date: !!null
         course:
-            - !pathref path.de.1210  hun  fhub -0.5
-            - !pathref path.de.1203a a    f     0.0
+            - !pathref path.de.1121a lua  akle -1.5
+            - !pathref path.de.1122a a    f     0.0
+            - !pathref path.de.1122  flua stn   0.0
 
 points:
-    - !keyref point.de.Husum-Nord                       # line.de.1210
-    - !keyref point.de.Husum-Binnenhafen
-
-
----
-key: point.de.Husum-Binnenhafen
-type: point
-events:
-    -   date: !!null
-        name: Husum Binnenhafen
-        site: !noderef path.de.1203a hub left
-
+    -   point.de.Lübeck-alter-Bf                    # de.8036
+    -   point.de.Strecknitz                         # de.1122

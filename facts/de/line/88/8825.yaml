@@ -1,4 +1,4 @@
-# DE 8825.  Chemnitz-Glösa - Chemnitz-Furth
+# DE 8825.  Ellrich West - Zorge
 #
 ---
 key: line.de.8825
@@ -6,9 +6,13 @@ type: line
 progress: stub
 events:
     -   date: !!null
-        region:
-            - !keyref org.de
-            - !keyref org.de.l.sn
+        region: !keyref org.de
+    -   date: !!null
+        end: !keyref point.de.Unterzorge-LGr
+        region: !keyref org.de.l.th
+    -   date: !!null
+        start: !keyref point.de.Unterzorge-LGr
+        region: !keyref org.de.l.ni
 
     #   Genehmigungen
     #
@@ -17,6 +21,7 @@ events:
     #
     -   date: !!null
         status: closed
+        sources: !keyref src.de.SuW.2011
 
     #   Eigenschaften
     #
@@ -28,15 +33,36 @@ events:
     #
 
 points:
-    - !keyref point.de.Chemnitz-Glösa                       # line.de.6633
-    - !keyref point.de.Chemnitz-Furth-Bf
+    - !keyref point.de.Ellrich-West
+    - !keyref point.de.Unterzorge-LGr
+    - !keyref point.de.Zorge-Südharz
 
 
 ---
-key: point.de.Chemnitz-Furth-Bf
+key: point.de.Ellrich-West
 type: point
 progress: stub
 events:
     -   date: !!null
-        name: Chemnith-Furth
+        name: Ellrich West
+        connection: !keyref point.de.Ellrich                # line.de.1810
+
+
+---
+key: point.de.Unterzorge-LGr
+type: point
+subtype: border
+progress: stub
+events:
+    -   date: !!null
+        name: Unterzorge NI/TH
+
+
+---
+key: point.de.Zorge-Südharz
+type: point
+progress: stub
+events:
+    -   date: !!null
+        name: Zorge (Südharz)
 

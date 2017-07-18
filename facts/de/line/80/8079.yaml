@@ -1,26 +1,91 @@
-# DE 8079.  Hamburg-Rahlstedt - Wohldorf
+# DE 8079.  Hamburg-Allermöhe - Hamburg Berliner Bf
 #
+#           Alter Verlauf Strecke 6100.
 ---
 key: line.de.8079
 type: line
-progress: stub
 events:
     -   date: !!null
+        region:
+            - org.de
+            - org.de.l.hh
+
+    -   date: !!null
+        category: de.Hauptbahn
+
+    #   Verträge und Konzessionen
+    #
+    -   date: !date 1840-05-25
+        concession:
+            by: org.de.l.hh
+            for: org.de.e.HBE
+            document: src.de.l.hh.1840.73
+        sources: src.de.DRG.1935
+    -   date: !date 1840-05-25
+        concession:
+            by: org.de.l.lüb
+            for: org.de.e.HBE
+        sources: src.de.DRG.1935
+    -   date: !date 1841-11-08
+        treaty:
+            parties:
+                - org.de.l.pre
+                - org.dk
+                - org.de.l.msw
+                - org.de.l.lüb
+                - org.de.l.hh
+            document: src.de.l.pre.1845.11.206
+        sources: src.de.DRG.1935
+
+    #   Eröffnung
+    #
+    -   date: !date 1842-05-16
+        status: open
+        service: passenger
+        owner: org.de.e.HBE
+        operator: org.de.e.HBE
+        sources: src.de.DRG.1935
+    -   date: !date 1842-12-28
+        service: freight
+        sources: src.de.DRG.1935
+
+    #   Stilllegung
+    #
+
+    #   Eigentümer und Betreiber
+    #
+    -   date: !date 1845-06-15
+        operator: org.de.Berlin-Hamburger-Eisenbahn
+    -   date: !date 1886-07-01
+        owner: org.de.l.pre
+        sources: src.de.DRG.1935
+    -   date: !date c1890
+        operator: org.de.e.KPEV.Alt
+
+    #   Verlauf
+    #
+    -   date: !!null
+        course:
+            - !pathref path.de.6100 rtk arot
+            - !pathref path.de.6100a a   ber
 
 points:
-    -   point.de.Hamburg-Rahlstedt                  # de.1120
-
-
-#-----------------------------------------------------------------------------
-
-#    point.de.Hamburg-Rahlstedt                  de.1120
+    -   point.de.Hamburg-Allermöhe                  # de.6100
+    -   point.de.Hamburg-Rothenburgsort-Tk          # de.6100
+    -   point.de.Hamburg-Berl                       # de.1245
+    -   point.de.Hamburg-Berliner-Bf
 
 
 ---
-key: point.de.Wohldorf
+key: point.de.Hamburg-Berliner-Bf
 type: point
 progress: stub
 events:
     -   date: !!null
-        name: Wohldorf
+        category: de.Bf
+        name: Hamburg Berliner Bf
+    -   date: !date c1906
+        status: closed
 
+    -   date: !!null
+        site: !noderef path.de.6100a ber

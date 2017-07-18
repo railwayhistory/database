@@ -1,49 +1,118 @@
-# DE 8054.  Hamburg-Bergedorf - Hamburg-Bergedorf Süd
+# DE 8054.  Munkmarsch - Westerland (Sylt) Inselbf
 #
 ---
 key: line.de.8054
 type: line
-label: connection
 events:
     -   date: !!null
         region:
             - !keyref org.de
-            - !keyref org.de.l.hh
+            - !keyref org.de.l.sh
 
-    -   date: !!null
-        category: de.Kleinbahn
+    #   Genehmigungen
+    #
 
-    -   date: !date 1937?
+    #   Eröffnung und Einstellung
+    #
+    -   date: !date 1888-07-08
         status: open
-        sources: !keyref src.de.web.VHH
-    -   date: !date c1950
-        category: de.Nebenbahn
-    -   date: !date 1953-10-26
-        service: freight
-    -   date: !date c1970
+        sources: !keyref src.de.WP.Sylter-Inselbahn
+    -   date: !date 1927-06-01
+        status: closed
+        sources: !keyref src.de.Wolff.1972
+    -   date: !date 1931
         status: removed
+        sources: !keyref src.de.WP.Sylter-Inselbahn
 
-    #   Eigentümer und Betriebsführer
+    #   Eigenschaften
     #
     -   date: !!null
-        owner: !keyref org.de.e.BGhE
-        operator: !keyref org.de.e.BGhE
-    -   date: !date 1954
-        owner: !keyref org.de.e.VVH
-        operator: !keyref org.de.e.VVH
-    -   date: !date 1956-01-01
-        operator: !keyref org.de.e.AKN
-        sources: !keyref src.de.web.VHH
+        category: de.Kleinbahn
+        gauge: 1000
+        name: Sylter Ostbahn
+        sources: !keyref src.de.Wolff.1972
+
+    #   Eigentümer etc.
+    #
+    -   date: !!null
+        owner: !keyref org.de.Sylter-Badedirektion
+        operator: !keyref org.de.e.Kuhrt
+        sources: !keyref src.de.Wolff.1972
+    -   date: !date 1892
+        owner: !keyref org.de.e.Kuhrt
+        sources: !keyref src.de.Wolff.1972
+    -   date: !date 1910
+        owner: !keyref org.de.e.SDSG
+        sources: !keyref src.de.WP.Sylter-Inselbahn
+    -   date: !date 1926
+        owner: !keyref org.de.e.SIB
+        sources: !keyref src.de.WP.Sylter-Inselbahn
 
     #   Verlauf
     #
     -   date: !!null
         course:
-            - !pathref path.de.6100 ber  abes -1.5
-            - !pathref path.de.9123 fber bes  -1.
+            - !pathref path.de.8123  a    f     0.0
 
 points:
-    - !keyref point.de.Hamburg-Bergedorf                    # line.de.6100
-    - !keyref point.de.Hamburg-Bergedorf-Sued               # line.de.9123
+    - !keyref point.de.Munkmarsch
+    - !keyref point.de.Lornsenhain
+    - !keyref point.de.Westerland-Inselbf
+
+
+---
+key: point.de.Munkmarsch
+type: point
+junction: True
+events:
+    -   date: !!null
+        category: de.Bf
+        location: !keyloc line.de.8054 0,0
+        name: Munkmarsch
+        sources: !keyref src.de.WP.Sylter-Inselbahn
+
+    -   date: !!null
+        site: !noderef path.de.8123 mun right
+
+
+---
+key: point.de.Lornsenhain
+type: point
+events:
+    -   date: !!null
+        category: de.Hp
+        location: !keyloc line.de.8054 1,5
+        name: Lornsenhain
+        sources: !keyref src.de.WP.Sylter-Inselbahn
+
+    -   date: !!null
+        site: !noderef path.de.8123 lor left
+
+
+---
+key: point.de.Westerland-Inselbf
+type: point
+junction: True
+events:
+    -   date: !!null
+        category: de.Bf
+        location: !keyloc line.de.8054 4,2
+        sources: !keyref src.de.WP.Sylter-Inselbahn
+    -   date: !!null
+        name: Westerland Ostbf
+        location: !keyloc line.de.8057 0,0
+    -   date: !date 1917
+        name: Westerland Nordbf
+    -   date: !date c1930
+        name: Westerland (Sylt) Kleinbf
+        sources: !keyref src.de.Bfv.1933
+    -   date: !var lknr.kb
+        de.lknr: 47 540
+        sources: !keyref src.de.Bfv.1938
+    -   date: !date c1950
+        name: Westerland (Sylt) Inselbf
+
+    -   date: !!null
+        site: !noderef path.de.8123 wes right
 
 

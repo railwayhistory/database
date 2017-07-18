@@ -1,5 +1,6 @@
-# DE 8913.  Templin Fährkrug - Fürstenwerder Reichsb
+# DE 8913.  Leipzig-Wahren - Leipzig MTh Bf
 #
+#           - Alter Verlauf Strecke 6382 -
 ---
 key: line.de.8913
 type: line
@@ -8,16 +9,30 @@ events:
     -   date: !!null
         region:
             - !keyref org.de
-            - !keyref org.de.l.bb
+            - !keyref org.de.l.sn
+
+    -   date: !var vzg.dr
+        de.VzG: !!str 6382
+        sources: !keyref src.de.VzG
+    -   date: !date c2010
+        de.VzG: !!null
 
     #   Genehmigungen
     #
+    -   date: !date 1838-09-08
+        concession:
+            by: !keyref org.de.l.sn
+            for: !keyref org.de.Leipzig-Dresdener-Eisenbahn
+            document: !keyref src.de.l.sn.1838.17.413
+        sources: !keyref src.de.DRG.1935 # 1840/7
 
     #   Eröffnung und Einstellung
     #
-    -   date: !!null
+    -   date: !date 1840-08-18
+        status: open
+        sources: !keyref src.de.DRG.1935 # 1840/7
+    -   date: !date c2010
         status: closed
-        sources: !keyref src.de.SuW.2011
 
     #   Eigenschaften
     #
@@ -29,17 +44,18 @@ events:
     #
 
 points:
-    - !keyref point.de.Templin-Fährkrug                     # line.de.6752
-    - !keyref point.de.Fürstenwerder-Reichsb
+    - !keyref point.de.Leipzig-Wahren                       # line.de.6403
+    - !keyref point.de.Leipzig-Petzscher-Mark               # line.de.6367
+    - !keyref point.de.Leipzig-MTh-Bf
 
 
 ---
-key: point.de.Fürstenwerder-Reichsb
+key: point.de.Leipzig-MTh-Bf
 type: point
 progress: stub
 events:
     -   date: !!null
-        name: Fürstenwerder Reichsb
-        connection: !keyref point.de.Fürstenwerder-Kreisb   # line.de.8914
+        name: Leipzig MTh Bf
+
 
 

@@ -1,25 +1,147 @@
-# DE 8155.  Rees - Empel
+# DE 8155.  Burgdorf (Han) Kreisb - Hänigsen
 #
 ---
 key: line.de.8155
 type: line
-progress: stub
 events:
     -   date: !!null
+        region:
+            - !keyref org.de
+            - !keyref org.de.l.ni
+
+    #   Genehmigungen und Verträge
+    #
+
+    #   Eröffnung
+    #
+    -   date: !date 1908-06-11
+        status: open
+        service: freight
+        sources: !keyref src.de.WP.Burgdorfer-Kreisbahnen
+    -   date: !date 1911-02-11
+        service: full
+        sources: !keyref src.de.WP.Burgdorfer-Kreisbahnen
+    -   date: !date 1949-06-30
+        service: freight
+        sources: !keyref src.de.WP.Burgdorfer-Kreisbahnen
+    -   date: !date 1961-07-31
+        status: closed
+        sources: !keyref src.de.WP.Burgdorfer-Kreisbahnen
+    -   date: !date c1965
+        status: removed
+
+    #   Eigenschaften
+    #
+    -   date: !!null
+        category: de.Anschl
+        tracks: 1
+        gauge: 1435
+        sources: !keyref src.de.WP.Burgdorfer-Kreisbahnen
+    -   date: !date 1917-01-01
+        category: de.Kleinbahn
+        sources: !keyref src.de.WP.Burgdorfer-Kreisbahnen
+
+    #   Eigentümer etc.
+    #
+    -   date: !!null
+        owner: !keyref org.de.Gewerkschaft-Riedel
+        operator: !keyref org.de.Gewerkschaft-Riedel
+    -   date: !date 1011
+        owner: !keyref org.de.Burgdorfer-Kreisbahnen
+        operator: !keyref org.de.Burgdorfer-Kreisbahnen
+        sources: !keyref src.de.WP.Burgdorfer-Kreisbahnen
+
+    #   Verlauf
+    #
+    -   date: !!null
+        course:
+            - !pathref path.de.1720 buk ahan 1.5
+            - !pathref path.de.8170 a   f    0.0
 
 points:
-    -   point.de.Rees                               # de.8154
-
-
-#-----------------------------------------------------------------------------
-
-#    point.de.Rees                               de.8154
+    - !keyref point.de.Burgdorf-Han-Kreisb
+    - !keyref point.de.Sorgensen
+    - !keyref point.de.Weferlingsen
+    - !keyref point.de.Obershagen
+    - !keyref point.de.Hänigsen
 
 
 ---
-key: point.de.Empel
+key: point.de.Burgdorf-Han-Kreisb
 type: point
-progress: stub
 events:
     -   date: !!null
-        name: Empel
+        name: Burgdorf (Han)
+        sources: !keyref src.de.Bfv.1928
+    -   date: !var lknr.kb
+        de.lknr: 40 497
+        sources: !keyref src.de.Bfv.1938
+    -   date: !date c1940
+        name: Burgdorf (Han) Kreisb
+        sources: !keyref src.de.Bfv.1944
+
+    -   date: !!null
+        connection: !keyref point.de.Burgdorf-Han
+
+    -   date: !!null
+        site: !noderef path.de.1720 buk right
+
+
+---
+key: point.de.Sorgensen
+type: point
+events:
+    -   date: !!null
+        name: Sorgensen
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        de.lknr: 40 498
+        sources: !keyref src.de.Bfv.1938
+
+    -   date: !!null
+        site: !noderef path.de.8170 sor right
+
+
+---
+key: point.de.Weferlingsen
+type: point
+events:
+    -   date: !!null
+        name: Weferlingsen
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        de.lknr: 40 499
+        sources: !keyref src.de.Bfv.1938
+
+    -   date: !!null
+        site: !noderef path.de.8170 wef right
+
+
+---
+key: point.de.Obershagen
+type: point
+events:
+    -   date: !!null
+        name: Obershagen
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        de.lknr: 40 500
+        sources: !keyref src.de.Bfv.1938
+
+    -   date: !!null
+        site: !noderef path.de.8170 obe right
+
+
+---
+key: point.de.Hänigsen
+type: point
+events:
+    -   date: !!null
+        name: Hänigsen
+        sources: !keyref src.de.Bfv.1928
+    -   date: !!null
+        de.lknr: 40 501
+        sources: !keyref src.de.Bfv.1938
+
+    -   date: !!null
+        site: !noderef path.de.8170 han right

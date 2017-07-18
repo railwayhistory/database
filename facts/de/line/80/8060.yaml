@@ -1,4 +1,4 @@
-# DE 8060.  Kirchweyhe - Kirchweyhe Nord
+# DE 8060.  Leuchtturm - Kniepsand
 #
 ---
 key: line.de.8060
@@ -7,13 +7,48 @@ events:
     -   date: !!null
         region:
             - !keyref org.de
-            - !keyref org.de.l.ni
+            - !keyref org.de.l.sh
 
-    -   date: !date c1910
+    -   date: !!null
+        gauge: 900
+        category: de.Kleinbahn
+        owner: !keyref org.de.e.AGWA
+        operator: !keyref org.de.e.AGWA
+
+    -   date: !date 1908
         status: open
-        service: freight
+        sources: !keyref src.de.web.Werning
+    -   date: !date 1909-09-10
+        electrified:
+            overhead: !var el.700-dc
+        sources: !keyref src.de.web.Werning
+    -   date: !date 1920-01
+        owner: !keyref org.de.e.AIAG
+        operator: !keyref org.de.e.AIAG
+        sources: !keyref src.de.web.Werning
+    -   date: !date 1920?
+        electrified:
+            overhead: !!null
+    -   date: !date 1931
+        owner: !keyref org.de.e.AIG
+        operator: !keyref org.de.e.AIG
+        sources: !keyref src.de.web.Werning
+    -   date: !date 1939-10-31
+        status: closed
+        sources: !keyref src.de.web.Werning
+    -   date: !date 1940
+        status: removed
+        sources: !keyref src.de.web.Werning
 
 points:
-    - !keyref point.de.Kirchweyhe                           # line.de.2200
-    - !keyref point.de.Kirchweyhe-Nord                      # line.de.9144
+    - !keyref point.de.Leuchtturm                           # line.de.8058
+    - !keyref point.de.Kniepsand
+
+---
+key: point.de.Kniepsand
+type: point
+events:
+    -   date: !!null
+        name: Kniepsand
+        sources: !keyref src.de.web.Werning
 
