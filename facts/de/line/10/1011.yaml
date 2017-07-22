@@ -69,15 +69,20 @@ events:
             - !pathref path.de.1210  fjub hus   2.5
 
 points:
-    - !keyref point.de.Jübek                           # line.de.1040
-    - !keyref point.de.Sollbrück
-    - !keyref point.de.Sollbrück-Gabelung
-    - !keyref point.de.Ahrenviöl
-    - !keyref point.de.Ohrstedt
-    - !keyref point.de.Wester-Ohrstedt
-    - !keyref point.de.Schwesing
-    - !keyref point.de.Rosendahl
-    - !keyref point.de.Husum                            # line.de.1210
+    -   point.de.Jübek                              # de.1040
+    -   point.de.Sollbrück
+    -   point.de.Sollbrück-Gabelung
+    -   point.de.Ahrenviöl
+    -   point.de.Ohrstedt
+    -   point.de.Wester-Ohrstedt
+    -   point.de.Schwesing
+    -   point.de.Rosendahl
+    -   point.de.Husum                              # de.1210
+
+
+#-----------------------------------------------------------------------------
+
+#    point.de.Jübek                              de.1040
 
 
 ---
@@ -86,42 +91,44 @@ type: point
 events:
     -   date: !!null
         name: Sollbrück
-        sources: !keyref src.de.Kb.1905
+        sources: src.de.Kb.1905
     -   date: !!null
         de.lknr: 01 155
-        sources: !keyref src.de.Bfv.1928
+        sources: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
         de.Rangklasse: IV
-        sources: !keyref src.de.Bfv.1933
+        sources: src.de.Bfv.1933
     -   date: !var lknr.30
         de.lknr: 01 463
-        sources: !keyref src.de.Bfv.1933
+        sources: src.de.Bfv.1933
     -   date: !!null
         location: !keyloc line.de.1011 5,00
-        sources: !keyref src.de.DRG.Alt.Karte.1949
+        sources: src.de.DRG.Alt.Karte.1949
+    -   date: 1981?
+        location: !keyloc line.de.1011 5,03
+        sources: src.de.DB.Hmb.Karte.1984
     -   date: !!null
         de.DS100: ASK
         de.dstnr: !!str 014639
-        sources: !keyref src.de.DS100.1984
+        sources: src.de.DS100.1984
     -   date: !date c1975
         category: de.Hst
         staff: none
-        sources: !keyref src.de.DS100.1984
+        sources: src.de.DS100.1984
     -   date: !date 1984-06-02
         service: freight
     -   date: !date 1990
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.1011 sol right
+        site: !noderef path.de.1011 sol right 0
 
 
 ---
 key: point.de.Sollbrück-Gabelung
 type: point
 subtype: reference
-junction: True
 events:
     -   date: !!null
         name: Sollbrück Gabelung
@@ -162,7 +169,7 @@ events:
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.1011 ahr left
+        site: !noderef path.de.1011 ahr left 0
 
 
 ---
@@ -186,18 +193,20 @@ events:
         de.lknr: 01 465
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
-        location: !keyloc line.de.1011 14,15
-        sources: !keyref src.de.DRG.Alt.Karte.1949
-    -   date: !!null
         de.DS100: AOR
         de.dstnr: !!str 014654
         sources: !keyref src.de.DS100.1984
+    -   date: !!null
+        location: !keyloc line.de.1011 14,158
+        de.name16: Ohrstedt
+        PLC: DE18101
+        sources: src.de.DBAG.Geo-Betriebsstelle.2017
     -   date: !date c1990
         category: de.Awanst
-        sources: !keyref src.de.SuW.2005
+        sources: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
-        site: !noderef path.de.1011 ohr right
+        site: !noderef path.de.1011 ohr right 0
 
 
 ---
@@ -215,7 +224,7 @@ events:
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.1011 wes left
+        site: !noderef path.de.1011 wes left 0
 
 
 ---
@@ -242,7 +251,7 @@ events:
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.1011 swe right
+        site: !noderef path.de.1011 swe right 0
 
 
 ---
@@ -260,5 +269,8 @@ events:
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.1011 ros left
+        site: !noderef path.de.1011 ros left 0
+
+        
+#    point.de.Husum                              de.1210
 
