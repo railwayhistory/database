@@ -19,9 +19,15 @@ events:
 
     #   Eröffnung und Einstellung
     #
-    -   date: !!null
+    -   date: 1998-10-30
+        start: point.de.Eslohe
+        end: point.de.Bergerhammer-Streckenende
         status: closed
-        sources: !keyref src.de.SuW.2011
+        sources: src.de.web.EBA.Still # Nr. 219
+    -   date: 1998-10-30
+        start: point.de.Bergerhammer-Streckenende
+        category: de.Bfgleis
+        sources: src.de.web.EBA.Still # Nr. 219
 
     #   Eigenschaften
     #
@@ -33,9 +39,30 @@ events:
     #
 
 points:
-    - !keyref point.de.Finnentrop                           # line.de.2800
-    - !keyref point.de.Wenholthausen
-    - !keyref point.de.Wennemen                             # line.de.2550
+    -   point.de.Finnentrop                         # de.2800
+    -   point.de.Eslohe
+    -   point.de.Wenholthausen
+    -   point.de.Bergerhammer
+    -   point.de.Bergerhammer-Streckenende
+    -   point.de.Wennemen                           # de.2550
+
+
+#-----------------------------------------------------------------------------
+
+#    point.de.Finnentrop                         de.2800
+
+
+---
+key: point.de.Eslohe
+type: point
+events:
+    -   date: !!null
+        category: de.Bf
+        name: Eslohe
+        de.name16: Eslohe
+        de.DS100: EESL
+        PLC: DE13028
+        sources: src.de.DBAG.BSV.2017
 
 
 ---
@@ -45,4 +72,32 @@ progress: stub
 events:
     -   date: !!null
         name: Wenholthausen
+
+
+---
+key: point.de.Bergerhammer
+type: point
+events:
+    -   date: !!null
+        category: de.Anst
+        name: Bergerhammer
+        de.name16: Bergerhammer
+        de.DS100: EBGH
+        PLC: DE10795
+        sources: src.de.DBAG.BSV.2017
+
+
+---
+key: point.de.Bergerhammer-Streckenende
+type: point
+subtype: reference
+events:
+    -   date: !!null
+        name: Bergerhammer Streckenende
+    -   date: !!null
+        location: !keyloc line.de.2861 29,600
+        sources: src.de.web.EBA.Still # Nr. 219
+
+
+#    point.de.Wennemen                           de.2550
 

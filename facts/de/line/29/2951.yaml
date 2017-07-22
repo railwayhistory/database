@@ -19,18 +19,21 @@ events:
 
     #   Eröffnung und Einstellung
     #
-    -   date: !!null
-        end: !keyref point.de.Lippstadt-Lippebrücke
-        status: open
-        passenger: none
-        sources: !keyref src.de.DBAG.ISR
-    -   date: !!null
-        start: !keyref point.de.Lippstadt-Lippebrücke
+
+    -   date: 1995-12-01
+        start: point.de.Langenberg-Westf
+        end: point.de.Rheda-Wiedenbrück-Süd
         status: closed
-        passenger: none
-        sources:
-            - !keyref src.de.DBAG.ISR
-            - !keyref src.de.SuW.2011
+        sources: src.de.web.EBA.Still # Nr. 80
+    -   date: 2000-11-30
+        start: point.de.Lippstadt-Lippebrücke
+        end: point.de.Lippstadt-Kisker
+        status: closed
+        sources: src.de.web.EBA.Still # Nr. 344
+    -   date: 2001-05-01
+        start: point.de.Rheda-Wiedenbrück-Süd
+        status: closed
+        sources: src.de.web.EBA.Still # Nr. 358
 
     #   Eigenschaften
     #
@@ -42,10 +45,17 @@ events:
     #
 
 points:
-    - !keyref point.de.Lippstadt                            # line.de.1760
-    - !keyref point.de.Lippstadt-Lippebrücke
-    - !keyref point.de.Rheda-Wiedenbrück-Süd
-    - !keyref point.de.Rheda-Wiedenbrueck                   # line.de.1700
+    -   point.de.Lippstadt                          # de.1760
+    -   point.de.Lippstadt-Lippebrücke
+    -   point.de.Lippstadt-Kisker
+    -   point.de.Langenberg-Westf
+    -   point.de.Rheda-Wiedenbrück-Süd
+    -   point.de.Rheda-Wiedenbrueck                 # de.1700
+
+
+#-----------------------------------------------------------------------------
+
+#    point.de.Lippstadt                          de.1760
 
 
 ---
@@ -61,10 +71,36 @@ events:
 
 
 ---
+key: point.de.Lippstadt-Kisker
+type: point
+progress: stub
+events:
+    -   date: !!null
+        category: de.Anst
+        name: Lippstadt Kisker
+
+
+---
+key: point.de.Langenberg-Westf
+type: point
+events:
+    -   date: !!null
+        category: de.Bf
+        name: Langenberg (Westf)
+        de.name16: Langenberg/Westf
+        de.DS100: ELGW
+        PLC: DE16046
+        sources: src.de.DBAG.BSV.2017
+
+
+---
 key: point.de.Rheda-Wiedenbrück-Süd
 type: point
 progress: stub
 events:
     -   date: !!null
         name: Rheda-Wiedenbrück Süd
+
+
+#    point.de.Rheda-Wiedenbrueck                 de.1700
 

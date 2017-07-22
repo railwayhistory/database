@@ -23,15 +23,16 @@ events:
 
     #   Eröffnung und Einstellung
     #
-    -   date: !!null
-        end: !keyref point.de.Hasenclever
+    -   date: 1996-01-01
+        start: point.de.Hatzfeld-Eder
+        end: point.de.Hasenclever
         status: closed
-        sources: !keyref src.de.DBAG.ISR
-    -   date: !!null
-        end: !keyref point.de.Hasenclever
-        status: open
-        passenger: none
-        sources: !keyref src.de.DBAG.ISR
+        sources: src.de.web.EBA.Still # Nr. 104
+    -   date: 1996-01-01
+        start: point.de.Hasenclever
+        end: point.de.Battenberg
+        category: de.Bfgleis
+        sources: src.de.web.EBA.Still # Nr. 104
 
     #   Eigenschaften
     #
@@ -43,10 +44,17 @@ events:
     #
 
 points:
-    - !keyref point.de.Hörre                                # line.de.2871
-    - !keyref point.de.Beddelhausen-Eder-LGr
-    - !keyref point.de.Hasenclever
-    - !keyref point.de.Allendorf-Eder                       # line.de.2854
+    -   point.de.Hörre                              # de.2871
+    -   point.de.Beddelhausen-Eder-LGr
+    -   point.de.Hatzfeld-Eder
+    -   point.de.Hasenclever
+    -   point.de.Battenberg
+    -   point.de.Allendorf-Eder                     # de.2854
+
+
+#-----------------------------------------------------------------------------
+
+#    point.de.Hörre                              de.2871
 
 
 ---
@@ -60,6 +68,15 @@ events:
 
 
 ---
+key: point.de.Hatzfeld-Eder
+type: point
+progress: stub
+events:
+    -   date: !!null
+        name: Hatzfeld (Eder)
+
+
+---
 key: point.de.Hasenclever
 type: point
 progress: stub
@@ -69,4 +86,20 @@ events:
         name: Hasenclever
         de.DS100: FHCL
         sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Battenberg
+type: point
+events:
+    -   date: !!null
+        category: de.Bf
+        name: Battenberg
+        de.name16: Battenberg
+        de.DS100: FBTG
+        PLC: DE10675
+        sources: src.de.DBAG.BSV.2017
+
+
+#    point.de.Allendorf-Eder                     de.2854
 

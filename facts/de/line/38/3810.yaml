@@ -19,15 +19,11 @@ events:
 
     #   Eröffnung und Einstellung
     #
-    -   date: !!null
-        end: !keyref point.de.Niederaula
-        status: open
-        passenger: none
-        sources: !keyref src.de.SuW.2011
-    -   date: !!null
-        start: !keyref point.de.Niederaula
+
+    -   date: 2000-09-18
+        start: point.de.Oberaula
         status: closed
-        sources: !keyref src.de.SuW.2011
+        sources: src.de.web.EBA.Still # Nr. 273
 
     #   Eigenschaften
     #
@@ -39,9 +35,15 @@ events:
     #
 
 points:
-    - !keyref point.de.Bad-Hersfeld                         # line.de.3600
+    -   point.de.Bad-Hersfeld                       # de.3600
     -   point.de.Niederaula
-    - !keyref point.de.Treysa                               # line.de.3900
+    -   point.de.Oberaula
+    -   point.de.Treysa                             # de.3900
+
+
+#-----------------------------------------------------------------------------
+
+#    point.de.Bad-Hersfeld                       de.3600
 
 
 ---
@@ -54,4 +56,20 @@ events:
         name: Niederaula
         de.DS100: FNIA
         sources: !keyref src.de.DBAG.ISR
+
+
+---
+key: point.de.Oberaula
+type: point
+events:
+    -   date: !!null
+        category: de.Anst
+        name: Oberaula
+        de.name16: Oberaula
+        de.DS100: FOA
+        PLC: DE17903
+        sources: src.de.DBAG.BSV.2017
+
+
+#    point.de.Treysa                             de.3900
 

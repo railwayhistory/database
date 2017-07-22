@@ -19,15 +19,16 @@ events:
 
     #   Eröffnung und Einstellung
     #
-    -   date: !!null
-        end: !keyref point.de.Crossen
+
+    -   date: 1999-04-30
+        end: point.de.Crossen-Streckenende
         status: closed
-        sources: !keyref src.de.SuW.2011
-    -   date: !!null
-        start: !keyref point.de.Crossen
-        status: open
-        passenger: none
-        sources: !keyref src.de.SuW.2011
+        sources: src.de.web.EBA.Still # Nr. 257
+    -   date: 1999-04-30
+        start: point.de.Crossen-Streckenende
+        category: de.Bfgleis
+        sources: src.de.web.EBA.Still # Nr. 257
+     
 
     #   Eigenschaften
     #
@@ -40,8 +41,21 @@ events:
 
 points:
     - !keyref point.de.Zwickau-Sachs-Hbf                    # line.de.6258
+    -   point.de.Crossen-Streckenende
     - !keyref point.de.Crossen
     - !keyref point.de.Mosel                                # line.de.6258
+
+
+---
+key: point.de.Crossen-Streckenende
+type: point
+subtype: reference
+events:
+    -   date: !!null
+        name: Crossen Streckenende
+    -   date: !!null
+        location: !keyloc line.de.6646 2,650
+        sources: src.de.web.EBA.Still # Nr. 257
 
 
 ---

@@ -19,20 +19,21 @@ events:
 
     #   Eröffnung und Einstellung
     #
-    -   date: !!null
-        end: !keyref point.de.Blankenberg-Meckl
+
+    -   date: 1999-02-15
+        end: point.de.Neukloster-Meckl
         status: closed
-        sources: !keyref src.de.SuW.2011
-    -   date: !!null
-        start: !keyref point.de.Blankenberg-Meckl
-        end: !keyref point.de.Dabel
-        status: open
-        passenger: none
-        sources: !keyref src.de.SuW.2011
-    -   date: !!null
-        start: !keyref point.de.Dabel
+        sources: src.de.web.EBA.Still # Nr. 249
+    -   date: 1999-09-23
+        start: point.de.Neukloster-Meckl
+        end: point.de.Blankenberg-Meckl
         status: closed
-        sources: !keyref src.de.SuW.2011
+        sources: src.de.web.EBA.Still # Nr. 249
+    -   date: 2000-11-20
+        start: point.de.Dabel
+        end: point.de.Damerower-Forst
+        status: closed
+        sources: src.de.web.EBA.Still # Nr. 342
 
     #   Eigenschaften
     #
@@ -44,10 +45,33 @@ events:
     #
 
 points:
-    - !keyref point.de.Hornstorf                            # line.de.6921
-    - !keyref point.de.Blankenberg-Meckl                    # line.de.1122
-    - !keyref point.de.Dabel
-    - !keyref point.de.Karow-Meckl                          # line.de.6935
+    -   point.de.Hornstorf                          # de.6921
+    -   point.de.Neukloster-Meckl
+    -   point.de.Blankenberg-Meckl                  # de.1122
+    -   point.de.Dabel
+    -   point.de.Damerower-Forst
+    -   point.de.Karow-Meckl                        # de.6935
+
+
+#-----------------------------------------------------------------------------
+
+#    point.de.Hornstorf                          de.6921
+
+
+---
+key: point.de.Neukloster-Meckl
+type: point
+events:
+    -   date: !!null
+        category: de.Bf
+        name: Neukloster (Meckl)
+        de.name16: Neukloster (M)
+        de.DS100: WNO
+        PLC: DE17563
+        sources: src.de.DBAG.BSV.2017
+
+
+#    point.de.Blankenberg-Meckl                  de.1122
 
 
 ---
@@ -59,4 +83,22 @@ events:
         name: Dabel
         sources: !keyref src.de.SuW.2011
 
+
+---
+key: point.de.Damerower-Forst
+type: point
+events:
+    -   date: !!null
+        category: de.Anst
+        name: Damerower Forst
+        de.name16: Damerower Forst
+        de.DS100: WDWF
+        PLC: DE12059
+        sources: src.de.DBAG.BSV.2017
+    -   date: !!null
+        location: !keyloc line.de.6936 67,844
+        sources: src.de.web.EBA.Still # Nr. 342
+
+
+#    point.de.Karow-Meckl                        de.6935
 

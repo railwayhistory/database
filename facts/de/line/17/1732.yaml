@@ -50,13 +50,18 @@ events:
         sources: src.de.DRG.1935 # 1856/18
 
     -   date: c1990
-        end: !keyref point.de.Hannover-Bismarckstraße
+        end: point.de.Hannover-Bismarckstraße
         status: closed
         reused: !keyref line.de.1733
     -   date: c1980
-        start: !keyref point.de.Göttingen
-        end: !keyref point.de.Hann-Münden
+        start: point.de.Göttingen
+        end: point.de.Oberscheden
         status: closed
+    -   date: 1995-12-01
+        start: point.de.Oberscheden
+        end: point.de.Hann-Münden
+        status: closed
+        sources: src.de.web.EBA.Still # Nr. 97
 
     #   Eigenschaften
     #
@@ -88,12 +93,24 @@ points:
     -   point.de.Göttingen-Gbf-Nord
     -   point.de.Göttingen-Gbf
     -   point.de.Göttingen
+    -   point.de.Oberscheden
     -   point.de.Hann-Münden
     - !keyref point.de.Ihringhausen-LGr-1732
     - !keyref point.de.Fuldatal-Ihringshausen
     -   point.de.Vellmar-Niedervellmar
     -   point.de.Kassel-Rbf-Nord
     - !keyref point.de.Kassel-Hbf
+
+
+#-----------------------------------------------------------------------------
+
+#    point.de.Hannover-Hbf                          # de.1710
+
+#    point.de.Hannover-Bismarckstraße               # de.1733
+
+#    point.de.Hannover-Wülfel                       # de.1733
+
+#    point.de.Hannover-Messe-Laatzen                # de.1733
 
 
 ---
@@ -291,6 +308,19 @@ events:
         sources: !keyref src.de.DBAG.ISR
     -   date: !!null
         connection: !keyref point.de.Göttingen-Süd          # line.de.8168
+
+
+---
+key: point.de.Oberscheden
+type: point
+events:
+    -   date: !!null
+        category: de.Bf
+        name: Oberscheden
+        de.name16: Oberscheden
+        de.DS100: FOSD
+        PLC: DE18005
+        sources: src.de.DBAG.BSV.2017
 
 
 ---
