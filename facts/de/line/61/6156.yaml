@@ -16,12 +16,28 @@ events:
 
     #   Genehmigungen
     #
+    -   date: 1872-12-11
+        concession:
+            by: org.de.l.pre
+            for: org.de.Berlin-Stettiner-Eisenbahn
+        document: src.de.l.pre.pot.1973.26.161
+        sources: src.de.DRG.1935 # 1877/3, 1877/14
 
     #   Eröffnung und Einstellung
     #
-    -   date: !!null
+    -   date: 1877-01-01
+        end: point.de.Seelow-Mark
         status: open
-        sources: !keyref src.de.SuW.2011
+        sources: src.de.DRG.1935 # 1877/3
+    -   date: 1877-05-15
+        start: point.de.Seelow-Mark
+        status: open
+        passenger: none
+        sources: src.de.DRG.1935 # 1877/14
+    -   date: 1877-06-15
+        start: point.de.Seelow-Mark
+        passenger: full
+        sources: src.de.DRG.1935 # 1877/14
 
     #   Eigenschaften
     #
@@ -33,12 +49,32 @@ events:
     #
 
 points:
-    - !keyref point.de.Werbig-oben                          # line.de.6758
-    - !keyref point.de.Dolgelin
-    - !keyref point.de.Booßen
-    - !keyref point.de.Frankfurt-Oder-Rbf                   # line.de.6154
-    - !keyref point.de.Frankfurt-Oder-Rbf-Fgr
-    - !keyref point.de.Frankfurt-Oder-Pbf                   # line.de.6153
+    -   point.de.Werbig-oben                        # de.6758
+    -   point.de.Seelow-Mark
+    -   point.de.Dolgelin
+    -   point.de.Booßen
+    -   point.de.Frankfurt-Oder-Rbf                 # de.6154
+    -   point.de.Frankfurt-Oder-Rbf-Fgr
+    -   point.de.Frankfurt-Oder-Pbf                 # de.6153
+
+
+#-----------------------------------------------------------------------------
+
+#    point.de.Werbig-oben                        de.6758
+
+
+---
+key: point.de.Seelow-Mark
+type: point
+events:
+    -   date: !!null
+        category: de.Bf
+        name: Seelow (Mark)
+        de.name16: Seelow (Mark)
+        de.DS100: BSLO
+        PLC: DE19661
+        de.dstnr: 0032102
+        sources: src.de.DBAG.BSV.2017
 
 
 ---
@@ -62,6 +98,9 @@ events:
         sources: !keyref src.de.SuW.2011
 
 
+#    point.de.Frankfurt-Oder-Rbf                 de.6154
+
+
 ---
 key: point.de.Frankfurt-Oder-Rbf-Fgr
 type: point
@@ -69,4 +108,7 @@ progress: stub
 events:
     -   date: !!null
         name: Frankfurt (Oder) Rbf Fgr
+
+
+#    point.de.Frankfurt-Oder-Pbf                 de.6153
 
