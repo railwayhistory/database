@@ -21,11 +21,11 @@ events:
         category: de.Kleinbahn
 
     -   date: !date 1906-12-20
-        start: !keyref point.de.Hamburg-Bergedorf-Sued
+        start: !keyref point.de.Hamburg-Bergedorf-Süd
         status: open
         sources: !keyref src.de.web.VHH
     -   date: !date 1907-05-01
-        end: !keyref point.de.Hamburg-Bergedorf-Sued
+        end: !keyref point.de.Hamburg-Bergedorf-Süd
         status: open
         sources: !keyref src.de.web.VHH
     -   date: !date 1915?
@@ -65,8 +65,8 @@ events:
             - !pathref path.de.9123 a   f    0.
 
 points:
-    - !keyref point.de.Hamburg-Bergedorf-Gbf                # line.de.6100
-    - !keyref point.de.Hamburg-Bergedorf-Sued
+    -   point.de.Hamburg-Bergedorf-Gbf              # de.6100
+    -   point.de.Hamburg-Bergedorf-Süd
     - !keyref point.de.Holtenklinke
     - !keyref point.de.Boernsen-LGr
     - !keyref point.de.Boernsen
@@ -75,8 +75,14 @@ points:
     - !keyref point.de.Dueneberg
     - !keyref point.de.Geesthacht
 
+
+#-----------------------------------------------------------------------------
+
+#    point.de.Hamburg-Bergedorf-Gbf              de.6100
+
+
 ---
-key: point.de.Hamburg-Bergedorf-Sued
+key: point.de.Hamburg-Bergedorf-Süd
 type: point
 junction: True
 events:
@@ -94,9 +100,12 @@ events:
         de.dstnr: !!str 404517
         sources: !keyref src.de.DS100.1984
     -   date: !!null
-        category: de.Bf
         location: !keyloc line.de.9123 1,6
         sources: !keyref src.de.SuW.2005
+    -   date: !!null
+        category: de.Bf
+        de.name16: Hmb-Berged.Süd
+        sources: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site: !noderef path.de.9123 bes left

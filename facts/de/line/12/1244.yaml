@@ -88,14 +88,14 @@ points:
     - !keyref point.de.Hamburg-Billwerder-Moorfleet         # line.de.6100
     - !keyref point.de.Hamburg-Billwerder-Üst
     - !keyref point.de.Hamburg-Mittlerer-Landweg            # line.de.6100
-    - !keyref point.de.Hamburg-Allermöhe-S-Bahn            # line.de.6100
+    -   point.de.Hamburg-Allermöhe-S-Bahn           # de.6100
     - !keyref point.de.Hamburg-Nettelnburg                  # line.de.6100
-    - !keyref point.de.Hamburg-Bergedorf-S-Bahn
+    -   point.de.Hamburg-Bergedorf-S-Bahn
     - !keyref point.de.Reinbek-LGr-S-Bahn
     - !keyref point.de.Reinbek                              # line.de.6100
     - !keyref point.de.Wohltorf                             # line.de.6100
     -   point.de.Aumühle-S-Bahn
-    -   point.de.Aumühle-Abzw                      # de.6100
+    -   point.de.Aumühle                            # de.6100
 
        
 ---
@@ -118,17 +118,20 @@ key: point.de.Hamburg-Bergedorf-S-Bahn
 type: point
 junction: True
 events:
-    -   date: !date 2002-05-26?
+    -   date: 2002-05-26?
         status: open
-        split_from: !keyref point.de.Hamburg-Bergedorf
+        split_from: point.de.Hamburg-Bergedorf
+    -   date: !!null
+        location: !keyloc line.de.1244 16,345
+        sources: src.de.DBAG.Geo-Betriebsstelle.2017
     -   date: !!null
         category: de.Bft
-        location: !keyloc line.de.1244 16,345
-        sources: !keyref src.de.DBAG.ISR
-    -   date: !!null
         name: Hamburg-Bergedorf (S-Bahn)
+        de.name16: Hmb-Bergedorf S
         de.DS100: ABG S
-        sources: !keyref src.de.TPP.2006
+        PLC: DE14430
+        de.dstnr: !!str 908662
+        sources: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site: !noderef path.de.6100 ber
@@ -150,22 +153,26 @@ events:
 ---
 key: point.de.Aumühle-S-Bahn
 type: point
-junction: True
 events:
-    -   date: !!null
+    -   date: c2002
+        status: open
         split_from: !keyref point.de.Aumühle
+        sources: !keyref src.de.TPP.2006
     -   date: !!null
         category: de.Bf
-        location: !keyloc line.de.1244 25,093
-        sources: !keyref src.de.DBAG.ISR
-    -   date: !!null
         name: Aumühle (S-Bahn)
+        de.name16: Aumühle (S-Bahn)
         de.DS100: AAMS
-        sources: !keyref src.de.TPP.2006
-    -   date: !date c2012
-        name: Aumühle
-        de.DS100: AAH
-        sources: !keyref src.de.TPP.2012
+        PLC: DE10370
+        de.dstnr: 108053
+        sources: src.de.DBAG.BSV.2017
+    -   date: 2014-06-12?
+        status: closed
+        sources: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site: !noderef path.de.6100 aum
+
+
+#    point.de.Aumühle                            de.6100
+

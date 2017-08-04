@@ -113,10 +113,11 @@ points:
     - !keyref point.de.Bad-Oldesloe
     - !keyref point.de.Kupfermuehle
     - !keyref point.de.Tremsbuettel
-    - !keyref point.de.Bargteheide
+    -   point.de.Bargteheide
     - !keyref point.de.Delingsdorf
-    - !keyref point.de.Ahrensburg-Nord
-    - !keyref point.de.Ahrensburg
+    -   point.de.Ahrensburg-Gartenholz
+    -   point.de.Ahrensburg-Nord
+    -   point.de.Ahrensburg
     - !keyref point.de.Ahrensburg-LGr
     - !keyref point.de.Meiendorf
     - !keyref point.de.Hamburg-Rahlstedt-Bbf
@@ -416,6 +417,9 @@ events:
 key: point.de.Bargteheide
 type: point
 events:
+    -   date: !!null
+        location: !keyloc line.de.1120 35,405
+        sources: src.de.DBAG.Geo-Betriebsstelle.2017
     -   date: !!null    
         name: Bargteheide
         sources: !keyref src.de.Kb.1914
@@ -432,12 +436,13 @@ events:
         de.Rangklasse: II
         sources: !keyref src.de.Bfv.1944
     -   date: !!null
-        location: !keyloc line.de.1120 35,41
-        sources: !keyref src.de.DRG.Alt.Karte.1945
-    -   date: !!null
         de.DS100: ABAE
         de.dstnr: !!str 016295
         sources: !keyref src.de.DS100.1984
+    -   date: !!null
+        de.name16: Bargteheide
+        PLC: DE10635
+        sources: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site: !noderef path.de.1120 bar
@@ -463,15 +468,18 @@ events:
 key: point.de.Ahrensburg-Gartenholz
 type: point
 events:
-    -   date: !date 2010-12-12
+    -   date: 2009-12-13
         status: open
-        sources: !keyref src.de.WP.Bahnstrecke-Lübeck-Hamburg
-    -   date: !!null
-        location: !keyloc line.de.1120 39,910
         category: de.Hp
         name: Ahrensburg-Gartenholz
+        de.name16: Ahrensburg-Gh
         de.DS100: AAHG
-        sources: !keyref src.de.DBAG.ISR
+        PLC: DE10069
+        de.dstnr: 899401
+        sources: src.de.DBAG.BSV.2017
+    -   date: !!null
+        location: !keyloc line.de.1120 39,910
+        sources: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site: !noderef path.de.1120 gar
@@ -482,17 +490,19 @@ key: point.de.Ahrensburg-Nord
 type: point
 events:
     -   date: !!null
+        category: de.Awanst
         name: Ahrensburg Nord
         de.DS100: AAGN
-        sources: !keyref src.de.DS100.1984
-    -   date: !date c1995
-        de.DS100: AAHRN
-    -   date: !!null
-        location: !keyloc line.de.1120 40,3
-        sources: !keyref src.de.SuW.2005
-    -   date: !date c2000
+        sources: src.de.DS100.1984
+    -   date: c2000
+        de.name16: Ahrensburg Nord
         de.DS100: AAHN
-        sources: !keyref src.de.TPP.2006
+        PLC: DE10067
+        de.dstnr: 909500
+        sources: src.de.DBAG.BSV.2017
+    -   date: !!null
+        location: !keyloc line.de.1120 40,300
+        sources: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site: !noderef path.de.1120 ahn
@@ -524,6 +534,13 @@ events:
         de.DS100: AAHR
         de.dstnr: !!str 016287
         sources: !keyref src.de.DS100.1984
+    -   date: !!null
+        de.name16: Ahrensburg
+        PLC: DE10066
+        sources: src.de.DBAG.BSV.2017
+    -   date: c2000
+        location: !keyloc line.de.1120 42,437
+        sources: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site: !noderef path.de.1120 ahr

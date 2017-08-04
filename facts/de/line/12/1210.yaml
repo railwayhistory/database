@@ -195,7 +195,8 @@ points:
     - !keyref point.de.Krempe
     - !keyref point.de.Hohenweg
     - !keyref point.de.Kremperheide
-    - !keyref point.de.Itzehoe-Alsen
+    -   point.de.Alsen-Abzw
+    -   point.de.Itzehoe-Alsen
     - !keyref point.de.Itzehoe
     - !keyref point.de.Heiligenstedten
     - !keyref point.de.Bekdorf
@@ -205,7 +206,8 @@ points:
     - !keyref point.de.Vaale
     - !keyref point.de.Hochdonn
     - !keyref point.de.Hochdonn-Nord
-    - !keyref point.de.Burg-Dithm
+    -   point.de.Burg-Dithm
+    -   point.de.Burg-Dithm-Awanst
     - !keyref point.de.Hopen
     - !keyref point.de.St-Michaelisdonn
     - !keyref point.de.Windbergen
@@ -524,6 +526,24 @@ events:
 
 
 ---
+key: point.de.Alsen-Abzw
+type: point
+events:
+    -   date: 2012-10-10?
+        status: open
+        category: de.Abzw
+        name: Alsen Abzw
+        de.name16: Alsen Abzw
+        de.DS100: AALA
+        PLC: DE10126
+        de.dstnr: 107045
+        sources: src.de.DBAG.BSV.2017
+    -   date: !!null
+        location: !keyloc line.de.1210 63,226
+        sources: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
 key: point.de.Itzehoe-Alsen
 type: point
 junction: True
@@ -531,6 +551,13 @@ events:
     -   date: !!null
         location: !keyloc line.de.1210 32,27
         sources: !keyref src.de.DRG.Alt.Karte.1949
+    -   date: 1981
+        location: !keyloc line.de.1210 63,14
+        sources: src.de.DB.Hmb.Karte.1984
+    -   date: !!null
+        location: !keyloc line.de.1218 0,0
+        sources: !keyref src.de.SuW.2005
+
     -   date: !!null
         category: de.Bf
         name: Alsen
@@ -539,18 +566,14 @@ events:
         sources: !keyref src.de.DS100.1984
     -   date: !!null
         service: freight
-    -   date: !!null
-        location: !keyloc line.de.1210 0,0
-        sources: !keyref src.de.SuW.2005
     -   date: !date c1995
         category: de.Awanst
-        sources: !keyref src.de.SuW.2005
-    -   date: !date 1981
-        location: !keyloc line.de.1210 63,2
-        sources: !keyref src.de.SuW.2005
-    -   date: !date c2000
         name: Itzehoe Alsen
-        sources: !keyref src.de.TPP.2006
+        sources: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Alsen
+        PLC: DE15254
+        sources: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site: !noderef path.de.1210 als right
@@ -827,12 +850,33 @@ events:
         sources: !keyref src.de.DS100.1984
     -   date: !date 1981
         location: !keyloc line.de.1210 91,418
-        sources: !keyref src.de.DBAG.ISR
-    -   date: !date 2003-06-22
+        sources: src.de.DBAG.Geo-Betriebsstelle.2017
+    -   date: 2003-06-22
         category: de.Hp
+    -   date: !!null
+        de.name16: Burg (Dithm)
+        PLC: DE11834
+        sources: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site: !noderef path.de.1210 bur left
+
+
+---
+key: point.de.Burg-Dithm-Awanst
+type: point
+events:
+    -   date: !!null
+        category: de.Awanst
+        name: Burg (Dithm) Awanst
+        de.name16: Burg Awanst
+        de.DS100: ABRA
+        PLC: DE11835
+        de.dstnr: 720417
+        sources: src.de.DBAG.BSV.2017
+    -   date: c2005
+        status: closed
+        sources: src.de.DBAG.BSV.2017
 
 
 ---

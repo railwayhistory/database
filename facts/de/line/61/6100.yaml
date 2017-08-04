@@ -435,15 +435,16 @@ points:
     - point.de.Schwanheide
     - point.de.Zweedorf
     - point.de.Schwanheide-LGr
-    - point.de.Büchen
-    - point.de.Buechen-Bbf
+    -   point.de.Büchen
+    -   point.de.Büchen-Bbf
     - point.de.Muessen
     - point.de.Schwarzenbek
     - point.de.Radekamp
     - point.de.Sachsenwald
     - point.de.Friedrichsruh
-    - point.de.Aumühle-Abzw
-    - point.de.Aumühle
+    -   point.de.Aumühle-Abzw
+    -   point.de.Aumühle
+    -   point.de.Aumühle-Fernbahn
     - point.de.Wohltorf
     - point.de.Reinbek
     - point.de.Reinbek-LGr
@@ -463,15 +464,15 @@ points:
     - point.de.Hamburg-Tiefstack
     - point.de.Hamburg-Rothenburgsort-Rop
     - point.de.Hamburg-Rothenburgsort-S-Bahn
-    - point.de.Hamburg-Anckelmannsplatz
+    -   point.de.Hamburg-Anckelmannsplatz
     - point.de.Hamburg-Berliner-Tor             # line.de.1120
     - point.de.Hamburg-Hbf
     - point.de.Hamburg-Dammtor
     - point.de.Hamburg-Sternschanze
     - point.de.Altona-Schulterblatt
-    - point.de.Hamburg-Holstenstrasse           # line.de.1240
-    - point.de.Hamburg-Rainweg
-    - point.de.Hamburg-Altona                   # line.de.1220
+    -   point.de.Hamburg-Holstenstrasse         # de.1240
+    -   point.de.Hamburg-Rainweg
+    -   point.de.Hamburg-Altona                 # de.1220
 
 ---
 key: point.de.Berlin-Spandau-West
@@ -2320,10 +2321,22 @@ events:
         location:
             - !keyloc line.de.1121 47,61
         sources: src.de.DRG.Alt.Karte.1949
+    -   date: c2000
+        location:
+            -   !keyloc line.de.1121  47,59
+            -   !keyloc line.de.1150 161,338
+            -   !keyloc line.de.6100 238,916
+        sources:
+            -   src.de.DB.Hmb.Karte.1984
+            -   src.de.DBAG.Geo-Betriebsstelle.2017
     -   date: !!null
         de.DS100: ABCH
         de.dstnr: !!str 010546
-        sources: src.de.TPP.2006
+        sources: src.de.DS100.1984
+    -   date: !!null
+        de.name16: Büchen
+        PLC: DE11785
+        sources: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
@@ -2332,25 +2345,25 @@ events:
 
 
 ---
-key: point.de.Buechen-Bbf
+key: point.de.Büchen-Bbf
 type: point
 events:
     -   date: c1990
         status: open
         split_from: point.de.Büchen
-    -   date: !!null
-        location: !keyloc line.de.6100 240,0
-        category: de.Bft
-        sources: src.de.SuW.2005
-    -   date: !!null
-        name: Büchen Bbf
-        de.DS100: ABCHG
-        sources: src.de.TPP.2006
-    -   date: !!null
         master: point.de.Büchen
+    -   date: !!null
+        category: de.Bft
+        name: Büchen Bbf
+        de.name16: Büchen Bbf
+        de.DS100: ABCHG
+        PLC: DE11786
+        de.dstnr: 908649
+        sources: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site: !noderef path.de.6100 bcb
+
 
 ---
 key: point.de.Muessen
@@ -2504,7 +2517,11 @@ events:
         de.DS100: AAH A
         sources: src.de.TPP.2012
     -   date: c2012
-        category: de.Abzw
+        category: [ de.Bft, de.Abzw ]
+        de.name16: Aumühle Abzw
+        PLC: DE10371
+        de.dstnr: !!str 010595
+        sources: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site: !noderef path.de.6100 aua
@@ -2541,15 +2558,39 @@ events:
         de.dstnr: !!str 010595
         sources: src.de.DS100.1984
     -   date: c2002
+        status: closed
+        sources: src.de.TPP.2006
+    -   date: c2012
+        status: open
+        sources: src.de.TPP.2012
+    -   date: c2012
+        de.name16: Aumühle
+        PLC: DE10369
+        de.dstnr: 685172
+        sources: src.de.DBAG.BSV.2017
+    -   date: c2012
+        location:
+            -   !keyloc line.de.1244 25,093
+            -   !keyloc line.de.6100 -
+        sources: src.de.DBAG.Geo-Betriebsstelle.2017
+
+    -   date: !!null
+        site: !noderef path.de.6100 aum right
+
+---
+key: point.de.Aumühle-Fernbahn
+type: point
+events:
+    -   date: c2002
+        status: open
+        split_from: point.de.Aumühle
+    -   date: !!null
         name: Aumühle Fernbahn
         de.DS100: AAHF
         sources: src.de.TPP.2006
     -   date: c2012
         status: closed
         sources: src.de.TPP.2012
-
-    -   date: !!null
-        site: !noderef path.de.6100 aum right
 
 # src.de.DRG.Alt.Karte.1931 Anst right
 
@@ -2701,7 +2742,14 @@ events:
         de.dstnr: !!str 010637
     -   date: c1990
         de.DS100: ABG
-        sources: src.de.TPP.2006
+        sources: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Hmb-Bergedorf
+        PLC: DE14429
+        sources: src.de.DBAG.BSV.2017
+    -   date: c2000
+        location: !keyloc line.de.6100 207,072
+        sources: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site: !noderef path.de.6100 ber left
@@ -2744,15 +2792,13 @@ events:
     -   date: c1990
         status: open
     -   date: !!null
-        location:
-            - !keyloc line.de.9123 0,0
-            - !keyloc line.de.6100 271,8
         category: de.Bft
-        sources: src.de.SuW.2005
-    -   date: !!null
         name: Hamburg-Bergedorf Gbf
+        de.name16: Hmb-Berged Gbf
         de.DS100: ABG G
-        sources: src.de.TPP.2006
+        PLC: DE14431
+        de.dstnr: 908663
+        sources: src.de.DBAG.BSV.2017
     -   date: !!null
         master: point.de.Hamburg-Bergedorf
 
@@ -2824,13 +2870,16 @@ events:
     -   date: c2002
         location: !keyloc line.de.6100 -
     -   date: !!null
-        name: Hamburg-Allermöhe (S-Bahn)
-        de.DS100: AALH
-        sources: src.de.TPP.2006
-    -   date: !!null
         category: de.Hp
+        name: Hamburg-Allermöhe (S-Bahn)
+        de.name16: Allermöhe
+        de.DS100: AALH
+        PLC: DE14420
+        de.dstnr: !!str 399808
+        sources: src.de.DBAG.BSV.2017
+    -   date: !!null
         location: !keyloc line.de.1244 13,064
-        sources: src.de.DBAG.ISR
+        sources: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site: !noderef path.de.6100 als
@@ -2855,20 +2904,22 @@ events:
 ---
 key: point.de.Hamburg-Allermöhe
 type: point
-junction: True
 events:
     -   date: 1996-08-13?
         status: open
     -   date: !!null
         location:
             - !keyloc line.de.1280  49,240
-            - !keyloc line.de.6100 273,760
-        category: de.Abzw
-        sources: src.de.DBAG.ISR
+            - !keyloc line.de.6100 273,706
+        sources: src.de.DBAG.Geo-Betriebsstelle.2017
     -   date: !!null
+        category: de.Abzw
         name: Hamburg-Allermöhe
+        de.name16: Allermöhe
         de.DS100: AALM
-        sources: src.de.TPP.2006
+        PLC: DE14419
+        de.dstnr: 245357
+        sources: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site: !noderef path.de.6100 all left
@@ -3105,12 +3156,15 @@ events:
         status: open
     -   date: !!null
         location: !keyloc line.de.6100 284,663
-        category: de.Üst
-        sources: src.de.DBAG.ISR
+        sources: src.de.DBAG.Geo-Betriebsstelle.2017
     -   date: !!null
+        category: de.Üst
         name: Hamburg Anckelmannsplatz
+        de.name16: Anckelmannsplatz
         de.DS100: AAMP
-        sources: src.de.TPP.2006
+        PLC: DE14378
+        de.dstnr: 304303
+        sources: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site: !noderef path.de.6100 anc
@@ -3281,22 +3335,33 @@ events:
         site: !noderef path.de.6100 sul
 
 
+#    point.de.Hamburg-Holstenstrasse         # de.1240
+
+
 ---
 key: point.de.Hamburg-Rainweg
 type: point
 events:
     -   date: !!null
-        de.dstnr: !!str 017129
+        category: de.Abzw
         name: Rainweg
         de.DS100: AAR
-        category: de.Abzw
+        de.dstnr: !!str 017129
         sources: src.de.DS100.1984
+    -   date: c2000
+        name: Hamburg Rainweg
+        de.name16: Rainweg
+        PLC: DE14409
+        sources: src.de.DBAG.BSV.2017
     -   date: !!null
         location:
-            - !keyloc line.de.1232 1,481
+            - !keyloc line.de.1232   1,481
             - !keyloc line.de.6100 291,503
-        sources: src.de.DBAG.ISR
+        sources: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site: !noderef path.de.6100 rai
+
+
+#    point.de.Hamburg-Altona                 de.1220
 

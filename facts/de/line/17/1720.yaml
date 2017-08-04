@@ -171,15 +171,15 @@ points:
     - !keyref point.de.Bad-Bevensen-DGr-II
     - !keyref point.de.Bad-Bevensen
     - !keyref point.de.Bruchtorf
-    - !keyref point.de.Bienenbüttel
+    -   point.de.Bienenbüttel
     - !keyref point.de.Hohenbostel
     - !keyref point.de.Deutsch-Evern
     - !keyref point.de.Lüneburg
-    - !keyref point.de.Bardowick
+    -   point.de.Bardowick
     - !keyref point.de.Radbruch
     - !keyref point.de.Borstel
     - !keyref point.de.Winsen-Luhe
-    - !keyref point.de.Ashausen-Abzw
+    -   point.de.Ashausen-Abzw
     - !keyref point.de.Ashausen
     - !keyref point.de.Stelle
     - !keyref point.de.Stelle-DGr
@@ -203,7 +203,7 @@ points:
     - !keyref point.de.Neukloster-Stade
     - !keyref point.de.Horneburg
     - !keyref point.de.Dollern
-    - !keyref point.de.Agathenburg
+    -   point.de.Agathenburg
     - !keyref point.de.Stade
     - !keyref point.de.Hahle
     - !keyref point.de.Hammah
@@ -787,10 +787,14 @@ events:
     -   date: !!null
         de.DS100: ABIL
         de.dstnr: !!str 011718
-        sources: !keyref src.de.DS100.1984
+        sources: src.de.DS100.1984
+    -   date: !!null
+        de.name16: Bienenbüttel
+        PLC: DE11232
+        sources: src.de.DBAG.BSV.2017
     -   date: !!null
         location: !keyloc line.de.1720 118,607
-        sources: !keyref src.de.DBAG.ISR
+        sources: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site: !noderef path.de.1720 bie right
@@ -915,8 +919,12 @@ events:
         de.dstnr: !!str 011775
         sources: !keyref src.de.DS100.1984
     -   date: !!null
+        de.name16: Bardowick
+        PLC: DE10625
+        sources: src.de.DBAG.BSV.2017
+    -   date: !!null
         location: !keyloc line.de.1720 137,405
-        sources: !keyref src.de.DBAG.ISR
+        sources: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site: !noderef path.de.1720 bar right
@@ -1015,17 +1023,21 @@ events:
 ---
 key: point.de.Ashausen-Abzw
 type: point
-junction: True
 events:
-    -   date: !date c2014
+    -   date: 2014-08-14?
         status: open
-    -   date: !!null
-        location:
-            - !keyloc line.de.1720 157,755
         category: de.Abzw
         name: Ashausen Abzw
+        de.name16: Ashausen Abzw
         de.DS100: AASA
-        sources: !keyref src.de.DBAG.ISR
+        PLC: DE10314
+        de.dstnr: 107558
+        sources: src.de.DBAG.BSV.2017
+    -   date: !!null
+        location:
+            -   !keyloc line.de.1720 154,755
+            -   !keyloc line.de.1281 154,758
+        sources: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site: !noderef path.de.1720 asa right
@@ -1051,17 +1063,26 @@ events:
     -   date: !var lknr.30
         de.lknr: 01 180
         sources: !keyref src.de.Bfv.1933
+    -   date: !date c1970
+        location: !keyloc line.de.1720 154,85
+        sources: !keyref src.de.DB.Hmb.Karte.1984
     -   date: !!null
         de.DS100: AASN
         de.dstnr: !!str 011809
         sources: !keyref src.de.DS100.1984
-    -   date: !date c1970
-        location: !keyloc line.de.1720 154,85
-        sources: !keyref src.de.DB.Hmb.Karte.1984
-    -   date: !date c2014
+    -   date: !!null
+        de.name16: Ashausen
+        PLC: DE10313
+        sources: src.de.DBAG.BSV.2017
+    -   date: 2014-08-14?
         category: de.Hp
-        location: !keyloc line.de.1720 -
-        sources: !keyref src.de.DBAG.ISR
+        location:
+            -   !keyloc line.de.1153 154,964
+            -   !keyloc line.de.1720 -
+            -   !keyloc line.de.1281 154,984
+        sources:
+            -   src.de.DBAG.BSV.2017
+            -   src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site: !noderef path.de.1720 ash left
@@ -1722,7 +1743,10 @@ events:
         sources: !keyref src.de.DS100.1984
     -   date: !date c1970
         location: !keyloc line.de.1720 206,056
-        sources: !keyref src.de.DBAG.ISR
+        sources: src.de.DBAG.Geo-Betriebsstelle.2017
+    -   date: !!null
+        PLC: DE10046
+        sources: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site: !noderef path.de.1720 aga left

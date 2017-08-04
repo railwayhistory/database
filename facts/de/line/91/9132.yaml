@@ -42,10 +42,10 @@ points:
     - !keyref point.de.Bremervörde-Süd
     - !keyref point.de.Oerel-Verladestelle
     - !keyref point.de.Oerel-Süd
-    - !keyref point.de.Barchel
-    - !keyref point.de.Basdahl-Kluste
-    - !keyref point.de.Basdahl
-    - !keyref point.de.Brillit
+    -   point.de.Barchel
+    -   point.de.Basdahl-Kluste
+    -   point.de.Basdahl
+    -   point.de.Brillit
     - !keyref point.de.Gnarrenburg-Nord
     - !keyref point.de.Gnarrenburg
     - !keyref point.de.Karlshoefen
@@ -58,7 +58,7 @@ points:
     - !keyref point.de.Worpswede
     - !keyref point.de.Weyermoor
     - !keyref point.de.Neu-Kamerun
-    - !keyref point.de.Ahrensfelde-Bremen
+    -   point.de.Ahrensfelde-Bremen
     - !keyref point.de.Osterholz-Scharmbeck-Ost
 
 
@@ -142,13 +142,21 @@ events:
     -   date: !!null
         name: Barchel
         sources: !keyref src.de.Kb.1914
-    -   date: !!null
-        category: de.Bf
-        de.DS100: ABCL
-        sources: !keyref src.de.SuW.2005
     -   date: !var lknr.kb
         de.lknr: 40 397
         sources: !keyref src.de.Bfv.1944
+    -   date: !!null
+        de.DS100: HBCH
+        de.dstnr: !!str 135285
+        sources: src.de.DS100.1984
+    -   date: !!null
+        category: de.Hp
+        de.name16: Barchel
+        sources: src.de.DBAG.BSV.2017
+    -   date: c2000
+        de.DS100: ABCL
+        de.dstnr: !!str 417048
+        sources: src.de.DBAG.BSV.2017
 
 ---
 key: point.de.Basdahl-Kluste
@@ -157,13 +165,15 @@ events:
     -   date: !!null
         location: !keyloc line.de.9132 10,14
         sources: !keyref src.de.web.EVB.SNB
-    -   date: !!null
-        name: Basdahl-Kluste
-        category: de.Hp
-        de.DS100: ABAAK
-        sources: !keyref src.de.SuW.2005
-    -   date: !date c1980
+    -   date: !date c2000
         status: open
+    -   date: !!null
+        category: de.Hp
+        name: Basdahl-Kluste
+        de.name16: Basdahl-Kluste
+        de.DS100: ABAAK
+        de.dstnr: !!str 912708
+        sources: src.de.DBAG.BSV.2017
 
 ---
 key: point.de.Basdahl
@@ -175,13 +185,20 @@ events:
     -   date: !!null
         name: Basdahl
         sources: !keyref src.de.Kb.1914
-    -   date: !!null
-        de.DS100: ABAA
     -   date: !var lknr.kb
         de.lknr: 40 398
         sources: !keyref src.de.Bfv.1944
+    -   date: !!null
+        de.DS100: HBDH
+        de.dstnr: !!str 417055
+        sources: src.de.DS100.1984
     -   date: !date c2000
-        status: closed
+        de.DS100: ABAA
+        de.dstnr: !!str 585430
+        sources: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Basdahl
+        sources: src.de.DBAG.BSV.2017
 
 ---
 key: point.de.Brillit
@@ -189,19 +206,25 @@ type: point
 events:
     -   date: !!null
         location: !keyloc line.de.9132 14,8
-        sources: !keyref src.de.web.EVB.SNB
+        sources: src.de.web.EVB.SNB
     -   date: !!null
         name: Brillit
-        sources: !keyref src.de.Kb.1914
-    -   date: !!null
-        de.DS100: ABRI
-        sources: !keyref src.de.SuW.2005
+        sources: src.de.Kb.1914
     -   date: !var lknr.kb
         de.lknr: 40 401
         sources: !keyref src.de.Bfv.1944
-    -   date: !date c1980
-        category: de.Anst
-        sources: !keyref src.de.SuW.2005
+    -   date: !!null
+        de.DS100: HBRI
+        de.dstnr: !!str 417089
+        sources: src.de.DS100.1984
+    -   date: !!null
+        category: [ de.Hp, de.Anst ]
+        de.name16: Brillit
+        sources: src.de.DBAG.BSV.2017
+    -   date: c2000
+        de.DS100: ABRI
+        de.dstnr: !!str 585281
+        sources: src.de.DBAG.BSV.2017
 
 ---
 key: point.de.Gnarrenburg-Nord
@@ -439,10 +462,6 @@ events:
     -   date: !!null
         name: Ahrensfelde
         sources: !keyref src.de.Kb.1914
-    -   date: !!null
-        category: de.Bf
-        de.DS100: AARF
-        sources: !keyref src.de.SuW.2005
     -   date: !date c1920
         name: Ahrensfelde (Bez Bremen)
     -   date: !var lknr.kb
@@ -451,6 +470,18 @@ events:
     -   date: !date c1940
         name: Ahrensfelde (Bz Bremen)
         sources: !keyref src.de.Bfv.1944
+    -   date: !!null
+        de.DS100: AARF
+        de.dstnr: !!str 417204
+        sources: src.de.DS100.1984
+    -   date: !!null
+        category: de.Bf
+        de.name16: Ahrensfelde/Brm
+        sources: src.de.DBAG.BSV.2017
+    -   date: c2000
+        de.dstnr: !!str 585646
+        sources: src.de.DBAG.BSV.2017
+
 
 ---
 key: point.de.Osterholz-Scharmbeck-Ost

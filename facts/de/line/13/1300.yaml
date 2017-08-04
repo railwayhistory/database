@@ -100,6 +100,7 @@ points:
     - !keyref point.de.Bremerhaven-Wulsdorf                 # line.de.1740
     - !keyref point.de.Sellstedt-LGr
     - !keyref point.de.Sellstedt-DGr
+    -   point.de.Apeler
     - !keyref point.de.Sellstedt
     - !keyref point.de.Wehdel
     - !keyref point.de.Geestenseth
@@ -109,11 +110,11 @@ points:
     -   point.de.Bremervörde
     - !keyref point.de.Hesedorf
     - !keyref point.de.Kutenholz
-    - !keyref point.de.Brest-Aspe
-    - !keyref point.de.Bargstedt
+    -   point.de.Brest-Aspe
+    -   point.de.Bargstedt
     - !keyref point.de.Harsefeld
     - !keyref point.de.Harsefeld-Abzw
-    - !keyref point.de.Beckdorf
+    -   point.de.Beckdorf
     - !keyref point.de.Staersbeck-Moisburg
     - !keyref point.de.Hollenstedt
     - !keyref point.de.Drestedt
@@ -138,6 +139,20 @@ events:
     -   date: !!null
         location: !keyloc line.de.1300 1,05
         sources: !keyref src.de.DRG.Alt.Karte.1949
+
+
+---
+key: point.de.Apeler
+type: point
+events:
+    -   date: 2013-09-04?
+        status: open
+        category: de.Bf
+        name: Apeler
+        de.name16: Apeler
+        de.DS100: AAPL
+        de.dstnr: 108062
+        sources: src.de.DBAG.BSV.2017
 
 ---
 key: point.de.Sellstedt
@@ -382,7 +397,12 @@ events:
         sources: !keyref src.de.DS100.1984
     -   date: !date c2000
         category: de.Hp
-        sources: !keyref src.de.SuW.2005
+        sources: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Brest-Aspe
+        de.dstnr: 585869
+        sources: src.de.DBAG.BSV.2017
+
 
 ---
 key: point.de.Bargstedt
@@ -399,22 +419,25 @@ events:
         de.Rangklasse: IV
         de.lknr: 01 251
         sources: !keyref src.de.Bfv.1933
-    -   date: !date c1940
+    -   date: c1940
         category: de.Hst
         sources: !keyref src.de.Bfv.1944
     -   date: !!null
         de.DS100: ABAT
         de.dstnr: !!str 012518
         sources: !keyref src.de.DS100.1984
-    -   date: !date c1970
+    -   date: c1970
+        location: !keyloc line.de.1300 56,03
         category: de.Anst
-        sources: !keyref src.de.DS100.1984
-    -   date: !date c1990
-        category: de.Bf
+        sources: src.de.DS100.1984
+    -   date: c2000
         location: !keyloc line.de.1300 56,85
-        sources:
-            - !keyref src.de.SuW.2005
-            - !keyref src.de.web.EVB.SNB
+        sources: src.de.web.EVB.SNB
+    -   date: c2000
+        category: [ de.Hp, de.Anst ]
+        de.dstnr: !!str 585877
+        sources: src.de.DBAG.BSV.2017
+
 
 ---
 key: point.de.Harsefeld
@@ -474,13 +497,21 @@ events:
     -   date: !!null
         de.DS100: ABEF
         de.dstnr: !!str 012484
-        sources: !keyref src.de.DS100.1984
-    -   date: !date c1970
+        sources: src.de.DS100.1984
+    -   date: c1970
         category: de.Anst
-        sources: !keyref src.de.DS100.1984
-    -   date: !date c1990
+        sources: src.de.DS100.1984
+    -   date: c1990
         category: de.Bf
-        sources: !keyref src.de.SuW.2005
+        de.dstnr: !!str 585893
+        sources: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Beckdorf
+        sources: src.de.DBAG.BSV.2017
+    -   date: 2009-01-24?
+        status: closed
+        sources: src.de.DBAG.BSV.2017
+
 
 ---
 key: point.de.Staersbeck-Moisburg

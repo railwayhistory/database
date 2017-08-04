@@ -1,4 +1,4 @@
-# DE 1248.  Hamburg Süd - Hamburg-Wedel Abzw
+# DE 1248.  Hamburg Süd - Hamburg Kai rechts
 #
 ---
 key: line.de.1248
@@ -11,6 +11,7 @@ events:
             - !keyref org.de.l.hh
 
     -   date: !!null
+        end: point.de.Hamburg-Veddel
         de.VzG: !!str 1248
         note:
             de: >
@@ -21,18 +22,24 @@ events:
     -   date: !!null
         category: de.Nebenbahn
 
-    -   date: !date 1880-01-01
-        start: !keyref point.de.Hamburg-Veddel
+    -   date: 1876-06-14
+        concession:
+            by: org.de.l.hh
+            for: org.de.l.hh
+        sources: src.de.DRG.1935 # 1880/1
+
+    -   date: 1880-01-01
+        end: point.de.Hamburg-Veddel
         status: open
         service: freight
         sources: !keyref src.de.DRG.1935
     -   date: !date c1890
-        end: !keyref point.de.Hamburg-Veddel
+        start: !keyref point.de.Hamburg-Veddel
         status: open
         service: freight
 
     -   date: !date c1970
-        start: !keyref point.de.Hamburg-Veddel
+        end: !keyref point.de.Hamburg-Veddel
         electrified:
             overhead: !var el.de
 
@@ -61,9 +68,9 @@ events:
             - !pathref path.de.1255 fved sud   1.5
 
 points:
-    -   !keyref point.de.Hamburg-Kai-Rechts
-    -   !keyref point.de.Hamburg-Veddel                     # line.de.2200
     -   !keyref point.de.Hamburg-Süd                        # line.de.1255
+    -   !keyref point.de.Hamburg-Veddel                     # line.de.2200
+    -   !keyref point.de.Hamburg-Kai-Rechts
 
 
 ---
