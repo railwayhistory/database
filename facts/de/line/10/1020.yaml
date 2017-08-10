@@ -6,8 +6,8 @@ type: line
 events:
     -   date: !!null
         region:
-            - !keyref org.de
-            - !keyref org.de.l.sh
+            - org.de
+            - org.de.l.sh
 
     -   date: !!null
         de.VzG: !!str 1020
@@ -15,26 +15,27 @@ events:
 
     #   Genehmigungen
     #
-    -   date: !date 1878-08-19
-        end: !keyref point.de.Maasbüll-Angeln-Gabelung
+    -   date: 1878-08-19
+        end: point.de.Maasbüll-Angeln-Gabelung
         concession:
-            by: !keyref org.de.l.pre
-            document: !keyref src.de.l.pre.sle.1878.54
-        sources: !keyref src.de.DRG.1935
+            by: org.de.l.pre
+            for: org.de.Kiel-Eckernförde-Flensburger-Eisenbahn
+        document: src.de.l.pre.sle.1878.54
+        sources: src.de.DRG.1935 # 1881/12
 
     #   Eröffnung und Einstellung
     #
-    -   date: !date 1881-07-01
-        end: !keyref point.de.Eckernförde
+    -   date: 1881-07-01
+        end: point.de.Eckernförde
         status: open
-        sources: !keyref src.de.DRG.1935
-    -   date: !date 1881-12-21
-        start: !keyref point.de.Eckernförde
-        end: !keyref point.de.Maasbüll-Angeln-Gabelung
+        sources: src.de.DRG.1935 # 1881/12
+    -   date: 1881-12-21
+        start: point.de.Eckernförde
+        end: point.de.Maasbüll-Angeln-Gabelung
         status: open
-        sources: !keyref src.de.DRG.1935
-    -   date: !date 1927-12-01
-        start: !keyref point.de.Maasbüll-Angeln-Gabelung
+        sources: src.de.DRG.1935 # 1881/33
+    -   date: 1927-12-01
+        start: point.de.Maasbüll-Angeln-Gabelung
         status: open
 
     #   Eigenschaften
@@ -43,46 +44,18 @@ events:
         category: de.Nebenbahn
         tracks: 1
         gauge: 1435
-        sources: !keyref src.de.DRG.1927
+        sources: src.de.DRG.1927
 
     #   Eigentümer etc.
     #
     -   date: !!null
-        end: !keyref point.de.Maasbüll-Angeln-Gabelung
-        owner: !keyref org.de.e.KEFE
-        operator: !keyref org.de.e.KEFE
-        sources: !keyref src.de.DRG.1935
-
-    -   date: !date 1903-07-01
-        end: !keyref point.de.Maasbüll-Angeln-Gabelung
-        owner: !keyref org.de.l.pre
-        operator: !keyref org.de.e.KPEV.Alt
-
-    -   date: !date 1920-04-01
-        end: !keyref point.de.Maasbüll-Angeln-Gabelung
-        owner: !keyref org.de
-        operator: !keyref org.de.r.RVM.PH
-    -   date: !date 1924-02-12
-        end: !keyref point.de.Maasbüll-Angeln-Gabelung
-        operator: !keyref org.de.e.DREb
-    -   date: !date 1924-08-30
-        end: !keyref point.de.Maasbüll-Angeln-Gabelung
-        operator: !keyref org.de.e.DRG
-
+        end: point.de.Maasbüll-Angeln-Gabelung
+        owner: org.de.Kiel-Eckernförde-Flensburger-Eisenbahn
+        operator: org.de.Kiel-Eckernförde-Flensburger-Eisenbahn
     -   date: !!null
-        start: !keyref point.de.Maasbüll-Angeln-Gabelung
-        owner: !keyref org.de
-        operator: !keyref org.de.e.DRG
-
-    -   date: !var org.de.DB.start
-        operator: !keyref org.de.e.DB
-
-    -   date: !var org.de.DBAG.start
-        owner: !keyref org.de.e.DBAG
-        operator: !keyref org.de.e.DBAG
-    -   date: !var org.de.DBNetz.start
-        owner: !keyref org.de.e.DBNetz
-        operator: !keyref org.de.e.DBNetz
+        start: point.de.Maasbüll-Angeln-Gabelung
+        owner: org.de
+        operator: org.de.e.DRG
 
     #   Verlauf
     #
@@ -93,55 +66,60 @@ events:
             - !pathref path.de.1040  f    fle   0.5
 
 points:
-    - !keyref point.de.Kiel-Hassee                      # line.de.1022
-    - !keyref point.de.Kronshagen
-    - !keyref point.de.Suchsdorf
-    - !keyref point.de.Levensau
-    - !keyref point.de.Neuwittenbek
-    - !keyref point.de.Gettorf
-    - !keyref point.de.Neudorf
-    - !keyref point.de.Altenhof-Schlesw
-    - !keyref point.de.Eckernförde
-    - !keyref point.de.Rieseby
-    - !keyref point.de.Boren-Schleibruecke
-    - !keyref point.de.Lindaunis
-    - !keyref point.de.Fahrtoft
-    - !keyref point.de.Süderbrarup
-    - !keyref point.de.Mohrkirch
-    - !keyref point.de.Sörup
-    - !keyref point.de.Winderatt
-    - !keyref point.de.Husby
-    - !keyref point.de.Maasbüll-Angeln
-    - !keyref point.de.Maasbüll-Angeln-Gabelung
-    - !keyref point.de.Flensburg                        # line.de.1040
+    -   point.de.Kiel-Hassee                        # de.1022
+    -   point.de.Kronshagen
+    -   point.de.Suchsdorf
+    -   point.de.Levensau
+    -   point.de.Neuwittenbek
+    -   point.de.Gettorf
+    -   point.de.Neudorf
+    -   point.de.Altenhof-Schlesw
+    -   point.de.Eckernförde
+    -   point.de.Rieseby
+    -   point.de.Boren-Schleibruecke
+    -   point.de.Lindaunis
+    -   point.de.Fahrtoft
+    -   point.de.Süderbrarup
+    -   point.de.Mohrkirch
+    -   point.de.Sörup
+    -   point.de.Winderatt
+    -   point.de.Husby
+    -   point.de.Maasbüll-Angeln
+    -   point.de.Maasbüll-Angeln-Gabelung
+    -   point.de.Flensburg                          # de.1040
+
+
+#-----------------------------------------------------------------------------
+
+#    point.de.Kiel-Hassee                        de.1022
 
 
 ---
 key: point.de.Kronshagen
 type: point
 events:
-    -   date: !date c1910
+    -   date: c1910
         status: open
         sources:
-            - !keyref src.de.Kb.1905
-            - !keyref src.de.Kb.1914
+            - src.de.Kb.1905
+            - src.de.Kb.1914
     -   date: !!null
         name: Kronshagen
-        sources: !keyref src.de.Kb.1914
+        sources: src.de.Kb.1914
     -   date: !!null
         de.lknr: 01 177
-        sources: !keyref src.de.Bfv.1928
+        sources: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
         de.Rangklasse: IV
-        sources: !keyref src.de.Bfv.1933
+        sources: src.de.Bfv.1933
     -   date: !var lknr.30
         de.lknr: 01 385
-        sources: !keyref src.de.Bfv.1933
+        sources: src.de.Bfv.1933
     -   date: !!null
         location: !keyloc line.de.1020 5,63
-        sources: !keyref src.de.DRG.Alt.Karte.1949
-    -   date: !date c1980
+        sources: src.de.DRG.Alt.Karte.1949
+    -   date: c1980
         status: closed
 
     -   date: !!null
@@ -153,34 +131,34 @@ key: point.de.Suchsdorf
 type: point
 junction: True
 events:
-    -   date: !date c1910
+    -   date: c1910
         status: open
         sources:
-            - !keyref src.de.Kb.1905
-            - !keyref src.de.Kb.1914
+            - src.de.Kb.1905
+            - src.de.Kb.1914
     -   date: !!null
         name: Suchsdorf
-        sources: !keyref src.de.Kb.1914
+        sources: src.de.Kb.1914
     -   date: !!null
         de.lknr: 01 178
-        sources: !keyref src.de.Bfv.1928
+        sources: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
         de.Rangklasse: IV
-        sources: !keyref src.de.Bfv.1933
+        sources: src.de.Bfv.1933
     -   date: !var lknr.30
         de.lknr: 01 386
-        sources: !keyref src.de.Bfv.1933
+        sources: src.de.Bfv.1933
     -   date: !!null
         location: !keyloc line.de.1020 7,81
-        sources: !keyref src.de.DRG.Alt.Karte.1949
+        sources: src.de.DRG.Alt.Karte.1949
     -   date: !!null
         location: !keyloc line.de.9105 0,0
-        sources: !keyref src.de.SuW.2005
+        sources: src.de.SuW.2005
     -   date: !!null
         de.DS100: ASU
         de.dstnr: !!str 013862
-        sources: !keyref src.de.DS100.1984
+        sources: src.de.DS100.1984
 
     -   date: !!null
         site: !noderef path.de.1020 suc left
@@ -190,26 +168,26 @@ events:
 key: point.de.Levensau
 type: point
 events:
-    -   date: !date 1890
+    -   date: 1890
         status: open
     -   date: !!null
         name: Levensau
-        sources: !keyref src.de.Kb.1905
+        sources: src.de.Kb.1905
     -   date: !!null
         service: passenger
         de.lknr: 01 367
-        sources: !keyref src.de.Bfv.1928
+        sources: src.de.Bfv.1928
     -   date: !!null
         category: de.Hp
         staff: agent
-        sources: !keyref src.de.Bfv.1933
+        sources: src.de.Bfv.1933
     -   date: !var lknr.30
         de.lknr: 01 387
-        sources: !keyref src.de.Bfv.1933
+        sources: src.de.Bfv.1933
     -   date: !!null
         location: !keyloc line.de.1020 10,17
-        sources: !keyref src.de.DRG.Alt.Karte.1949
-    -   date: !date c1970
+        sources: src.de.DRG.Alt.Karte.1949
+    -   date: c1970
         status: closed
 
     -   date: !!null
@@ -223,34 +201,34 @@ junction: True
 events:
     -   date: !!null
         name: Neuwittenbek
-        sources: !keyref src.de.Kb.1905
-    -   date: !date c1910
+        sources: src.de.Kb.1905
+    -   date: c1910
         name: Neu Wittenbek
-        sources: !keyref src.de.Kb.1914
-    -   date: !date c1920
+        sources: src.de.Kb.1914
+    -   date: c1920
         name: Neuwittenbek
-        sources: !keyref src.de.Bfv.1928
+        sources: src.de.Bfv.1928
     -   date: !!null
         de.lknr: 01 179
-        sources: !keyref src.de.Bfv.1928
+        sources: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
         de.Rangklasse: IV
-        sources: !keyref src.de.Bfv.1933
+        sources: src.de.Bfv.1933
     -   date: !var lknr.30
         de.lknr: 01 388
-        sources: !keyref src.de.Bfv.1933
+        sources: src.de.Bfv.1933
     -   date: !!null
         location: !keyloc line.de.1020 13,70
-        sources: !keyref src.de.DRG.Alt.Karte.1949
+        sources: src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.DS100: ANW
         de.dstnr: !!str 013888
-        sources: !keyref src.de.DS100.1984
+        sources: src.de.DS100.1984
     -   date: !!null
         location: !keyloc line.de.9104 0,0
-        sources: !keyref src.de.SuW.2005
-    -   date: !date 1986-09-27
+        sources: src.de.SuW.2005
+    -   date: 1986-09-27
         service: freight
 
     -   date: !!null
@@ -263,24 +241,24 @@ type: point
 events:
     -   date: !!null
         name: Gettorf
-        sources: !keyref src.de.Kb.1905
+        sources: src.de.Kb.1905
     -   date: !!null
         de.lknr: 01 180
-        sources: !keyref src.de.Bfv.1928
+        sources: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
         de.Rangklasse: III
-        sources: !keyref src.de.Bfv.1933
+        sources: src.de.Bfv.1933
     -   date: !var lknr.30
         de.lknr: 01 389
-        sources: !keyref src.de.Bfv.1933
+        sources: src.de.Bfv.1933
     -   date: !!null
         location: !keyloc line.de.1020 19,15
-        sources: !keyref src.de.DRG.Alt.Karte.1949
+        sources: src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.DS100: AGF
         de.dstnr: !!str 013896
-        sources: !keyref src.de.DS100.1984
+        sources: src.de.DS100.1984
 
     -   date: !!null
         site: !noderef path.de.1020 get right
@@ -294,8 +272,8 @@ events:
         category: de.Ldst
         location: !keyloc line.de.1020 22,80
         name: Neudorf
-        sources: !keyref src.de.DRG.Alt.Karte.1931
-    -   date: !date c1930
+        sources: src.de.DRG.Alt.Karte.1931
+    -   date: c1930
         status: closed
 
     -   date: !!null
@@ -308,33 +286,33 @@ type: point
 events:
     -   date: !!null
         name: Altenhof
-        sources: !keyref src.de.Kb.1905
-    -   date: !date c1910
+        sources: src.de.Kb.1905
+    -   date: c1910
         name: Altenhof (Schlesw)
-        sources: !keyref src.de.Kb.1914
+        sources: src.de.Kb.1914
     -   date: !!null
         de.lknr: 01 181
-        sources: !keyref src.de.Bfv.1928
+        sources: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
         de.Rangklasse: IV
-        sources: !keyref src.de.Bfv.1933
+        sources: src.de.Bfv.1933
     -   date: !var lknr.30
         de.lknr: 01 390
-        sources: !keyref src.de.Bfv.1933
+        sources: src.de.Bfv.1933
     -   date: !!null
         location: !keyloc line.de.1020 27,86
-        sources: !keyref src.de.DRG.Alt.Karte.1949
+        sources: src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.DS100: AATH
         de.dstnr: !!str 013904
-        sources: !keyref src.de.DS100.1984
-    -   date: !date c1970
+        sources: src.de.DS100.1984
+    -   date: c1970
         staff: none
-        sources: !keyref src.de.DS100.1984
-    -   date: !date 1986-09-27
+        sources: src.de.DS100.1984
+    -   date: 1986-09-27
         service: freight
-    -   date: !date c1990
+    -   date: c1990
         status: closed
 
     -   date: !!null
@@ -348,27 +326,27 @@ junction: True
 events:
     -   date: !!null
         name: Eckernförde Stsbf
-        sources: !keyref src.de.Kb.1905
+        sources: src.de.Kb.1905
     -   date: !!null
         de.lknr: 01 182
-        sources: !keyref src.de.Bfv.1928
-    -   date: !date c1920
+        sources: src.de.Bfv.1928
+    -   date: c1920
         name: Eckernförde
-        sources: !keyref src.de.Bfv.1928
+        sources: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
         de.Rangklasse: II
-        sources: !keyref src.de.Bfv.1933
+        sources: src.de.Bfv.1933
     -   date: !var lknr.30
         de.lknr: 01 391
-        sources: !keyref src.de.Bfv.1933
+        sources: src.de.Bfv.1933
     -   date: !!null
         location: !keyloc line.de.1020 31,10
-        sources: !keyref src.de.DRG.Alt.Karte.1949
+        sources: src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.DS100: AEC
         de.dstnr: !!str 013920
-        sources: !keyref src.de.DS100.1984
+        sources: src.de.DS100.1984
 
     -   date: !!null
         site: !noderef path.de.1020 ecs right
@@ -380,30 +358,30 @@ type: point
 events:
     -   date: !!null
         name: Rieseby
-        sources: !keyref src.de.Kb.1905
+        sources: src.de.Kb.1905
     -   date: !!null
         de.lknr: 01 183
-        sources: !keyref src.de.Bfv.1928
+        sources: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
         de.Rangklasse: III
-        sources: !keyref src.de.Bfv.1933
+        sources: src.de.Bfv.1933
     -   date: !var lknr.30
         de.lknr: 01 394
-        sources: !keyref src.de.Bfv.1933
-    -   date: !date c1940
+        sources: src.de.Bfv.1933
+    -   date: c1940
         de.Rangklasse: IV
-        sources: !keyref src.de.Bfv.1944
+        sources: src.de.Bfv.1944
     -   date: !!null
         location: !keyloc line.de.1020 39,74
-        sources: !keyref src.de.DRG.Alt.Karte.1949
+        sources: src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.DS100: ARY
         de.dstnr: !!str 013946
-        sources: !keyref src.de.DS100.1984
-    -   date: !date c1990
+        sources: src.de.DS100.1984
+    -   date: c1990
         category: de.Hp
-        sources: !keyref src.de.DBAG.ISR
+        sources: src.de.DBAG.ISR
 
     -   date: !!null
         site: !noderef path.de.1020 rie right
@@ -413,11 +391,11 @@ events:
 key: point.de.Boren-Schleibruecke
 type: point
 events:
-    -   date: !date c1990
+    -   date: c1990
         status: open
         sources:
-            - !keyref src.de.DS100.1984
-            - !keyref src.de.SuW.2005
+            - src.de.DS100.1984
+            - src.de.SuW.2005
     -   date: !!null
         name: Schleibrücke
     -   date: !!null
@@ -425,11 +403,11 @@ events:
         location: !keyloc line.de.1020 44,6
         de.DS100: ASBR
         sources:
-            - !keyref src.de.SuW.2005
-            - !keyref src.de.TPP.2006
-    -   date: !date c2000
+            - src.de.SuW.2005
+            - src.de.TPP.2006
+    -   date: c2000
         name: Boren Schleibrücke
-        sources: !keyref src.de.TPP.2006
+        sources: src.de.TPP.2006
 
     -   date: !!null
         site: !noderef path.de.1020 sle left
@@ -441,25 +419,25 @@ type: point
 events:
     -   date: !!null
         name: Lindaunis
-        sources: !keyref src.de.Kb.1905
+        sources: src.de.Kb.1905
     -   date: !!null
         de.lknr: 01 184
-        sources: !keyref src.de.Bfv.1928
+        sources: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
         de.Rangklasse: IV
-        sources: !keyref src.de.Bfv.1933
+        sources: src.de.Bfv.1933
     -   date: !var lknr.30
         de.lknr: 01 395
-        sources: !keyref src.de.Bfv.1933
+        sources: src.de.Bfv.1933
     -   date: !!null
         location: !keyloc line.de.1020 44,81
-        sources: !keyref src.de.DRG.Alt.Karte.1949
+        sources: src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.DS100: ASI
         de.dstnr: !!str 013953
-        sources: !keyref src.de.DS100.1984
-    -   date: !date c1990
+        sources: src.de.DS100.1984
+    -   date: c1990
         status: closed
 
     -   date: !!null
@@ -470,30 +448,30 @@ events:
 key: point.de.Fahrtoft
 type: point
 events:
-    -   date: !date c1910
+    -   date: c1910
         status: open
         sources:
-            - !keyref src.de.Kb.1905
-            - !keyref src.de.Kb.1914
+            - src.de.Kb.1905
+            - src.de.Kb.1914
     -   date: !!null
         name: Fahrtoft
-        sources: !keyref src.de.Kb.1914
+        sources: src.de.Kb.1914
     -   date: !!null
         de.lknr: 01 185
-        sources: !keyref src.de.Bfv.1928
+        sources: src.de.Bfv.1928
     -   date: !!null
         staff: agent
-        sources: !keyref src.de.Bfv.1933
+        sources: src.de.Bfv.1933
     -   date: !var lknr.30
         de.lknr: 01 396
-        sources: !keyref src.de.Bfv.1933
+        sources: src.de.Bfv.1933
     -   date: !!null
         category: de.Hst
-        sources: !keyref src.de.Bfv.1944
+        sources: src.de.Bfv.1944
     -   date: !!null
         location: !keyloc line.de.1020 47,98
-        sources: !keyref src.de.DRG.Alt.Karte.1949
-    -   date: !date c1980
+        sources: src.de.DRG.Alt.Karte.1949
+    -   date: c1980
         status: closed
 
     -   date: !!null
@@ -507,31 +485,31 @@ junction: True
 events:
     -   date: !!null
         name: Süderbrarup
-        sources: !keyref src.de.Kb.1905
+        sources: src.de.Kb.1905
     -   date: !!null
         de.lknr: 01 186
-        sources: !keyref src.de.Bfv.1928
+        sources: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
         de.Rangklasse: II
-        sources: !keyref src.de.Bfv.1933
+        sources: src.de.Bfv.1933
     -   date: !var lknr.30
         de.lknr: 01 397
-        sources: !keyref src.de.Bfv.1933
-    -   date: !date c1930
+        sources: src.de.Bfv.1933
+    -   date: c1930
         location: !keyloc line.de.9102 -
-        sources: !keyref src.de.Bfv.1933
+        sources: src.de.Bfv.1933
     -   date: !!null
         location: !keyloc line.de.1020 51,34
-        sources: !keyref src.de.DRG.Alt.Karte.1949
+        sources: src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.DS100: ASUE
         de.dstnr: !!str 013979
-        sources: !keyref src.de.DS100.1984
+        sources: src.de.DS100.1984
 
     -   date: !!null
         site: !noderef path.de.1020 sud right
-        connection: !keyref point.de.Süderbrarup-NE
+        connection: point.de.Süderbrarup-NE
 
 
 ---
@@ -540,31 +518,31 @@ type: point
 events:
     -   date: !!null
         name: Mohrkirch-Osterholz
-        sources: !keyref src.de.Kb.1905
+        sources: src.de.Kb.1905
     -   date: !!null
         de.lknr: 01 187
-        sources: !keyref src.de.Bfv.1928
+        sources: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
         de.Rangklasse: IV
         de.lknr: 01 398
-        sources: !keyref src.de.Bfv.1933
-    -   date: !date c1938
+        sources: src.de.Bfv.1933
+    -   date: c1938
         name: Mohrkirchosterholz
-        sources: !keyref src.de.Bfv.1938
+        sources: src.de.Bfv.1938
     -   date: !!null
         location: !keyloc line.de.1020 57,08
-        sources: !keyref src.de.DRG.Alt.Karte.1949
+        sources: src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.DS100: AMK
         de.dstnr: !!str 013987
-        sources: !keyref src.de.DS100.1984
-    -   date: !date c1960
+        sources: src.de.DS100.1984
+    -   date: c1960
         name: Mohrkirch
-        sources: !keyref src.de.DS100.1984
-    -   date: !date 1986-09-27
+        sources: src.de.DS100.1984
+    -   date: 1986-09-27
         service: freight
-    -   date: !date c1990
+    -   date: c1990
         status: closed
 
     -   date: !!null
@@ -577,31 +555,31 @@ type: point
 events:
     -   date: !!null
         name: Sörup Stsbf
-        sources: !keyref src.de.Kb.1905
+        sources: src.de.Kb.1905
     -   date: !!null
         de.lknr: 01 188
-        sources: !keyref src.de.Bfv.1928
-    -   date: !date c1920
+        sources: src.de.Bfv.1928
+    -   date: c1920
         name: Sörup
-        sources: !keyref src.de.Bfv.1928
+        sources: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
         de.Rangklasse: III
-        sources: !keyref src.de.Bfv.1933
+        sources: src.de.Bfv.1933
     -   date: !var lknr.30
         de.lknr: 01 399
-        sources: !keyref src.de.Bfv.1933
+        sources: src.de.Bfv.1933
     -   date: !!null
         location: !keyloc line.de.1020 62,50
-        sources: !keyref src.de.DRG.Alt.Karte.1949
+        sources: src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.DS100: ASOE
         de.dstnr: !!str 013995
-        sources: !keyref src.de.DS100.1984
+        sources: src.de.DS100.1984
 
     -   date: !!null
         site: !noderef path.de.1020 sor right
-        connection: !keyref point.de.Sörup-Kleinb
+        connection: point.de.Sörup-Kleinb
 
 
 ---
@@ -610,31 +588,31 @@ type: point
 events:
     -   date: !!null
         name: Winderatt
-        sources: !keyref src.de.Kb.1905
+        sources: src.de.Kb.1905
     -   date: !!null
         de.lknr: 01 189
-        sources: !keyref src.de.Bfv.1928
+        sources: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
         de.Rangklasse: IV
-        sources: !keyref src.de.Bfv.1933
+        sources: src.de.Bfv.1933
     -   date: !var lknr.30
         de.lknr: 01 400
-        sources: !keyref src.de.Bfv.1933
-    -   date: !date c1935
+        sources: src.de.Bfv.1933
+    -   date: c1935
         category: de.Hst
         staff: agent
-        sources: !keyref src.de.Bfv.1938
+        sources: src.de.Bfv.1938
     -   date: !!null
         location: !keyloc line.de.1020 65,60
-        sources: !keyref src.de.DRG.Alt.Karte.1949
+        sources: src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.DS100: AWIN
         de.dstnr: !!str 014001
-        sources: !keyref src.de.DS100.1984
-    -   date: !date 1986-09-27
+        sources: src.de.DS100.1984
+    -   date: 1986-09-27
         service: freight
-    -   date: !date c1990
+    -   date: c1990
         status: closed
 
     -   date: !!null
@@ -647,37 +625,37 @@ type: point
 events:
     -   date: !!null
         name: Husby
-        sources: !keyref src.de.Kb.1905
+        sources: src.de.Kb.1905
     -   date: !!null
         de.lknr: 01 190
-        sources: !keyref src.de.Bfv.1928
+        sources: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
         de.Rangklasse: IV
-        sources: !keyref src.de.Bfv.1933
+        sources: src.de.Bfv.1933
     -   date: !var lknr.30
         de.lknr: 01 401
-        sources: !keyref src.de.Bfv.1933
+        sources: src.de.Bfv.1933
     -   date: !!null
         location: !keyloc line.de.1020 70,50
-        sources: !keyref src.de.DRG.Alt.Karte.1949
+        sources: src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.DS100: AY
         de.dstnr: !!str 014019
-        sources: !keyref src.de.DS100.1984
-    -   date: !date 1986-09-27
+        sources: src.de.DS100.1984
+    -   date: 1986-09-27
         service: freight
-    -   date: !date c2000
+    -   date: c2000
         location: !keyloc line.de.1020 70,639
         category: de.Hp
-        sources: !keyref src.de.DBAG.ISR
-    -   date: !date c2000
+        sources: src.de.DBAG.ISR
+    -   date: c2000
         service: passenger
         staff: none
 
     -   date: !!null
         site: !noderef path.de.1020 hus right
-    -   date: !date c2000
+    -   date: c2000
         site: !noderef path.de.1020 huh left
 
 
@@ -687,24 +665,24 @@ type: point
 events:
     -   date: !!null
         name: Maasbüll
-        sources: !keyref src.de.Kb.1905
-    -   date: !date c1910
+        sources: src.de.Kb.1905
+    -   date: c1910
         name: Maasbüll (Angeln)
-        sources: !keyref src.de.Kb.1914
+        sources: src.de.Kb.1914
     -   date: !!null
         de.lknr: 01 191
-        sources: !keyref src.de.Bfv.1928
+        sources: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
         de.Rangklasse: IV
-        sources: !keyref src.de.Bfv.1933
+        sources: src.de.Bfv.1933
     -   date: !var lknr.30
         de.lknr: 01 402
-        sources: !keyref src.de.Bfv.1933
+        sources: src.de.Bfv.1933
     -   date: !!null
         location: !keyloc line.de.1020 74,08
-        sources: !keyref src.de.DRG.Alt.Karte.1949
-    -   date: !date c1980
+        sources: src.de.DRG.Alt.Karte.1949
+    -   date: c1980
         status: closed
 
     -   date: !!null
@@ -720,4 +698,7 @@ events:
     -   date: !!null
         short_name: Maasbüll (Angeln) Gabelung
         site: !noderef path.de.1020 mag
+
+
+#    point.de.Flensburg                          de.1040
 

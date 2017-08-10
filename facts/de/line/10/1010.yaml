@@ -6,12 +6,12 @@ type: line
 events:
     -   date: !!null
         region:
-            - !keyref org.de
-            - !keyref org.de.l.sh
+            - org.de
+            - org.de.l.sh
 
     -   date: !!null
         de.VzG: !!str 1010
-        sources: !keyref src.de.DBAG.Geo-Strecke.2017
+        sources: src.de.DBAG.Geo-Strecke.2017
 
     #   Genehmigungen
     #
@@ -31,12 +31,12 @@ events:
         freight: full
         sources: src.de.DRG.1935 # 1880/41
 
-    -   date: !date 1950-05-13
+    -   date: 1950-05-13
         passenger: none
-        sources: !keyref src.de.DB.Hmb.1984
-    -   date: !date 1992-12-01
+        sources: src.de.DB.Hmb.1984
+    -   date: 1992-12-01
         status: closed
-    -   date: !date c2000
+    -   date: c2000
         status: removed
 
     #   Eigenschaften
@@ -45,7 +45,7 @@ events:
         category: de.Nebenbahn
         tracks: 1
         gauge: 1435
-        sources: !keyref src.de.DRG.1927
+        sources: src.de.DRG.1927
 
     #   Eigentümer etc.
     #
@@ -58,11 +58,16 @@ events:
             - !pathref path.de.1010 a    sla   0.0
 
 points:
-    - !keyref point.de.Schleswig                        # line.de.1040
-    - !keyref point.de.Gottorf
-    - !keyref point.de.Schleihalle
-    - !keyref point.de.Domziegelhof
-    - !keyref point.de.Schleswig-Altstadt
+    -   point.de.Schleswig                          # de.1040
+    -   point.de.Gottorf
+    -   point.de.Schleihalle
+    -   point.de.Domziegelhof
+    -   point.de.Schleswig-Altstadt
+
+
+#-----------------------------------------------------------------------------
+
+#    point.de.Schleswig                          de.1040
 
 
 ---
@@ -71,8 +76,8 @@ type: point
 events:
     -   date: !!null
         name: Gottorf
-        sources: !keyref src.de.Kb.1905
-    -   date: !date c1920
+        sources: src.de.Kb.1905
+    -   date: c1920
         status: closed
 
     -   date: !!null
@@ -85,8 +90,8 @@ type: point
 events:
     -   date: !!null
         name: Schleihalle
-        sources: !keyref src.de.Kb.1905
-    -   date: !date c1920
+        sources: src.de.Kb.1905
+    -   date: c1920
         status: closed
 
     -   date: !!null
@@ -99,8 +104,8 @@ type: point
 events:
     -   date: !!null
         name: Domziegelhof
-        sources: !keyref src.de.Kb.1905
-    -   date: !date c1920
+        sources: src.de.Kb.1905
+    -   date: c1920
         status: closed
 
     -   date: !!null
@@ -114,27 +119,31 @@ junction: True
 events:
     -   date: !!null
         name: Schleswig Altstadt
-        sources: !keyref src.de.Kb.1905
+        sources: src.de.Kb.1905
     -   date: !!null
         de.lknr: 01 072
-        sources: !keyref src.de.Bfv.1928
+        sources: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
         de.Rangklasse: IV
         name: Schleswig Altstadt
-        sources: !keyref src.de.Bfv.1933
+        sources: src.de.Bfv.1933
     -   date: !var lknr.30
         de.lknr: 01 417
-        sources: !keyref src.de.Bfv.1933
-    -   date: !!null
-        location: !keyloc line.de.1010 136,01
-        sources: !keyref src.de.DRG.Alt.Karte.1949
+        sources: src.de.Bfv.1933
     -   date: !!null
         de.DS100: ASLW
         de.dstnr: !!str 014175
-        sources: !keyref src.de.DS100.1984
+        sources: src.de.DS100.1984
+
+    -   date: !!null
+        location: !keyloc line.de.1010 136,02
+        sources: src.de.DRG.Alt.Karte.1931
+    -   date: c1940
+        location: !keyloc line.de.1010 136,01
+        sources: src.de.DRG.Alt.Karte.1949
 
     -   date: !!null
         site: !noderef path.de.1010 sla left
-        connection: !keyref point.de.Schleswig-Altstadt-Kreisb
+        connection: point.de.Schleswig-Altstadt-Kreisb
 

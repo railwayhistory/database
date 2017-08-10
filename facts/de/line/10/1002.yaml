@@ -6,8 +6,8 @@ type: line
 events:
     -   date: !!null
         region:
-            - !keyref org.de
-            - !keyref org.de.l.sh
+            - org.de
+            - org.de.l.sh
 
     -   date: !!null
         de.VzG: !!str 1002
@@ -15,51 +15,51 @@ events:
             de: >
                 bis DB-Grenze km 178,5+31; ursprünglich wohl nur bis
                 Alter Bahnhof, km 177,3+5, dann weiter als Strecke 1004.
-        sources: !keyref src.de.DBAG.Geo-Strecke.2017
+        sources: src.de.DBAG.Geo-Strecke.2017
 
     #   Genehmigungen
     #
-    -   date: !date 1852-09-08
-        end: !keyref point.de.Flensburg-Alter-Bf
+    -   date: 1852-09-08
+        end: point.de.Flensburg-Alter-Bf
         concession:
-            by: !keyref org.dk
-            for: !keyref org.gb.Morton-Peto
+            by: org.dk
+            for: org.gb.Morton-Peto
         note:
             de: >
                 Die Konzession wurde am 1854-03-20 auf die
                 org.de.Südschleswigsche-Eisenbahn übertragen.
         sources: src.de.DRG.1935 # 1854/12
-    -   date: !date 1865-03-20
-        end: !keyref point.de.Flensburg-Alter-Bf
+    -   date: 1865-03-20
+        end: point.de.Flensburg-Alter-Bf
         concession:
-            by: !keyref org.de.l.pre
+            by: org.de.l.pre
             for: org.de.Schleswigsche-Eisenbahn
-        sources: !keyref src.de.DRG.1935
+        sources: src.de.DRG.1935
 
-    -   date: !date 1886-01-14
-        start: !keyref point.de.Flensburg-Alter-Bf
+    -   date: 1886-01-14
+        start: point.de.Flensburg-Alter-Bf
         concession:
-            by: !keyref org.de.l.pre
-            document: !keyref src.de.l.pre.sle.1886.4
-        sources: !keyref src.de.DRG.1935
+            by: org.de.l.pre
+            document: src.de.l.pre.sle.1886.4
+        sources: src.de.DRG.1935
 
     #   Eröffnung und Einstellung
     #
-    -   date: !date 1854-10-25
-        end: !keyref point.de.Flensburg-Alter-Bf
+    -   date: 1854-10-25
+        end: point.de.Flensburg-Alter-Bf
         status: open
-        sources: !keyref src.de.DRG.1935
-    -   date: !date 1886-04-06
-        start: !keyref point.de.Flensburg-Alter-Bf
+        sources: src.de.DRG.1935
+    -   date: 1886-04-06
+        start: point.de.Flensburg-Alter-Bf
         status: open
         passenger: none
-        sources: !keyref src.de.DRG.1935
-    -   date: !date 1927-12-01?
-        end: !keyref point.de.Flensburg-Alter-Bf
+        sources: src.de.DRG.1935
+    -   date: 1927-12-01?
+        end: point.de.Flensburg-Alter-Bf
         passenger: none
 
-    -   date: !date c1980
-        end: !keyref point.de.Flensburg-Wilhelminental
+    -   date: c1980
+        end: point.de.Flensburg-Wilhelminental
         status: removed
 
     #   Eigenschaften
@@ -68,7 +68,7 @@ events:
         category: de.Nebenbahn
         tracks: 1
         gauge: 1435
-        sources: !keyref src.de.DRG.1927
+        sources: src.de.DRG.1927
 
     #   Eigentümer etc.
     #
@@ -81,10 +81,18 @@ events:
             - !pathref path.de.1002 a    f     0.0
 
 points:
-    - !keyref point.de.Flensburg-Weiche                 # line.de.1040
-    - !keyref point.de.Flensburg-Wilhelminental         # line.de.1040
-    - !keyref point.de.Flensburg-Alter-Bf
-    - !keyref point.de.Flensburg-Hafen-Ost
+    -   point.de.Flensburg-Weiche                   # de.1040
+    -   point.de.Flensburg-Wilhelminental           # de.1040
+    -   point.de.Flensburg-Alter-Bf
+    -   point.de.Flensburg-Hafen-Ost
+
+
+#-----------------------------------------------------------------------------
+
+#    point.de.Flensburg-Weiche                   de.1040
+
+
+#    point.de.Flensburg-Wilhelminental           de.1040
 
 
 ---
@@ -97,31 +105,37 @@ events:
         name: Flensburg
     -   date: !!null
         de.lknr: 01 431
-        sources: !keyref src.de.Bfv.1938
-    -   date: !date 1927-12-01?
+        sources: src.de.Bfv.1938
+    -   date: 1927-12-01?
         category: de.Ldst
         name: Flensburg Alter Bf
-        sources: !keyref src.de.Bfv.1938
+        sources: src.de.Bfv.1938
+    -   date: !!null
+        de.DS100: AFHF
+        de.dstnr: !!str 014316
+        sources: src.de.DS100.1984
+    -   date: c1960
+        category: de.Bf
+        staff: none
+        sources: src.de.DS100.1984
+    -   date: !!null
+        de.name16: Flensbg Alter Bf
+        PLC: DE13215
+        sources: src.de.DBAG.BSV.2017
+    -   date: c1995
+        category: de.Bft
+        sources: src.de.DBAG.BSV.2017
+
     -   date: !!null
         location:
             - !keyloc line.de.1002 171,79
             - !keyloc line.de.1003 171,79
-        sources: !keyref src.de.DRG.Alt.Karte.1949
-    -   date: !!null
-        de.DS100: AFHF
-        de.dstnr: !!str 014316
-        sources: !keyref src.de.DS100.1984
-    -   date: !date c1960
-        category: de.Bf
-        staff: none
-        sources: !keyref src.de.DS100.1984
-    -   date: !date 1981
+        sources: src.de.DRG.Alt.Karte.1931
+    -   date: 1981
         location: 
-            - !keyloc line.de.1002 177,34
-            - !keyloc line.de.1003 177,34
-    -   date: !date c1995
-        category: de.Bft
-        sources: !keyref src.de.SuW.2005
+            - !keyloc line.de.1002 177,305
+            - !keyloc line.de.1003 177,305
+        sources: src.de.DB.Hmb.Karte.1984
 
     -   date: !!null
         site: !noderef path.de.1002 fla right

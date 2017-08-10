@@ -6,30 +6,30 @@ type: line
 events:
     -   date: !!null
         region:
-            - !keyref org.de
-            - !keyref org.de.l.sh
+            - org.de
+            - org.de.l.sh
 
     -   date: !!null
         de.VzG: !!str 1001
-        sources: !keyref src.de.DBAG.Geo-Strecke.2017
+        sources: src.de.DBAG.Geo-Strecke.2017
 
     #   Genehmigungen
     #
-    -   date: !date 1887-04-01
+    -   date: 1887-04-01
         concession:
-            by: !keyref org.de.l.pre
-            document: !keyref src.de.l.pre.1887.11.97
-        sources: !keyref src.de.DRG.1935
+            by: org.de.l.pre
+            document: src.de.l.pre.1887.11.97
+        sources: src.de.DRG.1935
 
     #   Eröffnung und Einstellung
     #
-    -   date: !date 1889-10-01
+    -   date: 1889-10-01
         status: open
-        sources: !keyref src.de.DRG.1935
+        sources: src.de.DRG.1935
 
-    -   date: !date 1981-05-31
+    -   date: 1981-05-31
         passenger: none
-        sources: !keyref src.de.DB.Hmb.1984
+        sources: src.de.DB.Hmb.1984
     -   date: 1999-03-01
         status: closed
         sources: src.de.web.EBA.Still # Nr. 263
@@ -40,32 +40,13 @@ events:
         category: de.Nebenbahn
         tracks: 1
         gauge: 1435
-        sources: !keyref src.de.DRG.1927
+        sources: src.de.DRG.1927
 
     #   Eigentümer etc.
     #
     -   date: !!null
-        owner: !keyref org.de.l.pre
-        operator: !keyref org.de.e.KPEV.Alt
-        sources: !keyref src.de.DRG.1935
-
-    -   date: !date 1920-04-01
-        owner: !keyref org.de
-        operator: !keyref org.de.r.RVM.PH
-    -   date: !date 1924-02-12
-        operator: !keyref org.de.e.DREb
-    -   date: !date 1924-08-30
-        operator: !keyref org.de.e.DRG
-
-    -   date: !var org.de.DB.start
-        operator: !keyref org.de.e.DB
-
-    -   date: !var org.de.DBAG.start
-        owner: !keyref org.de.e.DBAG
-        operator: !keyref org.de.e.DBAG
-    -   date: !var org.de.DBNetz.start
-        owner: !keyref org.de.e.DBNetz
-        operator: !keyref org.de.e.DBNetz
+        owner: org.de.l.pre
+        operator: org.de.e.KPEV.Alt
 
     #   Verlauf
     #
@@ -76,16 +57,18 @@ events:
             - !pathref path.de.1210 ffle lin  1.5
 
 points:
-    - !keyref point.de.Flensburg-Weiche                 # line.de.1040
-    - !keyref point.de.Handewitt
-    - !keyref point.de.Unaften
-    - !keyref point.de.Wallsbuell
-    - !keyref point.de.Schafflund
-    - !keyref point.de.Sprakebuell
-    - !keyref point.de.Achtrup
-    - !keyref point.de.Leck
-    - !keyref point.de.Lindholm                         # line.de.1210
+    -   point.de.Flensburg-Weiche                   # de.1040
+    -   point.de.Handewitt
+    -   point.de.Unaften
+    -   point.de.Wallsbüll
+    -   point.de.Schafflund
+    -   point.de.Sprakebüll
+    -   point.de.Achtrup
+    -   point.de.Leck
+    -   point.de.Lindholm                           # de.1210
 
+
+#-----------------------------------------------------------------------------
 
 ---
 key: point.de.Handewitt
@@ -93,31 +76,35 @@ type: point
 events:
     -   date: !!null
         name: Handewitt
-        sources: !keyref src.de.Kb.1905
+        sources: src.de.Kb.1905
     -   date: !!null
         de.lknr: 01 149
-        sources: !keyref src.de.Bfv.1928
+        sources: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
         de.Rangklasse: IV
         staff: agent
-        sources: !keyref src.de.Bfv.1933
+        sources: src.de.Bfv.1933
     -   date: !var lknr.30
         de.lknr: 01 481
-        sources: !keyref src.de.Bfv.1933
-    -   date: !date c1940
+        sources: src.de.Bfv.1933
+    -   date: c1940
         category: de.Hst
-        sources: !keyref src.de.Bfv.1944
-    -   date: !!null
-        location: !keyloc line.de.1001 5,73
-        sources: !keyref src.de.DRG.Alt.Karte.1949
+        sources: src.de.Bfv.1944
     -   date: !!null
         de.DS100: AHWI
         de.dstnr: !!str 014811
-        sources: !keyref src.de.DS100.1984
-    -   date: !date c1981
+        sources: src.de.DS100.1984
+    -   date: c1981
         category: de.Anst
-        sources: !keyref src.de.DS100.1984
+        sources: src.de.DS100.1984
+
+    -   date: !!null
+        location: !keyloc line.de.1001 172,74
+        sources: src.de.DRG.Alt.Karte.1931
+    -   date: c1935
+        location: !keyloc line.de.1001   5,73
+        sources: src.de.DRG.Alt.Karte.1935
 
     -   date: !!null
         site: !noderef path.de.1001 han left
@@ -127,72 +114,83 @@ events:
 key: point.de.Unaften
 type: point
 events:
-    -   date: !date c1910
+    -   date: c1910
         status: open
         sources:
-            - !keyref src.de.Kb.1905
-            - !keyref src.de.Kb.1914
+            - src.de.Kb.1905
+            - src.de.Kb.1914
     -   date: !!null
         name: Unaften
-        sources: !keyref src.de.Kb.1914
+        sources: src.de.Kb.1914
     -   date: !!null
         service: passenger
-        master: !keyref point.de.Flensburg
+        master: point.de.Flensburg
         de.lknr: 01 364
-        sources: !keyref src.de.Bfv.1928
+        sources: src.de.Bfv.1928
     -   date: !!null
         category: de.Hp
         staff: none
-        sources: !keyref src.de.Bfv.1933
+        sources: src.de.Bfv.1933
     -   date: !var lknr.30
         de.lknr: 01 482
-        sources: !keyref src.de.Bfv.1933
-    -   date: !date c1935
-        master: !keyref point.de.Leck
-        sources: !keyref src.de.Bfv.1938
-    -   date: !!null
-        location: !keyloc line.de.1001 7,74
-        sources: !keyref src.de.DRG.Alt.Karte.1949
-    -   date: !date c1981
+        sources: src.de.Bfv.1933
+    -   date: c1935
+        master: point.de.Leck
+        sources: src.de.Bfv.1938
+    -   date: c1981
         status: closed
+
+    -   date: !!null
+        location: !keyloc line.de.1001 174,74
+        sources: src.de.DRG.Alt.Karte.1931
+    -   date: c1935
+        location: !keyloc line.de.1001   7,74
+        sources: src.de.DRG.Alt.Karte.1949
 
     -   date: !!null
         site: !noderef path.de.1001 una right
 
 
 ---
-key: point.de.Wallsbuell
+key: point.de.Wallsbüll
 type: point
 events:
     -   date: !!null
         name: Meyn-Wallsbüll
-        sources: !keyref src.de.Kb.1905
+        sources: src.de.Kb.1905
     -   date: !!null
         de.lknr: 01 150
-        sources: !keyref src.de.Bfv.1928
-    -   date: !date c1920
+        sources: src.de.Bfv.1928
+    -   date: c1920
         name: Wallsbüll
-        sources: !keyref src.de.Bfv.1928
+        sources: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
         de.Rangklasse: IV
-        sources: !keyref src.de.Bfv.1933
+        sources: src.de.Bfv.1933
     -   date: !var lknr.30
         de.lknr: 01 483
-        sources: !keyref src.de.Bfv.1933
-    -   date: !!null
-        location: !keyloc line.de.1001 11,44
-        sources: !keyref src.de.DRG.Alt.Karte.1949
+        sources: src.de.Bfv.1933
     -   date: !!null
         de.DS100: AWAL
         de.dstnr: !!str 014837
-        sources: !keyref src.de.DS100.1984
-    -   date: !date c1980
+        sources: src.de.DS100.1984
+    -   date: c1980
         staff: none
-        sources: !keyref src.de.DS100.1984
-    -   date: !date c1990
+        sources: src.de.DS100.1984
+    -   date: c1990
         category: de.Anst
-        sources: !keyref src.de.SuW.2005
+        sources: src.de.SuW.2005
+
+    -   date: !!null
+        location: !keyloc line.de.1001 178,44
+        sources: src.de.DRG.Alt.Karte.1931
+    -   date: c1935
+        location: !keyloc line.de.1001  11,44
+        sources: src.de.DRG.Alt.Karte.1935
+    -   date: c1981
+        location: !keyloc line.de.1001  11,43
+        sources: src.de.DB.Hmb.Karte.1984
 
     -   date: !!null
         site: !noderef path.de.1001 wal left
@@ -204,62 +202,73 @@ type: point
 events:
     -   date: !!null
         name: Schafflund
-        sources: !keyref src.de.Kb.1905
+        sources: src.de.Kb.1905
     -   date: !!null
         de.lknr: 01 151
-        sources: !keyref src.de.Bfv.1928
+        sources: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
         de.Rangklasse: IV
-        sources: !keyref src.de.Bfv.1933
+        sources: src.de.Bfv.1933
     -   date: !var lknr.30
         de.lknr: 01 484
-        sources: !keyref src.de.Bfv.1933
-    -   date: !date c1935
+        sources: src.de.Bfv.1933
+    -   date: c1935
         category: de.Hst
-        sources: !keyref src.de.Bfv.1938
-    -   date: !!null
-        location: !keyloc line.de.1001 15,56
-        sources: !keyref src.de.DRG.Alt.Karte.1949
+        sources: src.de.Bfv.1938
     -   date: !!null
         de.DS100: ASFD
         de.dstnr: !!str 014845
-        sources: !keyref src.de.DS100.1984
-    -   date: !date c1982
+        sources: src.de.DS100.1984
+    -   date: c1982
         category: de.Anst
-        sources: !keyref src.de.DS100.1984
+        sources: src.de.DS100.1984
+
+    -   date: !!null
+        location: !keyloc line.de.1001 182,57
+        sources: src.de.DRG.Alt.Karte.1931
+    -   date: c1935
+        location: !keyloc line.de.1001  15,56
+        sources: src.de.DRG.Alt.Karte.1949
 
     -   date: !!null
         site: !noderef path.de.1001 saf left
 
 
 ---
-key: point.de.Sprakebuell
+key: point.de.Sprakebüll
 type: point
 events:
     -   date: !!null
         name: Sprakebüll
-        sources: !keyref src.de.Kb.1905
+        sources: src.de.Kb.1905
     -   date: !!null
         de.lknr: 01 152
-        sources: !keyref src.de.Bfv.1928
+        sources: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
         de.Rangklasse: IV
-        sources: !keyref src.de.Bfv.1933
+        sources: src.de.Bfv.1933
     -   date: !var lknr.30
         de.lknr: 01 485
-        sources: !keyref src.de.Bfv.1933
-    -   date: !!null
-        location: !keyloc line.de.1001 21,89
-        sources: !keyref src.de.DRG.Alt.Karte.1949
+        sources: src.de.Bfv.1933
     -   date: !!null
         de.DS100: ASR
         de.dstnr: !!str 014852
-        sources: !keyref src.de.DS100.1984
-    -   date: !date c1982
+        sources: src.de.DS100.1984
+    -   date: c1981
         category: de.Anst
-        sources: !keyref src.de.DS100.1984
+        sources: src.de.DS100.1984
+
+    -   date: !!null
+        location: !keyloc line.de.1001 188,90
+        sources: src.de.DRG.Alt.Karte.1931
+    -   date: c1935
+        location: !keyloc line.de.1001  21,89
+        sources: src.de.DRG.Alt.Karte.1935
+    -   date: c1981
+        location: !keyloc line.de.1001  21,93
+        sources: src.de.DB.Hmb.Karte.1984
 
     -   date: !!null
         site: !noderef path.de.1001 spr right
@@ -271,26 +280,30 @@ type: point
 events:
     -   date: !!null
         name: Achtrup
-        sources: !keyref src.de.Kb.1905
+        sources: src.de.Kb.1905
     -   date: !!null
         de.lknr: 01 153
-        sources: !keyref src.de.Bfv.1928
+        sources: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
         de.Rangklasse: IV
         staff: agent
-        sources: !keyref src.de.Bfv.1933
+        sources: src.de.Bfv.1933
     -   date: !var lknr.30
         de.lknr: 01 486
-        sources: !keyref src.de.Bfv.1933
-    -   date: !date c1935
+        sources: src.de.Bfv.1933
+    -   date: c1935
         category: de.Hst
-        sources: !keyref src.de.Bfv.1938
-    -   date: !!null
-        location: !keyloc line.de.1001 25,44
-        sources: !keyref src.de.DRG.Alt.Karte.1949
-    -   date: !date c1981
+        sources: src.de.Bfv.1938
+    -   date: c1981
         status: closed
+
+    -   date: !!null
+        location: !keyloc line.de.1001 192,44
+        sources: src.de.DRG.Alt.Karte.1931
+    -   date: c1935
+        location: !keyloc line.de.1001  25,44
+        sources: src.de.DRG.Alt.Karte.1935
 
     -   date: !!null
         site: !noderef path.de.1001 ach left
@@ -302,29 +315,36 @@ type: point
 events:
     -   date: !!null
         name: Leck
-        sources: !keyref src.de.Kb.1905
+        sources: src.de.Kb.1905
     -   date: !!null
         de.lknr: 01 154
-        sources: !keyref src.de.Bfv.1928
+        sources: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
         de.Rangklasse: IV
-        sources: !keyref src.de.Bfv.1933
+        sources: src.de.Bfv.1933
     -   date: !var lknr.30
         de.lknr: 01 487
-        sources: !keyref src.de.Bfv.1933
-    -   date: !!null
-        location: !keyloc line.de.1001 28,79
-        sources: !keyref src.de.DRG.Alt.Karte.1949
+        sources: src.de.Bfv.1933
     -   date: !!null
         de.DS100: ALK
         de.dstnr: !!str 014878
-        sources: !keyref src.de.DS100.1984
-    -   date: !date c1990
+        sources: src.de.DS100.1984
+    -   date: c1990
         category: de.Anst
-        sources: !keyref src.de.SuW.2005
+        sources: src.de.SuW.2005
+
+    -   date: !!null
+        location: !keyloc line.de.1001 195,79
+        sources: src.de.DRG.Alt.Karte.1931
+        location: !keyloc line.de.1001  28,79
+        sources: src.de.DRG.Alt.Karte.1935
 
     -   date: !!null
         site: !noderef path.de.1001 lec left
 
+#    BA-Grenze 202,30 [src.de.DRG.Alt.Karte.1931]
+#               35,20 [src.de.DRG.Alt.Karte.1935]
+
+#    point.de.Lindholm                           de.1210
 
