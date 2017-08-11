@@ -66,6 +66,7 @@ events:
     #   Eigentümer etc.
     #
     -   date: !!null
+        end: point.de.Kiel-Hassee
         owner: org.de.Kiel-Eckernförde-Flensburger-Eisenbahn
         operator: org.de.Kiel-Eckernförde-Flensburger-Eisenbahn
 
@@ -73,7 +74,6 @@ events:
         start: point.de.Kiel-Hassee
         owner: org.de.l.pre
         operator: org.de.e.KPEV.Alt
-        sources: src.de.DRG.1935
 
     #   Verlauf
     #
@@ -84,21 +84,26 @@ events:
             - !pathref path.de.1040  fkie oro   1.5
 
 points:
-    - point.de.Kiel-Hbf                         # line.de.1220
-    - point.de.Kiel-Hg
+    -   point.de.Kiel-Hbf                           # de.1220
+    -   point.de.Kiel-Hg
     -   point.de.Kiel-Hassee
-    - point.de.Russee
-    - point.de.Kiel-Mettenhof
-    - point.de.Melsdorf
-    - point.de.Flemhude
+    -   point.de.Russee
+    -   point.de.Kiel-Mettenhof
+    -   point.de.Melsdorf
+    -   point.de.Flemhude
     -   point.de.Achterwehr
-    - point.de.Felde-Brandsbek
+    -   point.de.Felde-Brandsbek
     -   point.de.Bredenbek
-    - point.de.Kronsburg
-    - point.de.Ostenfeld-Rendsburg
-    - point.de.Schülldorf
-    - point.de.Osterrönfeld-Awanst
-    - point.de.Osterrönfeld                    # line.de.1210
+    -   point.de.Kronsburg
+    -   point.de.Ostenfeld-Rendsburg
+    -   point.de.Schülldorf
+    -   point.de.Osterrönfeld-Awanst
+    -   point.de.Osterrönfeld                       # de.1040
+
+
+#-----------------------------------------------------------------------------
+
+#    point.de.Kiel-Hbf                           de.1220
 
 
 ---
@@ -106,12 +111,10 @@ key: point.de.Kiel-Hg
 type: point
 events:
     -   date: !!null
+        location: !keyloc line.de.1031 1,53
         category: de.Abzw
         name: Hg
         sources: src.de.DRG.Alt.Karte.1931
-    -   date: !!null
-        location: !keyloc line.de.1031 1,53
-        sources: src.de.DRG.Alt.Karte.1949
     -   date: 1981?
         status: closed
 
@@ -187,11 +190,23 @@ events:
     -   date: !var lknr.30
         de.lknr: 01 377
         sources: src.de.Bfv.1933
-    -   date: !!null
-        location: !keyloc line.de.1022 5,36
-        sources: src.de.DRG.Alt.Karte.1949
     -   date: c1980
         status: closed
+    -   date: 2014-12-14?
+        status: open
+        name: Kiel-Russee
+        de.name16: Kiel-Russee
+        de.DS100: AKRU
+        PLC: DE15504
+        de.dstnr: !!str 106928
+        sources: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location: !keyloc line.de.1022 5,36
+        sources: src.de.DRG.Alt.Karte.1931
+    -   date: 2014-12-14?
+        location: !keyloc line.de.1022 5,337
+        sources: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site: !noderef path.de.1022 rus right
@@ -231,9 +246,6 @@ events:
         de.lknr: 01 378
         sources: src.de.Bfv.1933
     -   date: !!null
-        location: !keyloc line.de.1022 8,07
-        sources: src.de.DRG.Alt.Karte.1949
-    -   date: !!null
         de.DS100: AME
         de.dstnr: !!str 013789
         sources: src.de.DS100.1984
@@ -241,6 +253,20 @@ events:
         service: freight
     -   date: c1990
         status: closed
+    -   date: 2014-12-14
+        status: open
+        category: de.Hp
+        de.name16: Melsdorf
+        PLC: DE16958
+        de.dstnr: !!str 106927
+        sources: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location: !keyloc line.de.1022 8,07
+        sources: src.de.DRG.Alt.Karte.1949
+    -   date: 2014-12-14
+        location: !keyloc line.de.1022 7,955
+        sources: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site: !noderef path.de.1022 mel right
@@ -264,9 +290,6 @@ events:
         de.lknr: 01 379
         sources: src.de.Bfv.1933
     -   date: !!null
-        location: !keyloc line.de.1022 11,59
-        sources: src.de.DRG.Alt.Karte.1949
-    -   date: !!null
         de.DS100: AFM
         de.dstnr: !!str 013797
         sources: src.de.DS100.1984
@@ -278,6 +301,10 @@ events:
         status: closed
 
     -   date: !!null
+        location: !keyloc line.de.1022 11,59
+        sources: src.de.DRG.Alt.Karte.1931
+
+    -   date: !!null
         site: !noderef path.de.1022 fle right
 
 
@@ -287,7 +314,6 @@ type: point
 events:
     -   date: c1960
         status: open
-        location: !keyloc line.de.1022 12,6
         service: passenger
     -   date: !!null
         category: de.Hp
@@ -307,7 +333,8 @@ events:
         PLC: DE10031
         de.dstnr: !!str 106933
         sources: src.de.DBAG.BSV.2017
-    -   date: 2014-12-14
+
+    -   date: !!null
         location: !keyloc line.de.1022 12,577
         sources: src.de.DBAG.Geo-Betriebsstelle.2017
 
@@ -343,13 +370,22 @@ events:
         status: closed
     -   date: 2000-11-05
         status: open
-        name: Felde-Brandsbek
-        de.DS100: AFEB
         service: passenger
         staff: none
+    -   date: 2000-11-05
+        name: Felde-Brandsbek
+        de.name16: Felde-Brandsbek
+        de.DS100: AFEB
+        PLC: DE13166
+        de.dstnr: !!str 331025
+        sources: src.de.DBAG.BSV.2017
+
     -   date: !!null
+        location: !keyloc line.de.1022 13,85
+        sources: src.de.DRG.Alt.Karte.1931
+    -   date: 2000-11-05
         location: !keyloc line.de.1022 13,884
-        sources: src.de.DBAG.ISR
+        sources: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site: !noderef path.de.1022 fel left
@@ -368,9 +404,16 @@ events:
         PLC: DE11607
         de.dstnr: 106923
         sources: src.de.DBAG.BSV.2017
+
     -   date: !!null
         location: !keyloc line.de.1022 19,157
         sources: src.de.DBAG.Geo-Betriebsstelle.2017
+
+    -   date: !!null
+        site: !noderef path.de.1022 bre left
+
+
+#   BA-Grenze  19,50 [src.de.DB.Hmb.Karte.1984]
 
 
 ---
@@ -391,9 +434,6 @@ events:
         de.lknr: 01 381
         sources: src.de.Bfv.1933
     -   date: !!null
-        location: !keyloc line.de.1022 20,42
-        sources: src.de.DRG.Alt.Karte.1949
-    -   date: !!null
         de.DS100: AKU
         de.dstnr: !!str 013813
         sources: src.de.DS100.1984
@@ -401,6 +441,10 @@ events:
         service: freight
     -   date: c2000
         status: closed
+
+    -   date: !!null
+        location: !keyloc line.de.1022 20,42
+        sources: src.de.DRG.Alt.Karte.1931
 
     -   date: !!null
         site: !noderef path.de.1022 kro right
@@ -426,13 +470,14 @@ events:
     -   date: c1938
         name: Ostenfeld (Kr Rendsburg)
         sources: src.de.Bfv.1938
-    -   date: !!null
-        location: !keyloc line.de.1022 24,35
-        sources: src.de.DRG.Alt.Karte.1949
     -   date: 1981-05-30
         service: freight
     -   date: c1982
         status: closed
+
+    -   date: !!null
+        location: !keyloc line.de.1022 24,35
+        sources: src.de.DRG.Alt.Karte.1931
 
     -   date: !!null
         site: !noderef path.de.1022 ost right
@@ -456,9 +501,6 @@ events:
     -   date: !var lknr.30
         de.lknr: 01 383
         sources: src.de.Bfv.1933
-    -   date: !!null
-        location: !keyloc line.de.1022 27,16
-        sources: src.de.DRG.Alt.Karte.1949
     -   date: 1981-05-30
         service: freight
     -   date: !!null
@@ -470,9 +512,22 @@ events:
         sources: src.de.DS100.1984
     -   date: c1990
         status: closed
+    -   date: 2014-12-14?
+        status: open
+        category: de.Hp
+        de.name16: Schülldorf
+        PLC: DE19510
+        de.dstnr: !!str 106929
+        sources: src.de.DBAG.BSV.2017
 
     -   date: !!null
+        location: !keyloc line.de.1022 27,16
         site: !noderef path.de.1022 sul right
+        sources: src.de.DRG.Alt.Karte.1931
+    -   date: 2014-12-14?
+        location: !keyloc line.de.1022 27,378
+        site: !noderef path.de.1022 suh right
+        sources: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
@@ -482,13 +537,20 @@ events:
     -   date: c2000
         status: open
         category: de.Awanst
-        location: !keyloc line.de.1022 30,7
         name: Osterrönfeld Awanst
+        de.name16: Osterrönf Awanst
         de.DS100: AONA
-        sources:
-            - src.de.SuW.2005
-            - src.de.TPP.2006
+        PLC: DE18181
+        de.dstnr: !!str 337329
+        sources: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location: !keyloc line.de.1022 30,588
+        sources: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site: !noderef path.de.1040 ora right
+
+
+#    point.de.Osterrönfeld                       de.1040
 
