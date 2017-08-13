@@ -16,8 +16,31 @@ events:
 
     #   Genehmigungen
     #
+    -   date: 1881-02-25
+        concession:
+            by: org.de.l.pre
+            for: org.de.l.pre
+        category: de.Nebenbahn
+        document: src.de.l.pre.1881.5.32
+        sources: src.de.DRG.1935 # 1882/41
 
-    #   Eröffnung und Einstellung
+    #   Eröffnung
+    #
+    -   date: 1882-10-05
+        end: point.de.Klein-Wanzleben
+        status: open
+        passenger: none
+        sources: src.de.DRG.1935 # 1882/41
+    -   date: 1883-10-15
+        start: point.de.Klein-Wanzleben
+        status: open
+        passenger: none
+        sources: src.de.DRG.1935 # 1882/42
+    -   date: 1883-09-01
+        passenger: full
+        sources: src.de.DRG.1935 # 1882/41, 1882/42
+
+    #   Einstellung
     #
     -   date: 2003-12-31
         end: point.de.Wanzleben-Magdeburg-Zuckerfabrik
@@ -45,6 +68,7 @@ events:
 points:
     -   point.de.Blumenberg                         # de.6404
     -   point.de.Wanzleben-Magdeburg-Zuckerfabrik
+    -   point.de.Klein-Wanzleben
     -   point.de.Eilsleben-Magdeburg                # de.6110
 
 
@@ -61,11 +85,28 @@ events:
     -   date: !!null
         category: de.Bft
         name: Wanzleben (b Magdeburg) Zuckerfabrik
+        de.name16: Wanzlbn Zuckerfb
         de.DS100: LWZZ
-        sources: !keyref src.de.DBAG.ISR
+        PLC: DE20779
+        de.dstnr: !!str 337477
+        sources: src.de.DBAG.BSV.2017
     -   date: !!null
         location: !keyloc line.de.6861 8,613
         sources: src.de.web.EBA.Still # Nr. 420
+
+
+---
+key: point.de.Klein-Wanzleben
+type: point
+events:
+    -   date: !!null
+        category: de.Hp
+        name: Klein Wanzleben
+        de.name16: Klein Wanzleben
+        de.DS100: LKW
+        PLC: DE15575
+        de.dstnr: !!str 245233
+        sources: src.de.DBAG.BSV.2017
 
 
 #    point.de.Eilsleben-Magdeburg                de.6110

@@ -90,13 +90,13 @@ events:
         status: open
         sources: !keyref src.de.DRG.1935 # 1854/17
     -   date: 1856-05-02
-        start: point.de.Lingen
+        start: point.de.Lingen-Ems
         end: point.de.Papenburg
         status: open
         sources: src.de.DRG.1935 # 1856/10
     -   date: !date 1856-06-23
         start: !keyref point.de.Münster-Westf-Hbf
-        end: !keyref point.de.Lingen
+        end: !keyref point.de.Lingen-Ems
         status: open
         sources: !keyref src.de.DRG.1935 # 1856/12, 1856/13
 
@@ -252,7 +252,7 @@ points:
     - !keyref point.de.Mesum
     - !keyref point.de.Schroeder-Rheine
     - !keyref point.de.Rheine-Rs
-    - !keyref point.de.Rheine
+    -   point.de.Rheine
     - !keyref point.de.Bentlage
     - !keyref point.de.Rheine-LGr
     - !keyref point.de.Deves
@@ -262,7 +262,8 @@ points:
     - !keyref point.de.Elbergen
     - !keyref point.de.Hanekenfaehr
     - !keyref point.de.Lingen-Faserwerke
-    - !keyref point.de.Lingen
+    -   point.de.Lingen-Ems-Süd
+    -   point.de.Lingen-Ems
     - !keyref point.de.Lingen-Stadt
     - !keyref point.de.Holthausen-Ems
     - !keyref point.de.Geeste
@@ -1045,8 +1046,20 @@ events:
         name: Lingen (Ems) Faserwerke
         sources: !keyref src.de.TPP.2006
 
+
 ---
-key: point.de.Lingen
+key: point.de.Lingen-Ems-Süd
+type: point
+subtype: reference
+progress: stub
+events:
+    -   date: !!null
+        name: Lingen (Ems) Süd
+        site: !noderef path.de.2931 lin.s
+
+
+---
+key: point.de.Lingen-Ems
 type: point
 junction: True
 events:
@@ -1063,7 +1076,12 @@ events:
         sources: !keyref src.de.Bfv.1933
     -   date: !!null
         de.DS100: HLIG
-        sources: !keyref src.de.TPP.2006
+        de.dstnr: !!str 210757
+        sources: src.de.DS100.1984
+    -   date: !!null
+        de.name16: Lingen (Ems)
+        PLC: DE16409
+        sources: src.de.DBAG.BSV.2017
 
 ---
 key: point.de.Lingen-Stadt

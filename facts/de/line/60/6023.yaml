@@ -8,8 +8,8 @@ label: de.S-Bahn
 events:
     -   date: !!null
         region:
-            - !keyref org.de
-            - !keyref org.de.l.be
+            - org.de
+            - org.de.l.be
 
     -   date: !!null
         de.VzG: !!str 6023
@@ -17,11 +17,11 @@ events:
 
     #   Eröffnung
     #
-    -   date: !date 1882-05-15
+    -   date: 1882-05-15
         status: open
         service: passenger
-        sources: !keyref src.de.DRG.1935
-    -   date: !date 1980-09-18
+        sources: src.de.DRG.1935 # 1882/19
+    -   date: 1980-09-18
         service: none
     
     #   Eigenschaften
@@ -30,39 +30,20 @@ events:
         category: de.Hauptbahn
         tracks: 2
         gauge: 1435
-        sources: !keyref src.de.DRG.Bln.1927
-    -   date: !date 1928-11-06
+        sources: src.de.DRG.Bln.1927
+    -   date: 1928-11-06
         electrified:
             rail: !var el.de.bln
-        sources: !keyref src.de.Kuhlmann.2000
-    -   date: !date c1990
+        sources: src.de.Kuhlmann.2000
+    -   date: c1990
         tracks: 1
-        sources: !keyref src.de.SuW.2000
+        sources: src.de.SuW.2000
 
     #   Eigentümer etc.
     #
     -   date: !!null
-        owner: !keyref org.de.l.pre
-        operator: !keyref org.de.e.KPEV.Bln
-        sources: !keyref src.de.DRG.1935
-
-    -   date: !date 1920-04-01
-        owner: !keyref org.de
-        operator: !keyref org.de.r.RVM.PH
-    -   date: !date 1924-02-12
-        operator: !keyref org.de.e.DREb
-    -   date: !date 1924-08-30
-        operator: !keyref org.de.e.DRG
-
-    -   date: !var org.de.DR.start
-        operator: !keyref org.dd.DR
-
-    -   date: !var org.de.DBAG.start
-        owner: !keyref org.de.e.DBAG
-        operator: !keyref org.de.e.DBAG
-    -   date: !var org.de.DBNetz.start
-        owner: !keyref org.de.e.DBNetz
-        operator: !keyref org.de.e.DBNetz
+        owner: org.de.l.pre
+        operator: org.de.e.KPEV.Bln
 
     #   Verlauf
     #
@@ -74,7 +55,7 @@ events:
             - !pathref path.de.6020 acha hal  -2.0
 
 points:
-    - !keyref point.de.Berlin-Charlottenburg                # line.de.6109
-    - !keyref point.de.Berlin-Charlottenburg-S-Bahn         # line.de.6024
-    - !keyref point.de.Berlin-Halensee                      # line.de.6020
+    -   point.de.Berlin-Charlottenburg                # de.6109
+    -   point.de.Berlin-Charlottenburg-S-Bahn         # de.6024
+    -   point.de.Berlin-Halensee                      # de.6020
 

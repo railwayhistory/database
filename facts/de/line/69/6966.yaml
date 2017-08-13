@@ -7,8 +7,8 @@ progress: stub
 events:
     -   date: !!null
         region:
-            - !keyref org.de
-            - !keyref org.de.l.sn
+            - org.de
+            - org.de.l.sn
 
     -   date: !var vzg.dr
         de.VzG: !!str 6966
@@ -16,12 +16,21 @@ events:
 
     #   Genehmigungen
     #
+    -   date: 1881-04-20
+        end: point.de.Schmiedeberg-Dresden
+        concession:
+            by: org.de.l.sn
+            for: org.de.l.sn
+        category: de.Nebenbahn
+        document: src.de.l.sn.1881.3.28
+        sources: src.de.DRG.1935 # 1882/45
 
     #   Eröffnung und Einstellung
     #
-    -   date: !!null
+    -   date: 1882-11-01
+        end: point.de.Schmiedeberg-Dresden
         status: open
-        sources: !keyref src.de.SuW.2011
+        sources: src.de.DRG.1935 # 1882/45
 
     #   Eigenschaften
     #
@@ -33,8 +42,28 @@ events:
     #
 
 points:
-    - !keyref point.de.Freital-Hainsberg                    # line.de.6258
-    - !keyref point.de.Kurort-Kipsdorf
+    -   point.de.Freital-Hainsberg                  # de.6258
+    -   point.de.Schmiedeberg-Dresden
+    -   point.de.Kurort-Kipsdorf
+
+
+#-----------------------------------------------------------------------------
+
+#    point.de.Freital-Hainsberg                  de.6258
+
+
+---
+key: point.de.Schmiedeberg-Dresden
+type: point
+events:
+    -   date: !!null
+        category: de.Bf
+        name: Schmiedeberg (Bz Dresden)
+        de.name16: Schmiedebg BzDre
+        de.DS100: DSBG
+        PLC: DE19397
+        de.dstnr: !!str 069559
+        sources: src.de.DBAG.BSV.2017
 
 
 ---

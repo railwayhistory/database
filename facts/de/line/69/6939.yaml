@@ -7,8 +7,8 @@ progress: stub
 events:
     -   date: !!null
         region:
-            - !keyref org.de
-            - !keyref org.de.l.mv
+            - org.de
+            - org.de.l.mv
 
     -   date: !var vzg.dr
         de.VzG: !!str 6939
@@ -16,25 +16,20 @@ events:
 
     #   Genehmigungen
     #
+    -   date: 1882-06-12
+        start: point.de.Plau-am-See
+        concession:
+            by: org.de.l.msw
+            for: org.de.Güstrow-Plauer-Eisenbahn
+        document: src.de.l.msw.1882.15.137
+        sources: src.de.DRG.1935 # 1882/49
 
     #   Eröffnung und Einstellung
     #
-    -   date: !!null
-        end: !keyref point.de.Karow-Meckl
+    -   date: 1882-12-05
+        start: point.de.Plau-am-See
         status: open
-        passenger: none
-        freight: none
-        sources: !keyref src.de.SuW.2011
-    -   date: !!null
-        start: !keyref point.de.Karow-Meckl
-        end: !keyref point.de.Priemerburg
-        status: open
-        passenger: none
-        sources: !keyref src.de.SuW.2011
-    -   date: !!null
-        start: !keyref point.de.Priemerburg
-        status: open
-        sources: !keyref src.de.SuW.2011
+        sources: src.de.DRG.1935 # 1882/49
 
     #   Eigenschaften
     #
@@ -46,13 +41,20 @@ events:
     #
 
 points:
-    - !keyref point.de.Meyenburg                            # line.de.6938
-    - !keyref point.de.Meyenburg-LGr                        # line.de.6938
-    - !keyref point.de.Ganzlin
-    - !keyref point.de.Karow-Meckl                          # line.de.6935
-    - !keyref point.de.Priemerburg                          # line.de.1122
-    - !keyref point.de.Güstrow                              # line.de.1122
+    -   point.de.Meyenburg                          # de.6938
+    -   point.de.Meyenburg-LGr                      # de.6938
+    -   point.de.Ganzlin
+    -   point.de.Plau-am-See
+    -   point.de.Karow-Meckl                        # de.6935
+    -   point.de.Priemerburg                        # de.1122
+    -   point.de.Güstrow                            # de.1122
 
+
+#-----------------------------------------------------------------------------
+
+#   point.de.Meyenburg                          de.6938
+
+#   point.de.Meyenburg-LGr                      de.6938
 
 ---
 key: point.de.Ganzlin
@@ -62,6 +64,27 @@ events:
     -   date: !!null
         name: Ganzlin
         de.DS100: WGLN
-        sources: !keyref src.de.DBAG.ISR
+        sources: src.de.DBAG.ISR
 
+
+---
+key: point.de.Plau-am-See
+type: point
+events:
+    -   date: !!null
+        category: de.Bf
+        name: Plau am See
+        de.name16: Plau am See
+        de.DS100: WPU
+        de.dstnr: !!str 271650
+        sources: src.de.DBAG.BSV.2017
+
+
+#   point.de.Karow-Meckl                        de.6935
+
+
+#   point.de.Priemerburg                        de.1122
+
+
+#   point.de.Güstrow                            de.1122
 
