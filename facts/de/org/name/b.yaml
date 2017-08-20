@@ -28,16 +28,28 @@ events:
 
 
 ---
+key: org.de.Bergisch-Langenberg
+type: organization
+subtype: region
+events:
+    -   date: !!null
+        name: Bergisch Langenberg
+
+
+---
 key: org.de.Bergisch-Märkische-Eisenbahn
 type: organization
 subtype: company
 progress: stub
 events:
-    -   date: 1844-05-11
+    -   date: 1844-07-12
+        status: open
         name: Bergisch-Märkische Eisenbahngesellschaft
+        domicile: org.de.Elberfeld
         sources: src.de.l.pre.1844.30.315
     -   date: 1850-09-14
-        operator: org.de.l.pre 
+        property:
+            operator: org.de.l.pre.ED-Elberfeld 
         basis:
             date: 1850-08-23
             contract:
@@ -45,7 +57,9 @@ events:
                     -   org.de.Bergisch-Märkische-Eisenbahn
                     -   org.de.l.pre
             document: src.de.l.pre.1850.33.408
-        sources: src.de.Bergisch-Märkische-Eisenbahn.1856
+        sources:
+            -   src.de.Bergisch-Märkische-Eisenbahn.1856
+            -   src.de.l.pre.1850.33.411
     -   date: 1882-01-01
         owner: org.de.l.pre
         sources:
@@ -59,15 +73,14 @@ type: organization
 subtype: company
 progress: stub
 events:
-    -   date: 1839-04-03
+    -   date: 1839-05-15
         status: open
         name: Berlin-Sächsische Eisenbahn-Gesellschaft
+        domicile: org.de.l.be
         sources: src.de.l.pre.1839.16.177
-    -   date: 1840-12-07
+    -   date: 1840-06-15
         name: Berlin-Anhaltische Eisenbahn-Gesellschaft
-        sources:
-            - !keyref src.de.DRG.1935 # 1840/9
-            - !keyref src.de.l.pre.1840.23.376
+        document: src.de.l.pre.pot.1840.24.171
     -   date: 1882-01-01
         owner: org.de.l.pre
         sources:
@@ -87,7 +100,7 @@ events:
         sources: src.de.l.pre.pot.1872.40.325
     -   date: c1877
         property:
-            operator: org.de.l.pre.KED-Berlin
+            operator: org.de.l.pre.ED-Berlin
         note:
             de: „vier Wochen nach Perfektion dieses Vertrages“
         sources: src.de.l.pre.1877.19.216
@@ -116,7 +129,7 @@ progress: stub
 events:
     -   date: !!null
         name: Berliner Nord-Eisenbahngesellschaft
-        sources: !keyref src.de.l.pre.1872.1.1
+        sources: src.de.l.pre.1872.1.1
     -   date: 1875-10?
         owner: org.de.l.pre
         note:
@@ -127,7 +140,7 @@ events:
                 [src.de.DRG.1935]
     -   date: 1875-12-12
         status: closed
-        sources: !keyref src.de.DRG.1935 # 1877/20
+        sources: src.de.DRG.1935 # 1877/20
 
 
 ---
@@ -158,15 +171,21 @@ type: organization
 subtype: company
 progress: stub
 events:
-    -   date: 1840-05-26
+    -   date: 1841-05-15
         status: open
         name: Berlin-Frankfurter Eisenbahn-Gesellschaft
+        domicile: org.de.l.be
         sources: src.de.l.pre.1841.9.94
-    -   date: !date 1845-08-01
+    -   date: 1845-08-01
         status: closed
         merged: org.de.Niederschlesisch-Märkische-Eisenbahn
+        property:
+            owner: org.de.Niederschlesisch-Märkische-Eisenbahn
+            operator: org.de.Niederschlesisch-Märkische-Eisenbahn
         #note: >
-        #    Datum lt. Wikipedia.
+        #    Datum lt. Wikipedia. (Vermutlich: Erster des zweiten auf die 
+        #    Perfektionierung des Vertrags folgenden Monats. Bestätigung des
+        #    Vertrags vom 1845-06-27.)
         #    src.de.DRG.1935: Vertrag vom 1844-12-12,
         #    s.a. src.de.l.pre.1845.21.459
 
@@ -192,11 +211,13 @@ type: organization
 subtype: company
 progress: stub
 events:
-    -   date: !!null
+    -   date: 1845-02-28
+        status: open
         name: Berlin-Hamburger Eisenbahn-Gesellschaft
         sources: src.de.l.pre.1845.11.167
     -   date: 1884-01-01
-        owner: org.de.l.pre
+        property:
+            owner: org.de.l.pre
         sources: src.de.DRG.1935 # 1846/20
 
 
@@ -208,9 +229,12 @@ progress: stub
 events:
     -   date: !!null
         name: Berlin-Potsdamer Eisenbahngesellschaft
-    -   date: !date 1846-08-07
+    -   date: 1846-08-07
         status: closed
         merged: org.de.Berlin-Potsdam-Magdeburger-Eisenbahn
+        property:
+            owner: org.de.Berlin-Potsdam-Magdeburger-Eisenbahn
+            operator: org.de.Berlin-Potsdam-Magdeburger-Eisenbahn
         sources: src.de.l.pre.1845.28.555
 
 
@@ -220,17 +244,20 @@ type: organization
 subtype: company
 progress: stub
 events:
-    -   date: !!null
+    -   date: 1845-08-17
+        status: open
         name: Potsdamer-Magdeburger Eisenbahngesellschaft
-    -   date: !date 1846-08-07
+        domicile: org.de.Potsdam
+        sources: src.de.l.pre.1845.28.555
+    -   date: 1846-08-07
         name: Berlin-Potsdam-Magdeburger Eisenbahngesellschaft
         sources:
-            - !keyref src.de.l.pre.1846.24.319
-            - !keyref src.de.DRG.1935
-    -   date: !date 1880-04-01
+            - src.de.l.pre.1846.24.319
+            - src.de.DRG.1935
+    -   date: 1880-04-01
         status: closed
-        merged: !keyref org.de.e.KPEV.Mg
-        sources: !keyref src.de.l.pre.1880.20
+        merged: org.de.e.KPEV.Mg
+        sources: src.de.l.pre.1880.20
 
 
 ---
@@ -242,6 +269,7 @@ events:
     -   date: 1840-10-12
         status: open
         name: Berlin-Stettiner Eisenbahn-Gesellschaft
+        domicile: org.pl.Szczecin
         sources: src.de.l.pre.1840.20.305
     -   date: 1879-01-01
         property:
@@ -278,6 +306,7 @@ events:
 ---
 key: org.de.Bleckeder-Kleinbahn-Verwges
 type: organization
+subtype: company
 progress: stub
 events:
     -   date: !!null
@@ -285,19 +314,31 @@ events:
 
 
 ---
-key: org.de.Bonn-Kölner-Eisenbahn
+key: org.de.Bonn
 type: organization
+subtype: region
 progress: stub
 events:
-    -   date: 1840-09-27
+    -   date: !!null
+        name: Stadt Bonn
+
+
+---
+key: org.de.Bonn-Kölner-Eisenbahn
+type: organization
+subtype: company
+progress: stub
+events:
+    -   date: 1841-02-11
         status: open
-        name: Bonn-Kölner Eisenbahn-Gesellschaft
+        name: Bonn-Kölner Eisenbahngesellschaft
+        domicile: org.de.Bonn
         sources: src.de.l.pre.1841.4.30
-    -   date: !date 1857-01-01
-        merged: !keyref org.de.Rheinische-Eisenbahn
+    -   date: 1857-01-01
+        merged: org.de.Rheinische-Eisenbahn
         sources:
-            - !keyref src.de.l.pre.1856.63.999
-            - !keyref src.de.DRG.1935
+            - src.de.l.pre.1856.63.999
+            - src.de.DRG.1935
 
 
 ---
@@ -337,8 +378,10 @@ key: org.de.Breslau-Schweidnitz-Freiburger-Eisenbahn
 type: organization
 progress: stub
 events:
-    -   date: 1842-03-16
+    -   date: 1843-02-10
+        status: open
         name: Breslau-Schweidnitz-Freiburger Eisenbahn-Gesellschaft
+        domicile: org.pl.Wrocław
         sources: src.de.l.pre.1843.7.53
     -   date: 1886-07-01
         owner: org.de.l.pre
