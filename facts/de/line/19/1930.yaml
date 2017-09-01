@@ -7,8 +7,8 @@ progress: stub
 events:
     -   date: !!null
         region:
-            - !keyref org.de
-            - !keyref org.de.l.ni
+            - org.de
+            - org.de.l.ni
 
     -   date: !!null
         de.VzG: !!str 1930
@@ -22,6 +22,21 @@ events:
             by: org.de.l.bsw
             for: org.de.Braunschweigische-Eisenbahn
         source: src.de.DRG.1935 # 1877/35
+    -   date: 1881-03-10
+        start: point.de.Langelsheim
+        end: point.de.Herzog-Juliushütte-LGr
+        concession:
+            by: org.de.l.bsw
+            for: org.de.Braunschweigische-Eisenbahn
+        document: src.de.l.bsw.1881.3.37
+        source: src.de.DRG.1935 # 1883/8
+    -   date: 1880-02-16
+        start: point.de.Herzog-Juliushütte-LGr
+        concession:
+            by: org.de.l.pre
+            for: org.de.Braunschweigische-Eisenbahn
+        document: src.de.l.pre.han.1881.18.191
+        source: src.de.DRG.1935 # 1883/8
 
     #   Eröffnung und Einstellung
     #
@@ -29,6 +44,10 @@ events:
         end: point.de.Langelsheim
         status: open
         source: src.de.DRG.1935 # 1877/35
+    -   date: 1883-05-01
+        start: point.de.Langelsheim
+        status: open
+        source: src.de.DRG.1935 # 1883/8
 
     #   Eigenschaften
     #
@@ -40,9 +59,16 @@ events:
     #
 
 points:
-    - !keyref point.de.Neuekrug-Hahausen                    # line.de.1940
-    - !keyref point.de.Langelsheim
-    - !keyref point.de.Goslar                               # line.de.1932
+    -   point.de.Neuekrug-Hahausen                  # de.1940
+    -   point.de.Langelsheim
+    -   point.de.Herzog-Juliushütte
+    -   point.de.Herzog-Juliushütte-LGr
+    -   point.de.Goslar                             # de.1932
+
+
+#-----------------------------------------------------------------------------
+
+#    point.de.Neuekrug-Hahausen                  de.1940
 
 
 ---
@@ -54,5 +80,27 @@ events:
         category: de.Bf
         name: Langelsheim
         de.DS100: HLNG
-        source: !keyref src.de.DBAG.ISR
+        source: src.de.DBAG.ISR
+
+
+---
+key: point.de.Herzog-Juliushütte
+type: point
+progress: stub
+events:
+    -   date: !!null
+        name: Herzog Juliushütte
+
+
+---
+key: point.de.Herzog-Juliushütte-LGr
+type: point
+subtype: border
+progress: stub
+events:
+    -   date: !!null
+        name: Herzog Juliushütte Bsw/Pre
+
+
+#    point.de.Goslar                             de.1932
 

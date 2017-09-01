@@ -7,8 +7,8 @@ progress: stub
 events:
     -   date: !!null
         region:
-            - !keyref org.de
-            - !keyref org.de.l.sn
+            - org.de
+            - org.de.l.sn
 
     -   date: !var vzg.dr
         de.VzG: !!str 6626
@@ -16,12 +16,20 @@ events:
 
     #   Genehmigungen
     #
+    -   date: 1880-11-05
+        start: point.de.Johanngeorgenstadt
+        concession:
+            by: org.de.l.sn
+            for: org.de.l.sn
+        document: src.de.l.sn.1880.10.150
+        source: src.de.DRG.1935 # 1883/29
 
     #   Eröffnung und Einstellung
     #
-    -   date: !!null
+    -   date: 1883-09-20
+        start: point.de.Johanngeorgenstadt
         status: open
-        source: !keyref src.de.SuW.2011
+        source: src.de.DRG.1935 # 1883/29
 
     #   Eigenschaften
     #
@@ -33,9 +41,12 @@ events:
     #
 
 points:
-    - !keyref point.int.Johanngeorgenstadt-Potůčky
-    - !keyref point.de.Schwarzenberg-Erzgeb                 # line.de.6264
+    -   point.int.Johanngeorgenstadt-Potůčky
+    -   point.de.Johanngeorgenstadt
+    -   point.de.Schwarzenberg-Erzgeb               # de.6264
 
+
+#-----------------------------------------------------------------------------
 
 ---
 key: point.int.Johanngeorgenstadt-Potůčky
@@ -46,6 +57,27 @@ events:
     -   date: !!null
         local_name: 
             de: Johanngeorgenstadt Grenze
+        category: de.Gp
+        de.name16: Johanngeorgst Gr
         de.DS100: DXJ
-        source: !keyref src.de.DBAG.ISR
+        PLC: DE15300
+        de.dstnr: !!str 098772
+        source: src.de.DBAG.BSV.2017
+
+
+---
+key: point.de.Johanngeorgenstadt
+type: point
+events:
+    -   date: !!null
+        category: de.Bf
+        name: Johanngeorgenstadt
+        de.name16: Johanngeorgenst
+        de.DS100: DJ
+        PLC: DE15299
+        de.dstnr: !!str 066712
+        source: src.de.DBAG.BSV.2017
+
+
+#    point.de.Schwarzenberg-Erzgeb               de.6264
 

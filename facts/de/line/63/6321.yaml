@@ -7,8 +7,8 @@ progress: stub
 events:
     -   date: !!null
         region:
-            - !keyref org.de
-            - !keyref org.de.l.mv
+            - org.de
+            - org.de.l.mv
 
     -   date: !var vzg.dr
         de.VzG: !!str 6321
@@ -16,12 +16,21 @@ events:
 
     #   Genehmigungen
     #
+    -   date: 1881-02-25
+        start: point.de.Altefähr
+        concession:
+            by: org.de.l.pre
+            for: org.de.l.pre
+        category: de.Nebenbahn
+        document: src.de.l.pre.1881.5.32
+        source: src.de.DRG.1935 # 1883/14
 
     #   Eröffnung und Einstellung
     #
-    -   date: !!null
+    -   date: 1883-07-01
+        start: point.de.Altefähr
         status: open
-        source: !keyref src.de.SuW.2011
+        source: src.de.DRG.1935 # 1883/14
 
     #   Eigenschaften
     #
@@ -33,13 +42,18 @@ events:
     #
 
 points:
-    - !keyref point.de.Stralsund-Hbf                        # line.de.6081
-    - !keyref point.de.Stralsund-Rügendamm
-    - !keyref point.de.Altefähr
-    - !keyref point.de.Bergen-Rügen
-    - !keyref point.de.Lietzow-Rügen
-    - !keyref point.de.Sassnitz-Mukran-Borchtitz
-    - !keyref point.de.Sassnitz
+    -   point.de.Stralsund-Hbf                      # de.6081
+    -   point.de.Stralsund-Rügendamm
+    -   point.de.Altefähr
+    -   point.de.Bergen-Rügen
+    -   point.de.Lietzow-Rügen
+    -   point.de.Sassnitz-Mukran-Borchtitz
+    -   point.de.Sassnitz
+
+
+#-----------------------------------------------------------------------------
+
+#    point.de.Stralsund-Hbf                      de.6081
 
 
 ---
@@ -50,7 +64,7 @@ events:
     -   date: !!null
         name: Stralsund Rügendamm
         de.DS100: WSRR
-        source: !keyref src.de.TPP.2015
+        source: src.de.TPP.2015
 
 
 ---
@@ -61,9 +75,9 @@ events:
     -   date: !!null
         name: Altefähr
         de.DS100: WAF
-        source: !keyref src.de.TPP.2015
+        source: src.de.TPP.2015
     -   date: !!null
-        connection: !keyref point.de.Altefähr-Landesb
+        connection: point.de.Altefähr-Landesb
 
 
 ---
@@ -74,9 +88,9 @@ events:
     -   date: !!null
         name: Bergen auf Rügen
         de.DS100: WBG
-        source: !keyref src.de.TPP.2015
+        source: src.de.TPP.2015
     -   date: !!null
-        connection: !keyref point.de.Bergen-Rügen-Ost
+        connection: point.de.Bergen-Rügen-Ost
 
 
 ---
@@ -87,7 +101,7 @@ events:
     -   date: !!null
         name: Lietzow (Rügen)
         de.DS100: WLI
-        source: !keyref src.de.TPP.2015
+        source: src.de.TPP.2015
 
 
 ---
@@ -98,7 +112,7 @@ events:
     -   date: !!null
         name: Sassnitz-Mukran/Borchtitz
         de.DS100: "WM  B"
-        source: !keyref src.de.TPP.2015
+        source: src.de.TPP.2015
 
 
 ---
@@ -109,6 +123,6 @@ events:
     -   date: !!null
         name: Sassnitz
         de.DS100: WSZ
-        source: !keyref src.de.TPP.2015
+        source: src.de.TPP.2015
 
 

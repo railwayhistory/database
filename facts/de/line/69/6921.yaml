@@ -7,8 +7,8 @@ progress: stub
 events:
     -   date: !!null
         region:
-            - !keyref org.de
-            - !keyref org.de.l.mv
+            - org.de
+            - org.de.l.mv
 
     -   date: !var vzg.dr
         de.VzG: !!str 6921
@@ -16,30 +16,48 @@ events:
 
     #   Genehmigungen
     #
+    -   date: 1883-07-19
+        concession:
+            by: org.de.l.msw
+            for: org.de.Wismar-Rostocker-Eisenbahn
+        document: src.de.l.msw.1883.22.152
+        source: src.de.DRG.1935 # 1883/16
 
     #   Eröffnung und Einstellung
     #
-    -   date: !!null
+    -   date: 1883-07-27
+        start: point.de.Bad-Doberan
         status: open
-        source: !keyref src.de.SuW.2011
+        freight: none
+        source: src.de.DRG.1935 # 1883/16
+    -   date: 1883-12-22
+        end: point.de.Bad-Doberan
+        status: open
+        source: src.de.DRG.1935 # 1883/49
+    -   date: 1883-12-22
+        start: point.de.Bad-Doberan
+        freight: full
+        source: src.de.DRG.1935 # 1883/16
 
     #   Eigenschaften
     #
 
     #   Eigentümer etc.
     #
-    -   date: !!null
-        operator: !keyref org.de.DB-Netz
-        source: !keyref src.de.SuW.2011
 
     #   Verlauf
     #
 
 points:
-    - !keyref point.de.Wismar                               # line.de.6441
-    - !keyref point.de.Hornstorf
-    - !keyref point.de.Bad-Doberan
+    -   point.de.Wismar                             # de.6441
+    -   point.de.Hornstorf
+    -   point.de.Bad-Doberan
     -   point.de.Rostock-Hbf                        # de.6325
+
+
+#-----------------------------------------------------------------------------
+
+#    point.de.Wismar                             de.6441
 
 
 ---
@@ -50,7 +68,7 @@ events:
     -   date: !!null
         name: Hornstorf
         de.DS100: WHOR
-        source: !keyref src.de.TPP.2015
+        source: src.de.TPP.2015
 
 
 ---
@@ -61,6 +79,8 @@ events:
     -   date: !!null
         name: Bad Doberan
         de.DS100: WDO
-        source: !keyref src.de.TPP.2015
+        source: src.de.TPP.2015
 
+
+#    point.de.Rostock-Hbf                        de.6325
 
