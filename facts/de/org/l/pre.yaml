@@ -7,6 +7,25 @@
 # Zweibuchstabige Kürzel. Provinz Schleswig-Holstein siehe org.de.l.sh
 
 ---
+key: org.de.l.pre.ha
+type: organization
+subtype: region
+progress: stub
+events:
+    -   date: 1866-10-03
+        status: open
+        name: Provinz Hannover
+        master: org.de.l.pre
+    -   date: 1846-08-23
+        name: Land Hannover
+        master: org.de
+        source: src.de.ablmb.1946.13.305
+    -   date: 1946-11-01
+        status: closed
+        successor: org.de.l.ni
+        document: src.de.ablmb.1947.15.341
+
+---
 key: org.de.l.pre.hz
 type: organization
 subtype: region
@@ -14,10 +33,48 @@ progress: stub
 events:
     -   date: !!null
         name: Hohenzollernsche Lande
+        master: org.de.l.pre
+
+---
+key: org.de.l.pre.rh
+type: organization
+subtype: region
+progress: stub
+events:
+    -   date: !!null
+        name: Rheinprovinz
+        master: org.de.l.pre
+
+---
+key: org.de.l.pre.wf
+type: organization
+subtype: region
+progress: stub
+events:
+    -   date: !!null
+        name: Provinz Westfalen
+        master: org.de.l.pre
+    -   date: 1946-08-23
+        status: closed
+        successor: org.de.l.nw
 
 # 1.2  Regierungsbezirke
 #
 # Dreibuchstabige Kürzel.
+
+---
+key: org.de.l.pre.kas
+type: organization
+subtype: region
+progress: stub
+events:
+    -   date: 1867-02-22
+        status: open
+        name: Regierungsbezirk Kassel
+        domicile: org.de.Kassel
+        document: src.de.l.pre.1867.19.273
+        note:
+            de: Übernimmt auch die Funktionen einer Provinz.
 
 ---
 key: org.de.l.pre.Köln
@@ -27,6 +84,21 @@ progress: stub
 events:
     -   date: !!null
         name: Preußische Regierung zu Köln
+
+
+---
+key: org.de.l.pre.wie
+type: organization
+subtype: region
+progress: stub
+events:
+    -   date: 1867-02-22
+        status: open
+        name: Regierungsbezirk Wiesbaden
+        domicile: org.de.Wiesbaden
+        document: src.de.l.pre.1867.19.273
+        note:
+            de: Übernimmt auch die Funktionen einer Provinz.
 
 
 # 2  Eisenbahn-Behörden
@@ -69,12 +141,15 @@ events:
 
 # 2.2  Eisenbahndirektionen
 #
-# Für die in Reichsbahndirektionen überführten Direktionen siehe die Serie
-# org.de.e.
+# Durch Erlaß wurden die nach und nach errichteten Direktion allesamt mit dem
+# 1. April 1895 aufgelöst [src.de.l.pre.1895.5.11] und neue Direktionen, teils
+# am gleiche Ort errichtet. Letztere führen Schlüsselnamen mit dem Prefix
+# `org.de.e`; siehe dort.
 #
-# Schlüsselname ist die Bezeichnung der Eisenbahn für solche Direktionen,
-# deren Firma eine solche enthält, oder "ED-" gefolgt vom Ortsname des
-# Domizils anderfalls. Es gilt, wie immer, die letzte geführte Firma.
+# Für erstere ist der Schlüsselname unterhalb `org.de.l.pre` die Bezeichnung
+# der Eisenbahn für solche Direktionen, deren Firma eine solche enthält, oder
+# `ED-` gefolgt vom Ortsname des Domizils anderfalls. Es gilt, wie immer, die
+# letzte geführte Firma.
 ---
 key: org.de.l.pre.Aachen-Düsseldorf-Ruhrorter-Eisenbahn
 type: organization
@@ -85,6 +160,25 @@ events:
         status: open
         name: Königliche Direktion der Aachen-Düsseldorf-Ruhrorter Eisenbahn
         document: src.de.l.pre.1850.12.162
+
+
+---
+key: org.de.l.pre.Bebra-Hanauer-Eisenbahn
+type: organization
+subtype: company
+progress: stub
+events:
+    -   date: !!null
+        name: Direktion der Bebra-Hanauer Eisenbahn
+        domicile: org.de.Kassel
+        source: src.de.l.pre.1867.1.5
+    -   date: 1866-12-15
+        name: Königliche Direktion der Bebra-Hanauer Eisenbahn
+        document: src.de.l.pre.1867.1.5
+    -   date: 1867-03-13
+        status: closed
+        successor: org.de.l.pre.ED-Kassel
+        document: src.de.l.pre.1867.23.376
 
 
 ---
@@ -116,33 +210,132 @@ events:
 
 
 ---
-key: org.de.l.pre.Rhein-Nahe-Eisenbahn
+key: org.de.l.pre.ED-Altona
 type: organization
 subtype: company
 progress: stub
 events:
-    -   date: 1856-09-04
+    -   date: 1884-03-01
         status: open
-        name: Königliche Direktion der Rhein-Nahe Eisenbahn
-        document: src.de.l.pre.1856.49.804
-    -   date: 1859-08-01
+        name: Königliche Eisenbahn-Direktion zu Altona
+        domicile: org.de.Altona
+        document: src.de.l.pre.1884.4.59
+    -   date: 1895-04-01
         status: closed
-        property:
-            operator: org.de.l.pre.Saarbrücker-Eisenbahn
-        document: src.de.l.pre.1859.26.356
+        document: src.de.l.pre.1895.5.11
 
 
 ---
-key: org.de.l.pre.Wilhelmsbahn
+key: org.de.l.pre.ED-Berlin
 type: organization
 subtype: company
 progress: stub
 events:
-    -   date: 1857-04-20
+    -   date: 1852-08-21
         status: open
-        name: Königliche Direktion der Wilhelmsbahn
-        domicile: org.pl.Racibórz
-        document: src.de.l.pre.1857.22.288
+        name: Königliche Direction der Niederschlesisch-Märkischen Eisenbahn
+        document: src.de.l.pre.1852.37.577
+    -   date: 1880-04-01
+        name: Königliche Eisenbahndirektion zu Berlin
+        document: src.de.l.pre.1880.6.49
+    -   date: 1895-04-01
+        status: closed
+        document: src.de.l.pre.1895.5.11
+
+
+---
+key: org.de.l.pre.ED-Breslau
+type: organization
+subtype: company
+progress: stub
+events:
+    -   date: 1856-10-13
+        status: open
+        name: Königliche Direktion der Oberschlesischen Eisenbahn
+        domicile: org.pl.Wrocław
+        document: src.de.l.pre.1856.53.864
+    -   date: 1884-03-01
+        name: Königliche Eisenbahn-Direktion zu Breslau
+        document: src.de.l.pre.1884.4.59
+    -   date: 1895-04-01
+        status: closed
+        document: src.de.l.pre.1895.5.11
+
+
+---
+key: org.de.l.pre.ED-Bromberg
+type: organization
+subtype: company
+progress: stub
+events:
+    -   date: 1849
+        status: open
+        name: Königliche Direktion der Ostbahn
+        source: src.de.l.pre.1849.38.404
+    -   date: 1880-04-01
+        name: Königliche Eisenbahndirektion zu Bromberg
+        document: src.de.l.pre.1880.6.49
+    -   date: 1895-04-01
+        status: closed
+        document: src.de.l.pre.1895.5.11
+
+
+---
+key: org.de.l.pre.ED-Elberfeld
+type: organization
+subtype: company
+progress: stub
+events:
+    -   date: 1850-09-14
+        status: open
+        name: Königliche Direktion der Bergisch-Märkischen Eisenbahn
+        domicile: org.de.Elberfeld
+        source: src.de.l.pre.1850.33.411
+    -   date: 1854-03-13
+        name: Königliche Eisenbahn-Direktion zu Elberfeld
+        note:
+            de: laut Quelle ohne Zusatz „zu Elberfeld”.
+        document: src.de.l.pre.1854.9.108
+    -   date: 1895-04-01
+        status: closed
+        document: src.de.l.pre.1895.5.11
+
+
+---
+key: org.de.l.pre.ED-Hannover
+type: organization
+subtype: company
+progress: stub
+events:
+    -   date: 1843-03-13
+        status: open
+        name: Königliche Eisenbahn-Direction
+        domicile: org.de.Hannover
+        source: src.de.l.han.1843.I.7.77
+    -   date: 1855-12-08
+        name: General-Direction der Eisenbahnen und Telegraphen
+        source: src.de.l.han.1855.II.6.45
+    -   date: 1866-12-15
+        name: Königliche Eisenbahndirektion in Hannover
+        document: src.de.l.pre.1867.1.5
+    -   date: 1866-12-15
+        short_name: KED Hannover
+    -   date: 1895-04-01
+        status: closed
+        document: src.de.l.pre.1895.5.11
+
+
+---
+key: org.de.l.pre.ED-Kassel
+type: organization
+subtype: company
+progress: stub
+events:
+    -   date: 1867-03-13
+        status: open
+        name: Königliche Eisenbahndirektion zu Kasel
+        domicile: org.de.Kassel
+        document: src.de.l.pre.1867.23.376
 
 
 ---
@@ -154,18 +347,19 @@ events:
 
 
 ---
-key: org.de.l.pre.ED-Posen
+key: org.de.l.pre.ED-Magdeburg
 type: organization
 events:
-    -   date: 1895-04-01
+    -   date: 1879-12-29
         status: open
-        name: Königliche Eisenbahn-Direction zu Posen
-    -   date: 1920-01-20
+        name: Königlichen Eisenbahn-Direction zu Magdeburg
+    -   date: 1895-04-01
         status: closed
+        document: src.de.l.pre.1895.5.11
 
 
 ---
-key: org.de.l.pre.Saarbrücker-Eisenbahn
+key: org.de.l.pre.ED-Saarbrücken
 type: organization
 subtype: company
 progress: stub
@@ -199,6 +393,60 @@ events:
 
 
 ---
+key: org.de.l.pre.ED-Stettin-II
+type: organization
+events:
+    -   date: 1880-02-01
+        status: open
+        name: Königlichen Eisenbahn-Direction zu Stettin
+    -   date: 1895-04-01
+        status: closed
+        document: src.de.l.pre.1895.5.11
+
+
+---
+key: org.de.l.pre.ED-Wiesbaden
+type: organization
+events:
+    -   date: !!null
+        name: Direktion der Nassauischen Staatsbahn
+        domicile: org.de.Wiesbaden
+    -   date: 1866-12-15
+        name: Königliche Eisenbahndirektion zu Wiesbaden
+        document: src.de.l.pre.1867.1.5
+
+
+---
+key: org.de.l.pre.Rhein-Nahe-Eisenbahn
+type: organization
+subtype: company
+progress: stub
+events:
+    -   date: 1856-09-04
+        status: open
+        name: Königliche Direktion der Rhein-Nahe Eisenbahn
+        document: src.de.l.pre.1856.49.804
+    -   date: 1859-08-01
+        status: closed
+        property:
+            operator: org.de.l.pre.ED-Saarbrücken
+        document: src.de.l.pre.1859.26.356
+
+
+---
+key: org.de.l.pre.Wilhelmsbahn
+type: organization
+subtype: company
+progress: stub
+events:
+    -   date: 1857-04-20
+        status: open
+        name: Königliche Direktion der Wilhelmsbahn
+        domicile: org.pl.Racibórz
+        document: src.de.l.pre.1857.22.288
+
+
+---
 key: org.de.l.pre.Westfälische-Eisenbahn
 type: organization
 subtype: company
@@ -223,6 +471,19 @@ events:
 #
 # Schlüsselname "Baukommission-" gefolgt von der Bezeichnung der zu
 # errichtenden Eisenbahn oder, wo eine solche fehlt, des Domizils.
+
+---
+key: org.de.l.pre.Baukommission-Bebra-Hanauer-Eisenbahn
+type: organization
+subtype: company
+events:
+    -   date: 1867-03-13
+        status: open
+        name: Königliche Kommission für den Bau der Bebra-Hanauer Eisenbahn
+        domicile: org.de.Kassel
+        document: src.de.l.pre.1867.23.376
+
+
 ---
 key: org.de.l.pre.Baukommission-Cöln-Crefelder-Eisenbahn
 type: organization
@@ -312,7 +573,7 @@ events:
     -   date: 1852-05-22
         status: closed
         property:
-            operator: org.de.l.pre.Saarbrücker-Eisenbahn
+            operator: org.de.l.pre.ED-Saarbrücken
         document: src.de.l.pre.1852.42.681
 
 
