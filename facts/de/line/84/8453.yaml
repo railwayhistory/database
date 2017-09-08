@@ -13,34 +13,45 @@ events:
                 - org.de.Frankfurt-Main
             document: src.de.l.hes.1843.14.154
         source: src.de.DRG.1935 # 1848/3
-    -   date: 1868-06-12
-        treaty:
-            parties:
-                - org.de.l.pre
-                - org.de.l.hes
-        document:
-            -   src.de.l.hes.1868.50.991
-            -   src.de.l.pre.1869.22.405
-        # Übergang des hessischen Anteils der Strecke in preuß. Staatseigentum
-        # per 1868-08-01.
-        source: src.de.DRG.1935 # 1848/3
-    -   date: 1869-02-26
-        treaty:
-            parties:
-                - org.de.l.pre
-                - org.de.Frankfurt-Main
-        document: src.de.l.pre.1869.21.379
-        # Übergang des frankfurter Anteils der Strecke in preuß.
-        # Staatseigentum per 1869-03-05. 
-        source: src.de.DRG.1935 # 1848/3
 
     -   date: 1848-04-01
         status: open
         freight: none
         source: src.de.DRG.1935 # 1848/3
 
+    -   date: !!null
+        end: point.de.Frankfurt-Oberrad-LGr
+        owner: org.de.Frankfurt-Main
+    -   date: !!null
+        start: point.de.Frankfurt-Oberrad-LGr
+        owner: org.de.l.hes
+    -   date: 1868-08-01
+        start: point.de.Frankfurt-Oberrad-LGr
+        basis:
+            date: 1868-06-12
+            treaty:
+                parties:
+                    - org.de.l.pre
+                    - org.de.l.hes
+            document:
+                -   src.de.l.hes.1868.50.991
+                -   src.de.l.pre.1869.22.405
+        source: src.de.DRG.1935 # 1848/3
+    -   date: 1869-03-05
+        end: point.de.Frankfurt-Oberrad-LGr
+        owner: org.de.l.pre
+        basis:
+            date: 1869-02-26
+            treaty:
+                parties:
+                    - org.de.l.pre
+                    - org.de.Frankfurt-Main
+            document: src.de.l.pre.1869.21.379
+        source: src.de.DRG.1935 # 1848/3
+
 points:
     -   point.de.Frankfurt-Main-Lokalbf
+    -   point.de.Frankfurt-Oberrad-LGr
     -   point.de.Frankfurt-Oberrad
     -   point.de.Offenbach-Main-Lokalbf
 
@@ -63,6 +74,18 @@ progress: stub
 events:
     -   date: !!null
         name: Frankfurt-Oberrad
+
+
+---
+key: point.de.Frankfurt-Oberrad-LGr
+type: point
+subtype: border
+progress: stub
+events:
+    -   date: !!null
+        name: Frankfurt-Oberrad Fra/Hes
+    -   date: 1866-10-03
+        name: Frankfurt-Oberrad Pre/Hes
 
 
 ---
