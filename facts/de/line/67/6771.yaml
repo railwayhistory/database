@@ -7,8 +7,8 @@ progress: stub
 events:
     -   date: !!null
         region:
-            - !keyref org.de
-            - !keyref org.de.l.mv
+            - org.de
+            - org.de.l.mv
 
     -   date: !var vzg.dr
         de.VzG: !!str 6771
@@ -16,12 +16,24 @@ events:
 
     #   Genehmigungen
     #
+    -   date: 1882-05-15
+        end: point.de.Ueckermünde
+        concession:
+            by: org.de.l.pre
+            for: org.de.l.pre
+        document: src.de.l.pre.1882.19.280
+        source: src.de.DRG.1935 # 1884/6
 
     #   Eröffnung und Einstellung
     #
-    -   date: !!null
+    -   date: 1884-04-20
+        end: point.de.Torgelow
         status: open
-        source: !keyref src.de.SuW.2011
+        source: src.de.DRG.1935 # 1884/6
+    -   date: 1884-09-15
+        start: point.de.Torgelow
+        status: open
+        source: src.de.DRG.1935 # 1884/32
 
     #   Eigenschaften
     #
@@ -33,9 +45,30 @@ events:
     #
 
 points:
-    - !keyref point.de.Jatznick                             # line.de.6081
-    - !keyref point.de.Gumnitz
-    - !keyref point.de.Ueckermünde-Stadthafen
+    -   point.de.Jatznick                           # de.6081
+    -   point.de.Torgelow
+    -   point.de.Gumnitz
+    -   point.de.Ueckermünde
+    -   point.de.Ueckermünde-Stadthafen
+
+
+#-----------------------------------------------------------------------------
+
+#    point.de.Jatznick                           de.6081
+
+
+---
+key: point.de.Torgelow
+type: point
+events:
+    -   date: !!null
+        category: de.Bf
+        name: Torgelow
+        de.name16: Torgelow
+        de.DS100: WTO
+        PLC: DE20293
+        de.dstnr: !!str 284422
+        source: src.de.DBAG.BSV.2017
 
 
 ---
@@ -48,6 +81,20 @@ events:
 
 
 ---
+key: point.de.Ueckermünde
+type: point
+events:
+    -   date: !!null
+        category: de.Hp
+        name: Ueckermünde
+        de.name16: Ueckermünde
+        de.DS100: WUM
+        PLC: DE20424
+        de.dstnr: !!str 284471
+        source: src.de.DBAG.BSV.2017
+
+
+---
 key: point.de.Ueckermünde-Stadthafen
 type: point
 progress: stub
@@ -55,5 +102,5 @@ events:
     -   date: !!null
         name: Ueckermünde Stadthafen
         de.DS100: WUMH
-        source: !keyref src.de.TPP.2015
+        source: src.de.TPP.2015
 

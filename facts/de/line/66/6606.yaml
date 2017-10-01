@@ -7,8 +7,8 @@ progress: stub
 events:
     -   date: !!null
         region:
-            - !keyref org.de
-            - !keyref org.de.l.sn
+            - org.de
+            - org.de.l.sn
 
     -   date: !var vzg.dr
         de.VzG: !!str 6606
@@ -16,18 +16,49 @@ events:
 
     #   Genehmigungen
     #
+    -   date: 1883-06-25
+        end: point.de.Königsbrück
+        concession:
+            by: org.de.l.sn
+            for: org.de.l.sn
+        category: de.Nebenbahn
+        document: src.de.l.sn.1883.7.50
+        source: src.de.DRG.1935 # 1884/47
+    -   date: 1883-11-24
+        end: point.de.Königsbrück
+        concession:
+            by: org.de.l.sn
+            for: org.de.l.sn
+        document: src.de.l.sn.1896.14.225
+        source: src.de.DRG.1935 # 1884/47
 
     #   Eröffnung und Einstellung
     #
     -   date: !!null
-        end: !keyref point.de.Dresden-Klotzsche-Bbf
-        status: closed
-        source: !keyref src.de.SuW.2011
-    -   date: !!null
-        start: !keyref point.de.Dresden-Klotzsche-Bbf
-        end: !keyref point.de.Königsbrück
+        end: point.de.Königsbrück
+        gauge: 750
+    -   date: 1884-10-17
+        end: point.de.Königsbrück
         status: open
-        source: !keyref src.de.SuW.2011
+        source: src.de.DRG.1935 # 1884/47
+    -   date: 1897-03
+        end: point.de.Königsbrück
+        gauge: 1435
+        note:
+            deu: >
+                „Die Strecke ist in der Zeit vom August 1896 bis März 1897 in
+                eine Vollspurbahn umgebaut worden.”
+        source: src.de.DRG.1935 # 1884/47
+
+    -   date: !!null
+        end: point.de.Dresden-Klotzsche-Bbf
+        status: closed
+        source: src.de.SuW.2011
+    -   date: !!null
+        start: point.de.Dresden-Klotzsche-Bbf
+        end: point.de.Königsbrück
+        status: open
+        source: src.de.SuW.2011
     -   date: 2001-08-11
         start: point.de.Königsbrück
         status: closed
@@ -43,10 +74,17 @@ events:
     #
 
 points:
-    - !keyref point.de.Dresden-Klotzsche                    # line.de.6212
-    - !keyref point.de.Dresden-Klotzsche-Bbf                # line.de.6212
-    - !keyref point.de.Königsbrück
-    - !keyref point.de.Straßgräbchen-Bernsdorf-Oberlausitz  # line.de.6194
+    -   point.de.Dresden-Klotzsche                  # de.6212
+    -   point.de.Dresden-Klotzsche-Bbf              # de.6212
+    -   point.de.Königsbrück
+    -   point.de.Straßgräbchen-Bernsdorf-Oberlausitz # de.6194
+
+
+#-----------------------------------------------------------------------------
+
+#    point.de.Dresden-Klotzsche                  de.6212
+
+#    point.de.Dresden-Klotzsche-Bbf              de.6212
 
 
 ---
@@ -58,5 +96,8 @@ events:
         category: de.Bf
         name: Königsbrück
         de.DS100: DKB
-        source: !keyref src.de.DBAG.ISR
+        source: src.de.DBAG.ISR
+
+
+#    point.de.Straßgräbchen-Bernsdorf-Oberlausitz de.6194
 
