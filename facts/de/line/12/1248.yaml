@@ -7,14 +7,14 @@ label: freight
 events:
     -   date: !!null
         region:
-            - !keyref org.de
-            - !keyref org.de.l.hh
+            - org.de
+            - org.de.l.hh
 
     -   date: !!null
         end: point.de.Hamburg-Veddel
         de.VzG: !!str 1248
         note:
-            de: >
+            deu: >
                 lt. Quelle Hamburg Süd W4 – Hamburg-Veddel 43W02;
                 km 30,0+0 – 30,6+80
         source: src.de.DBAG.Geo-Strecke.2017
@@ -31,46 +31,45 @@ events:
     -   date: 1880-01-01
         end: point.de.Hamburg-Veddel
         status: open
-        service: freight
-        source: !keyref src.de.DRG.1935
-    -   date: !date c1890
-        start: !keyref point.de.Hamburg-Veddel
+        passenger: none
+        source: src.de.DRG.1935
+    -   date: c1890
+        start: point.de.Hamburg-Veddel
         status: open
-        service: freight
+        passenger: none
 
-    -   date: !date c1970
-        end: !keyref point.de.Hamburg-Veddel
-        electrified:
-            overhead: !var el.de
+    -   date: c1970
+        end: point.de.Hamburg-Veddel
+        electrified: de
 
     -   date: !!null
-        owner: !keyref org.de.l.pre
-        operator: !keyref org.de.e.hmb
-        source: !keyref src.de.DRG.1935
-    -   date: !date 1920-04-01
-        owner: !keyref org.de
-        operator: !keyref org.de.r.RVM.PH
-    -   date: !date 1924-02-12
-        operator: !keyref org.de.Deutsche-Reichsbahn-I
-    -   date: !date 1924-08-30
-        operator: !keyref org.de.DR
-    -   date: !var org.de.DB.start
-        operator: !keyref org.de.DB
-    -   date: !date c1990
-        owner: !keyref org.de.l.hh
+        owner: org.de.l.pre
+        operator: org.de.e.hmb
+        source: src.de.DRG.1935
+    -   date: 1920-04-01
+        owner: org.de
+        operator: org.de.r.RVM.PH
+    -   date: 1924-02-12
+        operator: org.de.Deutsche-Reichsbahn-I
+    -   date: 1924-08-30
+        operator: org.de.DR
+    -   date: org.de.DB.start
+        operator: org.de.DB
+    -   date: c1990
+        owner: org.de.l.hh
         operator: org.de.Hamburg-Port-Authority
 
     -   date: !!null
         course:
-            - !pathref path.de.2200 kar  boha -6.
-            - !pathref path.de.2200 akar fsud -3.5
-            - !pathref path.de.1248 a    f     0.
-            - !pathref path.de.1255 fved sud   1.5
+            -   path.de.2200 kar  boha
+            -   path.de.2200 akar fsud
+            -   path.de.1248 a    f
+            -   path.de.1255 fved sud
 
 points:
-    -   !keyref point.de.Hamburg-Süd                        # line.de.1255
-    -   !keyref point.de.Hamburg-Veddel                     # line.de.2200
-    -   !keyref point.de.Hamburg-Kai-Rechts
+    -   point.de.Hamburg-Süd                        # line.de.1255
+    -   point.de.Hamburg-Veddel                     # line.de.2200
+    -   point.de.Hamburg-Kai-Rechts
 
 
 ---
@@ -79,34 +78,34 @@ type: point
 events:
     -   date: !!null
         name: Versmannkai
-    -   date: !date c1920
+    -   date: c1920
         name: Hamburg Hgbf Kai rechts
-        source: !keyref src.de.Bfv.1928
+        source: src.de.Bfv.1928
     -   date: !!null
         service: freight
         de.lknr: 01 035
-        source: !keyref src.de.Bfv.1928
+        source: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
-        de.Rangklasse: II
-        source: !keyref src.de.Bfv.1933
-    -   date: !date c1930
+        de.rang: II
+        source: src.de.Bfv.1933
+    -   date: c1930
         name: Hamburg Kai rechts
-        source: !keyref src.de.Bfv.1933
-    -   date: !var lknr.30
+        source: src.de.Bfv.1933
+    -   date: de.lknr.30
         de.lknr: 01 076
-        source: !keyref src.de.Bfv.1933
-    -   date: !date c1940
-        de.Rangklasse: I
-        source: !keyref src.de.Bfv.1944
+        source: src.de.Bfv.1933
+    -   date: c1940
+        de.rang: I
+        source: src.de.Bfv.1944
     -   date: !!null
         de.DS100: ASQ
         de.dstnr: !!str 010769
-        source: !keyref src.de.DS100.1984
-    -   date: !date c1990
+        source: src.de.DS100.1984
+    -   date: c1990
         category: de.Anst
-        source: !keyref src.de.SuW.2005
+        source: src.de.SuW.2005
 
     -   date: !!null
-        site: !noderef path.de.2200 kar left
+        site: path.de.2200 kar
 

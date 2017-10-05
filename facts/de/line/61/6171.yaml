@@ -6,8 +6,8 @@ type: line
 events:
     -   date: !!null
         region:
-            - !keyref org.de
-            - !keyref org.de.l.be
+            - org.de
+            - org.de.l.be
 
     -   date: !!null
         de.VzG: !!str 6171
@@ -16,33 +16,32 @@ events:
     -   date: !!null
         category: de.Hauptbahn
         tracks: 2
-        electrified:
-            overhead: !var el.de
+        electrified: de
 
-    -   date: !date 2006-05-27
+    -   date: 2006-05-27
         status: open
-        source: !keyref src.de.WP.Nord-Sued-Fernbahn
+        source: src.de.WP.Nord-Sued-Fernbahn
 
     #   Eigentümer und Betreiber
     #
     -   date: !!null
-        owner: !keyref org.de.DB-Netz
-        operator: !keyref org.de.DB-Netz
+        owner: org.de.DB-Netz
+        operator: org.de.DB-Netz
 
     #   Verlauf
     #
     -   date: !!null
         course:
-            - !pathref path.de.6020 wea  fhbf
-            - !pathref path.de.6171 a    f
-            - !pathref path.de.6132 fhbf sks
+            -   path.de.6020 wea  fhbf
+            -   path.de.6171 a    f
+            -   path.de.6132 fhbf sks
 
 points:
-    - !keyref point.de.Berlin-Wedding-Abzw                  # line.de.6170
-    - !keyref point.de.Berlin-Hbf-Lehrter-Bf
-    - !keyref point.de.Berlin-Potsdamer-Platz-Fernbf
-    - !keyref point.de.Berlin-Südkreuz
-    - !keyref point.de.Berlin-Südkreuz-Südende
+    - point.de.Berlin-Wedding-Abzw                  # line.de.6170
+    - point.de.Berlin-Hbf-Lehrter-Bf
+    - point.de.Berlin-Potsdamer-Platz-Fernbf
+    - point.de.Berlin-Südkreuz
+    - point.de.Berlin-Südkreuz-Südende
 
 
 ---
@@ -51,9 +50,9 @@ type: structure
 subtype: tunnel
 events:
     -   date: !!null
-        length: 3453
+        length: 3453.
         name: Fernbahntunnel Nord-Süd-Verbindung
-        source: !keyref src.de.DBAG.ISR
+        source: src.de.DBAG.ISR
 
 
 ---
@@ -63,19 +62,19 @@ junction: True
 events:
     -   date: !!null
         location:
-            - !keyloc line.de.6171 2,200
-            - !keyloc line.de.6107 1,303
-            - !keyloc line.de.6134 2,200
-        source: !keyref src.de.DBAG.ISR
+            line.de.6171: 2,200
+            line.de.6107: 1,303
+            line.de.6134: 2,200
+        source: src.de.DBAG.ISR
     -   date: !!null
         category: de.Bf
     -   date: !!null
         name: Berlin Hauptbahnhof-Lehrter Bf
         de.DS100: BL
-        source: !keyref src.de.TPP.2006
+        source: src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.6171 hbf
+        site: path.de.6171 hbf
 
 
 ---
@@ -84,20 +83,20 @@ type: point
 events:
     -   date: !!null
         location:
-            - !keyloc line.de.6171 4,100
-            - !keyloc line.de.6134 4,100
+            line.de.6171: 4,100
+            line.de.6134: 4,100
         category: de.Hp
-        source: !keyref src.de.DBAG.ISR
+        source: src.de.DBAG.ISR
     -   date: !!null
         name: Berlin Potsdamer Platz Fernbf
         de.DS100: BPOF
-        source: !keyref src.de.TPP.2006
-    -   date: !date 2006
+        source: src.de.TPP.2006
+    -   date: 2006
         name: Berlin Potsdamer Platz
-        source: !keyref src.de.TPP.2007
+        source: src.de.TPP.2007
 
     -   date: !!null
-        site: !noderef path.de.6171 pot
+        site: path.de.6171 pot
 
 
 ---
@@ -107,20 +106,20 @@ junction: True
 events:
     -   date: !!null
         location:
-            - !keyloc line.de.6171 7,900
-            - !keyloc line.de.6134 7,900
+            line.de.6171: 7,900
+            line.de.6134: 7,900
         category: de.Bf
-        source: !keyref src.de.DBAG.ISR
+        source: src.de.DBAG.ISR
     -   date: !!null
         name: Berlin Papestraße Fernbf
         de.DS100: BPAF
-        source: !keyref src.de.TPP.2006
-    -   date: !date 2006
+        source: src.de.TPP.2006
+    -   date: 2006
         name: Berlin Südkreuz
-        source: !keyref src.de.TPP.2007
+        source: src.de.TPP.2007
 
     -   date: !!null
-        site: !noderef path.de.6132 skr
+        site: path.de.6132 skr
 
 
 ---
@@ -130,17 +129,17 @@ junction: True
 events:
     -   date: !!null
         location:
-            - !keyloc line.de.6171 9,053
-            - !keyloc line.de.6134 9,053
-        source: !keyref src.de.WP.Nord-Sued-Fernbahn
+            line.de.6171: 9,053
+            line.de.6134: 9,053
+        source: src.de.WP.Nord-Sued-Fernbahn
     -   date: !!null
         category: de.Bft
-        master: !keyref point.de.Berlin-Südkreuz
+        master: point.de.Berlin-Südkreuz
     -   date: !!null
         name: Berlin Südkreuz Südende
         de.DS100: BPAFS
-        source: !keyref src.de.TPP.2007
+        source: src.de.TPP.2007
 
     -   date: !!null
-        site: !noderef path.de.6132 sks
+        site: path.de.6132 sks
 

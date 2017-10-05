@@ -8,55 +8,55 @@ label: freight
 events:
     -   date: !!null
         region:
-            - !keyref org.de
-            - !keyref org.de.l.be
+            - org.de
+            - org.de.l.be
 
     #   Eröffnung
     #
-    -   date: !date 1908-10-31
+    -   date: 1908-10-31
         status: open
-        source: !keyref src.de.Kuhlmann.2000
+        source: src.de.Kuhlmann.2000
 
     #   Eigenschaften
     #
     -   date: !!null
         category: de.Kleinbahn
         tracks: 1
-        gauge: 1435
-        service: freight
-    -   date: !date c1950
+        gauge: 1435mm
+        passenger: none
+    -   date: c1950
         category: de.Nebenbahn
 
     #   Stilllegung
     #
-    -   date: !date 1978-12-14?
+    -   date: 1978-12-14?
         status: closed
-    -   date: !date c1980
+    -   date: c1980
         status: removed
         
     #   Eigentümer und Betriebsführer
     #
     -   date: !!null
-        owner: !keyref org.de.Industriebahn-Tegel-Friedrichsfelde
-        operator: !keyref org.de.Industriebahn-Tegel-Friedrichsfelde
-        source: !keyref src.de.Kuhlmann.2000
-    -   date: !date 1925-07-01
-        owner: !keyref org.de.Niederbarnimer-Eisenbahn
-        operator: !keyref org.de.Niederbarnimer-Eisenbahn
-        source: !keyref src.de.Kuhlmann.2000
-    -   date: !date 1950-07-01
-        operator: !keyref org.dd.DR
+        owner: org.de.Industriebahn-Tegel-Friedrichsfelde
+        operator: org.de.Industriebahn-Tegel-Friedrichsfelde
+        source: src.de.Kuhlmann.2000
+    -   date: 1925-07-01
+        owner: org.de.Niederbarnimer-Eisenbahn
+        operator: org.de.Niederbarnimer-Eisenbahn
+        source: src.de.Kuhlmann.2000
+    -   date: 1950-07-01
+        operator: org.dd.DR
 
     #   Verlauf
     #
     -   date: !!null
         course:
-            - !pathref path.de.6550a a    f    0.0
-            - !pathref path.de.6550  fteh teo  0.0
+            -   path.de.6550a a    f
+            -   path.de.6550  fteh teo
 
 points:
-    - !keyref point.de.Berlin-Tegel-Hafen
-    - !keyref point.de.Berlin-Tegel-Ost                     # line.de.6550
+    - point.de.Berlin-Tegel-Hafen
+    - point.de.Berlin-Tegel-Ost                     # line.de.6550
 
 
 ---
@@ -64,35 +64,36 @@ key: point.de.Berlin-Tegel-Hafen
 type: point
 junction: True
 events:
-    -   date: !date 1908-11-01
+    -   date: 1908-11-01
         status: open
         service: freight
-        source: !keyref src.de.Kuhlmann.2000
+        source: src.de.Kuhlmann.2000
     -   date: !!null
         name: Tegel Hafen
-        source: !keyref src.de.DRG.Bln.1927
-    -   date: !var lknr.kb
+        source: src.de.DRG.Bln.1927
+    -   date: de.lknr.kb
         de.lknr: 43 050
-        source: !keyref src.de.Bfv.1938
-    -   date: !date c1940
+        source: src.de.Bfv.1938
+    -   date: c1940
         name: Berlin-Tegel Hafen
-        source: !keyref src.de.Bfv.1944
+        source: src.de.Bfv.1944
     -   date: !!null
         category: de.Bf
-        source: !keyref src.dd.DR.Bln.1953
-    -   date: !date c1950
-        de.Rangklasse: U
+        source: src.dd.DR.Bln.1953
+    -   date: c1950
+        de.rang: U
         de.VBL: Tgh
-        source: !keyref src.dd.DR.Bln.1953
+        source: src.dd.DR.Bln.1953
     -   date: !!null
-        location: !keyloc line.de.8698 0,0
-        source: !keyref src.dd.DR.Bln.1959
-    -   date: !date c1950
-        master: !keyref point.de.Berlin-Tegel
-        source: !keyref src.dd.DR.Bln.1959
-    -   date: !date 1978-12-14?
+        location:
+            line.de.8698: 0,0
+        source: src.dd.DR.Bln.1959
+    -   date: c1950
+        master: point.de.Berlin-Tegel
+        source: src.dd.DR.Bln.1959
+    -   date: 1978-12-14?
         status: closed
-        source: !keyref src.dd.DR.Bln.1983
+        source: src.dd.DR.Bln.1983
 
     -   date: !!null
-        site: !noderef path.de.6550a teh left
+        site: path.de.6550a teh

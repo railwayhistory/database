@@ -8,8 +8,8 @@ progress: stub
 events:
     -   date: !!null
         region:
-            - !keyref org.de
-            - !keyref org.de.l.sh
+            - org.de
+            - org.de.l.sh
 
     -   date: !!null
         de.VzG: !!str 1212
@@ -17,12 +17,12 @@ events:
 
     -   date: !!null
         course:
-            - !pathref path.de.1220 elm  felh  1.5
-            - !pathref path.de.1212 a    f     0.0
+            -   path.de.1220 elm felh
+            -   path.de.1212 a f
 
 points:
-    - !keyref point.de.Elmshorn                         # line.de.1220
-    - !keyref point.de.Elmshorn-Hafen
+    - point.de.Elmshorn                         # line.de.1220
+    - point.de.Elmshorn-Hafen
 
 
 ---
@@ -31,8 +31,9 @@ type: point
 events:
     -   date: !!null
         name: Elmshorn Hafen
-        location: !keyloc line.de.1212 0,7
-        source: !keyref src.de.SuW.2011
+        location:
+            line.de.1212: 0,7
+        source: src.de.SuW.2011
 
     -   date: !!null
-        site: !noderef path.de.1212 elh left
+        site: path.de.1212 elh

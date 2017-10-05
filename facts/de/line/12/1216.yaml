@@ -6,8 +6,8 @@ type: line
 events:
     -   date: !!null
         region:
-            - !keyref org.de
-            - !keyref org.de.l.sh
+            - org.de
+            - org.de.l.sh
 
     -   date: !!null
         de.VzG: !!str 1216
@@ -27,23 +27,23 @@ events:
     -   date: 1880-12-15
         status: open
         source: src.de.DRG.1935 # 1880/45
-    -   date: !date 1961-05-27
+    -   date: 1961-05-27
         passenger: none
-        source: !keyref src.de.WP.Bahnstrecke-St-Michealisdonn-Friedrichskoog
-    -   date: !date 1994-07-31
+        source: src.de.WP.Bahnstrecke-St-Michealisdonn-Friedrichskoog
+    -   date: 1994-07-31
         freight: none
-        source: !keyref src.de.Bundestag.13.2569
-    -   date: !date 1994-12-01
+        source: src.de.Bundestag.13.2569
+    -   date: 1994-12-01
         status: closed
-        source: !keyref src.de.web.EBA.Still # Nr. 3
+        source: src.de.web.EBA.Still # Nr. 3
 
     #   Eigenschaften
     #
     -   date: !!null
         category: de.Nebenbahn
         tracks: 1
-        gauge: 1435
-        source: !keyref src.de.DRG.1927
+        gauge: 1435mm
+        source: src.de.DRG.1927
 
     #   Eigentümer etc.
     #
@@ -51,40 +51,18 @@ events:
         owner: org.de.Schleswig-Holsteinische-Marschbahn
         operator: org.de.Schleswig-Holsteinische-Marschbahn
 
-    -   date: !date 1890-07-01
-        owner: !keyref org.de.l.pre
-        operator: !keyref org.de.e.hmb
-
-    -   date: !date 1920-04-01
-        owner: !keyref org.de
-        operator: !keyref org.de.r.RVM.PH
-    -   date: !date 1924-02-12
-        operator: !keyref org.de.Deutsche-Reichsbahn-I
-    -   date: !date 1924-08-30
-        operator: !keyref org.de.DR
-
-    -   date: !var org.de.DB.start
-        operator: !keyref org.de.DB
-
-    -   date: !var org.de.Deutsche-Bahn.start
-        owner: !keyref org.de.Deutsche-Bahn
-        operator: !keyref org.de.Deutsche-Bahn
-    -   date: !var org.de.DBNetz.start
-        owner: !keyref org.de.DB-Netz
-        operator: !keyref org.de.DB-Netz
-
     #   Verlauf
     #
     -   date: !!null
         course:
-            - !pathref path.de.1210 smi  fmar  2.5
-            - !pathref path.de.1216 a    f     0.0
+            -   path.de.1210 smi fmar
+            -   path.de.1216 a f
 
 points:
-    - !keyref point.de.St-Michaelisdonn                 # line.de.1210
-    - !keyref point.de.Volsemenhusen
-    - !keyref point.de.Marne-W11
-    - !keyref point.de.Marne
+    - point.de.St-Michaelisdonn                 # line.de.1210
+    - point.de.Volsemenhusen
+    - point.de.Marne-W11
+    - point.de.Marne
 
 
 ---
@@ -93,28 +71,29 @@ type: point
 events:
     -   date: !!null
         name: Volsemenhusen
-        source: !keyref src.de.Kb.1905
+        source: src.de.Kb.1905
     -   date: !!null
         de.lknr: 01 096
-        source: !keyref src.de.Bfv.1928
+        source: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
-        de.Rangklasse: IV
-        source: !keyref src.de.Bfv.1933
-    -   date: !date c1930
+        de.rang: IV
+        source: src.de.Bfv.1933
+    -   date: c1930
         staff: agent
-        source: !keyref src.de.Bfv.1933
-    -   date: !var lknr.30
+        source: src.de.Bfv.1933
+    -   date: de.lknr.30
         de.lknr: 01 511
-        source: !keyref src.de.Bfv.1933
+        source: src.de.Bfv.1933
     -   date: !!null
-        location: !keyloc line.de.1216 4,63
-        source: !keyref src.de.DRG.Alt.Karte.1949
-    -   date: !date c1970
+        location:
+            line.de.1216: 4,63
+        source: src.de.DRG.Alt.Karte.1949
+    -   date: c1970
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.1216 vol right
+        site: path.de.1216 vol
 
 
 ---
@@ -127,12 +106,12 @@ events:
         short_name: Marne
     -   date: !!null
         location:
-            - !keyloc line.de.1216 7,60
-            - !keyloc line.de.1217 0,00
-        source: !keyref src.de.DRG.Alt.Karte.1949
+            line.de.1216: 7,60
+            line.de.1217: 0,00
+        source: src.de.DRG.Alt.Karte.1949
 
     -   date: !!null
-        site: !noderef path.de.1216 maw
+        site: path.de.1216 maw
 
 
 ---
@@ -141,28 +120,29 @@ type: point
 events:
     -   date: !!null
         name: Marne
-        source: !keyref src.de.Kb.1905
+        source: src.de.Kb.1905
     -   date: !!null
         de.lknr: 01 097
-        source: !keyref src.de.Bfv.1928
+        source: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
-        de.Rangklasse: III
-        source: !keyref src.de.Bfv.1933
-    -   date: !var lknr.30
+        de.rang: III
+        source: src.de.Bfv.1933
+    -   date: de.lknr.30
         de.lknr: 01 512
-        source: !keyref src.de.Bfv.1933
+        source: src.de.Bfv.1933
     -   date: !!null
-        location: !keyloc line.de.1215 8,26
-        source: !keyref src.de.DRG.Alt.Karte.1949
+        location:
+            line.de.1215: 8,26
+        source: src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.DS100: AMAR
         de.dstnr: !!str 015123
-        source: !keyref src.de.DS100.1984
-    -   date: !date c1970
+        source: src.de.DS100.1984
+    -   date: c1970
         staff: none
-        source: !keyref src.de.DS100.1984
+        source: src.de.DS100.1984
 
     -   date: !!null
-        site: !noderef path.de.1216 mar left
+        site: path.de.1216 mar
 

@@ -42,10 +42,9 @@ events:
     -   date: !!null
         category: de.Hauptbahn
         tracks: 2
-        gauge: 1435
+        gauge: 1435mm
     -   date: 1965-04-06?
-        electrified:
-            overhead: !var el.de
+        electrified: de
         source: src.ch.Schwach.1989
 
     #   Teilstilllegung
@@ -60,27 +59,12 @@ events:
     -   date: !!null
         owner: org.de.l.pre
         operator: org.de.e.hmb
-    -   date: 1920-04-01
-        owner: org.de
-        operator: org.de.r.RVM.PH
-    -   date: 1924-02-12
-        operator: org.de.Deutsche-Reichsbahn-I
-    -   date: 1924-08-30
-        operator: org.de.DR
-    -   date: !var org.de.DB.start
-        operator: org.de.DB
-    -   date: !var org.de.Deutsche-Bahn.start
-        owner: org.de.Deutsche-Bahn
-        operator: org.de.Deutsche-Bahn
-    -   date: !var org.de.DBNetz.start
-        owner: org.de.DB-Netz
-        operator: org.de.DB-Netz
 
     # Verlauf
     #
     -   date: !!null
         course:
-            - !pathref path.de.2200 har ham 2.0
+            -   path.de.2200 har ham
 
 points:
     -   point.de.Hamburg-Harburg                    # de.2200
@@ -111,7 +95,8 @@ key: point.de.Hamburg-Wilhelmsburg-Ws
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.1250 347,81
+        location:
+            line.de.1250: 347,81
         source: src.de.DRG.Alt.Karte.1949
     -   date: !!null
         category: de.Glgr
@@ -120,7 +105,7 @@ events:
         source: src.de.DS100.1984
 
     -   date: !!null
-        site: !noderef path.de.2200 wis
+        site: path.de.2200 wis
 
 
 ---
@@ -129,14 +114,16 @@ type: point
 junction: True
 events:
     -   date: !!null
-        location: !keyloc line.de.1250 348,53
+        location:
+            line.de.1250: 348,53
         source: src.de.DRG.Alt.Karte.1949
     -   date: !!null
-        location: !keyloc line.de.1255 9,6
+        location:
+            line.de.1255: 9,6
         source: src.de.SuW.2005
     -   date: !!null
         category: de.Bf
-        de.Rangklasse: I
+        de.rang: I
         name: Wilhelmsburg Vbf
         de.lknr: 01 130
         service: none
@@ -153,7 +140,7 @@ events:
         source: src.de.DS100.1984
 
     -   date: !!null
-        site: !noderef path.de.2200 wil
+        site: path.de.2200 wil
 
 
 ---
@@ -163,12 +150,12 @@ subtype: reference
 events:
     -   date: !!null
         location:
-            - !keyloc line.de.1250 348,88
+            line.de.1250: 348,88
         name: Hamburg-Wilhelmsburg Wp
         source: src.de.DRG.Alt.Karte.1949
 
     -   date: !!null
-        site: !noderef path.de.2200 wip
+        site: path.de.2200 wip
 
 
 ---
@@ -176,7 +163,8 @@ key: point.de.Hamburg-Wilhelmsburg-Wa
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.1250 349,91
+        location:
+            line.de.1250: 349,91
         source: src.de.DRG.Alt.Karte.1949
     -   date: !!null
         category: de.Glgr
@@ -185,7 +173,7 @@ events:
         source: src.de.DS100.1984
 
     -   date: !!null
-        site: !noderef path.de.2200 wia
+        site: path.de.2200 wia
 
 
 ---
@@ -194,7 +182,8 @@ type: point
 subtype: reference
 events:
     -   date: !!null
-        location: !keyloc line.de.1250 350,43
+        location:
+            line.de.1250: 350,43
         source: src.de.DRG.Alt.Karte.1949
     -   date: !!null
         category: de.Glgr
@@ -203,7 +192,7 @@ events:
         source: src.de.DS100.1984
 
     -   date: !!null
-        site: !noderef path.de.2200 wik
+        site: path.de.2200 wik
 
 
 # point.de.Hamburg-Wilhelmsburg-LGr           de.2200
@@ -219,8 +208,8 @@ events:
     -   date: !!null
         category: de.Abzw
         location:
-            - !keyloc line.de.1250 352,456
-            - !keyloc line.de.1280  38,514  
+            line.de.1250: 352,456
+            line.de.1280:  38,514  
         source: src.de.DBAG.ISR
     -   date: !!null
         name: Hamburg-Oberhafen
@@ -228,7 +217,7 @@ events:
         source: src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.2200 oha right
+        site: path.de.2200 oha
 
 
 ---
@@ -248,9 +237,9 @@ events:
         service: freight
         source: src.de.Bfv.1928
     -   date: !!null
-        de.Rangklasse: I
+        de.rang: I
         source: src.de.Bfv.1933
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 01 075
         source: src.de.Bfv.1933
     -   date: c1930
@@ -260,7 +249,8 @@ events:
         name: Hamburg Han
         source: src.de.Bfv.1938
     -   date: !!null
-        location: !keyloc line.de.1250 353,5
+        location:
+            line.de.1250: 353,5
         source: src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.DS100: AHBN
@@ -273,7 +263,7 @@ events:
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.2200 hag
+        site: path.de.2200 hag
 
 
 ---
@@ -290,13 +280,13 @@ events:
     -   date: !!null
         category: de.Abzw
         location:
-            - !keyloc line.de.1291 284,930
-            - !keyloc line.de.1292 353,894
-            - !keyloc line.de.1250 353,921
+            line.de.1291: 284,930
+            line.de.1292: 353,894
+            line.de.1250: 353,921
         source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.2200 eri
+        site: path.de.2200 eri
 
 
 # point.de.Hamburg-Hbf                        de.6100

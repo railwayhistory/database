@@ -7,88 +7,74 @@ label: freight
 events:
     -   date: !!null
         region:
-            - !keyref org.de
-            - !keyref org.de.l.be
+            - org.de
+            - org.de.l.be
 
-    -   date: !var vzg.dr
+    -   date: de.vzg.dr
         de.VzG: !!str 6165
         source: src.de.DBAG.Geo-Strecke.2017
 
     -   date: !!null
         category: de.Hauptbahn
-        source: !keyref src.de.DRG.1927
+        source: src.de.DRG.1927
 
-    -   date: !date 1871-07-17?
+    -   date: 1871-07-17?
         status: open
-        service: freight
+        passenger: none
         note:
-            de: Genaue Streckeneröffnungen am Lehrter Bf unklar
-        source: !keyref src.de.DRG.1935
-    -   date: !date c1995
+            deu: Genaue Streckeneröffnungen am Lehrter Bf unklar
+        source: src.de.DRG.1935
+    -   date: c1995
         status: removed
 
     -   date: !!null
-        owner: !keyref org.de.l.pre
-        operator: !keyref org.de.e.bln
-    -   date: !date 1920-04-01
-        owner: !keyref org.de
-        operator: !keyref org.de.r.RVM.PH
-    -   date: !date 1924-02-12
-        operator: !keyref org.de.Deutsche-Reichsbahn-I
-    -   date: !date 1924-08-30
-        operator: !keyref org.de.DR
-    -   date: !var org.de.DR.start
-        operator: !keyref org.dd.DR
-    -   date: !var org.de.Deutsche-Bahn.start
-        owner: !keyref org.de.Deutsche-Bahn
-        operator: !keyref org.de.Deutsche-Bahn
-    -   date: !var org.de.DBNetz.start
-        owner: !keyref org.de.DB-Netz
-        operator: !keyref org.de.DB-Netz
+        owner: org.de.l.pre
+        operator: org.de.e.bln
 
     -   date: !!null
         course:
-            - !pathref path.de.6165 a    f     0.
-            - !pathref path.de.6171 aspr fmoa -1.5
-            - !pathref path.de.6107 a    moa  -1.5
+            -   path.de.6165 a    f
+            -   path.de.6171 aspr fmoa
+            -   path.de.6107 a    moa
 
 points:
-    - !keyref point.de.Berlin-Spreeufer
-    - !keyref point.de.Berlin-Moabit
+    - point.de.Berlin-Spreeufer
+    - point.de.Berlin-Moabit
 
 
 ---
 key: point.de.Berlin-Spreeufer
 type: point
 events:
-    -   date: !date 1871-12-01
+    -   date: 1871-12-01
         status: open
-        source: !keyref src.de.Kuhlmann.2000
+        source: src.de.Kuhlmann.2000
     -   date: !!null
-        location: !keyloc line.de.6165 -0,64
+        location:
+            line.de.6165: -0,64
         category: de.Bf
-        de.Rangklasse: I
-        source: !keyref src.de.DRG.Bln.1927
+        de.rang: I
+        source: src.de.DRG.Bln.1927
     -   date: !!null
         name: Berlin Spreeufer
         service: freight
         de.lknr: 03 049
-        source: !keyref src.de.Bfv.1928
-    -   date: !var lknr.30
+        source: src.de.Bfv.1928
+    -   date: de.lknr.30
         de.lknr: 03 163
-        source: !keyref src.de.Bfv.1933
-    -   date: !date c1950
-        de.Rangklasse: U
-        master: !keyref point.de.Berlin-Lehrter-Bf
-        source: !keyref src.dd.DR.Bln.1959
-    -   date: !date c1965
-        master: !keyref point.de.Berlin-Moabit
-        source: !keyref src.dd.DR.Bln.1968
-    -   date: !date c1970
+        source: src.de.Bfv.1933
+    -   date: c1950
+        de.rang: U
+        master: point.de.Berlin-Lehrter-Bf
+        source: src.dd.DR.Bln.1959
+    -   date: c1965
+        master: point.de.Berlin-Moabit
+        source: src.dd.DR.Bln.1968
+    -   date: c1970
         category: de.Ldst
-        source: !keyref src.dd.DR.Bln.1973
-    -   date: !date c1995
+        source: src.dd.DR.Bln.1973
+    -   date: c1995
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.6165 spr right
+        site: path.de.6165 spr

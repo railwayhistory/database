@@ -8,29 +8,29 @@ label: freight
 events:
     -   date: !!null
         region:
-            - !keyref org.de
-            - !keyref org.de.l.bb
+            - org.de
+            - org.de.l.bb
 
     #   Eröffnung
     #
-    -   date: !date 1909-07-21
+    -   date: 1909-07-21
         status: open
-        service: freight
-        source: !keyref src.de.Kuhlmann.2000
+        passenger: none
+        source: src.de.Kuhlmann.2000
 
     #   Stilllegung
     #
-    -   date: !date c1965
+    -   date: c1965
         status: removed
-        source: !keyref src.dd.DR.Bln.1968
+        source: src.dd.DR.Bln.1968
 
     #   Eigenschaften
     #
     -   date: !!null
         category: de.Kleinbahn
         tracks: 1
-        gauge: 1435
-    -   date: !date 1949-04-01?
+        gauge: 1435mm
+    -   date: 1949-04-01?
         category: de.Nebenbahn
 
     #   Eigentümer und Betriebsführer
@@ -38,26 +38,26 @@ events:
     -   date: !!null
         owner: org.de.Teltower-Industriebahn
         operator: org.de.Allgemeine-Deutsche-Eisenbahn
-    -   date: !date 1928
-        owner: !keyref org.de.Teltower-Eisenbahn
-    -   date: !date 1947
+    -   date: 1928
+        owner: org.de.Teltower-Eisenbahn
+    -   date: 1947
         operator: org.de.Landesbahnen-Brandenburg
-        source: !keyref src.de.Kuhlmann.2000
-    -   date: !date 1949-04-01
-        owner: !keyref org.dd
-        operator: !keyref org.dd.DR
+        source: src.de.Kuhlmann.2000
+    -   date: 1949-04-01
+        owner: org.dd
+        operator: org.dd.DR
 
     #   Verlauf
     #
     -   date: !!null
         course:
-            - !pathref path.de.6132  tel  ateh 1.5
-            - !pathref path.de.6517a a    f    0.0
-            - !pathref path.de.6517  fgro tgw  0.0
+            -   path.de.6132  tel  ateh
+            -   path.de.6517a a    f
+            -   path.de.6517  fgro tgw
 
 points:
-    - !keyref point.de.Teltow-Industriebahn
-    - !keyref point.de.Teltow-Grossbeerener-Weg             # line.de.6517
+    - point.de.Teltow-Industriebahn
+    - point.de.Teltow-Grossbeerener-Weg             # line.de.6517
 
 
 ---
@@ -67,13 +67,13 @@ junction: True
 events:
     -   date: !!null
         name: Teltow
-        source: !keyref src.de.Bfv.1928
-    -   date: !var lknr.kb
+        source: src.de.Bfv.1928
+    -   date: de.lknr.kb
         de.lknr: 47 553
-        source: !keyref src.de.Bfv.1938
+        source: src.de.Bfv.1938
     -   date: !!null
-        connection: !keyref point.de.Teltow
-        site: !noderef path.de.6132 tel
+        connection: point.de.Teltow
+        site: path.de.6132 tel
 
 
 

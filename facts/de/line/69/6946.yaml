@@ -6,37 +6,36 @@ type: line
 events:
     -   date: !!null
         region:
-            - !keyref org.de
-            - !keyref org.de.l.bb
+            - org.de
+            - org.de.l.bb
 
-    -   date: !var vzg.dr
+    -   date: de.vzg.dr
         de.VzG: !!str 6946
         source: src.de.DBAG.Geo-Strecke.2017
 
     #   Genehmigung
     #
-    -   date: !date 1901-06-25
+    -   date: 1901-06-25
         concession:
-            by: !keyref org.de.l.pre
+            by: org.de.l.pre
             for: org.de.Ruppiner-Kreisbahn
-        source: !keyref src.de.DRG.1935
+        source: src.de.DRG.1935
 
     #   Eröffnung und Verkehrseinstellung
     #
-    -   date: !date 1902-11-01
+    -   date: 1902-11-01
         status: open
-        service: full
-        source: !keyref src.de.DRG.1935
-    -   date: !date 2006-12-09
-        service: freight
-        source: !keyref src.de.web.Mauruszat
+        source: src.de.DRG.1935
+    -   date: 2006-12-09
+        passenger: none
+        source: src.de.web.Mauruszat
 
     #   Eigenschaften
     #
     -   date: !!null
         category: de.Nebenbahn
         tracks: 1
-        gauge: 1435
+        gauge: 1435mm
 
     #   Eigentümer und Betriebsführer
     #
@@ -44,55 +43,46 @@ events:
         owner: org.de.Ruppiner-Kreisbahn
         operator: org.de.Ruppiner-Kreisbahn
 
-    -   date: !date 1949-04-01
-        operator: !keyref org.dd.DR
-    -   date: !date 1949-10-07
-        owner: !keyref org.dd
+    -   date: 1949-04-01
+        operator: org.dd.DR
+    -   date: 1949-10-07
+        owner: org.dd
 
-    -   date: !date 1990-10-03
-        owner: !keyref org.de
-    -   date: !var org.de.Deutsche-Bahn.start
-        owner: !keyref org.de.Deutsche-Bahn
-        operator: !keyref org.de.Deutsche-Bahn
-    -   date: !var org.de.DBNetz.start
-        owner: !keyref org.de.DB-Netz
-        operator: !keyref org.de.DB-Netz
-
-    -   date: !date 2010
-        owner: !keyref org.de.Regio-Infra
-    -   date: !date 2011-04
-        operator: !keyref org.de.Regio-Infra
+    -   date: 2010
+        owner: org.de.Regio-Infra
+    -   date: 2011-04
+        operator: org.de.Regio-Infra
 
     #   Verlauf
     #
     -   date: !!null
         course:
-            - !pathref path.de.6100 nst  frat -3.5
-            - !pathref path.de.6512 f    fnru -1.0
-            - !pathref path.de.6946 a    anru  0.0
-            - !pathref path.de.6504 anst nrz   1.0
-            - !pathref path.de.6946 fnru f     0.0
-            - !pathref path.de.6751 anru her   1.0
+            -   path.de.6100 nst  frat
+            -   path.de.6512 f    fnru
+            -   path.de.6946 a    anru
+            -   path.de.6504 anst nrz
+            -   path.de.6946 fnru f
+            -   path.de.6751 anru her
 
 points:
-    - !keyref point.de.Neustadt-Dosse                   # line.de.6100
-    - !keyref point.de.Neustadt-Dosse-Brand-St          # line.de.6512
-    - !keyref point.de.Barsikow
-    - !keyref point.de.Metzelthin-Kyritz
-    - !keyref point.de.Dessow-Mark
-    - !keyref point.de.Emilienhof
-    - !keyref point.de.Wildberg-Neuruppin
-    - !keyref point.de.Gottberg
-    - !keyref point.de.Werder-Neuruppin
-    - !keyref point.de.Bechlin
-    - !keyref point.de.Neuruppin-West                   # line.de.6504
-    - !keyref point.de.Neuruppin                        # line.de.6504
-    - !keyref point.de.Neuruppin-Rheinsberger-Tor       # line.de.6504
-    - !keyref point.de.Neuruppin-Nrz                    # line.de.6504
-    - !keyref point.de.Gildenhall
-    - !keyref point.de.Altruppin
-    - !keyref point.de.Wulkow-Neuruppin
-    - !keyref point.de.Herzberg-Mark                    # line.de.6751
+    - point.de.Neustadt-Dosse                   # line.de.6100
+    - point.de.Neustadt-Dosse-Brand-St          # line.de.6512
+    - point.de.Barsikow
+    - point.de.Metzelthin-Kyritz
+    - point.de.Dessow-Mark
+    - point.de.Emilienhof
+    - point.de.Wildberg-Neuruppin
+    - point.de.Gottberg
+    - point.de.Werder-Neuruppin
+    - point.de.Bechlin
+    - point.de.Neuruppin-West                   # line.de.6504
+    - point.de.Neuruppin                        # line.de.6504
+    - point.de.Neuruppin-Rheinsberger-Tor       # line.de.6504
+    - point.de.Neuruppin-Nrz                    # line.de.6504
+    - point.de.Gildenhall
+    - point.de.Altruppin
+    - point.de.Wulkow-Neuruppin
+    - point.de.Herzberg-Mark                    # line.de.6751
 
 
 ---
@@ -102,25 +92,26 @@ junction: True
 events:
     -   date: !!null
         name: Barsikow
-        source: !keyref src.de.Kb.1905
+        source: src.de.Kb.1905
     -   date: !!null
         de.lknr: 81 904
-        source: !keyref src.de.Bfv.1928
+        source: src.de.Bfv.1928
     -   date: !!null
-        location: !keyloc line.de.6946 4,52
+        location:
+            line.de.6946: 4,52
         category: de.Bf
-        de.Rangklasse: U
+        de.rang: U
         de.VBL: Baw
-        source: !keyref src.dd.DR.1976
-    -   date: !var ds100.dr
+        source: src.dd.DR.1976
+    -   date: de.ds100.dr
         de.DS100: WBAW
-    -   date: !date c2000
+    -   date: c2000
         category: [de.Hp, de.Bk]
-    -   date: !date c2005
+    -   date: c2005
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.6946 bar right
+        site: path.de.6946 bar
 
 
 ---
@@ -129,30 +120,31 @@ type: point
 events:
     -   date: !!null
         name: Metzelthin
-        source: !keyref src.de.Kb.1905
+        source: src.de.Kb.1905
     -   date: !!null
-        master: !keyref point.de.Barsikow
+        master: point.de.Barsikow
         de.lknr: 80 904
-        source: !keyref src.de.Bfv.1928
-    -   date: !date c1920
+        source: src.de.Bfv.1928
+    -   date: c1920
         name: Metzelthin (Kr Ruppin)
-        source: !keyref src.de.Bfv.1928
+        source: src.de.Bfv.1928
     -   date: !!null
         staff: none
-        source: !keyref src.de.Bfv.1933
+        source: src.de.Bfv.1933
     -   date: !!null
-        location: !keyloc line.de.6946 7,20
+        location:
+            line.de.6946: 7,20
         category: de.Hp
         de.VBL: Met
-        source: !keyref src.dd.DR.1976
-    -   date: !date c1965
+        source: src.dd.DR.1976
+    -   date: c1965
         name: Metzelthin (Kr Kyritz)
-        source: !keyref src.dd.DR.1976
-    -   date: !date c1995
+        source: src.dd.DR.1976
+    -   date: c1995
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.6946 met left
+        site: path.de.6946 met
 
 
 ---
@@ -161,49 +153,51 @@ type: point
 events:
     -   date: !!null
         name: Dessow
-        source: !keyref src.de.Kb.1905
+        source: src.de.Kb.1905
     -   date: !!null
         de.lknr: 79 904
-        source: !keyref src.de.Bfv.1928
-    -   date: !date c1920
+        source: src.de.Bfv.1928
+    -   date: c1920
         name: Dessow (Mark)
-        source: !keyref src.de.Bfv.1928
+        source: src.de.Bfv.1928
     -   date: !!null
-        location: !keyloc line.de.6946 9,973
+        location:
+            line.de.6946: 9,973
         category: [de.Hp, de.Anst]
         de.VBL: D
-        source: !keyref src.dd.DR.1976
-    -   date: !var ds100.dr
+        source: src.dd.DR.1976
+    -   date: de.ds100.dr
         de.DS100: WD
-        source: !keyref src.de.TPP.2006
+        source: src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.6946 des left
+        site: path.de.6946 des
 
 
 ---
 key: point.de.Emilienhof
 type: point
 events:
-    -   date: !date c1910
+    -   date: c1910
         status: open
         name: Emilienhof
-        source: !keyref src.de.Kb.1914
+        source: src.de.Kb.1914
     -   date: !!null
         staff: none
-        master: !keyref point.de.Dessow-Mark
+        master: point.de.Dessow-Mark
         de.lknr: 78 904
-        source: !keyref src.de.Bfv.1928
+        source: src.de.Bfv.1928
     -   date: !!null
-        location: !keyloc line.de.6946 12,10
+        location:
+            line.de.6946: 12,10
         category: de.Hp
         de.VBL: E
-        source: !keyref src.dd.DR.1976
-    -   date: !date c1995
+        source: src.dd.DR.1976
+    -   date: c1995
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.6946 emi left
+        site: path.de.6946 emi
 
 
 ---
@@ -212,35 +206,36 @@ type: point
 events:
     -   date: !!null
         name: Wildberg
-        source: !keyref src.de.Kb.1905
-    -   date: !date c1910
+        source: src.de.Kb.1905
+    -   date: c1910
         name: Wildberg (Mark)
-        source: !keyref src.de.Kb.1914
+        source: src.de.Kb.1914
     -   date: !!null
         de.lknr: 77 904
-        source: !keyref src.de.Bfv.1928
-    -   date: !date c1920
+        source: src.de.Bfv.1928
+    -   date: c1920
         name: Wildberg (Kr Ruppin)
-        source: !keyref src.de.Bfv.1928
+        source: src.de.Bfv.1928
     -   date: !!null
-        location: !keyloc line.de.6946 15,82
+        location:
+            line.de.6946: 15,82
         category: de.Bf
-        de.Rangklasse: U
+        de.rang: U
         de.VBL: Wr
-        source: !keyref src.dd.DR.1976
-    -   date: !date c1980
-        de.Rangklasse: S
+        source: src.dd.DR.1976
+    -   date: c1980
+        de.rang: S
         de.VBL: Wbg
-        source: !keyref src.dd.DR.1989
-    -   date: !var ds100.dr
+        source: src.dd.DR.1989
+    -   date: de.ds100.dr
         de.DS100: WWBG
-        source: !keyref src.de.TPP.2006
-    -   date: !date c2000
+        source: src.de.TPP.2006
+    -   date: c2000
         name: Wildberg (b Neuruppin)
-        source: !keyref src.de.TPP.2006
+        source: src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.6946 wil right
+        site: path.de.6946 wil
 
 
 ---
@@ -249,27 +244,28 @@ type: point
 events:
     -   date: !!null
         name: Gottberg
-        source: !keyref src.de.Kb.1905
+        source: src.de.Kb.1905
     -   date: !!null
         de.lknr: 76 904
-        source: !keyref src.de.Bfv.1928
-    -   date: !date c1920
+        source: src.de.Bfv.1928
+    -   date: c1920
         name: Gottberg (Kr Ruppin)
-        source: !keyref src.de.Bfv.1928
+        source: src.de.Bfv.1928
     -   date: !!null
-        location: !keyloc line.de.6946 19,38
+        location:
+            line.de.6946: 19,38
         category: de.Hp
         de.VBL: Gtg
-        source: !keyref src.dd.DR.1976
-    -   date: !date c1965
+        source: src.dd.DR.1976
+    -   date: c1965
         staff: none
         name: Gottberg
-        source: !keyref src.dd.DR.1976
-    -   date: !date c1995
+        source: src.dd.DR.1976
+    -   date: c1995
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.6946 got left
+        site: path.de.6946 got
 
 
 ---
@@ -278,35 +274,36 @@ type: point
 events:
     -   date: !!null
         name: Werder
-        source: !keyref src.de.Kb.1905
+        source: src.de.Kb.1905
     -   date: !!null
         staff: none
-        master: !keyref point.de.Wildberg-Neuruppin
+        master: point.de.Wildberg-Neuruppin
         de.lknr: 75 904
-        source: !keyref src.de.Bfv.1928
-    -   date: !date c1920
+        source: src.de.Bfv.1928
+    -   date: c1920
         name: Werder (Kr Ruppin)
-        source: !keyref src.de.Bfv.1928
+        source: src.de.Bfv.1928
     -   date: !!null
-        location: !keyloc line.de.6946 22,12
+        location:
+            line.de.6946: 22,12
         category: de.Hp
         de.VBL: Wd
-        source: !keyref src.dd.DR.1976
-    -   date: !date c1965
+        source: src.dd.DR.1976
+    -   date: c1965
         name: Werder (Kr Neuruppin)
-        source: !keyref src.dd.DR.1976
-    -   date: !date c1980
+        source: src.dd.DR.1976
+    -   date: c1980
         category: [de.Hp, de.Awanst]
-        source: !keyref src.dd.DR.1989
-    -   date: !var ds100.dr
+        source: src.dd.DR.1989
+    -   date: de.ds100.dr
         de.DS100: WWD
-        source: !keyref src.de.TPP.2006
-    -   date: !date c2000
+        source: src.de.TPP.2006
+    -   date: c2000
         name: Werder (b Neuruppin)
-        source: !keyref src.de.TPP.2006
+        source: src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.6946 wer right
+        site: path.de.6946 wer
 
 
 ---
@@ -315,46 +312,48 @@ type: point
 events:
     -   date: !!null
         name: Bechlin
-        source: !keyref src.de.Kb.1905
+        source: src.de.Kb.1905
     -   date: !!null
         staff: none
-        master: !keyref point.de.Neuruppin
+        master: point.de.Neuruppin
         de.lknr: 74 904
-        source: !keyref src.de.Bfv.1928
+        source: src.de.Bfv.1928
     -   date: !!null
-        location: !keyloc line.de.6946 25,50
+        location:
+            line.de.6946: 25,50
         category: de.Hp
         de.VBL: Bc
-        source: !keyref src.dd.DR.1976
-    -   date: !date c1995
+        source: src.dd.DR.1976
+    -   date: c1995
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.6946 bec right
+        site: path.de.6946 bec
 
 
 ---
 key: point.de.Gildenhall
 type: point
 events:
-    -   date: !date c1930
+    -   date: c1930
         status: open
         name: Gildenhall
         staff: none
-        master: !keyref point.de.Neuruppin
+        master: point.de.Neuruppin
         de.lknr: 42 934
-        source: !keyref src.de.Bfv.1933
+        source: src.de.Bfv.1933
     -   date: !!null
-        location: !keyloc line.de.6946 32,70
+        location:
+            line.de.6946: 32,70
         category: de.Hp
         de.VBL: Gil
-        source: !keyref src.dd.DR.1976
-    -   date: !var ds100.dr
+        source: src.dd.DR.1976
+    -   date: de.ds100.dr
         de.DS100: WGIH
-        source: !keyref src.de.TPP.2006
+        source: src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.6946 gil left
+        site: path.de.6946 gil
 
 
 ---
@@ -363,25 +362,26 @@ type: point
 events:
     -   date: !!null
         name: Altruppin
-        source: !keyref src.de.Kb.1905
+        source: src.de.Kb.1905
     -   date: !!null
         de.lknr: 73 904
-        source: !keyref src.de.Bfv.1928
+        source: src.de.Bfv.1928
     -   date: !!null
-        location: !keyloc line.de.6946 33,65
+        location:
+            line.de.6946: 33,65
         category: de.Bf
-        de.Rangklasse: U
+        de.rang: U
         de.VBL: Ar
-        source: !keyref src.dd.DR.1976
-    -   date: !date c1980
-        de.Rangklasse: S
-        source: !keyref src.dd.DR.1989
-    -   date: !var ds100.dr
+        source: src.dd.DR.1976
+    -   date: c1980
+        de.rang: S
+        source: src.dd.DR.1989
+    -   date: de.ds100.dr
         de.DS100: WAR
-        source: !keyref src.de.TPP.2006
+        source: src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.6946 aru left
+        site: path.de.6946 aru
 
 
 ---
@@ -390,28 +390,29 @@ type: point
 events:
     -   date: !!null
         name: Wulkow
-        source: !keyref src.de.Kb.1905
+        source: src.de.Kb.1905
     -   date: !!null
         staff: none
-        master: !keyref point.de.Altruppin
+        master: point.de.Altruppin
         de.lknr: 72 904
-        source: !keyref src.de.Bfv.1928
-    -   date: !date c1920
+        source: src.de.Bfv.1928
+    -   date: c1920
         name: Wulkow (Kr Ruppin)
-        source: !keyref src.de.Bfv.1928
+        source: src.de.Bfv.1928
     -   date: !!null
-        location: !keyloc line.de.6946 37,85
+        location:
+            line.de.6946: 37,85
         category: de.Bf
-        de.Rangklasse: U
+        de.rang: U
         de.VBL: Wul
-        source: !keyref src.dd.DR.1976
-    -   date: !date c1960
+        source: src.dd.DR.1976
+    -   date: c1960
         name: Wulkow (Kr Neuruppin)
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: WWUL
-    -   date: !date c2000
+    -   date: c2000
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.6946 wul right
+        site: path.de.6946 wul
 

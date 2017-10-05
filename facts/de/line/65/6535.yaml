@@ -6,149 +6,151 @@ label: freight
 events:
     -   date: !!null
         region:
-            - !keyref org.de
-            - !keyref org.de.l.be
+            - org.de
+            - org.de.l.be
 
-    -   date: !var vzg.dr
+    -   date: de.vzg.dr
         de.VzG: !!str 6535
-        source: !keyref src.de.VzG
+        source: src.de.VzG
 
     #   Eröffnung
     #
-    -   date: !date 1907-12-16
-        start: !keyref point.de.Berlin-Hohenschoenhausen-Gbf
+    -   date: 1907-12-16
+        start: point.de.Berlin-Hohenschoenhausen-Gbf
         status: open
-        source: !keyref src.de.Kuhlmann.2000
-    -   date: !date 1979-09-30
-        end: !keyref point.de.Berlin-Hohenschoenhausen-Gbf
+        source: src.de.Kuhlmann.2000
+    -   date: 1979-09-30
+        end: point.de.Berlin-Hohenschoenhausen-Gbf
         status: open
-        source: !keyref src.de.Kuhlmann.2000
+        source: src.de.Kuhlmann.2000
 
     #   Eigenschaften
     #
     -   date: !!null
         category: de.Kleinbahn
         tracks: 1
-        gauge: 1435
-        service: freight
+        gauge: 1435mm
+        passenger: none
 
     #   Stilllegung und Abbau
     #
-    -   date: !date c1985
-        start: !keyref point.de.Berlin-Hohenschoenhausen-Ende
-        end: !keyref point.de.Berlin-Weissensee
+    -   date: c1985
+        start: point.de.Berlin-Hohenschoenhausen-Ende
+        end: point.de.Berlin-Weissensee
         status: removed
-        source: !keyref src.dd.DR.Bln.1991
+        source: src.dd.DR.Bln.1991
 
     #   Eigentümer und Betriebsführer
     #
     -   date: !!null
-        owner: !keyref org.de.Industriebahn-Tegel-Friedrichsfelde
-        operator: !keyref org.de.Industriebahn-Tegel-Friedrichsfelde
-        source: !keyref src.de.Kuhlmann.2000
-    -   date: !date 1925-07-01
-        owner: !keyref org.de.Niederbarnimer-Eisenbahn
-        operator: !keyref org.de.Niederbarnimer-Eisenbahn
-        source: !keyref src.de.Kuhlmann.2000
-    -   date: !date 1950-07-01
-        operator: !keyref org.dd.DR
-    -   date: !date c1990
-        operator: !keyref org.de.Niederbarnimer-Eisenbahn
+        owner: org.de.Industriebahn-Tegel-Friedrichsfelde
+        operator: org.de.Industriebahn-Tegel-Friedrichsfelde
+        source: src.de.Kuhlmann.2000
+    -   date: 1925-07-01
+        owner: org.de.Niederbarnimer-Eisenbahn
+        operator: org.de.Niederbarnimer-Eisenbahn
+        source: src.de.Kuhlmann.2000
+    -   date: 1950-07-01
+        operator: org.dd.DR
+    -   date: c1990
+        operator: org.de.Niederbarnimer-Eisenbahn
         
     #   Verlauf
     #
     -   date: !!null
         course:
-            - !pathref path.de.6081 bla fwei -1.5
-            - !pathref path.de.6550 bla f     0.0
-            - !pathref path.de.6535 a   f     0.0
-            - !pathref path.de.6160 fhoh bno  -1.0
+            -   path.de.6081 bla fwei
+            -   path.de.6550 bla f
+            -   path.de.6535 a   f
+            -   path.de.6160 fhoh bno
 
 points:
-    - !keyref point.de.Berlin-Nordost                       # line.de.6160
-    - !keyref point.de.Berlin-Hohenschoenhausen-Gbf
-    - !keyref point.de.Berlin-Hohenschoenhausen-Ende
-    - !keyref point.de.Berlin-Weissensee
-    - !keyref point.de.Berlin-Heinersdorf
-    - !keyref point.de.Berlin-Blankenburg-Iab               # line.de.6550
-    - !keyref point.de.Berlin-Blankenburg                   # line.de.6081
+    - point.de.Berlin-Nordost                       # line.de.6160
+    - point.de.Berlin-Hohenschoenhausen-Gbf
+    - point.de.Berlin-Hohenschoenhausen-Ende
+    - point.de.Berlin-Weissensee
+    - point.de.Berlin-Heinersdorf
+    - point.de.Berlin-Blankenburg-Iab               # line.de.6550
+    - point.de.Berlin-Blankenburg                   # line.de.6081
 
 
 ---
 key: point.de.Berlin-Heinersdorf
 type: point
 events:
-    -   date: !date 1907-12-16
+    -   date: 1907-12-16
         status: open
         service: freight
-        source: !keyref src.de.Kuhlmann.2000
+        source: src.de.Kuhlmann.2000
     -   date: !!null
         name: Heinersdorf (Industriebahn)
-        source: !keyref src.de.DRG.Bln.1927
-    -   date: !var lknr.kb
+        source: src.de.DRG.Bln.1927
+    -   date: de.lknr.kb
         de.lknr: 43 059
-        source: !keyref src.de.Bfv.1938
-    -   date: !date c1940
+        source: src.de.Bfv.1938
+    -   date: c1940
         name: Berlin-Heinersdorf Industriebahn
-        source: !keyref src.de.Bfv.1944
-    -   date: !date c1950
+        source: src.de.Bfv.1944
+    -   date: c1950
         name: Berlin-Heinersdorf
         de.VBL: Ihd
-        source: !keyref src.dd.DR.Bln.1953
+        source: src.dd.DR.Bln.1953
     -   date: !!null
-        location: !keyloc line.de.6535 13,85
-        source: !keyref src.dd.DR.Bln.1959
-    -   date: !date c1950
-        master: !keyref point.de.Berlin-Weissensee
-        source: !keyref src.dd.DR.Bln.1959
-    -   date: !date c1960
+        location:
+            line.de.6535: 13,85
+        source: src.dd.DR.Bln.1959
+    -   date: c1950
+        master: point.de.Berlin-Weissensee
+        source: src.dd.DR.Bln.1959
+    -   date: c1960
         category: de.Anst
-        master: !keyref point.de.Berlin-Pankow-Rbf
-        source: !keyref src.dd.DR.Bln.1968
-    -   date: !var ds100.dr
+        master: point.de.Berlin-Pankow-Rbf
+        source: src.dd.DR.Bln.1968
+    -   date: de.ds100.dr
         de.DS100: BIHD
 
     -   date: !!null
-        site: !noderef path.de.6535 hei right
+        site: path.de.6535 hei
 
 
 ---
 key: point.de.Berlin-Weissensee
 type: point
 events:
-    -   date: !date 1907-12-16
+    -   date: 1907-12-16
         status: open
         service: freight
-        source: !keyref src.de.Kuhlmann.2000
+        source: src.de.Kuhlmann.2000
     -   date: !!null
         name: Weißensee (Industriebahn)
-        source: !keyref src.de.DRG.Bln.1927
-    -   date: !var lknr.kb
+        source: src.de.DRG.Bln.1927
+    -   date: de.lknr.kb
         de.lknr: 43 060
-        source: !keyref src.de.Bfv.1938
-    -   date: !date c1940
+        source: src.de.Bfv.1938
+    -   date: c1940
         name: Berlin-Weißensee Industriebahn
-        source: !keyref src.de.Bfv.1944
+        source: src.de.Bfv.1944
     -   date: !!null
         category: de.Bf
-        source: !keyref src.dd.DR.Bln.1953
-    -   date: !date c1950
-        de.Rangklasse: III
+        source: src.dd.DR.Bln.1953
+    -   date: c1950
+        de.rang: III
         name: Berlin-Weißensee
         de.VBL: Iww
-        source: !keyref src.dd.DR.Bln.1953
+        source: src.dd.DR.Bln.1953
     -   date: !!null
-        location: !keyloc line.de.6535 15,79
-        source: !keyref src.dd.DR.Bln.1959
-    -   date: !date c1965
-        de.Rangklasse: U
-        master: !keyref point.de.Berlin-Pankow-Rbf
-        source: !keyref src.dd.DR.Bln.1968
-    -   date: !var ds100.dr
+        location:
+            line.de.6535: 15,79
+        source: src.dd.DR.Bln.1959
+    -   date: c1965
+        de.rang: U
+        master: point.de.Berlin-Pankow-Rbf
+        source: src.dd.DR.Bln.1968
+    -   date: de.ds100.dr
         de.DS100: BIWW
 
     -   date: !!null
-        site: !noderef path.de.6535 wei left
+        site: path.de.6535 wei
 
 
 ---
@@ -161,7 +163,7 @@ events:
         name: Berlin-Hohenschönhausen Streckenende
 
     -   date: !!null
-        site: !noderef path.de.6535 hse
+        site: path.de.6535 hse
 
 
 ---
@@ -169,34 +171,34 @@ key: point.de.Berlin-Hohenschoenhausen-Gbf
 type: point
 junction: True
 events:
-    -   date: !date 1907-12-16
+    -   date: 1907-12-16
         status: open
         service: freight
-        source: !keyref src.de.Kuhlmann.2000
+        source: src.de.Kuhlmann.2000
     -   date: !!null
         name: Hohenschönhausen
-        source: !keyref src.de.DRG.Bln.1927
-    -   date: !var lknr.kb
+        source: src.de.DRG.Bln.1927
+    -   date: de.lknr.kb
         de.lknr: 43 061
-        source: !keyref src.de.Bfv.1938
-    -   date: !date c1940
+        source: src.de.Bfv.1938
+    -   date: c1940
         name: Berlin-Hohenschönhausen
-        source: !keyref src.de.Bfv.1944
-    -   date: !date c1950
+        source: src.de.Bfv.1944
+    -   date: c1950
         de.VBL: Hsch
-        source: !keyref src.dd.DR.Bln.1953
+        source: src.dd.DR.Bln.1953
     -   date: !!null
         location:
-            - !keyloc line.de.6535 19,75
-            - !keyloc line.de.8709 19,75
-        source: !keyref src.dd.DR.Bln.1959
-    -   date: !date c1950
-        master: !keyref point.de.Berlin-Weissensee
-        source: !keyref src.dd.DR.Bln.1959
-    -   date: !date c1965
+            line.de.6535: 19,75
+            line.de.8709: 19,75
+        source: src.dd.DR.Bln.1959
+    -   date: c1950
+        master: point.de.Berlin-Weissensee
+        source: src.dd.DR.Bln.1959
+    -   date: c1965
         category: de.Anst
-        master: !keyref point.de.Berlin-Pankow-Rbf
-        source: !keyref src.dd.DR.Bln.1968
+        master: point.de.Berlin-Pankow-Rbf
+        source: src.dd.DR.Bln.1968
 
     -   date: !!null
-        site: !noderef path.de.6535 hsc right
+        site: path.de.6535 hsc

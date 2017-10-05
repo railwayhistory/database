@@ -6,8 +6,8 @@ type: line
 events:
     -   date: !!null
         region:
-            - !keyref org.de
-            - !keyref org.de.l.sh
+            - org.de
+            - org.de.l.sh
 
     -   date: !!null
         de.VzG: !!str 1041
@@ -15,29 +15,34 @@ events:
 
     #   Genehmigung
     #
-    -   date: !date 1863-10-06
+    -   date: 1863-10-06
         concession:
-            by: !keyref org.dk
-        source: !keyref src.de.DRG.1935 # 1866/14
-    -   date: !date 1877-09-09
+            by: org.dk
+            for: org.de.Altona-Kieler-Eisenbahn
+        source: src.de.DRG.1935 # 1866/14
+    -   date: 1877-09-09
         concession:
-            by: !keyref org.de.l.pre
-            document: !keyref src.de.l.pre.sle.1877.51.285
-        source: !keyref src.de.DRG.1935 # 1866/14 ref 1844/9
+            by: org.de.l.pre
+            for: org.de.Altona-Kieler-Eisenbahn
+        document: src.de.l.pre.sle.1877.51.285
+        source: src.de.DRG.1935 # 1866/14 ref 1844/9
  
     #   Eröffnung und Stilllegung
     #   
-    -   date: !date 1866-05-31
+    -   date: 1866-05-31
         status: open
-        source: !keyref src.de.DRG.1935 # 1866/14
+        source: src.de.DRG.1935 # 1866/14
 
-    -   date: !date 1988-09-25
-        service: none
-        source: !keyref src.de.Bundestag.13.2569
-    -   date: !date 1995-11-01
+    -   date: 1988-09-25
+        passenger: none
+        freight: none
+        note:
+            deu: „Einstellung des Gesamtverkehrs“
+        source: src.de.Bundestag.13.2569
+    -   date: 1995-11-01
         status: closed
-        source: !keyref src.de.web.EBA.Still # Nr. 39
-    -   date: !date c2000
+        source: src.de.web.EBA.Still # Nr. 39
+    -   date: c2000
         status: removed
 
     #   Eigenschaften
@@ -45,48 +50,24 @@ events:
     -   date: !!null
         category: de.Hauptbahn
         tracks: 1
-        gauge: 1435
-        source: !keyref src.de.DRG.1927
-    
-    #   Eigentümer etc.
-    #
-    -   date: !!null
-        owner: !keyref org.de.Altona-Kieler-Eisenbahn
-        operator: !keyref org.de.Altona-Kieler-Eisenbahn
-    -   date: !date 1886-07-01
-        owner: !keyref org.de.l.pre
-        operator: !keyref org.de.e.hmb
-        source: !keyref src.de.DRG.1935
-
-    -   date: !date 1920-04-01
-        owner: !keyref org.de
-        operator: !keyref org.de.r.RVM.PH
-    -   date: !date 1924-02-12
-        operator: !keyref org.de.Deutsche-Reichsbahn-I
-    -   date: !date 1924-08-30
-        operator: !keyref org.de.DR
-    -   date: !var org.de.DB.start
-        operator: !keyref org.de.DB
-
-    -   date: !var org.de.Deutsche-Bahn.start
-        owner: !keyref org.de.Deutsche-Bahn
-        operator: !keyref org.de.Deutsche-Bahn
+        gauge: 1435mm
+        source: src.de.DRG.1927
 
     #   Verlauf
     #
     -   date: !!null
         course:
-            - !pathref path.de.1220    neu  aasc  0.5
-            - !pathref path.de.1041    a    f     0.0
-            - !pathref path.de.1023.ke fneu asc   1.0
+            -   path.de.1220 neu aasc
+            -   path.de.1041 a f
+            -   path.de.1023.ke fneu asc
 
 points:
     -   point.de.Neumünster                     # de.1220
     -   point.de.Bokhorst
-    - !keyref point.de.Wankendorf
-    - !keyref point.de.Perdoel
-    - !keyref point.de.Kaluebbe
-    - !keyref point.de.Ascheberg-Holst                  # line.de.1023
+    - point.de.Wankendorf
+    - point.de.Perdoel
+    - point.de.Kaluebbe
+    - point.de.Ascheberg-Holst                  # line.de.1023
 
 
 #-----------------------------------------------------------------------------
@@ -100,23 +81,24 @@ type: point
 events:
     -   date: !!null
         name: Bokhorst (Holstein)
-        source: !keyref src.de.Kb.1905
-    -   date: !date c1910
+        source: src.de.Kb.1905
+    -   date: c1910
         name: Bokhorst
-        source: !keyref src.de.Kb.1914
+        source: src.de.Kb.1914
     -   date: !!null
         de.lknr: 01 210
-        source: !keyref src.de.Bfv.1928
+        source: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
-        de.Rangklasse: IV
-        source: !keyref src.de.Bfv.1933
-    -   date: !var lknr.30
+        de.rang: IV
+        source: src.de.Bfv.1933
+    -   date: de.lknr.30
         de.lknr: 01 369
-        source: !keyref src.de.Bfv.1933
+        source: src.de.Bfv.1933
     -   date: !!null
-        location: !keyloc line.de.1041 83,76
-        source: !keyref src.de.DRG.Alt.Karte.1945
+        location:
+            line.de.1041: 83,76
+        source: src.de.DRG.Alt.Karte.1945
     -   date: !!null
         de.DS100: ABH
         de.dstnr: !!str 013698
@@ -130,7 +112,7 @@ events:
         source: src.de.DBAG.BSV.2017
 
     -   date: !!null
-        site: !noderef path.de.1041 bok left
+        site: path.de.1041 bok
 
 
 ---
@@ -139,27 +121,28 @@ type: point
 events:
     -   date: !!null
         name: Wankendorf
-        source: !keyref src.de.Kb.1905
+        source: src.de.Kb.1905
     -   date: !!null
         de.lknr: 01 211
-        source: !keyref src.de.Bfv.1928
+        source: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
-        de.Rangklasse: IV
-        source: !keyref src.de.Bfv.1933
-    -   date: !var lknr.30
+        de.rang: IV
+        source: src.de.Bfv.1933
+    -   date: de.lknr.30
         de.lknr: 01 368
-        source: !keyref src.de.Bfv.1933
+        source: src.de.Bfv.1933
     -   date: !!null
-        location: !keyloc line.de.1041 89,66
-        source: !keyref src.de.DRG.Alt.Karte.1945
+        location:
+            line.de.1041: 89,66
+        source: src.de.DRG.Alt.Karte.1945
     -   date: !!null
         de.DS100: AWD
         de.dstnr: !!str 013680
-        source: !keyref src.de.DS100.1984
+        source: src.de.DS100.1984
 
     -   date: !!null
-        site: !noderef path.de.1041 wan right
+        site: path.de.1041 wan
 
 
 ---
@@ -168,52 +151,54 @@ type: point
 events:
     -   date: !!null
         name: Perdoel
-        source: !keyref src.de.Kb.1905
+        source: src.de.Kb.1905
     -   date: !!null
         de.lknr: 01 212
-        source: !keyref src.de.Bfv.1928
+        source: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
-        de.Rangklasse: IV
-        source: !keyref src.de.Bfv.1933
-    -   date: !var lknr.30
+        de.rang: IV
+        source: src.de.Bfv.1933
+    -   date: de.lknr.30
         de.lknr: 01 367
-        source: !keyref src.de.Bfv.1933
+        source: src.de.Bfv.1933
     -   date: !!null
-        location: !keyloc line.de.1041 93,46
-        source: !keyref src.de.DRG.Alt.Karte.1945
+        location:
+            line.de.1041: 93,46
+        source: src.de.DRG.Alt.Karte.1945
     -   date: !!null
         de.DS100: APE
         de.dstnr: !!str 013672
-        source: !keyref src.de.DS100.1984
-    -   date: !date c1970
+        source: src.de.DS100.1984
+    -   date: c1970
         category: de.Hp
         staff: none
-        source: !keyref src.de.DS100.1984
-    -   date: !date c1990
+        source: src.de.DS100.1984
+    -   date: c1990
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.1041 per left
+        site: path.de.1041 per
 
 
 ---
 key: point.de.Kaluebbe
 type: point
 events:
-    -   date: !date c1950
+    -   date: c1950
         status: open
-        location: !keyloc line.de.1041 96,1
+        location:
+            line.de.1041: 96,1
     -   date: !!null
         category: de.Hp
         staff: none
         name: Kalübbe
         de.DS100: AKAL
         de.dstnr: !!str 013870
-        source: !keyref src.de.DS100.1984
-    -   date: !date c1980
+        source: src.de.DS100.1984
+    -   date: c1980
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.1041 kal
+        site: path.de.1041 kal
 

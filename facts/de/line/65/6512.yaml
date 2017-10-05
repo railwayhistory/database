@@ -7,10 +7,10 @@ progress: stub
 events:
     -   date: !!null
         region:
-            - !keyref org.de
-            - !keyref org.de.l.bb
+            - org.de
+            - org.de.l.bb
 
-    -   date: !var vzg.dr
+    -   date: de.vzg.dr
         de.VzG: !!str 6512
         source: src.de.DBAG.Geo-Strecke.2017
 
@@ -20,14 +20,14 @@ events:
     #   Eröffnung und Einstellung
     #
     -   date: !!null
-        end: !keyref point.de.Rathenow-Nord
+        end: point.de.Rathenow-Nord
         status: open
-        source: !keyref src.de.SuW.2011
+        source: src.de.SuW.2011
     -   date: !!null
-        start: !keyref point.de.Rathenow
-        end: !keyref point.de.Rathenow-Nord
+        start: point.de.Rathenow
+        end: point.de.Rathenow-Nord
         passenger: none
-        source: !keyref src.de.SuW.2011
+        source: src.de.SuW.2011
     -   date: 2006-05-31
         start: point.de.Rathenow-Nord
         status: closed
@@ -43,13 +43,13 @@ events:
     #
 
 points:
-    - !keyref point.de.Brandenburg-Hbf                      # line.de.6110
-    - !keyref point.de.Brandenburg-Altstadt
-    - !keyref point.de.Rathenow                             # line.de.6107
-    - !keyref point.de.Rathenow-Nord
-    - !keyref point.de.Koeritz
-    - !keyref point.de.Neustadt-Dosse-Brand-St
-    - !keyref point.de.Neustadt-Dosse                       # line.de.6100
+    - point.de.Brandenburg-Hbf                      # line.de.6110
+    - point.de.Brandenburg-Altstadt
+    - point.de.Rathenow                             # line.de.6107
+    - point.de.Rathenow-Nord
+    - point.de.Koeritz
+    - point.de.Neustadt-Dosse-Brand-St
+    - point.de.Neustadt-Dosse                       # line.de.6100
 
 
 ---
@@ -60,7 +60,7 @@ events:
     -   date: !!null
         name: Brandenburg-Altstadt
         de.DS100: LBA
-        source: !keyref src.de.DBAG.ISR
+        source: src.de.DBAG.ISR
 
 
 ---
@@ -71,7 +71,7 @@ events:
     -   date: !!null
         name: Rathenow Nord
         de.DS100: LRWN
-        source: !keyref src.de.DBAG.ISR
+        source: src.de.DBAG.ISR
 
 
 
@@ -80,21 +80,22 @@ key: point.de.Koeritz
 type: point
 junction: True
 events:
-    -   date: !date c1950
+    -   date: c1950
         status: open
     -   date: !!null
-        #location: !keyloc line.de.6512 122,00
+        location:
+            line.de.6512: 122,00
         category: de.Abzw
         name: Köritz
         de.VBL: Akö
-        source: !keyref src.dd.DR.1976
-    -   date: !var ds100.dr
+        source: src.dd.DR.1976
+    -   date: de.ds100.dr
         de.DS100: WKTZ
-    -   date: !date c1995
+    -   date: c1995
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.6512 kor left
+        site: path.de.6512 kor
 
 
 ---
@@ -104,20 +105,20 @@ junction: True
 events:
     -   date: !!null
         name: Neustadt (Dosse) Städtebf
-        source: !keyref src.de.Kb.1905
+        source: src.de.Kb.1905
     -   date: !!null
         de.lknr: 40 808
-        source: !keyref src.de.Bfv.1928
-    -   date: !date c1920
+        source: src.de.Bfv.1928
+    -   date: c1920
         name: Neustadt (Dosse) Brand St E
-        source: !keyref src.de.Bfv.1928
-    -   date: !date c1930
+        source: src.de.Bfv.1928
+    -   date: c1930
         name: Neustadt (Dosse) Brand St
-        source: !keyref src.de.Bfv.1933
-    -   date: !date c1950
+        source: src.de.Bfv.1933
+    -   date: c1950
         status: closed
-        merged: !keyref point.de.Neustadt-Dosse
+        merged: point.de.Neustadt-Dosse
 
     -   date: !!null
-        connection: !keyref point.de.Neustadt-Dosse
-        site: !noderef path.de.6100 nsb right
+        connection: point.de.Neustadt-Dosse
+        site: path.de.6100 nsb

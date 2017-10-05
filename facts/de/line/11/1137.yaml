@@ -7,8 +7,8 @@ label: freight
 events:
     -   date: !!null
         region:
-            - !keyref org.de
-            - !keyref org.de.l.sh
+            - org.de
+            - org.de.l.sh
 
     -   date: !!null
         de.VzG: !!str 1137
@@ -19,42 +19,42 @@ events:
 
     #   Eröffnung
     #
-    -   date: !date 1923
+    -   date: 1923
         status: open
-        source: !keyref src.de.Hecht.2001
+        source: src.de.Hecht.2001
 
     #   Eigenschaften
     #
     -   date: !!null
         category: de.Anschl
         tracks: 1
-        gauge: 1435
+        gauge: 1435mm
 
     #   Eigentümer etc.
     #
     -   date: !!null
-        owner: !keyref org.de.Lübeck-Büchener-Eisenbahn
-        operator: !keyref org.de.Lübeck-Büchener-Eisenbahn
-        source: !keyref src.de.WP.Lübecker-Hafenbahn
-    -   date: !date 1936-07
-        owner: !keyref org.de.Lübecker-Hafengesellschaft
-        operator: !keyref org.de.Lübecker-Hafengesellschaft
-        source: !keyref src.de.WP.Lübecker-Hafenbahn
-    -   date: !date 2008-01-01
-        owner: !keyref org.de.Lübeck-Port-Authority
-        operator: !keyref org.de.Lübeck-Port-Authority
-        source: !keyref src.de.WP.Lübecker-Hafenbahn
+        owner: org.de.Lübeck-Büchener-Eisenbahn
+        operator: org.de.Lübeck-Büchener-Eisenbahn
+        source: src.de.WP.Lübecker-Hafenbahn
+    -   date: 1936-07
+        owner: org.de.Lübecker-Hafengesellschaft
+        operator: org.de.Lübecker-Hafengesellschaft
+        source: src.de.WP.Lübecker-Hafenbahn
+    -   date: 2008-01-01
+        owner: org.de.Lübeck-Port-Authority
+        operator: org.de.Lübeck-Port-Authority
+        source: src.de.WP.Lübecker-Hafenbahn
 
     #   Verlauf
     #
     -   date: !!null
         course:
-            - !pathref path.de.1131 bra  akon -1.0
-            - !pathref path.de.1137 a    f     0.0
+            -   path.de.1131 bra akon
+            -   path.de.1137 a f
 
 points:
-    - !keyref point.de.Brandenbaum                      # line.de.1131
-    - !keyref point.de.Lübeck-Konstinbahnhof
+    - point.de.Brandenbaum                      # line.de.1131
+    - point.de.Lübeck-Konstinbahnhof
 
 
 ---
@@ -67,11 +67,12 @@ events:
         name: Lübeck Konstinbahnhof
         de.DS100: ALKO
         de.dstnr: !!str 017525
-        source: !keyref src.de.DS100.1984
+        source: src.de.DS100.1984
     -   date: !!null
-        location: !keyloc line.de.1137 5,800
-        source: !keyref src.de.DBAG.ISR
+        location:
+            line.de.1137: 5,800
+        source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.1137 kon right
+        site: path.de.1137 kon
 

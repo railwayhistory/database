@@ -64,7 +64,7 @@ events:
     -   date: !!null
         category: de.Nebenbahn
         tracks: 1
-        gauge: 1435
+        gauge: 1435mm
         source: src.de.DRG.1927
 
     #   Eigentümer etc.
@@ -90,7 +90,7 @@ events:
         owner: org.de.Westholsteinische-Eisenbahn
         end: point.de.Wesselburen
         note:
-            de: >
+            deu: >
                 „Durch Kaufvertrag vom 23. Dezember 1880 ging diese Bahn
                 am 1. April 1881 auf die Westholsteinische
                 Eisenbahn-Gesellschaft über.“
@@ -100,31 +100,13 @@ events:
         owner: org.de.l.pre
         operator: org.de.e.hmb
 
-    -   date: 1920-04-01
-        owner: org.de
-        operator: org.de.r.RVM.PH
-    -   date: 1924-02-12
-        operator: org.de.Deutsche-Reichsbahn-I
-    -   date: 1924-08-30
-        operator: org.de.DR
-
-    -   date: !var org.de.DB.start
-        operator: org.de.DB
-
-    -   date: !var org.de.Deutsche-Bahn.start
-        owner: org.de.Deutsche-Bahn
-        operator: org.de.Deutsche-Bahn
-    -   date: !var org.de.DBNetz.start
-        owner: org.de.DB-Netz
-        operator: org.de.DB-Netz
-
     #   Verlauf
     #
     -   date: !!null
         course:
-            - !pathref path.de.1210  hei  awex  1.5
-            - !pathref path.de.1210  fwex abus -1.5
-            - !pathref path.de.1206  a    f     0.0
+            -   path.de.1210 hei awex
+            -   path.de.1210 fwex abus
+            -   path.de.1206 a f
 
 points:
     - point.de.Heide-Holst                      # line.de.1210
@@ -150,17 +132,17 @@ events:
         source: src.de.Kb.1905
     -   date: !!null
         location:
-            - !keyloc line.de.1206 3,33
-            - !keyloc line.de.1207 3,33
+            line.de.1206: 3,33
+            line.de.1207: 3,33
         source: src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.lknr: 01 111
         source: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
-        de.Rangklasse: IV
+        de.rang: IV
         source: src.de.Bfv.1933
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 01 534
         source: src.de.Bfv.1933
     -   date: !!null
@@ -176,8 +158,8 @@ events:
 
     -   date: !!null
         site:
-            - !noderef path.de.1210 weh left
-            - !noderef path.de.1206 weh right
+            - path.de.1210 weh
+            - path.de.1206 weh
 
 
 ---
@@ -187,7 +169,8 @@ events:
     -   date: c1950
         status: open
         category: de.Hp
-        location: !keyloc line.de.1206 6,0
+        location:
+            line.de.1206: 6,0
         name: Dellweg
         service: passenger
         staff: none
@@ -195,7 +178,7 @@ events:
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.1206 del
+        site: path.de.1206 del
 
 
 ---
@@ -210,13 +193,14 @@ events:
         source: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
-        de.Rangklasse: IV
+        de.rang: IV
         source: src.de.Bfv.1933
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 01 535
         source: src.de.Bfv.1933
     -   date: !!null
-        location: !keyloc line.de.1206 8,08
+        location:
+            line.de.1206: 8,08
         source: src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.DS100: ATB
@@ -227,12 +211,13 @@ events:
         staff: none
         source: src.de.DS100.1984
     -   date: c1990
-        location: !keyloc line.de.1206 8,167
+        location:
+            line.de.1206: 8,167
         category: de.Hp
         source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.1206 tie left
+        site: path.de.1206 tie
 
 
 ---
@@ -247,16 +232,17 @@ events:
         source: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
-        de.Rangklasse: IV
+        de.rang: IV
         source: src.de.Bfv.1933
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 01 536
         source: src.de.Bfv.1933
     -   date: c1930
         staff: agent
         source: src.de.Bfv.1933
     -   date: !!null
-        location: !keyloc line.de.1206 10,52
+        location:
+            line.de.1206: 10,52
         source: src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.DS100: AHAH
@@ -271,7 +257,7 @@ events:
         source: src.de.TPP.2007
 
     -   date: !!null
-        site: !noderef path.de.1206 haf left
+        site: path.de.1206 haf
 
 
 ---
@@ -286,16 +272,17 @@ events:
         source: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
-        de.Rangklasse: IV
+        de.rang: IV
         source: src.de.Bfv.1933
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 01 537
         source: src.de.Bfv.1933
     -   date: c1930
         staff: agent
         source: src.de.Bfv.1933
     -   date: !!null
-        location: !keyloc line.de.1206 11,90
+        location:
+            line.de.1206: 11,90
         source: src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.DS100: AJHH
@@ -307,7 +294,7 @@ events:
         source: src.de.DS100.1984
 
     -   date: !!null
-        site: !noderef path.de.1206 jar left
+        site: path.de.1206 jar
 
 
 ---
@@ -323,13 +310,14 @@ events:
         source: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
-        de.Rangklasse: III
+        de.rang: III
         source: src.de.Bfv.1933
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 01 538
         source: src.de.Bfv.1933
     -   date: !!null
-        location: !keyloc line.de.1206 13,96
+        location:
+            line.de.1206: 13,96
         source: src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.DS100: AWBU
@@ -340,7 +328,7 @@ events:
         source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.1206 wes right
+        site: path.de.1206 wes
 
 
 ---
@@ -355,16 +343,17 @@ events:
         source: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
-        de.Rangklasse: IV
+        de.rang: IV
         source: src.de.Bfv.1933
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 01 539
         source: src.de.Bfv.1933
     -   date: c1930
         staff: agent
         source: src.de.Bfv.1933
     -   date: !!null
-        location: !keyloc line.de.1206 15,64
+        location:
+            line.de.1206: 15,64
         source: src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.DS100: ASDD
@@ -379,7 +368,7 @@ events:
         source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.1206 sde right
+        site: path.de.1206 sde
 
 
 ---
@@ -394,13 +383,14 @@ events:
         source: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
-        de.Rangklasse: IV
+        de.rang: IV
         source: src.de.Bfv.1933
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 01 540
         source: src.de.Bfv.1933
     -   date: !!null
-        location: !keyloc line.de.1206 17,68
+        location:
+            line.de.1206: 17,68
         source: src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.DS100: ARE
@@ -412,7 +402,7 @@ events:
         source: src.de.DS100.1984
 
     -   date: !!null
-        site: !noderef path.de.1206 rei left
+        site: path.de.1206 rei
 
 
 ---
@@ -427,13 +417,14 @@ events:
         source: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
-        de.Rangklasse: IV
+        de.rang: IV
         source: src.de.Bfv.1933
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 01 541
         source: src.de.Bfv.1933
     -   date: !!null
-        location: !keyloc line.de.1206 20,27
+        location:
+            line.de.1206: 20,27
         source: src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.DS100: AOHF
@@ -450,7 +441,7 @@ events:
         source: src.de.TPP.2007
 
     -   date: !!null
-        site: !noderef path.de.1206 oho left
+        site: path.de.1206 oho
 
 
 ---
@@ -466,9 +457,9 @@ events:
         source: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
-        de.Rangklasse: III
+        de.rang: III
         source: src.de.Bfv.1933
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 01 542
         source: src.de.Bfv.1933
     -   date: !!null
@@ -481,15 +472,18 @@ events:
         source: src.de.DBAG.BSV.2017
 
     -   date: !!null
-        location: !keyloc line.de.1206 23,90
+        location:
+            line.de.1206: 23,90
         source: src.de.DRG.Alt.Karte.1949
     -   date: c1980
-        location: !keyloc line.de.1206 23,92
+        location:
+            line.de.1206: 23,92
         source: src.de.DB.Hmb.Karte.1984
     -   date: c2000
-        location: !keyloc line.de.1206 23,841
+        location:
+            line.de.1206: 23,841
         source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
-        site: !noderef path.de.1206 bus right
+        site: path.de.1206 bus
 

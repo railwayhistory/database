@@ -7,84 +7,77 @@ type: line
 label: de.S-Bahn
 events:
     -   date: !!null
-        region: !keyref org.de
+        region: org.de
     -   date: !!null
-        end: !keyref point.de.Berlin-Gruenbergallee-LGr
-        region: !keyref org.de.l.be
+        end: point.de.Berlin-Gruenbergallee-LGr
+        region: org.de.l.be
     -   date: !!null
-        start: !keyref point.de.Berlin-Gruenbergallee-LGr
-        region: !keyref org.de.l.bb
+        start: point.de.Berlin-Gruenbergallee-LGr
+        region: org.de.l.bb
 
-    -   date: !var vzg.dr
+    -   date: de.vzg.dr
         de.VzG: !!str 6008
         source: src.de.DBAG.Geo-Strecke.2017
 
     #   Eröffnung
     #
-    -   date: !date 1962-02-26
-        end: !keyref point.de.Berlin-Schoenefeld-Flughafen
+    -   date: 1962-02-26
+        end: point.de.Berlin-Schoenefeld-Flughafen
         status: open
-        service: passenger
-        source: !keyref src.de.Kuhlmann.2000
-    -   date: !date 2011-10-30
-        start: !keyref point.de.Berlin-Schoenefeld-Flughafen
+        freight: none
+        source: src.de.Kuhlmann.2000
+    -   date: 2011-10-30
+        start: point.de.Berlin-Schoenefeld-Flughafen
         status: open
-        service: none
-        source: !keyref src.de.web.Stadtschnellbahn-Berlin
+        freight: none
+        passenger: none
+        source: src.de.web.Stadtschnellbahn-Berlin
     
     #   Eigenschaften
     #
     -   date: !!null
         category: de.Hauptbahn
-        gauge: 1435
-        source: !keyref src.dd.DR.Bln.1968
+        gauge: 1435mm
+        electrified: de.bln
+        source: src.dd.DR.Bln.1968
     -   date: !!null
-        end: !keyref point.de.Berlin-Altglienicke
+        end: point.de.Berlin-Altglienicke
         tracks: 1
-        source: !keyref src.dd.DR.Bln.1968
+        source: src.dd.DR.Bln.1968
     -   date: !!null
-        start: !keyref point.de.Berlin-Altglienicke
+        start: point.de.Berlin-Altglienicke
         tracks: 2
-        source: !keyref src.dd.DR.Bln.1968
-    -   date: !date 1987-06-29
-        end: !keyref point.de.Berlin-Altglienicke
+        source: src.dd.DR.Bln.1968
+    -   date: 1987-06-29
+        end: point.de.Berlin-Altglienicke
         tracks: 2
-        source: !keyref src.de.web.Stadtschnellbahn-Berlin
+        source: src.de.web.Stadtschnellbahn-Berlin
 
     #   Eigentümer etc.
     #
     -   date: !!null
-        owner: !keyref org.dd
-        operator: !keyref org.dd.DR
-    -   date: !date 1990-10-03
-        owner: !keyref org.de
-
-    -   date: !var org.de.Deutsche-Bahn.start
-        owner: !keyref org.de.Deutsche-Bahn
-        operator: !keyref org.de.Deutsche-Bahn
-    -   date: !var org.de.DBNetz.start
-        owner: !keyref org.de.DB-Netz
-        operator: !keyref org.de.DB-Netz
+        owner: org.dd
+        operator: org.dd.DR
         
     #   Verlauf
     #
     -   date: !!null
         course:
-            - !pathref path.de.6142     gks  aagl -2.0
-            - !pathref path.de.6008     a    f     0.0
-            - !pathref path.de.6126     aagl fber -2.0
-            - !pathref path.de.6008.was a    f     0.0
-            - !pathref path.de.6151     fson flu  -2.0
+            -   path.de.6142     gks  aagl
+            -   path.de.6008     a    f
+            -   path.de.6126     aagl fber
+            -   path.de.6008.was a    f
+            -   path.de.6151     fson flu
 
 points:
-    - !keyref point.de.Gruenauer-Kreuz-Suedost              # line.de.6007
-    - !keyref point.de.Berlin-Altglienicke
-    - !keyref point.de.Berlin-Gruenbergallee
-    - !keyref point.de.Berlin-Gruenbergallee-LGr
-    - !keyref point.de.Berlin-Schoenefeld-Flughafen         # line.de.6126
-    - !keyref point.de.Schoenefeld-S-Bahn
-    - !keyref point.de.Wassmannsdorf
-    - !keyref point.de.Berlin-Flughafen-BER-S-Bahn
+    - point.de.Gruenauer-Kreuz-Suedost              # line.de.6007
+    - point.de.Berlin-Altglienicke
+    - point.de.Berlin-Gruenbergallee
+    - point.de.Berlin-Gruenbergallee-LGr
+    - point.de.Berlin-Schoenefeld-Flughafen         # line.de.6126
+    - point.de.Schoenefeld-S-Bahn
+    - point.de.Wassmannsdorf
+    - point.de.Berlin-Flughafen-BER-S-Bahn
 
 
 ---
@@ -92,88 +85,91 @@ key: point.de.Berlin-Altglienicke
 type: point
 junction: True
 events:
-    -   date: !date 1941-01-01
+    -   date: 1941-01-01
         status: open
-        source: !keyref src.de.Kuhlmann.2000
+        source: src.de.Kuhlmann.2000
     -   date: !!null
         location:
-            - !keyloc line.de.6541 17,51
-            - !keyloc line.de.8704 17,51
+            line.de.6541: 17,51
+            line.de.8704: 17,51
         name: Altglienicke
-        source: !keyref src.de.DRG.Bln.1943
+        source: src.de.DRG.Bln.1943
     -   date: !!null
         category: de.Bf
-        de.Rangklasse: IV
+        de.rang: IV
         service: none
         de.lknr: 03 387
-        source: !keyref src.de.Bfv.1944
+        source: src.de.Bfv.1944
     -   date: !!null
         de.VBL: Al
-        source: !keyref src.de.DRG.Bln.1946
-    -   date: !date 1948-07-26
+        source: src.de.DRG.Bln.1946
+    -   date: 1948-07-26
         service: passenger
-        source: !keyref src.de.Kuhlmann.2000
-    -   date: !date 1951-03-21
+        source: src.de.Kuhlmann.2000
+    -   date: 1951-03-21
         service: none
-        source: !keyref src.de.Kuhlmann.2000
-    -   date: !date 1955-05-22
+        source: src.de.Kuhlmann.2000
+    -   date: 1955-05-22
         service: passenger
-        source: !keyref src.de.Kuhlmann.2000
-    -   date: !date 1958-05-31
+        source: src.de.Kuhlmann.2000
+    -   date: 1958-05-31
         service: none
-        source: !keyref src.de.Kuhlmann.2000
-    -   date: !date 1962-02-26
+        source: src.de.Kuhlmann.2000
+    -   date: 1962-02-26
         service: passenger
-        source: !keyref src.de.Kuhlmann.2000
-    -   date: !date 1962-02-26?
+        source: src.de.Kuhlmann.2000
+    -   date: 1962-02-26?
         category: [de.Hp, de.Abzw]
-        master: !keyref point.de.Berlin-Schoenefeld-Flughafen
-        source: !keyref src.dd.DR.Bln.1968
+        master: point.de.Berlin-Schoenefeld-Flughafen
+        source: src.dd.DR.Bln.1968
     -   date: !!null
-        location: !keyloc line.de.6008 1,95
-        source: !keyref src.dd.DR.Bln.1973
-    -   date: !date 1987-06-29
+        location:
+            line.de.6008: 1,95
+        source: src.dd.DR.Bln.1973
+    -   date: 1987-06-29
         category: de.Hp
-        source: !keyref src.dd.DR.1989
-    -   date: !var ds100.dr
+        source: src.dd.DR.1989
+    -   date: de.ds100.dr
         de.DS100: BAGL
-        source: !keyref src.de.TPP.2006
-    -   date: !date c2000
+        source: src.de.TPP.2006
+    -   date: c2000
         name: Berlin-Altglienicke
-        source: !keyref src.de.TPP.2006
+        source: src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.6008 agl
+        site: path.de.6008 agl
 
 
 ---
 key: point.de.Berlin-Gruenbergallee
 type: point
 events:
-    -   date: !date 1949-05-15
+    -   date: 1949-05-15
         status: open
-        source: !keyref src.de.Kuhlmann.2000
+        source: src.de.Kuhlmann.2000
     -   date: !!null
-        location: !keyloc line.de.6541 17,8
+        location:
+            line.de.6541: 17,8
         category: de.Hp
         name: Grünbergallee
-        master: !keyref point.de.Berlin-Schoenefeld-Flughafen
-        source: !keyref src.dd.DR.Bln.1959
+        master: point.de.Berlin-Schoenefeld-Flughafen
+        source: src.dd.DR.Bln.1959
     -   date: !!null
         de.VBL: Gal
-        source: !keyref src.dd.DR.Bln.1968
+        source: src.dd.DR.Bln.1968
     -   date: !!null
-        location: !keyloc line.de.6008 3,40
-        source: !keyref src.dd.DR.Bln.1973
-    -   date: !var ds100.dr
+        location:
+            line.de.6008: 3,40
+        source: src.dd.DR.Bln.1973
+    -   date: de.ds100.dr
         de.DS100: BGBA
-        source: !keyref src.de.TPP.2006
-    -   date: !date c2000
+        source: src.de.TPP.2006
+    -   date: c2000
         name: Berlin Grünbergallee
-        source: !keyref src.de.TPP.2006
+        source: src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.6008 gru left
+        site: path.de.6008 gru
 
 
 ---
@@ -184,55 +180,57 @@ events:
     -   date: !!null
         name: Berlin Grünbergallee BE/BB
         de.DS100: BQFHS
-        source: !keyref src.de.TPP.2006
+        source: src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.6008 ggru
+        site: path.de.6008 ggru
 
 
 ---
 key: point.de.Schoenefeld-S-Bahn
 type: point
 events:
-    -   date: !date 2006
+    -   date: 2006
         status: open
         source:
-            - !keyref src.de.TPP.2006
-            - !keyref src.de.TPP.2007
+            - src.de.TPP.2006
+            - src.de.TPP.2007
     -   date: !!null
         name: Berlin-Schönefeld Flughafen S-Bahn
         de.DS100: BFLH
-        source: !keyref src.de.TPP.2007
+        source: src.de.TPP.2007
     -   date: !!null
-        location: !keyloc line.de.6008 5,961
+        location:
+            line.de.6008: 5,961
         category: de.Bf
-        source: !keyref src.de.DBAG.ISR
-    -   date: !date 2012
+        source: src.de.DBAG.ISR
+    -   date: 2012
         name: Schönefeld S-Bahn
-        source: !keyref src.de.TPP.2013
+        source: src.de.TPP.2013
 
     -   date: !!null
-        site: !noderef path.de.6126 son right
+        site: path.de.6126 son
 
 
 ---
 key: point.de.Wassmannsdorf
 type: point
 events:
-    -   date: !date 2011-10-30
+    -   date: 2011-10-30
         status: open
         service: none
     -   date: !!null
-        location: !keyloc line.de.6008 9,800
+        location:
+            line.de.6008: 9,800
         category: de.Hp
         name: Waßmannsdorf
         de.DS100: BWAF
-        source: !keyref src.de.DBAG.ISR
+        source: src.de.DBAG.ISR
     -   date: !!null
         staff: none
 
     -   date: !!null
-        site: !noderef path.de.6008.was was left
+        site: path.de.6008.was was
 
 
 ---
@@ -240,18 +238,19 @@ key: point.de.Berlin-Flughafen-BER-S-Bahn
 type: point
 junction: True
 events:
-    -   date: !date 2011-10-30
+    -   date: 2011-10-30
         status: open
         service: none
     -   date: !!null
-        location: !keyloc line.de.6008 13,500
+        location:
+            line.de.6008: 13,500
         category: de.Bf
         name: Berlin Flughafen BER S-Bahn
         de.DS100: BFBB
-        source: !keyref src.de.DBAG.ISR
+        source: src.de.DBAG.ISR
     -   date: !!null
         staff: none
 
     -   date: !!null
-        site: !noderef path.de.6151 flu left
+        site: path.de.6151 flu
 

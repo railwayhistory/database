@@ -6,104 +6,80 @@ type: line
 events:
     -   date: !!null
         region:
-            - !keyref org.de
-            - !keyref org.de.l.bb
+            - org.de
+            - org.de.l.bb
 
-    -   date: !var vzg.dr
+    -   date: de.vzg.dr
         de.VzG: !!str 6328
         source: src.de.DBAG.Geo-Strecke.2017
 
     #   Genehmigung
     #
-    -   date: !date 1840-10-12
+    -   date: 1840-10-12
         concession:
-            by: !keyref org.de.l.pre
-            for: !keyref org.de.Berlin-Stettiner-Eisenbahn
-            document: !keyref src.de.l.pre.1840.20.305
-        source: !keyref src.de.DRG.1935
+            by: org.de.l.pre
+            for: org.de.Berlin-Stettiner-Eisenbahn
+        document: src.de.l.pre.1840.20.305
+        source: src.de.DRG.1935
 
     #   Eröffnung
     #
-    -   date: !date 1843-08-16
+    -   date: 1843-08-16
         status: open
-        source: !keyref src.de.DRG.1935
+        source: src.de.DRG.1935
 
     #   Eigenschaften
     #
     -   date: !!null
         category: de.Hauptbahn
         tracks: 2
-        gauge: 1435
-        source: !keyref src.de.DRG.1927
-    -   date: !date c1945
+        gauge: 1435mm
+        source: src.de.DRG.1927
+    -   date: c1945
         tracks: 1
-    -   date: !date c1970
-        start: !keyref point.de.Angermünde
-        end: !keyref point.de.Passow-Uckerm
+    -   date: c1970
+        start: point.de.Angermünde
+        end: point.de.Passow-Uckerm
         tracks: 2
-        source: !keyref src.dd.DR.1976
+        source: src.dd.DR.1976
 
-    -   date: !date 1987-12-30
-        end: !keyref point.de.Passow-Uckerm
-        electrified:
-            overhead: !var el.de
-        source: !keyref src.de.Hafner.1989
+    -   date: 1987-12-30
+        end: point.de.Passow-Uckerm
+        electrified: de
+        source: src.de.Hafner.1989
 
     #   Eigentümer etc.
     #
     -   date: !!null
-        owner: !keyref org.de.Berlin-Stettiner-Eisenbahn
-        operator: !keyref org.de.Berlin-Stettiner-Eisenbahn
-    -   date: !date 1879-01-01
-        owner: !keyref org.de.l.pre
-        operator: !keyref org.de.e.stn
-        source: !keyref src.de.DRG.1935
+        owner: org.de.Berlin-Stettiner-Eisenbahn
+        operator: org.de.Berlin-Stettiner-Eisenbahn
 
-    -   date: !date 1920-04-01
-        owner: !keyref org.de
-        operator: !keyref org.de.r.RVM.PH
-    -   date: !date 1924-02-12
-        operator: !keyref org.de.Deutsche-Reichsbahn-I
-    -   date: !date 1924-08-30
-        operator: !keyref org.de.DR
-
-    -   date: !date 1949-10-07
-        owner: !keyref org.dd
-    -   date: !var org.de.DR.start
-        operator: !keyref org.dd.DR
-    -   date: !date 1990-10-03
-        owner: !keyref org.de
-
-    -   date: !var org.de.Deutsche-Bahn.start
-        owner: !keyref org.de.Deutsche-Bahn
-        operator: !keyref org.de.Deutsche-Bahn
-    -   date: !var org.de.DBNetz.start
-        owner: !keyref org.de.DB-Netz
-        operator: !keyref org.de.DB-Netz
+    -   date: 1949-10-07
+        owner: org.dd
 
     # Verlauf
     #
     -   date: !!null
         course:
-            - !pathref path.de.6081 ang  apas  0.0
-            - !pathref path.de.6328 a    gtan  0.0
+            -   path.de.6081 ang  apas
+            -   path.de.6328 a    gtan
 
 points:
-    - !keyref point.de.Angermünde                           # line.de.6081
-    - !keyref point.de.Kerkow
-    - !keyref point.de.Welsow-Bruchhagen
-    - !keyref point.de.Schönermark-Angermünde
-    - !keyref point.de.Briest
-    - !keyref point.de.Passow-Uckerm
-    - !keyref point.de.Schoenow
-    - !keyref point.de.Blumberg-Uckerm
-    - !keyref point.de.Casekow
-    - !keyref point.de.Petershagen-Uckerm
-    - !keyref point.de.Schoenfeld-Uckerm
-    - !keyref point.de.Tantow
-    - !keyref point.de.Radekow
-    - !keyref point.de.Rosow
-    - !keyref point.int.Szczecin-Tantow                     # line.pl.409
+    - point.de.Angermünde                           # line.de.6081
+    - point.de.Kerkow
+    - point.de.Welsow-Bruchhagen
+    - point.de.Schönermark-Angermünde
+    - point.de.Briest
+    - point.de.Passow-Uckerm
+    - point.de.Schoenow
+    - point.de.Blumberg-Uckerm
+    - point.de.Casekow
+    - point.de.Petershagen-Uckerm
+    - point.de.Schoenfeld-Uckerm
+    - point.de.Tantow
+    - point.de.Radekow
+    - point.de.Rosow
+    - point.int.Szczecin-Tantow                     # line.pl.409
 
 
 ---
@@ -113,18 +89,18 @@ junction: True
 events:
     -   date: !!null
         location:
-            - !keyloc line.de.6328 73,97
+            line.de.6328: 73,97
         category: de.Abzw
         name: Kerkow
         de.VBL: Kk
-        source: !keyref src.dd.DR.1989
-    -   date: !var ds100.dr
+        source: src.dd.DR.1989
+    -   date: de.ds100.dr
         de.DS100: WKK
-    -   date: !date c2000
+    -   date: c2000
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.6328 ker
+        site: path.de.6328 ker
 
 
 ---
@@ -133,37 +109,38 @@ type: point
 events:
     -   date: !!null
         name: Welsow-Bruchhagen
-        source: !keyref src.de.Kb.1914
+        source: src.de.Kb.1914
     -   date: !!null
         de.lknr: 28 182
-        source: !keyref src.de.Bfv.1928
+        source: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
-        de.Rangklasse: IV
-        source: !keyref src.de.Bfv.1933
-    -   date: !var lknr.30
+        de.rang: IV
+        source: src.de.Bfv.1933
+    -   date: de.lknr.30
         de.lknr: 28 231
-        source: !keyref src.de.Bfv.1933
+        source: src.de.Bfv.1933
     -   date: !!null
-        location: !keyloc line.de.6328 77,53
+        location:
+            line.de.6328: 77,53
         de.VBL: Wbr
-        source: !keyref src.dd.DR.1976
-    -   date: !date c1965
+        source: src.dd.DR.1976
+    -   date: c1965
         category: de.Hp
-        source: !keyref src.dd.DR.1976
-    -   date: !date c1985
+        source: src.dd.DR.1976
+    -   date: c1985
         staff: none
-        source: !keyref src.dd.DR.1989
-    -   date: !date c1965
-        master: !keyref point.de.Schönermark-Angermünde
-        source: !keyref src.dd.DR.Bln.1991
-    -   date: !var ds100.dr
+        source: src.dd.DR.1989
+    -   date: c1965
+        master: point.de.Schönermark-Angermünde
+        source: src.dd.DR.Bln.1991
+    -   date: de.ds100.dr
         de.DS100: WWBR
-    -   date: !date c2005
+    -   date: c2005
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.6328 wel
+        site: path.de.6328 wel
 
 
 ---
@@ -173,38 +150,39 @@ junction: True
 events:
     -   date: !!null
         name: Schönermark Stb
-        source: !keyref src.de.Kb.1914
+        source: src.de.Kb.1914
     -   date: !!null
         de.lknr: 28 183
-        source: !keyref src.de.Bfv.1928
-    -   date: !date c1920
+        source: src.de.Bfv.1928
+    -   date: c1920
         name: Schönermark
-        source: !keyref src.de.Bfv.1928
+        source: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
-        de.Rangklasse: III
-        source: !keyref src.de.Bfv.1933
-    -   date: !var lknr.30
+        de.rang: III
+        source: src.de.Bfv.1933
+    -   date: de.lknr.30
         de.lknr: 28 232
-        source: !keyref src.de.Bfv.1933
-    -   date: !date c1930
+        source: src.de.Bfv.1933
+    -   date: c1930
         name: Schönermark (Kr Angermünde)
-        source: !keyref src.de.Bfv.1933
+        source: src.de.Bfv.1933
     -   date: !!null
-        location: !keyloc line.de.6328 82,1
+        location:
+            line.de.6328: 82,1
         de.VBL: Smk
-        source: !keyref src.dd.DR.1976
-    -   date: !date c1965
-        de.Rangklasse: V
-        source: !keyref src.dd.DR.1976
-    -   date: !var ds100.dr
+        source: src.dd.DR.1976
+    -   date: c1965
+        de.rang: V
+        source: src.dd.DR.1976
+    -   date: de.ds100.dr
         de.DS100: WSMK
-    -   date: !date c2005
+    -   date: c2005
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.6328 son
-        connection: !keyref point.de.Schönermark-Angermünde-Nord
+        site: path.de.6328 son
+        connection: point.de.Schönermark-Angermünde-Nord
 
 
 ---
@@ -212,15 +190,16 @@ key: point.de.Briest
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.6328 86,96
+        location:
+            line.de.6328: 86,96
         category: de.Bk
         name: Briest
-        source: !keyref src.de.web.Erbeck
-    -   date: !date c1950
+        source: src.de.web.Erbeck
+    -   date: c1950
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.6328 brs
+        site: path.de.6328 brs
 
 
 ---
@@ -230,35 +209,35 @@ junction: True
 events:
     -   date: !!null
         name: Passow (Uckerm)
-        source: !keyref src.de.Kb.1914
+        source: src.de.Kb.1914
     -   date: !!null
         de.lknr: 28 184
-        source: !keyref src.de.Bfv.1928
+        source: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
-        de.Rangklasse: III
-        source: !keyref src.de.Bfv.1933
-    -   date: !var lknr.30
+        de.rang: III
+        source: src.de.Bfv.1933
+    -   date: de.lknr.30
         de.lknr: 28 233
-        source: !keyref src.de.Bfv.1933
+        source: src.de.Bfv.1933
     -   date: !!null
         location:
-            - !keyloc line.de.6328 89,3
+            line.de.6328: 89,3
         de.VBL: Ps
-        source: !keyref src.dd.DR.1976
-    -   date: !date c1965
-        de.Rangklasse: V
+        source: src.dd.DR.1976
+    -   date: c1965
+        de.rang: V
         name: Passow (Kr Angermünde)
-        source: !keyref src.dd.DR.1976
-    -   date: !var ds100.dr
+        source: src.dd.DR.1976
+    -   date: de.ds100.dr
         de.DS100: WPS
-        source: !keyref src.de.TPP.2006
-    -   date: !date c2000
+        source: src.de.TPP.2006
+    -   date: c2000
         name: Passow (Uckermark)
-        source: !keyref src.de.TPP.2006
+        source: src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.6328 pas
+        site: path.de.6328 pas
 
 
 ---
@@ -266,43 +245,45 @@ key: point.de.Schoenow
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.6328 93,50
+        location:
+            line.de.6328: 93,50
         category: de.Bk
         name: Schönow
-        source: !keyref src.de.web.Erbeck
-    -   date: !date c1935
+        source: src.de.web.Erbeck
+    -   date: c1935
         category: [de.Hp, de.Bk]
         name: Schönow (Kr Randow)
         service: passenger
         de.lknr: 28 607
         source:
-            - !keyref src.de.Kb.W1937
-            - !keyref src.de.Bfv.1938
-    -   date: !date c1940
+            - src.de.Kb.W1937
+            - src.de.Bfv.1938
+    -   date: c1940
         name: Schönow (Bz Stettin)
         service: full
-        source: !keyref src.de.Bfv.1944
+        source: src.de.Bfv.1944
     -   date: !!null
         de.VBL: Scn
-        source: !keyref src.dd.DR.1976
-    -   date: !date c1935
-        location: !keyloc line.de.6328 94,72
-        source: !keyref src.dd.DR.1976
-    -   date: !date c1950
+        source: src.dd.DR.1976
+    -   date: c1935
+        location:
+            line.de.6328: 94,72
+        source: src.dd.DR.1976
+    -   date: c1950
         name: Schönow (Kr Angermünde)
-        source: !keyref src.dd.DR.1976
-    -   date: !var ds100.dr
+        source: src.dd.DR.1976
+    -   date: de.ds100.dr
         de.DS100: WSCN
-        source: !keyref src.de.TPP.2006
-    -   date: !date c2000
+        source: src.de.TPP.2006
+    -   date: c2000
         name: Schönow (Uckermark)
-        source: !keyref src.de.TPP.2006
-    -   date: !date c2000
+        source: src.de.TPP.2006
+    -   date: c2000
         category: de.Hp
-        source: !keyref src.de.DBAG.ISR
+        source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.6328 sow
+        site: path.de.6328 sow
 
 
 ---
@@ -310,15 +291,16 @@ key: point.de.Blumberg-Uckerm
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.6328 96,35
+        location:
+            line.de.6328: 96,35
         category: de.Bk
         name: Blumberg
-        source: !keyref src.de.web.Erbeck
-    -   date: !date c1950
+        source: src.de.web.Erbeck
+    -   date: c1950
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.6328 blu
+        site: path.de.6328 blu
 
 
 ---
@@ -328,36 +310,37 @@ junction: True
 events:
     -   date: !!null
         name: Casekow
-        source: !keyref src.de.Kb.1914
+        source: src.de.Kb.1914
     -   date: !!null    
         de.lknr: 28 185
-        source: !keyref src.de.Bfv.1928
+        source: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
-        de.Rangklasse: III
-        source: !keyref src.de.Bfv.1933
-    -   date: !var lknr.30
+        de.rang: III
+        source: src.de.Bfv.1933
+    -   date: de.lknr.30
         de.lknr: 28 234
-        source: !keyref src.de.Bfv.1933
+        source: src.de.Bfv.1933
     -   date: !!null
-        location: !keyloc line.de.6328 99,6
+        location:
+            line.de.6328: 99,6
         de.VBL: Cw
-        source: !keyref src.dd.DR.1976
-    -   date: !date c1965
-        de.Rangklasse: V
-        source: !keyref src.dd.DR.1976
-    -   date: !var ds100.dr
+        source: src.dd.DR.1976
+    -   date: c1965
+        de.rang: V
+        source: src.dd.DR.1976
+    -   date: de.ds100.dr
         de.DS100: WCW
-        source: !keyref src.de.TPP.2006
-    -   date: !date c1995
+        source: src.de.TPP.2006
+    -   date: c1995
         category: [de.Hp, de.Bk]
-    -   date: !date c2010
+    -   date: c2010
         category: de.Hp
-        source: !keyref src.de.DBAG.ISR
+        source: src.de.DBAG.ISR
 
     -   date: !!null
-        connection: !keyref point.de.Casekow-Landesb        # line.de.8896
-        site: !noderef path.de.6328 cas
+        connection: point.de.Casekow-Landesb        # line.de.8896
+        site: path.de.6328 cas
 
 
 ---
@@ -366,42 +349,43 @@ type: point
 events:
     -   date: !!null
         name: Petershagen (Kr Randow)
-        source: !keyref src.de.Kb.1914
+        source: src.de.Kb.1914
     -   date: !!null
         de.lknr: 28 186
-        source: !keyref src.de.Bfv.1928
+        source: src.de.Bfv.1928
     -   date: !!null    
         category: de.Bf
-        de.Rangklasse: IV
-        source: !keyref src.de.Bfv.1933
-    -   date: !var lknr.30
+        de.rang: IV
+        source: src.de.Bfv.1933
+    -   date: de.lknr.30
         de.lknr: 28 235
-        source: !keyref src.de.Bfv.1933
-    -   date: !date c1940
+        source: src.de.Bfv.1933
+    -   date: c1940
         name: Petershagen (Bz Stettin)
-        source: !keyref src.de.Bfv.1944
+        source: src.de.Bfv.1944
     -   date: !!null
-        location: !keyloc line.de.6328 103,75
+        location:
+            line.de.6328: 103,75
         de.VBL: Pe
-        source: !keyref src.dd.DR.1976
-    -   date: !date c1950
+        source: src.dd.DR.1976
+    -   date: c1950
         name: Petershagen (Kr Angermünde)
-        source: !keyref src.dd.DR.1976
-    -   date: !date c1965
+        source: src.dd.DR.1976
+    -   date: c1965
         category: [de.Hp, de.Anst]
-        source: !keyref src.dd.DR.1976
-    -   date: !var ds100.dr
+        source: src.dd.DR.1976
+    -   date: de.ds100.dr
         de.DS100: WPE
-        source: !keyref src.de.TPP.2006
-    -   date: !date c2000
+        source: src.de.TPP.2006
+    -   date: c2000
         name: Petershagen (Uckermark)
-        source: !keyref src.de.TPP.2006
-    -   date: !date c2000
+        source: src.de.TPP.2006
+    -   date: c2000
         category: de.Hp
-        source: !keyref src.de.DBAG.ISR
+        source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.6328 pet
+        site: path.de.6328 pet
 
 
 ---
@@ -409,15 +393,16 @@ key: point.de.Schoenfeld-Uckerm
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.6328 107,25
+        location:
+            line.de.6328: 107,25
         category: de.Bk
         name: Schönfeld
-        source: !keyref src.de.web.Erbeck
-    -   date: !date c1950
+        source: src.de.web.Erbeck
+    -   date: c1950
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.6328 sof
+        site: path.de.6328 sof
 
 
 ---
@@ -426,30 +411,31 @@ type: point
 events:
     -   date: !!null
         name: Tantow
-        source: !keyref src.de.Kb.1914
+        source: src.de.Kb.1914
     -   date: !!null
         de.lknr: 28 187
-        source: !keyref src.de.Bfv.1928
+        source: src.de.Bfv.1928
     -   date: !!null    
         category: de.Bf
-        de.Rangklasse: III
-        source: !keyref src.de.Bfv.1933
-    -   date: !var lknr.30
+        de.rang: III
+        source: src.de.Bfv.1933
+    -   date: de.lknr.30
         de.lknr: 28 236
-        source: !keyref src.de.Bfv.1933
+        source: src.de.Bfv.1933
     -   date: !!null
-        location: !keyloc line.de.6328 111,0
+        location:
+            line.de.6328: 111,0
         de.VBL: Ta
-        source: !keyref src.dd.DR.1976
-    -   date: !date c1965
-        de.Rangklasse: IV
-        source: !keyref src.dd.DR.1976
-    -   date: !var ds100.dr
+        source: src.dd.DR.1976
+    -   date: c1965
+        de.rang: IV
+        source: src.dd.DR.1976
+    -   date: de.ds100.dr
         de.DS100: WTA
-        source: !keyref src.de.TPP.2006
+        source: src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.6328 tan
+        site: path.de.6328 tan
 
 
 ---
@@ -457,15 +443,16 @@ key: point.de.Radekow
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.6328 113,49
+        location:
+            line.de.6328: 113,49
         category: de.Bk
         name: Radekow
-        source: !keyref src.de.web.Erbeck
-    -   date: !date c1950
+        source: src.de.web.Erbeck
+    -   date: c1950
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.6328 rad
+        site: path.de.6328 rad
 
 
 ---
@@ -474,29 +461,30 @@ type: point
 events:
     -   date: !!null
         name: Rosow
-        source: !keyref src.de.Kb.1914
+        source: src.de.Kb.1914
     -   date: !!null
         de.lknr: 28 189
-        source: !keyref src.de.Bfv.1928
+        source: src.de.Bfv.1928
     -   date: !!null    
         category: de.Bf
-        de.Rangklasse: IV
-        source: !keyref src.de.Bfv.1933
-    -   date: !var lknr.30
+        de.rang: IV
+        source: src.de.Bfv.1933
+    -   date: de.lknr.30
         de.lknr: 28 239
-        source: !keyref src.de.Bfv.1933
+        source: src.de.Bfv.1933
     -   date: !!null
-        location: !keyloc line.de.6328 116,51
+        location:
+            line.de.6328: 116,51
         de.VBL: Rsw
-        source: !keyref src.dd.DR.1976
-    -   date: !date c1965
+        source: src.dd.DR.1976
+    -   date: c1965
         category: de.Hp
-        source: !keyref src.dd.DR.1976
-    -   date: !var ds100.dr
+        source: src.dd.DR.1976
+    -   date: de.ds100.dr
         de.DS100: WRSW
-    -   date: !date c1995
+    -   date: c1995
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.6328 ros
+        site: path.de.6328 ros
 

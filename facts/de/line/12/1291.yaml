@@ -6,8 +6,8 @@ type: line
 events:
     -   date: !!null
         region:
-            - !keyref org.de
-            - !keyref org.de.l.hh
+            - org.de
+            - org.de.l.hh
 
     -   date: !!null
         de.VzG: !!str 1291
@@ -15,7 +15,7 @@ events:
 
     #   Genehmigung und Eröffnung
     #
-    -   date: !date c2000
+    -   date: c2000
         status: open
 
     #   Eigenschaften
@@ -23,52 +23,52 @@ events:
     -   date: !!null
         category: de.Hauptbahn
         tracks: 1
-        gauge: 1435
-        electrified:
-            overhead: !var el.de
-        source: !keyref src.de.SuW.2005
+        gauge: 1435mm
+        electrified: de
+        source: src.de.SuW.2005
 
     #   Eigentümer und Betreiber
     #
     -   date: !!null
-        owner: !keyref org.de.DB-Netz
-        operator: !keyref org.de.DB-Netz
+        owner: org.de.DB-Netz
+        operator: org.de.DB-Netz
 
     #   Verlauf
     #
     -   date: !!null
         course:
-            - !pathref path.de.6100     rop  aeri -0.5
-            - !pathref path.de.1291.rot a    f     0.0
-            - !pathref path.de.6100a    fhor aeri -0.5
-            - !pathref path.de.1280.oha f    feri  1.5
-            - !pathref path.de.1291.oha a    f     0.0
-            - !pathref path.de.2200     frot eri   3.5
+            -   path.de.6100     rop  aeri
+            -   path.de.1291.rot a    f
+            -   path.de.6100a    fhor aeri
+            -   path.de.1280.oha f    feri
+            -   path.de.1291.oha a    f
+            -   path.de.2200     frot eri
 
 points:
-    - !keyref point.de.Hamburg-Rothenburgsort-Rop           # line.de.6100
-    - !keyref point.de.Hamburg-Rothenburgsort-Ro            # line.de.13500
-    - !keyref point.de.Hamburg-Ericus-Awanst
-    - !keyref point.de.Hamburg-Ericus                       # line.de.1250
+    - point.de.Hamburg-Rothenburgsort-Rop           # line.de.6100
+    - point.de.Hamburg-Rothenburgsort-Ro            # line.de.13500
+    - point.de.Hamburg-Ericus-Awanst
+    - point.de.Hamburg-Ericus                       # line.de.1250
 
 
 ---
 key: point.de.Hamburg-Ericus-Awanst
 type: point
 events:
-    -   date: !date c2000
+    -   date: c2000
         status: open
     -   date: !!null
         category: de.Awanst
-        location: !keyloc line.de.1291 284,5
-        source: !keyref src.de.SuW.2005
+        location:
+            line.de.1291: 284,5
+        source: src.de.SuW.2005
     -   date: !!null
         name: Hamburg Ericus Awanst
         de.DS100: AERIA
-        source: !keyref src.de.TPP.2006
+        source: src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.2200 era
+        site: path.de.2200 era
 
 
 

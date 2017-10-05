@@ -7,8 +7,8 @@ label: freight
 events:
     -   date: !!null
         region:
-            - !keyref org.de
-            - !keyref org.de.l.hh
+            - org.de
+            - org.de.l.hh
 
     -   date: !!null
         de.VzG: !!str 1253
@@ -16,65 +16,55 @@ events:
 
     -   date: !!null
         category: de.Nebenbahn
-        electrified:
-            overhead: !var el.de
-        source: !keyref src.de.SuW.2005
+        electrified: de
+        source: src.de.SuW.2005
     -   date: !!null
-        end: !keyref point.de.Hamburg-Hohe-Schaar
+        end: point.de.Hamburg-Hohe-Schaar
         tracks: 2
-        source: !keyref src.de.SuW.2005
+        source: src.de.SuW.2005
     -   date: !!null
-        start: !keyref point.de.Hamburg-Hausbruch-Mitte
+        start: point.de.Hamburg-Hausbruch-Mitte
         tracks: 2
-        source: !keyref src.de.SuW.2005
+        source: src.de.SuW.2005
 
-    -   date: !date c1930
-        start: !keyref point.de.Hamburg-Hausbruch-Mitte
+    -   date: c1930
+        start: point.de.Hamburg-Hausbruch-Mitte
         status: open
-        service: freight
-    -   date: !date c1975
-        end: !keyref point.de.Hamburg-Hausbruch-Mitte
+        passenger: none
+    -   date: c1975
+        end: point.de.Hamburg-Hausbruch-Mitte
         status: open
-        service: freight
+        passenger: none
 
     -   date: !!null
-        end: !keyref point.de.Hamburg-Süderelbbrücke-EGr
-        owner: !keyref org.de
-        operator: !keyref org.de.DB
-    -   date: !var org.de.Deutsche-Bahn.start
-        end: !keyref point.de.Hamburg-Süderelbbrücke-EGr
-        owner: !keyref org.de.Deutsche-Bahn
-        operator: !keyref org.de.Deutsche-Bahn
-    -   date: !var org.de.DBNetz.start
-        end: !keyref point.de.Hamburg-Süderelbbrücke-EGr
-        owner: !keyref org.de.DB-Netz
-        operator: !keyref org.de.DB-Netz
-
+        end: point.de.Hamburg-Süderelbbrücke-EGr
+        owner: org.de
+        operator: org.de.DB
     -   date: !!null
-        start: !keyref point.de.Hamburg-Süderelbbrücke-EGr
-        owner: !keyref org.de.l.hh
+        start: point.de.Hamburg-Süderelbbrücke-EGr
+        owner: org.de.l.hh
         operator: org.de.Hamburg-Port-Authority
-        source: !keyref src.de.web.HHA
+        source: src.de.web.HHA
 
     #   Verlauf
     #
     -   date: !!null
         course:
-            - !pathref path.de.2200 sel  ahoh -3.5
-            - !pathref path.de.1253 a    ahau  0.0
-            - !pathref path.de.1720 fkat awal  2
-            - !pathref path.de.1253 fhau f     0.0
+            -   path.de.2200 sel  ahoh
+            -   path.de.1253 a    ahau
+            -   path.de.1720 fkat awal
+            -   path.de.1253 fhau f
 
 points:
-    - !keyref point.de.Hamburg-Süderelbbrücke             # line.de.2200
-    - !keyref point.de.Hamburg-Süderelbbrücke-EGr
-    - !keyref point.de.Hamburg-Hohe-Schaar-Sued
-    - !keyref point.de.Hamburg-Hohe-Schaar
-    - !keyref point.de.Kattwykbruecke
-    - !keyref point.de.Hamburg-Hausbruch-Mitte
+    - point.de.Hamburg-Süderelbbrücke             # line.de.2200
+    - point.de.Hamburg-Süderelbbrücke-EGr
+    - point.de.Hamburg-Hohe-Schaar-Sued
+    - point.de.Hamburg-Hohe-Schaar
+    - point.de.Kattwykbruecke
+    - point.de.Hamburg-Hausbruch-Mitte
     -   point.de.Hamburg-Waltershof-Alte-Süderelbe
-    - !keyref point.de.Hamburg-Waltershof-W318
-    - !keyref point.de.Hamburg-Waltershof
+    - point.de.Hamburg-Waltershof-W318
+    - point.de.Hamburg-Waltershof
     -   point.de.Hamburg-Waltershof-Dradenau
 
 
@@ -85,11 +75,12 @@ subtype: border
 events:
     -   date: !!null
         category: de.EGr
-        location: !keyloc line.de.1253 1,000
-        source: !keyref src.de.web.HHA
+        location:
+            line.de.1253: 1,000
+        source: src.de.web.HHA
 
     -   date: !!null
-        site: !noderef path.de.1253 gsel
+        site: path.de.1253 gsel
 
 
 ---
@@ -100,15 +91,15 @@ events:
     -   date: !!null
         name: Hamburg Hohe Schaar Süd
         de.DS100: AHOSS
-        source: !keyref src.de.TPP.2006
+        source: src.de.TPP.2006
     -   date: !!null
         location:
-            - !keyloc line.de.1253 1,895
+            line.de.1253: 1,895
         category: de.Bft
-        source: !keyref src.de.DBAG.ISR
+        source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.1253 hss
+        site: path.de.1253 hss
 
 
 
@@ -119,14 +110,15 @@ events:
     -   date: !!null
         name: Hamburg Hohe Schaar
         de.DS100: AHOS
-        source: !keyref src.de.TPP.2006
+        source: src.de.TPP.2006
     -   date: !!null
         category: de.Bf
-        location: !keyloc line.de.1253 3,700
-        source: !keyref src.de.DBAG.ISR
+        location:
+            line.de.1253: 3,700
+        source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.1253 hsc
+        site: path.de.1253 hsc
 
 
 ---
@@ -135,15 +127,16 @@ type: point
 events:
     -   date: !!null
         category: de.Dkst
-        location: !keyloc line.de.1253 5,0
-        source: !keyref src.de.SuW.2005
+        location:
+            line.de.1253: 5,0
+        source: src.de.SuW.2005
     -   date: !!null
         name: Hamburg Hohe Schaar Kattwykbrücke
         de.DS100: AHOSB
-        source: !keyref src.de.TPP.2006
+        source: src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.1253 kat
+        site: path.de.1253 kat
 
 
 ---
@@ -154,18 +147,19 @@ events:
     -   date: !!null
         category: de.Bft
     -   date: !!null
-        location: !keyloc line.de.1253 9,554
-        source: !keyref src.de.DBAG.ISR
+        location:
+            line.de.1253: 9,554
+        source: src.de.DBAG.ISR
     -   date: !!null
         name: Hamburg-Hausbruch Mitte
         de.DS100: AHBRM
-        source: !keyref src.de.TPP.2006
+        source: src.de.TPP.2006
 
     -   date: !!null
-        connection: !keyref point.de.Hamburg-Hausbruch
+        connection: point.de.Hamburg-Hausbruch
 
     -   date: !!null
-        site: !noderef path.de.1720 hbm
+        site: path.de.1720 hbm
 
 
 ---
@@ -173,8 +167,9 @@ key: point.de.Hamburg-Waltershof-Alte-Süderelbe
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.1253 13,6
-        source: !keyref src.de.SuW.2005
+        location:
+            line.de.1253: 13,6
+        source: src.de.SuW.2005
     -   date: !!null
         category: de.Bft
         name: Hamburg-Waltershof Alte Süderelbe
@@ -184,7 +179,7 @@ events:
         master: point.de.Hamburg-Waltershof
 
     -   date: !!null
-        site: !noderef path.de.1253 asu
+        site: path.de.1253 asu
 
 
 ---
@@ -195,12 +190,12 @@ junction: True
 events:
     -   date: !!null
         location:
-            - !keyloc line.de.1253 15,1?
-            - !keyloc line.de.1251 0,000?
+            line.de.1253: 15,1?
+            line.de.1251: 0,000?
         name: Hamburg-Waltershof W318
 
     -   date: !!null
-        site: !noderef path.de.1253 waw
+        site: path.de.1253 waw
 
 
 ---
@@ -210,15 +205,16 @@ junction: True
 events:
     -   date: !!null
         category: de.Bft
-        location: !keyloc line.de.1253 15,8
-        source: !keyref src.de.SuW.2005
+        location:
+            line.de.1253: 15,8
+        source: src.de.SuW.2005
     -   date: !!null
         name: Hamburg-Waltershof
         de.DS100: AWHO
-        source: !keyref src.de.TPP.2006
+        source: src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.1253 wal
+        site: path.de.1253 wal
 
 
 ---

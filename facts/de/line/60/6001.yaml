@@ -8,22 +8,22 @@ label: de.S-Bahn
 events:
     -   date: !!null
         region:
-            - !keyref org.de
-            - !keyref org.de.l.be
+            - org.de
+            - org.de.l.be
 
-    -   date: !var vzg.dr
+    -   date: de.vzg.dr
         de.VzG: !!str 6001
         source: src.de.DBAG.Geo-Strecke.2017
 
     #   Eröffnung und Einstellung
     #
-    -   date: !date 1961-12-10
+    -   date: 1961-12-10
         status: open
-        service: passenger
-        source: !keyref src.de.Kuhlmann.2000
-    -   date: !date 2001-09-10
+        freight: none
+        source: src.de.Kuhlmann.2000
+    -   date: 2001-09-10
         status: closed
-    -   date: !date c2002
+    -   date: c2002
         status: removed
 
     #   Eigenschaften
@@ -31,35 +31,26 @@ events:
     -   date: !!null
         category: de.Hauptbahn
         tracks: 2
-        gauge: 1435
-        electrified:
-            rail: !var el.de.bln
-        source: !keyref src.dd.DR.Bln.1968
+        gauge: 1435mm
+        electrified: de.bln
+        source: src.dd.DR.Bln.1968
 
     #   Eigentümer etc.
     #
     -   date: !!null
-        owner: !keyref org.dd
-        operator: !keyref org.dd.DR
-    -   date: !date 1990-10-03
-        owner: !keyref org.de
-    -   date: !var org.de.Deutsche-Bahn.start
-        owner: !keyref org.de.Deutsche-Bahn
-        operator: !keyref org.de.Deutsche-Bahn
-    -   date: !var org.de.DBNetz.start
-        owner: !keyref org.de.DB-Netz
-        operator: !keyref org.de.DB-Netz
+        owner: org.dd
+        operator: org.dd.DR
 
     # Verlauf
     #
     -   date: !!null
         course:
-            - !pathref path.de.6081 pan  ngn   2.0
-            - !pathref path.de.6081 ason vns  -6.0
-            - !pathref path.de.6141 a    asos -2.0
-            - !pathref path.de.6020 fbos son   0.0
+            -   path.de.6081 pan  ngn
+            -   path.de.6081 ason vns
+            -   path.de.6141 a    asos
+            -   path.de.6020 fbos son
 
 points:
-    - !keyref point.de.Berlin-Pankow                    # line.de.6002
-    - !keyref point.de.Berlin-Bornholmer-Strasse        # line.de.6002
-    - !keyref point.de.Berlin-Schoenhauser-Allee        # line.de.6020
+    - point.de.Berlin-Pankow                    # line.de.6002
+    - point.de.Berlin-Bornholmer-Strasse        # line.de.6002
+    - point.de.Berlin-Schoenhauser-Allee        # line.de.6020

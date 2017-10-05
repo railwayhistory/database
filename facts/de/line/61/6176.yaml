@@ -7,63 +7,46 @@ label: connection
 events:
     -   date: !!null
         region:
-            - !keyref org.de
-            - !keyref org.de.l.be
+            - org.de
+            - org.de.l.be
 
-    -   date: !var vzg.dr
+    -   date: de.vzg.dr
         de.VzG: !!str 6176
         source: src.de.DBAG.Geo-Strecke.2017
 
     #   Eröffnung
     #
-    -   date: !date 1902-12-01
+    -   date: 1902-12-01
         status: open
-        service: freight
-        source: !keyref src.de.DRG.1935
+        passenger: none
+        source: src.de.DRG.1935
 
     #   Eigenschaften
     #
     -   date: !!null
         category: de.Hauptbahn
         tracks: 1
-        gauge: 1435
-        source: !keyref src.de.DRG.1927
+        gauge: 1435mm
+        source: src.de.DRG.1927
 
     #   Stilllegung
     #
-    -   date: !date c1993
+    -   date: c1993
         status: closed
 
     #   Eigentümer und Betriebsführer
     #
     -   date: !!null
-        owner: !keyref org.de.l.pre
-        operator: !keyref org.de.e.bln
-
-    -   date: !date 1920-04-01
-        owner: !keyref org.de
-        operator: !keyref org.de.r.RVM.PH
-    -   date: !date 1924-02-12
-        operator: !keyref org.de.Deutsche-Reichsbahn-I
-    -   date: !date 1924-08-30
-        operator: !keyref org.de.DR
-    -   date: !var org.de.DR.start
-        operator: !keyref org.dd.DR
-
-    -   date: !var org.de.Deutsche-Bahn.start
-        owner: !keyref org.de.Deutsche-Bahn
-        operator: !keyref org.de.Deutsche-Bahn
-    -   date: !var org.de.DBNetz.start
-        owner: !keyref org.de.DB-Netz
-        operator: !keyref org.de.DB-Netz
+        owner: org.de.l.pre
+        operator: org.de.e.bln
 
     #   Verlauf
     #
     -   date: !!null
         course:
-            - !pathref path.de.6020 vdp  asbb -3.5
-            - !pathref path.de.6177 fvdp sbb  -2.5
+            -   path.de.6020 vdp  asbb
+            -   path.de.6177 fvdp sbb
 
 points:
-    - !keyref point.de.Berlin-Tempelhof-Vdp             # line.de.6170
-    - !keyref point.de.Berlin-Schoeneberg-Betriebsbf    # line.de.6125
+    - point.de.Berlin-Tempelhof-Vdp             # line.de.6170
+    - point.de.Berlin-Schoeneberg-Betriebsbf    # line.de.6125

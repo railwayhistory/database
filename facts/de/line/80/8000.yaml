@@ -7,8 +7,8 @@ type: line
 events:
     -   date: !!null
         region:
-            - !keyref org.de
-            - !keyref org.de.l.sh
+            - org.de
+            - org.de.l.sh
 
     #   Genehmigungen
     #
@@ -30,8 +30,8 @@ events:
     -   date: !!null
         category: de.Nebenbahn
         tracks: 1
-        gauge: 1435
-        source: !keyref src.de.DRG.1927
+        gauge: 1435mm
+        source: src.de.DRG.1927
 
     #   Eigentümer etc.
     #
@@ -43,8 +43,8 @@ events:
     #
     -   date: !!null
         course:
-            - !pathref path.de.1020  mag  aflk  0.0
-            - !pathref path.de.1020f a    f     0.0
+            -   path.de.1020  mag  aflk
+            -   path.de.1020f a    f
 
 points:
     -   point.de.Maasbüll-Angeln-Gabelung           # de.1020
@@ -61,13 +61,14 @@ key: point.de.Flensburg-Kieler-Bf
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.1020 80,57
+        location:
+            line.de.1020: 80,57
         category: de.Bf
         name: Flensburg Kieler Bf
-    -   date: !date 1927-12-01
+    -   date: 1927-12-01
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.1020f flk left
-        connection: !keyref point.de.Flensburg-Alter-Bf
+        site: path.de.1020f flk
+        connection: point.de.Flensburg-Alter-Bf
 

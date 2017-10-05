@@ -6,8 +6,8 @@ type: line
 events:
     -   date: !!null
         region:
-            - !keyref org.de
-            - !keyref org.de.l.ni
+            - org.de
+            - org.de.l.ni
 
     -   date: !!null
         de.VzG: !!str 1284
@@ -18,44 +18,37 @@ events:
 
     #   Eröffnung und Einstellung
     #
-    -   date: !date c1980
+    -   date: c1980
         status: open
 
     #   Eigenschaften
     #
     -   date: !!null
         category: de.Hauptbahn
-        source: !keyref src.de.SuW.2005
+        source: src.de.SuW.2005
     -   date: !!null
-        electrified:
-            overhead: !var el.de
+        electrified: de
         tracks: 2
-        gauge: 1435
-        source: !keyref src.de.DBAG.ISR
+        gauge: 1435mm
+        source: src.de.DBAG.ISR
 
     #   Eigentümer etc.
     #
     -   date: !!null
-        owner: !keyref org.de
-        operator: !keyref org.de.DB
-    -   date: !var org.de.Deutsche-Bahn.start
-        owner: !keyref org.de.Deutsche-Bahn
-        operator: !keyref org.de.Deutsche-Bahn
-    -   date: !var org.de.DBNetz.start
-        owner: !keyref org.de.DB-Netz
-        operator: !keyref org.de.DB-Netz
+        owner: org.de
+        operator: org.de.DB
 
     #   Verlauf
     #
     -   date: !!null
         course:
-            - !pathref path.de.1720    ste   amas -2.0
-            - !pathref path.de.1284    a     f     0.0
-            - !pathref path.de.1280.mr fste  f    -2.0
-            - !pathref path.de.1720    msofa mas  -3.0
+            -   path.de.1720    ste   amas
+            -   path.de.1284    a     f
+            -   path.de.1280.mr fste  f
+            -   path.de.1720    msofa mas
 
 points:
-    - !keyref point.de.Stelle                               # line.de.1720
-    - !keyref point.de.Maschen-Rbf-Mswf                     # line.de.1280
-    - !keyref point.de.Maschen-Rbf                          # line.de.1280
+    - point.de.Stelle                               # line.de.1720
+    - point.de.Maschen-Rbf-Mswf                     # line.de.1280
+    - point.de.Maschen-Rbf                          # line.de.1280
 

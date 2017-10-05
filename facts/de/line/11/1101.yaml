@@ -6,57 +6,49 @@ type: line
 events:
     -   date: !!null
         region:
-            - !keyref org.de
-            - !keyref org.de.l.sh
+            - org.de
+            - org.de.l.sh
 
     -   date: !!null
         de.VzG: !!str 1101
-        note:
-            de: km 0,0+22 – 4,9+96
+        note: km 0,0+22 – 4,9+96
         source: src.de.DBAG.Geo-Strecke.2017
 
     #   Eröffnung und Einstellung
     #
-    -   date: !date 1963-04-15
+    -   date: 1963-04-15
         status: open
-    -   date: !date 1976-05-30
-        service: freight
-        source: !keyref src.de.WP.Kreis-Oldenburger-Eisenbahn
-    -   date: !date 1984-11-01
+    -   date: 1976-05-30
+        passenger: none
+        source: src.de.WP.Kreis-Oldenburger-Eisenbahn
+    -   date: 1984-11-01
         status: closed
-        source: !keyref src.de.WP.Kreis-Oldenburger-Eisenbahn
+        source: src.de.WP.Kreis-Oldenburger-Eisenbahn
 
     #   Eigenschaften
     #
     -   date: !!null
         category: de.Nebenbahn
         tracks: 1
-        gauge: 1435
+        gauge: 1435mm
 
     #   Eigentümer und Betriebsführer
     #
     -   date: !!null
-        owner: !keyref org.de
-        operator: !keyref org.de.DB
-
-    -   date: !var org.de.Deutsche-Bahn.start
-        owner: !keyref org.de.Deutsche-Bahn
-        operator: !keyref org.de.Deutsche-Bahn
-    -   date: !var org.de.DBNetz.start
-        owner: !keyref org.de.DB-Netz
-        operator: !keyref org.de.DB-Netz
+        owner: org.de
+        operator: org.de.DB
 
     #   Verlauf
     #
     -   date: !!null
         course:
-            - !pathref path.de.1101 a    f    0.0
-            - !pathref path.de.1100 fhei luo  0.0
+            -   path.de.1101 a f
+            -   path.de.1100 fhei luo
 
 points:
-    -   !keyref point.de.Heiligenhafen
-    -   !keyref point.de.Luetjenbrode
-    -   !keyref point.de.Luetjenbrode-Ost       # line.de.1100
+    -   point.de.Heiligenhafen
+    -   point.de.Luetjenbrode
+    -   point.de.Luetjenbrode-Ost       # line.de.1100
 
 
 ---
@@ -66,25 +58,27 @@ junction: True
 events:
     -   date: !!null
         name: Heiligenhafen
-        source: !keyref src.de.Kb.1905
+        source: src.de.Kb.1905
     -   date: !!null
         de.lknr: 50 856
-        source: !keyref src.de.Bfv.1933
+        source: src.de.Bfv.1933
     -   date: !!null
         category: de.Bf
-        source: !keyref src.de.Bfv.1944
-    -   date: !date 1941-07-31
-        de.Rangklasse: II
+        source: src.de.Bfv.1944
+    -   date: 1941-07-31
+        de.rang: II
         de.lknr: 27 384
-        source: !keyref src.de.Bfv.1944
+        source: src.de.Bfv.1944
     -   date: !!null
-        location: !keyloc line.de.8024 43,55
-        source: !keyref src.de.DRG.Alt.Karte.1945
+        location:
+            line.de.8024: 43,55
+        source: src.de.DRG.Alt.Karte.1945
     -   date: !!null
-        location: !keyloc line.de.1101 0,00
+        location:
+            line.de.1101: 0,00
 
     -   date: !!null
-        site: !noderef path.de.1101 hei left
+        site: path.de.1101 hei
 
 
 ---
@@ -94,30 +88,30 @@ junction: True
 events:
     -   date: !!null
         name: Lütjenbrode
-        source: !keyref src.de.Kb.1905
+        source: src.de.Kb.1905
     -   date: !!null
         de.lknr: 49 856
-        source: !keyref src.de.Bfv.1928
+        source: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
-        source: !keyref src.de.Bfv.1944
-    -   date: !date 1941-07-31
-        de.Rangklasse: IV
+        source: src.de.Bfv.1944
+    -   date: 1941-07-31
+        de.rang: IV
         de.lknr: 27 383
-        source: !keyref src.de.Bfv.1944
+        source: src.de.Bfv.1944
     -   date: !!null
         location:
-            - !keyloc line.de.8023 39,55
-            - !keyloc line.de.8024 0,00
-        source: !keyref src.de.DRG.Alt.Karte.1949
+            line.de.8023: 39,55
+            line.de.8024: 0,00
+        source: src.de.DRG.Alt.Karte.1949
     -   date: !!null
         location:
-            - !keyloc line.de.1101 3,8
-            - !keyloc line.de.1102 3,8
+            line.de.1101: 3,8
+            line.de.1102: 3,8
 
 
     -   date: !!null
-        site: !noderef path.de.1101 lut left
+        site: path.de.1101 lut
 
 
 

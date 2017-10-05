@@ -6,10 +6,10 @@ type: line
 events:
     -   date: !!null
         region:
-            - !keyref org.de
-            - !keyref org.de.l.be
+            - org.de
+            - org.de.l.be
 
-    -   date: !var vzg.dr
+    -   date: de.vzg.dr
         de.VzG: !!str 6139
         source: src.de.DBAG.Geo-Strecke.2017
 
@@ -26,7 +26,7 @@ events:
     #
     -   date: 1879-09-01
         status: open
-        service: freight
+        passenger: none
         source: src.de.DRG.1935 # 1879/40
 
     #   Eigenschaften
@@ -34,52 +34,32 @@ events:
     -   date: !!null
         category: de.Hauptbahn
         tracks: 2
-        gauge: 1435
-        source: !keyref src.de.DRG.Bln.1927
-    -   date: !date 1984-09-30
-        electrified:
-            overhead: !var el.de
-        source: !keyref src.de.Kuhlmann.2000
+        gauge: 1435mm
+        source: src.de.DRG.Bln.1927
+    -   date: 1984-09-30
+        electrified: de
+        source: src.de.Kuhlmann.2000
     
     #   Eigentümer und Betriebsführer
     #
     -   date: !!null
-        owner: !keyref org.de.l.pre
-        operator: !keyref org.de.e.bln
+        owner: org.de.l.pre
+        operator: org.de.e.bln
 
-    -   date: !date 1920-04-01
-        owner: !keyref org.de
-        operator: !keyref org.de.r.RVM.PH
-    -   date: !date 1924-02-12
-        operator: !keyref org.de.Deutsche-Reichsbahn-I
-    -   date: !date 1924-08-30
-        operator: !keyref org.de.DR
-
-    -   date: !date 1949-10-07
-        owner: !keyref org.dd
-    -   date: !var org.de.DR.start
-        operator: !keyref org.dd.DR
-    -   date: !date 1990-10-03
-        owner: !keyref org.de
-
-    -   date: !var org.de.Deutsche-Bahn.start
-        owner: !keyref org.de.Deutsche-Bahn
-        operator: !keyref org.de.Deutsche-Bahn
-    -   date: !var org.de.DBNetz.start
-        owner: !keyref org.de.DB-Netz
-        operator: !keyref org.de.DB-Netz
+    -   date: 1949-10-07
+        owner: org.dd
 
     #   Verlauf
     #
     -   date: !!null
         course:
-            - !pathref path.de.6020 okn  flic  2.0
-            - !pathref path.de.6139 a    f     0.0
-            - !pathref path.de.6078 fokn lic  -2.0
+            -   path.de.6020 okn  flic
+            -   path.de.6139 a    f
+            -   path.de.6078 fokn lic
 
 points:
-    - !keyref point.de.Berlin-Ostkreuz-Nord                 # line.de.6170
-    - !keyref point.de.Berlin-Lichtenberg-B1                # line.de.6140
-    - !keyref point.de.Berlin-Lichtenberg                   # line.de.6078
+    - point.de.Berlin-Ostkreuz-Nord                 # line.de.6170
+    - point.de.Berlin-Lichtenberg-B1                # line.de.6140
+    - point.de.Berlin-Lichtenberg                   # line.de.6078
 
 

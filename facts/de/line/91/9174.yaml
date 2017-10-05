@@ -6,8 +6,8 @@ type: line
 events:
     -   date: !!null
         region:
-            - !keyref org.de
-            - !keyref org.de.l.ni
+            - org.de
+            - org.de.l.ni
 
     -   date: !!null
         end: point.de.Mariaglück
@@ -19,57 +19,57 @@ events:
 
     #   Eröffnung und Verkehrseinstellung
     #
-    -   date: !date 1912-07-20
+    -   date: 1912-07-20
         status: open
-        source: !keyref src.de.WP.Bahnstrecke-Celle-Wittingen
-    -   date: !date c1960
+        source: src.de.WP.Bahnstrecke-Celle-Wittingen
+    -   date: c1960
         passenger: none
-    -   date: !date 1965
-        start: !keyref point.de.Mariaglück
+    -   date: 1965
+        start: point.de.Mariaglück
         status: closed
-        source: !keyref src.de.WP.Bahnstrecke-Celle-Wittingen
-    -   date: !date c1970
-        start: !keyref point.de.Mariaglück
+        source: src.de.WP.Bahnstrecke-Celle-Wittingen
+    -   date: c1970
+        start: point.de.Mariaglück
         status: removed
-    -   date: !date 2005-11-08
-        end: !keyref point.de.Mariaglück
+    -   date: 2005-11-08
+        end: point.de.Mariaglück
         status: closed
-        source: !keyref src.de.WP.Bahnstrecke-Celle-Wittingen
+        source: src.de.WP.Bahnstrecke-Celle-Wittingen
 
     #   Eigenschaften
     #
     -   date: !!null
         category: de.Kleinbahn
         tracks: 1
-        gauge: 1435
-        source: !keyref src.de.WP.Bahnstrecke-Celle-Wittingen
-    -   date: !date 1940-11-08
+        gauge: 1435mm
+        source: src.de.WP.Bahnstrecke-Celle-Wittingen
+    -   date: 1940-11-08
         category: de.Nebenbahn
-        source: !keyref src.de.WP.Kleinbahn-Celle-Wittingen
+        source: src.de.WP.Kleinbahn-Celle-Wittingen
 
     #   Eigentümer etc.
     #
     -   date: !!null
         owner: org.de.Celler-Eisenbahn
         operator: org.de.Celler-Eisenbahn
-        source: !keyref src.de.WP.Bahnstrecke-Celle-Wittingen
-    -   date: !date 1944-07-10
-        owner: !keyref org.de.Osthannoversche-Eisenbahnen
-        operator: !keyref org.de.Osthannoversche-Eisenbahnen
-        source: !keyref src.de.WP.Bahnstrecke-Celle-Wittingen
+        source: src.de.WP.Bahnstrecke-Celle-Wittingen
+    -   date: 1944-07-10
+        owner: org.de.Osthannoversche-Eisenbahnen
+        operator: org.de.Osthannoversche-Eisenbahnen
+        source: src.de.WP.Bahnstrecke-Celle-Wittingen
 
     #   Verlauf
     #
     -   date: !!null
         course:
-            - !pathref path.de.9173 bed  ahab  1.0
-            - !pathref path.de.9174 a    f     0.0
+            -   path.de.9173 bed  ahab
+            -   path.de.9174 a    f
 
 points:
-    - !keyref point.de.Beedenbostel                     # line.de.9173
-    - !keyref point.de.Höfer
-    - !keyref point.de.Mariaglück
-    - !keyref point.de.Habighorst
+    - point.de.Beedenbostel                     # line.de.9173
+    - point.de.Höfer
+    - point.de.Mariaglück
+    - point.de.Habighorst
 
 
 ---
@@ -78,18 +78,18 @@ type: point
 events:
     -   date: !!null
         name: Höfer
-        source: !keyref src.de.Kb.W1937
-    -   date: !var lknr.kb
+        source: src.de.Kb.W1937
+    -   date: de.lknr.kb
         de.lknr: 40 630
-        source: !keyref src.de.Bfv.1938
-    -   date: !date 1940-11-08
+        source: src.de.Bfv.1938
+    -   date: 1940-11-08
         de.lknr: 92 869
-        source: !keyref src.de.Bfv.1944
-    -   date: !date c1965
+        source: src.de.Bfv.1944
+    -   date: c1965
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.9174 hof left
+        site: path.de.9174 hof
 
 
 ---
@@ -98,20 +98,21 @@ type: point
 events:
     -   date: !!null
         name: Mariaglück
-        source: !keyref src.de.Bfv.1928
-    -   date: !var lknr.kb
+        source: src.de.Bfv.1928
+    -   date: de.lknr.kb
         de.lknr: 40 631
-        source: !keyref src.de.Bfv.1938
-    -   date: !date 1940-11-08
+        source: src.de.Bfv.1938
+    -   date: 1940-11-08
         de.lknr: 93 869
-        source: !keyref src.de.Bfv.1944
+        source: src.de.Bfv.1944
     -   date: !!null
-        location: !keyloc line.de.9174 5,6
+        location:
+            line.de.9174: 5,6
         category: de.Bf
-        source: !keyref src.de.SuW.2005
+        source: src.de.SuW.2005
 
     -   date: !!null
-        site: !noderef path.de.9174 mar left
+        site: path.de.9174 mar
 
 
 ---
@@ -120,21 +121,22 @@ type: point
 junction: True
 events:
     -   date: !!null
-        location: !keyloc line.de.9174 7,0
-        source: !keyref src.de.WP.Bahnstrecke-Celle-Wittingen
-    -   date: !var lknr.kb
+        location:
+            line.de.9174: 7,0
+        source: src.de.WP.Bahnstrecke-Celle-Wittingen
+    -   date: de.lknr.kb
         de.lknr: 40 632
-        source: !keyref src.de.Bfv.1938
+        source: src.de.Bfv.1938
     -   date: !!null
         name: Habighorst
         service: none
         staff: none
-        source: !keyref src.de.Bfv.1944
-    -   date: !date 1940-11-08
+        source: src.de.Bfv.1944
+    -   date: 1940-11-08
         de.lknr: 94 869
-        source: !keyref src.de.Bfv.1944
+        source: src.de.Bfv.1944
 
     -   date: !!null
-        site: !noderef path.de.9174 hab left
+        site: path.de.9174 hab
 
 

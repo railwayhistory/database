@@ -11,7 +11,7 @@ events:
             - org.de
             - org.de.l.be
 
-    -   date: !var vzg.dr
+    -   date: de.vzg.dr
         de.VzG: !!str 6033
         source: src.de.DBAG.Geo-Strecke.2017
 
@@ -39,8 +39,7 @@ events:
         source: src.de.Kuhlmann.2000
 
     -   date: 1933-05-15
-        electrified:
-            rail: !var el.de.bln
+        electrified: de.bln
         source: src.de.Kuhlmann.2000
 
     -   date: 1939-10-09
@@ -50,21 +49,21 @@ events:
 
     -   date: 1980-09-18
         start: point.de.Berlin-Schöneberg-Strw
-        service: freight
+        passenger: none
         source: src.de.Kuhlmann.2000
 
     -   date: 1985-02-01
         start: point.de.Berlin-Schöneberg-Strw
-        service: passenger
+        passenger: full
         source: src.de.Kuhlmann.2000
 
     #   Verlauf
     #
     -   date: !!null
         course:
-            - !pathref path.de.6177 bwa awan -2.
-            - !pathref path.de.6033 a   f     0.
-            - !pathref path.de.6118 fnik wan  2.
+            -   path.de.6177 bwa awan
+            -   path.de.6033 a   f
+            -   path.de.6118 fnik wan
 
 points:
     -   point.de.Berlin-Wannseebf
@@ -103,15 +102,16 @@ events:
         name: Berlin Wannseebf
         source: src.de.Kb.1914
     -   date: !!null
-        location: !keyloc line.de.6033 0,00
+        location:
+            line.de.6033: 0,00
         category: de.Bf
-        de.Rangklasse: I
+        de.rang: I
         source: src.de.DRG.Bln.1927
     -   date: !!null
         master: point.de.Berlin-Potsd-Bf
         source: src.de.Bfv.1928
     -   date: c1930
-        de.Rangklasse: II
+        de.rang: II
         source: src.de.DRG.Bln.1932
     -   date: !!null
         service: passenger
@@ -121,7 +121,7 @@ events:
         source: src.de.Kuhlmann.2000
 
     -   date: !!null
-        site: !noderef path.de.6177 bwa
+        site: path.de.6177 bwa
 
 
 ---
@@ -135,25 +135,27 @@ events:
         name: Großgörschenstraße
         source: src.de.Kb.1914
     -   date: !!null
-        location: !keyloc line.de.6033 1,90
+        location:
+            line.de.6033: 1,90
         category: de.Bf
-        de.Rangklasse: II
+        de.rang: II
         source: src.de.DRG.Bln.1927
     -   date: !!null
         de.lknr: 03 281
         service: passenger
         source: src.de.Bfv.1928
     -   date: c1930
-        de.Rangklasse: III
+        de.rang: III
         source: src.de.DRG.Bln.1932
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 03 124
         source: src.de.Bfv.1933
     -   date: c1935
         category: de.Hp
         source: src.de.Bfv.1938
     -   date: !!null
-        location: !keyloc line.de.6032 6,048
+        location:
+            line.de.6032: 6,048
         source: src.de.DRG.Bln.1943
     -   date: !!null
         de.VBL: Gör
@@ -170,12 +172,12 @@ events:
         source:
             - src.de.Kuhlmann.2000
             - src.de.TPP.2006
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BGGS
         source: src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.6177 ggo
+        site: path.de.6177 ggo
 
 
 # point.de.Berlin-Schöneberg-Bk-7               de.6177
@@ -188,13 +190,13 @@ subtype: reference
 events:
     -   date: !!null
         location:
-            - !keyloc line.de.6032 7,678
-            - !keyloc line.de.6033 3,300
+            line.de.6032: 7,678
+            line.de.6033: 3,300
         name: Berlin-Schöneberg Strw 6032/6033
         de.DS100: YBBSG
 
     -   date: !!null
-        site: !noderef path.de.6177 xsob
+        site: path.de.6177 xsob
 
 
 ---
@@ -212,7 +214,8 @@ events:
         service: passenger
         source: src.de.Bfv.1933
     -   date: !!null
-        location: !keyloc line.de.6033 3,49
+        location:
+            line.de.6033: 3,49
         source: src.de.DRG.Bln.1943
     -   date: !!null
         de.VBL: Sg
@@ -220,7 +223,7 @@ events:
     -   date: c1950
         master: point.de.Berlin-Friedenau
         source: src.dd.DR.Bln.1959
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BSGRV
         source: src.de.TPP.2006
     -   date: c1995
@@ -230,11 +233,12 @@ events:
     -   date: c1995
         public_name: Berlin-Schöneberg
     -   date: !!null
-        location: !keyloc line.de.6032 7,632
+        location:
+            line.de.6032: 7,632
         source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.6177 sob
+        site: path.de.6177 sob
 
 
 ---
@@ -248,28 +252,29 @@ events:
         name: Friedenau
         source: src.de.Kb.1914
     -   date: !!null
-        location: !keyloc line.de.6033 4,75
+        location:
+            line.de.6033: 4,75
         category: de.Bf
-        de.Rangklasse: III
+        de.rang: III
         source: src.de.DRG.Bln.1927
     -   date: !!null
         de.lknr: 03 122
         service: passenger
         source: src.de.Bfv.1928
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 03 126
         source: src.de.Bfv.1933
     -   date: !!null
         de.VBL: Fr
         source: src.de.DRG.Bln.1946
     -   date: c1980
-        de.Rangklasse: U
+        de.rang: U
         master: point.de.Berlin-Rathaus-Steglitz
         source: src.dd.DR.Bln.1983
     -   date: c1985
         category: de.Hp
         source: src.dd.DR.Bln.1991
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BFRU
         source: src.de.TPP.2006
     -   date: c1995
@@ -280,7 +285,7 @@ events:
         source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.6177 fri
+        site: path.de.6177 fri
 
 
 ---
@@ -296,7 +301,8 @@ events:
         de.lknr: 03 127
         source: src.de.Bfv.1938
     -   date: !!null
-        location: !keyloc line.de.6033 5,65
+        location:
+            line.de.6033: 5,65
         source: src.de.DRG.Bln.1943
     -   date: !!null
         de.VBL: Fb
@@ -304,7 +310,7 @@ events:
     -   date: c1950
         master: point.de.Berlin-Rathaus-Steglitz
         source: src.dd.DR.Bln.1959
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BFB
         source: src.de.TPP.2006
     -   date: c1995
@@ -312,7 +318,7 @@ events:
         source: src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.6177 feu
+        site: path.de.6177 feu
 
 
 ---
@@ -329,21 +335,24 @@ events:
         status: open
         source: src.de.Kuhlmann.2000
     -   date: !!null
-        location: !keyloc line.de.6177 6,8
+        location:
+            line.de.6177: 6,8
     -   date: 1874-06-01
-        location: !keyloc line.de.6177 -
+        location:
+            line.de.6177: !!null
     -   date: !!null
         name: Steglitz
         source: src.de.Kb.1914
     -   date: !!null
-        location: !keyloc line.de.6033 6,75
+        location:
+            line.de.6033: 6,75
         category: de.Bf
-        de.Rangklasse: II
+        de.rang: II
         source: src.de.DRG.Bln.1927
     -   date: !!null
         de.lknr: 03 123
         source: src.de.Bfv.1928
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 03 128
         source: src.de.Bfv.1933
     -   date: c1940
@@ -353,7 +362,7 @@ events:
         de.VBL: Stz
         source: src.de.DRG.Bln.1946
     -   date: c1965
-        de.Rangklasse: III
+        de.rang: III
         source: src.dd.DR.Bln.1968
     -   date: c1985
         category: de.Hp
@@ -361,12 +370,12 @@ events:
     -   date: 1992-05-31
         name: Berlin Rathaus Steglitz
         source: src.de.Kuhlmann.2000
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BRST
         source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.6177 ste
+        site: path.de.6177 ste
 
 
 ---
@@ -380,9 +389,10 @@ events:
         name: Botanischer Garten
         source: src.de.Kb.1914
     -   date: !!null
-        location: !keyloc line.de.6033 8,13
+        location:
+            line.de.6033: 8,13
         category: de.Bf
-        de.Rangklasse: IV
+        de.rang: IV
         source: src.de.DRG.Bln.1927
     -   date: !!null
         de.lknr: 03 284
@@ -391,7 +401,7 @@ events:
     -   date: c1930
         category: de.Hp
         source: src.de.DRG.Bln.1932
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 03 130
         source: src.de.Bfv.1933
     -   date: c1935
@@ -403,7 +413,7 @@ events:
     -   date: c1950
         master: point.de.Berlin-Rathaus-Steglitz
         source: src.dd.DR.Bln.1959
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BBGT
         source: src.de.TPP.2006
     -   date: c1995
@@ -411,7 +421,7 @@ events:
         source: src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.6177 bot
+        site: path.de.6177 bot
 
 
 # point.de.Berlin-Lichterfelde-West             de.6177
@@ -425,7 +435,8 @@ events:
         status: open
         split_from: point.de.Berlin-Lichterfelde-West
     -   date: !!null
-        location: !keyloc line.de.6033 9,235
+        location:
+            line.de.6033: 9,235
         category: de.Hp
         name: Berlin-Lichterfelde West S-Bahn
         de.DS100: BLWE
@@ -434,7 +445,7 @@ events:
         public_name: Berlin Lichterfelde West
 
     -   date: !!null
-        site: !noderef path.de.6177 lis
+        site: path.de.6177 lis
 
 
 ---
@@ -451,7 +462,8 @@ events:
         service: passenger
         source: src.de.Bfv.1938
     -   date: !!null    
-        location: !keyloc line.de.6033 10,87
+        location:
+            line.de.6033: 10,87
         source: src.de.DRG.Bln.1943
     -   date: !!null
         de.VBL: Stg
@@ -462,7 +474,7 @@ events:
     -   date: c1950
         master: point.de.Berlin-Lichterfelde-West
         source: src.dd.DR.Bln.1959
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BSDG
         source: src.de.TPP.2006
     -   date: c1995
@@ -470,7 +482,7 @@ events:
         source: src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.6177 sun
+        site: path.de.6177 sun
 
 
 # point.de.Berlin-Zehlendorf                  de.6177
@@ -482,19 +494,20 @@ type: point
 junction: True
 events:
     -   date: !!null
-        location: !keyloc line.de.6033 12,95
+        location:
+            line.de.6033: 12,95
         category: de.Glgr
         name: Zwt
         master: point.de.Berlin-Zehlendorf
         source: src.de.DRG.Bln.1927
     -   date: !!null
         location:
-            - !keyloc line.de.6184 12,95
+            line.de.6184: 12,95
     -   date: c1985
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.6033 zwt
+        site: path.de.6033 zwt
 
 
 ---
@@ -509,7 +522,8 @@ events:
         name: Zehlendorf West
         source: src.de.Kuhlmann.2000
     -   date: !!null
-        location: !keyloc line.de.6033 13,91
+        location:
+            line.de.6033: 13,91
         category: de.Hp
         source: src.de.DRG.Bln.1927
     -   date: !!null
@@ -518,9 +532,9 @@ events:
         source: src.de.Bfv.1928
     -   date: c1930
         category: de.Bf
-        de.Rangklasse: IV
+        de.rang: IV
         source: src.de.DRG.Bln.1932
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 03 134
         source: src.de.Bfv.1933
     -   date: c1935
@@ -547,7 +561,7 @@ events:
         source: src.de.Kuhlmann.2000
     -   date: 1987-03-07?
         de.VBL: Mex
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BMEX
         source: src.de.TPP.2006
     -   date: c1995
@@ -555,7 +569,7 @@ events:
         source: src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.6033 mex
+        site: path.de.6033 mex
 
 
 ---
@@ -570,22 +584,22 @@ events:
         source: src.de.Kb.1914
     -   date: !!null
         location:
-            - !keyloc line.de.6033 15,42
-            - !keyloc line.de.6184 15,42
+            line.de.6033: 15,42
+            line.de.6184: 15,42
         category: de.Bf
-        de.Rangklasse: II
+        de.rang: II
         source: src.de.DRG.Bln.1927
     -   date: !!null
         de.lknr: 03 126
         source: src.de.Bfv.1928
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 03 135
         source: src.de.Bfv.1933
     -   date: !!null
         de.VBL: Sts
         source: src.de.DRG.Bln.1946
     -   date: c1950
-        de.Rangklasse: U
+        de.rang: U
         name: Berlin-Schlachtensee
         source: src.dd.DR.Bln.1953
     -   date: c1950
@@ -594,12 +608,12 @@ events:
     -   date: c1985
         category: de.Hp
         source: src.dd.DR.Bln.1991
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BSLS
         source: src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.6033 sla
+        site: path.de.6033 sla
 
 
 ---
@@ -612,30 +626,32 @@ events:
         source: src.de.Kuhlmann.2000
     -   date: !!null
         location:
-            - !keyloc line.de.6033 17,12
-            - !keyloc line.de.6118 11,21
+            line.de.6033: 17,12
+            line.de.6118: 11,21
         category: de.Bf
-        de.Rangklasse: III
+        de.rang: III
         name: Nikolassee
         source: src.de.DRG.Bln.1927
     -   date: !!null
         de.lknr: 03 225
         service: passenger
         source: src.de.Bfv.1928
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 03 136
         source: src.de.Bfv.1933
     -   date: 1937-04-16
-        location: !keyloc line.de.6118 -
+        location:
+            line.de.6118: !!null
         source: src.de.web.Krebs
     -   date: !!null
-        location: !keyloc line.de.6024 22,49
+        location:
+            line.de.6024: 22,49
         source: src.de.DRG.Bln.1943
     -   date: !!null
         de.VBL: Ni
         source: src.de.DRG.Bln.1946
     -   date: c1950
-        de.Rangklasse: U
+        de.rang: U
         master: point.de.Berlin-Wannsee
         source:
             - src.dd.DR.Bln.1953
@@ -648,8 +664,8 @@ events:
 
     -   date: !!null
         site:
-            - !noderef path.de.6118 nik
-            - !noderef path.de.6033 nik
+            - path.de.6118 nik
+            - path.de.6033 nik
 
 
 ---
@@ -660,7 +676,8 @@ events:
         status: open
         split_from: point.de.Berlin-Nikolassee
     -   date: !!null
-        location: !keyloc line.de.6033 17,014
+        location:
+            line.de.6033: 17,014
         category: de.Hp
         name: Berlin-Nikolassee (Wannseebahn)
         de.DS100: BNIW
@@ -669,7 +686,7 @@ events:
         public_name: Berlin-Nikolassee
 
     -   date: !!null
-        site: !noderef path.de.6033 nik
+        site: path.de.6033 nik
 
 
 # point.de.Berlin-Wannsee                     de.6118
@@ -683,8 +700,8 @@ events:
         status: open
         split_from: point.de.Berlin-Wannsee
         location:
-            - !keyloc line.de.6033 18,61
-            - !keyloc line.de.6024 24,06
+            line.de.6033: 18,61
+            line.de.6024: 24,06
     -   date: !!null
         name: Berlin-Wannsee S-Bahn
         public_name: Berlin-Wannsee
@@ -695,5 +712,5 @@ events:
         source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.6118 wan
+        site: path.de.6118 wan
         

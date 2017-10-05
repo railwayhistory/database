@@ -6,8 +6,8 @@ type: line
 events:
     -   date: !!null
         region:
-            - !keyref org.de
-            - !keyref org.de.l.nw
+            - org.de
+            - org.de.l.nw
 
     -   date: !!null
         de.VzG: !!str 9299
@@ -15,65 +15,67 @@ events:
 
     -   date: !!null
         category: de.Kleinbahn
-        gauge: 1000
-        owner: !keyref org.de.Mindener-Kreisbahnen
-        operator: !keyref org.de.Mindener-Kreisbahnen
+        gauge: 1000mm
+        owner: org.de.Mindener-Kreisbahnen
+        operator: org.de.Mindener-Kreisbahnen
 
-    -   date: !date 1918-07-01
-        end: !keyref point.de.Nammen-Dorf
+    -   date: 1918-07-01
+        end: point.de.Nammen-Dorf
         status: open
-        source: !keyref src.de.web.Lokomotive
-    -   date: !date 1921-05-01
-        start: !keyref point.de.Nammen-Dorf
+        source: src.de.web.Lokomotive
+    -   date: 1921-05-01
+        start: point.de.Nammen-Dorf
         status: open
-        source: !keyref src.de.web.Lokomotive
-    -   date: !date 1924
-        end: !keyref point.de.Meissen-Westf
-        gauge: [ 1000, 1435 ]
+        source: src.de.web.Lokomotive
+    -   date: 1924
+        end: point.de.Meissen-Westf
+        gauge: [ 1000mm, 1435mm ]
         rails: 3
-        source: !keyref src.de.web.Westloc
-    -   date: !date 1936 
-        start: !keyref point.de.Meissen-Westf
-        gauge: [ 1000, 1435 ]
+        source: src.de.web.Westloc
+    -   date: 1936 
+        start: point.de.Meissen-Westf
+        gauge: [ 1000mm, 1435mm ]
         rails: 3
-        source: !keyref src.de.web.Westloc
-    -   date: !date c1950
+        source: src.de.web.Westloc
+    -   date: c1950
         category: de.Nebenbahn
-    -   date: !date c1955
-        gauge: 1435
-    -   date: !date 1962-09-30
-        service: freight
-        source: !keyref src.de.WP.Mindener-Kreisbahnen
+    -   date: c1955
+        gauge: 1435mm
+        rails: 2
+    -   date: 1962-09-30
+        passenger: none
+        source: src.de.WP.Mindener-Kreisbahnen
 
 points:
     -   point.de.Minden-Friedr-Wilhelm-Str          # de.9290
-    - !keyref point.de.Dankersen-Kreisb
-    - !keyref point.de.Meissen-Westf-Notthorn
-    - !keyref point.de.Meissen-Westf
-    - !keyref point.de.Nammen-Bad
-    - !keyref point.de.Nammen-Dorf
-    - !keyref point.de.Nammen-Grube
-    - !keyref point.de.Wuelpke
-    - !keyref point.de.Kleinenbremen-Haltest
-    - !keyref point.de.Kleinenbremen
+    - point.de.Dankersen-Kreisb
+    - point.de.Meissen-Westf-Notthorn
+    - point.de.Meissen-Westf
+    - point.de.Nammen-Bad
+    - point.de.Nammen-Dorf
+    - point.de.Nammen-Grube
+    - point.de.Wuelpke
+    - point.de.Kleinenbremen-Haltest
+    - point.de.Kleinenbremen
 
 ---
 key: point.de.Dankersen-Kreisb
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.9299 3,9
-        source: !keyref src.de.WP.Mindener-Kreisbahnen
+        location:
+            line.de.9299: 3,9
+        source: src.de.WP.Mindener-Kreisbahnen
     -   date: !!null
         name: Dankersen
-        source: !keyref src.de.Bfv.1933
-    -   date: !var lknr.kb
+        source: src.de.Bfv.1933
+    -   date: de.lknr.kb
         de.lknr: 45 169
-        source: !keyref src.de.Bfv.1944
-    -   date: !date c1940
+        source: src.de.Bfv.1944
+    -   date: c1940
         name: Dankersen Kreisb
-        source: !keyref src.de.Bfv.1944
-    -   date: !date c1970
+        source: src.de.Bfv.1944
+    -   date: c1970
         status: closed
 
 ---
@@ -81,22 +83,23 @@ key: point.de.Meissen-Westf-Notthorn
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.9299 4,8
-        source: !keyref src.de.WP.Mindener-Kreisbahnen
+        location:
+            line.de.9299: 4,8
+        source: src.de.WP.Mindener-Kreisbahnen
     -   date: !!null
         name: Meißen-Notthorn
-        source: !keyref src.de.Kb.W1937
+        source: src.de.Kb.W1937
     -   date: !!null
         service: passenger
-        source: !keyref src.de.Bfv.1933
-    -   date: !var lknr.kb
+        source: src.de.Bfv.1933
+    -   date: de.lknr.kb
         de.lknr: 45 170
-        source: !keyref src.de.Bfv.1944
-    -   date: !date c1940
+        source: src.de.Bfv.1944
+    -   date: c1940
         name: Meißen (Westf) Notthorn
         service: freight
-        source: !keyref src.de.Bfv.1944
-    -   date: !date c1970
+        source: src.de.Bfv.1944
+    -   date: c1970
         status: closed
 
 ---
@@ -104,15 +107,16 @@ key: point.de.Meissen-Westf
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.9299 6,0
-        source: !keyref src.de.WP.Mindener-Kreisbahnen
+        location:
+            line.de.9299: 6,0
+        source: src.de.WP.Mindener-Kreisbahnen
     -   date: !!null
         name: Meißen (Westf)
-        source: !keyref src.de.Bfv.1933
-    -   date: !var lknr.kb
+        source: src.de.Bfv.1933
+    -   date: de.lknr.kb
         de.lknr: 45 171
-        source: !keyref src.de.Bfv.1944
-    -   date: !date c1970
+        source: src.de.Bfv.1944
+    -   date: c1970
         status: closed
 
 ---
@@ -120,70 +124,74 @@ key: point.de.Nammen-Bad
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.9299 8,2
-        source: !keyref src.de.WP.Mindener-Kreisbahnen
+        location:
+            line.de.9299: 8,2
+        source: src.de.WP.Mindener-Kreisbahnen
     -   date: !!null
         name: Nammen Bad
-        source: !keyref src.de.Bfv.1933
+        source: src.de.Bfv.1933
     -   date: !!null
         category: de.Hp
         de.DS100: HNMB
-        source: !keyref src.de.SuW.2005
-    -   date: !var lknr.kb
+        source: src.de.SuW.2005
+    -   date: de.lknr.kb
         de.lknr: 45 172
-        source: !keyref src.de.Bfv.1944
+        source: src.de.Bfv.1944
 
 ---
 key: point.de.Nammen-Dorf
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.9299 9,5
-        source: !keyref src.de.WP.Mindener-Kreisbahnen
+        location:
+            line.de.9299: 9,5
+        source: src.de.WP.Mindener-Kreisbahnen
     -   date: !!null
         name: Nammen Dorf
-        source: !keyref src.de.Bfv.1933
+        source: src.de.Bfv.1933
     -   date: !!null
         category: de.Bf
         de.DS100: HNMD
-        source: !keyref src.de.SuW.2005
-    -   date: !var lknr.kb
+        source: src.de.SuW.2005
+    -   date: de.lknr.kb
         de.lknr: 45 173
-        source: !keyref src.de.Bfv.1944
+        source: src.de.Bfv.1944
 
 ---
 key: point.de.Nammen-Grube
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.9299 10,9
-        source: !keyref src.de.WP.Mindener-Kreisbahnen
+        location:
+            line.de.9299: 10,9
+        source: src.de.WP.Mindener-Kreisbahnen
     -   date: !!null
         name: Nammen Grube
         service: freight
-        source: !keyref src.de.Bfv.1944
+        source: src.de.Bfv.1944
     -   date: !!null
         category: de.Bf
         de.DS100: HNMG
-        source: !keyref src.de.SuW.2005
-    -   date: !var lknr.kb
+        source: src.de.SuW.2005
+    -   date: de.lknr.kb
         de.lknr: 45 177
-        source: !keyref src.de.Bfv.1944
+        source: src.de.Bfv.1944
 
 ---
 key: point.de.Wuelpke
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.9299 11,8
-        source: !keyref src.de.WP.Mindener-Kreisbahnen
+        location:
+            line.de.9299: 11,8
+        source: src.de.WP.Mindener-Kreisbahnen
     -   date: !!null
         name: Wülpke
-        source: !keyref src.de.Kb.W1937
+        source: src.de.Kb.W1937
     -   date: !!null
         service: passenger
-        source: !keyref src.de.Bfv.1933
-    -   date: !var lknr.kb
+        source: src.de.Bfv.1933
+    -   date: de.lknr.kb
         de.lknr: 45 174
 
 ---
@@ -191,15 +199,16 @@ key: point.de.Kleinenbremen-Haltest
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.9299 13,0
-        source: !keyref src.de.WP.Mindener-Kreisbahnen
+        location:
+            line.de.9299: 13,0
+        source: src.de.WP.Mindener-Kreisbahnen
     -   date: !!null
         name: Kleinenbremen Haltest
-        source: !keyref src.de.Kb.W1937
+        source: src.de.Kb.W1937
     -   date: !!null
         service: passenger
-        source: !keyref src.de.Bfv.1933
-    -   date: !var lknr.kb
+        source: src.de.Bfv.1933
+    -   date: de.lknr.kb
         de.lknr: 45 175
 
 ---
@@ -208,15 +217,16 @@ type: point
 junction: True
 events:
     -   date: !!null
-        location: !keyloc line.de.9299 13,7
-        source: !keyref src.de.WP.Mindener-Kreisbahnen
+        location:
+            line.de.9299: 13,7
+        source: src.de.WP.Mindener-Kreisbahnen
     -   date: !!null
         name: Kleinenbremen
-        source: !keyref src.de.Bfv.1933
+        source: src.de.Bfv.1933
     -   date: !!null
         category: de.Bf
         de.DS100: HKBR
-        source: !keyref src.de.SuW.2005
-    -   date: !var lknr.kb
+        source: src.de.SuW.2005
+    -   date: de.lknr.kb
         de.lknr: 45 176
-        source: !keyref src.de.Bfv.1944
+        source: src.de.Bfv.1944

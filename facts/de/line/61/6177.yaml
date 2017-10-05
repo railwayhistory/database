@@ -10,7 +10,7 @@ events:
         end: point.de.Potsdam-Griebnitzsee-LGr
         region: org.de.l.be
 
-    -   date: !var vzg.dr
+    -   date: de.vzg.dr
         start: point.de.Berlin-Potsd-Gbf
         de.VzG: !!str 6177
         source: src.de.DBAG.Geo-Strecke.2017
@@ -21,7 +21,7 @@ events:
         concession:
             by: org.de.l.pre
             for: org.de.Berlin-Potsdamer-Eisenbahn
-            document: src.de.l.pre.pot.1837.41.beilage
+        document: src.de.l.pre.pot.1837.41.beilage
         source: src.de.DRG.1935
 
     #   Eröffnung
@@ -41,26 +41,23 @@ events:
     -   date: !!null
         category: de.Hauptbahn
         tracks: 2
-        gauge: 1435
+        gauge: 1435mm
         source: src.de.DRG.1927
     -   date: 1933-05-15
         end: point.de.Berlin-Zehlendorf
-        electrified:
-            rail: !var el.de.bln
+        electrified: de.bln
         source: src.de.Kuhlmann.2000
 
     -   date: c1945
         tracks: 1
     -   date: c1945
         end: point.de.Berlin-Zehlendorf
-        electrified:
-            rail: !var el.none
+        electrified: !!null
 
     -   date: 1948-05-15
         start: point.de.Berlin-Zehlendorf
         end: point.de.Berlin-Düppel
-        electrified:
-            rail: !var el.de.bln
+        electrified: de.bln
         source: src.de.Kuhlmann.2000
 
     -   date: c1950
@@ -104,46 +101,17 @@ events:
         owner: org.de.Berlin-Potsdamer-Eisenbahn
         operator: org.de.Berlin-Potsdamer-Eisenbahn
         source: src.de.DRG.1935
-    -   date: 1846-08-07
-        owner: org.de.Berlin-Potsdam-Magdeburger-Eisenbahn
-        operator: org.de.Berlin-Potsdam-Magdeburger-Eisenbahn
-
-    -   date: 1880-04-01
-        owner: org.de.l.pre
-        operator: org.de.e.mag
-    -   date: 1895-04-01?
-        operator: org.de.e.bln
-
-    -   date: 1920-04-01
-        owner: org.de
-        operator: org.de.r.RVM.PH
-    -   date: 1924-02-12
-        operator: org.de.Deutsche-Reichsbahn-I
-    -   date: 1924-08-30
-        operator: org.de.DR
 
     -   date: 1949-10-07
         start: point.de.Potsdam-Griebnitzsee-LGr
         owner: org.dd
-    -   date: !var org.de.DR.start
-        operator: org.dd.DR
-    -   date: 1990-10-03
-        start: point.de.Potsdam-Griebnitzsee-LGr
-        owner: org.de
-
-    -   date: !var org.de.Deutsche-Bahn.start
-        owner: org.de.Deutsche-Bahn
-        operator: org.de.Deutsche-Bahn
-    -   date: !var org.de.DBNetz.start
-        owner: org.de.DB-Netz
-        operator: org.de.DB-Netz
 
     #   Verlauf
     #
     -   date: !!null
         course:
-            - !pathref path.de.6177 bpo  f    0.0
-            - !pathref path.de.6110 fzeh gri  0.0
+            -   path.de.6177 bpo  f
+            -   path.de.6110 fzeh gri
 
 points:
     -   point.de.Berlin-Potsd-Bf
@@ -174,9 +142,10 @@ events:
         name: Berlin Potsd Bf
         source: src.de.Kb.1914
     -   date: !!null
-        location: !keyloc line.de.6177 0,00
+        location:
+            line.de.6177: 0,00
         category: de.Bf
-        de.Rangklasse: I
+        de.rang: I
         source: src.de.DRG.Bln.1927
     -   date: !!null
         de.lknr: 03 279
@@ -188,7 +157,7 @@ events:
     -   date: c1930
         service: freight
         source: src.de.Bfv.1933
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 03 119
         source: src.de.Bfv.1933
     -   date: !!null
@@ -199,7 +168,7 @@ events:
         source: src.de.Kuhlmann.2000
 
     -   date: !!null
-        site: !noderef path.de.6177 bpo
+        site: path.de.6177 bpo
 
 # point.de.Berlin-Wannseebf bwa
 
@@ -210,10 +179,10 @@ junction: True
 events:
     -   date: !!null
         location:
-            - !keyloc line.de.6125 1,55
-            - !keyloc line.de.6177 1,55
+            line.de.6125: 1,55
+            line.de.6177: 1,55
         name: Berlin Potsd Gbf
-        de.Rangklasse: I
+        de.rang: I
         source: src.de.DRG.Bln.1927
     -   date: !!null
         de.lknr: 03 121
@@ -223,7 +192,7 @@ events:
         category: de.Ga
         master: point.de.Berlin-Potsd-Bf
         source: src.de.Bfv.1933
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 03 122
         source: src.de.Bfv.1933
     -   date: !!null
@@ -234,7 +203,7 @@ events:
         source: src.de.Kuhlmann.2000
 
     -   date: !!null
-        site: !noderef path.de.6177 bpg
+        site: path.de.6177 bpg
 
 # point.de.Berlin-Grossgoerschenstrasse ggo
 
@@ -248,8 +217,8 @@ type: point
 events:
     -   date: !!null
         location:
-            - !keyloc line.de.6033 3,04
-            - !keyloc line.de.6177 3,20
+            line.de.6033: 3,04
+            line.de.6177: 3,20
         category: de.Bk
         name: Bk 7
         source: src.de.DRG.Bln.1932
@@ -257,7 +226,7 @@ events:
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.6177 vii
+        site: path.de.6177 vii
 
 
 # point.de.Berlin-Schoeneberg-Strw xsob
@@ -273,10 +242,10 @@ junction: True
 events:
     -   date: !!null
         location:
-            - !keyloc line.de.6125 6,34
-            - !keyloc line.de.6177 6,34
+            line.de.6125: 6,34
+            line.de.6177: 6,34
         category: de.Bf
-        de.Rangklasse: II
+        de.rang: II
         name: Steglitz Gbf
         source: src.de.DRG.Bln.1927
     -   date: !!null
@@ -297,16 +266,16 @@ events:
         source: src.de.DRG.Bln.1946
     -   date: c1950
         category: de.Bf
-        de.Rangklasse: U
+        de.rang: U
         source: src.dd.DR.Bln.1953
     -   date: c1950
         name: Berlin-Steglitz Gbf
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BSTZ
         source: src.de.SuW.2005
 
     -   date: !!null
-        site: !noderef path.de.6177 stg
+        site: path.de.6177 stg
 
 # point.de.Berlin-Rathaus-Steglitz ste de.6033
 # point.de.Berlin-Botanischer-Garten bot de.6033
@@ -335,15 +304,15 @@ events:
             - src.de.DRG.Bln.1927
     -   date: !!null
         location:
-            - !keyloc line.de.6033 9,14
-            - !keyloc line.de.6177 9,40
+            line.de.6033: 9,14
+            line.de.6177: 9,40
         category: de.Bf
-        de.Rangklasse: II
+        de.rang: II
         source: src.de.DRG.Bln.1927
     -   date: !!null
         de.lknr: 03 124
         source: src.de.Bfv.1928
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 03 131
         source: src.de.Bfv.1933
     -   date: c1940
@@ -353,22 +322,23 @@ events:
         de.VBL: Liw
         source: src.de.DRG.Bln.1946
     -   date: c1965
-        de.Rangklasse: III
+        de.rang: III
         source: src.dd.DR.Bln.1968
     -   date: c1980
-        de.Rangklasse: U
+        de.rang: U
         master: point.de.Berlin-Rathaus-Steglitz
         source:
             - src.dd.DR.Bln.1983
             - src.dd.DR.Bln.1991
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BLIW
         source: src.de.TPP.2006
     -   date: c2010
-        location: !keyloc line.de.6033 -
+        location:
+            line.de.6033: !!null
 
     -   date: !!null
-        site: !noderef path.de.6177 lic
+        site: path.de.6177 lic
 
 # point.de.Berlin-Lichterfelde-West-S-Bahn lis
 # point.de.Berlin-Sundgauer-Strasse sun
@@ -386,17 +356,18 @@ events:
         source: src.de.Kuhlmann.2000
     -   date: !!null
         location:
-            - !keyloc line.de.6033 11,89
-            - !keyloc line.de.6177 12,06
+            line.de.6033: 11,89
+            line.de.6177: 12,06
         category: de.Bf
-        de.Rangklasse: II
+        de.rang: II
         source: src.de.DRG.Bln.1927
     -   date: !!null
-        location: !keyloc line.de.6184 11,89
+        location:
+            line.de.6184: 11,89
     -   date: !!null
         de.lknr: 03 125
         source: src.de.Bfv.1928
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 03 133
         source: src.de.Bfv.1933
     -   date: 1938-10-01
@@ -406,15 +377,15 @@ events:
         de.VBL: Zfm
         source: src.de.DRG.Bln.1946
     -   date: c1965
-        de.Rangklasse: U
+        de.rang: U
         master: point.de.Berlin-Wannsee
         source: src.dd.DR.Bln.1968
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BZD
         source: src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.6177 zeh
+        site: path.de.6177 zeh
 
 
 ---
@@ -425,16 +396,17 @@ events:
         status: open
         source: src.de.Kuhlmann.2000
     -   date: !!null
-        location: !keyloc line.de.6177 13,22
+        location:
+            line.de.6177: 13,22
         category: de.Hp
         staff: none
         name: Zehlendorf Süd
         source: src.dd.DR.Bln.1973
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BZFS
 
     -   date: !!null
-        site: !noderef path.de.6177 zes
+        site: path.de.6177 zes
 
 
 ---
@@ -442,7 +414,8 @@ key: point.de.Berlin-Düppel
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.6177 14,65
+        location:
+            line.de.6177: 14,65
         category: de.Bk
         name: Bk 19
         source: src.de.DRG.Bln.1932
@@ -471,11 +444,11 @@ events:
     -   date: 1973-05-15
         name: Düppel
         source: src.de.Kuhlmann.2000
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BDP
 
     -   date: !!null
-        site: !noderef path.de.6177 due
+        site: path.de.6177 due
 
 
 ---
@@ -486,11 +459,12 @@ events:
     -   date: !!null
         name: Düppel LGr
     -   date: !!null
-        location: !keyloc line.de.6118 46,624
+        location:
+            line.de.6118: 46,624
         source: src.dd.DR.Bln.1978
 
     -   date: !!null
-        site: !noderef path.de.6177 gdue
+        site: path.de.6177 gdue
 
 
 ---
@@ -498,7 +472,8 @@ key: point.de.Machnow
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.6177 16,36
+        location:
+            line.de.6177: 16,36
         category: de.Bk
         name: Bk 20
         source: src.de.DRG.Bln.1932
@@ -510,7 +485,7 @@ events:
         source: src.de.DRG.Bln.1946
 
     -   date: !!null
-        site: !noderef path.de.6177 mac
+        site: path.de.6177 mac
 
 
 ---
@@ -522,7 +497,7 @@ events:
         name: Stolperweg LGr
 
     -   date: !!null
-        site: !noderef path.de.6177 gsto
+        site: path.de.6177 gsto
 
 
 ---
@@ -530,7 +505,8 @@ key: point.de.Berlin-Stolperweg
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.6177 19,95
+        location:
+            line.de.6177: 19,95
         category: de.Bk
         name: Bk 24
         source: src.de.DRG.Bln.1932
@@ -542,7 +518,7 @@ events:
         source: src.de.DRG.Bln.1946
 
     -   date: !!null
-        site: !noderef path.de.6177 sto
+        site: path.de.6177 sto
 
 
 ---
@@ -552,11 +528,12 @@ subtype: border
 events:
     -   date: !!null
     -   date: !!null
-        location: !keyloc line.de.6177 20,84
+        location:
+            line.de.6177: 20,84
         source: src.dd.DR.Bln.1953
 
     -   date: !!null
-        site: !noderef path.de.6177 ggri
+        site: path.de.6177 ggri
 
 
 # point.de.Potsdam-Griebnitzsee               de.6110

@@ -17,14 +17,14 @@ events:
         start: point.de.Graustein-LGr
         region: org.de.l.sn
 
-    -   date: !var vzg.dr
+    -   date: de.vzg.dr
         de.VzG: !!str 6142
         source: src.de.DBAG.Geo-Strecke.2017
 
     -   date: !!null
         category: de.Hauptbahn
         tracks: 2
-        gauge: 1435
+        gauge: 1435mm
         source: src.de.DRG.1927
 
     # Konzessionen
@@ -33,7 +33,7 @@ events:
         concession:
             by: org.de.l.pre
             for: org.de.Berlin-Görlitzer-Eisenbahn
-            document: src.de.l.pre.1864.31.485
+        document: src.de.l.pre.1864.31.485
         source: src.de.DRG.1935 # 1866/30
     
     # Eröffnungen
@@ -78,38 +78,32 @@ events:
     -   date: 1984-06-02
         start: point.de.Berlin-Schoeneweide
         end: point.de.Berlin-Gruenau
-        electrified:
-            overhead: !var el.de
+        electrified: de
         source: src.de.Kuhlmann.2000
     -   date: 1984-09-30
         start: point.de.Berlin-Treptow-Vtw
         end: point.de.Berlin-Schoeneweide
-        electrified:
-            overhead: !var el.de
+        electrified: de
         source: src.de.Kuhlmann.2000
     -   date: 1987-10-16
         start: point.de.Berlin-Gruenau
         end: point.de.Königs-Wusterhausen
-        electrified:
-            overhead: !var el.de
+        electrified: de
         source: src.de.Kuhlmann.2000
     -   date: 1987-11-07
         start: point.de.Königs-Wusterhausen
         end: point.de.Halbe
-        electrified:
-            overhead: !var el.de
+        electrified: de
         source: src.de.Kuhlmann.2000
     -   date: 1988-12-17
         start: point.de.Halbe
         end: point.de.Lübbenau-Spreewald
-        electrified:
-            overhead: !var el.de
+        electrified: de
         source: src.de.Hafner.1989
     -   date: 1989-09-30
         start: point.de.Lübbenau-Spreewald
         end: point.de.Cottbus
-        electrified:
-            overhead: !var el.de
+        electrified: de
         source: src.de.WP.Chronik-Streckenelektrifizierung-DR
 
     # Eigentümer und Betreiber
@@ -118,48 +112,15 @@ events:
         owner: org.de.Berlin-Görlitzer-Eisenbahn
         operator: org.de.Berlin-Görlitzer-Eisenbahn
         source: src.de.DRG.1935
-    -   date: 1882-05-01
-        owner: org.de.l.pre
-        source: src.de.DRG.1935
-    -   date: 1882-05-01
-        operator: org.de.e.bln
-    -   date: 1895-04-01?
-        end: point.de.Königs-Wusterhausen
-        operator: org.de.e.bln
-        source: src.de.Kb.1914
-    -   date: 1895-04-01?
-        start: point.de.Königs-Wusterhausen
-        operator: org.de.e.hal
-
-    -   date: 1920-04-01
-        owner: org.de
-        operator: org.de.r.RVM.PH
-    -   date: 1924-02-12
-        operator: org.de.Deutsche-Reichsbahn-I
-    -   date: 1924-08-30
-        operator: org.de.DR
 
     -   date: 1949-10-07
         start: point.de.Berlin-Görl-Bf-Gr
         owner: org.dd
-    -   date: !var org.de.DR.start
-        operator: org.dd.DR
-    -   date: 1990-10-03
-        start: point.de.Berlin-Görl-Bf-Gr
-        owner: org.de
 
-    -   date: !var org.de.Deutsche-Bahn.start
-        owner: org.de.Deutsche-Bahn
-        operator: org.de.Deutsche-Bahn
-    -   date: !var org.de.DBNetz.start
-        owner: org.de.DB-Netz
-        operator: org.de.DB-Netz
-    
     # Verlauf
     #
     -   date: !!null
-        course:
-            - !pathref path.de.6142  bgo  gor   0.0
+        course: path.de.6142  bgo  gor
 
 points:
     - point.de.Berlin-Görl-Bf
@@ -243,14 +204,15 @@ events:
         name: Berlin Görl Bf
         source: src.de.Kb.1914
     -   date: !!null
-        location: !keyloc line.de.6142 0,00
+        location:
+            line.de.6142: 0,00
         category: de.Bf
-        de.Rangklasse: I
+        de.rang: I
         source: src.de.DRG.Bln.1927
     -   date: !!null
         de.lknr: 03 095
         source: src.de.Bfv.1928
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 03 313
         source: src.de.Bfv.1933
     -   date: !!null
@@ -260,13 +222,13 @@ events:
         service: freight
         source: src.de.Kuhlmann.2000
     -   date: c1952
-        de.Rangklasse: II
+        de.rang: II
         source: src.dd.DR.Bln.1953
     -   date: c1955
         name: Berlin Görlitzer Bf
         source: src.dd.DR.Bln.1959
     -   date: c1965
-        de.Rangklasse: U
+        de.rang: U
         master: point.de.Berlin-Neukoelln
         source: src.dd.DR.Bln.1968
     -   date: c1970
@@ -276,11 +238,11 @@ events:
     -   date: 1985-06-30
         status: closed
         source: src.de.Kuhlmann.2000
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BZGB
 
     -   date: !!null
-        site: !noderef path.de.6142 bgo
+        site: path.de.6142 bgo
 
 ---
 key: point.de.Berlin-Görl-Bf-Gr
@@ -289,7 +251,8 @@ subtype: border
 events:
     -   date: !!null
     -   date: !!null
-        location: !keyloc line.de.6142 0,88
+        location:
+            line.de.6142: 0,88
         source: src.dd.DR.Bln.1953
 
 ---
@@ -299,23 +262,23 @@ junction: True
 events:
     -   date: !!null
         location:
-            - !keyloc line.de.6040 1,83
-            - !keyloc line.de.6142 1,83
+            line.de.6040: 1,83
+            line.de.6142: 1,83
         name: Vrf
         source: src.de.DRG.Bln.1927
     -   date: !!null
         category: de.Abzw
     -   date: c1955
         location:
-            - !keyloc line.de.6040 1,788
-            - !keyloc line.de.6142 1,788
+            line.de.6040: 1,788
+            line.de.6142: 1,788
         source: src.dd.DR.Bln.1959
     -   date: c1960
         status: closed
         source: src.dd.DR.Bln.1968
 
     -   date: !!null
-        site: !noderef path.de.6142 vrf
+        site: path.de.6142 vrf
 
 
 ---
@@ -329,10 +292,10 @@ events:
         source: src.de.DRG.Bln.1927
     -   date: !!null
         location:
-            - !keyloc line.de.6164 15,71
-            - !keyloc line.de.6142  2,803
+            line.de.6164: 15,71
+            line.de.6142:  2,803
         source: src.dd.DR.Bln.1959
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BVTW
         source: src.de.TPP.2006
     -   date: c2000
@@ -349,11 +312,11 @@ events:
         source: src.de.TPP.2009
     -   date: c2008
         location:
-            - !keyloc line.de.6164 15,660
-            - !keyloc line.de.6142  2,782
+            line.de.6164: 15,660
+            line.de.6142:  2,782
 
     -   date: !!null
-        site: !noderef path.de.6142 vtw
+        site: path.de.6142 vtw
 
 
 ---
@@ -371,14 +334,15 @@ events:
         source: src.de.Kuhlmann.2000
 
     -   date: !!null
-        site: !noderef path.de.6142 aus
+        site: path.de.6142 aus
 
 ---
 key: point.de.Berlin-Eichbusch
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.6142 4,275
+        location:
+            line.de.6142: 4,275
         category: de.Bk
         name: Bk 5
         source: src.de.DRG.Bln.1932
@@ -395,7 +359,7 @@ events:
             - src.dd.DR.Bln.1959
 
     -   date: !!null
-        site: !noderef path.de.6142 eib
+        site: path.de.6142 eib
 
 
 ---
@@ -408,12 +372,12 @@ events:
         source: src.de.Kuhlmann.2000
     -   date: !!null
         location:
-            - !keyloc line.de.6045 3,53
-            - !keyloc line.de.6007 5,28
-            - !keyloc line.de.6021 3,53
-            - !keyloc line.de.6142 5,28
+            line.de.6045: 3,53
+            line.de.6007: 5,28
+            line.de.6021: 3,53
+            line.de.6142: 5,28
         category: de.Bf
-        de.Rangklasse: III
+        de.rang: III
         name: Baumschulenweg
         source: src.de.DRG.Bln.1927
     -   date: !!null
@@ -421,22 +385,22 @@ events:
         service: passenger
         source: src.de.Bfv.1933
     -   date: c1940
-        de.Rangklasse: II
+        de.rang: II
         source: src.de.DRG.Bln.1943
     -   date: !!null
         de.VBL: Bsw
         source: src.de.DRG.Bln.1946
     -   date: c1945
-        de.Rangklasse: III
+        de.rang: III
         source: src.de.DRG.Bln.1946
     -   date: c1965
-        de.Rangklasse: IV
+        de.rang: IV
         source: src.dd.DR.Bln.1968
     -   date: c1980
         category: de.Hp
         master: point.de.Berlin-Schoeneweide
         source: src.dd.DR.Bln.1983
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BBW
         source: src.de.TPP.2006
     -   date: 1993-12-13?
@@ -448,14 +412,14 @@ events:
         source: src.de.TPP.2006
     -   date: c2007
         location:
-            - !keyloc line.de.6007 -
-            - !keyloc line.de.6021 -
+            line.de.6007: !!null
+            line.de.6021: !!null
     -   date: c2007
         category: de.Abzw
         source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.6142 bau
+        site: path.de.6142 bau
 
 
 ---
@@ -481,11 +445,11 @@ events:
         source: src.de.Kuhlmann.2000
     -   date: !!null
         location:
-            - !keyloc line.de.6007 7,12
-            - !keyloc line.de.6142 7,12
-            - !keyloc line.de.6143 0,00
+            line.de.6007: 7,12
+            line.de.6142: 7,12
+            line.de.6143: 0,00
         category: de.Bf
-        de.Rangklasse: I
+        de.rang: I
         source: src.de.DRG.Bln.1927
     -   date: !!null
         de.lknr: 03 096
@@ -493,7 +457,7 @@ events:
     -   date: 1929-10-06
         name: Berlin-Schöneweide
         source: src.de.Kuhlmann.2000
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 03 316
         source: src.de.Bfv.1933
     -   date: !!null
@@ -505,7 +469,7 @@ events:
     -   date: c1975
         category: de.Hp
         source: src.dd.DR.Bln.1978
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BSWP
         source: src.de.TPP.2006
     -   date: c2000
@@ -513,14 +477,14 @@ events:
         source: src.de.DBAG.ISR
     -   date: 2006
         location:
-            - !keyloc line.de.6007 -
-            - !keyloc line.de.6143 -
+            line.de.6007: !!null
+            line.de.6143: !!null
         source:
             - src.de.TPP.2006
             - src.de.TPP.2007
 
     -   date: !!null
-        site: !noderef path.de.6142 swp
+        site: path.de.6142 swp
 
 
 ---
@@ -531,9 +495,10 @@ events:
         status: open
         source: src.de.Kuhlmann.2000
     -   date: !!null
-        location: !keyloc line.de.6142 8,16
+        location:
+            line.de.6142: 8,16
         category: de.Bf
-        de.Rangklasse: I
+        de.rang: I
         name: NWR
         source: src.de.DRG.Bln.1927
     -   date: 1929-10-06
@@ -548,12 +513,12 @@ events:
         name: Berlin-Schöneweide
         source: src.dd.DR.Bln.1968
     -   date: c1975
-        de.Rangklasse: S
+        de.rang: S
         source: src.dd.DR.Bln.1978
     -   date: c1980
         de.VBL: Sw
         source: src.dd.DR.Bln.1983
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BSWV
         source: src.de.TPP.2006
     -   date: c2000
@@ -561,7 +526,7 @@ events:
         master: point.de.Berlin-Schoeneweide-Pbf
 
     -   date: !!null
-        site: !noderef path.de.6142 swv
+        site: path.de.6142 swv
 
 
 ---
@@ -571,15 +536,15 @@ junction: True
 events:
     -   date: !!null
         location:
-            - !keyloc line.de.6144 -0,160
-            - !keyloc line.de.6142 10,202
+            line.de.6144: -0,160
+            line.de.6142: 10,202
         category: de.Bft
         name: Berlin-Schöneweide Sad
         de.DS100: BSAD
         source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.6142 sad
+        site: path.de.6142 sad
 
 
 ---
@@ -591,7 +556,7 @@ events:
         status: open
     -   date: !!null
         location:
-            - !keyloc line.de.6142 11,7
+            line.de.6142: 11,7
         category: de.Abzw
         name: Kanne
         source: src.de.DRG.Bln.1943
@@ -604,15 +569,16 @@ events:
     -   date: c1970
         master: point.de.Berlin-Schoenefeld-Flughafen
         source: src.dd.DR.Bln.1991
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BGK W
         source: src.de.TPP.2006
     -   date: !!null
-        location: !keyloc line.de.6145 -0,055
+        location:
+            line.de.6145: -0,055
         source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.6142 gkw
+        site: path.de.6142 gkw
 
 
 ---
@@ -620,7 +586,8 @@ key: point.de.Berlin-Gruenau-Bk-7
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.6142 12,100
+        location:
+            line.de.6142: 12,100
         category: de.Bk
         name: Bk 7
         source: src.de.DRG.Bln.1932
@@ -629,7 +596,7 @@ events:
         source: src.de.DRG.Bln.1943
 
     -   date: !!null
-        site: !noderef path.de.6142 vii
+        site: path.de.6142 vii
 
 
 ---
@@ -646,10 +613,10 @@ events:
         source: src.de.Kuhlmann.2000
     -   date: !!null
         location:
-            - !keyloc line.de.6007 13,59
-            - !keyloc line.de.6142 13,59
+            line.de.6007: 13,59
+            line.de.6142: 13,59
         category: de.Bf
-        de.Rangklasse: I
+        de.rang: I
         source: src.de.DRG.Bln.1927
     -   date: !!null
         de.lknr: 03 099
@@ -658,13 +625,13 @@ events:
         name: Berlin-Grünau
         source: src.de.Kuhlmann.2000
     -   date: c1930
-        de.Rangklasse: II
+        de.rang: II
         source: src.de.DRG.Bln.1932
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 03 324
         source: src.de.Bfv.1933
     -   date: c1940
-        de.Rangklasse: I
+        de.rang: I
         source:
             - src.de.Bfv.1938
             - src.de.Bfv.1944
@@ -672,22 +639,23 @@ events:
         de.VBL: Ga
         source: src.de.DRG.Bln.1946
     -   date: c1965
-        de.Rangklasse: II
+        de.rang: II
         source: src.dd.DR.Bln.1968
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BGA
         source: src.de.TPP.2006
     -   date: c2005
-        location: !keyloc line.de.6007 -
+        location:
+            line.de.6007: !!null
     -   date: 2012-06-02?
         location:
-            - !keyloc line.de.6519  0,245
-            - !keyloc line.de.6147 -0,099
-            - !keyloc line.de.6146 -0,050
+            line.de.6519:  0,245
+            line.de.6147: -0,099
+            line.de.6146: -0,050
         source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.6142 gru
+        site: path.de.6142 gru
 
 
 ---
@@ -695,7 +663,8 @@ key: point.de.Bohnsdorf
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.6142 16,47
+        location:
+            line.de.6142: 16,47
         category: de.Bk
         name: Bk 10
         source: src.de.DRG.Bln.1932
@@ -710,7 +679,7 @@ events:
         source: src.dd.DR.Bln.1959
 
     -   date: !!null
-        site: !noderef path.de.6142 boh
+        site: path.de.6142 boh
 
 
 ---
@@ -722,15 +691,15 @@ events:
         status: open
     -   date: !!null
         location:
-            - !keyloc line.de.6151 42,080
-            - !keyloc line.de.6142 17,042
+            line.de.6151: 42,080
+            line.de.6142: 17,042
         category: de.Abzw
         name: Bohnsdorf Süd
         de.DS100: BBDS
         source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.6142 bos
+        site: path.de.6142 bos
 
 
 ---
@@ -745,7 +714,7 @@ events:
         source: src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.6142 ggru
+        site: path.de.6142 ggru
 
 
 ---
@@ -764,28 +733,29 @@ events:
         source: src.de.Kuhlmann.2000
     -   date: !!null
         location:
-            - !keyloc line.de.6007 21,62
-            - !keyloc line.de.6142 21,62
+            line.de.6007: 21,62
+            line.de.6142: 21,62
         category: de.Bf
-        de.Rangklasse: II
+        de.rang: II
         source: src.de.DRG.Bln.1927
     -   date: !!null
         de.lknr: 03 101
         source: src.de.Bfv.1928
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 03 326
         source: src.de.Bfv.1933
     -   date: !!null
         de.VBL: Zn
         source: src.de.DRG.Bln.1946
     -   date: c1950
-        de.Rangklasse: III
+        de.rang: III
         source: src.dd.DR.Bln.1953
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BZN
         source: src.de.TPP.2006
     -   date: 2006
-        location: !keyloc line.de.6007 -
+        location:
+            line.de.6007: !!null
     -   date: 2008
         status: closed
         source:
@@ -793,7 +763,7 @@ events:
             - src.de.TPP.2009
 
     -   date: !!null
-        site: !noderef path.de.6142 zeu
+        site: path.de.6142 zeu
 
 
 ---
@@ -801,16 +771,19 @@ key: point.de.Wildgarten
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.6142 23,74
+        location:
+            line.de.6142: 23,74
         category: de.Bk
         name: He
         source: src.de.DRG.Bln.1927
     -   date: c1930
-        location: !keyloc line.de.6142 23,73
+        location:
+            line.de.6142: 23,73
         name: Bk 16
         source: src.de.DRG.Bln.1932
     -   date: c1935
-        location: !keyloc line.de.6142 23,75
+        location:
+            line.de.6142: 23,75
         name: Wildgarten
         source: src.de.DRG.Bln.1943
     -   date: c1935
@@ -821,7 +794,7 @@ events:
         source: src.dd.DR.Bln.1959
 
     -   date: !!null
-        site: !noderef path.de.6142 wig
+        site: path.de.6142 wig
 
 
 ---
@@ -832,7 +805,8 @@ events:
         status: open
         split_from: point.de.Wildau
     -   date: !!null
-        location: !keyloc line.de.6142 24,40
+        location:
+            line.de.6142: 24,40
         category: de.Üst
         name: Wildau (Üst)
         de.DS100: BWIF
@@ -844,7 +818,7 @@ events:
             - src.de.TPP.2009
 
     -   date: !!null
-        site: !noderef path.de.6142 wil
+        site: path.de.6142 wil
 
 
 ---
@@ -860,15 +834,15 @@ events:
         source: src.de.Kb.1914
     -   date: !!null
         location:
-            - !keyloc line.de.6007 27,67
-            - !keyloc line.de.6142 27,67
+            line.de.6007: 27,67
+            line.de.6142: 27,67
         category: de.Bf
-        de.Rangklasse: II
+        de.rang: II
         source: src.de.DRG.Bln.1927
     -   date: !!null
         de.lknr: 03 102
         source: src.de.Bfv.1928
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 03 328
         source: src.de.Bfv.1933
     -   date: c1935
@@ -877,20 +851,20 @@ events:
             - src.de.Bfv.1933
             - src.de.Kb.W1937
     -   date: c1945
-        de.Rangklasse: I
+        de.rang: I
         source: src.de.DRG.Bln.1946
     -   date: !!null
         de.VBL: Kw
         source: src.de.DRG.Bln.1946
     -   date: c1965
-        de.Rangklasse: II
+        de.rang: II
         source: src.dd.DR.Bln.1968
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BKW
         source: src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.6142 kon
+        site: path.de.6142 kon
 
 
 # 29,10 Dir-Gr Bln/Hl src.de.DRG.Bln.1927
@@ -905,7 +879,8 @@ events:
             - src.de.DRG.Bln.1932
             - src.de.DRG.Bln.1943
     -   date: !!null
-        location: !keyloc line.de.6142 29,68
+        location:
+            line.de.6142: 29,68
         category: de.Bk
         name: Funk
         source: src.de.DRG.Bln.1943
@@ -917,10 +892,11 @@ events:
         source: src.dd.DR.Bln.1959
     -   date: c1965
         status: open
-        location: !keyloc line.de.6142 29,678
+        location:
+            line.de.6142: 29,678
         category: de.Stw
         name: Königs Wusterhausen Kws
-        de.VBL: !!null
+        de.VBL: "-"
         source: src.dd.DR.Bln.1968
     -   date: c1995
         category: de.Bft
@@ -932,7 +908,7 @@ events:
         source: src.de.TPP.2007
 
     -   date: !!null
-        site: !noderef path.de.6142 kws
+        site: path.de.6142 kws
 
 
 # 30,700 Dir-Gr Bln/Cs src.dd.DR.Bln.1959 bis src.de.DR.1989
@@ -942,7 +918,8 @@ key: point.de.Zeesen
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.6142 31,20
+        location:
+            line.de.6142: 31,20
         category: de.Bk
         name: Zeesen
         source: src.de.DRG.Bln.1932
@@ -959,12 +936,12 @@ events:
     -   date: c1950
         master: point.de.Bestensee
         source: src.dd.DR.Bln.1959
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BZS
         source: src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.6142 zee
+        site: path.de.6142 zee
 
 
 ---
@@ -978,11 +955,12 @@ events:
         de.lknr: 12 238
         source: src.de.Bfv.1928
     -   date: !!null
-        location: !keyloc line.de.6142 33,77
+        location:
+            line.de.6142: 33,77
         category: de.Bf
-        de.Rangklasse: III
+        de.rang: III
         source: src.de.DRG.Bln.1932
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 03 330
         source: src.de.Bfv.1933
     -   date: 1938
@@ -994,14 +972,14 @@ events:
         de.VBL: Bst
         source: src.de.DRG.Bln.1946
     -   date: c1965
-        de.Rangklasse: IV
+        de.rang: IV
         source: src.dd.DR.1976
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BBST
         source: src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.6142 bes
+        site: path.de.6142 bes
 
 
 ---
@@ -1009,7 +987,8 @@ key: point.de.Motzen
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.6142 39,38
+        location:
+            line.de.6142: 39,38
         category: de.Bk
         name: Motzen
         source: src.de.DRG.Bln.1932
@@ -1019,7 +998,8 @@ events:
     -   date: c1955
         category: de.Bf
         service: none
-        location: !keyloc line.de.6142 39,358
+        location:
+            line.de.6142: 39,358
         de.VBL: Mt
         source: src.dd.DR.1976
     -   date: c1955
@@ -1028,7 +1008,7 @@ events:
     -   date: c1985
         category: de.Bk
         source: src.dd.DR.1989
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BMT
         source: src.de.TPP.2006
     -   date: 2006
@@ -1036,7 +1016,7 @@ events:
         source: src.de.TPP.2007
 
     -   date: !!null
-        site: !noderef path.de.6142 mot
+        site: path.de.6142 mot
 
 
 ---
@@ -1050,20 +1030,21 @@ events:
         de.lknr: 12 237
         source: src.de.Bfv.1928
     -   date: !!null
-        location: !keyloc line.de.6142 43,80
+        location:
+            line.de.6142: 43,80
         category: de.Bf
-        de.Rangklasse: III
+        de.rang: III
         source: src.de.DRG.Bln.1932
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 03 331
         source: src.de.Bfv.1933
     -   date: !!null
         de.VBL: Tpi
         source: src.de.DRG.Bln.1946
     -   date: c1965
-        de.Rangklasse: IV
+        de.rang: IV
         source: src.dd.DR.1976
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BTPI
         source: src.de.TPP.2006
     -   date: c2000
@@ -1074,7 +1055,7 @@ events:
         source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.6142 gko
+        site: path.de.6142 gko
 
 
 ---
@@ -1088,28 +1069,29 @@ events:
         de.lknr: 12 236
         source: src.de.Bfv.1928
     -   date: !!null
-        location: !keyloc line.de.6142 50,41
+        location:
+            line.de.6142: 50,41
         category: de.Bf
-        de.Rangklasse: III
+        de.rang: III
         source: src.de.DRG.Bln.1932
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 03 332
         source: src.de.Bfv.1933
     -   date: c1940
-        de.Rangklasse: III
+        de.rang: III
         source: src.de.Bfv.1944
     -   date: !!null
         de.VBL: Hb
         source: src.de.DRG.Bln.1946
     -   date: c1965
-        de.Rangklasse: IV
+        de.rang: IV
         source: src.dd.DR.1976
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BHB
         source: src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.6142 hal
+        site: path.de.6142 hal
 
 
 ---
@@ -1123,10 +1105,11 @@ events:
         de.lknr: 12 235
         source: src.de.Bfv.1928
     -   date: !!null
-        location: !keyloc line.de.6142 54,65
+        location:
+            line.de.6142: 54,65
         category: de.Hp
         source: src.de.DRG.Bln.1932
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 03 333
         source: src.de.Bfv.1933
     -   date: !!null
@@ -1134,12 +1117,12 @@ events:
         source: src.de.DRG.Bln.1946
     -   date: c1950
         category: de.Bf
-        de.Rangklasse: U
+        de.rang: U
         source: src.dd.DR.Bln.1953
     -   date: c1980
         category: [de.Hp, de.Bk]
         source: src.dd.DR.1989
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BOD
         source: src.de.TPP.2006
     -   date: c2010
@@ -1147,7 +1130,7 @@ events:
         source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.6142 ode
+        site: path.de.6142 ode
 
 
 # 58,30 Dir-Gr Bln/Hl src.de.DRG.Bln.1932
@@ -1165,9 +1148,9 @@ events:
         source: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
-        de.Rangklasse: III
+        de.rang: III
         source: src.de.Bfv.1933
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 12 734
         source: src.de.Bfv.1933
     -   date: c1930
@@ -1177,18 +1160,19 @@ events:
         name: Brand (Niederlausitz)
         source: src.de.Kb.W1937
     -   date: !!null
-        location: !keyloc line.de.6142 59,74
+        location:
+            line.de.6142: 59,74
         de.VBL: Br
         source: src.dd.DR.1976
     -   date: c1965
-        de.Rangklasse: IV
+        de.rang: IV
         source: src.dd.DR.1976
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BBRA
         source: src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.6142 bra
+        site: path.de.6142 bra
 
 
 ---
@@ -1203,25 +1187,26 @@ events:
         source: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
-        de.Rangklasse: IV
+        de.rang: IV
         source: src.de.Bfv.1933
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 12 733
         source: src.de.Bfv.1933
     -   date: c1950
         name: Schönwalde (Spreewald)
         source: src.dd.DR.1976
     -   date: !!null
-        location: !keyloc line.de.6142 65,58
+        location:
+            line.de.6142: 65,58
         de.VBL: Sch
         source: src.dd.DR.1976
     -   date: c1965
-        de.Rangklasse: U
+        de.rang: U
         source: src.dd.DR.1976
     -   date: c1965
         master: point.de.Brand-Niederlausitz
         source: src.dd.DR.Bln.1991
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BSCH
         source: src.de.TPP.2006
     -   date: c2010
@@ -1231,7 +1216,7 @@ events:
             - src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.6142 son
+        site: path.de.6142 son
 
 
 ---
@@ -1246,22 +1231,23 @@ events:
         source: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
-        de.Rangklasse: IV
+        de.rang: IV
         source: src.de.Bfv.1933
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 12 732
         source: src.de.Bfv.1933
     -   date: !!null
-        location: !keyloc line.de.6142 69,94
+        location:
+            line.de.6142: 69,94
         de.VBL: Lu
         source: src.dd.DR.1976
     -   date: c1965
-        de.Rangklasse: U
+        de.rang: U
         source: src.dd.DR.1976
     -   date: c1965
         master: point.de.Lübben-Spreewald
         source: src.dd.DR.Bln.1991
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BLU
         source: src.de.TPP.2006
     -   date: c1995
@@ -1272,7 +1258,7 @@ events:
         source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.6142 luz
+        site: path.de.6142 luz
 
 
 ---
@@ -1288,22 +1274,23 @@ events:
         source: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
-        de.Rangklasse: II
+        de.rang: II
         source: src.de.Bfv.1933
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 12 731
         source: src.de.Bfv.1933
     -   date: c1930
         name: Lübben Reichsb
         source: src.de.Bfv.1933
     -   date: !!null
-        location: !keyloc line.de.6142 74,63
+        location:
+            line.de.6142: 74,63
         de.VBL: Lb
         source: src.dd.DR.1976
     -   date: c1965
         name: Lübben Hbf
         source: src.dd.DR.1976
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BLB
         source: src.de.TPP.2006
     -   date: c1995
@@ -1312,7 +1299,7 @@ events:
 
     -   date: !!null
         connection: point.de.Lübben-Spreewaldbf
-        site: !noderef path.de.6142 lub
+        site: path.de.6142 lub
 
 
 ---
@@ -1327,22 +1314,23 @@ events:
         source: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
-        de.Rangklasse: IV
+        de.rang: IV
         source: src.de.Bfv.1933
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 12 730
         source: src.de.Bfv.1933
     -   date: !!null
-        location: !keyloc line.de.6142 80,63
+        location:
+            line.de.6142: 80,63
         de.VBL: R
         source: src.dd.DR.1976
     -   date: c1965
-        de.Rangklasse: U
+        de.rang: U
         source: src.dd.DR.1976
     -   date: c1985
         category: de.Bk
         source: src.dd.DR.1989
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BRG
         source: src.de.TPP.2006
     -   date: 2009
@@ -1352,7 +1340,7 @@ events:
             - src.de.TPP.2010
 
     -   date: !!null
-        site: !noderef path.de.6142 rag
+        site: path.de.6142 rag
 
 
 ---
@@ -1360,7 +1348,8 @@ key: point.de.Ragow-Umspannwerk
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.6142 81,5
+        location:
+            line.de.6142: 81,5
         category: de.Awanst
         source: src.de.SuW.2005
     -   date: !!null
@@ -1369,7 +1358,7 @@ events:
         source: src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.6142 rau
+        site: path.de.6142 rau
 
 ---
 key: point.de.Lübbenau-Spreewald
@@ -1384,14 +1373,14 @@ events:
         source: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
-        de.Rangklasse: II
+        de.rang: II
         source: src.de.Bfv.1933
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 12 725
         source: src.de.Bfv.1933
     -   date: !!null
         location:
-            - !keyloc line.de.6142 85,61
+            line.de.6142: 85,61
         de.VBL: Lü
         source: src.dd.DR.1976
     -   date: c1965
@@ -1400,12 +1389,12 @@ events:
     -   date: c1985
         de.VBL: Ln
         source: src.dd.DR.1989
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BLN
         source: src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.6142 lbu
+        site: path.de.6142 lbu
 
 
 ---
@@ -1418,20 +1407,21 @@ events:
     -   date: !!null
         de.lknr: 12 275
         source: src.de.Bfv.1928
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 12 722
         source: src.de.Bfv.1933
     -   date: !!null
         category: [de.Hp, de.Bk]
-        location: !keyloc line.de.6142 92,77
+        location:
+            line.de.6142: 92,77
         de.VBL: Rd
         source: src.dd.DR.1976
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BRAD
         source: src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.6142 rad
+        site: path.de.6142 rad
 
 
 ---
@@ -1446,22 +1436,22 @@ events:
         source: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
-        de.Rangklasse: III
+        de.rang: III
         source: src.de.Bfv.1933
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 12 721
         source: src.de.Bfv.1933
     -   date: !!null
         location:
-            - !keyloc line.de.6142 97,45
+            line.de.6142: 97,45
         de.VBL: V
         source: src.dd.DR.1976
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BV
         source: src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.6142 vet
+        site: path.de.6142 vet
 
 
 ---
@@ -1471,7 +1461,8 @@ events:
     -   date: c1960
         status: open
     -   date: !!null
-        location: !keyloc line.de.6142 99,18
+        location:
+            line.de.6142: 99,18
         category: de.Hp
         name: Vetschau Kraftwerk
         de.VBL: Ve
@@ -1479,13 +1470,13 @@ events:
     -   date: c1985
         de.VBL: Vc
         source: src.dd.DR.1989
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BVC
     -   date: c1995
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.6142 vek
+        site: path.de.6142 vek
 
 
 ---
@@ -1500,25 +1491,26 @@ events:
         source: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
-        de.Rangklasse: IV
+        de.rang: IV
         source: src.de.Bfv.1933
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 12 720
         source: src.de.Bfv.1933
     -   date: !!null
-        location: !keyloc line.de.6142 105,04
+        location:
+            line.de.6142: 105,04
         source: src.dd.DR.1976
     -   date: c1960
         name: Papitz
         de.VBL: Pa
         source: src.dd.DR.1976
     -   date: c1965
-        de.Rangklasse: IV
+        de.rang: IV
         source: src.dd.DR.1976
     -   date: c1985
         category: de.Hp
         source: src.dd.DR.1989
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BPA
         source: src.de.TPP.2006
     -   date: c1995
@@ -1532,7 +1524,7 @@ events:
         source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.6142 kun
+        site: path.de.6142 kun
 
 
 ---
@@ -1552,19 +1544,20 @@ events:
     -   date: !!null
         category: de.Hp
         source: src.de.Bfv.1933
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 12 716
         source: src.de.Bfv.1933
     -   date: !!null
-        location: !keyloc line.de.6142 109,62
+        location:
+            line.de.6142: 109,62
         de.VBL: Kow
         source: src.dd.DR.1976
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BKOW
         source: src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.6142 kol
+        site: path.de.6142 kol
 
 
 ---
@@ -1576,7 +1569,7 @@ events:
         category: de.Abzw
         name: Cbn
         source: src.dd.DR.1976
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BCS B
         name: Cottbus Cbn Abzw
     -   date: c2005
@@ -1584,14 +1577,14 @@ events:
         source: src.de.TPP.2006
     -   date: !!null
         location:
-            - !keyloc line.de.6142 111,824
+            line.de.6142: 111,824
         source: src.de.DBAG.ISR
     -   date: c2010
         category: de.Bft
         source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.6142 cbn
+        site: path.de.6142 cbn
 
 
 ---
@@ -1608,7 +1601,7 @@ events:
         source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.6142 cow
+        site: path.de.6142 cow
 
 
 ---
@@ -1624,25 +1617,25 @@ events:
         source: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
-        de.Rangklasse: I
+        de.rang: I
         source: src.de.Bfv.1933
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 12 700
         source: src.de.Bfv.1933
     -   date: !!null
         location:
-            - !keyloc line.de.6142 114,74
+            line.de.6142: 114,74
         de.VBL: Cs
         source: src.dd.DR.1976
     -   date: c1965
-        de.Rangklasse: S
+        de.rang: S
         source: src.dd.DR.1976
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BCS
         source: src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.6142 cot
+        site: path.de.6142 cot
 
 
 ---
@@ -1650,7 +1643,8 @@ key: point.de.Madlow
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.6142 117,1
+        location:
+            line.de.6142: 117,1
         category: [de.Awanst, de.Bk]
         name: Madlow
         de.VBL: Ma
@@ -1659,7 +1653,7 @@ events:
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.6142 mad
+        site: path.de.6142 mad
 
 
 ---
@@ -1674,9 +1668,9 @@ events:
         source: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
-        de.Rangklasse: IV
+        de.rang: IV
         source: src.de.Bfv.1933
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 12 697
         source: src.de.Bfv.1933
     -   date: c1940
@@ -1685,18 +1679,19 @@ events:
             - src.de.Bfv.1938
             - src.de.Bfv.1944
     -   date: !!null
-        location: !keyloc line.de.6142 119,86
+        location:
+            line.de.6142: 119,86
         de.VBL: Ki
         source: src.dd.DR.1976
     -   date: c1960
         category: [de.Hp, de.Bk]
         source: src.dd.DR.1976
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BKI
         source: src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.6142 kie
+        site: path.de.6142 kie
 
 
 ---
@@ -1711,27 +1706,28 @@ events:
         source: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
-        de.Rangklasse: III
+        de.rang: III
         source: src.de.Bfv.1933
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 12 696
         source: src.de.Bfv.1933
     -   date: c1935
         name: Neuhausen (b Cottbus)
         source: src.de.Kb.W1937
     -   date: !!null
-        location: !keyloc line.de.6142 124,64
+        location:
+            line.de.6142: 124,64
         de.VBL: Nh
         source: src.dd.DR.1976
     -   date: c1965
-        de.Rangklasse: IV
+        de.rang: IV
         source: src.dd.DR.1976
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BNH
         source: src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.6142 nha
+        site: path.de.6142 nha
 
 
 ---
@@ -1746,24 +1742,25 @@ events:
         source: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
-        de.Rangklasse: IV
+        de.rang: IV
         source: src.de.Bfv.1933
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 12 695
         source: src.de.Bfv.1933
     -   date: !!null
-        location: !keyloc line.de.6142 128,39
+        location:
+            line.de.6142: 128,39
         de.VBL: B
         source: src.dd.DR.1976
     -   date: c1965
-        de.Rangklasse: U
+        de.rang: U
         source: src.dd.DR.1976
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BBG
         source: src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.6142 bag
+        site: path.de.6142 bag
 
 
 ---
@@ -1782,25 +1779,26 @@ events:
         source: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
-        de.Rangklasse: II
+        de.rang: II
         source: src.de.Bfv.1933
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 12 694
         source: src.de.Bfv.1933
     -   date: !!null
-        location: !keyloc line.de.6142 138,42
+        location:
+            line.de.6142: 138,42
         de.VBL: Sp
         source: src.dd.DR.1976
     -   date: c1965
         name: Spremberg
-        de.Rangklasse: III
+        de.rang: III
         source: src.dd.DR.1976
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BSP
         source: src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.6142 spr
+        site: path.de.6142 spr
 
 
 ---
@@ -1810,22 +1808,23 @@ junction: True
 events:
     -   date: !!null
         location:
-            - !keyloc line.de.6142 143,53
+            line.de.6142: 143,53
         category: de.Bf
-        de.Rangklasse: U
+        de.rang: U
         service: none
         name: Graustein
         de.VBL: Gra
         source: src.dd.DR.1976
     -   date: c1985
-        location: !keyloc line.de.6142 142,28
+        location:
+            line.de.6142: 142,28
         source: src.dd.DR.1989
-    -   date: !var ds100.dr 
+    -   date: de.ds100.dr 
         de.DS100: BGRA
         source: src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.6142 gra
+        site: path.de.6142 gra
 
 
 ---
@@ -1840,7 +1839,7 @@ events:
         source: src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.6142 ggra
+        site: path.de.6142 ggra
 
 
 ---
@@ -1849,14 +1848,15 @@ type: point
 junction: True
 events:
     -   date: !!null
-        location: !keyloc line.de.6142 145,37
+        location:
+            line.de.6142: 145,37
         category: de.Awanst
         name: Graustein Ost
         source: src.dd.DR.1976
     -   date: !!null
         de.VBL: Ago
         source: src.dd.DR.1989
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BGRO
     -   date: c1990
         category: de.Abzw
@@ -1864,7 +1864,7 @@ events:
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.6142 gro
+        site: path.de.6142 gro
 
 
 ---
@@ -1872,20 +1872,21 @@ key: point.de.Schleife-Lager
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.6142 147,42
+        location:
+            line.de.6142: 147,42
         category: de.Awanst
         name: Schleife Lager
         source: src.dd.DR.1976
     -   date: !!null
         de.VBL: Sfl
         source: src.dd.DR.1989
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BSFA
     -   date: c2000
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.6142 sll
+        site: path.de.6142 sll
 
 
 ---
@@ -1900,24 +1901,25 @@ events:
         source: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
-        de.Rangklasse: III
+        de.rang: III
         source: src.de.Bfv.1933
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 12 693
         source: src.de.Bfv.1933
     -   date: !!null
-        location: !keyloc line.de.6142 148,89
+        location:
+            line.de.6142: 148,89
         de.VBL: Sfe
         source: src.dd.DR.1976
     -   date: c1965
-        de.Rangklasse: U
+        de.rang: U
         source: src.dd.DR.1976
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BSFE
         source: src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.6142 sle
+        site: path.de.6142 sle
 
 
 ---
@@ -1933,9 +1935,9 @@ events:
         source: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
-        de.Rangklasse: II
+        de.rang: II
         source: src.de.Bfv.1933
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 12 684
         source: src.de.Bfv.1933
     -   date: c1940
@@ -1945,15 +1947,15 @@ events:
             - src.de.Bfv.1944
     -   date: !!null
         location:
-            - !keyloc line.de.6142 157,14
+            line.de.6142: 157,14
         de.VBL: W
         source: src.dd.DR.1976
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BWW
         source: src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.6142 wei
+        site: path.de.6142 wei
 
 
 ---
@@ -1961,19 +1963,20 @@ key: point.de.Weisskeissel
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.6142 165,71
+        location:
+            line.de.6142: 165,71
         category: de.Bf
-        de.Rangklasse: U
+        de.rang: U
         service: none
         name: Weißkeißel
         de.VBL: Wl
         source: src.dd.DR.1976
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BWKL
         source: src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.6142 wek
+        site: path.de.6142 wek
 
 
 ---
@@ -1988,19 +1991,20 @@ events:
         source: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
-        de.Rangklasse: III
+        de.rang: III
         source: src.de.Bfv.1933
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 12 683
         source: src.de.Bfv.1933
     -   date: !!null
-        location: !keyloc line.de.6142 173,06
+        location:
+            line.de.6142: 173,06
         de.VBL: Ri
         source: src.dd.DR.1976
     -   date: c1965
-        de.Rangklasse: IV
+        de.rang: IV
         source: src.dd.DR.1976
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BRI
         source: src.de.TPP.2006
     -   date: c2010
@@ -2008,7 +2012,7 @@ events:
         source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.6142 rie
+        site: path.de.6142 rie
 
 
 ---
@@ -2023,24 +2027,25 @@ events:
         source: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
-        de.Rangklasse: IV
+        de.rang: IV
         source: src.de.Bfv.1933
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 12 682
         source: src.de.Bfv.1933
     -   date: !!null
-        location: !keyloc line.de.6142 179,46
+        location:
+            line.de.6142: 179,46
         de.VBL: H
         source: src.dd.DR.1976
     -   date: c1965
-        de.Rangklasse: U
+        de.rang: U
         source: src.dd.DR.1976
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BHAH
         source: src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.6142 hah
+        site: path.de.6142 hah
 
 
 ---
@@ -2055,16 +2060,17 @@ events:
         source: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
-        de.Rangklasse: IV
+        de.rang: IV
         source: src.de.Bfv.1933
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 12 681
         source: src.de.Bfv.1933
     -   date: !!null
-        location: !keyloc line.de.6142 184,29
+        location:
+            line.de.6142: 184,29
         de.VBL: Ud
         source: src.dd.DR.1976
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BUD
         source: src.de.TPP.2006
     -   date: c1995
@@ -2072,7 +2078,7 @@ events:
         source: src.de.SuW.2005
 
     -   date: !!null
-        site: !noderef path.de.6142 uhs
+        site: path.de.6142 uhs
 
 
 ---
@@ -2091,25 +2097,26 @@ events:
         source: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
-        de.Rangklasse: II
+        de.rang: II
         source: src.de.Bfv.1933
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 12 673
         source: src.de.Bfv.1933
     -   date: c1937
         name: Wehrkirch
         source: src.de.Kb.W1937
     -   date: !!null
-        location: !keyloc line.de.6142 187,04
+        location:
+            line.de.6142: 187,04
         de.VBL: Hr
         source: src.dd.DR.1976
     -   date: c1950
         name: Horka
         source: src.dd.DR.1976
     -   date: c1965
-        de.Rangklasse: I
+        de.rang: I
         source: src.dd.DR.1976
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BHR
         source: src.de.TPP.2006
     -   date: c1995
@@ -2117,7 +2124,7 @@ events:
         source: src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.6142 hor
+        site: path.de.6142 hor
 
 
 ---
@@ -2127,17 +2134,17 @@ junction: True
 events:
     -   date: !!null
         location:
-            - !keyloc line.de.6142 188,26
+            line.de.6142: 188,26
         category: de.Abzw
         name: Mückenhain
         de.VBL: Mh
         source: src.dd.DR.1976
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BMH
         source: src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.6142 muc
+        site: path.de.6142 muc
 
 
 ---
@@ -2152,16 +2159,17 @@ events:
         source: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
-        de.Rangklasse: IV
+        de.rang: IV
         source: src.de.Bfv.1933
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 12 680
         source: src.de.Bfv.1933
     -   date: !!null
-        location: !keyloc line.de.6142 192,24
+        location:
+            line.de.6142: 192,24
         de.VBL: Kod
         source: src.dd.DR.1976
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BKOD
         source: src.de.TPP.2006
     -   date: c1995
@@ -2169,7 +2177,7 @@ events:
         source: src.de.SuW.2005
 
     -   date: !!null
-        site: !noderef path.de.6142 kod
+        site: path.de.6142 kod
 
 
 ---
@@ -2184,7 +2192,7 @@ events:
         de.DS100: BKSB
 
     -   date: !!null
-        site: !noderef path.de.6142 kos
+        site: path.de.6142 kos
 
 
 ---
@@ -2199,24 +2207,25 @@ events:
         source: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
-        de.Rangklasse: IV
+        de.rang: IV
         source: src.de.Bfv.1933
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 12 679
         source: src.de.Bfv.1933
     -   date: c1935
         name: Charlottenhof (Oberlausitz)
         source: src.de.Kb.W1937
     -   date: !!null
-        location: !keyloc line.de.6142 198,47
+        location:
+            line.de.6142: 198,47
         de.VBL: Cf
         source: src.dd.DR.1976
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BCL
         source: src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.6142 cha
+        site: path.de.6142 cha
 
 
 ---
@@ -2224,17 +2233,18 @@ key: point.de.Görlitz-Abzw-Svt
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.6142 205,89
+        location:
+            line.de.6142: 205,89
         category: de.Abzw
         name: Svt
         source: src.dd.DR.1976
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: DSVT
         name: Görlitz Abzw Svt
         source: src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.6142 svt
+        site: path.de.6142 svt
 
 
 

@@ -6,28 +6,28 @@ type: line
 events:
     -   date: !!null
         region:
-            - !keyref org.de
-            - !keyref org.de.l.bb
+            - org.de
+            - org.de.l.bb
 
-    -   date: !var vzg.dr
+    -   date: de.vzg.dr
         de.VzG: !!str 6956
         source: src.de.DBAG.Geo-Strecke.2017
 
     #   Eröffnung
     #
-    -   date: !date 1958-05-19
+    -   date: 1958-05-19
         status: open
         passenger: restricted
-        source: !keyref src.de.WP.Löwenberg-Lindow-Rheinsberger-Eisenbahn
+        source: src.de.WP.Löwenberg-Lindow-Rheinsberger-Eisenbahn
 
     #   Eigenschaften
     #
     -   date: !!null
         category: de.Anschl
         tracks: 1
-        gauge: 1435
+        gauge: 1435mm
         note:
-            de: >
+            deu: >
                 Laut src.dd.DR.1976 Nebenbahn, laut src.dd.DR.1989
                 Streckenrangiergleis.
 
@@ -35,21 +35,21 @@ events:
     #
     -   date: !!null
         owner: org.de.Energiewerke-Nord
-        operator: !keyref org.dd.DR
-    -   date: !date c1995
+        operator: org.dd.DR
+    -   date: c1995
         operator: org.de.Energiewerke-Nord
 
     #   Verlauf
     #
     -   date: !!null
         course:
-            - !pathref path.de.6751 rhe  fste  0.0
-            - !pathref path.de.6956 a    f     0.0
+            -   path.de.6751 rhe  fste
+            -   path.de.6956 a    f
 
 points:
-    - !keyref point.de.Rheinsberg-Mark                  # line.de.6751
-    - !keyref point.de.Beerenbusch
-    - !keyref point.de.Rheinsberg-Stechlinsee
+    - point.de.Rheinsberg-Mark                  # line.de.6751
+    - point.de.Beerenbusch
+    - point.de.Rheinsberg-Stechlinsee
 
 
 ---
@@ -57,22 +57,23 @@ key: point.de.Beerenbusch
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.6956 7,13
+        location:
+            line.de.6956: 7,13
         name: Beerenbusch
-        source: !keyref src.dd.DR.1976
-    -   date: !date c1980
+        source: src.dd.DR.1976
+    -   date: c1980
         de.VBL: Bb
-        source: !keyref src.dd.DR.1989
+        source: src.dd.DR.1989
     -   date: !!null
         category: de.Hp
         staff: none
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: WBB
-    -   date: !date c1995
+    -   date: c1995
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.6956 bee left
+        site: path.de.6956 bee
 
 
 ---
@@ -81,21 +82,22 @@ type: point
 junction: True
 events:
     -   date: !!null
-        location: !keyloc line.de.6956 10,10
+        location:
+            line.de.6956: 10,10
         name: Stechlinsee
-        source: !keyref src.dd.DR.1976
-    -   date: !date c1980
+        source: src.dd.DR.1976
+    -   date: c1980
         de.VBL: Sts
-        source: !keyref src.dd.DR.1989
+        source: src.dd.DR.1989
     -   date: !!null
         category: de.Bf
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: WSTS
-        source: !keyref src.de.TPP.2006
-    -   date: !date 2006
+        source: src.de.TPP.2006
+    -   date: 2006
         name: Rheinsberg-Stechlinsee
-        source: !keyref src.de.TPP.2007
+        source: src.de.TPP.2007
 
     -   date: !!null
-        site: !noderef path.de.6956 ste right
+        site: path.de.6956 ste
 

@@ -6,13 +6,13 @@ type: line
 label: connection
 events:
     -   date: !!null
-        region: !keyref org.de
+        region: org.de
     -   date: !!null
-        end: !keyref point.de.Bohnsdorf-Nord-LGr
-        region: !keyref org.de.l.be
+        end: point.de.Bohnsdorf-Nord-LGr
+        region: org.de.l.be
     -   date: !!null
-        start: !keyref point.de.Bohnsdorf-Nord-LGr
-        region: !keyref org.de.l.bb
+        start: point.de.Bohnsdorf-Nord-LGr
+        region: org.de.l.bb
 
     -   date: !!null
         de.VzG: !!str 6519
@@ -20,47 +20,46 @@ events:
 
     #   Eröffnung
     #
-    -   date: !date 1963-09-03
+    -   date: 1963-09-03
         status: open
-        service: freight
-        source: !keyref src.de.Kuhlmann.2000
-    -   date: !date c2010
+        passenger: none
+        source: src.de.Kuhlmann.2000
+    -   date: c2010
         start: point.de.Bohnsdorf-West
-        end: !keyref point.de.Diepensee-Abzw-Cargo
+        end: point.de.Diepensee-Abzw-Cargo
         status: removed
 
     #   Eigenschaften
     #
     -   date: !!null
         tracks: 1
-        gauge: 1435
-        electrified:
-            overhead: !var el.de
-        source: !keyref src.de.DBAG.ISR
+        gauge: 1435mm
+        electrified: de
+        source: src.de.DBAG.ISR
     -   date: !!null
         category: de.Hauptbahn
-        source: !keyref src.de.SuW.2011
+        source: src.de.SuW.2011
 
     #   Eigentümer und Betriebsführer
     #
     -   date: !!null
-        owner: !keyref org.de.DB-Netz
-        operator: !keyref org.de.DB-Netz
+        owner: org.de.DB-Netz
+        operator: org.de.DB-Netz
 
     #   Verlauf
     #
     -   date: !!null
         course:
-            - !pathref path.de.6142 gru  aflu 1.5
-            - !pathref path.de.6519 a    f    0.
-            - !pathref path.de.6151 agru bow  0.5
+            -   path.de.6142 gru  aflu
+            -   path.de.6519 a    f
+            -   path.de.6151 agru bow
 
 points:
-    - !keyref point.de.Berlin-Gruenau                       # line.de.6142
-    - !keyref point.de.Bohnsdorf-Nord-LGr
-    - !keyref point.de.Bohnsdorf-West                       # line.de.6151
-    - !keyref point.de.Diepensee-Abzw-Cargo                 # line.de.6151
-    - !keyref point.de.Berlin-Schoenefeld-Flughafen-Sued
+    - point.de.Berlin-Gruenau                       # line.de.6142
+    - point.de.Bohnsdorf-Nord-LGr
+    - point.de.Bohnsdorf-West                       # line.de.6151
+    - point.de.Diepensee-Abzw-Cargo                 # line.de.6151
+    - point.de.Berlin-Schoenefeld-Flughafen-Sued
 
 
 ---
@@ -71,10 +70,10 @@ events:
     -   date: !!null
         name: Berlin-Grünau BE/BB 6519
         de.DS100: BQGAF
-        source: !keyref src.de.TPP.2012
+        source: src.de.TPP.2012
 
     -   date: !!null
-        site: !noderef path.de.6519 gboh
+        site: path.de.6519 gboh
 
 
 ---
@@ -84,26 +83,27 @@ junction: True
 events:
     -   date: !!null
         name: Zentralflughafen Süd
-        source: !keyref src.dd.DR.Bln.1968
-    -   date: !date c1975
+        source: src.dd.DR.Bln.1968
+    -   date: c1975
         name: Flughafen Süd
         de.VBL: Fha
-        source: !keyref src.dd.DR.Bln.1978
+        source: src.dd.DR.Bln.1978
     -   date: !!null
         category: de.Ldst
-        master: !keyref point.de.Berlin-Gruenau
-        source: !keyref src.dd.DR.Bln.1991
-    -   date: !var ds100.dr
+        master: point.de.Berlin-Gruenau
+        source: src.dd.DR.Bln.1991
+    -   date: de.ds100.dr
         de.DS100: BFSS
         name: Berlin-Schönefeld Flughafen Süd
-        source: !keyref src.de.TPP.2006
+        source: src.de.TPP.2006
     -   date: !!null
-        location: !keyloc line.de.6519 6,850
-        source: !keyref src.de.DBAG.ISR
-    -   date: !date c2010
+        location:
+            line.de.6519: 6,850
+        source: src.de.DBAG.ISR
+    -   date: c2010
         category: de.Bf
-        source: !keyref src.de.DBAG.ISR
+        source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.6519a.fls fls left
+        site: path.de.6519a.fls fls
 

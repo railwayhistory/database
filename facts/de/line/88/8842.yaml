@@ -18,7 +18,7 @@ events:
             parties:
                 - org.de.l.mst
                 - org.de.l.msw
-            document:
+        document:
                 - src.de.l.msw.1883.20
                 - src.de.l.mst.1883.21.99
         source: src.de.DRG.1935
@@ -29,7 +29,7 @@ events:
             parties:
                 - org.de.l.mst
                 - org.de.l.msw
-            document:
+        document:
                 - src.de.l.msw.1883.20
                 - src.de.l.mst.1883.21.99
         source: src.de.DRG.1935
@@ -39,7 +39,7 @@ events:
         concession:
             by: org.de.l.msw
             for: org.de.Deutsch-Nordischer-Lloyd
-            document: src.de.l.msw.1883.24.188
+        document: src.de.l.msw.1883.24.188
         source: src.de.DRG.1935
     -   date: 1883-06-23
         start: point.de.Reinshagen
@@ -47,7 +47,7 @@ events:
         concession:
             by: org.de.l.msw
             for: org.de.Deutsch-Nordischer-Lloyd
-            document: src.de.l.msw.1883.24.188
+        document: src.de.l.msw.1883.24.188
         source: src.de.DRG.1935
 
     -   date: 1883-08-01
@@ -55,7 +55,7 @@ events:
         concession:
             by: org.de.l.mst
             for: org.de.Deutsch-Nordischer-Lloyd
-            document: src.de.l.mst.1883.27.129
+        document: src.de.l.mst.1883.27.129
         source: src.de.DRG.1935
     -   date: 1883-08-01
         start: point.de.Reinshagen
@@ -63,7 +63,7 @@ events:
         concession:
             by: org.de.l.mst
             for: org.de.Deutsch-Nordischer-Lloyd
-            document: src.de.l.mst.1883.27.129
+        document: src.de.l.mst.1883.27.129
         source: src.de.DRG.1935
 
     -   date: 1903-02-27
@@ -71,7 +71,7 @@ events:
         concession:
             by: org.de.l.msw
             for: org.de.Mecklenburgische-Friedrich-Franz-Eisenbahn
-            document: src.de.l.msw.1903.B10.43
+        document: src.de.l.msw.1903.B10.43
         source: src.de.DRG.1935
 
     #   Eröffnung und Einstellung
@@ -81,7 +81,7 @@ events:
         status: open
         passenger: none
         note:
-            de: >
+            deu: >
                 lt. Quelle erst ab Neustrelitz Rb ausschl.; dieses Stück ab
                 1886-06-10
         source: src.de.DRG.1935
@@ -129,7 +129,7 @@ events:
     -   date: !!null
         category: de.Hauptbahn
         tracks: 2
-        gauge: 1435
+        gauge: 1435mm
         source: src.de.DRG.1927
     -   date: c1945
         start: point.de.Plaaz
@@ -156,33 +156,23 @@ events:
         owner: org.de.Mecklenburgische-Friedrich-Franz-Eisenbahn
         operator: org.de.Mecklenburgische-Friedrich-Franz-Eisenbahn
 
-    -   date: 1920-04-01
-        owner: org.de
-        operator: org.de.r.RVM.Sch
-    -   date: 1924-02-12
-        operator: org.de.Deutsche-Reichsbahn-I
-    -   date: 1924-08-30
-        operator: org.de.DR
-
     -   date: 1949-10-07
         owner: org.dd
-    -   date: !var org.de.DR.start
-        operator: org.dd.DR
 
     #   Verlauf
     #
     -   date: !!null
         course:
-            - !pathref path.de.6088      nst  awaa -2.0
-            - !pathref path.de.6325a.nst a    f     0.0
-            - !pathref path.de.6325      akra alal  0.0
-            - !pathref path.de.6447      a    alal  2.0
-            - !pathref path.de.6325a.lal a    alal  0.0
-            - !pathref path.de.1122      awaa fpla  2.0
-            - !pathref path.de.6325a.lal flal f     0.0
-            - !pathref path.de.6325      flal asma  0.0
-            - !pathref path.de.6325a.war a    f     0.0
-            - !pathref path.de.6325      fsma f     0.0
+            -   path.de.6088      nst  awaa
+            -   path.de.6325a.nst a    f
+            -   path.de.6325      akra alal
+            -   path.de.6447      a    alal
+            -   path.de.6325a.lal a    alal
+            -   path.de.1122      awaa fpla
+            -   path.de.6325a.lal flal f
+            -   path.de.6325      flal asma
+            -   path.de.6325a.war a    f
+            -   path.de.6325      fsma f
 
 points:
     - point.de.Neustrelitz-Hbf                      # line.de.6088
@@ -222,8 +212,8 @@ subtype: border
 events:
     -   date: !!null
         note:
-            de: RBD-Grenze Ste/Sch
-        site: !noderef path.de.6088 gnst
+            deu: RBD-Grenze Ste/Sch
+        site: path.de.6088 gnst
 
 
 ---
@@ -243,11 +233,12 @@ events:
         de.lknr: 27 193
         source: src.de.Bfv.1938
     -   date: !!null
-        location: !keyloc line.de.6325 83,9
+        location:
+            line.de.6325: 83,9
         source: src.de.SuW.2011
 
     -   date: !!null
-        site: !noderef path.de.6325 kne
+        site: path.de.6325 kne
 
 
 ---
@@ -269,7 +260,7 @@ events:
     -   date: !!null
         category: de.Hp
         source: src.de.Bfv.1933
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 27 191
         source: src.de.Bfv.1933
     -   date: c1935
@@ -279,7 +270,7 @@ events:
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.6325 pri left
+        site: path.de.6325 pri
 
 
 ---
@@ -294,11 +285,11 @@ events:
         source: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
-        de.Rangklasse: IV
+        de.rang: IV
         source: src.de.Bfv.1933
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 27 224
         source: src.de.Bfv.1933
 
     -   date: !!null
-        site: !noderef path.de.6325a.war sma right
+        site: path.de.6325a.war sma

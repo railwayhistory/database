@@ -8,8 +8,8 @@ label: de.S-Bahn
 events:
     -   date: !!null
         region:
-            - !keyref org.de
-            - !keyref org.de.l.be
+            - org.de
+            - org.de.l.be
 
     -   date: !!null
         de.VzG: !!str 6005
@@ -17,44 +17,34 @@ events:
 
     #   Eröffnung
     #
-    -   date: !date c1960
+    -   date: c1960
         status: open
 
     #   Eigenschaften
     #
     -   date: !!null
         category: de.Hauptbahn
-        gauge: 1435
+        gauge: 1435mm
         tracks: 1
-        electrified:
-            rail: !var el.de.bln
-        service: passenger
-        source: !keyref src.dd.DR.Bln.1991
+        electrified: de.bln
+        freight: none
+        source: src.dd.DR.Bln.1991
 
     #   Eigentümer etc.
     #
     -   date: !!null
-        owner: !keyref org.dd
-        operator: !keyref org.dd.DR
-    -   date: !date 1990-10-03
-        owner: !keyref org.de
-    
-    -   date: !var org.de.Deutsche-Bahn.start
-        owner: !keyref org.de.Deutsche-Bahn
-        operator: !keyref org.de.Deutsche-Bahn
-    -   date: !var org.de.DBNetz.start
-        owner: !keyref org.de.DB-Netz
-        operator: !keyref org.de.DB-Netz
+        owner: org.dd
+        operator: org.dd.DR
 
     # Verlauf
     #
     -   date: !!null
         course:
-            - !pathref path.de.6081 bla  akws -2.5
-            - !pathref path.de.6087 fbla kaw  -2.5
+            -   path.de.6081 bla  akws
+            -   path.de.6087 fbla kaw
 
 points:
-    - !keyref point.de.Berlin-Blankenburg                   # line.de.6081
-    - !keyref point.de.Berlin-Blankenburg-S-Bahn            # line.de.6002
-    - !keyref point.de.Berlin-Karow-West-S-Bahn             # line.de.6009
-    - !keyref point.de.Berlin-Karow-West                    # line.de.6087
+    - point.de.Berlin-Blankenburg                   # line.de.6081
+    - point.de.Berlin-Blankenburg-S-Bahn            # line.de.6002
+    - point.de.Berlin-Karow-West-S-Bahn             # line.de.6009
+    - point.de.Berlin-Karow-West                    # line.de.6087

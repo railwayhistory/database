@@ -7,8 +7,8 @@ label: freight
 events:
     -   date: !!null
         region:
-            - !keyref org.de
-            - !keyref org.de.l.sh
+            - org.de
+            - org.de.l.sh
 
     -   date: !!null
         de.VzG: !!str 1218
@@ -16,41 +16,37 @@ events:
 
     #   Eröffnung
     #
-    -   date: !date 1951-11-19
+    -   date: 1951-11-19
         status: open
         passenger: none
-        source: !keyref src.de.DB.Hmb.1984
+        source: src.de.DB.Hmb.1984
 
     #   Eigenschaften
     #
     -   date: !!null
         category: de.Anschl
         tracks: 1
-        gauge: 1435
-        source: !keyref src.de.SuW.2005
+        gauge: 1435mm
+        source: src.de.SuW.2005
 
     #   Eigentümer etc.
     #
     -   date: !!null
         owner: org.de.u.Alsensche-Portland-Zement
-        operator: !keyref org.de.DB
-        source: !keyref src.de.DB.Hmb.1984
-    -   date: !var org.de.Deutsche-Bahn.start
-        operator: !keyref org.de.Deutsche-Bahn
-    -   date: !var org.de.DBNetz.start
-        operator: !keyref org.de.DB-Netz
+        operator: org.de.DB
+        source: src.de.DB.Hmb.1984
 
     #   Verlauf
     #
     -   date: !!null
         course:
-            - !pathref path.de.1210 als  flag -1.5
-            - !pathref path.de.1218 a    f     0.0
+            -   path.de.1210 als flag
+            -   path.de.1218 a f
 
 points:
     -   point.de.Itzehoe-Alsen                    # de.1210
     -   point.de.Alsen-EGr
-    - !keyref point.de.Laegerdorf
+    - point.de.Laegerdorf
 
 
 #-----------------------------------------------------------------------------
@@ -69,7 +65,7 @@ events:
         de.name16: Alsen DB-Gr
         de.DS100: AALG
         PLC: DE10127
-        de.dstnr: 106888
+        de.dstnr: !!str 106888
         source: src.de.DBAG.BSV.2017
 
 
@@ -79,11 +75,12 @@ type: point
 events:
     -   date: !!null
         category: de.Anst
-        location: !keyloc line.de.1218 7,7
+        location:
+            line.de.1218: 7,7
         name: Lägerdorf
         de.DS100: ALGD
-        source: !keyref src.de.SuW.2005
+        source: src.de.SuW.2005
 
     -   date: !!null
-        site: !noderef path.de.1218 lag right
+        site: path.de.1218 lag
 

@@ -8,8 +8,8 @@ label: de.S-Bahn
 events:
     -   date: !!null
         region:
-            - !keyref org.de
-            - !keyref org.de.l.bb
+            - org.de
+            - org.de.l.bb
 
     -   date: !!null
         end: point.de.Bergfelde-Strw
@@ -18,52 +18,42 @@ events:
 
     #   Eröffnung
     #
-    -   date: !date 1962-05-27
+    -   date: 1962-05-27
         status: open
-        source: !keyref src.de.Kuhlmann.2000
+        source: src.de.Kuhlmann.2000
 
-    -   date: !date 1984-09-02
-        start: !keyref point.de.Bergfelde-Strw
+    -   date: 1984-09-02
+        start: point.de.Bergfelde-Strw
         status: closed
-        reused: !keyref line.de.6009
+        reused: line.de.6009
 
     #   Eigenschaften
     #
     -   date: !!null
         category: de.Hauptbahn
-        gauge: 1435
+        gauge: 1435mm
         tracks: 2
-        service: passenger
-        source: !keyref src.dd.DR.Bln.1968
+        freight: none
+        source: src.dd.DR.Bln.1968
     -   date: !!null
-        electrified:
-            rail: !var el.de.bln
+        electrified: de.bln
 
     #   Eigentümer etc.
     #
     -   date: !!null
-        owner: !keyref org.dd
-        operator: !keyref org.dd.DR
-    -   date: !date 1990-10-03
-        owner: !keyref org.de
-    
-    -   date: !var org.de.Deutsche-Bahn.start
-        owner: !keyref org.de.Deutsche-Bahn
-        operator: !keyref org.de.Deutsche-Bahn
-    -   date: !var org.de.DBNetz.start
-        owner: !keyref org.de.DB-Netz
-        operator: !keyref org.de.DB-Netz
+        owner: org.dd
+        operator: org.dd.DR
 
     # Verlauf
     #
     -   date: !!null
         course:
-            - !pathref path.de.6088 hne  xhne  2.0
-            - !pathref path.de.6092 a    f     2.0
-            - !pathref path.de.6087 ahne sof   2.0
+            -   path.de.6088 hne  xhne
+            -   path.de.6092 a    f
+            -   path.de.6087 ahne sof
 
 points:
-    - !keyref point.de.Hohen-Neuendorf                      # line.de.6030
-    - !keyref point.de.Bergfelde-Strw                       # line.de.6009
-    - !keyref point.de.Bergfelde-Berlin                     # line.de.6009
-    - !keyref point.de.Schoenfliess                         # line.de.6087
+    - point.de.Hohen-Neuendorf                      # line.de.6030
+    - point.de.Bergfelde-Strw                       # line.de.6009
+    - point.de.Bergfelde-Berlin                     # line.de.6009
+    - point.de.Schoenfliess                         # line.de.6087

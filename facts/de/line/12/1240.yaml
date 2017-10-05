@@ -4,11 +4,12 @@
 ---
 key: line.de.1240
 type: line
+label: de.S-Bahn
 events:
     -   date: !!null
         region:
-            - !keyref org.de
-            - !keyref org.de.l.hh
+            - org.de
+            - org.de.l.hh
 
     -   date: !!null
         de.VzG: !!str 1240
@@ -16,122 +17,105 @@ events:
 
     #   Genehmigung und Eröffnung
     #
-    -   date: !date 1898-12-30
+    -   date: 1898-12-30
         contract:
             parties:
-                - !keyref org.de.e.hmb
-                - !keyref org.de.l.hh
-                - !keyref org.de.Lübeck-Büchener-Eisenbahn
-        source: !keyref src.de.DRG.1935
-    -   date: !date 1906-12-05
-        service: passenger
+                - org.de.e.hmb
+                - org.de.l.hh
+                - org.de.Lübeck-Büchener-Eisenbahn
+        source: src.de.DRG.1935
+    -   date: 1906-12-05
+        freight: none
         status: open
-        source: !keyref src.de.DRG.1935
+        source: src.de.DRG.1935
 
     #   Eigenschaften
     #
     -   date: !!null
         category: de.Hauptbahn
         tracks: 2
-        gauge: 1435
-        source: !keyref src.de.SuW.2005
-    -   date: !date 1907-10-01
-        electrified:
-            overhead: !var el.de.hmb-alt
-        source: !keyref src.de.WP.S-Bahn-Hamburg
-    -   date: !date c1950
-        electrified:
-            overhead: !var el.de.hmb-alt
-            rail: !var el.de.hmb
+        gauge: 1435mm
+        source: src.de.SuW.2005
+    -   date: 1907-10-01
+        electrified: de.hmb-alt
+        source: src.de.WP.S-Bahn-Hamburg
+    -   date: c1950
+        electrified: de.hmb
 
     #   Eigentümer und Betriebsführer
     #
     -   date: !!null
-        operator: !keyref org.de.e.hmb
-        owner: !keyref org.de.e.hmb
-    -   date: !date 1920-04-01
-        owner: !keyref org.de
-        operator: !keyref org.de.r.RVM.PH
-    -   date: !date 1924-02-12
-        operator: !keyref org.de.Deutsche-Reichsbahn-I
-    -   date: !date 1924-08-30
-        operator: !keyref org.de.DR
-    -   date: !var org.de.DB.start
-        operator: !keyref org.de.DB
-
-    -   date: !var org.de.Deutsche-Bahn.start
-        owner: !keyref org.de.Deutsche-Bahn
-        operator: !keyref org.de.Deutsche-Bahn
-    -   date: !var org.de.DBNetz.start
-        owner: !keyref org.de.DB-Netz
-        operator: !keyref org.de.DB-Netz
+        operator: org.de.e.hmb
+        owner: org.de.e.hmb
 
     #   Verlauf
     #
     -   date: !!null
         course:
-            - !pathref path.de.6100 ham  aals 2.0
-            - !pathref path.de.1270 ahol als  0.0
+            -   path.de.6100 ham  aals
+            -   path.de.1270 ahol als
 
 points:
-    - !keyref point.de.Hamburg-Hbf-S-Bahn                   # line.de.1270
-    - !keyref point.de.Hamburg-Dammtor                      # line.de.6100
-    - !keyref point.de.Hamburg-Dammtor-S-Bahn
-    - !keyref point.de.Hamburg-Sternschanze                 # line.de.6100
-    - !keyref point.de.Hamburg-Sternschanze-S-Bahn
-    - !keyref point.de.Hamburg-Holstenstrasse
-    - !keyref point.de.Hamburg-Altona                       # line.de.1220
-    - !keyref point.de.Hamburg-Altona-S-Bahn                # line.de.1270
+    - point.de.Hamburg-Hbf-S-Bahn                   # line.de.1270
+    - point.de.Hamburg-Dammtor                      # line.de.6100
+    - point.de.Hamburg-Dammtor-S-Bahn
+    - point.de.Hamburg-Sternschanze                 # line.de.6100
+    - point.de.Hamburg-Sternschanze-S-Bahn
+    - point.de.Hamburg-Holstenstrasse
+    - point.de.Hamburg-Altona                       # line.de.1220
+    - point.de.Hamburg-Altona-S-Bahn                # line.de.1270
 
 
 ---
 key: point.de.Hamburg-Dammtor-S-Bahn
 type: point
 events:
-    -   date: !date c1970
+    -   date: c1970
         status: open
-        split_from: !keyref point.de.Hamburg-Dammtor
+        split_from: point.de.Hamburg-Dammtor
     -   date: !!null
         category: de.Hp
         name: Dammtor (S-Bahn)
         de.DS100: ADST
         de.dstnr: !!str 010299
-        source: !keyref src.de.DS100.1984
+        source: src.de.DS100.1984
     -   date: !!null
-        location: !keyloc line.de.1240 288,110
-        source: !keyref src.de.DBAG.ISR
-    -   date: !date c2000
+        location:
+            line.de.1240: 288,110
+        source: src.de.DBAG.ISR
+    -   date: c2000
         name: Hamburg Dammtor (S-Bahn)
         public_name: Hamburg Dammtor
-        source: !keyref src.de.TPP.2007
+        source: src.de.TPP.2007
     
     -   date: !!null
-        site: !noderef path.de.6100 dam
+        site: path.de.6100 dam
 
 
 ---
 key: point.de.Hamburg-Sternschanze-S-Bahn
 type: point
 events:
-    -   date: !date c1970
+    -   date: c1970
         status: open
-        split_from: !keyref point.de.Hamburg-Sternschanze
+        split_from: point.de.Hamburg-Sternschanze
     -   date: !!null
         category: de.Bf
         name: Sternschanze (S-Bahn)
         de.DS100: ASST
         de.dstnr: !!str 010256
-        source: !keyref src.de.DS100.1984
+        source: src.de.DS100.1984
     -   date: !!null
-        location: !keyloc line.de.1240 289,817
-        source: !keyref src.de.DBAG.ISR
+        location:
+            line.de.1240: 289,817
+        source: src.de.DBAG.ISR
     -   date: !!null
         name: Hamburg Sternschanze (S-Bahn)
         public_name: Hamburg Sternschanze
-        source: !keyref src.de.TPP.2007
+        source: src.de.TPP.2007
     
     -   date: !!null
-        site: !noderef path.de.6100 ste
+        site: path.de.6100 ste
 
 
 ---
@@ -139,43 +123,44 @@ key: point.de.Hamburg-Holstenstrasse
 type: point
 junction: True
 events:
-    -   date: !date 1883
+    -   date: 1883
         status: open
     -   date: !!null
         name: Altona Holstenstrasse
-        source: !keyref src.de.Kb.1914
+        source: src.de.Kb.1914
     -   date: !!null
         de.lknr: 01 398
         service: passenger
-        source: !keyref src.de.Bfv.1928
+        source: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
-        de.Rangklasse: III
-        source: !keyref src.de.Bfv.1933
-    -   date: !var lknr.30
+        de.rang: III
+        source: src.de.Bfv.1933
+    -   date: de.lknr.30
         de.lknr: 01 092
-        source: !keyref src.de.Bfv.1933
+        source: src.de.Bfv.1933
     -   date: !!null
         location:
-            - !keyloc line.de.1240 291,02
-            - !keyloc line.de.6100 291,02
-        source: !keyref src.de.DRG.Alt.Karte.1949
+            line.de.1240: 291,02
+            line.de.6100: 291,02
+        source: src.de.DRG.Alt.Karte.1949
     -   date: !!null
         location:
-            - !keyloc line.de.1225 0,1
-        source: !keyref src.de.SuW.2005
-    -   date: !date 1938-05-15
+            line.de.1225: 0,1
+        source: src.de.SuW.2005
+    -   date: 1938-05-15
         name: Hamburg Holstenstraße
-        source: !keyref src.de.web.Nosske
-    -   date: !date c1970
+        source: src.de.web.Nosske
+    -   date: c1970
         category: [de.Hp, de.Abzw]
-        location: !keyloc line.de.6100 -
-        source: !keyref src.de.SuW.2005
+        location:
+            line.de.6100: !!null
+        source: src.de.SuW.2005
     -   date: !!null
         de.DS100: AHST
-        de.dstnr: 010926
-        source: !keyref src.de.DS100.1984
+        de.dstnr: !!str 010926
+        source: src.de.DS100.1984
 
     -   date: !!null
-        site: !noderef path.de.6100 hol
+        site: path.de.6100 hol
 

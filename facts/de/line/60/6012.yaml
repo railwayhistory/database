@@ -8,111 +8,102 @@ label: de.S-Bahn
 events:
     -   date: !!null
         region:
-            - !keyref org.de
-            - !keyref org.de.l.be
+            - org.de
+            - org.de.l.be
 
-    -   date: !var vzg.dr
+    -   date: de.vzg.dr
         de.VzG: !!str 6012
         source: src.de.DBAG.Geo-Strecke.2017
 
     #   Eröffnung
     #
-    -   date: !date 1984-12-20
-        end: !keyref point.de.Berlin-Hohenschoenhausen
+    -   date: 1984-12-20
+        end: point.de.Berlin-Hohenschoenhausen
         status: open
-        source: !keyref src.de.Kuhlmann.2000
-    -   date: !date 1985-12-20
-        start: !keyref point.de.Berlin-Hohenschoenhausen
+        source: src.de.Kuhlmann.2000
+    -   date: 1985-12-20
+        start: point.de.Berlin-Hohenschoenhausen
         status: open
-        source: !keyref src.de.Kuhlmann.2000
+        source: src.de.Kuhlmann.2000
 
     #   Eigenschaften
     #
     -   date: !!null
         category: de.Hauptbahn
         tracks: 2
-        gauge: 1435
-        source: !keyref src.dd.DR.1989
+        gauge: 1435mm
+        source: src.dd.DR.1989
     -   date: !!null
-        electrified:
-            rail: !var el.de.bln
-        service: passenger
+        electrified: de.bln
+        freight: none
 
     #   Eigentümer etc.
     #
     -   date: !!null
-        owner: !keyref org.dd
-        operator: !keyref org.dd.DR
-
-    -   date: !date 1990-10-03
-        owner: !keyref org.de
-
-    -   date: !var org.de.Deutsche-Bahn.start
-        owner: !keyref org.de.Deutsche-Bahn
-        operator: !keyref org.de.Deutsche-Bahn
-    -   date: !var org.de.DBNetz.start
-        owner: !keyref org.de.DB-Netz
-        operator: !keyref org.de.DB-Netz
+        owner: org.dd
+        operator: org.dd.DR
 
     #   Verlauf
     #
     -   date: !!null
         course:
-            - !pathref path.de.6080 spr  f    5.0
-            - !pathref path.de.6067 fbno war  2.0
+            -   path.de.6080 spr  f
+            -   path.de.6067 fbno war
 
 points:
-    - !keyref point.de.Berlin-Springpfuhl                   # line.de.6011
-    - !keyref point.de.Berlin-Gehrenseestrasse
-    - !keyref point.de.Berlin-Hohenschoenhausen             # line.de.6067
-    - !keyref point.de.Berlin-Hohenschoenhausen-S-Bahn
-    - !keyref point.de.Berlin-Wartenberg
+    - point.de.Berlin-Springpfuhl                   # line.de.6011
+    - point.de.Berlin-Gehrenseestrasse
+    - point.de.Berlin-Hohenschoenhausen             # line.de.6067
+    - point.de.Berlin-Hohenschoenhausen-S-Bahn
+    - point.de.Berlin-Wartenberg
 
 
 ---
 key: point.de.Berlin-Gehrenseestrasse
 type: point
 events:
-    -   date: !date 1984-12-20
+    -   date: 1984-12-20
         status: open
-        source: !keyref src.de.Kuhlmann.2000
+        source: src.de.Kuhlmann.2000
     -   date: !!null
-        location: !keyloc line.de.6012 12,15
+        location:
+            line.de.6012: 12,15
         category: de.Hp
         name: Gehrenseestraße
         de.VBL: Gen
-        master: !keyref point.de.Berlin-Marzahn
-        source: !keyref src.dd.DR.1989
-    -   date: !var ds100.dr
+        master: point.de.Berlin-Marzahn
+        source: src.dd.DR.1989
+    -   date: de.ds100.dr
         de.DS100: BGSE
-        source: !keyref src.de.TPP.2006
-    -   date: !date c2000
+        source: src.de.TPP.2006
+    -   date: c2000
         name: Berlin Gehrenseestraße
-        source: !keyref src.de.TPP.2006
+        source: src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.6067 geh right
+        site: path.de.6067 geh
 
 
 ---
 key: point.de.Berlin-Hohenschoenhausen-S-Bahn
 type: point
 events:
-    -   date: !date 2006
+    -   date: 2006
         status: open
-        split_from: !keyref point.de.Berlin-Hohenschoenhausen
+        split_from: point.de.Berlin-Hohenschoenhausen
         source:
-            - !keyref src.de.TPP.2006
-            - !keyref src.de.TPP.2007
+            - src.de.TPP.2006
+            - src.de.TPP.2007
     -   date: !!null
-        location: !keyloc line.de.6012 13,596
+        location:
+            line.de.6012: 13,596
         category: de.Bf
         name: Berlin-Hohenschönhausen S-Bahn
         de.DS100: BHH
-        source: !keyref src.de.DBAG.ISR
+        source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.6067 hsc right
+        site: path.de.6067 hsc
 
 
 ---
@@ -120,22 +111,23 @@ key: point.de.Berlin-Wartenberg
 type: point
 junction: True
 events:
-    -   date: !date 1985-12-20
+    -   date: 1985-12-20
         status: open
-        source: !keyref src.de.Kuhlmann.2000
+        source: src.de.Kuhlmann.2000
     -   date: !!null
-        location: !keyloc line.de.6012 14,48
+        location:
+            line.de.6012: 14,48
         category: de.Hp
         name: Wartenberg
         de.VBL: Wtb
-        source: !keyref src.dd.DR.1989
-    -   date: !var ds100.dr
+        source: src.dd.DR.1989
+    -   date: de.ds100.dr
         de.DS100: BWAB
-        source: !keyref src.de.TPP.2006
-    -   date: !date c2000
+        source: src.de.TPP.2006
+    -   date: c2000
         name: Berlin-Wartenberg
-        source: !keyref src.de.TPP.2006
+        source: src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.6067 war right
+        site: path.de.6067 war
 

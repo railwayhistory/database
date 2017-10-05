@@ -5,13 +5,13 @@ key: line.de.1244
 type: line
 events:
     -   date: !!null
-        region: !keyref org.de
+        region: org.de
     -   date: !!null
-        end: !keyref point.de.Reinbek-LGr-S-Bahn
-        region: !keyref org.de.l.hh
+        end: point.de.Reinbek-LGr-S-Bahn
+        region: org.de.l.hh
     -   date: !!null
-        start: !keyref point.de.Reinbek-LGr-S-Bahn
-        region: !keyref org.de.l.sh
+        start: point.de.Reinbek-LGr-S-Bahn
+        region: org.de.l.sh
 
     -   date: !!null
         de.VzG: !!str 1244
@@ -19,11 +19,11 @@ events:
 
     #   Genehmigung und Eröffnung
     #
-    -   date: !date 1906-12-05?
-        end: !keyref point.de.Hamburg-Berliner-Tor-Bergedorf
+    -   date: 1906-12-05?
+        end: point.de.Hamburg-Berliner-Tor-Bergedorf
         status: open
-    -   date: !date 2002-05-26
-        start: !keyref point.de.Hamburg-Berliner-Tor-Bergedorf
+    -   date: 2002-05-26
+        start: point.de.Hamburg-Berliner-Tor-Bergedorf
         status: open
 
     #   Eigenschaften
@@ -31,53 +31,31 @@ events:
     -   date: !!null
         category: de.Hauptbahn
         tracks: 2
-        gauge: 1435
-    -   date: !date 1969-06-01
-        end: !keyref point.de.Hamburg-Berliner-Tor-Bergedorf
-        electrified:
-            rail: !var el.de.hmb
-        source: !keyref src.de.web.Matthaei
-    -   date: !date 2002-05-26
-        start: !keyref point.de.Hamburg-Berliner-Tor-Bergedorf
-        electrified:
-            rail: !var el.de.hmb
+        gauge: 1435mm
+    -   date: 1969-06-01
+        end: point.de.Hamburg-Berliner-Tor-Bergedorf
+        electrified: de.hmb
+        source: src.de.web.Matthaei
+    -   date: 2002-05-26
+        start: point.de.Hamburg-Berliner-Tor-Bergedorf
+        electrified: de.hmb
 
     #   Eigentümer und Betreiber
     #
     -   date: !!null
-        end: !keyref point.de.Hamburg-Berliner-Tor-Bergedorf
-        owner: !keyref org.de.l.pre
-        operator: !keyref org.de.e.hmb
-    -   date: !date 1920-04-01
-        end: !keyref point.de.Hamburg-Berliner-Tor-Bergedorf
-        owner: !keyref org.de
-        operator: !keyref org.de.r.RVM.PH
-    -   date: !date 1924-02-12
-        end: !keyref point.de.Hamburg-Berliner-Tor-Bergedorf
-        operator: !keyref org.de.Deutsche-Reichsbahn-I
-    -   date: !date 1924-08-30
-        end: !keyref point.de.Hamburg-Berliner-Tor-Bergedorf
-        operator: !keyref org.de.DR
-    -   date: !var org.de.DB.start
-        end: !keyref point.de.Hamburg-Berliner-Tor-Bergedorf
-        operator: !keyref org.de.DB
-    -   date: !var org.de.Deutsche-Bahn.start
-        end: !keyref point.de.Hamburg-Berliner-Tor-Bergedorf
-        owner: !keyref org.de.Deutsche-Bahn
-        operator: !keyref org.de.Deutsche-Bahn
-    -   date: !var org.de.DBNetz.start
-        end: !keyref point.de.Hamburg-Berliner-Tor-Bergedorf
-        owner: !keyref org.de.DB-Netz
-        operator: !keyref org.de.DB-Netz
+        end: point.de.Hamburg-Berliner-Tor-Bergedorf
+        owner: org.de.l.pre
+        operator: org.de.e.hmb
 
     -   date: !!null
-        start: !keyref point.de.Hamburg-Berliner-Tor-Bergedorf
-        owner: !keyref org.de.DB-Netz
-        operator: !keyref org.de.DB-Netz
-
+        start: point.de.Hamburg-Berliner-Tor-Bergedorf
+        owner: org.de.DB-Netz
+        operator: org.de.DB-Netz
+    
+    #   Verlauf
+    #
     -   date: !!null
-        course:
-            - !pathref path.de.6100 ham aum -2.0
+        course: path.de.6100 ham aum
 
 points:
     -   point.de.Hamburg-Hbf-S-Bahn                 # de.1270
@@ -123,14 +101,15 @@ events:
         de.name16: Billwerder
         de.DS100: ABS
         PLC: DE14433
-        de.dstnr: 192153
+        de.dstnr: !!str 192153
         source: src.de.DBAG.BSV.2017
     -   date: !!null
-        location: !keyloc line.de.1244 9,437
+        location:
+            line.de.1244: 9,437
         source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
-        site: !noderef path.de.6100 biu
+        site: path.de.6100 biu
 
 
 #    point.de.Hamburg-Mittlerer-Landweg          de.6100
@@ -149,7 +128,8 @@ events:
         status: open
         split_from: point.de.Hamburg-Bergedorf
     -   date: !!null
-        location: !keyloc line.de.1244 16,345
+        location:
+            line.de.1244: 16,345
         source: src.de.DBAG.Geo-Betriebsstelle.2017
     -   date: !!null
         category: de.Bft
@@ -161,7 +141,7 @@ events:
         source: src.de.DBAG.BSV.2017
 
     -   date: !!null
-        site: !noderef path.de.6100 ber
+        site: path.de.6100 ber
 
 
 ---
@@ -175,7 +155,7 @@ events:
         de.DS100: AQRBK
 
     -   date: !!null
-        site: !noderef path.de.6100 grei
+        site: path.de.6100 grei
 
 
 #    point.de.Reinbek                            de.6100
@@ -189,22 +169,22 @@ type: point
 events:
     -   date: c2002
         status: open
-        split_from: !keyref point.de.Aumühle
-        source: !keyref src.de.TPP.2006
+        split_from: point.de.Aumühle
+        source: src.de.TPP.2006
     -   date: !!null
         category: de.Bf
         name: Aumühle (S-Bahn)
         de.name16: Aumühle (S-Bahn)
         de.DS100: AAMS
         PLC: DE10370
-        de.dstnr: 108053
+        de.dstnr: !!str 108053
         source: src.de.DBAG.BSV.2017
     -   date: 2014-06-12?
         status: closed
         source: src.de.DBAG.BSV.2017
 
     -   date: !!null
-        site: !noderef path.de.6100 aum
+        site: path.de.6100 aum
 
 
 #    point.de.Aumühle                            de.6100

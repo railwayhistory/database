@@ -6,8 +6,8 @@ type: line
 events:
     -   date: !!null
         region:
-            - !keyref org.de
-            - !keyref org.de.l.hh
+            - org.de
+            - org.de.l.hh
 
     -   date: !!null
         de.VzG: !!str 1271
@@ -15,59 +15,51 @@ events:
 
     #   Eröffnung
     #
-    -   date: !date 1983-09-25
-        end: !keyref point.de.Hamburg-Harburg-S-Bahn
+    -   date: 1983-09-25
+        end: point.de.Hamburg-Harburg-S-Bahn
         status: open
-        source: !keyref src.de.WP.S-Bahn-Hamburg
-    -   date: !date 1984-08-05
-        start: !keyref point.de.Hamburg-Harburg-S-Bahn
+        source: src.de.WP.S-Bahn-Hamburg
+    -   date: 1984-08-05
+        start: point.de.Hamburg-Harburg-S-Bahn
         status: open
-        source: !keyref src.de.WP.S-Bahn-Hamburg
+        source: src.de.WP.S-Bahn-Hamburg
 
     #   Eigenschaften
     #
     -   date: !!null
         category: de.Hauptbahn
         tracks: 2
-        electrified:
-            rail: !var el.de.hmb
-        source: !keyref src.de.SuW.2005
+        electrified: de.hmb
+        source: src.de.SuW.2005
 
     #   Eigentümer und Betreiber
     #
     -   date: !!null
-        owner: !keyref org.de
-        operator: !keyref org.de.DB
-
-    -   date: !var org.de.Deutsche-Bahn.start
-        owner: !keyref org.de.Deutsche-Bahn
-        operator: !keyref org.de.Deutsche-Bahn
-    -   date: !var org.de.DBNetz.start
-        owner: !keyref org.de.DB-Netz
-        operator: !keyref org.de.DB-Netz
+        owner: org.de
+        operator: org.de.DB
 
     #   Verlauf
     #
     -   date: !!null
         course:
-            - !pathref path.de.6100     ham  ahab -4.0
-            - !pathref path.de.1271.ham a    f     0.0
-            - !pathref path.de.2200     arot fneu -4.0
-            - !pathref path.de.1271.har a    f     0.0
-            - !pathref path.de.1720     fhrs nrs  -2.0
+            -   path.de.6100     ham  ahab
+            -   path.de.1271.ham a    f
+            -   path.de.2200     arot fneu
+            -   path.de.1271.har a    f
+            -   path.de.1720     fhrs nrs
 
 points:
-    - !keyref point.de.Hamburg-Hbf-S-Bahn                   # line.de.1270
-    - !keyref point.de.Hamburg-Hammerbrook
-    - !keyref point.de.Hamburg-Veddel-S-Bahn
-    - !keyref point.de.Hamburg-Wilhelmsburg-S-Bahn
-    - !keyref point.de.Hamburg-Wilhelmsburg-Abzw-S-Bahn
-    - !keyref point.de.Hamburg-Harburg-S-Bahn
-    - !keyref point.de.Hamburg-Harburg-Rathaus
-    - !keyref point.de.Hamburg-Heimfeld
-    - !keyref point.de.Hamburg-Hausbruch-S-Bahn
-    - !keyref point.de.Hamburg-Neuwiedenthal
-    - !keyref point.de.Hamburg-Neugraben-S-Bahn
+    - point.de.Hamburg-Hbf-S-Bahn                   # line.de.1270
+    - point.de.Hamburg-Hammerbrook
+    - point.de.Hamburg-Veddel-S-Bahn
+    - point.de.Hamburg-Wilhelmsburg-S-Bahn
+    - point.de.Hamburg-Wilhelmsburg-Abzw-S-Bahn
+    - point.de.Hamburg-Harburg-S-Bahn
+    - point.de.Hamburg-Harburg-Rathaus
+    - point.de.Hamburg-Heimfeld
+    - point.de.Hamburg-Hausbruch-S-Bahn
+    - point.de.Hamburg-Neuwiedenthal
+    - point.de.Hamburg-Neugraben-S-Bahn
 
 
 ---
@@ -78,21 +70,22 @@ events:
         name: Hammerbrook
         de.DS100: AHAB
         category: de.Hp
-        source: !keyref src.de.DS100.1984
+        source: src.de.DS100.1984
     -   date: !!null
         service: passenger
     -   date: !!null
-        location: !keyloc line.de.1271 1,637
-        source: !keyref src.de.DBAG.ISR
-    -   date: !date c1995
+        location:
+            line.de.1271: 1,637
+        source: src.de.DBAG.ISR
+    -   date: c1995
         category: de.Bft
-        source: !keyref src.de.DBAG.ISR
-    -   date: !date c2000
+        source: src.de.DBAG.ISR
+    -   date: c2000
         name: Hamburg-Hammerbrook
-        source: !keyref src.de.TPP.2007
+        source: src.de.TPP.2007
 
     -   date: !!null
-        site: !noderef path.de.1271.ham ham
+        site: path.de.1271.ham ham
 
 
 ---
@@ -103,18 +96,19 @@ events:
         name: Veddel (S-Bahn)
         de.DS100: AVLS
         category: de.Hst
-        source: !keyref src.de.DS100.1984
+        source: src.de.DS100.1984
     -   date: !!null
         service: passenger
     -   date: !!null
-        location: !keyloc line.de.1271 4,620
-        source: !keyref src.de.DBAG.ISR
-    -   date: !date c2000
+        location:
+            line.de.1271: 4,620
+        source: src.de.DBAG.ISR
+    -   date: c2000
         name: Hamburg-Veddel (S-Bahn)
-        source: !keyref src.de.TPP.2007
+        source: src.de.TPP.2007
 
     -   date: !!null
-        site: !noderef path.de.2200 ves
+        site: path.de.2200 ves
 
 
 ---
@@ -125,39 +119,40 @@ events:
         name: Hamburg-Wilhelmsburg (S-Bahn)
         de.DS100: AWFS
         category: de.Hp
-        source: !keyref src.de.DS100.1984
+        source: src.de.DS100.1984
     -   date: !!null
         service: passenger
     -   date: !!null
-        location: !keyloc line.de.1271 7,232
-        source: !keyref src.de.DBAG.ISR
-    -   date: !date c1990
+        location:
+            line.de.1271: 7,232
+        source: src.de.DBAG.ISR
+    -   date: c1990
         category: de.Bf
-        source: !keyref src.de.DBAG.ISR
+        source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.2200 wbs
+        site: path.de.2200 wbs
 
 
 ---
 key: point.de.Hamburg-Wilhelmsburg-Abzw-S-Bahn
 type: point
 events:
-    -   date: !date c1995
+    -   date: c1995
         status: open
     -   date: !!null
         location:
-            - !keyloc line.de.1271 6,9??
-            - !keyloc line.de.1280 33,2
+            line.de.1271: 6,9??
+            line.de.1280: 33,2
         category: de.Abzw
-        source: !keyref src.de.SuW.2005
+        source: src.de.SuW.2005
     -   date: !!null
         name: Hamburg-Wilhelmsburg Abzw S-Bahn
         de.DS100: AWLBS
-        source: !keyref src.de.TPP.2007
+        source: src.de.TPP.2007
 
     -   date: !!null
-        site: !noderef path.de.2200 was
+        site: path.de.2200 was
 
 
 ---
@@ -166,9 +161,9 @@ type: structure
 subtype: tunnel
 events:
     -   date: !!null
-        length: 4424
+        length: 4424.
         name: S-Bahn-Tunnel Hamburg-Harburg
-        source: !keyref src.de.DBAG.ISR
+        source: src.de.DBAG.ISR
 
 
 ---
@@ -179,18 +174,19 @@ events:
         name: Hamburg-Harburg (S-Bahn)
         de.DS100: AHRS
         category: de.Hst
-        source: !keyref src.de.DS100.1984
+        source: src.de.DS100.1984
     -   date: !!null
         service: passenger
     -   date: !!null
-        location: !keyloc line.de.1271 12,330
-        source: !keyref src.de.DBAG.ISR
-    -   date: !date c1995
+        location:
+            line.de.1271: 12,330
+        source: src.de.DBAG.ISR
+    -   date: c1995
         category: de.Hp
-        source: !keyref src.de.DBAG.ISR
+        source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.1271.har har
+        site: path.de.1271.har har
 
 
 ---
@@ -201,15 +197,16 @@ events:
         name: Hamburg-Harburg Rathaus
         de.DS100: AHRF
         category: de.Hp
-        source: !keyref src.de.DS100.1984
+        source: src.de.DS100.1984
     -   date: !!null
         service: passenger
     -   date: !!null
-        location: !keyloc line.de.1271 13,231
-        source: !keyref src.de.DBAG.ISR
+        location:
+            line.de.1271: 13,231
+        source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.1271.har rat
+        site: path.de.1271.har rat
 
 
 ---
@@ -220,18 +217,19 @@ events:
         name: Heimfeld
         de.DS100: AHFS
         category: de.Hp
-        source: !keyref src.de.DS100.1984
+        source: src.de.DS100.1984
     -   date: !!null
         service: passenger
     -   date: !!null
-        location: !keyloc line.de.1271 14,503
-        source: !keyref src.de.DBAG.ISR
-    -   date: !date c2000
+        location:
+            line.de.1271: 14,503
+        source: src.de.DBAG.ISR
+    -   date: c2000
         name: Hamburg-Heimfeld
-        source: !keyref src.de.TPP.2007
+        source: src.de.TPP.2007
 
     -   date: !!null
-        site: !noderef path.de.1271.har hei
+        site: path.de.1271.har hei
 
 
 ---
@@ -244,16 +242,17 @@ events:
     -   date: !!null
         name: Hamburg-Hausbruch (S-Bahn)
         de.DS100: AHRBS
-        source: !keyref src.de.TPP.2009
+        source: src.de.TPP.2009
     -   date: !!null
-        location: !keyloc line.de.1271 17,618
-        source: !keyref src.de.DBAG.ISR
-    -   date: !date c2010
+        location:
+            line.de.1271: 17,618
+        source: src.de.DBAG.ISR
+    -   date: c2010
         category: de.Üst
-        source: !keyref src.de.DBAG.ISR
+        source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.1720 has
+        site: path.de.1720 has
 
 
 ---
@@ -264,18 +263,19 @@ events:
         name: Neuwiedenthal
         category: de.Hp
         de.DS100: ANWS
-        source: !keyref src.de.DS100.1984
+        source: src.de.DS100.1984
     -   date: !!null
         service: passenger
     -   date: !!null
-        location: !keyloc line.de.1271 20,433
-        source: !keyref src.de.DBAG.ISR
-    -   date: !date c2000
+        location:
+            line.de.1271: 20,433
+        source: src.de.DBAG.ISR
+    -   date: c2000
         name: Hamburg-Neuwiedenthal
-        source: !keyref src.de.TPP.2007
+        source: src.de.TPP.2007
 
     -   date: !!null
-        site: !noderef path.de.1720 nwi
+        site: path.de.1720 nwi
 
 
 ---
@@ -287,17 +287,18 @@ events:
         name: Hamburg-Neugraben (S-Bahn)
         de.DS100: ANRS
         category: de.Bf
-        source: !keyref src.de.DS100.1984
+        source: src.de.DS100.1984
     -   date: !!null
         service: passenger
-        connection: !keyref point.de.Hamburg-Neugraben
+        connection: point.de.Hamburg-Neugraben
     -   date: !!null
-        location: !keyloc line.de.1271 22,127
-        source: !keyref src.de.DBAG.ISR
+        location:
+            line.de.1271: 22,127
+        source: src.de.DBAG.ISR
 
     -   date: !!null
-        connection: !keyref point.de.Hamburg-Neugraben
+        connection: point.de.Hamburg-Neugraben
 
     -   date: !!null
-        site: !noderef path.de.1720 ngr
+        site: path.de.1720 ngr
        

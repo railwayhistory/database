@@ -7,13 +7,13 @@ type: line
 label: de.S-Bahn
 events:
     -   date: !!null
-        region: !keyref org.de
+        region: org.de
     -   date: !!null
-        end: !keyref point.de.Berlin-Karow-West-LGr-S-Bahn
-        region: !keyref org.de.l.be
+        end: point.de.Berlin-Karow-West-LGr-S-Bahn
+        region: org.de.l.be
     -   date: !!null
-        start: !keyref point.de.Berlin-Karow-West-LGr-S-Bahn
-        region: !keyref org.de.l.bb
+        start: point.de.Berlin-Karow-West-LGr-S-Bahn
+        region: org.de.l.bb
 
     -   date: !!null
         de.VzG: !!str 6009
@@ -21,89 +21,79 @@ events:
 
     #   Eröffnung
     #
-    -   date: !date 1984-09-02
+    -   date: 1984-09-02
         status: open
-        source: !keyref src.de.Kuhlmann.2000
+        source: src.de.Kuhlmann.2000
 
     #   Eigenschaften
     #
     -   date: !!null
         category: de.Hauptbahn
-        gauge: 1435
-        electrified:
-            rail: !var el.de.bln
-        service: passenger
-        source: !keyref src.dd.DR.1989
+        gauge: 1435mm
+        electrified: de.bln
+        freight: none
+        source: src.dd.DR.1989
     -   date: !!null
-        end: !keyref point.de.Berlin-Arkenberge
+        end: point.de.Berlin-Arkenberge
         tracks: 2
-        source: !keyref src.de.DBAG.ISR
+        source: src.de.DBAG.ISR
     -   date: !!null
-        start: !keyref point.de.Berlin-Arkenberge
-        end: !keyref point.de.Schoenfliess-S-Bahn
+        start: point.de.Berlin-Arkenberge
+        end: point.de.Schoenfliess-S-Bahn
         tracks: 1
-        source: !keyref src.de.DBAG.ISR
+        source: src.de.DBAG.ISR
     -   date: !!null
-        start: !keyref point.de.Schoenfliess-S-Bahn
+        start: point.de.Schoenfliess-S-Bahn
         tracks: 2
-        source: !keyref src.de.DBAG.ISR
+        source: src.de.DBAG.ISR
 
     #   Eigentümer etc.
     #
     -   date: !!null
-        owner: !keyref org.dd
-        operator: !keyref org.dd.DR
-    -   date: !date 1990-10-03
-        owner: !keyref org.de
-    
-    -   date: !var org.de.Deutsche-Bahn.start
-        owner: !keyref org.de.Deutsche-Bahn
-        operator: !keyref org.de.Deutsche-Bahn
-    -   date: !var org.de.DBNetz.start
-        owner: !keyref org.de.DB-Netz
-        operator: !keyref org.de.DB-Netz
+        owner: org.dd
+        operator: org.dd.DR
 
     # Verlauf
     #
     -   date: !!null
         course:
-            - !pathref path.de.6087 kaw  bex  -2.0
+            -   path.de.6087 kaw  bex
 
 points:
-    - !keyref point.de.Berlin-Karow-West                    # line.de.6087
-    - !keyref point.de.Berlin-Karow-West-S-Bahn
-    - !keyref point.de.Berlin-Karow-West-LGr-S-Bahn
-    - !keyref point.de.Berlin-Arkenberge
-    - !keyref point.de.Muehlenbeck-Moenchmuehle
-    - !keyref point.de.Schoenfliess                         # line.de.6087
-    - !keyref point.de.Schoenfliess-S-Bahn
-    - !keyref point.de.Bergfelde-Berlin
-    - !keyref point.de.Bergfelde-Strw
+    - point.de.Berlin-Karow-West                    # line.de.6087
+    - point.de.Berlin-Karow-West-S-Bahn
+    - point.de.Berlin-Karow-West-LGr-S-Bahn
+    - point.de.Berlin-Arkenberge
+    - point.de.Muehlenbeck-Moenchmuehle
+    - point.de.Schoenfliess                         # line.de.6087
+    - point.de.Schoenfliess-S-Bahn
+    - point.de.Bergfelde-Berlin
+    - point.de.Bergfelde-Strw
 
 
 ---
 key: point.de.Berlin-Karow-West-S-Bahn
 type: point
 events:
-    -   date: !date 2006
+    -   date: 2006
         status: open
-        split_from: !keyref point.de.Berlin-Karow-West
+        split_from: point.de.Berlin-Karow-West
         source:
-            - !keyref src.de.TPP.2006
-            - !keyref src.de.TPP.2007
+            - src.de.TPP.2006
+            - src.de.TPP.2007
     -   date: !!null
         name: Berlin-Karow West S-Bahn
         de.DS100: BAKS
-        source: !keyref src.de.TPP.2007
+        source: src.de.TPP.2007
     -   date: !!null
         location:
-            - !keyloc line.de.6005 11,405
-            - !keyloc line.de.6009  1,600
+            line.de.6005: 11,405
+            line.de.6009:  1,600
         category: de.Abzw
-        source: !keyref src.de.DBAG.ISR
+        source: src.de.DBAG.ISR
 
     -   date: !!null    
-        site: !noderef path.de.6087 kaw left
+        site: path.de.6087 kaw
 
 
 ---
@@ -114,10 +104,10 @@ events:
     -   date: !!null
         name: Berlin-Karow West BE/BB 6009
         de.DS100: BQAKW
-        source: !keyref src.de.TPP.2006
+        source: src.de.TPP.2006
     
     -   date: !!null
-        site: !noderef path.de.6087 gkaw
+        site: path.de.6087 gkaw
 
 
 ---
@@ -125,84 +115,88 @@ key: point.de.Berlin-Arkenberge
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.6009 6,64
+        location:
+            line.de.6009: 6,64
         category: de.Abzw
         name: Ark
-        source: !keyref src.dd.DR.Bln.1991
-    -   date: !var ds100.dr
+        source: src.dd.DR.Bln.1991
+    -   date: de.ds100.dr
         category: de.Üst
         name: Berlin Arkenberge
         de.DS100: BARK
-        source: !keyref src.de.DBAG.ISR
+        source: src.de.DBAG.ISR
 
     -   date: !!null    
-        site: !noderef path.de.6087 ark left
+        site: path.de.6087 ark
 
 
 ---
 key: point.de.Muehlenbeck-Moenchmuehle
 type: point
 events:
-    -   date: !date 1984-09-02
+    -   date: 1984-09-02
         status: open
-        source: !keyref src.de.Kuhlmann.2000
+        source: src.de.Kuhlmann.2000
     -   date: !!null
-        location: !keyloc line.de.6009 7,80
+        location:
+            line.de.6009: 7,80
         category: de.Hp
         staff: none
         name: Mühlenbeck-Mönchmühle
         de.VBL: Mkm
-        source: !keyref src.dd.DR.1989
-    -   date: !var ds100.dr
+        source: src.dd.DR.1989
+    -   date: de.ds100.dr
         de.DS100: BMM
-        source: !keyref src.de.TPP.2006
+        source: src.de.TPP.2006
 
     -   date: !!null    
-        site: !noderef path.de.6087 mum left
+        site: path.de.6087 mum
 
 
 ---
 key: point.de.Schoenfliess-S-Bahn
 type: point
 events:
-    -   date: !date 2006
+    -   date: 2006
         status: open
-        split_from: !keyref point.de.Schoenfliess
+        split_from: point.de.Schoenfliess
         source:
-            - !keyref src.de.TPP.2006
-            - !keyref src.de.TPP.2007
+            - src.de.TPP.2006
+            - src.de.TPP.2007
     -   date: !!null
         name: Schönfließ S-Bahn
         de.DS100: BSNF
-        source: !keyref src.de.TPP.2007
+        source: src.de.TPP.2007
     -   date: !!null
-        location: !keyloc line.de.6009 11,000
+        location:
+            line.de.6009: 11,000
         category: de.Bf
-        source: !keyref src.de.DBAG.ISR
+        source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.6087 sof left
+        site: path.de.6087 sof
 
 
 ---
 key: point.de.Bergfelde-Berlin
 type: point
 events:
-    -   date: !date 1962-05-27
+    -   date: 1962-05-27
         status: open
-        source: !keyref src.de.Kuhlmann.2000
+        source: src.de.Kuhlmann.2000
     -   date: !!null
         category: de.Hp
         name: Bergfelde (b Berlin)
-        master: !keyref point.de.Schoenfliess
+        master: point.de.Schoenfliess
         de.VBL: Bgf
-        source: !keyref src.dd.DR.Bln.1968
+        source: src.dd.DR.Bln.1968
     -   date: !!null
-        location: !keyloc line.de.6009 12,506
-        source: !keyref src.de.DBAG.ISR
+        location:
+            line.de.6009: 12,506
+        source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.6087 ber left
+        site: path.de.6087 ber
 
 
 ---
@@ -213,15 +207,15 @@ junction: True
 events:
     -   date: !!null
         location:
-            - !keyloc line.de.6009 12,976
-            - !keyloc line.de.6010  2,937
+            line.de.6009: 12,976
+            line.de.6010:  2,937
         category: de.Strw
         name: Bergfelde Streckenwechsel 6009/6010
         de.DS100: YBBFE
-        source: !keyref src.de.DBAG.ISR
+        source: src.de.DBAG.ISR
     -   date: !!null
         short_name: Bergfelde (b Berlin)
     
     -   date: !!null
-        site: !noderef path.de.6087 bex
+        site: path.de.6087 bex
         

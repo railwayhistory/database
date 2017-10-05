@@ -7,50 +7,38 @@ label: connection
 events:
     -   date: !!null
         region:
-            - !keyref org.de
-            - !keyref org.de.l.be
+            - org.de
+            - org.de.l.be
 
-    -   date: !var vzg.dr
+    -   date: de.vzg.dr
         de.VzG: !!str 6111
         source: src.de.DBAG.Geo-Strecke.2017
 
     #   Eröffnung und Elektrifizierung
     #
-    -   date: !date c1940
+    -   date: c1940
         status: open
-        service: freight
-        source: !keyref src.de.DRG.1935
-    -   date: !date 1992-05-29
-        electrified:
-            overhead: !var el.de
-        source: !keyref src.de.Kuhlmann.2000
+        passenger: none
+        source: src.de.DRG.1935
+    -   date: 1992-05-29
+        electrified: de
+        source: src.de.Kuhlmann.2000
 
     # Eigentümer und Betreiber
     #
     -   date: !!null
-        owner: !keyref org.de
-        operator: !keyref org.de.DR
+        owner: org.de
+        operator: org.de.DR
 
-    -   date: !date 1949-10-07
-        owner: !keyref org.dd
-    -   date: !var org.de.DR.start
-        operator: !keyref org.dd.DR
-    -   date: !date 1990-10-03
-        owner: !keyref org.de
-
-    -   date: !var org.de.Deutsche-Bahn.start
-        owner: !keyref org.de.Deutsche-Bahn
-        operator: !keyref org.de.Deutsche-Bahn
-    -   date: !var org.de.DBNetz.start
-        owner: !keyref org.de.DB-Netz
-        operator: !keyref org.de.DB-Netz
+    -   date: 1949-10-07
+        owner: org.dd
 
     # Verlauf
     #
     -   date: !!null
         course:
-            - !pathref path.de.6115 lia fsed  0
-            - !pathref path.de.6118 bla ssw  -1.5
+            -   path.de.6115 lia fsed
+            -   path.de.6118 bla ssw
 
 points:
     -   point.de.Lienewitz-Lia                      # de.6115

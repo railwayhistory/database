@@ -1,41 +1,53 @@
 ---
 key: org.dd
 type: organization
+subtype: region
 events:
-    -   date: !date 1949-10-07
+    -   date: 1949-10-07
         status: open
-        name: Deutsche Demokratische Republik
-        short_name: DDR
+        name:
+            eng: German Democratic Republic
+            deu: Deutsche Demokratische Republik
+        short_name:
+            eng: GDR
+            deu: DDR
     -   date: 1990-10-03
         property:
+            role: owner
             owner: org.de
 
 ---
 key: org.dd.DR
 type: organization
+subtype: company
 events:
     -   date: !!null
         name: Deutsche Reichsbahn
     -   date: 1994-01-01
         property:
+            role: operator
             operator: org.de.Deutsche-Bahn
 
 ---
 key: org.dd.DR.Hl
 type: organization
+subtype: company
 events:
     -   date: !!null
         name: Reichsbahndirektion Halle
-        master: !keyref org.dd.DR
+        master: org.dd.DR
 
 ---
 key: org.dd.DR.Mg
 type: organization
+subtype: company
 events:
-    -   date: !date 1945-08-18
+    -   date: 1945-08-18
         status: open
         name: Reichsbahndirektion Magdeburg
-        master: !keyref org.dd.DR
-    -   date: !date 1990-10-01
+        master: org.dd.DR
+    -   date: 1990-10-01
         status: closed
-        merged: !keyref org.dd.DR.Hl
+        property:
+            role: operator
+            operator: org.dd.DR.Hl

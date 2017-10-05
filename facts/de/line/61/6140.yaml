@@ -7,10 +7,10 @@ label: freight
 events:
     -   date: !!null
         region:
-            - !keyref org.de
-            - !keyref org.de.l.be
+            - org.de
+            - org.de.l.be
 
-    -   date: !var vzg.dr
+    -   date: de.vzg.dr
         de.VzG: !!str 6140
         source: src.de.DBAG.Geo-Strecke.2017
 
@@ -35,54 +35,34 @@ events:
     -   date: !!null
         category: de.Hauptbahn
         tracks: 2
-        gauge: 1435
-        source: !keyref src.de.DRG.Bln.1927
-    -   date: !date 1985-07-04
-        electrified:
-            overhead: !var el.de
-        source: !keyref src.de.Kuhlmann.2000
+        gauge: 1435mm
+        source: src.de.DRG.Bln.1927
+    -   date: 1985-07-04
+        electrified: de
+        source: src.de.Kuhlmann.2000
     
     #   Eigentümer und Betriebsführer
     #
     -   date: !!null
-        owner: !keyref org.de.l.pre
-        operator: !keyref org.de.e.bln
+        owner: org.de.l.pre
+        operator: org.de.e.bln
 
-    -   date: !date 1920-04-01
-        owner: !keyref org.de
-        operator: !keyref org.de.r.RVM.PH
-    -   date: !date 1924-02-12
-        operator: !keyref org.de.Deutsche-Reichsbahn-I
-    -   date: !date 1924-08-30
-        operator: !keyref org.de.DR
-
-    -   date: !date 1949-10-07
-        owner: !keyref org.dd
-    -   date: !var org.de.DR.start
-        operator: !keyref org.dd.DR
-    -   date: !date 1990-10-03
-        owner: !keyref org.de
-
-    -   date: !var org.de.Deutsche-Bahn.start
-        owner: !keyref org.de.Deutsche-Bahn
-        operator: !keyref org.de.Deutsche-Bahn
-    -   date: !var org.de.DBNetz.start
-        owner: !keyref org.de.DB-Netz
-        operator: !keyref org.de.DB-Netz
+    -   date: 1949-10-07
+        owner: org.dd
 
     #   Verlauf
     #
     -   date: !!null
         course:
-            - !pathref path.de.6020 fra  arum -2.0
-            - !pathref path.de.6140 a    f     0.0
-            - !pathref path.de.6153 ffra rum   3.0
+            -   path.de.6020 fra  arum
+            -   path.de.6140 a    f
+            -   path.de.6153 ffra rum
 
 points:
-    - !keyref point.de.Berlin-Frankfurter-Allee             # line.de.6170
-    - !keyref point.de.Berlin-Lichtenberg-B1
-    - !keyref point.de.Berlin-Rummelsburg-Rgbw
-    - !keyref point.de.Berlin-Rummelsburg                   # line.de.6153
+    - point.de.Berlin-Frankfurter-Allee             # line.de.6170
+    - point.de.Berlin-Lichtenberg-B1
+    - point.de.Berlin-Rummelsburg-Rgbw
+    - point.de.Berlin-Rummelsburg                   # line.de.6153
     -   point.de.Berlin-Rummelsburg-Rgbo            # de.6153
 
 
@@ -93,27 +73,27 @@ junction: True
 events:
     -   date: !!null
         location:
-            - !keyloc line.de.6140 0,66
+            line.de.6140: 0,66
         category: de.Abzw
         name: Gab
-        source: !keyref src.de.DRG.Bln.1927
-    -   date: !date c1965
+        source: src.de.DRG.Bln.1927
+    -   date: c1965
         location:
-            - !keyloc line.de.6140 0,580
+            line.de.6140: 0,580
         category: de.Glgr
         name: Berlin-Lichtenberg B1
-        source: !keyref src.dd.DR.Bln.1968
-    -   date: !var ds100.dr
+        source: src.dd.DR.Bln.1968
+    -   date: de.ds100.dr
         de.DS100: BLO G
-        source: !keyref src.de.TPP.2006
-    -   date: !date c1995
+        source: src.de.TPP.2006
+    -   date: c1995
         category: de.Bft
-        source: !keyref src.de.SuW.2005
+        source: src.de.SuW.2005
 
     -   date: !!null
         site:
-            - !noderef path.de.6140 gab right
-            - !noderef path.de.6139 gab left
+            - path.de.6140 gab
+            - path.de.6139 gab
 
 
 ---
@@ -122,19 +102,21 @@ type: point
 junction: True
 events:
     -   date: !!null
-        location: !keyloc line.de.6152 3,9
+        location:
+            line.de.6152: 3,9
         category: de.Glgr
         name: Rgw
-        source: !keyref src.de.DRG.Bln.1932
-    -   date: !date c1965
-        location: !keyloc line.de.6152 3,835
-    -   date: !var ds100.dr
+        source: src.de.DRG.Bln.1932
+    -   date: c1965
+        location:
+            line.de.6152: 3,835
+    -   date: de.ds100.dr
         category: de.Bft
         name: Berlin-Rummelsburg (Rgbw)
         de.DS100: BRGBW
         source:
-            - !keyref src.de.TPP.2006
-            - !keyref src.de.SuW.2005
+            - src.de.TPP.2006
+            - src.de.SuW.2005
 
     -   date: !!null
-        site: !noderef path.de.6153 rgw right
+        site: path.de.6153 rgw

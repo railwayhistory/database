@@ -7,69 +7,57 @@ label: connection
 events:
     -   date: !!null
         region:
-            - !keyref org.de
-            - !keyref org.de.l.be
+            - org.de
+            - org.de.l.be
 
-    -   date: !var vzg.dr
+    -   date: de.vzg.dr
         de.VzG: !!str 6150
         source: src.de.DBAG.Geo-Strecke.2017
 
     #   Eröffnung
     #
-    -   date: !date 1940-12-16
+    -   date: 1940-12-16
         status: open
         note:
-            de: „offiziell erst am 01.01.1941 eröffnet”
-        source: !keyref src.de.Kuhlmann.2000
+            deu: „offiziell erst am 01.01.1941 eröffnet”
+        source: src.de.Kuhlmann.2000
 
     #   Eigenschaften
     #
     -   date: !!null
         category: de.Hauptbahn
         tracks: 1
-        gauge: 1435
-        service: freight
-        source: !keyref src.de.DRG.Bln.1943
-    -   date: !date 1951?
-        service: full
-        source: !keyref src.dd.DR.Bln.1953
-    -   date: !date c1965
+        gauge: 1435mm
+        passenger: none
+        source: src.de.DRG.Bln.1943
+    -   date: 1951?
+        passenger: full
+        source: src.dd.DR.Bln.1953
+    -   date: c1965
         tracks: 2
-        source: !keyref src.dd.DR.Bln.1968
-    -   date: !date 1985-12-14
-        electrified:
-            overhead: !var el.de
-        source: !keyref src.de.Kuhlmann.2000
+        source: src.dd.DR.Bln.1968
+    -   date: 1985-12-14
+        electrified: de
+        source: src.de.Kuhlmann.2000
 
     #   Eigentümer und Betriebsführer
     #
     -   date: !!null
-        owner: !keyref org.de
-        operator: !keyref org.de.DR
-    -   date: !date 1949-10-07
-        owner: !keyref org.dd
-    -   date: !var dd.DR.start
-        operator: !keyref org.dd.DR
-    -   date: !date 1990-10-03
-        owner: !keyref org.de
-
-    -   date: !var org.de.Deutsche-Bahn.start
-        owner: !keyref org.de.Deutsche-Bahn
-        operator: !keyref org.de.Deutsche-Bahn
-    -   date: !var org.de.DBNetz.start
-        owner: !keyref org.de.DB-Netz
-        operator: !keyref org.de.DB-Netz
+        owner: org.de
+        operator: org.de.DR
+    -   date: 1949-10-07
+        owner: org.dd
         
     #   Verlauf
     #
     -   date: !!null
         course:
-            - !pathref path.de.6153 oeg  aeic 0.0
-            - !pathref path.de.6150 a    f    0.0
-            - !pathref path.de.6080 aoeg egb  0.0
+            -   path.de.6153 oeg  aeic
+            -   path.de.6150 a    f
+            -   path.de.6080 aoeg egb
 
 points:
-    - !keyref point.de.Berlin-Ostendgestell                 # line.de.6153
-    - !keyref point.de.Berlin-Eichgestell-Egb               # line.de.6080
-    - !keyref point.de.Berlin-Eichgestell                   # line.de.6126
+    - point.de.Berlin-Ostendgestell                 # line.de.6153
+    - point.de.Berlin-Eichgestell-Egb               # line.de.6080
+    - point.de.Berlin-Eichgestell                   # line.de.6126
 

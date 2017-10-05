@@ -1,12 +1,13 @@
 # DE 1239.  Hamburg-Ohlsdorf - Hamburg Airport
+#
 ---
 key: line.de.1239
 type: line
 events:
     -   date: !!null
         region:
-            - !keyref org.de
-            - !keyref org.de.l.hh
+            - org.de
+            - org.de.l.hh
 
     -   date: !!null
         de.VzG: !!str 1239
@@ -14,37 +15,36 @@ events:
 
     #   Genehmigung und Eröffnung
     #
-    -   date: !date 2001-04-11
+    -   date: 2001-04-11
         status: construction
-        source: !keyref src.de.WP.Flughafen-S-Bahn-Hamburg
-    -   date: !date 2008-12-12
+        source: src.de.WP.Flughafen-S-Bahn-Hamburg
+    -   date: 2008-12-12
         status: open
-        source: !keyref src.de.WP.Flughafen-S-Bahn-Hamburg
+        source: src.de.WP.Flughafen-S-Bahn-Hamburg
 
     #   Eigenschaften
     #
     -   date: !!null
         category: de.Hauptbahn
-        electrified:
-            rail: !var el.de.hmb
+        electrified: de.hmb
         tracks: 2
 
     #   Eigentümer und Betreiber
     #
     -   date: !!null
-        owner: !keyref org.de.DB-Netz
-        operator: !keyref org.de.DB-Netz
+        owner: org.de.DB-Netz
+        operator: org.de.DB-Netz
 
     #   Verlauf
     #
     -   date: !!null
         course:
-            - !pathref path.de.1241 ohl aair
-            - !pathref path.de.1239 a f
+            -   path.de.1241 ohl aair
+            -   path.de.1239 a f
 
 points:
-    - !keyref point.de.Hamburg-Ohlsdorf-S-Bahn          # line.de.1241
-    - !keyref point.de.Hamburg-Airport
+    - point.de.Hamburg-Ohlsdorf-S-Bahn          # line.de.1241
+    - point.de.Hamburg-Airport
 
 
 ---
@@ -55,8 +55,8 @@ events:
     -   date: !!null
         name: S-Bahn-Tunnel Hamburg-Airport
     -   date: !!null
-        length: 1748
-        source: !keyref src.de.DBAG.ISR
+        length: 1748.
+        source: src.de.DBAG.ISR
 
 
 ---
@@ -69,12 +69,13 @@ events:
         de.name16: Hamburg Airport
         de.DS100: AAI
         PLC: DE14376
-        de.dstnr: 854711
+        de.dstnr: !!str 854711
         source: src.de.DBAG.BSV.2017
     -   date: !!null
-        location: !keyloc line.de.1239 14,210
+        location:
+            line.de.1239: 14,210
         source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
-        site: !noderef path.de.1239 air
+        site: path.de.1239 air
 

@@ -6,96 +6,76 @@ type: line
 events:
     -   date: !!null
         region:
-            - !keyref org.de
-            - !keyref org.de.l.be
+            - org.de
+            - org.de.l.be
 
-    -   date: !var vzg.dr
+    -   date: de.vzg.dr
         de.VzG: !!str 6119
         source: src.de.DBAG.Geo-Strecke.2017
 
     # Konzessionen
     #
-    -   date: !date 1909-07-28
-        start: !keyref point.de.Seddin-Bla
+    -   date: 1909-07-28
+        start: point.de.Seddin-Bla
         concession:
-            by: !keyref org.de.l.pre
-            document: !keyref src.de.l.pre.1909.25.644
-        source: !keyref src.de.DRG.1935
-    -   date: !date 1914-06-10
-        start: !keyref point.de.Seddin-Bla
+            by: org.de.l.pre
+        document: src.de.l.pre.1909.25.644
+        source: src.de.DRG.1935
+    -   date: 1914-06-10
+        start: point.de.Seddin-Bla
         concession:
-            by: !keyref org.de.l.pre
-            document: !keyref src.de.l.pre.1914.17.97
-        source: !keyref src.de.DRG.1935
+            by: org.de.l.pre
+        document: src.de.l.pre.1914.17.97
+        source: src.de.DRG.1935
 
     # Eröffnungen
     #
-    -   date: !date 1927-05-06
-        start: !keyref point.de.Seddin-Bla
+    -   date: 1927-05-06
+        start: point.de.Seddin-Bla
         status: open
-        service: freight
-        source: !keyref src.de.DRG.1935
+        passenger: none
+        source: src.de.DRG.1935
     -   date: !!null
         category: de.Hauptbahn
-        source: !keyref src.de.DRG.1927
+        source: src.de.DRG.1927
 
-    -   date: !date c1940
+    -   date: c1940
         status: open
-        service: freight
-        end: !keyref point.de.Seddin-Bla
+        passenger: none
+        end: point.de.Seddin-Bla
 
     # Nach 1945
     #
-    -   date: !date 1982-05-22
-        end: !keyref point.de.Seddin-Bla
-        electrified:
-            overhead: !var el.de
-        source: !keyref src.de.Kuhlmann.2000
+    -   date: 1982-05-22
+        end: point.de.Seddin-Bla
+        electrified: de
+        source: src.de.Kuhlmann.2000
 
     # Eigentümer und Betreiber
     #
     -   date: !!null
-        owner: !keyref org.de.l.pre
-        operator: !keyref org.de.e.bln
+        owner: org.de.l.pre
+        operator: org.de.e.bln
     
-    -   date: !date 1920-04-01
-        owner: !keyref org.de
-        operator: !keyref org.de.r.RVM.PH
-    -   date: !date 1924-02-12
-        operator: !keyref org.de.Deutsche-Reichsbahn-I
-    -   date: !date 1924-08-30
-        operator: !keyref org.de.DR
-
-    -   date: !date 1949-10-07
-        owner: !keyref org.dd
-    -   date: !var org.de.DR.start
-        operator: !keyref org.dd.DR
-    -   date: !date 1990-10-03
-        owner: !keyref org.de
-
-    -   date: !!null
-        owner: !keyref org.de.Deutsche-Bahn
-        operator: !keyref org.de.Deutsche-Bahn
-    -   date: !var org.de.DBNetz.start
-        owner: !keyref org.de.DB-Netz
-        operator: !keyref org.de.DB-Netz
+    -   date: 1949-10-07
+        owner: org.dd
 
     # Verlauf
     #
     -   date: !!null
         course:
-            - !pathref path.de.6118 mic  alia -2.5
-            - !pathref path.de.6119 a    f    0.0
-            - !pathref path.de.6115 ased bea  0.0
+            -   path.de.6118 mic  alia
+            -   path.de.6119 a    f
+            -   path.de.6115 ased bea
 
 points:
-    - !keyref point.de.Michendorf                           # line.de.6118
-    - !keyref point.de.Seddin-Süd-Sso
-    - !keyref point.de.Seddin-Süd-Umspanngleise
-    - !keyref point.de.Seddin-Süd
-    - !keyref point.de.Seddin-Süd-Ssw
-    - !keyref point.de.Seddin-Bla                           # line.de.6118
-    - !keyref point.de.Beelitz-Bea                          # line.de.6115
+    - point.de.Michendorf                           # line.de.6118
+    - point.de.Seddin-Süd-Sso
+    - point.de.Seddin-Süd-Umspanngleise
+    - point.de.Seddin-Süd
+    - point.de.Seddin-Süd-Ssw
+    - point.de.Seddin-Bla                           # line.de.6118
+    - point.de.Beelitz-Bea                          # line.de.6115
 
 
 ---
@@ -103,14 +83,15 @@ key: point.de.Seddin-Süd-Sso
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.6119 31,0
+        location:
+            line.de.6119: 31,0
         category: de.Bft
         name: Seddin Süd Sso
         de.DS100: BSS O
-        source: !keyref src.de.SuW.2011
+        source: src.de.SuW.2011
 
     -   date: !!null
-        site: !noderef path.de.6118 suo
+        site: path.de.6118 suo
 
 
 ---
@@ -118,14 +99,15 @@ key: point.de.Seddin-Süd-Umspanngleise
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.6119 31,8
+        location:
+            line.de.6119: 31,8
         category: de.Bft
         name: Seddin Süd Umspanngleise
         de.DS100: BSS U
-        source: !keyref src.de.SuW.2011
+        source: src.de.SuW.2011
 
     -   date: !!null
-        site: !noderef path.de.6118 ssu
+        site: path.de.6118 ssu
 
 
 ---
@@ -134,14 +116,15 @@ type: point
 junction: True
 events:
     -   date: !!null
-        location: !keyloc line.de.6119 32,980
+        location:
+            line.de.6119: 32,980
         category: de.Bf
         name: Seddin Süd
         de.DS100: BSS
-        source: !keyref src.de.DBAG.ISR
+        source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.6118 ses
+        site: path.de.6118 ses
 
 
 ---
@@ -151,14 +134,14 @@ junction: True
 events:
     -   date: !!null
         location:
-            - !keyloc line.de.6119 33,7
-            - !keyloc line.de.6120 33,7
+            line.de.6119: 33,7
+            line.de.6120: 33,7
         category: de.Bft
         name: Seddin Süd Ssw
         de.DS100: BSS W
-        source: !keyref src.de.SuW.2011
+        source: src.de.SuW.2011
 
     -   date: !!null
-        site: !noderef path.de.6118 ssw
+        site: path.de.6118 ssw
 
 

@@ -44,16 +44,16 @@ events:
     -   date: 1882-02-07
         end: point.de.Berlin-Charlottenburg
         status: open
-        service: passenger
+        freight: none
         source: src.de.DRG.1935 # 1882/11
     -   date: 1882-06-01
         start: point.de.Berlin-Charlottenburg
-        service: passenger
+        freight: none
         status: open
         source: src.de.DRG.1935 # 1882/25, 1882/27
     -   date: 1883-10-15
         start: point.de.Berlin-Charlottenburg
-        service: full
+        freight: full
         source: src.de.DRG.1935 # 1882/25
 
     #   Eigenschaften
@@ -61,7 +61,7 @@ events:
     -   date: !!null
         category: de.Hauptbahn
         tracks: 2
-        gauge: 1435
+        gauge: 1435mm
         source: src.de.DRG.1927
     -   date: c1950
         start: point.de.Berlin-Olympiastadion-Abzw
@@ -77,13 +77,11 @@ events:
         tracks: 2
     -   date: 1995-05-24
         end: point.de.Berlin-Charlottenburg
-        electrified:
-            overhead: !var el.de
+        electrified: de
         source: src.de.Kuhlmann.2000
     -   date: 1997-05-23
         start: point.de.Berlin-Charlottenburg
-        electrified:
-            overhead: !var el.de
+        electrified: de
         source: src.de.Kuhlmann.2000
 
     #   Eigentümer etc.
@@ -104,15 +102,13 @@ events:
     -   date: 1949-10-07
         end: point.de.Berlin-Friedrichstraße-Gr
         owner: org.dd
-    -   date: !var dd.DR.start
-        operator: org.dd.DR
 
     #   Verlauf
     #
     -   date: !!null
         course:
-            - !pathref path.de.6109 ost f
-            - !pathref path.de.6107 fosa spd
+            -   path.de.6109 ost f
+            -   path.de.6107 fosa spd
 
 points:
     -   point.de.Berlin-Ostbahnhof
@@ -160,20 +156,20 @@ events:
         source: src.de.Bfv.1928
     -   date: !!null
         location:
-            - !keyloc line.de.6109 0,00
-            - !keyloc line.de.6152 0,10
-            - !keyloc line.de.6024 0,00
-            - !keyloc line.de.6003 0,10
-            - !keyloc line.de.6004 0,10
-            - !keyloc line.de.6153 0,10
+            line.de.6109: 0,00
+            line.de.6152: 0,10
+            line.de.6024: 0,00
+            line.de.6003: 0,10
+            line.de.6004: 0,10
+            line.de.6153: 0,10
         category: de.Bf
-        de.Rangklasse: I
+        de.rang: I
         source: src.de.DRG.Bln.1927
     -   date: !!null
         de.lknr: 03 288
         service: passenger
         source: src.de.Bfv.1928
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 03 283
         source: src.de.Bfv.1933
     -   date: !!null
@@ -194,17 +190,17 @@ events:
     -   date: 1998-05-24
         name: Berlin Ostbahnhof
         source: src.de.Kuhlmann.2000
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BHF
         source: src.de.TPP.2006
     -   date: 2006
         location:
-            - !keyloc line.de.6024 -
-            - !keyloc line.de.6003 -
-            - !keyloc line.de.6004 -
+            line.de.6024: !!null
+            line.de.6003: !!null
+            line.de.6004: !!null
 
     -   date: !!null
-        site: !noderef path.de.6109 ost
+        site: path.de.6109 ost
 
 
 ---
@@ -212,7 +208,8 @@ key: point.de.Berlin-Holzmarkt
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.6109 0,750
+        location:
+            line.de.6109: 0,750
         category: de.Bk
         name: Bk 3
         source: src.de.DRG.Bln.1932
@@ -224,7 +221,7 @@ events:
         source: src.dd.DR.Bln.1953
 
     -   date: !!null
-        site: !noderef path.de.6109 hol
+        site: path.de.6109 hol
 
 
 # point.de.Berlin-Jannowitzbrücke jan
@@ -235,7 +232,8 @@ key: point.de.Bk-4-Stadtbahn
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.6109 1,516
+        location:
+            line.de.6109: 1,516
         name: Bk 4
         source: src.de.DRG.Bln.1932
     -   date: c1940
@@ -243,7 +241,7 @@ events:
         source: src.de.DRG.Bln.1943
 
     -   date: !!null
-        site: !noderef path.de.6109 biv
+        site: path.de.6109 biv
 
 
 ---
@@ -252,41 +250,42 @@ type: point
 events:
     -   date: !!null
         location:
-            - !keyloc line.de.6109 2,17
-            - !keyloc line.de.6024 2,17
+            line.de.6109: 2,17
+            line.de.6024: 2,17
         category: de.Bf
-        de.Rangklasse: I
+        de.rang: I
         name: Berlin Alexanderplatz
         source: src.de.DRG.Bln.1932
     -   date: !!null
         service: passenger
         de.lknr: 03 290
         source: src.de.Bfv.1928
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 03 280
         source: src.de.Bfv.1933
     -   date: !!null
         de.VBL: Ale
         source: src.de.DRG.Bln.1946
     -   date: c1950
-        de.Rangklasse: II
+        de.rang: II
         source: src.dd.DR.Bln.1953
     -   date: c1960
-        de.Rangklasse: III
+        de.rang: III
         source: src.dd.DR.Bln.1968
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BALE
         source: src.de.TPP.2006
     -   date: 1998
-        location: !keyloc line.de.6109 -
+        location:
+            line.de.6109: !!null
     -   date: c2007
         category: de.Hp
         location:
-            - !keyloc line.de.6109 2,17
-            - !keyloc line.de.6024 -
+            line.de.6109: 2,17
+            line.de.6024: !!null
 
     -   date: !!null
-        site: !noderef path.de.6109 ale
+        site: path.de.6109 ale
 
 
 ---
@@ -296,7 +295,8 @@ events:
     -   date: 1998
         status: open
         split_from: point.de.Berlin-Alexanderplatz
-        location: !keyloc line.de.6109 2,17
+        location:
+            line.de.6109: 2,17
     -   date: !!null
         name: Berlin Alexanderplatz (Hp)
         de.DS100: BALEF
@@ -306,7 +306,7 @@ events:
         merged: point.de.Berlin-Alexanderplatz
 
     -   date: !!null
-        site: !noderef path.de.6109 ale
+        site: path.de.6109 ale
 
 
 ---
@@ -314,7 +314,8 @@ key: point.de.Bk-6-Stadtbahn
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.6109 2,84
+        location:
+            line.de.6109: 2,84
         category: de.Bk
         name: Bk 6
         source: src.de.DRG.Bln.1932
@@ -323,7 +324,7 @@ events:
         source: src.de.DRG.Bln.1943
 
     -   date: !!null
-        site: !noderef path.de.6109 bvi
+        site: path.de.6109 bvi
 
 
 # point.de.Berlin-Hackescher-Markt hac
@@ -335,7 +336,8 @@ type: point
 events:
     -   date: c1940
         status: open
-        location: !keyloc line.de.6109 3,11
+        location:
+            line.de.6109: 3,11
         category: de.Bk
         name: Busch
         source: src.de.DRG.Bln.1943
@@ -347,7 +349,7 @@ events:
         source: src.dd.DR.Bln.1953
 
     -   date: !!null
-        site: !noderef path.de.6109 bus
+        site: path.de.6109 bus
 
 
 ---
@@ -360,29 +362,30 @@ events:
         source: src.de.Bfv.1928
     -   date: !!null
         location:
-            - !keyloc line.de.6109 3,97
-            - !keyloc line.de.6024 3,97
+            line.de.6109: 3,97
+            line.de.6024: 3,97
         category: de.Bf
-        de.Rangklasse: I
+        de.rang: I
         name: Berlin Friedrichstraße
         source: src.de.DRG.Bln.1932
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 03 278
         source: src.de.Bfv.1933
     -   date: !!null
         de.VBL: Fri
         source: src.de.DRG.Bln.1946
     -   date: c1965
-        de.Rangklasse: II
+        de.rang: II
         source: src.dd.DR.Bln.1968
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BFRI
         source: src.de.TPP.2006
     -   date: c2007
-        location: !keyloc line.de.6024 -
+        location:
+            line.de.6024: !!null
 
     -   date: !!null
-        site: !noderef path.de.6109 fri
+        site: path.de.6109 fri
 
 
 ---
@@ -394,12 +397,12 @@ events:
         name: Berlin Friedrichstraße Grenze
     -   date: !!null
         location:
-            - !keyloc line.de.6109 5,127
-            - !keyloc line.de.6024 5,127
+            line.de.6109: 5,127
+            line.de.6024: 5,127
         source: src.dd.DR.Bln.1959
 
     -   date: !!null
-        site: !noderef path.de.6109 gfri
+        site: path.de.6109 gfri
 
 
 ---
@@ -410,7 +413,8 @@ events:
         status: open
         source: src.de.WP.Berlin-Hauptbahnhof
     -   date: !!null
-        location: !keyloc line.de.6109 5,4
+        location:
+            line.de.6109: 5,4
         category: de.Bf
     -   date: !!null
         name: Berlin Hauptbahnhof-Lehrter Bf (Stadtb)
@@ -420,7 +424,7 @@ events:
         public_name: Berlin Hauptbahnhof
 
     -   date: !!null
-        site: !noderef path.de.6109 hbf
+        site: path.de.6109 hbf
 
 # point.de.Berlin-Lehrter-Stadtbf leh
 
@@ -429,12 +433,14 @@ key: point.de.Berlin-Humboldt
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.6109 5,45
+        location:
+            line.de.6109: 5,45
         category: de.Bk
         name: Bk 10
         source: src.de.DRG.Bln.1932
     -   date: c1940
-        location: !keyloc line.de.6109 5,46
+        location:
+            line.de.6109: 5,46
         name: Humboldt
         source: src.de.DRG.Bln.1943
     -   date: !!null
@@ -445,7 +451,7 @@ events:
         source: src.dd.DR.Bln.1953
 
     -   date: !!null
-        site: !noderef path.de.6109 hum
+        site: path.de.6109 hum
 
 
 ---
@@ -453,7 +459,8 @@ key: point.de.Bk-11-Stadtbahn
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.6109 5,96
+        location:
+            line.de.6109: 5,96
         category: de.Bk
         name: Bk 11
         source: src.de.DRG.Bln.1932
@@ -462,7 +469,7 @@ events:
         source: src.de.DRG.Bln.1943
 
     -   date: !!null
-        site: !noderef path.de.6109 bxi
+        site: path.de.6109 bxi
 
 
 ---
@@ -470,7 +477,8 @@ key: point.de.Berlin-Brückenallee
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.6109 6,964
+        location:
+            line.de.6109: 6,964
         category: de.Bk
         name: Bk 12
         source: src.de.DRG.Bln.1932
@@ -490,7 +498,7 @@ events:
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.6109 bru
+        site: path.de.6109 bru
 
 # point.de.Berlin-Bellevue bel
 
@@ -499,12 +507,14 @@ key: point.de.Berlin-Bachstraße
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.6109 8,105
+        location:
+            line.de.6109: 8,105
         category: de.Bk
         name: Bk 15
         source: src.de.DRG.Bln.1932
     -   date: c1940
-        location: !keyloc line.de.6109 8,058
+        location:
+            line.de.6109: 8,058
         name: Bachstraße
         source: src.de.DRG.Bln.1943
     -   date: c1950
@@ -512,7 +522,7 @@ events:
         source: src.dd.DR.Bln.1959
 
     -   date: !!null
-        site: !noderef path.de.6109 bac
+        site: path.de.6109 bac
 
 # point.de.Berlin-Tiergarten tie
 
@@ -527,25 +537,26 @@ events:
         source: src.de.Bfv.1928
     -   date: !!null
         location:
-            - !keyloc line.de.6109 9,01
-            - !keyloc line.de.6024 9,01
+            line.de.6109: 9,01
+            line.de.6024: 9,01
         category: de.Bf
-        de.Rangklasse: II
+        de.rang: II
         source: src.de.DRG.Bln.1932
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 03 274
         source: src.de.Bfv.1933
     -   date: !!null
         de.VBL: Zoo
         source: src.de.DRG.Bln.1946
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BZOO
         source: src.de.TPP.2006
     -   date: c2007
-        location: !keyloc line.de.6024 -
+        location:
+            line.de.6024: !!null
 
     -   date: !!null
-        site: !noderef path.de.6109 zoo
+        site: path.de.6109 zoo
 
 
 # point.de.Berlin-Zoologischer-Garten-S-Bahn zos
@@ -556,12 +567,14 @@ key: point.de.Berlin-Knesebeck
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.6109 9,937
+        location:
+            line.de.6109: 9,937
         category: de.Bk
         name: Bk 17
         source: src.de.DRG.Bln.1932
     -   date: c1940
-        location: !keyloc line.de.6109 9,930
+        location:
+            line.de.6109: 9,930
         name: Knesebeck
         source: src.de.DRG.Bln.1943
     -   date: !!null
@@ -572,7 +585,7 @@ events:
         source: src.dd.DR.Bln.1953
 
     -   date: !!null
-        site: !noderef path.de.6109 kne
+        site: path.de.6109 kne
 
 
 # point.de.Berlin-Savignyplatz sav
@@ -590,37 +603,38 @@ events:
         source: src.de.Bfv.1928
     -   date: !!null
         location:
-            - !keyloc line.de.6014 11,26
-            - !keyloc line.de.6023 11,26
-            - !keyloc line.de.6024 11,26
-            - !keyloc line.de.6109 11,26
-            - !keyloc line.de.8693 11,26
+            line.de.6014: 11,26
+            line.de.6023: 11,26
+            line.de.6024: 11,26
+            line.de.6109: 11,26
+            line.de.8693: 11,26
         category: de.Bf
-        de.Rangklasse: I
+        de.rang: I
         source: src.de.DRG.Bln.1932
     -   date: c1930
         name: Charlottenburg
         source: src.de.Bfv.1933
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 03 001
         source: src.de.Bfv.1933
     -   date: 1936-05-15
         name: Berlin-Charlottenburg
         source: src.de.web.Krebs
     -   date: c1965
-        de.Rangklasse: II
+        de.rang: II
         source: src.dd.DR.Bln.1968
     -   date: !!null
         de.VBL: Chb
         source: src.de.DRG.Bln.1946
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BCHB
         source: src.de.TPP.2006
     -   date: c2007
-        location: !keyloc line.de.6024 -
+        location:
+            line.de.6024: !!null
 
     -   date: !!null
-        site: !noderef path.de.6109 cha
+        site: path.de.6109 cha
 
 
 # point.de.Berlin-Heerstraße                  de.6025
@@ -633,12 +647,14 @@ events:
     -   date: 1928-03-23?
         status: open
     -   date: !!null
-        location: !keyloc line.de.6109 15,30
+        location:
+            line.de.6109: 15,30
         category: de.Abzw
         name: Rsa
         source: src.de.DRG.Bln.1943
     -   date: c1950
-        location: !keyloc line.de.6109 15,4
+        location:
+            line.de.6109: 15,4
         source: src.dd.DR.Bln.1959
     -   date: 1960-05-29
         name: Osa
@@ -652,19 +668,20 @@ events:
         status: open
         source: src.dd.DR.Bln.1978
     -   date: c1980
-        location: !keyloc line.de.6109 -
+        location:
+            line.de.6109: !!null
         source: src.dd.DR.Bln.1983
     -   date: c1990
         name: Olympiastadion Abzw
     -   date: c2000
         name: Berlin Olympiastadion Abzw
         source: src.de.TPP.2006
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BOSA
         source: src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.6109 osa
+        site: path.de.6109 osa
 
 
 # point.de.Berlin-Spandau-Ost                 de.6107

@@ -5,13 +5,13 @@ key: line.de.1120
 type: line
 events:
     -   date: !!null
-        region: !keyref org.de
+        region: org.de
     -   date: !!null
-        end: !keyref point.de.Ahrensburg-LGr
-        region: !keyref org.de.l.sh
+        end: point.de.Ahrensburg-LGr
+        region: org.de.l.sh
     -   date: !!null
-        start: !keyref point.de.Ahrensburg-LGr
-        region: !keyref org.de.l.hh
+        start: point.de.Ahrensburg-LGr
+        region: org.de.l.hh
 
     -   date: !!null
         de.VzG: !!str 1120
@@ -19,42 +19,42 @@ events:
 
     #   Verträge und Konzessionen
     #
-    -   date: !date 1858-06-17
+    -   date: 1858-06-17
         contract:
             parties:
-                - !keyref org.dk
-                - !keyref org.de.l.lüb
-                - !keyref org.de.l.hh
-        source: !keyref src.de.DRG.1935 # 1865/11
-    -   date: !date 1860-04-24
+                - org.dk
+                - org.de.l.lüb
+                - org.de.l.hh
+        source: src.de.DRG.1935 # 1865/11
+    -   date: 1860-04-24
         concession:
-            by: !keyref org.dk
-            for: !keyref org.de.Lübeck-Büchener-Eisenbahn
-        source: !keyref src.de.DRG.1935 # 1865/11
-    -   date: !date 1862-11-29
+            by: org.dk
+            for: org.de.Lübeck-Büchener-Eisenbahn
+        source: src.de.DRG.1935 # 1865/11
+    -   date: 1862-11-29
         concession:
-            by: !keyref org.de.l.lüb
-            for: !keyref org.de.Lübeck-Büchener-Eisenbahn
-        source: !keyref src.de.DRG.1935 # 1865/11
-    -   date: !date 1862-12-01
+            by: org.de.l.lüb
+            for: org.de.Lübeck-Büchener-Eisenbahn
+        source: src.de.DRG.1935 # 1865/11
+    -   date: 1862-12-01
         concession:
-            by: !keyref org.de.l.hh
-            for: !keyref org.de.Lübeck-Büchener-Eisenbahn
-        source: !keyref src.de.DRG.1935 # 1865/11
+            by: org.de.l.hh
+            for: org.de.Lübeck-Büchener-Eisenbahn
+        source: src.de.DRG.1935 # 1865/11
 
     #   Eröffnung
     #
-    -   date: !date 1865-08-01
-        start: !keyref point.de.Lübeck-Genin-Abzw
+    -   date: 1865-08-01
+        start: point.de.Lübeck-Genin-Abzw
         status: open
-        service: passenger
-        source: !keyref src.de.DRG.1935 # 1865/11
-    -   date: !date 1865-08-08
-        start: !keyref point.de.Lübeck-Genin-Abzw
-        service: full
-        source: !keyref src.de.DRG.1935 # 1865/11
-    -   date: !date 1908-05-01
-        end: !keyref point.de.Lübeck-Genin-Abzw
+        freight: none
+        source: src.de.DRG.1935 # 1865/11
+    -   date: 1865-08-08
+        start: point.de.Lübeck-Genin-Abzw
+        freight: full
+        source: src.de.DRG.1935 # 1865/11
+    -   date: 1908-05-01
+        end: point.de.Lübeck-Genin-Abzw
         status: open
 
     #   Eigenschaften
@@ -62,75 +62,59 @@ events:
     -   date: !!null
         category: de.Hauptbahn
         tracks: 1
-        gauge: 1435
-        source: !keyref src.de.DRG.1927
-    -   date: !date 1870
+        gauge: 1435mm
+        source: src.de.DRG.1927
+    -   date: 1870
         tracks: 2
-        source: !keyref src.de.Hecht.2001
-    -   date: !date 2008-12-14
-        electrified:
-            overhead: !var el.de
+        source: src.de.Hecht.2001
+    -   date: 2008-12-14
+        electrified: de
 
     #   Eigentümer und Betreiber
     #
     -   date: !!null
-        owner: !keyref org.de.Lübeck-Büchener-Eisenbahn
-        operator: !keyref org.de.Lübeck-Büchener-Eisenbahn
-        source: !keyref src.de.DRG.1935
-
-    -   date: !date 1938-01-01
-        owner: !keyref org.de
-        operator: !keyref org.de.DR
-        source: !keyref src.de.WP.Lübeck-Buechener-Eisenbahn
-
-    -   date: !var org.de.DB.start
-        operator: !keyref org.de.DB
-
-    -   date: !var org.de.Deutsche-Bahn.start
-        owner: !keyref org.de.Deutsche-Bahn
-        operator: !keyref org.de.Deutsche-Bahn
-    -   date: !var org.de.DBNetz.start
-        owner: !keyref org.de.DB-Netz
-        operator: !keyref org.de.DB-Netz
+        owner: org.de.Lübeck-Büchener-Eisenbahn
+        operator: org.de.Lübeck-Büchener-Eisenbahn
+        source: src.de.DRG.1935
 
     #   Verlauf
     #
     -   date: !!null
         course:
-            - !pathref path.de.1120 lub  ber
-            - !pathref path.de.6100 flub ham
+            -   path.de.1120 lub ber
+            -   path.de.6100 flub ham
 
 points:
-    - !keyref point.de.Lübeck-Hbf                          # line.de.1100
-    - !keyref point.de.Lübeck-Hgbf
-    - !keyref point.de.Lübeck-Hgbf-Abzw
-    - !keyref point.de.Lübeck-Genin-Abzw
-    - !keyref point.de.Lübeck-Genin-Fehlstelle
-    - !keyref point.de.Lübeck-Niendorf
-    - !keyref point.de.Wesenburg
-    - !keyref point.de.Reinfeld-Holst
-    - !keyref point.de.Steinfeld
-    - !keyref point.de.Bad-Oldesloe
-    - !keyref point.de.Kupfermuehle
-    - !keyref point.de.Tremsbuettel
+    - point.de.Lübeck-Hbf                          # line.de.1100
+    - point.de.Lübeck-Hgbf
+    - point.de.Lübeck-Hgbf-Abzw
+    - point.de.Lübeck-Genin-Abzw
+    - point.de.Lübeck-Genin-Fehlstelle
+    - point.de.Lübeck-Niendorf
+    - point.de.Wesenburg
+    - point.de.Reinfeld-Holst
+    - point.de.Steinfeld
+    - point.de.Bad-Oldesloe
+    - point.de.Kupfermuehle
+    - point.de.Tremsbuettel
     -   point.de.Bargteheide
-    - !keyref point.de.Delingsdorf
+    - point.de.Delingsdorf
     -   point.de.Ahrensburg-Gartenholz
     -   point.de.Ahrensburg-Nord
     -   point.de.Ahrensburg
-    - !keyref point.de.Ahrensburg-LGr
-    - !keyref point.de.Meiendorf
-    - !keyref point.de.Hamburg-Rahlstedt-Bbf
-    - !keyref point.de.Hamburg-Rahlstedt
-    - !keyref point.de.Wandsbek-Ost-Bk
-    - !keyref point.de.Hamburg-Tonndorf
-    - !keyref point.de.Hamburg-Wandsbek-Wf
-    - !keyref point.de.Hamburg-Wandsbek
-    - !keyref point.de.Hamburg-Hasselbrook-S-Bahn           # line.de.1241
-    - !keyref point.de.Hamburg-Hasselbrook
+    - point.de.Ahrensburg-LGr
+    - point.de.Meiendorf
+    - point.de.Hamburg-Rahlstedt-Bbf
+    - point.de.Hamburg-Rahlstedt
+    - point.de.Wandsbek-Ost-Bk
+    - point.de.Hamburg-Tonndorf
+    - point.de.Hamburg-Wandsbek-Wf
+    - point.de.Hamburg-Wandsbek
+    - point.de.Hamburg-Hasselbrook-S-Bahn           # line.de.1241
+    - point.de.Hamburg-Hasselbrook
     -   point.de.Hamburg-Berliner-Tor
-    - !keyref point.de.Hamburg-Lübecker-Bf
-    - !keyref point.de.Hamburg-Hbf                          # line.de.6100
+    - point.de.Hamburg-Lübecker-Bf
+    - point.de.Hamburg-Hbf                          # line.de.6100
 
 
 # point.de.Lübeck-Hbf lub
@@ -143,36 +127,36 @@ events:
         name: Lübeck Mb Vschbf
         service: none
         de.lknr: 70 869
-        source: !keyref src.de.Bfv.1928
+        source: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
-        source: !keyref src.de.Bfv.1933
-    -   date: !date c1930
+        source: src.de.Bfv.1933
+    -   date: c1930
         name: Lübeck Mb Vbf
-        source: !keyref src.de.Bfv.1933
-    -   date: !date 1938-01-01
+        source: src.de.Bfv.1933
+    -   date: 1938-01-01
         name: Lübeck Vbf
         de.lknr: 27 279
-        source: !keyref src.de.Bfv.1938
-    -   date: !date 1938-01-01
-        de.Rangklasse: I
-        source: !keyref src.de.Bfv.1944
+        source: src.de.Bfv.1938
+    -   date: 1938-01-01
+        de.rang: I
+        source: src.de.Bfv.1944
     -   date: !!null
         de.DS100: ALR
         de.dstnr: !!str 016329
-        source: !keyref src.de.DS100.1984
-    -   date: !date c1970
+        source: src.de.DS100.1984
+    -   date: c1970
         name: Lübeck Hgbf
-        source: !keyref src.de.DS100.1984
+        source: src.de.DS100.1984
     -   date: !!null
         location:
-            - !keyloc line.de.1120 2,150
-            - !keyloc line.de.1121 2,150
-            - !keyloc line.de.1122 2,204
-        source: !keyref src.de.DBAG.ISR
+            line.de.1120: 2,150
+            line.de.1121: 2,150
+            line.de.1122: 2,204
+        source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.1120 lug
+        site: path.de.1120 lug
 
 
 ---
@@ -184,22 +168,22 @@ events:
         category: de.Glgr
         name: Lübeck Hgbf (La)
         de.DS100: ALR A
-        source: !keyref src.de.DS100.1984
-    -   date: !date c2000
+        source: src.de.DS100.1984
+    -   date: c2000
         category: de.Abzw
         name: Lübeck Hgbf Abzw
         de.DS100: ALRA
         source:
-            - !keyref src.de.SuW.2005
-            - !keyref src.de.TPP.2006
+            - src.de.SuW.2005
+            - src.de.TPP.2006
     -   date: !!null
         location:
-            - !keyloc line.de.1120 2,488
-            - !keyloc line.de.1121 2,482
-            - !keyloc line.de.1122 2,598
+            line.de.1120: 2,488
+            line.de.1121: 2,482
+            line.de.1122: 2,598
 
     -   date: !!null
-        site: !noderef path.de.1120 lua left
+        site: path.de.1120 lua
 
 
 ---
@@ -207,13 +191,13 @@ key: point.de.Lübeck-Genin-Abzw
 type: point
 junction: True
 events:
-    -   date: !date 1908-05-01?
+    -   date: 1908-05-01?
         status: open
     -   date: !!null
         short_name: Genin Abzw
 
     -   date: !!null
-        site: !noderef path.de.1120 gea left
+        site: path.de.1120 gea
 
 
 ---
@@ -222,8 +206,9 @@ type: point
 subtype: break
 events:
     -   date: !!null
-        location: !keyloc line.de.1120 4,7+50=5,8
-        site: !noderef path.de.1120 gef
+        location:
+            line.de.1120: 4,7+50=5,8
+        site: path.de.1120 gef
 
 
 ---
@@ -232,33 +217,34 @@ type: point
 events:
     -   date: !!null
         name: Reecke-Niendorf
-        source: !keyref src.de.Kb.1914
+        source: src.de.Kb.1914
     -   date: !!null
         de.lknr: 41 869
-        source: !keyref src.de.Bfv.1928
-    -   date: !date c1935
+        source: src.de.Bfv.1928
+    -   date: c1935
         name: Lübeck-Niendorf
-        source: !keyref src.de.Kb.W1937
+        source: src.de.Kb.W1937
     -   date: !!null
         category: de.Bf
-        source: !keyref src.de.Bfv.1938
-    -   date: !date 1938-01-01
+        source: src.de.Bfv.1938
+    -   date: 1938-01-01
         de.lknr: 27 276
-        source: !keyref src.de.Bfv.1938
-    -   date: !date 1938-01-01
-        de.Rangklasse: IV
-        source: !keyref src.de.Bfv.1944
+        source: src.de.Bfv.1938
+    -   date: 1938-01-01
+        de.rang: IV
+        source: src.de.Bfv.1944
     -   date: !!null
-        location: !keyloc line.de.1120 7,52
-        source: !keyref src.de.DRG.Alt.Karte.1945
+        location:
+            line.de.1120: 7,52
+        source: src.de.DRG.Alt.Karte.1945
     -   date: !!null
         de.DS100: AND
         de.dstnr: !!str 016808
-    -   date: !date c2005
+    -   date: c2005
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.1120 nie
+        site: path.de.1120 nie
 
 
 ---
@@ -267,14 +253,15 @@ type: point
 events:
     -   date: !!null
         category: de.Bk
-        location: !keyloc line.de.1120 11,55
+        location:
+            line.de.1120: 11,55
         name: Wesenburg
-        source: !keyref src.de.DRG.Alt.Karte.1945
-    -   date: !date c1970
+        source: src.de.DRG.Alt.Karte.1945
+    -   date: c1970
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.1120 wes
+        site: path.de.1120 wes
 
 
 ---
@@ -283,29 +270,30 @@ type: point
 events:
     -   date: !!null
         name: Reinfeld (Holst)
-        source: !keyref src.de.Kb.1914
+        source: src.de.Kb.1914
     -   date: !!null
         de.lknr: 42 869
-        source: !keyref src.de.Bfv.1928
+        source: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
-        source: !keyref src.de.Bfv.1938
-    -   date: !date 1938-01-01
+        source: src.de.Bfv.1938
+    -   date: 1938-01-01
         de.lknr: 27 275
-        source: !keyref src.de.Bfv.1938
-    -   date: !date 1938-01-01
-        de.Rangklasse: II
-        source: !keyref src.de.Bfv.1944
+        source: src.de.Bfv.1938
+    -   date: 1938-01-01
+        de.rang: II
+        source: src.de.Bfv.1944
     -   date: !!null
-        location: !keyloc line.de.1120 15,84
-        source: !keyref src.de.DRG.Alt.Karte.1945
+        location:
+            line.de.1120: 15,84
+        source: src.de.DRG.Alt.Karte.1945
     -   date: !!null
         de.DS100: ARD
         de.dstnr: !!str 016816
-        source: !keyref src.de.DS100.1984
+        source: src.de.DS100.1984
 
     -   date: !!null
-        site: !noderef path.de.1120 rei
+        site: path.de.1120 rei
 
 
 ---
@@ -314,14 +302,15 @@ type: point
 events:
     -   date: !!null
         category: de.Bk
-        location: !keyloc line.de.1120 19,35
+        location:
+            line.de.1120: 19,35
         name: Steinfeld
-        source: !keyref src.de.DRG.Alt.Karte.1945
-    -   date: !date c1970
+        source: src.de.DRG.Alt.Karte.1945
+    -   date: c1970
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.1120 ste
+        site: path.de.1120 ste
 
 
 ---
@@ -330,37 +319,38 @@ type: point
 events:
     -   date: !!null
         name: Oldesloe
-        source: !keyref src.de.Kb.1914
+        source: src.de.Kb.1914
     -   date: !!null
         de.lknr: 01 240
-        source: !keyref src.de.Bfv.1928
-    -   date: !date c1920
+        source: src.de.Bfv.1928
+    -   date: c1920
         name: Bad Oldesloe
-        source: !keyref src.de.Bfv.1928
+        source: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
-        de.Rangklasse: I
-        source: !keyref src.de.Bfv.1933
-    -   date: !var lknr.30
+        de.rang: I
+        source: src.de.Bfv.1933
+    -   date: de.lknr.30
         de.lknr: 01 326
-        source: !keyref src.de.Bfv.1933
+        source: src.de.Bfv.1933
     -   date: !!null
         location:
-            - !keyloc line.de.1043 119,54
-            - !keyloc line.de.1120  23,86
-            - !keyloc line.de.6928  78,34
-            - !keyloc line.de.1141 285,53
-        source: !keyref src.de.DRG.Alt.Karte.1945
+            line.de.1043: 119,54
+            line.de.1120:  23,86
+            line.de.6928:  78,34
+            line.de.1141: 285,53
+        source: src.de.DRG.Alt.Karte.1945
     -   date: !!null
         de.DS100: AO
         de.dstnr: !!str 013268
-        source: !keyref src.de.DS100.1984
+        source: src.de.DS100.1984
     -   date: !!null
-        location: !keyloc line.de.9120 52,7
-        source: !keyref src.de.SuW.2005
+        location:
+            line.de.9120: 52,7
+        source: src.de.SuW.2005
 
     -   date: !!null
-        site: !noderef path.de.1120 ste
+        site: path.de.1120 ste
 
  
 ---
@@ -369,48 +359,50 @@ type: point
 events:
     -   date: !!null
         name: Kupfermühle
-        source: !keyref src.de.Kb.1914
+        source: src.de.Kb.1914
     -   date: !!null
         de.lknr: 69 869
         service: passenger
-        source: !keyref src.de.Bfv.1928
-    -   date: !date 1938-01-01
+        source: src.de.Bfv.1928
+    -   date: 1938-01-01
         de.lknr: 01 630
-        source: !keyref src.de.Bfv.1938
+        source: src.de.Bfv.1938
     -   date: !!null
         category: [de.Hp, de.Bk]
-        location: !keyloc line.de.1120 29,97
-        source: !keyref src.de.DRG.Alt.Karte.1945
+        location:
+            line.de.1120: 29,97
+        source: src.de.DRG.Alt.Karte.1945
     -   date: !!null
         de.DS100: AKUP
         de.dstnr: !!str 016303
-        source: !keyref src.de.DS100.1984
-    -   date: !date c1970
+        source: src.de.DS100.1984
+    -   date: c1970
         category: de.Hp
-        source: !keyref src.de.DS100.1984
+        source: src.de.DS100.1984
 
     -   date: !!null
-        site: !noderef path.de.1120 kup
+        site: path.de.1120 kup
 
 
 ---
 key: point.de.Tremsbuettel
 type: point
 events:
-    -   date: !date c1960
+    -   date: c1960
         status: open
         category: de.Bk
-        location: !keyloc line.de.1120 31,9
+        location:
+            line.de.1120: 31,9
         name: Tremsbüttel
-        source: !keyref src.de.DB.Hmb.Karte.1976
+        source: src.de.DB.Hmb.Karte.1976
     -   date: !!null
         de.DS100: ATBL
-        source: !keyref src.de.DS100.1984
-    -   date: !date c2000
+        source: src.de.DS100.1984
+    -   date: c2000
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.1120 tre
+        site: path.de.1120 tre
 
 
 ---
@@ -418,34 +410,35 @@ key: point.de.Bargteheide
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.1120 35,405
+        location:
+            line.de.1120: 35,405
         source: src.de.DBAG.Geo-Betriebsstelle.2017
     -   date: !!null    
         name: Bargteheide
-        source: !keyref src.de.Kb.1914
+        source: src.de.Kb.1914
     -   date: !!null
         de.lknr: 44 869
-        source: !keyref src.de.Bfv.1928
+        source: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
-        source: !keyref src.de.Bfv.1938
-    -   date: !date 1938-01-01
+        source: src.de.Bfv.1938
+    -   date: 1938-01-01
         de.lknr: 01 629
-        source: !keyref src.de.Bfv.1938
-    -   date: !date 1938-01-01
-        de.Rangklasse: II
-        source: !keyref src.de.Bfv.1944
+        source: src.de.Bfv.1938
+    -   date: 1938-01-01
+        de.rang: II
+        source: src.de.Bfv.1944
     -   date: !!null
         de.DS100: ABAE
         de.dstnr: !!str 016295
-        source: !keyref src.de.DS100.1984
+        source: src.de.DS100.1984
     -   date: !!null
         de.name16: Bargteheide
         PLC: DE10635
         source: src.de.DBAG.BSV.2017
 
     -   date: !!null
-        site: !noderef path.de.1120 bar
+        site: path.de.1120 bar
 
 
 ---
@@ -454,14 +447,15 @@ type: point
 events:
     -   date: !!null
         category: de.Bk
-        location: !keyloc line.de.1120 38,69
+        location:
+            line.de.1120: 38,69
         name: Delingsdorf
-        source: !keyref src.de.DRG.Alt.Karte.1945
-    -   date: !date c1970
+        source: src.de.DRG.Alt.Karte.1945
+    -   date: c1970
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.1120 del
+        site: path.de.1120 del
 
 
 ---
@@ -475,14 +469,15 @@ events:
         de.name16: Ahrensburg-Gh
         de.DS100: AAHG
         PLC: DE10069
-        de.dstnr: 899401
+        de.dstnr: !!str 899401
         source: src.de.DBAG.BSV.2017
     -   date: !!null
-        location: !keyloc line.de.1120 39,910
+        location:
+            line.de.1120: 39,910
         source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
-        site: !noderef path.de.1120 gar
+        site: path.de.1120 gar
 
 
 ---
@@ -498,14 +493,15 @@ events:
         de.name16: Ahrensburg Nord
         de.DS100: AAHN
         PLC: DE10067
-        de.dstnr: 909500
+        de.dstnr: !!str 909500
         source: src.de.DBAG.BSV.2017
     -   date: !!null
-        location: !keyloc line.de.1120 40,300
+        location:
+            line.de.1120: 40,300
         source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
-        site: !noderef path.de.1120 ahn
+        site: path.de.1120 ahn
 
 
 ---
@@ -514,36 +510,38 @@ type: point
 events:
     -   date: !!null    
         name: Ahrensburg
-        source: !keyref src.de.Kb.1914
+        source: src.de.Kb.1914
     -   date: !!null
         de.lknr: 45 869
-        source: !keyref src.de.Bfv.1928
+        source: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
-        source: !keyref src.de.Bfv.1938
-    -   date: !date 1938-01-01
+        source: src.de.Bfv.1938
+    -   date: 1938-01-01
         de.lknr: 01 628
-        source: !keyref src.de.Bfv.1938
-    -   date: !date 1938-01-01
-        de.Rangklasse: II
-        source: !keyref src.de.Bfv.1944
+        source: src.de.Bfv.1938
+    -   date: 1938-01-01
+        de.rang: II
+        source: src.de.Bfv.1944
     -   date: !!null
-        location: !keyloc line.de.1120 42,43
-        source: !keyref src.de.DRG.Alt.Karte.1945
+        location:
+            line.de.1120: 42,43
+        source: src.de.DRG.Alt.Karte.1945
     -   date: !!null
         de.DS100: AAHR
         de.dstnr: !!str 016287
-        source: !keyref src.de.DS100.1984
+        source: src.de.DS100.1984
     -   date: !!null
         de.name16: Ahrensburg
         PLC: DE10066
         source: src.de.DBAG.BSV.2017
     -   date: c2000
-        location: !keyloc line.de.1120 42,437
+        location:
+            line.de.1120: 42,437
         source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
-        site: !noderef path.de.1120 ahr
+        site: path.de.1120 ahr
 
 
 ---
@@ -557,7 +555,7 @@ events:
         de.DS100: AQAH
 
     -   date: !!null
-        site: !noderef path.de.1120 gahr
+        site: path.de.1120 gahr
 
 
 ---
@@ -566,30 +564,32 @@ type: point
 events:
     -   date: !!null
         category: de.Bk
-        location: !keyloc line.de.1120 47,40
+        location:
+            line.de.1120: 47,40
         name: Meiendorf
-        source: !keyref src.de.DRG.Alt.Karte.1945
-    -   date: !date c1980
+        source: src.de.DRG.Alt.Karte.1945
+    -   date: c1980
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.1120 mei
+        site: path.de.1120 mei
 
 
 ---
 key: point.de.Hamburg-Rahlstedt-Bbf
 type: point
 events:
-    -   date: !date c1990
+    -   date: c1990
         status: open
         category: de.Bft
-        location: !keyloc line.de.1120 51,0
+        location:
+            line.de.1120: 51,0
         name: Hamburg-Rahlstedt Bbf
         de.DS100: ARALB
-        source: !keyref src.de.SuW.2005
+        source: src.de.SuW.2005
 
     -   date: !!null
-        site: !noderef path.de.1120 rab
+        site: path.de.1120 rab
 
 
 ---
@@ -598,35 +598,36 @@ type: point
 events:
     -   date: !!null    
         name: Alt Rahlstedt
-        source: !keyref src.de.Kb.1914
+        source: src.de.Kb.1914
     -   date: !!null
         de.lknr: 46 869
-        source: !keyref src.de.Bfv.1928
-    -   date: !date c1920
+        source: src.de.Bfv.1928
+    -   date: c1920
         name: Rahlstedt
-        source: !keyref src.de.Bfv.1928
+        source: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
-        source: !keyref src.de.Bfv.1938
-    -   date: !date 1938-01-01
+        source: src.de.Bfv.1938
+    -   date: 1938-01-01
         de.lknr: 01 627
-        source: !keyref src.de.Bfv.1938
-    -   date: !date 1938-01-01
-        de.Rangklasse: II
-        source: !keyref src.de.Bfv.1944
-    -   date: !date c1938
+        source: src.de.Bfv.1938
+    -   date: 1938-01-01
+        de.rang: II
+        source: src.de.Bfv.1944
+    -   date: c1938
         name: Hamburg-Rahlstedt
-        source: !keyref src.de.Bfv.1938
+        source: src.de.Bfv.1938
     -   date: !!null
-        location: !keyloc line.de.1120 51,66
-        source: !keyref src.de.DRG.Alt.Karte.1945
+        location:
+            line.de.1120: 51,66
+        source: src.de.DRG.Alt.Karte.1945
     -   date: !!null
         de.DS100: ARAL
         de.dstnr: !!str 016279
-        source: !keyref src.de.DS100.1982
+        source: src.de.DS100.1982
 
     -   date: !!null
-        site: !noderef path.de.1120 rah
+        site: path.de.1120 rah
 
 
 ---
@@ -635,46 +636,48 @@ type: point
 events:
     -   date: !!null
         category: de.Bk
-        location: !keyloc line.de.1120 54,42
+        location:
+            line.de.1120: 54,42
         name: Wandsbek Ost
-        source: !keyref src.de.DRG.Alt.Karte.1945
-    -   date: !date c1970
+        source: src.de.DRG.Alt.Karte.1945
+    -   date: c1970
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.1120 wab
+        site: path.de.1120 wab
 
 
 ---
 key: point.de.Hamburg-Tonndorf
 type: point
 events:
-    -   date: !date c1935
+    -   date: c1935
         status: open
-        source: !keyref src.de.Kb.W1937
+        source: src.de.Kb.W1937
     -   date: !!null
         category: de.Hp
         name: Wandsbek (Ost)
-        source: !keyref src.de.Bfv.1938
-    -   date: !date 1938-01-01
+        source: src.de.Bfv.1938
+    -   date: 1938-01-01
         de.lknr: 01 625
-        source: !keyref src.de.Bfv.1938
-    -   date: !date c1940
+        source: src.de.Bfv.1938
+    -   date: c1940
         name: Wandsbek Ost
-        source: !keyref src.de.Bfv.1944
+        source: src.de.Bfv.1944
     -   date: !!null
-        location: !keyloc line.de.1120 54,44
-        source: !keyref src.de.DRG.Alt.Karte.1945
+        location:
+            line.de.1120: 54,44
+        source: src.de.DRG.Alt.Karte.1945
     -   date: !!null
         de.DS100: AOW
         de.dstnr: !!str 016253
-        source: !keyref src.de.DS100.1984
-    -   date: !date c2005
+        source: src.de.DS100.1984
+    -   date: c2005
         name: Hamburg-Tonndorf
-        source: !keyref src.de.DBAG.ISR
+        source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.1120 ton
+        site: path.de.1120 ton
 
 
 ---
@@ -684,16 +687,16 @@ events:
     -   date: !!null
         category: de.Bft
         location:
-            - !keyloc line.de.1242 57,0
-            - !keyloc line.de.1120 57,0
-        source: !keyref src.de.SuW.2005
+            line.de.1242: 57,0
+            line.de.1120: 57,0
+        source: src.de.SuW.2005
     -   date: !!null
         de.DS100: AWN F
         name: Hamburg-Wandsbek Wf
-        source: !keyref src.de.TPP.2006
+        source: src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.1120 waf
+        site: path.de.1120 waf
 
 
 ---
@@ -702,56 +705,57 @@ type: point
 events:
     -   date: !!null
         name: Wandsbek
-        source: !keyref src.de.Kb.1914
+        source: src.de.Kb.1914
     -   date: !!null
         de.lknr: 47 869
-        source: !keyref src.de.Bfv.1928
+        source: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
-        source: !keyref src.de.Bfv.1938
-    -   date: !date 1938-01-01
-        de.Rangklasse: II
+        source: src.de.Bfv.1938
+    -   date: 1938-01-01
+        de.rang: II
         de.lknr: 01 626
-        source: !keyref src.de.Bfv.1938
-    -   date: !date 1938-05-15
+        source: src.de.Bfv.1938
+    -   date: 1938-05-15
         name: Hamburg-Wandsbek
-        source: !keyref src.de.web.Nosske
+        source: src.de.web.Nosske
     -   date: !!null
         location:
-            - !keyloc line.de.1242 58,19
-            - !keyloc line.de.1120 58,19
+            line.de.1242: 58,19
+            line.de.1120: 58,19
         source:
-            - !keyref src.de.DRG.Alt.Karte.1945
+            - src.de.DRG.Alt.Karte.1945
     -   date: !!null
         de.DS100: AWN
         de.dstnr: !!str 016261
-        source: !keyref src.de.DS100.1984
+        source: src.de.DS100.1984
 
     -   date: !!null
-        site: !noderef path.de.1120 wan
+        site: path.de.1120 wan
 
 
 ---
 key: point.de.Hamburg-Hasselbrook
 type: point
 events:
-    -   date: !date c1970
+    -   date: c1970
         status: open
-        split_from: !keyref point.de.Hamburg-Hasselbrook-S-Bahn
+        split_from: point.de.Hamburg-Hasselbrook-S-Bahn
     -   date: !!null
         category: de.Hp
         de.DS100: AHSF
         de.dstnr: !!str 011270
-        source: !keyref src.de.DS100.1984
+        source: src.de.DS100.1984
     -   date: !!null
-        location: !keyloc line.de.1120 59,7
-        source: !keyref src.de.SuW.2005
-    -   date: !date c2000
+        location:
+            line.de.1120: 59,7
+        source: src.de.SuW.2005
+    -   date: c2000
         name: Hamburg-Hasselbrook
-        source: !keyref src.de.TPP.2006
+        source: src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.1120 has
+        site: path.de.1120 has
 
 
 ---
@@ -760,32 +764,32 @@ type: point
 events:
     -   date: !!null    
         name: Berliner Tor
-        source: !keyref src.de.Kb.1914
+        source: src.de.Kb.1914
     -   date: !!null
         de.lknr: 01 387
         service: passenger
-        source: !keyref src.de.Bfv.1928
+        source: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
-        de.Rangklasse: II
-        source: !keyref src.de.Bfv.1933
-    -   date: !var lknr.30
+        de.rang: II
+        source: src.de.Bfv.1933
+    -   date: de.lknr.30
         de.lknr: 01 070
-        source: !keyref src.de.Bfv.1933
+        source: src.de.Bfv.1933
     -   date: !!null
         location:
-            - !keyloc line.de.1241 1,53
-            - !keyloc line.de.1244 1,53
-            - !keyloc line.de.1120 62,32
-            - !keyloc line.de.6100 285,13
-        source: !keyref src.de.DRG.Alt.Karte.1949
-    -   date: !date c1970
+            line.de.1241: 1,53
+            line.de.1244: 1,53
+            line.de.1120: 62,32
+            line.de.6100: 285,13
+        source: src.de.DRG.Alt.Karte.1949
+    -   date: c1970
         status: closed
 
     -   date: !!null
         site:
-            - !noderef path.de.1120 ber
-            - !noderef path.de.6100 btb
+            - path.de.1120 ber
+            - path.de.6100 btb
 
 
 ---
@@ -795,9 +799,9 @@ events:
     -   date: !!null
         category: de.Bf
         name: Hamburg Lübecker Bf
-    -   date: !date c1906
+    -   date: c1906
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.6100 lub
+        site: path.de.6100 lub
 

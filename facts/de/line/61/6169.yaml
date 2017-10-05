@@ -8,54 +8,38 @@ label: connection
 events:
     -   date: !!null
         region:
-            - !keyref org.de
-            - !keyref org.de.l.be
+            - org.de
+            - org.de.l.be
 
-    -   date: !var vzg.dr
+    -   date: de.vzg.dr
         de.VzG: !!str 6169
         source: src.de.DBAG.Geo-Strecke.2017
 
-    -   date: !date 1911-08-03
+    -   date: 1911-08-03
         status: open
-        source: !keyref src.de.DRG.1935
-    -   date: !date 1933-05-15
-        electrified:
-            rail: !var el.de.bln
-        source: !keyref src.de.Kuhlmann.2000
-    -   date: !date c1950
+        source: src.de.DRG.1935
+    -   date: 1933-05-15
+        electrified: de.bln
+        source: src.de.Kuhlmann.2000
+    -   date: c1950
         status: closed
-        source: !keyref src.dd.DR.Bln.1953
-    -   date: !date c1960
+        source: src.dd.DR.Bln.1953
+    -   date: c1960
         status: removed
 
     # Eigentümer und Betreiber
     #
     -   date: !!null
-        owner: !keyref org.de.l.pre
-        operator: !keyref org.de.e.bln
-    -   date: !date 1920-04-01
-        owner: !keyref org.de
-        operator: !keyref org.de.r.RVM.PH
-    -   date: !date 1924-02-12
-        operator: !keyref org.de.Deutsche-Reichsbahn-I
-    -   date: !date 1924-08-30
-        operator: !keyref org.de.DR
-    -   date: !var org.de.DR.start
-        operator: !keyref org.dd.DR
-    -   date: !var org.de.Deutsche-Bahn.start
-        owner: !keyref org.de.Deutsche-Bahn
-        operator: !keyref org.de.Deutsche-Bahn
-    -   date: !var org.de.DBNetz.start
-        owner: !keyref org.de.DB-Netz
-        operator: !keyref org.de.DB-Netz
+        owner: org.de.l.pre
+        operator: org.de.e.bln
 
     #   Verlauf
     #
     -   date: !!null
         course:
-            - !pathref path.de.6177 zeh  awan -1.5
-            - !pathref path.de.6033 fzeh zwt  -2.5
+            -   path.de.6177 zeh  awan
+            -   path.de.6033 fzeh zwt
 
 points:
-    - !keyref point.de.Berlin-Zehlendorf                # line.de.6177
-    - !keyref point.de.Berlin-Zehlendorf-Zwt            # line.de.6033
+    - point.de.Berlin-Zehlendorf                # line.de.6177
+    - point.de.Berlin-Zehlendorf-Zwt            # line.de.6033

@@ -6,8 +6,8 @@ type: line
 events:
     -   date: !!null
         region:
-            - !keyref org.de
-            - !keyref org.de.l.nw
+            - org.de
+            - org.de.l.nw
 
     -   date: !!null
         end: point.de.Häverstädt
@@ -16,41 +16,42 @@ events:
 
     -   date: !!null
         category: de.Nebenbahn
-        owner: !keyref org.de
-        operator: !keyref org.de.DR
+        owner: org.de
+        operator: org.de.DR
 
-    -   date: !date 1938-09-01
+    -   date: 1938-09-01
         status: open
-        service: freight
-        source: !keyref src.de.web.Joost
-    -   date: !date 1950-07-31
-        service: passenger
-        source: !keyref src.de.web.Joost
-    -   date: !date 1950-09-23
-        service: none
-        source: !keyref src.de.web.Joost
-    -   date: !date 1976-05-30
+        passenger: none
+        source: src.de.web.Joost
+    -   date: 1950-07-31
+        passenger: full
+        source: src.de.web.Joost
+    -   date: 1950-09-23
+        passenger: none
+        source: src.de.web.Joost
+    -   date: 1976-05-30
         status: closed
-        source: !keyref src.de.web.Joost
-    -   date: !date c1980
+        source: src.de.web.Joost
+    -   date: c1980
         status: removed
 
 points:
-    - !keyref point.de.Porta-Po                             # line.de.1700
-    - !keyref point.de.Neesen
+    - point.de.Porta-Po                             # line.de.1700
+    - point.de.Neesen
     -   point.de.Häverstädt
-    - !keyref point.de.Haeverstaedt-Dorf
+    - point.de.Haeverstaedt-Dorf
 
 ---
 key: point.de.Neesen
 type: point
 events:
-    -   date: !date 1950-07-31
-        location: !keyloc line.de.2991 0,1
+    -   date: 1950-07-31
+        location:
+            line.de.2991: 0,1
         category: de.Hp
         name: Neesen
-        source: !keyref src.de.web.Joost
-    -   date: !date 1950-09-23
+        source: src.de.web.Joost
+    -   date: 1950-09-23
         status: closed
 
 ---
@@ -58,29 +59,31 @@ key: point.de.Häverstädt
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.2991 3,81
-        source: !keyref src.de.web.Joost
+        location:
+            line.de.2991: 3,81
+        source: src.de.web.Joost
     -   date: !!null
         category: de.Bf
-        de.Rangklasse: III
+        de.rang: III
         name: Häverstädt
         service: freight
         de.lknr: 13 580
-        source: !keyref src.de.Bfv.1944
+        source: src.de.Bfv.1944
     -   date: !!null
         de.VBL: Hv
-        source: !keyref src.de.web.Joost
+        source: src.de.web.Joost
         
 ---
 key: point.de.Haeverstaedt-Dorf
 type: point
 junction: True
 events:
-    -   date: !date 1950-07-31
-        location: !keyloc line.de.2991 4,3
+    -   date: 1950-07-31
+        location:
+            line.de.2991: 4,3
         category: de.Hp
         name: Häverstädt Dorf
-        source: !keyref src.de.web.Joost
-    -   date: !date 1950-09-23
+        source: src.de.web.Joost
+    -   date: 1950-09-23
         status: closed
 

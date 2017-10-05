@@ -8,71 +8,60 @@ label: de.S-Bahn
 events:
     -   date: !!null
         region:
-            - !keyref org.de
-            - !keyref org.de.l.be
+            - org.de
+            - org.de.l.be
 
-    -   date: !var vzg.dr
+    -   date: de.vzg.dr
         de.VzG: !!str 6011
         source: src.de.DBAG.Geo-Strecke.2017
 
     -   date: !!null
         category: de.Hauptbahn
         tracks: 2
-        electrified:
-            rail: !var el.de.bln
-        source: !keyref src.dd.DR.Bln.1983
+        electrified: de.bln
+        source: src.dd.DR.Bln.1983
 
     # Eröffnung
     #
-    -   date: !date 1976-12-30
-        end: !keyref point.de.Berlin-Marzahn
+    -   date: 1976-12-30
+        end: point.de.Berlin-Marzahn
         status: open
-        source: !keyref src.de.Kuhlmann.2000
-    -   date: !date 1980-12-15
-        start: !keyref point.de.Berlin-Marzahn
-        end: !keyref point.de.Berlin-Mehrower-Allee
+        source: src.de.Kuhlmann.2000
+    -   date: 1980-12-15
+        start: point.de.Berlin-Marzahn
+        end: point.de.Berlin-Mehrower-Allee
         status: open
-        source: !keyref src.de.Kuhlmann.2000
-    -   date: !date 1982-12-30
-        start: !keyref point.de.Berlin-Mehrower-Allee
+        source: src.de.Kuhlmann.2000
+    -   date: 1982-12-30
+        start: point.de.Berlin-Mehrower-Allee
         status: open
-        source: !keyref src.de.Kuhlmann.2000
+        source: src.de.Kuhlmann.2000
 
     # Eigentümer und Betriebsführer
     #
     -   date: !!null
-        owner: !keyref org.dd
-        operator: !keyref org.dd.DR
-
-    -   date: !date 1990-10-03
-        owner: !keyref org.de
-
-    -   date: !var org.de.Deutsche-Bahn.start
-        owner: !keyref org.de.Deutsche-Bahn
-        operator: !keyref org.de.Deutsche-Bahn
-    -   date: !var org.de.DBNetz.start
-        owner: !keyref org.de.DB-Netz
-        operator: !keyref org.de.DB-Netz
+        owner: org.dd
+        operator: org.dd.DR
 
     # Verlauf
     #
     -   date: !!null
         course:
-            - !pathref path.de.6006.bik bis  aspr
-            - !pathref path.de.6072     fffo f
-            - !pathref path.de.6080     flic awri
-            - !pathref path.de.6531     fbik ahr
+            -   path.de.6006.bik bis  aspr
+            -   path.de.6072     fffo f
+            -   path.de.6080     flic awri
+            -   path.de.6531     fbik ahr
 
 points:
-    - !keyref point.de.Biesdorfer-Kreuz-S-Bahn              # line.de.6006
-    - !keyref point.de.Berlin-Springpfuhl
-    - !keyref point.de.Berlin-Poelchaustrasse
-    - !keyref point.de.Berlin-Marzahn                       # line.de.6531
-    - !keyref point.de.Berlin-Marzahn-S-Bahn
-    - !keyref point.de.Berlin-Raoul-Wallenberg-Strasse
-    - !keyref point.de.Berlin-Mehrower-Allee
-    - !keyref point.de.Ahrensfelde                          # line.de.6531
-    - !keyref point.de.Ahrensfelde-S-Bahn
+    - point.de.Biesdorfer-Kreuz-S-Bahn              # line.de.6006
+    - point.de.Berlin-Springpfuhl
+    - point.de.Berlin-Poelchaustrasse
+    - point.de.Berlin-Marzahn                       # line.de.6531
+    - point.de.Berlin-Marzahn-S-Bahn
+    - point.de.Berlin-Raoul-Wallenberg-Strasse
+    - point.de.Berlin-Mehrower-Allee
+    - point.de.Ahrensfelde                          # line.de.6531
+    - point.de.Ahrensfelde-S-Bahn
 
 
 ---
@@ -80,66 +69,67 @@ key: point.de.Berlin-Springpfuhl
 type: point
 junction: True
 events:
-    -   date: !date 1976-12-30
+    -   date: 1976-12-30
         status: open
-        split_from: !keyref point.de.Biesdorfer-Kreuz-Nord
+        split_from: point.de.Biesdorfer-Kreuz-Nord
     -   date: !!null
         category: de.Bf
-        de.Rangklasse: U
+        de.rang: U
         name: Springpfuhl
-        master: !keyref point.de.Berlin-Marzahn
+        master: point.de.Berlin-Marzahn
         de.VBL: Sgp
-        source: !keyref src.dd.DR.Bln.1978
-    -   date: !date c1980
-        master: !keyref point.de.Berlin-Lichtenberg
-        source: !keyref src.dd.DR.Bln.1983
+        source: src.dd.DR.Bln.1978
+    -   date: c1980
+        master: point.de.Berlin-Lichtenberg
+        source: src.dd.DR.Bln.1983
     -   date: !!null
         location:
-            - !keyloc line.de.6011 8,750
-        source: !keyref src.dd.DR.Bln.1991
-    -   date: !var ds100.dr
+            line.de.6011: 8,750
+        source: src.dd.DR.Bln.1991
+    -   date: de.ds100.dr
         de.DS100: BSPH
-        source: !keyref src.de.TPP.2006
-    -   date: !date c2000
+        source: src.de.TPP.2006
+    -   date: c2000
         name: Berlin Springpfuhl
-        source: !keyref src.de.TPP.2006
-    -   date: !date c2010
+        source: src.de.TPP.2006
+    -   date: c2010
         location:
-            - !keyloc line.de.6011 8,679
-            - !keyloc line.de.6012 8,956
-        source: !keyref src.de.DBAG.ISR
+            line.de.6011: 8,679
+            line.de.6012: 8,956
+        source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.6080 spr
+        site: path.de.6080 spr
 
 
 ---
 key: point.de.Berlin-Poelchaustrasse
 type: point
 events:
-    -   date: !date 1979-09-28
+    -   date: 1979-09-28
         status: open
-        source: !keyref src.de.Kuhlmann.2000
+        source: src.de.Kuhlmann.2000
     -   date: !!null
-        location: !keyloc line.de.6011 9,700
+        location:
+            line.de.6011: 9,700
         category: de.Hp
         staff: none
-        master: !keyref point.de.Berlin-Marzahn
+        master: point.de.Berlin-Marzahn
         name: Karl-Maron-Straße
         de.VBL: Km
-        source: !keyref src.dd.DR.Bln.1983
-    -   date: !date 1992-01-31
+        source: src.dd.DR.Bln.1983
+    -   date: 1992-01-31
         name: Poelchaustraße
-        source: !keyref src.de.Kuhlmann.2000
-    -   date: !var ds100.dr
+        source: src.de.Kuhlmann.2000
+    -   date: de.ds100.dr
         de.DS100: BPOE
-        source: !keyref src.de.TPP.2006
-    -   date: !date c2000
+        source: src.de.TPP.2006
+    -   date: c2000
         name: Berlin Pölchaustraße
-        source: !keyref src.de.TPP.2006
+        source: src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.6531 poe
+        site: path.de.6531 poe
 
 # point.de.Berlin-Marzahn 9,92
 
@@ -147,105 +137,111 @@ events:
 key: point.de.Berlin-Marzahn-S-Bahn
 type: point
 events:
-    -   date: !date 2006
+    -   date: 2006
         status: open
         source:
-            - !keyref src.de.TPP.2006
-            - !keyref src.de.TPP.2007
+            - src.de.TPP.2006
+            - src.de.TPP.2007
     -   date: !!null
         name: Berlin-Marzahn S-Bahn
         de.DS100: BMAZ
-        source: !keyref src.de.TPP.2007
+        source: src.de.TPP.2007
     -   date: !!null
-        location: !keyloc line.de.6011 10,625
+        location:
+            line.de.6011: 10,625
         category: de.Bf
-        source: !keyref src.de.DBAG.ISR
+        source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.6531 mar
+        site: path.de.6531 mar
 
 
 ---
 key: point.de.Berlin-Raoul-Wallenberg-Strasse
 type: point
 events:
-    -   date: !date 1980-12-15
+    -   date: 1980-12-15
         status: open
-        source: !keyref src.de.Kuhlmann.2000
+        source: src.de.Kuhlmann.2000
     -   date: !!null
-        location: !keyloc line.de.6011 10,340
+        location:
+            line.de.6011: 10,340
         category: de.Hp
         staff: none
-        master: !keyref point.de.Berlin-Marzahn
+        master: point.de.Berlin-Marzahn
         name: Bruno-Leuschner-Straße
         de.VBL: Bl
-        source: !keyref src.dd.DR.Bln.1983
-    -   date: !date 1992-01-31
+        source: src.dd.DR.Bln.1983
+    -   date: 1992-01-31
         name: Raoul-Wallenberg-Straße
-        source: !keyref src.de.Kuhlmann.2000
-    -   date: !var ds100.dr
+        source: src.de.Kuhlmann.2000
+    -   date: de.ds100.dr
         de.DS100: BRW
-        source: !keyref src.de.TPP.2006
-    -   date: !date c2000
+        source: src.de.TPP.2006
+    -   date: c2000
         name: Berlin Raoul-Wallenberg-Straße
-        source: !keyref src.de.TPP.2006
-    -   date: !date c2000
-        location: !keyloc line.de.6011 11,595
-        source: !keyref src.de.DBAG.ISR
+        source: src.de.TPP.2006
+    -   date: c2000
+        location:
+            line.de.6011: 11,595
+        source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.6531 rao
+        site: path.de.6531 rao
 
 
 ---
 key: point.de.Berlin-Mehrower-Allee
 type: point
 events:
-    -   date: !date 1980-12-15
+    -   date: 1980-12-15
         status: open
-        source: !keyref src.de.Kuhlmann.2000
+        source: src.de.Kuhlmann.2000
     -   date: !!null
-        location: !keyloc line.de.6011 11,750
+        location:
+            line.de.6011: 11,750
         category: de.Hp
         staff: none
-        master: !keyref point.de.Berlin-Marzahn
+        master: point.de.Berlin-Marzahn
         name: Otto-Winzer-Straße
         de.VBL: Ow
-        source: !keyref src.dd.DR.Bln.1983
-    -   date: !date 1992-01-31
+        source: src.dd.DR.Bln.1983
+    -   date: 1992-01-31
         name: Mehrower Allee
-        source: !keyref src.de.Kuhlmann.2000
-    -   date: !var ds100.dr
+        source: src.de.Kuhlmann.2000
+    -   date: de.ds100.dr
         de.DS100: BMEA
-        source: !keyref src.de.TPP.2006
-    -   date: !date c2000
+        source: src.de.TPP.2006
+    -   date: c2000
         name: Berlin Mehrower Allee
-        source: !keyref src.de.TPP.2006
-    -   date: !date c2000
-        location: !keyloc line.de.6011 12,462
-        source: !keyref src.de.DBAG.ISR
+        source: src.de.TPP.2006
+    -   date: c2000
+        location:
+            line.de.6011: 12,462
+        source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.6531 meh
+        site: path.de.6531 meh
 
 
 ---
 key: point.de.Ahrensfelde-S-Bahn
 type: point
 events:
-    -   date: !date 2006
+    -   date: 2006
         status: open
         source:
-            - !keyref src.de.TPP.2006
-            - !keyref src.de.TPP.2007
+            - src.de.TPP.2006
+            - src.de.TPP.2007
     -   date: !!null
         name: Ahrensfelde S-Bahn
         de.DS100: BAF
-        source: !keyref src.de.TPP.2007
+        source: src.de.TPP.2007
     -   date: !!null
-        location: !keyloc line.de.6011 14,277
+        location:
+            line.de.6011: 14,277
         category: de.Bf
-        source: !keyref src.de.DBAG.ISR
+        source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.6531 ahr
+        site: path.de.6531 ahr

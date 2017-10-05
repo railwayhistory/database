@@ -7,8 +7,8 @@ label: connection
 events:
     -   date: !!null
         region:
-            - !keyref org.de
-            - !keyref org.de.l.hh
+            - org.de
+            - org.de.l.hh
 
     -   date: !!null
         de.VzG: !!str 1242
@@ -16,60 +16,45 @@ events:
 
     #   Genehmigung und Eröffnung
     #
-    -   date: !date 1898-12-30
+    -   date: 1898-12-30
         concession:
-            by: !keyref org.de.l.pre
-            for: !keyref org.de.Lübeck-Büchener-Eisenbahn
-        source: !keyref src.de.DRG.1935
+            by: org.de.l.pre
+            for: org.de.Lübeck-Büchener-Eisenbahn
+        source: src.de.DRG.1935
  
-    -   date: !date 1902-10-01
+    -   date: 1902-10-01
         status: open
-        service: freight
-        source: !keyref src.de.DRG.1935
+        passenger: none
+        source: src.de.DRG.1935
 
     #   Eigenschaften
     #
     -   date: !!null
         category: de.Hauptbahn
         tracks: 1
-        gauge: 1435
-        source: !keyref src.de.DRG.Alt.Karte.1945
+        gauge: 1435mm
+        source: src.de.DRG.Alt.Karte.1945
 
-    -   date: !date 2008-12-24?
-        electrified:
-            overhead: !var el.de
+    -   date: 2008-12-24?
+        electrified: de
 
     #   Eigentümer und Betreiber
     #
     -   date: !!null
-        owner: !keyref org.de.Lübeck-Büchener-Eisenbahn
-        operator: !keyref org.de.Lübeck-Büchener-Eisenbahn
-
-    -   date: !date 1938-01-01
-        owner: !keyref org.de
-        operator: !keyref org.de.DR
-
-    -   date: !var org.de.DB.start
-        operator: !keyref org.de.DB
-
-    -   date: !var org.de.Deutsche-Bahn.start
-        owner: !keyref org.de.Deutsche-Bahn
-        operator: !keyref org.de.Deutsche-Bahn
-    -   date: !var org.de.DBNetz.start
-        owner: !keyref org.de.DB-Netz
-        operator: !keyref org.de.DB-Netz
+        owner: org.de.Lübeck-Büchener-Eisenbahn
+        operator: org.de.Lübeck-Büchener-Eisenbahn
 
     #   Verlauf
     #
     -   date: !!null
         course:
-            - !pathref path.de.1120     waf  arot -1.5
-            - !pathref path.de.1242     a    f     0.0
-            - !pathref path.de.1234.rot fwan hor   0.0
+            -   path.de.1120     waf  arot
+            -   path.de.1242     a    f
+            -   path.de.1234.rot fwan hor
 
 points:
-    - !keyref point.de.Hamburg-Wandsbek-Wf                  # line.de.1120
-    - !keyref point.de.Hamburg-Wandsbek                     # line.de.1120
-    - !keyref point.de.Hamburg-Horn                         # line.de.1234
+    - point.de.Hamburg-Wandsbek-Wf                  # line.de.1120
+    - point.de.Hamburg-Wandsbek                     # line.de.1120
+    - point.de.Hamburg-Horn                         # line.de.1234
 
 

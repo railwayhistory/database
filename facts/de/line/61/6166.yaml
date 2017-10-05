@@ -7,11 +7,11 @@ label: freight
 events:
     -   date: !!null
         region:
-            - !keyref org.de
-            - !keyref org.de.l.be
+            - org.de
+            - org.de.l.be
 
-    -   date: !var vzg.dr
-        end: !keyref point.de.Berlin-Gesundbrunnen-Vns
+    -   date: de.vzg.dr
+        end: point.de.Berlin-Gesundbrunnen-Vns
         de.VzG: !!str 6166
         source: src.de.DBAG.Geo-Strecke.2017
 
@@ -33,54 +33,52 @@ events:
     #   Eigenschaften
     #
     -   date: !!null
-        service: freight
-        source: !keyref src.de.Kuhlmann.2000
+        passenger: none
+        source: src.de.Kuhlmann.2000
     -   date: !!null
         category: de.Hauptbahn
         tracks: 1
-        gauge: 1435
-        source: !keyref src.de.DRG.1927
-    -   date: !date 1892-06-16
-        service: full
-        source: !keyref src.de.Kuhlmann.2000
-    -   date: !date 1898-02-01
-        service: freight
-        source: !keyref src.de.Kuhlmann.2000
+        gauge: 1435mm
+        source: src.de.DRG.1927
+    -   date: 1892-06-16
+        passenger: full
+        source: src.de.Kuhlmann.2000
+    -   date: 1898-02-01
+        passenger: none
+        source: src.de.Kuhlmann.2000
 
     #   Stilllegung und Abbau
     #
-    -   date: !date c1970
+    -   date: c1970
         status: removed
-        source: !keyref src.dd.DR.Bln.1973
+        source: src.dd.DR.Bln.1973
 
     #   Eigentümer und Betreiber
     #
     -   date: !!null
-        owner: !keyref org.de.l.pre
-        operator: !keyref org.de.e.bln
+        owner: org.de.l.pre
+        operator: org.de.e.bln
 
-    -   date: !date 1949-10-07
-        start: !keyref point.de.Berlin-Bornholmer-Strasse-Gr
-        end: !keyref point.de.Berlin-Wollankstrasse-Gr
-        owner: !keyref org.dd
-    -   date: !var org.de.DR.start
-        operator: !keyref org.dd.DR
+    -   date: 1949-10-07
+        start: point.de.Berlin-Bornholmer-Strasse-Gr
+        end: point.de.Berlin-Wollankstrasse-Gr
+        owner: org.dd
 
     #   Verlauf
     #
     -   date: !!null
         course:
-            - !pathref path.de.6166 bes  gbor 0.0
-            - !pathref path.de.6081 fbes ason 1.5
-            - !pathref path.de.6088 a    son  1.5
+            -   path.de.6166 bes  gbor
+            -   path.de.6081 fbes ason
+            -   path.de.6088 a    son
 
 points:
-    - !keyref point.de.Berlin-Eberswalder-Strasse
-    - !keyref point.de.Berlin-Bornholmer-Strasse-Gr         # line.de.6081
-    - !keyref point.de.Berlin-Gesundbrunnen-Vns             # line.de.6167
-    - !keyref point.de.Berlin-Vnp                           # line.de.6088
-    - !keyref point.de.Berlin-Wollankstrasse-Gr             # line.de.6088
-    - !keyref point.de.Berlin-Schoenholz                    # line.de.6088
+    - point.de.Berlin-Eberswalder-Strasse
+    - point.de.Berlin-Bornholmer-Strasse-Gr         # line.de.6081
+    - point.de.Berlin-Gesundbrunnen-Vns             # line.de.6167
+    - point.de.Berlin-Vnp                           # line.de.6088
+    - point.de.Berlin-Wollankstrasse-Gr             # line.de.6088
+    - point.de.Berlin-Schoenholz                    # line.de.6088
     
 
 ---
@@ -88,59 +86,62 @@ key: point.de.Berlin-Eberswalder-Strasse
 type: point
 junction: True
 events:
-    -   date: !date 1877-07-10
+    -   date: 1877-07-10
         status: open
         service: freight
-        source: !keyref src.de.Kuhlmann.2000
-    -   date: !date 1892-06-16
+        source: src.de.Kuhlmann.2000
+    -   date: 1892-06-16
         service: full
-        source: !keyref src.de.Kuhlmann.2000
-    -   date: !date 1898-02-01
+        source: src.de.Kuhlmann.2000
+    -   date: 1898-02-01
         service: freight
-        source: !keyref src.de.Kuhlmann.2000
+        source: src.de.Kuhlmann.2000
     -   date: !!null
-        location: !keyloc line.de.6166 -0,02
+        location:
+            line.de.6166: -0,02
         category: de.Bf
-        de.Rangklasse: I
+        de.rang: I
         name: Berlin Nordbf
-        source: !keyref src.de.DRG.Bln.1927
+        source: src.de.DRG.Bln.1927
     -   date: !!null
         de.lknr: 03 065
-        source: !keyref src.de.Bfv.1928
-    -   date: !date c1930
-        location: !keyloc line.de.6166 0,02
-        source: !keyref src.de.DRG.Bln.1932
-    -   date: !var lknr.30
+        source: src.de.Bfv.1928
+    -   date: c1930
+        location:
+            line.de.6166: 0,02
+        source: src.de.DRG.Bln.1932
+    -   date: de.lknr.30
         de.lknr: 03 197
-        source: !keyref src.de.Bfv.1933
-    -   date: !date c1940
-        location: !keyloc line.de.6166 0,01
-        source: !keyref src.de.DRG.Bln.1943
+        source: src.de.Bfv.1933
+    -   date: c1940
+        location:
+            line.de.6166: 0,01
+        source: src.de.DRG.Bln.1943
     -   date: !!null
         de.VBL: Ngb
-        source: !keyref src.de.DRG.Bln.1946
-    -   date: !date 1950-12-01
+        source: src.de.DRG.Bln.1946
+    -   date: 1950-12-01
         name: Berlin Eberswalder Straße
-        source: !keyref src.de.Kuhlmann.2000
-    -   date: !date 1950-12-01?
+        source: src.de.Kuhlmann.2000
+    -   date: 1950-12-01?
         de.VBL: Nws
-        source: !keyref src.dd.DR.Bln.1953
-    -   date: !date c1950
-        de.Rangklasse: U
-        master: !keyref point.de.Berlin-Gesundbrunnen
+        source: src.dd.DR.Bln.1953
+    -   date: c1950
+        de.rang: U
+        master: point.de.Berlin-Gesundbrunnen
         source:
-            - !keyref src.dd.DR.Bln.1953
-            - !keyref src.dd.DR.Bln.1959
-    -   date: !date c1965
+            - src.dd.DR.Bln.1953
+            - src.dd.DR.Bln.1959
+    -   date: c1965
         de.VBL: Ews
-        source: !keyref src.dd.DR.Bln.1968
-    -   date: !var ds100.dr
+        source: src.dd.DR.Bln.1968
+    -   date: de.ds100.dr
         de.DS100: BEBW
-    -   date: !date c1995
+    -   date: c1995
         category: de.Anst
-    -   date: !date c2000
+    -   date: c2000
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.6166 bes down 
+        site: path.de.6166 bes
 

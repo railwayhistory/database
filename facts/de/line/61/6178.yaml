@@ -7,17 +7,17 @@ label: connection
 events:
     -   date: !!null
         region:
-            - !keyref org.de
-            - !keyref org.de.l.be
+            - org.de
+            - org.de.l.be
 
-    -   date: !var vzg.dr
+    -   date: de.vzg.dr
         de.VzG: !!str 6178
         source: src.de.DBAG.Geo-Strecke.2017
 
     -   date: !!null
         category: de.Hauptbahn
         tracks: 2
-        source: !keyref src.de.DRG.1927
+        source: src.de.DRG.1927
 
     #   Genehmigungen
     #
@@ -32,52 +32,36 @@ events:
     #
     -   date: 1879-04-15
         status: open
-        service: freight
+        passenger: none
         source: src.de.DRG.1935 # 1879/5
     -   date: 1879-05-15
-        service: passenger
+        passenger: full
         source: src.de.DRG.1935 # 1879/5
 
-    -   date: !date c1955
+    -   date: c1955
         tracks: 1
-        source: !keyref src.dd.DR.Bln.1959
+        source: src.dd.DR.Bln.1959
 
-    -   date: !date 2005-11-07
-        electrified:
-            overhead: !var el.de
-        source: !keyref src.de.WP.Chronik-Streckenelektrifizierung-DBAG
+    -   date: 2005-11-07
+        electrified: de
+        source: src.de.WP.Chronik-Streckenelektrifizierung-DBAG
 
     #   Eigentümer und Betriebsführer
     #
     -   date: !!null
-        owner: !keyref org.de.l.pre
-        operator: !keyref org.de.e.bln
-    -   date: !date 1920-04-01
-        owner: !keyref org.de
-        operator: !keyref org.de.r.RVM.PH
-    -   date: !date 1924-02-12
-        operator: !keyref org.de.Deutsche-Reichsbahn-I
-    -   date: !date 1924-08-30
-        operator: !keyref org.de.DR
-    -   date: !var org.de.DR.start
-        operator: !keyref org.dd.DR
-    -   date: !var org.de.Deutsche-Bahn.start
-        owner: !keyref org.de.Deutsche-Bahn
-        operator: !keyref org.de.Deutsche-Bahn
-    -   date: !var org.de.DBNetz.start
-        owner: !keyref org.de.DB-Netz
-        operator: !keyref org.de.DB-Netz
+        owner: org.de.l.pre
+        operator: org.de.e.bln
 
     #   Verlauf
     #
     -   date: !!null
         course:
-            - !pathref path.de.6118 gru  ahal 4.
-            - !pathref path.de.6042 a    ahal 2.
-            - !pathref path.de.6178 a    f    0.
-            - !pathref path.de.6020 agru has  4.
+            -   path.de.6118 gru  ahal
+            -   path.de.6042 a    ahal
+            -   path.de.6178 a    f
+            -   path.de.6020 agru has
 
 points:
     -   point.de.Berlin-Grunewald-Gdr               # de.6042
-    - !keyref point.de.Berlin-Halensee              # line.de.6170
-    - !keyref point.de.Berlin-Halensee-Suedkopf     # line.de.6170
+    - point.de.Berlin-Halensee              # line.de.6170
+    - point.de.Berlin-Halensee-Suedkopf     # line.de.6170

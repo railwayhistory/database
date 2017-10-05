@@ -15,7 +15,7 @@ events:
         start: point.de.Berlin-Mahlsdorf-LGr-S-Bahn
         region: org.de.l.bb
 
-    -   date: !var vzg.dr
+    -   date: de.vzg.dr
         de.VzG: !!str 6006
         source: src.de.DBAG.Geo-Strecke.2017
 
@@ -45,22 +45,19 @@ events:
         source: src.de.DRG.1935
     -   date: 1928-11-06
         end: point.de.Berlin-Lichtenberg
-        electrified:
-            rail: !var el.de.bln
+        electrified: de.bln
         source: src.de.Kuhlmann.2000
     -   date: 1930-12-15
         start: point.de.Berlin-Kaulsdorf
         end: point.de.Berlin-Mahlsdorf
         status: open
-        electrified:
-            rail: !var el.de.bln
+        electrified: de.bln
         source: src.de.DRG.1935
     -   date: 1941-07-03
         start: point.de.Berlin-Lichtenberg
         end: point.de.Berlin-Kaulsdorf
         status: open
-        electrified:
-            rail: !var el.de.bln
+        electrified: de.bln
         source: src.de.DRG.1935
     -   date: 1944-08-01
         start: point.de.Berlin-Mahlsdorf
@@ -70,19 +67,16 @@ events:
     -   date: 1947-03-07
         start: point.de.Berlin-Mahlsdorf
         end: point.de.Hoppegarten-Mark
-        electrified:
-            rail: !var el.de.bln
+        electrified: de.bln
         source: src.de.DRG.1935
     -   date: 1948-09-01
         start: point.de.Hoppegarten-Mark
         end: point.de.Fredersdorf-Berlin
-        electrified:
-            rail: !var el.de.bln
+        electrified: de.bln
         source: src.de.DRG.1935
     -   date: 1948-10-30
         start: point.de.Fredersdorf-Berlin
-        electrified:
-            rail: !var el.de.bln
+        electrified: de.bln
         source: src.de.DRG.1935
 
     # Eigentümer und Betreiber
@@ -90,19 +84,23 @@ events:
     -   date: !!null
         owner: org.de.l.pre
         operator: org.de.e.bln
+    -   date: 1949-07-01
+        owner: org.dd
+    -   date: org.dd.DR.start
+        operator: org.dd.DR
 
     # Verlauf
     #
     -   date: !!null
         course:
-            - !pathref path.de.6153     vsr  alic -4.0
-            - !pathref path.de.6078     a    str   2.0
+            -   path.de.6153     vsr  alic
+            -   path.de.6078     a    str
     -   date: c1975
         course:
-            - !pathref path.de.6153     vsr  alic -4.0
-            - !pathref path.de.6078     a    abis  2.0
-            - !pathref path.de.6006.bik ffrs f     0.0
-            - !pathref path.de.6078     bio  str  -2.0
+            -   path.de.6153     vsr  alic
+            -   path.de.6078     a    abis
+            -   path.de.6006.bik ffrs f
+            -   path.de.6078     bio  str
 
 points:
     - point.de.Berlin-Warschauer-Strasse-Vsr        # line.de.6003
@@ -142,12 +140,13 @@ events:
         source: src.de.Kuhlmann.2000
     -   date: !!null
         location:
-            - !keyloc line.de.6006 3,43
-            - !keyloc line.de.6078 3,43
+            line.de.6006: 3,43
+            line.de.6078: 3,43
         category: de.Hp
         source: src.de.DRG.Bln.1927
     -   date: 1903-01-01?
-        location: !keyloc line.de.6078 -
+        location:
+            line.de.6078: !!null
     -   date: 1914-10-01
         name: Neu Lichtenberg
         source:
@@ -157,7 +156,7 @@ events:
         de.lknr: 03 251
         service: passenger
         source: src.de.Bfv.1928
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 03 243
         source: src.de.Bfv.1933
     -   date: !!null
@@ -169,7 +168,7 @@ events:
     -   date: c1950
         master: point.de.Berlin-Lichtenberg
         source: src.dd.DR.Bln.1959
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BNPL
         source: src.de.TPP.2006
     -   date: c2000
@@ -177,7 +176,7 @@ events:
         source: src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.6078 nol
+        site: path.de.6078 nol
 
 
 ---
@@ -195,12 +194,13 @@ events:
         de.DS100: BLI
         source: src.de.TPP.2007
     -   date: !!null
-        location: !keyloc line.de.6006 4,442
+        location:
+            line.de.6006: 4,442
         category: de.Bf
         source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.6078 lic
+        site: path.de.6078 lic
 
 
 ---
@@ -211,7 +211,8 @@ events:
         status: open
         source: src.de.Kuhlmann.2000
     -   date: !!null
-        location: !keyloc line.de.6006 6,65
+        location:
+            line.de.6006: 6,65
         category: de.Hp
         name: Friedrichsfelde Ost
         source: src.de.DRG.Bln.1927
@@ -219,7 +220,7 @@ events:
         de.lknr: 03 252
         service: passenger
         source: src.de.Bfv.1928
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 03 254
         source: src.de.Bfv.1933
     -   date: !!null
@@ -228,17 +229,18 @@ events:
     -   date: c1965
         master: point.de.Berlin-Lichtenberg
         source: src.dd.DR.Bln.1968
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BFFO
         source: src.de.TPP.2006
     -   date: c1995
-        location: !keyloc line.de.6006 6,192
+        location:
+            line.de.6006: 6,192
         source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.6078 fri
+        site: path.de.6078 fri
     -   date: 1879-09-06
-        site: !noderef path.de.6078 frn
+        site: path.de.6078 frn
         source: src.de.Kuhlmann.2000
 
 
@@ -253,13 +255,13 @@ events:
     -   date: !!null
         name: Biesdorfer Kreuz S-Bahn
         source: src.de.TPP.2006
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BBIKF
         source: src.de.TPP.2006
     -   date: !!null
         location:
-            - !keyloc line.de.6006 6,945
-            - !keyloc line.de.6011 6,945
+            line.de.6006: 6,945
+            line.de.6011: 6,945
         category: de.Abzw
         source: src.de.DBAG.ISR
     -   date: c2010
@@ -267,7 +269,7 @@ events:
         source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.6006.bik bis
+        site: path.de.6006.bik bis
 
 
 ---
@@ -279,39 +281,41 @@ events:
         name: Biesdorf
         source: src.de.Kuhlmann.2000
     -   date: !!null
-        location: !keyloc line.de.6078 8,56
+        location:
+            line.de.6078: 8,56
         category: de.Bf
-        de.Rangklasse: IV
+        de.rang: IV
         source: src.de.DRG.Bln.1927
     -   date: !!null
         de.lknr: 03 253
         service: passenger
         source: src.de.Bfv.1928
     -   date: c1930
-        de.Rangklasse: III
+        de.rang: III
         source: src.de.DRG.Bln.1932
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 03 255
         source: src.de.Bfv.1933
     -   date: 1941-07-03
         location:
-            - !keyloc line.de.6006 8,56
-            - !keyloc line.de.6078 -
+            line.de.6006: 8,56
+            line.de.6078: !!null
     -   date: !!null
         de.VBL: Bsf
         source: src.de.DRG.Bln.1946
     -   date: c1950
-        de.Rangklasse: U
+        de.rang: U
         source: src.dd.DR.Bln.1953
     -   date: c1950
         master: point.de.Berlin-Kaulsdorf
         source: src.dd.DR.Bln.1959
     -   date: c1985
-        location: !keyloc line.de.6006 8,603
+        location:
+            line.de.6006: 8,603
         source:
             - src.dd.DR.1989
             - src.dd.DR.Bln.1991
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BBDF
         source: src.de.TPP.2006
     -   date: c2000
@@ -322,7 +326,7 @@ events:
         source: src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.6078 bie
+        site: path.de.6078 bie
 
 
 ---
@@ -333,12 +337,13 @@ events:
         status: open
         source: src.de.Kuhlmann.2000
     -   date: !!null
-        location: !keyloc line.de.6006 9,84
+        location:
+            line.de.6006: 9,84
         category: de.Hp
         name: Wuhletal
         master: point.de.Berlin-Kaulsdorf
         source: src.dd.DR.Bln.1991
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BWT
         source: src.de.TPP.2006
     -   date: c2000
@@ -349,7 +354,7 @@ events:
         source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.6078 wuh
+        site: path.de.6078 wuh
 
 
 ---
@@ -367,12 +372,13 @@ events:
         de.DS100: BKAD
         source: src.de.TPP.2007
     -   date: !!null
-        location: !keyloc line.de.6006 10,960
+        location:
+            line.de.6006: 10,960
         category: de.Bf
         source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.6078 kau
+        site: path.de.6078 kau
 
 
 ---
@@ -387,9 +393,10 @@ events:
         name: Mahlsdorf (Kr Niederbarnim)
         source: src.de.Kuhlmann.2000
     -   date: !!null
-        location: !keyloc line.de.6078 12,43
+        location:
+            line.de.6078: 12,43
         category: de.Bf
-        de.Rangklasse: IV
+        de.rang: IV
         source: src.de.DRG.Bln.1927
     -   date: !!null
         de.lknr: 03 074
@@ -398,28 +405,30 @@ events:
         name: Berlin-Mahlsdorf
         source: src.de.Kuhlmann.2000
     -   date: 1930-12-15
-        location: !keyloc line.de.6006 12,43
-    -   date: !var lknr.30
+        location:
+            line.de.6006: 12,43
+    -   date: de.lknr.30
         de.lknr: 03 257
         source: src.de.Bfv.1933
     -   date: !!null
         de.VBL: Mal
         source: src.de.DRG.Bln.1946
     -   date: c1950
-        de.Rangklasse: U
+        de.rang: U
         source: src.dd.DR.Bln.1953
     -   date: c1950
         master: point.de.Berlin-Kaulsdorf
         source: src.dd.DR.Bln.1978
     -   date: c1980
-        location: !keyloc line.de.6078 -
+        location:
+            line.de.6078: !!null
         source: src.dd.DR.Bln.1983
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BMDF
         source: src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.6078 mah
+        site: path.de.6078 mah
 
 
 ---
@@ -435,7 +444,7 @@ events:
         source: src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.6078 gmah
+        site: path.de.6078 gmah
 
 
 ---
@@ -450,12 +459,13 @@ events:
         de.DS100: BBIS
         source: src.de.TPP.2006
     -   date: !!null
-        location: !keyloc line.de.6006 14,880
+        location:
+            line.de.6006: 14,880
         category: de.Hp
         source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.6078 bir
+        site: path.de.6078 bir
 
 
 ---
@@ -473,12 +483,13 @@ events:
         de.DS100: BHPG
         source: src.de.TPP.2007
     -   date: !!null
-        location: !keyloc line.de.6006 16,640
+        location:
+            line.de.6006: 16,640
         category: de.Bf
         source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.6078 hop
+        site: path.de.6078 hop
 
 
 ---
@@ -492,9 +503,10 @@ events:
         name: Neuenhagen
         source: src.de.Kb.1914
     -   date: !!null
-        location: !keyloc line.de.6078 18,48
+        location:
+            line.de.6078: 18,48
         category: de.Bf
-        de.Rangklasse: III
+        de.rang: III
         source: src.de.DRG.Bln.1927
     -   date: !!null
         de.lknr: 03 076
@@ -502,7 +514,7 @@ events:
     -   date: c1930
         name: Neuenhagen b Berlin
         source: src.de.DRG.Bln.1932
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 03 259
         source: src.de.Bfv.1933
     -   date: 1938
@@ -511,12 +523,13 @@ events:
             - src.de.Kb.W1937
             - src.de.Bfv.1938
     -   date: 1944-08-01
-        location: !keyloc line.de.6006 18,48
+        location:
+            line.de.6006: 18,48
     -   date: !!null
         de.VBL: Ng
         source: src.de.DRG.Bln.1946
     -   date: c1950
-        de.Rangklasse: U
+        de.rang: U
         source: src.dd.DR.Bln.1953
     -   date: c1950
         master: point.de.Hoppegarten-Mark
@@ -525,13 +538,14 @@ events:
         category: de.Hp
         source: src.dd.DR.Bln.1973
     -   date: c1970
-        location: !keyloc line.de.6078 -
-    -   date: !var ds100.dr
+        location:
+            line.de.6078: !!null
+    -   date: de.ds100.dr
         de.DS100: BNG
         source: src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.6078 nha
+        site: path.de.6078 nha
 
 
 ---
@@ -549,12 +563,13 @@ events:
         de.DS100: BFD
         source: src.de.TPP.2007
     -   date: !!null
-        location: !keyloc line.de.6006 22,788
+        location:
+            line.de.6006: 22,788
         category: de.Bf
         source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.6078 fre
+        site: path.de.6078 fre
 
 
 ---
@@ -570,7 +585,8 @@ events:
         de.VBL: Gl
         source: src.de.DRG.Bln.1946
     -   date: c1950
-        location: !keyloc line.de.6006 24,57
+        location:
+            line.de.6006: 24,57
         master: point.de.Strausberg
         source: src.dd.DR.Bln.1959
     -   date: 1967-05-28
@@ -579,12 +595,12 @@ events:
     -   date: 1967-05-28?
         de.VBL: Pen
         source: src.dd.DR.Bln.1973
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BPEN
         source: src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.6078 pet
+        site: path.de.6078 pet
 
 
 ---
@@ -602,11 +618,12 @@ events:
         de.DS100: BSTV
         source: src.de.TPP.2007
     -   date: !!null
-        location: !keyloc line.de.6006 27,739
+        location:
+            line.de.6006: 27,739
         category: de.Bf
         source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.6078 str
+        site: path.de.6078 str
 
 

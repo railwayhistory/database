@@ -6,8 +6,8 @@ type: line
 events:
     -   date: !!null
         region:
-            - !keyref org.de
-            - !keyref org.de.l.hh
+            - org.de
+            - org.de.l.hh
 
     -   date: !!null
         category: de.Kleinbahn
@@ -17,21 +17,21 @@ events:
         de.VzG: !!str 9124
         source: src.de.DBAG.Geo-Strecke.2017
 
-    -   date: !date 1912
+    -   date: 1912
         status: open
-        source: !keyref src.de.web.VHH
-    -   date: !date 1953-05-16
-        service: freight
-        source: !keyref src.de.WP.Vierlaender-Bahn
-    -   date: !date 1961-05-27
-        start: !keyref point.de.Pollhof
+        source: src.de.web.VHH
+    -   date: 1953-05-16
+        passenger: none
+        source: src.de.WP.Vierlaender-Bahn
+    -   date: 1961-05-27
+        start: point.de.Pollhof
         status: closed
-        source: !keyref src.de.WP.Vierlaender-Bahn
-    -   date: !date 1978
-        end: !keyref point.de.Pollhof
+        source: src.de.WP.Vierlaender-Bahn
+    -   date: 1978
+        end: point.de.Pollhof
         status: closed
-        source: !keyref src.de.WP.Vierlaender-Bahn
-    -   date: !date c1990
+        source: src.de.WP.Vierlaender-Bahn
+    -   date: c1990
         status: removed
 
     #   Eigentümer und Betriebsführer
@@ -39,27 +39,27 @@ events:
     -   date: !!null
         owner: org.de.Bergedorf-Geesthachter-Eisenbahn
         operator: org.de.Bergedorf-Geesthachter-Eisenbahn
-    -   date: !date 1954
-        owner: !keyref org.de.Verkehrsbetriebe-Hamburg-Holstein
-        operator: !keyref org.de.Verkehrsbetriebe-Hamburg-Holstein
-    -   date: !date 1956-01-01
+    -   date: 1954
+        owner: org.de.Verkehrsbetriebe-Hamburg-Holstein
+        operator: org.de.Verkehrsbetriebe-Hamburg-Holstein
+    -   date: 1956-01-01
         operator: org.de.AKN-Eisenbahn
-        source: !keyref src.de.web.VHH
+        source: src.de.web.VHH
 
     #   Verlauf
     #
     -   date: !!null
         course:
-            - !pathref path.de.9123 bes azol 1.
-            - !pathref path.de.9124 a   f    0.
+            -   path.de.9123 bes azol
+            -   path.de.9124 a   f
 
 points:
     -   point.de.Hamburg-Bergedorf-Süd             # de.9123
-    - !keyref point.de.Pollhof
-    - !keyref point.de.Curslack-Neuengamme
-    - !keyref point.de.Kirchwaerder-Nord
-    - !keyref point.de.Zollenspieker-Querweg
-    - !keyref point.de.Zollenspieker
+    - point.de.Pollhof
+    - point.de.Curslack-Neuengamme
+    - point.de.Kirchwaerder-Nord
+    - point.de.Zollenspieker-Querweg
+    - point.de.Zollenspieker
 
 
 ---
@@ -68,15 +68,15 @@ type: point
 events:
     -   date: !!null
         name: Pollhof
-        source: !keyref src.de.Kb.1914
+        source: src.de.Kb.1914
     -   date: !!null
         category: de.Hp
-    -   date: !var lknr.kb
+    -   date: de.lknr.kb
         de.lknr: 47 679
-        source: !keyref src.de.Bfv.1938
+        source: src.de.Bfv.1938
 
     -   date: !!null
-        site: !noderef path.de.9124 pol left
+        site: path.de.9124 pol
 
 
 ---
@@ -85,15 +85,15 @@ type: point
 events:
     -   date: !!null
         name: Curslack-Neuengamme
-        source: !keyref src.de.Kb.1914
+        source: src.de.Kb.1914
     -   date: !!null
         category: de.Hp
-    -   date: !var lknr.kb
+    -   date: de.lknr.kb
         de.lknr: 47 680
-        source: !keyref src.de.Bfv.1938
+        source: src.de.Bfv.1938
 
     -   date: !!null
-        site: !noderef path.de.9124 cur
+        site: path.de.9124 cur
 
 
 ---
@@ -102,15 +102,15 @@ type: point
 events:
     -   date: !!null
         name: Kirchwärder Nord
-        source: !keyref src.de.Kb.1914
+        source: src.de.Kb.1914
     -   date: !!null
         category: de.Hp
-    -   date: !var lknr.kb
+    -   date: de.lknr.kb
         de.lknr: 47 681
-        source: !keyref src.de.Bfv.1938
+        source: src.de.Bfv.1938
 
     -   date: !!null
-        site: !noderef path.de.9124 kir left
+        site: path.de.9124 kir
 
 
 ---
@@ -119,13 +119,13 @@ type: point
 events:
     -   date: !!null
         name: Zollenspieker-Querweg
-        source: !keyref src.de.Kb.W1937
-    -   date: !date c1930
+        source: src.de.Kb.W1937
+    -   date: c1930
         status: open
-        source: !keyref src.de.WP.Vierlaender-Bahn
+        source: src.de.WP.Vierlaender-Bahn
 
     -   date: !!null
-        site: !noderef path.de.9124 zoq
+        site: path.de.9124 zoq
 
 
 ---
@@ -135,13 +135,13 @@ junction: True
 events:
     -   date: !!null
         name: Zollenspieker
-        source: !keyref src.de.Kb.1914
-    -   date: !var lknr.30
+        source: src.de.Kb.1914
+    -   date: de.lknr.30
         de.lknr: 47 682
-        source: !keyref src.de.Bfv.1938
+        source: src.de.Bfv.1938
     -   date: !!null
         category: de.Bf
 
     -   date: !!null
-        site: !noderef path.de.9124 zol left
+        site: path.de.9124 zol
 

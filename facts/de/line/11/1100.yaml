@@ -49,7 +49,7 @@ events:
     #
     -   date: !!null
         category: de.Hauptbahn
-        gauge: 1435
+        gauge: 1435mm
         source: src.de.SuW.2005
     -   date: !!null
         end: point.de.Bad-Schwartau-Abzw
@@ -61,8 +61,7 @@ events:
         source: src.de.SuW.2005
     -   date: 2008-12-14
         end: point.de.Schwartau-Waldhalle-Wr
-        electrified:
-            overhead: !var el.de
+        electrified: de
         source: src.de.WP.Chronik-Streckenelektrifizierung-DBAG
 
     #   Eigentümer und Betriebsführer
@@ -71,19 +70,12 @@ events:
         owner: org.de
         operator: org.de.DB
 
-    -   date: !var org.de.Deutsche-Bahn.start
-        owner: org.de.Deutsche-Bahn
-        operator: org.de.Deutsche-Bahn
-    -   date: !var org.de.DBNetz.start
-        owner: org.de.DB-Netz
-        operator: org.de.DB-Netz
-
     #   Verlauf
     #
     -   date: !!null
         course:
-            - !pathref path.de.1120 lub  a     0.0
-            - !pathref path.de.1100 a    f     0.0
+            -   path.de.1120 lub a
+            -   path.de.1100 a f
 
 points:
     -   point.de.Lübeck-Hbf
@@ -139,30 +131,31 @@ events:
         de.lknr: 27 280
         source: src.de.Bfv.1938
     -   date: 1938-01-01
-        de.Rangklasse: I
+        de.rang: I
         source: src.de.Bfv.1944
     -   date: !!null
         location:
-            - !keyloc line.de.1110 32,96
-            - !keyloc line.de.1121 -1,6
+            line.de.1110: 32,96
+            line.de.1121: -1,6
         source: src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.DS100: AL
         de.dstnr: !!str 016311
         source: src.de.DS100.1984
     -   date: !!null
-        location: !keyloc line.de.8025 0,0
+        location:
+            line.de.8025: 0,0
         source: src.de.SuW.2005
     -   date: !!null
         location:
-            - !keyloc line.de.1100 0,000
-            - !keyloc line.de.1120 0,000
-            - !keyloc line.de.1121 0,000
-            - !keyloc line.de.1122 0,484
+            line.de.1100: 0,000
+            line.de.1120: 0,000
+            line.de.1121: 0,000
+            line.de.1122: 0,484
         source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.1120 lub
+        site: path.de.1120 lub
 
 
 ---
@@ -171,13 +164,14 @@ type: point
 events:
     -   date: !!null
         location:
-            - !keyloc line.de.1113 4,88
-            - !keyloc line.de.1110 28,04
+            line.de.1113: 4,88
+            line.de.1110: 28,04
         category: de.Abzw
         name: Wr
         source: src.de.DRG.Alt.Karte.1949
     -   date: !!null
-        location: !keyloc line.de.1100 4,9
+        location:
+            line.de.1100: 4,9
         source: src.de.SuW.2005
     -   date: !!null
         de.DS100: AWR
@@ -187,7 +181,7 @@ events:
         source: src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.1100 wal left
+        site: path.de.1100 wal
 
 
 ---
@@ -215,31 +209,33 @@ events:
         source: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
-        de.Rangklasse: II
+        de.rang: II
         note:
-            de: "Gemeinschaftsbf. LKNr RBD Altona: 01 344"
+            deu: >
+                Gemeinschaftsbf. Lochkartennr. RBD Altona: 01 344
         source: src.de.Bfv.1933
     -   date: c1940
         de.lknr: 27 365
         source: src.de.Bfv.1944
     -   date: !!null
         location:
-            - !keyloc line.de.1110 26,94
-            - !keyloc line.de.8023 0,00
+            line.de.1110: 26,94
+            line.de.8023: 0,00
         source: src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.DS100: ASCH
         de.dstnr: !!str 016337
         source: src.de.DS100.1984
     -   date: !!null
-        location: !keyloc line.de.1100 6,002
+        location:
+            line.de.1100: 6,002
         source: src.de.DBAG.ISR
     -   date: c2010
         category: de.Hp
         source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.1100 swr left
+        site: path.de.1100 swr
 
 
 ---
@@ -255,12 +251,12 @@ events:
     -   date: !!null
         category: de.Abzw
         location:
-            - !keyloc line.de.1100  6,443
-            - !keyloc line.de.1110 26,505
+            line.de.1100:  6,443
+            line.de.1110: 26,505
         source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.1100 swa left
+        site: path.de.1100 swa
 
 
 ---
@@ -274,13 +270,13 @@ events:
         source: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
-        de.Rangklasse: IV
+        de.rang: IV
         source: src.de.Bfv.1933
     -   date: c1930
         service: full
         staff: agent
         source: src.de.Bfv.1933
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 01 345
         source: src.de.Bfv.1933
     -   date: c1940
@@ -288,7 +284,8 @@ events:
         staff: full
         source: src.de.Bfv.1944
     -   date: !!null
-        location: !keyloc line.de.8023 4,80
+        location:
+            line.de.8023: 4,80
         source: src.de.DRG.Alt.Karte.1949
     -   date: c1970
         service: none
@@ -300,11 +297,12 @@ events:
         staff: none
         source: src.de.DS100.1984
     -   date: !!null
-        location: !keyloc line.de.1100 10,588
+        location:
+            line.de.1100: 10,588
         source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.1100 rat left
+        site: path.de.1100 rat
 
 
 ---
@@ -317,30 +315,32 @@ events:
         source: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
-        de.Rangklasse: III
+        de.rang: III
         source: src.de.Bfv.1933
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 01 346
         source: src.de.Bfv.1933
     -   date: c1940
         de.lknr: 27 367
         source: src.de.Bfv.1944
     -   date: !!null
-        location: !keyloc line.de.8023 9,77
+        location:
+            line.de.8023: 9,77
         source: src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.DS100: ATIM
         de.dstnr: !!str 016402
         source: src.de.DS100.1984
     -   date: !!null
-        location: !keyloc line.de.1100 15,766
+        location:
+            line.de.1100: 15,766
         source: src.de.DBAG.ISR
     -   date: 2012
         name: Timmendorfer Strand
         source: src.de.TPP.2013
 
     -   date: !!null
-        site: !noderef path.de.1100 tim right
+        site: path.de.1100 tim
 
 
 ---
@@ -353,27 +353,29 @@ events:
         source: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
-        de.Rangklasse: IV
+        de.rang: IV
         source: src.de.Bfv.1933
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 01 347
         source: src.de.Bfv.1933
     -   date: c1940
         de.lknr: 27 368
         source: src.de.Bfv.1944
     -   date: !!null
-        location: !keyloc line.de.8023 12,71
+        location:
+            line.de.8023: 12,71
         source: src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.DS100: ASAZ
         de.dstnr: !!str 016410
         source: src.de.DS100.1984
     -   date: !!null
-        location: !keyloc line.de.1100 18,698
+        location:
+            line.de.1100: 18,698
         source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.1100 sar right
+        site: path.de.1100 sar
 
 
 ---
@@ -386,27 +388,29 @@ events:
         source: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
-        de.Rangklasse: IV
+        de.rang: IV
         source: src.de.Bfv.1933
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 01 348
         source: src.de.Bfv.1933
     -   date: c1940
         de.lknr: 27 369
         source: src.de.Bfv.1944
     -   date: !!null
-        location: !keyloc line.de.8023 17,07
+        location:
+            line.de.8023: 17,07
         source: src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.DS100: AHAF
         de.dstnr: !!str 016428
         source: src.de.DS100.1984
     -   date: !!null
-        location: !keyloc line.de.1100 23,044
+        location:
+            line.de.1100: 23,044
         source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.1100 haf right
+        site: path.de.1100 haf
 
 
 ---
@@ -422,7 +426,8 @@ events:
         master: point.de.Sierksdorf
         source: src.de.DS100.1984
     -   date: !!null
-        location: !keyloc line.de.1100 25,3
+        location:
+            line.de.1100: 25,3
         source: src.de.SuW.2005
     -   date: c1990
         name: Sierksdorf Hp
@@ -432,11 +437,12 @@ events:
         status: closed
         merged: point.de.Sierksdorf
     -   date: !!null
-        location: !keyloc line.de.1100 24,400
+        location:
+            line.de.1100: 24,400
         source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.1100 sih right
+        site: path.de.1100 sih
 
 
 ---
@@ -459,7 +465,8 @@ events:
         master: !!null
         source: src.de.Bfv.1944
     -   date: !!null
-        location: !keyloc line.de.8023 19,38
+        location:
+            line.de.8023: 19,38
         source: src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.DS100: ASID
@@ -467,7 +474,7 @@ events:
         source: src.de.DS100.1984
 
     -   date: !!null
-        site: !noderef path.de.1100 sie right
+        site: path.de.1100 sie
 
 
 ---
@@ -482,7 +489,7 @@ events:
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.1100 ssl right
+        site: path.de.1100 ssl
 
 
 ---
@@ -503,7 +510,8 @@ events:
         de.lknr: 27 373
         source: src.de.Bfv.1944
     -   date: !!null
-        location: !keyloc line.de.8024 5,31
+        location:
+            line.de.8024: 5,31
         source: src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.DS100: AHSG
@@ -516,11 +524,12 @@ events:
         service: none
         staff: none
     -   date: !!null
-        location: !keyloc line.de.1100 34,467
+        location:
+            line.de.1100: 34,467
         source: src.de.SuW.2005
 
     -   date: !!null
-        site: !noderef path.de.1100 has right
+        site: path.de.1100 has
 
 
 ---
@@ -537,24 +546,26 @@ events:
         category: de.Bf
         source: src.de.Bfv.1944
     -   date: 1941-07-31
-        de.Rangklasse: IV
+        de.rang: IV
         de.lknr: 27 374
         source: src.de.Bfv.1944
     -   date: !!null
-        location: !keyloc line.de.8024 9,21
+        location:
+            line.de.8024: 9,21
         source: src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.DS100: AGR
         de.dstnr: !!str 016469
         source: src.de.DS100.1984
     -   date: !!null
-        location: !keyloc line.de.1100 38,365
+        location:
+            line.de.1100: 38,365
         source: src.de.DBAG.ISR
     -   date: c1980
         service: none
 
     -   date: !!null
-        site: !noderef path.de.1100 gsl left
+        site: path.de.1100 gsl
 
 
 ---
@@ -576,7 +587,8 @@ events:
         service: full
         source: src.de.Bfv.1944
     -   date: !!null
-        location: !keyloc line.de.8024 11,31
+        location:
+            line.de.8024: 11,31
         source: src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.DS100: ABDF
@@ -593,11 +605,12 @@ events:
         PLC: DE11185
         source: src.de.DBAG.BSV.2017
     -   date: !!null
-        location: !keyloc line.de.1100 41,684
+        location:
+            line.de.1100: 41,684
         source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
-        site: !noderef path.de.1100 bes right
+        site: path.de.1100 bes
 
 
 ---
@@ -614,22 +627,24 @@ events:
         category: de.Bf
         source: src.de.Bfv.1944
     -   date: 1941-07-31
-        de.Rangklasse: III
+        de.rang: III
         de.lknr: 27 376
         source: src.de.Bfv.1944
     -   date: !!null
-        location: !keyloc line.de.8024 15,80
+        location:
+            line.de.8024: 15,80
         source: src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.DS100: ALS
         de.dstnr: !!str 016485
         source: src.de.DS100.1984
     -   date: !!null
-        location: !keyloc line.de.1100 44,963
+        location:
+            line.de.1100: 44,963
         source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.1100 len left
+        site: path.de.1100 len
 
 
 ---
@@ -654,7 +669,8 @@ events:
         staff: full
         source: src.de.Bfv.1944
     -   date: !!null
-        location: !keyloc line.de.8024 17,94
+        location:
+            line.de.8024: 17,94
         source: src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.DS100: AGHI
@@ -666,11 +682,12 @@ events:
         service: none
         staff: none
     -   date: !!null
-        location: !keyloc line.de.1100 47,096
+        location:
+            line.de.1100: 47,096
         source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.1100 gru left
+        site: path.de.1100 gru
 
 
 ---
@@ -682,12 +699,13 @@ events:
         de.DS100: AOL A
         source: src.de.TPP.2006
     -   date: !!null
-        location: !keyloc line.de.1100 51,7
+        location:
+            line.de.1100: 51,7
         category: de.Bft
         source: src.de.SuW.2011
 
     -   date: !!null
-        site: !noderef path.de.1100 olg right
+        site: path.de.1100 olg
 
 
 ---
@@ -704,22 +722,24 @@ events:
         category: de.Bf
         source: src.de.Bfv.1944
     -   date: 1941-07-31
-        de.Rangklasse: III
+        de.rang: III
         de.lknr: 27 378
         source: src.de.Bfv.1944
     -   date: !!null
-        location: !keyloc line.de.8024 23,13
+        location:
+            line.de.8024: 23,13
         source: src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.DS100: AOL
         de.dstnr: !!str 016501
         source: src.de.DS100.1984
     -   date: !!null
-        location: !keyloc line.de.1100 52,272
+        location:
+            line.de.1100: 52,272
         source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.1100 old left
+        site: path.de.1100 old
 
 
 ---
@@ -747,7 +767,8 @@ events:
         staff: full
         source: src.de.Bfv.1944
     -   date: !!null
-        location: !keyloc line.de.8024 24,05
+        location:
+            line.de.8024: 24,05
         source: src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.DS100: AOLS
@@ -759,7 +780,7 @@ events:
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.1100 ols left
+        site: path.de.1100 ols
 
 
 ---
@@ -776,25 +797,27 @@ events:
         category: de.Bf
         source: src.de.Bfv.1944
     -   date: 1941-07-31
-        de.Rangklasse: IV
+        de.rang: IV
         de.lknr: 27 380
         source: src.de.Bfv.1944
     -   date: !!null    
-        location: !keyloc line.de.8024 27,46
+        location:
+            line.de.8024: 27,46
         source: src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.DS100: AGOE
         de.dstnr: !!str 016527
         source: src.de.DS100.1984
     -   date: !!null
-        location: !keyloc line.de.1100 56,603
+        location:
+            line.de.1100: 56,603
         source: src.de.DBAG.ISR
     -   date: c1970
         service: none
         staff: none
 
     -   date: !!null
-        site: !noderef path.de.1100 goh right
+        site: path.de.1100 goh
 
 
 ---
@@ -814,18 +837,20 @@ events:
         category: de.Bf
         source: src.de.Bfv.1944
     -   date: 1941-07-31
-        de.Rangklasse: IV
+        de.rang: IV
         de.lknr: 27 381
         source: src.de.Bfv.1944
     -   date: !!null    
-        location: !keyloc line.de.8024 32,30
+        location:
+            line.de.8024: 32,30
         source: src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.DS100: AHER
         de.dstnr: !!str 016535
         source: src.de.TPP.2006
     -   date: !!null
-        location: !keyloc line.de.1100 61,4
+        location:
+            line.de.1100: 61,4
         source: src.de.SuW.2005
     -   date: c1970
         service: none
@@ -835,7 +860,7 @@ events:
         source: src.de.TPP.2009
 
     -   date: !!null
-        site: !noderef path.de.1100 her right
+        site: path.de.1100 her
 
 
 ---
@@ -855,11 +880,12 @@ events:
         category: de.Bf
         source: src.de.Bfv.1944
     -   date: 1941-07-31
-        de.Rangklasse: IV
+        de.rang: IV
         de.lknr: 27 382
         source: src.de.Bfv.1944
     -   date: !!null    
-        location: !keyloc line.de.8024 35,24
+        location:
+            line.de.8024: 35,24
         source: src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.DS100: ANEK
@@ -869,11 +895,12 @@ events:
         service: none
         staff: none
     -   date: !!null
-        location: !keyloc line.de.1100 64,349
+        location:
+            line.de.1100: 64,349
         source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.1100 nki left
+        site: path.de.1100 nki
 
 
 ---
@@ -888,7 +915,7 @@ events:
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.1100 lus left
+        site: path.de.1100 lus
 
 
 ---
@@ -910,7 +937,7 @@ events:
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.1100 luo left
+        site: path.de.1100 luo
 
 
 ---
@@ -923,7 +950,7 @@ events:
         short_name: Großenbrode
 
     -   date: !!null
-        site: !noderef path.de.1100 gba
+        site: path.de.1100 gba
 
 
 ---
@@ -933,29 +960,31 @@ events:
     -   date: !!null
         name: Großenbrode
         source: src.de.Kb.1905
-    -   date: !var lknr.kb
+    -   date: de.lknr.kb
         de.lknr: 44 177
         source: src.de.Bfv.1938
     -   date: !!null
         category: de.Bf
         source: src.de.Bfv.1944
     -   date: 1941-07-31
-        de.Rangklasse: IV
+        de.rang: IV
         de.lknr: 27 385
         source: src.de.Bfv.1944
     -   date: !!null    
-        location: !keyloc line.de.8024 3,04
+        location:
+            line.de.8024: 3,04
         source: src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.DS100: AGRO
         de.dstnr: !!str 016576
         source: src.de.TPP.2006
     -   date: !!null
-        location: !keyloc line.de.1100 70,490
+        location:
+            line.de.1100: 70,490
         source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.1100 gbr left
+        site: path.de.1100 gbr
 
 
 ---
@@ -965,7 +994,7 @@ subtype: bridge
 events:
     -   date: !!null
         name: Fehmarnsundbrücke
-        length: 966
+        length: 966.
         source: src.de.DBAG.ISR
 
 
@@ -981,11 +1010,12 @@ events:
         de.dstnr: !!str 016683
         source: src.de.DS100.1984
     -   date: !!null
-        location: !keyloc line.de.1100 77,824
+        location:
+            line.de.1100: 77,824
         source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.1100 str left
+        site: path.de.1100 str
 
 
 ---
@@ -1005,11 +1035,12 @@ events:
         source: src.de.TPP.2006
     -   date: !!null
         category: de.Bf
-        location: !keyloc line.de.1100 82,154
+        location:
+            line.de.1100: 82,154
         source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.1100 buw right
+        site: path.de.1100 buw
 
 
 ---
@@ -1027,12 +1058,13 @@ events:
         status: closed
         merged: point.de.Burg-Fehmarn-West
     -   date: !!null
-        location: !keyloc line.de.1104 0,804
+        location:
+            line.de.1104: 0,804
         source: src.de.DBAG.Geo-Strecke.2017
 
 
     -   date: !!null
-        site: !noderef path.de.1100 bwn
+        site: path.de.1100 bwn
 
 
 ---
@@ -1051,7 +1083,7 @@ events:
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.1100 pus
+        site: path.de.1100 pus
 
 
 ---
@@ -1065,10 +1097,11 @@ events:
         de.dstnr: !!str 016691
         source: src.de.DS100.1984
     -   date: !!null
-        location: !keyloc line.de.1100 88,588
+        location:
+            line.de.1100: 88,588
         source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.1100 put left
+        site: path.de.1100 put
 
 

@@ -6,8 +6,8 @@ type: line
 events:
     -   date: !!null
         region:
-            - !keyref org.de
-            - !keyref org.de.l.sh
+            - org.de
+            - org.de.l.sh
 
     -   date: !!null
         de.VzG: !!str 1111
@@ -15,24 +15,24 @@ events:
 
     #   Genehmigung
     #
-    -   date: !date 1885-11-30
+    -   date: 1885-11-30
         concession:
-            by: !keyref org.de.l.old
-            for: !keyref org.de.Eutin-Lübecker-Eisenbahn
-        source: !keyref src.de.DRG.1935
+            by: org.de.l.old
+            for: org.de.Eutin-Lübecker-Eisenbahn
+        source: src.de.DRG.1935
 
     #   Eröffnung und Einstellung
     #
-    -   date: !date 1886-05-10
+    -   date: 1886-05-10
         status: open
-        source: !keyref src.de.DRG.1935
-    -   date: !date 1954-05-22
-        service: freight
-        source: !keyref src.de.DB.Hmb.1984
-    -   date: !date 1988-05-29
+        source: src.de.DRG.1935
+    -   date: 1954-05-22
+        passenger: none
+        source: src.de.DB.Hmb.1984
+    -   date: 1988-05-29
         status: closed
-        source: !keyref src.de.DB.Hmb.1984
-    -   date: !date c1990
+        source: src.de.DB.Hmb.1984
+    -   date: c1990
         status: removed
 
     #   Eigenschaften
@@ -40,7 +40,7 @@ events:
     -   date: !!null
         category: de.Nebenbahn
         tracks: 1
-        gauge: 1435
+        gauge: 1435mm
     
     #   Eigentümer und Betriebsführer
     #
@@ -49,14 +49,14 @@ events:
     #
     -   date: !!null
         course:
-            - !pathref path.de.1110 pon  aahr  1.0
-            - !pathref path.de.1111 a    f     0.0
+            -   path.de.1110 pon aahr
+            -   path.de.1111 a f
 
 points:
-    - !keyref point.de.Pönitz-Holst                    # line.de.1110
-    - !keyref point.de.Brauner-Hirsch
-    - !keyref point.de.Holstendorf
-    - !keyref point.de.Ahrensboek
+    - point.de.Pönitz-Holst                    # line.de.1110
+    - point.de.Brauner-Hirsch
+    - point.de.Holstendorf
+    - point.de.Ahrensboek
 
 
 ---
@@ -65,25 +65,26 @@ type: point
 events:
     -   date: !!null
         name: Brauner Hirsch
-        source: !keyref src.de.Kb.1905
+        source: src.de.Kb.1905
     -   date: !!null
         de.lknr: 48 825
         service: passenger
-        source: !keyref src.de.Bfv.1928
+        source: src.de.Bfv.1928
     -   date: !!null
         category: de.Hp
-        source: !keyref src.de.Bfv.1944
-    -   date: !date 1941-01-01
+        source: src.de.Bfv.1944
+    -   date: 1941-01-01
         de.lknr: 27 394
-        source: !keyref src.de.Bfv.1944
+        source: src.de.Bfv.1944
     -   date: !!null
-        location: !keyloc line.de.1111 3,77
-        source: !keyref src.de.DRG.Alt.Karte.1949
-    -   date: !date c1955
+        location:
+            line.de.1111: 3,77
+        source: src.de.DRG.Alt.Karte.1949
+    -   date: c1955
         status: closed
 
     -   date: !!null    
-        site: !noderef path.de.1111 bra left
+        site: path.de.1111 bra
 
 
 ---
@@ -93,33 +94,34 @@ events:
     -   date: !!null
         name: Zuckerfabrik Ahrensbök
         source:
-            - !keyref src.de.Kloth.1983
-            - !keyref src.de.Kb.1905
+            - src.de.Kloth.1983
+            - src.de.Kb.1905
     -   date: !!null
         de.lknr: 49 825
         service: passenger
-        source: !keyref src.de.Bfv.1928
-    -   date: !date c1920
+        source: src.de.Bfv.1928
+    -   date: c1920
         name: Holstendorf
-        source: !keyref src.de.Bfv.1928
+        source: src.de.Bfv.1928
     -   date: !!null
         category: de.Hp
-        source: !keyref src.de.Bfv.1944
-    -   date: !date 1941-01-01
+        source: src.de.Bfv.1944
+    -   date: 1941-01-01
         de.lknr: 27 395
-        source: !keyref src.de.Bfv.1944
+        source: src.de.Bfv.1944
     -   date: !!null
-        location: !keyloc line.de.1111 5,72
-        source: !keyref src.de.DRG.Alt.Karte.1949
-    -   date: !date c1955
+        location:
+            line.de.1111: 5,72
+        source: src.de.DRG.Alt.Karte.1949
+    -   date: c1955
         category: de.Anst
-        source: !keyref src.de.DS100.1984
+        source: src.de.DS100.1984
     -   date: !!null
         de.DS100: AHLD
-        source: !keyref src.de.DS100.1984
+        source: src.de.DS100.1984
 
     -   date: !!null    
-        site: !noderef path.de.1111 hol right
+        site: path.de.1111 hol
 
 
 ---
@@ -128,28 +130,29 @@ type: point
 events:
     -   date: !!null
         name: Ahrensböck
-        source: !keyref src.de.Kb.1905
+        source: src.de.Kb.1905
     -   date: !!null
         de.lknr: 50 825
-        source: !keyref src.de.Bfv.1928
-    -   date: !date c1920
+        source: src.de.Bfv.1928
+    -   date: c1920
         name: Ahrensbök
-        source: !keyref src.de.Bfv.1928
+        source: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
-        source: !keyref src.de.Bfv.1944
-    -   date: !date 1941-01-01
-        de.Rangklasse: IV
+        source: src.de.Bfv.1944
+    -   date: 1941-01-01
+        de.rang: IV
         de.lknr: 27 396
-        source: !keyref src.de.Bfv.1944
+        source: src.de.Bfv.1944
     -   date: !!null
-        location: !keyloc line.de.1111 7,95
-        source: !keyref src.de.DRG.Alt.Karte.1949
+        location:
+            line.de.1111: 7,95
+        source: src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.DS100: AAB
         de.dstnr: !!str 016915
-        source: !keyref src.de.DS100.1984
+        source: src.de.DS100.1984
 
     -   date: !!null    
-        site: !noderef path.de.1111 ahr right
+        site: path.de.1111 ahr
 

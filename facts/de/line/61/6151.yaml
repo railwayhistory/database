@@ -5,13 +5,13 @@ key: line.de.6151
 type: line
 events:
     -   date: !!null
-        region: !keyref org.de
+        region: org.de
     -   date: !!null
-        end: !keyref point.de.Bohnsdorf-Sued-LGr
-        region: !keyref org.de.l.bb
+        end: point.de.Bohnsdorf-Sued-LGr
+        region: org.de.l.bb
     -   date: !!null
-        start: !keyref point.de.Bohnsdorf-Sued-LGr
-        region: !keyref org.de.l.be
+        start: point.de.Bohnsdorf-Sued-LGr
+        region: org.de.l.be
 
     -   date: !!null
         de.VzG: !!str 6151
@@ -19,55 +19,56 @@ events:
 
     #   Eröffnung
     #
-    -   date: !date 2011-10-30
-        end: !keyref point.de.Berlin-Flughafen-BER
+    -   date: 2011-10-30
+        end: point.de.Berlin-Flughafen-BER
         status: open
-        service: none
-        source: !keyref src.de.WP.Bahnhof-Flughafen-Berlin-Brandenburg
-    -   date: !date 2012-06-02?
-        start: !keyref point.de.Berlin-Flughafen-BER
+        passenger: none
+        freight: none
+        source: src.de.WP.Bahnhof-Flughafen-Berlin-Brandenburg
+    -   date: 2012-06-02?
+        start: point.de.Berlin-Flughafen-BER
         status: open
-        service: none
-        source: !keyref src.de.WP.Bahnhof-Flughafen-Berlin-Brandenburg
+        passenger: none
+        freight: none
+        source: src.de.WP.Bahnhof-Flughafen-Berlin-Brandenburg
 
     #   Eigenschaften
     #
     -   date: !!null
         category: de.Hauptbahn
-        gauge: 1435
-        electrified:
-            overhead: !var el.de
+        gauge: 1435mm
+        electrified: de
     -   date: !!null
-        end: !keyref point.de.Bohnsdorf-West
+        end: point.de.Bohnsdorf-West
         tracks: 2
     -   date: !!null
-        start: !keyref point.de.Bohnsdorf-West
+        start: point.de.Bohnsdorf-West
         tracks: 1
 
     #   Eigentümer und Betriebsführer
     #
     -   date: !!null
-        owner: !keyref org.de.DB-Netz
-        operator: !keyref org.de.DB-Netz
+        owner: org.de.DB-Netz
+        operator: org.de.DB-Netz
 
     #   Verlauf
     #
     -   date: !!null
         course:
-            - !pathref path.de.6126 gdo  sel -2.
-            - !pathref path.de.6151 a    f    0.
-            - !pathref path.de.6142 fflu bos  0.5
+            -   path.de.6126 gdo  sel
+            -   path.de.6151 a    f
+            -   path.de.6142 fflu bos
 
 points:
     #   point.de.Glasower-Damm-Nord
-    - !keyref point.de.Glasower-Damm-Ost                # line.de.6151
-    - !keyref point.de.Selchow-Sued
-    - !keyref point.de.Berlin-Flughafen-BER
-    - !keyref point.de.Diepensee-Abzw-Cargo
-    - !keyref point.de.Kienberg
-    - !keyref point.de.Bohnsdorf-West
-    - !keyref point.de.Bohnsdorf-Sued-LGr
-    - !keyref point.de.Bohnsdorf-Sued                   # line.de.6142
+    - point.de.Glasower-Damm-Ost                # line.de.6151
+    - point.de.Selchow-Sued
+    - point.de.Berlin-Flughafen-BER
+    - point.de.Diepensee-Abzw-Cargo
+    - point.de.Kienberg
+    - point.de.Bohnsdorf-West
+    - point.de.Bohnsdorf-Sued-LGr
+    - point.de.Bohnsdorf-Sued                   # line.de.6142
 
 
 ---
@@ -75,18 +76,18 @@ key: point.de.Selchow-Sued
 type: point
 junction: True
 events:
-    -   date: !date 2011-10-30?
+    -   date: 2011-10-30?
         status: open
     -   date: !!null
         location:
-            - !keyloc line.de.6151 30,789
+            line.de.6151: 30,789
         category: de.Abzw
         name: Selchow West
         de.DS100: BASS
-        source: !keyref src.de.DBAG.ISR
+        source: src.de.DBAG.ISR
     
     -   date: !!null
-        site: !noderef path.de.6151 ses right
+        site: path.de.6151 ses
 
 
 ---
@@ -94,18 +95,19 @@ key: point.de.Berlin-Flughafen-BER
 type: point
 junction: True
 events:
-    -   date: !date 2011-10-30
+    -   date: 2011-10-30
         status: open
         service: none
     -   date: !!null
-        location: !keyloc line.de.6151 34,500
+        location:
+            line.de.6151: 34,500
         category: de.Bf
         name: Berlin Flughafen BER
         de.DS100: BFBI
-        source: !keyref src.de.DBAG.ISR
+        source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.6151 flu left
+        site: path.de.6151 flu
 
 
 ---
@@ -113,19 +115,19 @@ key: point.de.Diepensee-Abzw-Cargo
 type: point
 junction: True
 events:
-    -   date: !date 2012-06-03?
+    -   date: 2012-06-03?
         status: open
     -   date: !!null
         location:
-            - !keyloc line.de.6151 37,193
-            - !keyloc line.de.6519  5,618
+            line.de.6151: 37,193
+            line.de.6519:  5,618
         category: de.Abzw
         name: Diepensee Abzw Cargo
         de.DS100: BACO
-        source: !keyref src.de.DBAG.ISR
+        source: src.de.DBAG.ISR
     
     -   date: !!null
-        site: !noderef path.de.6151 dic left
+        site: path.de.6151 dic
 
 
 ---
@@ -133,14 +135,15 @@ key: point.de.Kienberg
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.6151 38,3
+        location:
+            line.de.6151: 38,3
         category: de.Awanst
         name: Kienberg
         de.DS100: BAKB
-        source: !keyref src.de.SuW.2011
+        source: src.de.SuW.2011
     
     -   date: !!null
-        site: !noderef path.de.6151 kie right
+        site: path.de.6151 kie
 
 
 ---
@@ -148,19 +151,19 @@ key: point.de.Bohnsdorf-West
 type: point
 junction: True
 events:
-    -   date: !date 2012-06-02?
+    -   date: 2012-06-02?
         status: open
     -   date: !!null
         location:
-            - !keyloc line.de.6151 40,698
-            - !keyloc line.de.6519  1,805
+            line.de.6151: 40,698
+            line.de.6519:  1,805
         category: de.Abzw
         name: Bohnsdorf West
         de.DS100: BBDW
-        source: !keyref src.de.DBAG.ISR
+        source: src.de.DBAG.ISR
     
     -   date: !!null
-        site: !noderef path.de.6151 bow left
+        site: path.de.6151 bow
 
 
 ---
@@ -171,7 +174,7 @@ events:
     -   date: !!null
         name: Bohnsdorf 6151
         de.DS100: BQBD
-        source: !keyref src.de.TPP.2012
+        source: src.de.TPP.2012
     
     -   date: !!null
-        site: !noderef path.de.6151 gbos
+        site: path.de.6151 gbos

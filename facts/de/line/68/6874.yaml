@@ -13,7 +13,7 @@ events:
         start: point.de.Offleben-LGr
         region: org.de.l.ni
 
-    -   date: !var vzg.dr
+    -   date: de.vzg.dr
         end: point.de.Völpke-Streckenende
         de.VzG: !!str 6874
         source: src.de.DBAG.Geo-Strecke.2017
@@ -59,7 +59,7 @@ events:
     -   date: !!null
         category: de.Hauptbahn
         tracks: 2
-        gauge: 1435
+        gauge: 1435mm
         source: src.de.DRG.1927
 
     -   date: c1945
@@ -79,7 +79,7 @@ events:
         status: removed
     -   date: 1971-09-25
         end: point.de.Völpke-Streckenende
-        service: freight
+        passenger: none
         source: src.de.WP.Bahnstrecke-Eilsleben-Schoeningen
     -   date: 1974-04-01
         start: point.de.Offleben
@@ -90,7 +90,7 @@ events:
         status: removed
     -   date: 1994-12-31
         end: point.de.Völpke-Streckenende
-        service: none
+        freight: none
         source: src.de.WP.Bahnstrecke-Eilsleben-Schoeningen
     -   date: 1996-05-31
         end: point.de.Völpke-Streckenende
@@ -104,10 +104,10 @@ events:
     #
     -   date: !!null
         course:
-            - !pathref path.de.6110 eil  f     0.0
-            - !pathref path.de.6874 a    f     0.0
-            - !pathref path.de.1941 a    f     0.0
-            - !pathref path.de.1940 feis soe  -2.0
+            -   path.de.6110 eil  f
+            -   path.de.6874 a    f
+            -   path.de.1941 a    f
+            -   path.de.1940 feis soe
 
 points:
     -   point.de.Eilsleben-Magdeburg                # de.6110
@@ -131,14 +131,15 @@ key: point.de.Badeleben
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.6874 176,04
+        location:
+            line.de.6874: 176,04
         category: de.Bk
         name: Badeleben
     -   date: c1950
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.6874 bad
+        site: path.de.6874 bad
 
 
 ---
@@ -153,31 +154,32 @@ events:
         source: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
-        de.Rangklasse: II
+        de.rang: II
         source: src.de.Bfv.1933
     -   date: 1931-10-01
         de.lknr: 13 269
         source: src.de.Bfv.1933
     -   date: c1935
-        de.Rangklasse: III
+        de.rang: III
         source: src.de.Bfv.1938
     -   date: c1940
         name: Völpke (Kr Haldensleben)
         source: src.de.Bfv.1944
     -   date: !!null
-        location: !keyloc line.de.6874 179,48
+        location:
+            line.de.6874: 179,48
         de.VBL: Vl
         source: src.dd.DR.1976
     -   date: c1960
-        de.Rangklasse: U
+        de.rang: U
         name: Völpke (Kr Oschersleben)
         source: src.dd.DR.1976
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: LVL
         source: src.de.SuW.2005
 
     -   date: !!null
-        site: !noderef path.de.6874 voe
+        site: path.de.6874 voe
 
 
 ---
@@ -207,7 +209,7 @@ events:
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.6874 vok
+        site: path.de.6874 vok
 
 
 ---
@@ -216,14 +218,16 @@ type: point
 subtype: reference
 events:
     -   date: !!null
-        location: !keyloc line.de.6874 182,1
+        location:
+            line.de.6874: 182,1
         source: src.dd.DR.1976
     -   date: c1985
-        location: !keyloc line.de.6874 181,902
+        location:
+            line.de.6874: 181,902
         source: src.dd.DR.1989
 
     -   date: !!null
-        site: !noderef path.de.6874 vox
+        site: path.de.6874 vox
 
 
 ---
@@ -232,11 +236,12 @@ type: point
 subtype: border
 events:
     -   date: !!null
-        location: !keyloc line.de.6874 184,96
+        location:
+            line.de.6874: 184,96
         name: Offleben LGr
 
     -   date: !!null
-        site: !noderef path.de.6874 goff
+        site: path.de.6874 goff
 
 
 ---
@@ -251,16 +256,17 @@ events:
         source: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
-        de.Rangklasse: III
+        de.rang: III
         source: src.de.Bfv.1933
     -   date: 1931-10-01
         de.lknr: 13 271
         source: src.de.Bfv.1933
     -   date: !!null
-        location: !keyloc line.de.6874 184,96
+        location:
+            line.de.6874: 184,96
 
     -   date: !!null
-        site: !noderef path.de.1941 off
+        site: path.de.1941 off
 
 
 ---
@@ -282,7 +288,7 @@ events:
         source: src.de.Bfv.1933
 
     -   date: !!null
-        site: !noderef path.de.1941 ofk
+        site: path.de.1941 ofk
 
 
 # point.de.Schöningen                         de.1940

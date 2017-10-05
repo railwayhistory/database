@@ -6,8 +6,8 @@ type: line
 events:
     -   date: !!null
         region:
-            - !keyref org.de
-            - !keyref org.de.l.ni
+            - org.de
+            - org.de.l.ni
 
     -   date: !!null
         de.VzG: !!str 9171
@@ -18,36 +18,36 @@ events:
 
     #   Eröffnung und Einstellung
     #
-    -   date: !date 1920-05-15
+    -   date: 1920-05-15
         status: open
-        source: !keyref src.de.WP.Bahnstrecke-Soltau-Neuenkirchen
-    -   date: !date 1928
+        source: src.de.WP.Bahnstrecke-Soltau-Neuenkirchen
+    -   date: 1928
         passenger: none
-        source: !keyref src.de.WP.Bahnstrecke-Soltau-Neuenkirchen
-    -   date: !date 1947-04-01
+        source: src.de.WP.Bahnstrecke-Soltau-Neuenkirchen
+    -   date: 1947-04-01
         passenger: full
-        source: !keyref src.de.WP.Bahnstrecke-Soltau-Neuenkirchen
-    -   date: !date 1961-05-28
+        source: src.de.WP.Bahnstrecke-Soltau-Neuenkirchen
+    -   date: 1961-05-28
         passenger: none
-        source: !keyref src.de.WP.Bahnstrecke-Soltau-Neuenkirchen
-    -   date: !date 1986-01-15
+        source: src.de.WP.Bahnstrecke-Soltau-Neuenkirchen
+    -   date: 1986-01-15
         freight: none
-        source: !keyref src.de.WP.Bahnstrecke-Soltau-Neuenkirchen
-    -   date: !date 1996-04-01
+        source: src.de.WP.Bahnstrecke-Soltau-Neuenkirchen
+    -   date: 1996-04-01
         status: closed
-        source: !keyref src.de.WP.Bahnstrecke-Soltau-Neuenkirchen
-    -   date: !date 2006
+        source: src.de.WP.Bahnstrecke-Soltau-Neuenkirchen
+    -   date: 2006
         status: removed
-        source: !keyref src.de.WP.Bahnstrecke-Soltau-Neuenkirchen
+        source: src.de.WP.Bahnstrecke-Soltau-Neuenkirchen
 
     #   Eigenschaften
     #
     -   date: !!null
         category: de.Kleinbahn
         tracks: 1
-        gauge: 1435
-        source: !keyref src.de.WP.Bahnstrecke-Soltau-Neuenkirchen
-    -   date: !date c1950
+        gauge: 1435mm
+        source: src.de.WP.Bahnstrecke-Soltau-Neuenkirchen
+    -   date: c1950
         category: de.Nebenbahn
 
     #   Eigentümer etc.
@@ -55,26 +55,26 @@ events:
     -   date: !!null
         owner: org.de.Kleinbahn-Soltau-Neuenkirchen
         operator: org.de.Kleinbahn-Lüneburg-Soltau
-        source: !keyref src.de.WP.Bahnstrecke-Soltau-Neuenkirchen
-    -   date: !date 1923-06-01
-        operator: !keyref org.de.Niedersächsisches-Landeseisenbahnamt
-        source: !keyref src.de.WP.Bahnstrecke-Soltau-Neuenkirchen
-    -   date: !date 1944-07-11
-        operator: !keyref org.de.Osthannoversche-Eisenbahnen
-        source: !keyref src.de.WP.Bahnstrecke-Soltau-Neuenkirchen
+        source: src.de.WP.Bahnstrecke-Soltau-Neuenkirchen
+    -   date: 1923-06-01
+        operator: org.de.Niedersächsisches-Landeseisenbahnamt
+        source: src.de.WP.Bahnstrecke-Soltau-Neuenkirchen
+    -   date: 1944-07-11
+        operator: org.de.Osthannoversche-Eisenbahnen
+        source: src.de.WP.Bahnstrecke-Soltau-Neuenkirchen
 
     #   Verlauf
     #
     -   date: !!null
         course:
-            - !pathref path.de.9171 sol f 0.0
+            -   path.de.9171 sol f
 
 points:
-    - !keyref point.de.Soltau-Han-Süd                      # line.de.9170
-    - !keyref point.de.Wiedingen
-    - !keyref point.de.Ellingen-Soltau
-    - !keyref point.de.Gilmerdingen
-    - !keyref point.de.Neuenkirchen-Soltau
+    - point.de.Soltau-Han-Süd                      # line.de.9170
+    - point.de.Wiedingen
+    - point.de.Ellingen-Soltau
+    - point.de.Gilmerdingen
+    - point.de.Neuenkirchen-Soltau
 
 
 ---
@@ -83,13 +83,14 @@ type: point
 events:
     -   date: !!null
         name: Wiedingen
-        location: !keyloc line.de.9171 4,6
-        source: !keyref src.de.WP.Bahnstrecke-Soltau-Neuenkirchen
-    -   date: !date 1961?
+        location:
+            line.de.9171: 4,6
+        source: src.de.WP.Bahnstrecke-Soltau-Neuenkirchen
+    -   date: 1961?
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.9171 wie left
+        site: path.de.9171 wie
 
 
 ---
@@ -98,39 +99,41 @@ type: point
 events:
     -   date: !!null
         name: Ellingen
-        source: !keyref src.de.Bfv.1928
-    -   date: !var lknr.kb
+        source: src.de.Bfv.1928
+    -   date: de.lknr.kb
         de.lknr: 47 267
-        source: !keyref src.de.Bfv.1944
-    -   date: !date c1940
+        source: src.de.Bfv.1944
+    -   date: c1940
         name: Ellingen (Kr Soltau)
-        source: !keyref src.de.Bfv.1944
+        source: src.de.Bfv.1944
     -   date: !!null
         de.DS100: HELI
         de.dstnr: !!str 519025
-        source: !keyref src.de.DS100.1984
+        source: src.de.DS100.1984
     -   date: !!null
-        location: !keyloc line.de.9171 6,2
-        source: !keyref src.de.DB.Hmb.Karte.1984
+        location:
+            line.de.9171: 6,2
+        source: src.de.DB.Hmb.Karte.1984
 
     -   date: !!null
-        site: !noderef path.de.9171 ell right
+        site: path.de.9171 ell
 
 
 ---
 key: point.de.Gilmerdingen
 type: point
 events:
-    -   date: !date 1947
+    -   date: 1947
         status: open
         name: Gilmerdingen
-        location: !keyloc line.de.9171 9,2
-        source: !keyref src.de.WP.Bahnstrecke-Soltau-Neuenkirchen
-    -   date: !date 1961?
+        location:
+            line.de.9171: 9,2
+        source: src.de.WP.Bahnstrecke-Soltau-Neuenkirchen
+    -   date: 1961?
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.9171 gil right
+        site: path.de.9171 gil
 
 
 ---
@@ -139,20 +142,21 @@ type: point
 events:
     -   date: !!null
         name: Neuenkirchen
-        source: !keyref src.de.Bfv.1928
-    -   date: !var lknr.kb
+        source: src.de.Bfv.1928
+    -   date: de.lknr.kb
         de.lknr: 47 268
-        source: !keyref src.de.Bfv.1938
-    -   date: !date c1940
+        source: src.de.Bfv.1938
+    -   date: c1940
         name: Neuenkirchen (Kr Soltau)
-        source: !keyref src.de.Bfv.1944
+        source: src.de.Bfv.1944
     -   date: !!null
-        location: !keyloc line.de.9171 12,0
-        source: !keyref src.de.DB.Hmb.Karte.1984
+        location:
+            line.de.9171: 12,0
+        source: src.de.DB.Hmb.Karte.1984
     -   date: !!null
         category: de.Bf
 
     -   date: !!null
-        site: !noderef path.de.9171 neu left
+        site: path.de.9171 neu
 
 

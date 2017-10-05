@@ -79,7 +79,7 @@ events:
         source: src.de.Riechers.2002
     -   date: 1962-02-22?
         end: point.de.Hamburg-Eidelstedt-AKN
-        service: freight
+        passenger: none
     -   date: c1963
         end: point.de.Hamburg-Stellingen
         status: removed
@@ -89,7 +89,7 @@ events:
     -   date: !!null
         category: de.Nebenbahn
         tracks: 1
-        gauge: 1435
+        gauge: 1435mm
         source: src.de.DRG.1927
     -   date: c1970
         start: point.de.Quickborn-Sued
@@ -100,14 +100,14 @@ events:
         end: point.de.Kaltenkirchen-Sued
         tracks: 2
         note:
-            de: verlegt
+            deu: verlegt
         source: src.de.Riechers.2002
     -   date: 2003-11-24
         start: point.de.Hamburg-Eidelstedt-AKN
         end: point.de.Hamburg-Schnelsen-Sued
         tracks: 2
         note:
-            de: verlegt
+            deu: verlegt
     -   date: 2007-10-28
         start: point.de.Bönningstedt
         end: point.de.Hasloh
@@ -141,20 +141,20 @@ events:
     #
     -   date: !!null
         course:
-            - !pathref path.de.9121.alt alt  f     0.0
-            - !pathref path.de.1225     fakn ste   1.5
-            - !pathref path.de.1220     fsts aakn  3.5
-            - !pathref path.de.9121     a    f     0.0
-            - !pathref path.de.1043     akal nes  -1.0
+            -   path.de.9121.alt alt  f
+            -   path.de.1225     fakn ste
+            -   path.de.1220     fsts aakn
+            -   path.de.9121     a    f
+            -   path.de.1043     akal nes
     -   date: c1975
         course:
-            - !pathref path.de.9121.alt alt  f     0.0
-            - !pathref path.de.1225     fakn ste   1.5
-            - !pathref path.de.1220     fsts aakn  3.5
-            - !pathref path.de.9121     a    agrx  0.0
-            - !pathref path.de.9121.gro a    f     0.0
-            - !pathref path.de.9121     fgrx f     0.0
-            - !pathref path.de.1043     akal nes  -1.0
+            -   path.de.9121.alt alt  f
+            -   path.de.1225     fakn ste
+            -   path.de.1220     fsts aakn
+            -   path.de.9121     a    agrx
+            -   path.de.9121.gro a    f
+            -   path.de.9121     fgrx f
+            -   path.de.1043     akal nes
 
 points:
     - point.de.Hamburg-Altona-AKN
@@ -201,7 +201,8 @@ events:
         status: open
     -   date: !!null
         category: de.Bf
-        location: !keyloc line.de.9121 0,0
+        location:
+            line.de.9121: 0,0
         source: src.de.SuW.2005
     -   date: !!null
         name: Altona (A-K-N)
@@ -217,7 +218,7 @@ events:
         source: src.de.Riechers.2002
 
     -   date: !!null
-        site: !noderef path.de.9121.alt alt down
+        site: path.de.9121.alt alt
 
 
 ---
@@ -234,7 +235,8 @@ events:
         name: Hamburg-Stellingen
         source: src.de.Bfv.1938
     -   date: !!null
-        location: !keyloc line.de.9121 2,75
+        location:
+            line.de.9121: 2,75
     -   date: !!null
         category: de.Bf
         de.DS100: ASTL
@@ -243,7 +245,7 @@ events:
         service: freight
 
     -   date: !!null
-        site: !noderef path.de.1225 stg right
+        site: path.de.1225 stg
 
 
 ---
@@ -254,13 +256,14 @@ events:
         status: open
     -   date: !!null
         category: de.Bf
-        location: !keyloc line.de.9121 6,3
+        location:
+            line.de.9121: 6,3
         name: Hamburg-Eidelstedt Zentrum
         de.DS100: AENO
         source: src.de.SuW.2005
 
     -   date: !!null
-        site: !noderef path.de.9121 eiz right
+        site: path.de.9121 eiz
 
 
 ---
@@ -269,7 +272,8 @@ type: point
 events:
     -   date: !!null
         category: de.Bf
-        location: !keyloc line.de.9121 6,5
+        location:
+            line.de.9121: 6,5
         source: src.de.SuW.2000
     -   date: !!null
         name: Eidelstedt Ost
@@ -286,7 +290,7 @@ events:
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.9121 eio right
+        site: path.de.9121 eio
 
 
 ---
@@ -297,7 +301,8 @@ events:
         status: open
     -   date: !!null
         category: de.Hp
-        location: !keyloc line.de.9121 7,1
+        location:
+            line.de.9121: 7,1
         name: Hamburg Hörgensweg
         de.DS100: AHOW
         source: src.de.SuW.2005
@@ -306,7 +311,7 @@ events:
         source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.9121 hor right
+        site: path.de.9121 hor
 
 
 ---
@@ -316,7 +321,7 @@ subtype: reference
 events:
     -   date: !!null
         name: Hamburg-Schnelsen Süd
-        site: !noderef path.de.9121 sns
+        site: path.de.9121 sns
     
 
 ---
@@ -338,14 +343,15 @@ events:
         source: src.de.DS100.1984
     -   date: !!null
         category: de.Bf
-        location: !keyloc line.de.9121 8,9
+        location:
+            line.de.9121: 8,9
         source: src.de.SuW.2005
     -   date: c2012
         category: de.Bft
         source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.9121 sne right
+        site: path.de.9121 sne
 
 
 ---
@@ -364,14 +370,15 @@ events:
         source: src.de.DS100.1984
     -   date: !!null
         category: de.Hp
-        location: !keyloc line.de.9121 10,5
+        location:
+            line.de.9121: 10,5
         source: src.de.SuW.2005
     -   date: c2010
         name: Hamburg-Burgwedel
         source: src.de.SuW.2011
 
     -   date: !!null
-        site: !noderef path.de.9121 bur right
+        site: path.de.9121 bur
 
 
 ---
@@ -384,7 +391,7 @@ events:
         name: Hamburg-Burgwedel HH/SH
 
     -   date: !!null
-        site: !noderef path.de.9121 gbur
+        site: path.de.9121 gbur
 
 
 ---
@@ -403,7 +410,8 @@ events:
         source: src.de.DS100.1984
     -   date: !!null
         category: de.Bf
-        location: !keyloc line.de.9121 12,4
+        location:
+            line.de.9121: 12,4
         source: src.de.SuW.2005
     -   date: !!null
         de.name16: Bönningstedt
@@ -413,7 +421,7 @@ events:
         source: src.de.DBAG.BSV.2017
 
     -   date: !!null
-        site: !noderef path.de.9121 bon left
+        site: path.de.9121 bon
 
 
 ---
@@ -431,11 +439,12 @@ events:
         de.dstnr: !!str 404087
     -   date: !!null
         category: de.Bf
-        location: !keyloc line.de.9121 15,8
+        location:
+            line.de.9121: 15,8
         source: src.de.SuW.2005
 
     -   date: !!null
-        site: !noderef path.de.9121 has left
+        site: path.de.9121 has
 
 
 ---
@@ -461,13 +470,14 @@ events:
         source: src.de.Bfv.1938
     -   date: !!null
         category: de.Hp
-        location: !keyloc line.de.9121 18,2
+        location:
+            line.de.9121: 18,2
     -   date: 1974
         status: closed
         source: src.de.WP.Bahnstrecke-Hamburg-Altona-Neumünster
 
     -   date: !!null
-        site: !noderef path.de.9121 els left
+        site: path.de.9121 els
 
 
 ---
@@ -484,11 +494,12 @@ events:
         de.dstnr: !!str 404269
         source: src.de.DS100.1984
     -   date: !!null
-        location: !keyloc line.de.9121 19,2
+        location:
+            line.de.9121: 19,2
         source: src.de.SuW.2005
 
     -   date: !!null
-        site: !noderef path.de.9121 qus left
+        site: path.de.9121 qus
 
 
 ---
@@ -507,11 +518,12 @@ events:
         source: src.de.DS100.1984
     -   date: !!null
         category: de.Bf
-        location: !keyloc line.de.9121 20,2
+        location:
+            line.de.9121: 20,2
         source: src.de.SuW.2005
 
     -   date: !!null
-        site: !noderef path.de.9121 qui left
+        site: path.de.9121 qui
 
 
 ---
@@ -530,11 +542,12 @@ events:
         source: src.de.DS100.1984
     -   date: !!null
         category: de.Bf
-        location: !keyloc line.de.9121 22,7
+        location:
+            line.de.9121: 22,7
         source: src.de.SuW.2005
 
     -   date: !!null
-        site: !noderef path.de.9121 ell left
+        site: path.de.9121 ell
 
 
 ---
@@ -559,11 +572,12 @@ events:
         de.dstnr: !!str 404129
         source: src.de.DS100.1984
     -   date: !!null
-        location: !keyloc line.de.9121 24,2
+        location:
+            line.de.9121: 24,2
         source: src.de.SuW.2005
 
     -   date: !!null
-        site: !noderef path.de.9121 tan right
+        site: path.de.9121 tan
 
 
 ---
@@ -585,12 +599,12 @@ events:
     -   date: !!null
         category: de.Bf
         location:
-            - !keyloc line.de.9121 27,0
-            - !keyloc line.de.9122 11,7
+            line.de.9121: 27,0
+            line.de.9122: 11,7
         source: src.de.SuW.2005
 
     -   date: !!null
-        site: !noderef path.de.9121 uls right
+        site: path.de.9121 uls
 
 
 ---
@@ -613,15 +627,15 @@ events:
         source: src.de.SuW.2005
     -   date: !!null
         location:
-            - !keyloc line.de.9121 29,6
-            - !keyloc line.de.9120 24,6
+            line.de.9121: 29,6
+            line.de.9120: 24,6
         source: src.de.DRG.Alt.Karte.1945
     -   date: c2000
         name: Henstedt-Ulzburg
         source: src.de.SuW.2005
 
     -   date: !!null
-        site: !noderef path.de.9121 ulz right
+        site: path.de.9121 ulz
 
 
 ---
@@ -632,7 +646,8 @@ events:
         status: open
     -   date: !!null
         category: de.Hp
-        location: !keyloc line.de.9121 33,0
+        location:
+            line.de.9121: 33,0
         name: Kaltenkirchen Süd
         de.DS100: AKTKS
         source: src.de.SuW.2005
@@ -641,7 +656,7 @@ events:
         source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.9121 kas right
+        site: path.de.9121 kas
 
 
 ---
@@ -660,11 +675,12 @@ events:
         source: src.de.DS100.1984
     -   date: !!null
         category: de.Bf
-        location: !keyloc line.de.9121 34,4
+        location:
+            line.de.9121: 34,4
         source: src.de.SuW.2005
 
     -   date: !!null
-        site: !noderef path.de.9121 kal right
+        site: path.de.9121 kal
 
 
 ---
@@ -677,17 +693,18 @@ events:
     -   date: c1995
         name: Holstentherme/dodenhof
         note:
-            de: sic!
+            deu: sic!
     -   date: 2006-06-09
         name: Kaltenkirchen Holstentherme
     -   date: !!null
         category: de.Hp
         de.DS100: AKTKH
-        location: !keyloc line.de.9121 36,2
+        location:
+            line.de.9121: 36,2
         source: src.de.SuW.2005
 
     -   date: !!null
-        site: !noderef path.de.9121 kal left
+        site: path.de.9121 kal
 
 
 ---
@@ -697,18 +714,19 @@ events:
     -   date: 2006-06-09
         status: open
     -   date: !!null
-        location: !keyloc line.de.9121 37,0
+        location:
+            line.de.9121: 37,0
         source: src.de.SuW.2011
     -   date: !!null
         category: de.Bft
         name: Kaltenkirchen dodenhof
         note:
-            de: sic!
+            deu: sic!
         de.DS100: AKTKD
         source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.9121 dod left
+        site: path.de.9121 dod
 
 
 ---
@@ -727,11 +745,12 @@ events:
         source: src.de.DS100.1984
     -   date: !!null
         category: de.Hp
-        location: !keyloc line.de.9121 39,5
+        location:
+            line.de.9121: 39,5
         source: src.de.SuW.2005
 
     -   date: !!null
-        site: !noderef path.de.9121 nut right
+        site: path.de.9121 nut
 
 
 ---
@@ -750,11 +769,12 @@ events:
         source: src.de.DS100.1984
     -   date: !!null
         category: de.Bf
-        location: !keyloc line.de.9121 41,9
+        location:
+            line.de.9121: 41,9
         source: src.de.SuW.2005
 
     -   date: !!null
-        site: !noderef path.de.9121 len left
+        site: path.de.9121 len
 
 
 ---
@@ -781,11 +801,12 @@ events:
         de.name16: Bad Bramst Kurh
         source: src.de.DBAG.BSV.2017
     -   date: !!null
-        location: !keyloc line.de.9121 44,9
+        location:
+            line.de.9121: 44,9
         source: src.de.SuW.2005
 
     -   date: !!null
-        site: !noderef path.de.9121 brk left
+        site: path.de.9121 brk
 
 
 ---
@@ -810,11 +831,12 @@ events:
         de.name16: Bad Bramstedt
         source: src.de.DBAG.BSV.2017
     -   date: !!null
-        location: !keyloc line.de.9121 47,0
+        location:
+            line.de.9121: 47,0
         source: src.de.SuW.2005
 
     -   date: !!null
-        site: !noderef path.de.9121 bra left
+        site: path.de.9121 bra
 
 
 ---
@@ -825,14 +847,15 @@ events:
         status: open
     -   date: !!null
         category: de.Hp
-        location: !keyloc line.de.9121 49,9
+        location:
+            line.de.9121: 49,9
         name: Gut Gayen
     -   date: 1979-05-26
         status: closed
         note:
-            de: Datum lt. Kursbuch
+            deu: Datum lt. Kursbuch
     -   date: !!null
-        site: !noderef path.de.9121 gut
+        site: path.de.9121 gut
 
 
 ---
@@ -849,11 +872,12 @@ events:
         source: src.de.DS100.1984
     -   date: !!null
         category: de.Bf
-        location: !keyloc line.de.9121 51,8
+        location:
+            line.de.9121: 51,8
         source: src.de.SuW.2005
 
     -   date: !!null
-        site: !noderef path.de.9121 wie left
+        site: path.de.9121 wie
 
 
 ---
@@ -870,11 +894,12 @@ events:
         source: src.de.DS100.1984
     -   date: !!null
         category: de.Bf
-        location: !keyloc line.de.9121 56,4
+        location:
+            line.de.9121: 56,4
         source: src.de.SuW.2005
 
     -   date: !!null
-        site: !noderef path.de.9121 gas right
+        site: path.de.9121 gas
 
 
 ---
@@ -882,7 +907,8 @@ key: point.de.Halloh
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.9121 58,2
+        location:
+            line.de.9121: 58,2
         source: src.de.SuW.2005
     -   date: !!null
         category: de.Awanst
@@ -895,7 +921,7 @@ events:
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.9121 hal right
+        site: path.de.9121 hal
 
 
 ---
@@ -911,7 +937,8 @@ events:
         de.dstnr: !!str 404228
         source: src.de.DS100.1984
     -   date: !!null
-        location: !keyloc line.de.9121 61,3
+        location:
+            line.de.9121: 61,3
         source: src.de.SuW.2005
     -   date: !!null
         category: de.Bf
@@ -919,7 +946,7 @@ events:
         source: src.de.DBAG.BSV.2017
 
     -   date: !!null
-        site: !noderef path.de.9121 boo right
+        site: path.de.9121 boo
 
 
 ---
@@ -928,13 +955,14 @@ type: point
 events:
     -   date: !!null
         category: de.Awanst
-        location: !keyloc line.de.9121 63,5
+        location:
+            line.de.9121: 63,5
         name: Boostedt Rampe
         de.DS100: ABOR
         source: src.de.SuW.2005
 
     -   date: !!null
-        site: !noderef path.de.9121 bor right
+        site: path.de.9121 bor
 
 
 ---
@@ -947,7 +975,8 @@ events:
         source: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
-        location: !keyloc line.de.9121 66,8
+        location:
+            line.de.9121: 66,8
         de.DS100: ANM
         source: src.de.SuW.2005
     -   date: c1970
@@ -955,6 +984,6 @@ events:
         connection: point.de.Neumünster-Süd
 
     -   date: !!null
-        site: !noderef path.de.1043 nes right
+        site: path.de.1043 nes
 
 

@@ -6,67 +6,56 @@ type: line
 events:
     -   date: !!null
         region:
-            - !keyref org.de
-            - !keyref org.de.l.bb
+            - org.de
+            - org.de.l.bb
 
-    -   date: !var vzg.dr
+    -   date: de.vzg.dr
         de.VzG: !!str 6129
         source: src.de.DBAG.Geo-Strecke.2017
 
     #   Eröffnung und Schließung
     #
-    -   date: !date 1951-07-10?
-        end: !keyref point.de.Birkengrund-Sued-Abzw
+    -   date: 1951-07-10?
+        end: point.de.Birkengrund-Sued-Abzw
         status: open
-    -   date: !date 2006-05-28?
-        start: !keyref point.de.Birkengrund-Sued-Abzw
+    -   date: 2006-05-28?
+        start: point.de.Birkengrund-Sued-Abzw
         status: open
-        electrified:
-            overhead: !var el.de
+        electrified: de
     
     #   Eigenschaften
     #
     -   date: !!null
         category: de.Hauptbahn
         tracks: 1
-        gauge: 1435
-    -   date: !date 1982-05-22
-        end: !keyref point.de.Birkengrund-Sued-Abzw
-        electrified:
-            overhead: !var el.de
-        source: !keyref src.de.Kuhlmann.2000
+        gauge: 1435mm
+    -   date: 1982-05-22
+        end: point.de.Birkengrund-Sued-Abzw
+        electrified: de
+        source: src.de.Kuhlmann.2000
 
     #   Eigentümer etc.
     #
     -   date: !!null
-        owner: !keyref org.dd
-        operator: !keyref org.dd.DR
-    -   date: !date 1990-10-03
-        owner: !keyref org.de
+        owner: org.dd
+        operator: org.dd.DR
 
-    -   date: !var org.de.Deutsche-Bahn.start
-        owner: !keyref org.de.Deutsche-Bahn
-        operator: !keyref org.de.Deutsche-Bahn
-    -   date: !var org.de.DBNetz.start
-        owner: !keyref org.de.DB-Netz
-        operator: !keyref org.de.DB-Netz
-        
     #   Verlauf
     #
     -   date: !!null
         course:
-            - !pathref path.de.6126 ghm  fghn .5
-            - !pathref path.de.6129 a    f    0
-            - !pathref path.de.6132 fgen lud  1.5
+            -   path.de.6126 ghm  fghn
+            -   path.de.6129 a    f
+            -   path.de.6132 fgen lud
 
 points:
-    - !keyref point.de.Genshagener-Heide-Mitte              # line.de.6126
-    - !keyref point.de.Genshagener-Heide-Nord
-    - !keyref point.de.Grossbeeren-West
-    - !keyref point.de.Birkengrund                          # line.de.6132
-    - !keyref point.de.Birkengrund-Sued-Abzw                # line.de.6132
-    - !keyref point.de.Birkengrund-Sued-Hp                  # line.de.6036
-    - !keyref point.de.Ludwigsfelde                         # line.de.6132
+    - point.de.Genshagener-Heide-Mitte              # line.de.6126
+    - point.de.Genshagener-Heide-Nord
+    - point.de.Grossbeeren-West
+    - point.de.Birkengrund                          # line.de.6132
+    - point.de.Birkengrund-Sued-Abzw                # line.de.6132
+    - point.de.Birkengrund-Sued-Hp                  # line.de.6036
+    - point.de.Ludwigsfelde                         # line.de.6132
 
 
 ---
@@ -77,25 +66,25 @@ events:
     -   date: !!null
         category: de.Abzw
         name: Ghn
-        source: !keyref src.dd.DR.Bln.1968
+        source: src.dd.DR.Bln.1968
     -   date: !!null
-        master: !keyref point.de.Grossbeeren
-        source: !keyref src.dd.DR.Bln.1991
-    -   date: !var ds100.dr
+        master: point.de.Grossbeeren
+        source: src.dd.DR.Bln.1991
+    -   date: de.ds100.dr
         name: Genshagener Heide Nord
         de.DS100: BGH N
-        source: !keyref src.de.TPP.2006
-    -   date: !date c2000
+        source: src.de.TPP.2006
+    -   date: c2000
         category: de.Bft
-        source: !keyref src.de.SuW.2005
+        source: src.de.SuW.2005
     -   date: !!null
         location:
-            - !keyloc line.de.6129 1,428
-            - !keyloc line.de.6130 1,382
-        source: !keyref src.de.DBAG.ISR
+            line.de.6129: 1,428
+            line.de.6130: 1,382
+        source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.6129 ghn left
+        site: path.de.6129 ghn
 
 
 ---
@@ -103,16 +92,16 @@ key: point.de.Grossbeeren-West
 type: point
 junction: True
 events:
-    -   date: !date 2006-05-28?
+    -   date: 2006-05-28?
         status: open
     -   date: !!null
         location:
-            - !keyloc line.de.6129 2,849
-            - !keyloc line.de.6065 1,000
+            line.de.6129: 2,849
+            line.de.6065: 1,000
         category: de.Abzw
         name: Großbeeren West
         de.DS100: BGBW
-        source: !keyref src.de.DBAG.ISR
+        source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.6129 gbw left
+        site: path.de.6129 gbw

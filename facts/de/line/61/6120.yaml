@@ -6,51 +6,39 @@ type: line
 events:
     -   date: !!null
         region:
-            - !keyref org.de
-            - !keyref org.de.l.be
+            - org.de
+            - org.de.l.be
 
-    -   date: !var vzg.dr
+    -   date: de.vzg.dr
         de.VzG: !!str 6120
         source: src.de.DBAG.Geo-Strecke.2017
 
     # Eröffnung und Elektrifizierung
     #
-    -   date: !date c1940
+    -   date: c1940
         status: open
-        service: freight
-    -   date: !date 1992-05-29
-        end: !keyref point.de.Seddin-Bla
-        electrified:
-            overhead: !var el.de
-        source: !keyref src.de.Kuhlmann.2000
+        passenger: none
+    -   date: 1992-05-29
+        end: point.de.Seddin-Bla
+        electrified: de
+        source: src.de.Kuhlmann.2000
         
     # Eigentümer und Betreiber
     #
     -   date: !!null
-        owner: !keyref org.de
-        operator: !keyref org.de.DR
+        owner: org.de
+        operator: org.de.DR
 
-    -   date: !date 1949-10-07
-        owner: !keyref org.dd
-    -   date: !var org.de.DR.start
-        operator: !keyref org.dd.DR
-    -   date: !date 1990-10-03
-        owner: !keyref org.de
-
-    -   date: !!null
-        owner: !keyref org.de.Deutsche-Bahn
-        operator: !keyref org.de.Deutsche-Bahn
-    -   date: !var org.de.DBNetz.start
-        owner: !keyref org.de.DB-Netz
-        operator: !keyref org.de.DB-Netz
+    -   date: 1949-10-07
+        owner: org.dd
 
     # Verlauf
     #
     -   date: !!null
         course:
-            - !pathref path.de.6118 ssw abla -2.5
-            - !pathref path.de.6118 fses bla -0.5
+            -   path.de.6118 ssw abla
+            -   path.de.6118 fses bla
 
 points:
-    - !keyref point.de.Seddin-Süd-Ssw                   # line.de.6119
-    - !keyref point.de.Seddin-Bla                       # line.de.6118
+    - point.de.Seddin-Süd-Ssw                   # line.de.6119
+    - point.de.Seddin-Bla                       # line.de.6118

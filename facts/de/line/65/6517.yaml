@@ -7,102 +7,95 @@ label: freight
 events:
     -   date: !!null
         region:
-            - !keyref org.de
-            - !keyref org.de.l.bb
+            - org.de
+            - org.de.l.bb
 
-    -   date: !var vzg.dr
+    -   date: de.vzg.dr
         de.VzG: !!str 6517
         source: src.de.DBAG.Geo-Strecke.2017
 
     #   Eröffnung
     #
-    -   date: !date 1909-07-21
-        start: !keyref point.de.Teltow-Grossbeerener-Weg
+    -   date: 1909-07-21
+        start: point.de.Teltow-Grossbeerener-Weg
         status: open
-        service: freight
-        source: !keyref src.de.Kuhlmann.2000
-    -   date: !date c1965
-        end: !keyref point.de.Teltow-Grossbeerener-Weg
+        passenger: none
+        source: src.de.Kuhlmann.2000
+    -   date: c1965
+        end: point.de.Teltow-Grossbeerener-Weg
         status: open
-        source: !keyref src.dd.DR.Bln.1968
+        source: src.dd.DR.Bln.1968
 
     #   Stilllegung
     #
-    -   date: !date 1995-12-31
-        service: none
-        source: !keyref src.de.Bundestag.14.200
-    -   date: !date 1998-04-01
-        start: !keyref point.de.Teltow-Streckenende-1998
+    -   date: 1995-12-31
+        freight: none
+        source: src.de.Bundestag.14.200
+    -   date: 1998-04-01
+        start: point.de.Teltow-Streckenende-1998
         status: closed
-        source: !keyref src.de.web.EBA.Still # Nr. 208
-    -   date: !date c2005
-        end: !keyref point.de.Teltow-Streckenende-1998
+        source: src.de.web.EBA.Still # Nr. 208
+    -   date: c2005
+        end: point.de.Teltow-Streckenende-1998
         status: closed
 
     #   Eigenschaften
     #
     -   date: !!null
-        start: !keyref point.de.Teltow-Grossbeerener-Weg
+        start: point.de.Teltow-Grossbeerener-Weg
         category: de.Kleinbahn
         tracks: 1
-        gauge: 1435
-    -   date: !date 1949-04-01?
-        start: !keyref point.de.Teltow-Grossbeerener-Weg
+        gauge: 1435mm
+    -   date: 1949-04-01?
+        start: point.de.Teltow-Grossbeerener-Weg
         category: de.Nebenbahn
     -   date: !!null
-        end: !keyref point.de.Teltow-Grossbeerener-Weg
+        end: point.de.Teltow-Grossbeerener-Weg
         category: de.Nebenbahn
         tracks: 1
-        gauge: 1435
+        gauge: 1435mm
         
-    -   date: !date 2001-11-26
-        end: !keyref point.de.Teltow-Streckenende-1998
+    -   date: 2001-11-26
+        end: point.de.Teltow-Streckenende-1998
         category: de.Bfgleis
-        source: !keyref src.de.web.EBA.Still # Nr. 378
+        source: src.de.web.EBA.Still # Nr. 378
 
     #   Eigentümer und Betriebsführer
     #
     -   date: !!null
-        start: !keyref point.de.Teltow-Grossbeerener-Weg
+        start: point.de.Teltow-Grossbeerener-Weg
         owner: org.de.Teltower-Industriebahn
         operator: org.de.Allgemeine-Deutsche-Eisenbahn
-    -   date: !date 1928
-        start: !keyref point.de.Teltow-Grossbeerener-Weg
-        owner: !keyref org.de.Teltower-Eisenbahn
-    -   date: !date 1947
-        start: !keyref point.de.Teltow-Grossbeerener-Weg
+    -   date: 1928
+        start: point.de.Teltow-Grossbeerener-Weg
+        owner: org.de.Teltower-Eisenbahn
+    -   date: 1947
+        start: point.de.Teltow-Grossbeerener-Weg
         operator: org.de.Landesbahnen-Brandenburg
-        source: !keyref src.de.Kuhlmann.2000
-    -   date: !date 1949-04-01
-        start: !keyref point.de.Teltow-Grossbeerener-Weg
-        owner: !keyref org.dd
-        operator: !keyref org.dd.DR
+        source: src.de.Kuhlmann.2000
+    -   date: 1949-04-01
+        start: point.de.Teltow-Grossbeerener-Weg
+        owner: org.dd
+        operator: org.dd.DR
 
     -   date: !!null
-        end: !keyref point.de.Teltow-Grossbeerener-Weg
-        owner: !keyref org.dd
-        operator: !keyref org.dd.DR
-
-    -   date: !var org.de.Deutsche-Bahn.start
-        owner: !keyref org.de.Deutsche-Bahn
-        operator: !keyref org.de.Deutsche-Bahn
-    -   date: !var org.de.DBNetz.start
-        owner: !keyref org.de.DB-Netz
-        operator: !keyref org.de.DB-Netz
+        end: point.de.Teltow-Grossbeerener-Weg
+        owner: org.dd
+        operator: org.dd.DR
 
     #   Verlauf
     #
     -   date: !!null
         course:
-            - !pathref path.de.6132 tel.b2 fteh -.5
-            - !pathref path.de.6517 a    f    0.0
+            -   path.de.6132 tel.b2 fteh
+            -   path.de.6517 a    f
 
 points:
-    - !keyref point.de.Teltow-B2                            # line.de.6132
-    - !keyref point.de.Teltow-Grossbeerener-Weg
-    - !keyref point.de.Teltow-Streckenende-1998
-    - !keyref point.de.Teltow-West
-    - !keyref point.de.Teltow-Hafen
+    - point.de.Teltow-B2                            # line.de.6132
+    - point.de.Teltow-Grossbeerener-Weg
+    - point.de.Teltow-Streckenende-1998
+    - point.de.Teltow-West
+    - point.de.Teltow-Hafen
 
 
 ---
@@ -112,7 +105,7 @@ subtype: reference
 events:
     -   date: !!null
         name: Teltow, Bü Großbeerener Weg
-        site: !noderef path.de.6517 tgw
+        site: path.de.6517 tgw
 
 
 ---
@@ -122,7 +115,7 @@ subtype: reference
 events: 
     -   date: !!null
         name: km 3,7
-        site: !noderef path.de.6517 tse
+        site: path.de.6517 tse
 
 
 ---
@@ -131,40 +124,42 @@ type: point
 events:
     -   date: !!null
         name: Teltow Neiszestr
-        source: !keyref src.de.Bfv.1928
-    -   date: !date c1930
+        source: src.de.Bfv.1928
+    -   date: c1930
         name: Teltow Neissestraße
-        source: !keyref src.de.Bfv.1933
-    -   date: !var lknr.kb
+        source: src.de.Bfv.1933
+    -   date: de.lknr.kb
         de.lknr: 47 554
-        source: !keyref src.de.Bfv.1938
-    -   date: !date c1940
+        source: src.de.Bfv.1938
+    -   date: c1940
         name: Teltow West
-        source: !keyref src.de.Bfv.1944
-    -   date: !date 1949-04-01?
-        de.Rangklasse: III
+        source: src.de.Bfv.1944
+    -   date: 1949-04-01?
+        de.rang: III
         de.VBL: Tlw
-        source: !keyref src.dd.DR.Bln.1953
+        source: src.dd.DR.Bln.1953
     -   date: !!null
         category: de.Bf
-        location: !keyloc line.de.6517 10,0
-        source: !keyref src.dd.DR.Bln.1959
-    -   date: !date c1965
-        de.Rangklasse: IV
-        source: !keyref src.dd.DR.Bln.1968
-    -   date: !date c1980
-        de.Rangklasse: U
-        master: !keyref point.de.Teltow
-        source: !keyref src.dd.DR.Bln.1983
-    -   date: !date c1985
-        location: !keyloc line.de.6517 7,0
+        location:
+            line.de.6517: 10,0
+        source: src.dd.DR.Bln.1959
+    -   date: c1965
+        de.rang: IV
+        source: src.dd.DR.Bln.1968
+    -   date: c1980
+        de.rang: U
+        master: point.de.Teltow
+        source: src.dd.DR.Bln.1983
+    -   date: c1985
+        location:
+            line.de.6517: 7,0
         category: de.Anst
-        source: !keyref src.dd.DR.1989
-    -   date: !var ds100.dr
+        source: src.dd.DR.1989
+    -   date: de.ds100.dr
         de.DS100: BTLW
 
     -   date: !!null
-        site: !noderef path.de.6517 tew
+        site: path.de.6517 tew
 
 
 ---
@@ -173,34 +168,35 @@ type: point
 events:
     -   date: !!null
         name: Teltow Hafen
-        source: !keyref src.de.Bfv.1928
-    -   date: !date c1935
+        source: src.de.Bfv.1928
+    -   date: c1935
         name: Teltow (Hafen)
-        source: !keyref src.de.Bfv.1938
-    -   date: !var lknr.kb
+        source: src.de.Bfv.1938
+    -   date: de.lknr.kb
         de.lknr: 47 555
-        source: !keyref src.de.Bfv.1938
-    -   date: !date c1940
+        source: src.de.Bfv.1938
+    -   date: c1940
         name: Teltow Hafen
-        source: !keyref src.de.Bfv.1944
+        source: src.de.Bfv.1944
     -   date: !!null
-        location: !keyloc line.de.6517 11,0
+        location:
+            line.de.6517: 11,0
         category: de.Bf
-        source: !keyref src.dd.DR.Bln.1959
-    -   date: !date 1949-04-01?
-        de.Rangklasse: U
-        master: !keyref point.de.Teltow-West
+        source: src.dd.DR.Bln.1959
+    -   date: 1949-04-01?
+        de.rang: U
+        master: point.de.Teltow-West
         de.VBL: Tlh
-        source: !keyref src.dd.DR.Bln.1959
-    -   date: !date c1965
+        source: src.dd.DR.Bln.1959
+    -   date: c1965
         category: de.Anst
-        source: !keyref src.dd.DR.Bln.1968
-    -   date: !date c1985
+        source: src.dd.DR.Bln.1968
+    -   date: c1985
         status: closed
-        source: !keyref src.dd.DR.1989
-    -   date: !var ds100.dr
+        source: src.dd.DR.1989
+    -   date: de.ds100.dr
         de.DS100: BTLH
 
     -   date: !!null
-        site: !noderef path.de.6517 teh
+        site: path.de.6517 teh
 

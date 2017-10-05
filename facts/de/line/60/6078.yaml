@@ -13,7 +13,7 @@ events:
         start: point.de.Berlin-Mahlsdorf-LGr-Fernbahn
         region: org.de.l.bb
 
-    -   date: !var vzg.dr
+    -   date: de.vzg.dr
         de.VzG: !!str 6078
         source: src.de.DBAG.Geo-Strecke.2017
 
@@ -29,14 +29,14 @@ events:
         concession:
             by: org.de.l.pre
             for: org.de.l.pre
-            document: src.de.l.pre.1856.27.402
+        document: src.de.l.pre.1856.27.402
         source: src.de.DRG.1935 # 1857/7
     -   date: 1862-09-24
         end: point.de.Küstrin-Kietz
         concession:
             by: org.de.l.pre
             for: org.de.l.pre
-            document: src.de.l.pre.1862.34.317
+        document: src.de.l.pre.1862.34.317
         source: src.de.DRG.1935 # 1866/34
 
     # Eröffnungen
@@ -60,19 +60,16 @@ events:
     -   date: 1928-11-06
         start: point.de.Berlin-Lichtenberg
         end: point.de.Berlin-Mahlsdorf
-        electrified:
-            rail: !var el.de.bln
+        electrified: de.bln
         source: src.de.Kuhlmann.2000
     -   date: 1930-12-15?
         start: point.de.Berlin-Kaulsdorf
         end: point.de.Berlin-Mahlsdorf
-        electrified:
-            rail: !!null
+        electrified: !!null
     -   date: 1941-07-03?
         start: point.de.Berlin-Lichtenberg
         end: point.de.Berlin-Kaulsdorf
-        electrified:
-            rail: !!null
+        electrified: !!null
 
     # Nach 1945
     #
@@ -87,14 +84,12 @@ events:
     -   date: 1984-12-15
         start: point.de.Berlin-Lichtenberg
         end: point.de.Biesdorfer-Kreuz-West
-        electrified:
-            overhead: !var el.de
+        electrified: de
         source: src.de.Kuhlmann.2000
     -   date: 1985-06-01
         start: point.de.Biesdorfer-Kreuz-West
         end: point.de.Biesdorfer-Kreuz-Süd-Ost
-        electrified:
-            overhead: !var el.de
+        electrified: de
         source: src.de.Kuhlmann.2000
 
 
@@ -103,48 +98,23 @@ events:
     -   date: !!null
         owner: org.de.l.pre
         operator: org.de.e.bro
-    -   date: 1880-04-01?
-        end: point.de.Strausberg
-        operator: org.de.e.bln
-    -   date: 1920-01-10?
-        start: point.de.Strausberg
-        operator: org.de.e.ost
-
-    -   date: 1920-04-01
-        owner: org.de
-        operator: org.de.r.RVM.PH
-    -   date: 1924-02-12
-        operator: org.de.Deutsche-Reichsbahn-I
-    -   date: 1924-08-30
-        operator: org.de.DR
 
     -   date: 1949-10-07
         owner: org.dd
-    -   date: !var org.de.DR.start
-        operator: org.dd.DR
-    -   date: 1990-10-03
-        owner: org.de
-
-    -   date: !var org.de.Deutsche-Bahn.start
-        owner: org.de.Deutsche-Bahn
-        operator: org.de.Deutsche-Bahn
-    -   date: !var org.de.DBNetz.start
-        owner: org.de.DB-Netz
-        operator: org.de.DB-Netz
 
     # Verlauf
     #
     -   date: !!null
         course:
-            - !pathref path.de.6078.bln bwr  f
-            - !pathref path.de.6153     fbrw alic
-            - !pathref path.de.6078     a    gkus
+            -   path.de.6078.bln bwr  f
+            -   path.de.6153     fbrw alic
+            -   path.de.6078     a    gkus
     -   date: c1975
         course:
-            - !pathref path.de.6078.bln bwr  f
-            - !pathref path.de.6153     fbrw alic
-            - !pathref path.de.6078.bik a    f
-            - !pathref path.de.6078     bio  gkus
+            -   path.de.6078.bln bwr  f
+            -   path.de.6153     fbrw alic
+            -   path.de.6078.bik a    f
+            -   path.de.6078     bio  gkus
 
 points:
     -   point.de.Berlin-Wriezener-Bf
@@ -206,9 +176,10 @@ events:
         status: open
         source: src.de.Kuhlmann.2000
     -   date: !!null
-        location: !keyloc line.de.6078 0,00
+        location:
+            line.de.6078: 0,00
         category: de.Bf
-        de.Rangklasse: I
+        de.rang: I
         name: Berlin Ostbahnhof
         source: src.de.DRG.Bln.1927
     -   date: !!null
@@ -216,10 +187,11 @@ events:
         service: freight
         source: src.de.Bfv.1928
     -   date: c1930
-        location: !keyloc line.de.6078 0,07
-        de.Rangklasse: II
+        location:
+            line.de.6078: 0,07
+        de.rang: II
         source: src.de.DRG.Bln.1932
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 03 240
         source: src.de.Bfv.1933
     -   date: !!null
@@ -232,17 +204,17 @@ events:
         de.VBL: Wrg
         source: src.dd.DR.Bln.1953
     -   date: c1950
-        de.Rangklasse: U
+        de.rang: U
         source: src.dd.DR.Bln.1953
     -   date: c1950
         master: point.de.Berlin-Ostgbf
         source: src.dd.DR.Bln.1959
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BWRG
         source: src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.6078.bln bwr
+        site: path.de.6078.bln bwr
 
 
 # point.de.Berlin-Warschauer-Strasse          # de.6004
@@ -262,18 +234,18 @@ events:
         source: src.de.Kuhlmann.2000
     -   date: !!null
         location:
-            - !keyloc line.de.6071 4,73
-            - !keyloc line.de.6072 4,73
-            - !keyloc line.de.6006 4,73
-            - !keyloc line.de.6531 4,73
-            - !keyloc line.de.6078 4,73
+            line.de.6071: 4,73
+            line.de.6072: 4,73
+            line.de.6006: 4,73
+            line.de.6531: 4,73
+            line.de.6078: 4,73
         category: de.Bf
-        de.Rangklasse: I
+        de.rang: I
         source: src.de.DRG.Bln.1927
     -   date: !!null
         de.lknr: 03 072
         source: src.de.Bfv.1928
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 03 244
         source: src.de.Bfv.1933
     -   date: 1938-05-15
@@ -282,17 +254,18 @@ events:
     -   date: !!null
         de.VBL: Blo
         source: src.de.DRG.Bln.1946
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BLO
         source: src.de.TPP.2006
     -   date: 2006
-        location: !keyloc line.de.6006 -
+        location:
+            line.de.6006: !!null
         source:
             - src.de.TPP.2006
             - src.de.TPP.2007
 
     -   date: !!null
-        site: !noderef path.de.6078 lic
+        site: path.de.6078 lic
 
 
 ---
@@ -305,23 +278,23 @@ events:
         source: src.de.Kuhlmann.2000
     -   date: !!null
         location:
-            - !keyloc line.de.6072 6,70
-            - !keyloc line.de.6078 6,70
+            line.de.6072: 6,70
+            line.de.6078: 6,70
         category: de.Abzw
         name: Bkw
         master: point.de.Berlin-Lichtenberg
         source: src.dd.DR.1989
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BBIKW
         source: src.de.TPP.2006
     -   date: c1995
         location:
-            - !keyloc line.de.6071 6,040
-            - !keyloc line.de.6078 6,150
+            line.de.6071: 6,040
+            line.de.6078: 6,150
         source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.6078 bkw
+        site: path.de.6078 bkw
 
 
 ---
@@ -338,13 +311,13 @@ events:
         source: src.de.TPP.2006
     -   date: !!null
         location:
-            - !keyloc line.de.6076 2,474
-            - !keyloc line.de.6078 7,736
+            line.de.6076: 2,474
+            line.de.6078: 7,736
         category: de.Abzw
         source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.6078.bik bso
+        site: path.de.6078.bik bso
 
 
 ---
@@ -355,18 +328,20 @@ events:
     -   date: 1940-01-01?
         status: open
     -   date: !!null
-        location: !keyloc line.de.6078 8,187
+        location:
+            line.de.6078: 8,187
         category: de.Abzw
         name: Ffo
         source: src.de.DRG.Bln.1943
     -   date: 1950-12?
-        location: !keyloc line.de.6078 8,175
+        location:
+            line.de.6078: 8,175
         source: src.dd.DR.Bln.1968
     -   date: c1970
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.6078 ffo
+        site: path.de.6078 ffo
 
 
 ---
@@ -378,23 +353,24 @@ events:
         status: open
         source: src.de.Kuhlmann.2000
     -   date: !!null
-        location: !keyloc line.de.6078 8,50
+        location:
+            line.de.6078: 8,50
         category: de.Abzw
         name: Bko
         master: point.de.Berlin-Lichtenberg
         source: src.dd.DR.1989
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BKIKO
         name: Biesdorfer Kreuz Ost
         source: src.de.TPP.2006
     -   date: !!null
         location:
-            - !keyloc line.de.6075 1,252
-            - !keyloc line.de.6074 1,928
+            line.de.6075: 1,252
+            line.de.6074: 1,928
         source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.6078 bio
+        site: path.de.6078 bio
 
 
 # point.de.Berlin-Biesdorf                    de.6006
@@ -414,40 +390,41 @@ events:
         source: src.de.web.Krebs.Ostbahn
     -   date: !!null
         location:
-            - !keyloc line.de.8703 11,74
-            - !keyloc line.de.6078 10,84
+            line.de.8703: 11,74
+            line.de.6078: 10,84
         category: de.Bf
-        de.Rangklasse: II
+        de.rang: II
         source: src.de.DRG.Bln.1927
     -   date: !!null
         de.lknr: 03 073
         source: src.de.Bfv.1928
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 03 256
         source: src.de.Bfv.1933
     -   date: !!null
         de.VBL: Kd
         source: src.de.DRG.Bln.1946
     -   date: c1950
-        de.Rangklasse: I
+        de.rang: I
         source: src.dd.DR.Bln.1953
     -   date: c1955
         name: Berlin-Kaulsdorf
         source: src.dd.DR.Bln.1959
     -   date: c1965
-        de.Rangklasse: II
+        de.rang: II
         source: src.dd.DR.Bln.1968
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BKD
         source: src.de.TPP.2006
     -   date: 2006
-        location: !keyloc line.de.6006 -
+        location:
+            line.de.6006: !!null
         source:
             - src.de.TPP.2006
             - src.de.TPP.2007
 
     -   date: !!null
-        site: !noderef path.de.6078 kau
+        site: path.de.6078 kau
 
 
 # point.de.Berlin-Mahlsdorf                   de.6006
@@ -461,7 +438,8 @@ events:
         name: Bk 8
         source: src.de.DRG.Bln.1932
     -   date: !!null
-        location: !keyloc line.de.6078 13,508
+        location:
+            line.de.6078: 13,508
         source: src.de.DRG.Bln.1943
     -   date: c1935
         name: Höhnow
@@ -474,7 +452,7 @@ events:
         source: src.dd.DR.Bln.1959
 
     -   date: !!null
-        site: !noderef path.de.6078 hoh
+        site: path.de.6078 hoh
 
 
 ---
@@ -490,7 +468,7 @@ events:
         source: src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.6078 gmah
+        site: path.de.6078 gmah
 
 
 ---
@@ -498,7 +476,8 @@ key: point.de.Birkenstein-Bk
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.6078 15,025
+        location:
+            line.de.6078: 15,025
         category: de.Bk
         name: Bk 9
         source: src.de.DRG.Bln.1932
@@ -513,7 +492,7 @@ events:
         source: src.dd.DR.Bln.1959
 
     -   date: !!null
-        site: !noderef path.de.6078 bib
+        site: path.de.6078 bib
 
 
 ---
@@ -524,16 +503,17 @@ events:
         status: open
         source: src.de.Kuhlmann.2000
     -   date: !!null
-        location: !keyloc line.de.6078 16,016
+        location:
+            line.de.6078: 16,016
         category: de.Bf
-        de.Rangklasse: III
+        de.rang: III
         source: src.de.DRG.Bln.1927
     -   date: 1944
         status: closed
         source: src.de.Kuhlmann.2000
 
     -   date: !!null
-        site: !noderef path.de.6078 hor
+        site: path.de.6078 hor
 
 
 ---
@@ -549,38 +529,41 @@ events:
         name: Hoppegarten (Mark)
         source: src.de.Kuhlmann.2000
     -   date: !!null
-        location: !keyloc line.de.6078 16,62
+        location:
+            line.de.6078: 16,62
         category: de.Bf
-        de.Rangklasse: II
+        de.rang: II
         source: src.de.DRG.Bln.1927
     -   date: !!null
         de.lknr: 03 075
         source: src.de.Bfv.1928
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 03 258
         source: src.de.Bfv.1933
     -   date: 1944-08-01
-        location: !keyloc line.de.6006 16,62
+        location:
+            line.de.6006: 16,62
     -   date: !!null
         de.VBL: Hpn
         source: src.de.DRG.Bln.1946
     -   date: c1965
-        de.Rangklasse: IV
+        de.rang: IV
         source: src.dd.DR.Bln.1968
     -   date: c1975
-        de.Rangklasse: III
+        de.rang: III
         source: src.dd.DR.Bln.1978
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BHPN
         source: src.de.TPP.2006
     -   date: 2006
-        location: !keyloc line.de.6006 -
+        location:
+            line.de.6006: !!null
         source:
             - src.de.TPP.2006
             - src.de.TPP.2007
 
     -   date: !!null
-        site: !noderef path.de.6078 hop
+        site: path.de.6078 hop
 
 
 ---
@@ -588,7 +571,8 @@ key: point.de.Bollensdorf
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.6078 20,489
+        location:
+            line.de.6078: 20,489
         category: de.Bk
         name: Bk 12
         source: src.de.DRG.Bln.1932
@@ -603,7 +587,7 @@ events:
         source: src.dd.DR.Bln.1959
 
     -   date: !!null
-        site: !noderef path.de.6078 bol
+        site: path.de.6078 bol
 
 
 ---
@@ -614,14 +598,15 @@ events:
         status: open
         source: src.de.Kuhlmann.2000
     -   date: !!null
-        location: !keyloc line.de.6078 21,20
+        location:
+            line.de.6078: 21,20
         source: src.de.DRG.Bln.1943
     -   date: !!null
         category: de.Bf
         name: Fredersdorf (b Berlin) Vbf
         de.lknr: 03 378
         note:
-            de: Springpfuhl hat gleiche Nr
+            deu: Springpfuhl hat gleiche Nr
         source: src.de.Bfv.1944
     -   date: !!null
         service: none
@@ -633,7 +618,7 @@ events:
         merged: point.de.Fredersdorf-Berlin
 
     -   date: !!null
-        site: !noderef path.de.6078 frv
+        site: path.de.6078 frv
 
 
 ---
@@ -653,9 +638,9 @@ events:
         source: src.de.Kuhlmann.2000
     -   date: !!null
         location:
-            - !keyloc line.de.6078 22,82
+            line.de.6078: 22,82
         category: de.Bf
-        de.Rangklasse: II
+        de.rang: II
         source: src.de.DRG.Bln.1927
     -   date: !!null
         de.lknr: 03 077
@@ -663,7 +648,7 @@ events:
     -   date: c1930
         name: Fredersdorf b Berlin
         source: src.de.DRG.Bln.1932
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 03 260
         source: src.de.Bfv.1933
     -   date: c1938
@@ -673,26 +658,27 @@ events:
         de.VBL: Frd
         source: src.de.DRG.Bln.1946
     -   date: c1965
-        de.Rangklasse: U
+        de.rang: U
         master: point.de.Rüdersdorf-Berlin
         source: src.dd.DR.Bln.1968
     -   date: c1970
-        de.Rangklasse: III
+        de.rang: III
         source: src.dd.DR.Bln.1973
     -   date: c1975
-        de.Rangklasse: II
+        de.rang: II
         source: src.dd.DR.Bln.1978
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BFRD
         source: src.de.TPP.2006
     -   date: 2006
-        location: !keyloc line.de.6006 -
+        location:
+            line.de.6006: !!null
         source:
             - src.de.TPP.2006
             - src.de.TPP.2007
 
     -   date: !!null
-        site: !noderef path.de.6078 fre
+        site: path.de.6078 fre
 
 
 ---
@@ -700,7 +686,8 @@ key: point.de.Giebel
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.6078 25,4
+        location:
+            line.de.6078: 25,4
         category: de.Bk
         name: Bk 15
         source: src.de.DRG.Bln.1932
@@ -712,7 +699,7 @@ events:
         source: src.de.DRG.Bln.1946
 
     -   date: !!null
-        site: !noderef path.de.6078 gie
+        site: path.de.6078 gie
 
 
 ---
@@ -724,7 +711,8 @@ events:
         name: Bk 16
         source: src.de.DRG.Bln.1932
     -   date: !!null
-        location: !keyloc line.de.6078 26,074
+        location:
+            line.de.6078: 26,074
         source: src.de.DRG.Bln.1943
     -   date: c1935
         name: Eggersdorf
@@ -737,7 +725,7 @@ events:
         source: src.dd.DR.Bln.1959
 
     -   date: !!null
-        site: !noderef path.de.6078 egg
+        site: path.de.6078 egg
 
 ---
 key: point.de.Strausberg-Abzw
@@ -747,10 +735,10 @@ events:
     -   date: !!null
         name: Strausberg Abzw Vorortgleise
         note:
-            de: 0,40 km vor Strausberg [src.de.DRG.1935]
+            deu: 0,40 km vor Strausberg [src.de.DRG.1935]
 
     -   date: !!null
-        site: !noderef path.de.6078 sta
+        site: path.de.6078 sta
 
 
 ---
@@ -766,10 +754,10 @@ events:
         source: src.de.Kb.1914
     -   date: !!null
         location:
-            - !keyloc line.de.6006 27,78
-            - !keyloc line.de.6078 27,78
+            line.de.6006: 27,78
+            line.de.6078: 27,78
         category: de.Bf
-        de.Rangklasse: II
+        de.rang: II
         source: src.de.DRG.Bln.1927
     -   date: c1920
         name: Strausberg
@@ -777,7 +765,7 @@ events:
     -   date: !!null
         de.lknr: 03 079
         source: src.de.Bfv.1928
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 03 261
         source: src.de.Bfv.1933
     -   date: !!null
@@ -785,18 +773,19 @@ events:
         source: src.de.DRG.Bln.1946
     -   date: c1955
         location:
-            - !keyloc line.de.6006 27,9
-            - !keyloc line.de.6078 27,9
-        de.Rangklasse: III
+            line.de.6006: 27,9
+            line.de.6078: 27,9
+        de.rang: III
         source: src.dd.DR.Bln.1959
     -   date: c1965
-        de.Rangklasse: II
+        de.rang: II
         source: src.dd.DR.Bln.1968
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BST
         source: src.de.TPP.2006
     -   date: 2006
-        location: !keyloc line.de.6006 -
+        location:
+            line.de.6006: !!null
         source:
             - src.de.TPP.2006
             - src.de.TPP.2007
@@ -805,7 +794,7 @@ events:
         connection:
             - point.de.Strausberg-S-Bahn            # line.de.6006
             - point.de.Strausberg-StE               # line.de.8725
-        site: !noderef path.de.6078 str
+        site: path.de.6078 str
 
 
 # 28,27 Dir-Gr Bln/Ost src.de.DRG.Bln.1927 - src.de.DRG.Bln.1943
@@ -826,7 +815,8 @@ events:
         de.lknr: 25 080
         source: src.de.Bfv.1933
     -   date: !!null
-        location: !keyloc line.de.6078 31,25
+        location:
+            line.de.6078: 31,25
         source: src.de.DRG.Bln.1943
     -   date: !!null
         de.VBL: He
@@ -836,12 +826,12 @@ events:
         source: src.dd.DR.Bln.1959
     -   date: c1965
         master: point.de.Strausberg
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BHE
         source: src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.6078 her
+        site: path.de.6078 her
 
 
 ---
@@ -856,32 +846,33 @@ events:
         source: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
-        de.Rangklasse: III
+        de.rang: III
         source: src.de.Bfv.1933
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 25 081
         source: src.de.Bfv.1933
     -   date: c1940
         name: Rehfelde (Kr Niederbarnim)
         source: src.de.Bfv.1944
     -   date: !!null
-        location: !keyloc line.de.6078 33,71
+        location:
+            line.de.6078: 33,71
         de.VBL: Rd
         source: src.de.DRG.Bln.1946
     -   date: c1950
-        de.Rangklasse: IV
+        de.rang: IV
         de.VBL: Re
         source: src.dd.DR.Bln.1953
     -   date: c1950
         name: Rehfelde (Kr Strausberg)
         source: src.dd.DR.Bln.1953
     -   date: c1965
-        de.Rangklasse: U
+        de.rang: U
         source: src.dd.DR.Bln.1968
     -   date: c1965
         master: point.de.Strausberg
         source: src.dd.DR.Bln.1973
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BRE
         source: src.de.TPP.2006
     -   date: 1996-06-02
@@ -889,7 +880,7 @@ events:
         source: src.de.web.Krebs.Ostbahn
 
     -   date: !!null
-        site: !noderef path.de.6078 reh
+        site: path.de.6078 reh
 
 
 ---
@@ -897,7 +888,8 @@ key: point.de.Garzau
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.6078 36,85
+        location:
+            line.de.6078: 36,85
         category: de.Bk
         name: Garzau
         source: src.de.DRG.Bln.1943
@@ -906,7 +898,7 @@ events:
         source: src.dd.DR.Bln.1959
 
     -   date: !!null
-        site: !noderef path.de.6078 gar
+        site: path.de.6078 gar
 
 
 ---
@@ -914,22 +906,24 @@ key: point.de.Rotes-Luch
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.6078 41,16
+        location:
+            line.de.6078: 41,16
         category: de.Bk
         name: Rotes Luch
         source: src.de.DRG.Bln.1943
     -   date: c1950
         category: de.Bf
-        de.Rangklasse: U
+        de.rang: U
         de.VBL: Rl
         source: src.dd.DR.Bln.1953
     -   date: c1950
         master: point.de.Müncheberg-Mark
         source: src.dd.DR.Bln.1959
     -   date: c1950
-        location: !keyloc line.de.6078 41,210
+        location:
+            line.de.6078: 41,210
         source: src.dd.DR.Bln.1978
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BRL
     -   date: c1995
         name: Waldsieversdorf Rotes Luch
@@ -937,7 +931,7 @@ events:
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.6078 rot
+        site: path.de.6078 rot
 
 
 ---
@@ -953,9 +947,9 @@ events:
         source: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
-        de.Rangklasse: II
+        de.rang: II
         source: src.de.Bfv.1933
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 25 082
         source: src.de.Bfv.1933
     -   date: !!null    
@@ -966,17 +960,18 @@ events:
         de.VBL: Müb
         source: src.dd.DR.Bln.1953
     -   date: !!null
-        location: !keyloc line.de.6078 45,83
+        location:
+            line.de.6078: 45,83
         source: src.dd.DR.Bln.1959
     -   date: c1990
         de.VBL: Mub
         source: src.dd.DR.Bln.1991
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BMB
         source: src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.6078 mun
+        site: path.de.6078 mun
 
 
 ---
@@ -992,7 +987,8 @@ events:
         de.VBL: Ob
         source: src.dd.DR.Bln.1953
     -   date: !!null
-        location: !keyloc line.de.6078 50,68
+        location:
+            line.de.6078: 50,68
         master: point.de.Müncheberg-Mark
         source: src.dd.DR.Bln.1959
     -   date: c1965
@@ -1001,12 +997,12 @@ events:
     -   date: c1970
         category: de.Hp
         source: src.dd.DR.Bln.1973
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BOB
         source: src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.6078 obe
+        site: path.de.6078 obe
 
 
 ---
@@ -1021,21 +1017,22 @@ events:
         source: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
-        de.Rangklasse: III
+        de.rang: III
         source: src.de.Bfv.1933
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 25 083
         source: src.de.Bfv.1933
     -   date: !!null
         de.VBL: Tz
         source: src.dd.DR.Bln.1953
     -   date: c1965
-        de.Rangklasse: IV
+        de.rang: IV
         source: src.dd.DR.Bln.1968
     -   date: !!null
-        location: !keyloc line.de.6078 53,951
+        location:
+            line.de.6078: 53,951
         source: src.dd.DR.1976
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BTZ
         source: src.de.TPP.2006
     -   date: c2005
@@ -1043,7 +1040,7 @@ events:
         source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.6078 tre
+        site: path.de.6078 tre
 
 
 ---
@@ -1051,7 +1048,8 @@ key: point.de.Worin
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.6078 56,76
+        location:
+            line.de.6078: 56,76
         category: de.Bk
         name: Worin
         source: src.dd.DR.Bln.1959
@@ -1059,7 +1057,7 @@ events:
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.6078 wor
+        site: path.de.6078 wor
 
 
 ---
@@ -1072,7 +1070,8 @@ events:
             - src.dd.DR.Bln.1953
             - src.dd.DR.Bln.1959
     -   date: !!null
-        location: !keyloc line.de.6078 58,4
+        location:
+            line.de.6078: 58,4
         category: de.Hp
         name: Alt Rosenthal
         de.VBL: Aro
@@ -1083,12 +1082,12 @@ events:
     -   date: c1990
         staff: none
         source: src.dd.DR.Bln.1991
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BARO
         source: src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.6078 aro
+        site: path.de.6078 aro
 
 
 ---
@@ -1096,7 +1095,8 @@ key: point.de.Goerlsdorf
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.6078 60,23
+        location:
+            line.de.6078: 60,23
         category: de.Bk
         name: Görlsdorf
         source: src.dd.DR.Bln.1959
@@ -1105,7 +1105,7 @@ events:
         source: src.dd.DR.Bln.1959
 
     -   date: !!null
-        site: !noderef path.de.6078 god
+        site: path.de.6078 god
 
 
 ---
@@ -1120,20 +1120,21 @@ events:
         source: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
-        de.Rangklasse: III
+        de.rang: III
         source: src.de.Bfv.1933
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 25 084
         source: src.de.Bfv.1933
     -   date: !!null
-        location: !keyloc line.de.6078 63,47
+        location:
+            line.de.6078: 63,47
         de.VBL: Gs
         source: src.de.DRG.Bln.1946
     -   date: c1965
-        de.Rangklasse: U
+        de.rang: U
         master: point.de.Trebnitz-Mark
         source: src.dd.DR.Bln.1968
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BGSW
         source: src.de.TPP.2006
     -   date: c2005
@@ -1141,7 +1142,7 @@ events:
         source: src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.6078 gus
+        site: path.de.6078 gus
 
 
 ---
@@ -1157,9 +1158,9 @@ events:
         source: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
-        de.Rangklasse: III
+        de.rang: III
         source: src.de.Bfv.1933
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 25 182
         source: src.de.Bfv.1933
     -   date: !!null
@@ -1172,23 +1173,24 @@ events:
         source: src.dd.DR.Bln.1953
     -   date: !!null
         location:
-            - !keyloc line.de.6078 67,17
+            line.de.6078: 67,17
         source: src.dd.DR.Bln.1959
     -   date: c1965
-        de.Rangklasse: IV
+        de.rang: IV
         source: src.dd.DR.Bln.1968
     -   date: c1985
         category: de.Hp
         source: src.dd.DR.1989
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BWRO
         name: Werbig (Pbf)
         source: src.de.TPP.2006
     -   date: c2000
-        location: !keyloc line.de.6078 -
+        location:
+            line.de.6078: !!null
 
     -   date: !!null
-        site: !noderef path.de.6078 gus
+        site: path.de.6078 gus
 
 
 ---
@@ -1203,12 +1205,13 @@ events:
         de.DS100: BWRU
         source: src.de.TPP.2006
     -   date: !!null
-        location: !keyloc line.de.6078 67,332
+        location:
+            line.de.6078: 67,332
         category: de.Hp
         source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.6078 weu
+        site: path.de.6078 weu
 
 
 ---
@@ -1222,9 +1225,9 @@ events:
         source: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
-        de.Rangklasse: III
+        de.rang: III
         source: src.de.Bfv.1933
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 25 085
         source: src.de.Bfv.1933
     -   date: c1950
@@ -1232,7 +1235,7 @@ events:
         merged: point.de.Werbig-Pbf
 
     -   date: !!null
-        site: !noderef path.de.6078 wer
+        site: path.de.6078 wer
 
 
 ---
@@ -1243,19 +1246,20 @@ events:
         status: open
         split_from: point.de.Werbig-Pbf
     -   date: !!null
-        location: !keyloc line.de.6078 67,17
+        location:
+            line.de.6078: 67,17
         category: de.Bf
         name: Werbig
         de.VBL: Wru
         source: src.dd.DR.1989
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BWR
         source: src.de.TPP.2006
     -   date: c2000
         service: freight
 
     -   date: !!null
-        site: !noderef path.de.6078 wer
+        site: path.de.6078 wer
 
 
 ---
@@ -1263,7 +1267,8 @@ key: point.de.Annahof
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.6078 71,02
+        location:
+            line.de.6078: 71,02
         category: de.Bk
         name: Annahof
         source: src.dd.DR.Bln.1959
@@ -1274,7 +1279,7 @@ events:
             - src.dd.DR.Bln.1959
 
     -   date: !!null
-        site: !noderef path.de.6078 ann
+        site: path.de.6078 ann
 
 
 ---
@@ -1290,27 +1295,28 @@ events:
         source: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
-        de.Rangklasse: III
+        de.rang: III
         source: src.de.Bfv.1933
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 25 086
         source: src.de.Bfv.1933
     -   date: !!null
         de.VBL: G
         source: src.de.DRG.Bln.1946
     -   date: !!null
-        location: !keyloc line.de.6078 74,46
+        location:
+            line.de.6078: 74,46
         source: src.dd.DR.Bln.1959
     -   date: c1965
-        de.Rangklasse: V
+        de.rang: V
         source: src.dd.DR.Bln.1968
     -   date: c1970
-        de.Rangklasse: IV
+        de.rang: IV
         source: src.dd.DR.Bln.1973
     -   date: c1975
         de.VBL: God
         source: src.dd.DR.Bln.1978
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BGZ
         source: src.de.TPP.2006
     -   date: c2010
@@ -1318,7 +1324,7 @@ events:
         source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.6078 gol
+        site: path.de.6078 gol
 
 
 ---
@@ -1333,25 +1339,26 @@ events:
         source: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
-        de.Rangklasse: III
+        de.rang: III
         source: src.de.Bfv.1933
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 25 087
         source: src.de.Bfv.1933
     -   date: !!null
-        location: !keyloc line.de.6078 77,06
+        location:
+            line.de.6078: 77,06
         de.VBL: Gor
         source: src.de.DRG.Bln.1946
     -   date: c1965
-        de.Rangklasse: U
+        de.rang: U
         master: point.de.Golzow-Oderbruch
         source: src.dd.DR.Bln.1968
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BGOR
         source: src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.6078 gor
+        site: path.de.6078 gor
 
 
 ---
@@ -1360,7 +1367,8 @@ type: point
 junction: True
 events:
     -   date: !!null
-        location: !keyloc line.de.6078 79,540
+        location:
+            line.de.6078: 79,540
         source: src.dd.DR.Bln.1978
     -   date: !!null
         name: Küstrin-Kietz W1
@@ -1376,7 +1384,7 @@ events:
             - src.de.TPP.2007
 
     -   date: !!null
-        site: !noderef path.de.6078 kia
+        site: path.de.6078 kia
 
 
 ---
@@ -1395,20 +1403,21 @@ events:
         source: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
-        de.Rangklasse: III
+        de.rang: III
         source: src.de.Bfv.1933
     -   date: 1928
         name: Küstrin-Kietz
         source: src.de.web.Krebs.Ostbahn
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 25 086
         source: src.de.Bfv.1933
     -   date: !!null
-        location: !keyloc line.de.6078 80,99
+        location:
+            line.de.6078: 80,99
         de.VBL: Ky
         source: src.de.DRG.Bln.1946
     -   date: c1950
-        de.Rangklasse: I
+        de.rang: I
         source: src.dd.DR.Bln.1953
     -   date: 1954
         name: Kietz
@@ -1417,14 +1426,14 @@ events:
             - src.de.web.Krebs.Ostbahn
             - src.dd.DR.Bln.1959
     -   date: c1965
-        de.Rangklasse: II
+        de.rang: II
         source: src.dd.DR.Bln.1968
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BKI
         source: src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.6078 kie
+        site: path.de.6078 kie
 
 
 ---
@@ -1442,19 +1451,20 @@ events:
         source: src.de.web.Krebs.Ostbahn
     -   date: !!null
         category: de.Bf
-        de.Rangklasse: III
+        de.rang: III
         source: src.de.Bfv.1933
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 25 089
         source: src.de.Bfv.1933
     -   date: !!null
-        location: !keyloc line.de.6078 82,49
+        location:
+            line.de.6078: 82,49
         de.VBL: Ksa
         source: src.de.DRG.Bln.1946
     -   date: c1950
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.6078 kus
+        site: path.de.6078 kus
 
 # point.int.Kostrzyn-Küstrin-Kietz            pl.203

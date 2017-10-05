@@ -6,8 +6,8 @@ type: line
 events:
     -   date: !!null
         region:
-            - !keyref org.de
-            - !keyref org.de.l.sh
+            - org.de
+            - org.de.l.sh
 
     -   date: !!null
         de.VzG: !!str 1204
@@ -15,36 +15,36 @@ events:
 
     #   Genehmigungen
     #
-    -   date: !date 1852-09-08
-        start: !keyref point.de.Platenhoern-Sued
+    -   date: 1852-09-08
+        start: point.de.Platenhoern-Sued
         concession:
-            by: !keyref org.dk
-            for: !keyref org.gb.Morton-Peto
+            by: org.dk
+            for: org.gb.Morton-Peto
         note:
-            de: >
+            deu: >
                 Die Konzession wurde am 1854-03-20 auf die
                 org.de.Südschleswigsche-Eisenbahn übertragen.
         source: src.de.DRG.1935 # 1854/12
-    -   date: !date 1865-03-20
-        start: !keyref point.de.Platenhoern-Sued
+    -   date: 1865-03-20
+        start: point.de.Platenhoern-Sued
         concession:
-            by: !keyref org.de.l.pre
+            by: org.de.l.pre
             for: org.de.Schleswigsche-Eisenbahn
-        source: !keyref src.de.DRG.1935
+        source: src.de.DRG.1935
 
     #   Eröffnung und Einstellung
     #
-    -   date: !date 1854-10-25
-        start: !keyref point.de.Platenhoern-Sued
+    -   date: 1854-10-25
+        start: point.de.Platenhoern-Sued
         status: open
-        source: !keyref src.de.DRG.1935
-    -   date: !date 1902-05-01
-        end: !keyref point.de.Platenhoern-Sued
+        source: src.de.DRG.1935
+    -   date: 1902-05-01
+        end: point.de.Platenhoern-Sued
         status: open
-        source: !keyref src.de.DRG.1935
+        source: src.de.DRG.1935
 
-    -   date: !date c1990
-        start: !keyref point.de.Toenning
+    -   date: c1990
+        start: point.de.Toenning
         status: closed
 
     #   Eigenschaften
@@ -52,12 +52,12 @@ events:
     -   date: !!null
         category: de.Nebenbahn
         tracks: 1
-        gauge: 1435
-        source: !keyref src.de.DRG.1927
-    -   date: !date c1920
-        start: !keyref point.de.Toenning
+        gauge: 1435mm
+        source: src.de.DRG.1927
+    -   date: c1920
+        start: point.de.Toenning
         category: de.Bfgleis
-        source: !keyref src.de.DRG.1935
+        source: src.de.DRG.1935
 
     #   Eigentümer etc.
     #
@@ -66,18 +66,18 @@ events:
     #
     -   date: !!null
         course:
-            - !pathref path.de.1210  hor  fton  0.5
-            - !pathref path.de.1204  a    f     0.0
+            -   path.de.1210 hor fton
+            -   path.de.1204 a f
 
 points:
-    - !keyref point.de.Hoern                            # line.de.1210
-    - !keyref point.de.Platenhoern
-    - !keyref point.de.Platenhoern-Sued
-    - !keyref point.de.Buettel
-    - !keyref point.de.Witzwort
-    - !keyref point.de.Harblek
-    - !keyref point.de.Toenning
-    - !keyref point.de.Toenning-Hafen
+    - point.de.Hoern                            # line.de.1210
+    - point.de.Platenhoern
+    - point.de.Platenhoern-Sued
+    - point.de.Buettel
+    - point.de.Witzwort
+    - point.de.Harblek
+    - point.de.Toenning
+    - point.de.Toenning-Hafen
 
 
 ---
@@ -86,29 +86,30 @@ type: point
 events:
     -   date: !!null
         name: Platenhörn
-        source: !keyref src.de.Kb.1905
+        source: src.de.Kb.1905
     -   date: !!null
         service: passenger
         staff: none
-        master: !keyref point.de.Husum
+        master: point.de.Husum
         de.lknr: 01 360
-        source: !keyref src.de.Bfv.1928
+        source: src.de.Bfv.1928
     -   date: !!null
         category: de.Hp
-        source: !keyref src.de.Bfv.1933
-    -   date: !var lknr.30
+        source: src.de.Bfv.1933
+    -   date: de.lknr.30
         de.lknr: 01 555
-        source: !keyref src.de.Bfv.1933
-    -   date: !date c1930
-        location: !keyloc line.de.1204 5,62
-        source: !keyref src.de.DRG.Alt.Karte.1949
-    -   date: !date 1981-05-30?
+        source: src.de.Bfv.1933
+    -   date: c1930
+        location:
+            line.de.1204: 5,62
+        source: src.de.DRG.Alt.Karte.1949
+    -   date: 1981-05-30?
         status: closed
         note:
-            de: Einstellung Personenzug-Halte
+            deu: Einstellung Personenzug-Halte
 
     -   date: !!null
-        site: !noderef path.de.1204 pla left
+        site: path.de.1204 pla
 
 
 ---
@@ -119,7 +120,7 @@ junction: True
 events:
     -   date: !!null
         name: Platenhörn Süd
-        site: !noderef path.de.1204 pls
+        site: path.de.1204 pls
 
 
 ---
@@ -127,31 +128,33 @@ key: point.de.Buettel
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.1204 180,25
+        location:
+            line.de.1204: 180,25
     -   date: !!null
         name: Friedrichstadt-Chaussee
-    -   date: !date 1887
+    -   date: 1887
         name: Büttel
     -   date: !!null
         de.lknr: 01 130
-        source: !keyref src.de.Bfv.1928
+        source: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
-        de.Rangklasse: IV
-        source: !keyref src.de.Bfv.1933
-    -   date: !var lknr.30
+        de.rang: IV
+        source: src.de.Bfv.1933
+    -   date: de.lknr.30
         de.lknr: 01 556
-        source: !keyref src.de.Bfv.1933
-    -   date: !date c1930
-        location: !keyloc line.de.1204 9,86
-        source: !keyref src.de.DRG.Alt.Karte.1949
-    -   date: !date 1981-05-30
+        source: src.de.Bfv.1933
+    -   date: c1930
+        location:
+            line.de.1204: 9,86
+        source: src.de.DRG.Alt.Karte.1949
+    -   date: 1981-05-30
         service: freight
-    -   date: !date c1982
+    -   date: c1982
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.1204 but left
+        site: path.de.1204 but
 
 
 ---
@@ -159,36 +162,38 @@ key: point.de.Witzwort
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.1204 183,16
+        location:
+            line.de.1204: 183,16
     -   date: !!null
         name: Witzwort
-        source: !keyref src.de.Kb.1905
+        source: src.de.Kb.1905
     -   date: !!null
         service: passenger
         de.lknr: 01 368
-        source: !keyref src.de.Bfv.1928
+        source: src.de.Bfv.1928
     -   date: !!null
         category: de.Hp
-        source: !keyref src.de.Bfv.1933
-    -   date: !var lknr.30
+        source: src.de.Bfv.1933
+    -   date: de.lknr.30
         de.lknr: 01 557
-        source: !keyref src.de.Bfv.1933
-    -   date: !date c1930
+        source: src.de.Bfv.1933
+    -   date: c1930
         staff: agent
-        source: !keyref src.de.Bfv.1933
-    -   date: !date c1930
-        location: !keyloc line.de.1204 11,77
-        source: !keyref src.de.DRG.Alt.Karte.1949
+        source: src.de.Bfv.1933
+    -   date: c1930
+        location:
+            line.de.1204: 11,77
+        source: src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.DS100: AWRT
         de.dstnr: !!str 015578
-        source: !keyref src.de.DS100.1984
-    -   date: !date c1980
+        source: src.de.DS100.1984
+    -   date: c1980
         staff: none
-        source: !keyref src.de.DS100.1984
+        source: src.de.DS100.1984
 
     -   date: !!null
-        site: !noderef path.de.1204 wit left
+        site: path.de.1204 wit
 
 
 ---
@@ -196,34 +201,36 @@ key: point.de.Harblek
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.1204 185,73
+        location:
+            line.de.1204: 185,73
     -   date: !!null
         name: Harblek
-        source: !keyref src.de.Kb.1905
+        source: src.de.Kb.1905
     -   date: !!null
         de.lknr: 01 131
-        source: !keyref src.de.Bfv.1928
+        source: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
-        de.Rangklasse: IV
-        source: !keyref src.de.Bfv.1933
-    -   date: !var lknr.30
+        de.rang: IV
+        source: src.de.Bfv.1933
+    -   date: de.lknr.30
         de.lknr: 01 558
-        source: !keyref src.de.Bfv.1933
-    -   date: !date c1930
-        location: !keyloc line.de.1204 15,35
-        source: !keyref src.de.DRG.Alt.Karte.1949
+        source: src.de.Bfv.1933
+    -   date: c1930
+        location:
+            line.de.1204: 15,35
+        source: src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.DS100: AHA
         de.dstnr: !!str 015586
-        source: !keyref src.de.DS100.1984
-    -   date: !date c1980
+        source: src.de.DS100.1984
+    -   date: c1980
         category: de.Hp
         staff: none
-        source: !keyref src.de.DS100.1984
+        source: src.de.DS100.1984
 
     -   date: !!null
-        site: !noderef path.de.1204 har right
+        site: path.de.1204 har
 
 
 ---
@@ -232,36 +239,40 @@ type: point
 junction: True
 events:
     -   date: !!null
-        location: !keyloc line.de.1204 191,56
+        location:
+            line.de.1204: 191,56
     -   date: !!null
         name: Tönning
-        source: !keyref src.de.Kb.1905
+        source: src.de.Kb.1905
     -   date: !!null
         de.lknr: 01 132
-        source: !keyref src.de.Bfv.1928
+        source: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
-        de.Rangklasse: III
-        source: !keyref src.de.Bfv.1933
-    -   date: !var lknr.30
+        de.rang: III
+        source: src.de.Bfv.1933
+    -   date: de.lknr.30
         de.lknr: 01 559
-        source: !keyref src.de.Bfv.1933
-    -   date: !date c1930
-        location: !keyloc line.de.1204 21,19
-        source: !keyref src.de.DRG.Alt.Karte.1949
+        source: src.de.Bfv.1933
+    -   date: c1930
+        location:
+            line.de.1204: 21,19
+        source: src.de.DRG.Alt.Karte.1949
     -   date: !!null
-        location: !keyloc line.de.1205 0,00
-        source: !keyref src.de.DRG.Alt.Karte.1949
+        location:
+            line.de.1205: 0,00
+        source: src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.DS100: ATG
         de.dstnr: !!str 015545
-        source: !keyref src.de.DS100.1984
-    -   date: !date c1980
-        location: !keyloc line.de.1205 21,075
-        source: !keyref src.de.DBAG.ISR
+        source: src.de.DS100.1984
+    -   date: c1980
+        location:
+            line.de.1205: 21,075
+        source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.1204 ton left
+        site: path.de.1204 ton
 
 
 ---
@@ -273,5 +284,5 @@ events:
         name: Tönning Hafen
 
     -   date: !!null
-        site: !noderef path.de.1204 toh left
+        site: path.de.1204 toh
 

@@ -6,8 +6,8 @@ type: line
 events:
     -   date: !!null
         region:
-            - !keyref org.de
-            - !keyref org.de.l.sh
+            - org.de
+            - org.de.l.sh
 
     -   date: !!null
         de.VzG: !!str 9108
@@ -15,35 +15,35 @@ events:
 
     #   Eröffnung und Einstellung
     #
-    -   date: !date 1914-06-18
+    -   date: 1914-06-18
         status: open
-        source: !keyref src.de.web.Protze
+        source: src.de.web.Protze
 
-    -   date: !date 1981-01-16
-        end: !keyref point.de.Schoenberg-Holst
-        service: freight
-        source: !keyref src.de.web.Protze
+    -   date: 1981-01-16
+        end: point.de.Schoenberg-Holst
+        passenger: none
+        source: src.de.web.Protze
 
     #   Eigenschaften
     #
     -   date: !!null
         category: de.Kleinbahn
         tracks: 1
-        gauge: 1435
-    -   date: !date c1956
+        gauge: 1435mm
+    -   date: c1956
         category: de.Nebenbahn
 
     #   Eigentümer etc.
     #
     -   date: !!null
         owner: org.de.Kleinbahn-Kiel-Schöneberg
-        operator: !keyref org.de.Lenz-Co
-    -   date: !date c1945
+        operator: org.de.Lenz-Co
+    -   date: c1945
         operator: org.de.Deutsche-Eisenbahn
-    -   date: !date c1970
-        owner: !keyref org.de.Verkehrsbetriebe-Kreis-Plön
-        operator: !keyref org.de.Verkehrsbetriebe-Kreis-Plön
-    -   date: !date 1994?
+    -   date: c1970
+        owner: org.de.Verkehrsbetriebe-Kreis-Plön
+        operator: org.de.Verkehrsbetriebe-Kreis-Plön
+    -   date: 1994?
         owner: org.de.VVM-Museumsbahn
         operator: org.de.VVM-Museumsbahn
 
@@ -51,30 +51,31 @@ events:
     #
     -   date: !!null
         course:
-            - !pathref path.de.9107 son  f    0.0
-            - !pathref path.de.9107 a    f    0.0
+            -   path.de.9107 son  f
+            -   path.de.9107 a    f
 
 points:
-    - !keyref point.de.Schoenberg-Holst                     # line.de.9107
-    - !keyref point.de.Stakendorf
-    - !keyref point.de.Schoenberger-Strand
+    - point.de.Schoenberg-Holst                     # line.de.9107
+    - point.de.Stakendorf
+    - point.de.Schoenberger-Strand
 
 
 ---
 key: point.de.Stakendorf
 type: point
 events:
-    -   date: !date c1990
+    -   date: c1990
         status: open
     -   date: !!null
         category: de.Museum
-        location: !keyloc line.de.9108 21,7
+        location:
+            line.de.9108: 21,7
         name: Stakendorf
         de.DS100: ASTD
-        source: !keyref src.de.SuW.2005
+        source: src.de.SuW.2005
 
     -   date: !!null
-        site: !noderef path.de.9108 sta right
+        site: path.de.9108 sta
 
 
 ---
@@ -83,17 +84,18 @@ type: point
 events:
     -   date: !!null
         name: Schönberger Strand
-        source: !keyref src.de.Kb.1914
-    -   date: !var lknr.kb
+        source: src.de.Kb.1914
+    -   date: de.lknr.kb
         de.lknr: 43 422
-        source: !keyref src.de.Bfv.1938
+        source: src.de.Bfv.1938
     -   date: !!null
         category: de.Bf
-        location: !keyloc line.de.9108 24,1
+        location:
+            line.de.9108: 24,1
         de.DS100: ASCS
-        source: !keyref src.de.SuW.2005
+        source: src.de.SuW.2005
 
     -   date: !!null
-        site: !noderef path.de.9108 sos left
+        site: path.de.9108 sos
 
 

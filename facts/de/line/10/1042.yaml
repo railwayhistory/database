@@ -6,8 +6,8 @@ type: line
 events:
     -   date: !!null
         region:
-            - !keyref org.de
-            - !keyref org.de.l.sh
+            - org.de
+            - org.de.l.sh
 
     -   date: !!null
         de.VzG: !!str 1042
@@ -33,90 +33,64 @@ events:
     -   date: !!null
         category: de.Nebenbahn
         tracks: 1
-        gauge: 1435
-        source: !keyref src.de.DRG.1927
+        gauge: 1435mm
+        source: src.de.DRG.1927
 
     #   Eigentümer etc.
     #
-    -   date: !!null
-        owner: org.de.Westholsteinische-Eisenbahn
-        operator: org.de.Westholsteinische-Eisenbahn
-        source: src.de.DRG.1935
-
-    -   date: !date 1890-07-01
-        owner: !keyref org.de.l.pre
-        operator: !keyref org.de.e.hmb
-        source: !keyref src.de.DRG.1935
-
-    -   date: !date 1920-04-01
-        owner: !keyref org.de
-        operator: !keyref org.de.r.RVM.PH
-    -   date: !date 1924-02-12
-        operator: !keyref org.de.Deutsche-Reichsbahn-I
-    -   date: !date 1924-08-30
-        operator: !keyref org.de.DR
-
-    -   date: !var org.de.DB.start
-        operator: !keyref org.de.DB
-
-    -   date: !date 1993
+    -   date: 1993
         operator: org.de.AKN-Eisenbahn
-        source: !keyref src.de.WP.Bahnstrecke-Neumünster-Heide
-
-    -   date: !var org.de.Deutsche-Bahn.start
-        owner: !keyref org.de.Deutsche-Bahn
-    -   date: !var org.de.DBNetz.start
-        owner: !keyref org.de.DB-Netz
-
-    -   date: !date 2003-12
-        operator: !keyref org.de.DB-Netz
-        source: !keyref src.de.WP.Bahnstrecke-Neumünster-Heide
+        source: src.de.WP.Bahnstrecke-Neumünster-Heide
+    -   date: 2003-12
+        operator: org.de.DB-Netz
+        source: src.de.WP.Bahnstrecke-Neumünster-Heide
 
     #   Verlauf
     #
     -   date: !!null
         course:
-            - !pathref path.de.1220  neu  ahei -3.5
-            - !pathref path.de.1042  a    f     0.0
-            - !pathref path.de.1210  fneu hei   1.5
+            -   path.de.1220 neu ahei
+            -   path.de.1042 a f
+            -   path.de.1210 fneu hei
 
 points:
-    - !keyref point.de.Neumünster                      # line.de.1220
-    - !keyref point.de.Neumünster-Stadtwald
-    - !keyref point.de.Wasbek
-    - !keyref point.de.Bünzenfeld
+    - point.de.Neumünster                      # line.de.1220
+    - point.de.Neumünster-Stadtwald
+    - point.de.Wasbek
+    - point.de.Bünzenfeld
     -   point.de.Aukrug
-    - !keyref point.de.Hohenwestedt
-    - !keyref point.de.Osterstedt
+    - point.de.Hohenwestedt
+    - point.de.Osterstedt
     -   point.de.Beringstedt
-    - !keyref point.de.Gokels
-    - !keyref point.de.Hademarschen
+    - point.de.Gokels
+    - point.de.Hademarschen
     -   point.de.Beldorf
     -   point.de.Albersdorf
-    - !keyref point.de.Nordhastedt
-    - !keyref point.de.Heide-Holst                      # line.de.1210
+    - point.de.Nordhastedt
+    - point.de.Heide-Holst                      # line.de.1210
 
 
 ---
 key: point.de.Neumünster-Stadtwald
 type: point
 events:
-    -   date: !date 2004-12-12
+    -   date: 2004-12-12
         status: open
-        source: !keyref src.de.web.Stationsbuero
+        source: src.de.web.Stationsbuero
     -   date: !!null
         name: Neumünster Stadtwald
         de.DS100: ANSW
-        source: !keyref src.de.TPP.2006
+        source: src.de.TPP.2006
     -   date: !!null
         category: de.Hp
-        location: !keyloc line.de.1042 2,030
-        source: !keyref src.de.DBAG.ISR
+        location:
+            line.de.1042: 2,030
+        source: src.de.DBAG.ISR
     -   date: !!null
         staff: none
 
     -   date: !!null
-        site: !noderef path.de.1042 nst left
+        site: path.de.1042 nst
 
 
 ---
@@ -125,51 +99,53 @@ type: point
 events:
     -   date: !!null
         name: Wasbek
-        source: !keyref src.de.Kb.1905
+        source: src.de.Kb.1905
     -   date: !!null
         de.lknr: 01 200
-        source: !keyref src.de.Bfv.1928
+        source: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
-        de.Rangklasse: IV
-        source: !keyref src.de.Bfv.1933
-    -   date: !var lknr.30
+        de.rang: IV
+        source: src.de.Bfv.1933
+    -   date: de.lknr.30
         de.lknr: 01 441
-        source: !keyref src.de.Bfv.1933
+        source: src.de.Bfv.1933
     -   date: !!null
-        location: !keyloc line.de.1042 6,38
-        source: !keyref src.de.DRG.Alt.Karte.1949
+        location:
+            line.de.1042: 6,38
+        source: src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.DS100: AWA
         de.dstnr: !!str 014415
-        source: !keyref src.de.DS100.1984
-    -   date: !date c1990
+        source: src.de.DS100.1984
+    -   date: c1990
         category: de.Hp
-        source: !keyref src.de.DBAG.ISR
-    -   date: !date c1990
+        source: src.de.DBAG.ISR
+    -   date: c1990
         staff: none
 
     -   date: !!null
-        site: !noderef path.de.1042 was left
+        site: path.de.1042 was
 
 
 ---
 key: point.de.Bünzenfeld
 type: point
 events:
-    -   date: !date c1945
+    -   date: c1945
         status: open
-        source: !keyref src.de.DRG.Alt.Karte.1949
+        source: src.de.DRG.Alt.Karte.1949
     -   date: !!null
         category: de.Ldst
-        location: !keyloc line.de.1042 10,40
+        location:
+            line.de.1042: 10,40
         name: Bünzenfeld
-        source: !keyref src.de.DRG.Alt.Karte.1949
-    -   date: !date c1970
+        source: src.de.DRG.Alt.Karte.1949
+    -   date: c1970
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.1042 bun left
+        site: path.de.1042 bun
 
 
 ---
@@ -178,32 +154,34 @@ type: point
 events:
     -   date: !!null
         name: Innien
-        source: !keyref src.de.Kb.1905
+        source: src.de.Kb.1905
     -   date: !!null
         de.lknr: 01 201
-        source: !keyref src.de.Bfv.1928
+        source: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
-        de.Rangklasse: IV
-        source: !keyref src.de.Bfv.1933
-    -   date: !var lknr.30
+        de.rang: IV
+        source: src.de.Bfv.1933
+    -   date: de.lknr.30
         de.lknr: 01 442
-        source: !keyref src.de.Bfv.1933
+        source: src.de.Bfv.1933
     -   date: !!null
-        location: !keyloc line.de.1042 13,84
-        source: !keyref src.de.DRG.Alt.Karte.1949
+        location:
+            line.de.1042: 13,84
+        source: src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.DS100: AIN
         de.dstnr: !!str 014423
-        source: !keyref src.de.DS100.1984
-    -   date: !date 1996-06-01?
+        source: src.de.DS100.1984
+    -   date: 1996-06-01?
         name: Aukrug
         de.DS100: AAU
         source:
             -   src.de.Kb.S1996
             -   src.de.DBAG.BSV.2017
     -   date: c1980
-        location: !keyloc line.de.1042 13,834
+        location:
+            line.de.1042: 13,834
         source:
             -   src.de.DB.Hmb.Karte.1984
             -   src.de.DBAG.Geo-Betriebsstelle.2017
@@ -216,7 +194,7 @@ events:
         source: src.de.DBAG.BSV.2017
 
     -   date: !!null
-        site: !noderef path.de.1042 auk right
+        site: path.de.1042 auk
 
 
 ---
@@ -226,32 +204,33 @@ junction: True
 events:
     -   date: !!null
         name: Hohenwestedt Stsbf
-        source: !keyref src.de.Kb.1905
-    -   date: !date c1925
+        source: src.de.Kb.1905
+    -   date: c1925
         name: Hohenwestedt
-        source: !keyref src.de.Bfv.1928
+        source: src.de.Bfv.1928
     -   date: !!null
         de.lknr: 01 202
-        source: !keyref src.de.Bfv.1928
+        source: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
-        de.Rangklasse: III
+        de.rang: III
         name: Hohenwestedt
-        source: !keyref src.de.Bfv.1933
-    -   date: !var lknr.30
+        source: src.de.Bfv.1933
+    -   date: de.lknr.30
         de.lknr: 01 443
-        source: !keyref src.de.Bfv.1933
+        source: src.de.Bfv.1933
     -   date: !!null
-        location: !keyloc line.de.1042 22,73
-        source: !keyref src.de.DRG.Alt.Karte.1949
+        location:
+            line.de.1042: 22,73
+        source: src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.DS100: AHWT
         de.dstnr: !!str 014431
-        source: !keyref src.de.DS100.1984
+        source: src.de.DS100.1984
 
     -   date: !!null
-        site: !noderef path.de.1042 hwe right
-        connection: !keyref point.de.Hohenwestedt-Kreisbf
+        site: path.de.1042 hwe
+        connection: point.de.Hohenwestedt-Kreisbf
 
 
 ---
@@ -260,36 +239,37 @@ type: point
 events:
     -   date: !!null
         name: Osterstedt
-        source: !keyref src.de.Kb.1905
+        source: src.de.Kb.1905
     -   date: !!null
         de.lknr: 01 203
-        source: !keyref src.de.Bfv.1928
+        source: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
-        de.Rangklasse: IV
+        de.rang: IV
         staff: agent
-        source: !keyref src.de.Bfv.1933
-    -   date: !var lknr.30
+        source: src.de.Bfv.1933
+    -   date: de.lknr.30
         de.lknr: 01 444
-        source: !keyref src.de.Bfv.1933
+        source: src.de.Bfv.1933
     -   date: !!null
-        location: !keyloc line.de.1042 28,17
-        source: !keyref src.de.DRG.Alt.Karte.1949
+        location:
+            line.de.1042: 28,17
+        source: src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.DS100: AODT
         de.dstnr: !!str 014449
-        source: !keyref src.de.DS100.1984
-    -   date: !date c1975
+        source: src.de.DS100.1984
+    -   date: c1975
         category: de.Hst
-        source: !keyref src.de.DS100.1984
-    -   date: !date c2000
+        source: src.de.DS100.1984
+    -   date: c2000
         category: de.Hp
-        source: !keyref src.de.DBAG.ISR
-    -   date: !date c2000
+        source: src.de.DBAG.ISR
+    -   date: c2000
         staff: none
 
     -   date: !!null
-        site: !noderef path.de.1042 ost right
+        site: path.de.1042 ost
 
 
 ---
@@ -298,26 +278,27 @@ type: point
 events:
     -   date: !!null
         name: Beringstedt
-        source: !keyref src.de.Kb.1905
+        source: src.de.Kb.1905
     -   date: !!null
         de.lknr: 01 204
-        source: !keyref src.de.Bfv.1928
+        source: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
-        de.Rangklasse: IV
-        source: !keyref src.de.Bfv.1933
-    -   date: !var lknr.30
+        de.rang: IV
+        source: src.de.Bfv.1933
+    -   date: de.lknr.30
         de.lknr: 01 445
-        source: !keyref src.de.Bfv.1933
+        source: src.de.Bfv.1933
     -   date: !!null
-        location: !keyloc line.de.1042 30,898
+        location:
+            line.de.1042: 30,898
         source:
             -   src.de.DRG.Alt.Karte.1949
             -   src.de.DBAG.Geo-Betriebsstelle.2017
     -   date: !!null
         de.DS100: ABGS
         de.dstnr: !!str 014456
-        source: !keyref src.de.DS100.1984
+        source: src.de.DS100.1984
     -   date: !!null
         de.name16: Beringstedt
         PLC: DE10825
@@ -328,7 +309,7 @@ events:
         staff: none
 
     -   date: !!null
-        site: !noderef path.de.1042 ber left
+        site: path.de.1042 ber
 
 
 ---
@@ -337,36 +318,37 @@ type: point
 events:
     -   date: !!null
         name: Gokels
-        source: !keyref src.de.Kb.1905
+        source: src.de.Kb.1905
     -   date: !!null
         de.lknr: 01 205
-        source: !keyref src.de.Bfv.1928
+        source: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
-        de.Rangklasse: IV
+        de.rang: IV
         staff: agent
-        source: !keyref src.de.Bfv.1933
-    -   date: !var lknr.30
+        source: src.de.Bfv.1933
+    -   date: de.lknr.30
         de.lknr: 01 446
-        source: !keyref src.de.Bfv.1933
+        source: src.de.Bfv.1933
     -   date: !!null
-        location: !keyloc line.de.1042 35,62
-        source: !keyref src.de.DRG.Alt.Karte.1949
+        location:
+            line.de.1042: 35,62
+        source: src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.DS100: AGK
         de.dstnr: !!str 014464
-        source: !keyref src.de.DS100.1984
-    -   date: !date c1975
+        source: src.de.DS100.1984
+    -   date: c1975
         category: de.Hst
-        source: !keyref src.de.DS100.1984
-    -   date: !date c2000
+        source: src.de.DS100.1984
+    -   date: c2000
         category: de.Hp
-        source: !keyref src.de.DBAG.ISR
-    -   date: !date c2000
+        source: src.de.DBAG.ISR
+    -   date: c2000
         staff: none
 
     -   date: !!null
-        site: !noderef path.de.1042 gok left
+        site: path.de.1042 gok
 
 
 ---
@@ -375,32 +357,33 @@ type: point
 events:
     -   date: !!null
         name: Hademarschen
-        source: !keyref src.de.Kb.1905
+        source: src.de.Kb.1905
     -   date: !!null
         de.lknr: 01 206
-        source: !keyref src.de.Bfv.1928
+        source: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
-        de.Rangklasse: III
-        source: !keyref src.de.Bfv.1933
-    -   date: !var lknr.30
+        de.rang: III
+        source: src.de.Bfv.1933
+    -   date: de.lknr.30
         de.lknr: 01 447
-        source: !keyref src.de.Bfv.1933
+        source: src.de.Bfv.1933
     -   date: !!null
-        location: !keyloc line.de.1042 39,19
-        source: !keyref src.de.DRG.Alt.Karte.1949
+        location:
+            line.de.1042: 39,19
+        source: src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.DS100: AHNU
         de.dstnr: !!str 014472
-        source: !keyref src.de.DS100.1984
-    -   date: !date c2000
+        source: src.de.DS100.1984
+    -   date: c2000
         category: de.Hp
-        source: !keyref src.de.DBAG.ISR
-    -   date: !date c2000
+        source: src.de.DBAG.ISR
+    -   date: c2000
         staff: none
 
     -   date: !!null
-        site: !noderef path.de.1042 had right
+        site: path.de.1042 had
 
 
 ---
@@ -409,43 +392,45 @@ type: point
 events:
     -   date: !!null
         name: Beldorf
-        source: !keyref src.de.Kb.1914
+        source: src.de.Kb.1914
     -   date: !!null
         de.lknr: 01 207
-        source: !keyref src.de.Bfv.1928
+        source: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
-        de.Rangklasse: IV
-        source: !keyref src.de.Bfv.1933
-    -   date: !var lknr.30
+        de.rang: IV
+        source: src.de.Bfv.1933
+    -   date: de.lknr.30
         de.lknr: 01 448
-        source: !keyref src.de.Bfv.1933
-    -   date: !date c1940
+        source: src.de.Bfv.1933
+    -   date: c1940
         staff: agent
-        source: !keyref src.de.Bfv.1944
+        source: src.de.Bfv.1944
     -   date: !!null
-        location: !keyloc line.de.1042 43,09
-        source: !keyref src.de.DRG.Alt.Karte.1949
+        location:
+            line.de.1042: 43,09
+        source: src.de.DRG.Alt.Karte.1949
     -   date: c1980
-        location: !keyloc line.de.1042 43,100
+        location:
+            line.de.1042: 43,100
         source:
             -   src.de.DB.Hmb.Karte.1984
             -   src.de.DBAG.Geo-Betriebsstelle.2017
     -   date: !!null
         de.DS100: ABE
         de.dstnr: !!str 014480
-        source: !keyref src.de.DS100.1984
-    -   date: !date c1980
+        source: src.de.DS100.1984
+    -   date: c1980
         category: de.Hp
         staff: none
-        source: !keyref src.de.DS100.1984
+        source: src.de.DS100.1984
     -   date: !!null
         de.name16: Beldorf
         PLC: DE10750
         source: src.de.DBAG.BSV.2017
 
     -   date: !!null
-        site: !noderef path.de.1042 bel left
+        site: path.de.1042 bel
 
 
 ---
@@ -454,8 +439,8 @@ type: structure
 subtype: bridge
 events:
     -   date: !!null
-        length: 399
-        source: !keyref src.de.DBAG.ISR
+        length: 399.
+        source: src.de.DBAG.ISR
     -   date: !!null
         name: Hochbrücke Grünental
 
@@ -466,35 +451,36 @@ type: point
 events:
     -   date: !!null
         name: Albersdorf
-        source: !keyref src.de.Kb.1905
+        source: src.de.Kb.1905
     -   date: !!null
         de.lknr: 01 208
-        source: !keyref src.de.Bfv.1928
+        source: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
-        de.Rangklasse: III
-        source: !keyref src.de.Bfv.1933
-    -   date: !var lknr.30
+        de.rang: III
+        source: src.de.Bfv.1933
+    -   date: de.lknr.30
         de.lknr: 01 449
-        source: !keyref src.de.Bfv.1933
+        source: src.de.Bfv.1933
     -   date: !!null
-        location: !keyloc line.de.1042 48,422
+        location:
+            line.de.1042: 48,422
         source: src.de.DBAG.Geo-Betriebsstelle.2017
     -   date: !!null
         de.DS100: AAL
         de.dstnr: !!str 014498
-        source: !keyref src.de.DS100.1984
+        source: src.de.DS100.1984
     -   date: c1990
         category: [de.Hp, de.Anst]
         source: src.de.DBAG.ISR
-    -   date: !date c1990
+    -   date: c1990
         staff: none
     -   date: 2016-12-11?
         category: de.Hp
         source: src.de.DBAG.BSV.2017
 
     -   date: !!null
-        site: !noderef path.de.1042 alb left
+        site: path.de.1042 alb
 
 
 ---
@@ -503,30 +489,31 @@ type: point
 events:
     -   date: !!null
         name: Norderhastedt
-        source: !keyref src.de.Kb.1905
+        source: src.de.Kb.1905
     -   date: !!null
         de.lknr: 01 209
-        source: !keyref src.de.Bfv.1928
+        source: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
-        de.Rangklasse: IV
-        source: !keyref src.de.Bfv.1933
-    -   date: !var lknr.30
+        de.rang: IV
+        source: src.de.Bfv.1933
+    -   date: de.lknr.30
         de.lknr: 01 450
-        source: !keyref src.de.Bfv.1933
+        source: src.de.Bfv.1933
     -   date: !!null
-        location: !keyloc line.de.1042 56,26
-        source: !keyref src.de.DRG.Alt.Karte.1949
+        location:
+            line.de.1042: 56,26
+        source: src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.DS100: ANH
         de.dstnr: !!str 014506
-        source: !keyref src.de.DS100.1984
-    -   date: !date c2000
+        source: src.de.DS100.1984
+    -   date: c2000
         category: de.Hp
-        source: !keyref src.de.DBAG.ISR
-    -   date: !date c2000
+        source: src.de.DBAG.ISR
+    -   date: c2000
         staff: none
 
     -   date: !!null
-        site: !noderef path.de.1042 nha right
+        site: path.de.1042 nha
 

@@ -10,7 +10,7 @@ events:
             - org.de
             - org.de.l.be
 
-    -   date: !var vzg.dr
+    -   date: de.vzg.dr
         de.VzG: !!str 6170
         source: src.de.DBAG.Geo-Strecke.2017
 
@@ -31,31 +31,21 @@ events:
     -   date: 1871-07-17
         end: point.de.Berlin-Tempelhof
         status: open
-        service: freight
+        passenger: none
         source: src.de.DRG.1935 # 1871/24
     -   date: 1872-01-01
         end: point.de.Berlin-Tempelhof
-        service: full
+        passenger: full
         source: src.de.DRG.1935
     -   date: 1877-11-15
         start: point.de.Berlin-Tempelhof
         status: open
         source: src.de.DRG.1935 # 1877/52
 
-    -   date: 1920-04-01
-        owner: org.de
-        operator: org.de.r.RVM.PH
-    -   date: 1924-02-12
-        operator: org.de.Deutsche-Reichsbahn-I
-    -   date: 1924-08-30
-        operator: org.de.DR
-
     -   date: 1949-10-07
         start: point.de.Berlin-Schoenhauser-Allee-Gr
         end: point.de.Berlin-Treptow-Gr
         owner: org.dd
-    -   date: !var org.de.DR.start
-        operator: org.dd.DR
 
     -   date: 1952
         start: point.de.Berlin-Gesundbrunnen
@@ -76,26 +66,13 @@ events:
     -   date: 1984-09-30
         start: point.de.Berlin-Frankfurter-Allee
         end: point.de.Berlin-Tw
-        electrified:
-            overhead: !var el.de
+        electrified: de
         source: src.de.Kuhlmann.2000
     -   date: 1990-09-15
         start: point.de.Berlin-Schoenhauser-Allee-Abzw
         end: point.de.Berlin-Frankfurter-Allee
-        electrified:
-            overhead: !var el.de
+        electrified: de
         source: src.de.Kuhlmann.2000
-
-    -   date: 1990-10-03
-        start: point.de.Berlin-Schoenhauser-Allee-Gr
-        end: point.de.Berlin-Treptow-Gr
-        owner: org.de
-    -   date: !var org.de.Deutsche-Bahn.start
-        owner: org.de.Deutsche-Bahn
-        operator: org.de.Deutsche-Bahn
-    -   date: !var org.de.DBNetz.start
-        owner: org.de.DB-Netz
-        operator: org.de.DB-Netz
 
     -   date: c2000
         start: point.de.Berlin-Gesundbrunnen
@@ -104,19 +81,18 @@ events:
     -   date: 2006-05-26
         start: point.de.Berlin-Halensee-Nordkopf
         end: point.de.Berlin-Schoenhauser-Allee-Abzw
-        electrified:
-            overhead: !var el.de
+        electrified: de
 
     #   Verlauf
     #
     -   date: !!null
         course:
-            - !pathref path.de.6107 xrin fmox 4.
-            - !pathref path.de.6107 amox fges -3.
-            - !pathref path.de.6020 a    azex 2.
-            - !pathref path.de.6020 fzex achx -2.
-            - !pathref path.de.6020 fchx ajun 2.
-            - !pathref path.de.6107 achg xrin 4.
+            -   path.de.6107 xrin fmox
+            -   path.de.6107 amox fges
+            -   path.de.6020 a    azex
+            -   path.de.6020 fzex achx
+            -   path.de.6020 fchx ajun
+            -   path.de.6107 achg xrin
 
 points:
     -   point.de.Berlin-Moabit
@@ -169,19 +145,19 @@ junction: True
 events:
     -   date: !!null
         location:
-            - !keyloc line.de.6170  0,33
-            - !keyloc line.de.6106  2,88
-            - !keyloc line.de.6165  2,88
-            - !keyloc line.de.6107  2,88
+            line.de.6170:  0,33
+            line.de.6106:  2,88
+            line.de.6165:  2,88
+            line.de.6107:  2,88
         name: Berlin Moabit
         category: de.Bf
-        de.Rangklasse: I
+        de.rang: I
         source: src.de.DRG.Bln.1927
     -   date: !!null
         de.lknr: 03 007
         service: freight
         source: src.de.Bfv.1928
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 03 010
         source: src.de.Bfv.1933
     -   date: !!null
@@ -190,12 +166,12 @@ events:
     -   date: c1950
         name: Berlin-Moabit
         source: src.dd.DR.Bln.1953
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BMOA
         source: src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.6107 moa left
+        site: path.de.6107 moa
 
 
 ---
@@ -217,9 +193,10 @@ key: point.de.Berlin-Wedding-Kohlenbf
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.6170 2,03
+        location:
+            line.de.6170: 2,03
         category: de.Bf
-        de.Rangklasse: II
+        de.rang: II
         name: Berlin Wedding Kohlenbf
         source: src.de.DRG.Bln.1927
     -   date: !!null
@@ -229,7 +206,7 @@ events:
         merged: point.de.Berlin-Wedding
 
     -   date: !!null
-        site: !noderef path.de.6020 wek right
+        site: path.de.6020 wek
 
 
 ---
@@ -240,10 +217,12 @@ events:
     -   date: 2006-05-26?
         status: open
     -   date: !!null
-        location: !keyloc line.de.6171 0,000
+        location:
+            line.de.6171: 0,000
         source: src.de.WP.Nord-Sued-Fernbahn
     -   date: !!null
-        location: !keyloc line.de.6170 2,156
+        location:
+            line.de.6170: 2,156
         source: src.de.DBAG.ISR
     -   date: !!null
         name: Berlin-Wedding Abzw
@@ -251,7 +230,7 @@ events:
         source: src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.6020 wea right
+        site: path.de.6020 wea
 
 # point.de.Berlin-Wedding
 
@@ -261,8 +240,8 @@ type: point
 events:
     -   date: !!null
         location:
-            - !keyloc line.de.6170 3,40
-            - !keyloc line.de.6020 3,40
+            line.de.6170: 3,40
+            line.de.6020: 3,40
         name: Bk 25
         category: de.Bk
         source: src.de.DRG.Bln.1932
@@ -271,7 +250,7 @@ events:
         source: src.de.DRG.Bln.1943
 
     -   date: !!null
-        site: !noderef path.de.6020 geb left
+        site: path.de.6020 geb
 
 
 ---
@@ -291,21 +270,21 @@ events:
         source: src.de.Kb.1914
     -   date: !!null
         location:
-            - !keyloc line.de.6170 4,19
-            - !keyloc line.de.6167 3,52
-            - !keyloc line.de.8690 2,17
-            - !keyloc line.de.6002 2,17
-            - !keyloc line.de.6020 4,19
-            - !keyloc line.de.6088 0,63
-            - !keyloc line.de.6081 2,17
+            line.de.6170: 4,19
+            line.de.6167: 3,52
+            line.de.8690: 2,17
+            line.de.6002: 2,17
+            line.de.6020: 4,19
+            line.de.6088: 0,63
+            line.de.6081: 2,17
         category: de.Bf
-        de.Rangklasse: I
+        de.rang: I
         source: src.de.DRG.Bln.1927
     -   date: !!null
         service: passenger
         de.lknr: 03 208
         source: src.de.Bfv.1928
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 03 195
         source: src.de.Bfv.1933
     -   date: c1935
@@ -315,21 +294,21 @@ events:
         de.VBL: Gsr
         source: src.de.DRG.Bln.1946
     -   date: c1965
-        de.Rangklasse: II
+        de.rang: II
         source: src.dd.DR.Bln.1968
     -   date: c2000
         name: Berlin-Gesundbrunnen
         source: src.de.TPP.2006
     -   date: 2006
         location:
-            - !keyloc line.de.6002 -
-            - !keyloc line.de.6020 -
-    -   date: !var ds100.dr
+            line.de.6002: !!null
+            line.de.6020: !!null
+    -   date: de.ds100.dr
         de.DS100: BGS
         source: src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.6020 ges left
+        site: path.de.6020 ges
 
 
 ---
@@ -341,12 +320,12 @@ events:
         name: Berlin Schönhauser Allee Grenze
     -   date: !!null
         location:
-            - !keyloc line.de.6170 4,87
-            - !keyloc line.de.6020 4,87
+            line.de.6170: 4,87
+            line.de.6020: 4,87
         source: src.dd.DR.Bln.1953
 
     -   date: !!null
-        site: !noderef path.de.6020 gges
+        site: path.de.6020 gges
 
 
 ---
@@ -355,8 +334,8 @@ type: point
 events:
     -   date: !!null
         location:
-            - !keyloc line.de.6170 5,35
-            - !keyloc line.de.6020 5,35
+            line.de.6170: 5,35
+            line.de.6020: 5,35
         category: de.Bk
         name: Bk 26
         source: src.de.DRG.Bln.1932
@@ -365,7 +344,7 @@ events:
         source: src.de.DRG.Bln.1943
 
     -   date: !!null
-        site: !noderef path.de.6020 sob right
+        site: path.de.6020 sob
 
 
 ---
@@ -375,18 +354,19 @@ junction: True
 events:
     -   date: !!null
         location:
-            - !keyloc line.de.6170 5,75
-            - !keyloc line.de.6141 3,81
+            line.de.6170: 5,75
+            line.de.6141: 3,81
         category: de.Abzw
         name: Vpr
         source: src.de.DRG.Bln.1927
     -   date: c1930
-        location: !keyloc line.de.6170 5,54
+        location:
+            line.de.6170: 5,54
         source: src.de.DRG.Bln.1932
     -   date: c2000
         location:
-            - !keyloc line.de.6170 5,747
-            - !keyloc line.de.6141 3,814
+            line.de.6170: 5,747
+            line.de.6141: 3,814
         source: src.de.DBAG.ISR
     -   date: c2000
         name: Berlin Schönhauser Allee Abzw
@@ -397,7 +377,7 @@ events:
         source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.6020 soa right
+        site: path.de.6020 soa
 
 
 ---
@@ -412,10 +392,10 @@ events:
         source: src.de.Kb.1914
     -   date: !!null
         location:
-            - !keyloc line.de.6170 7,84
-            - !keyloc line.de.6020 7,84
+            line.de.6170: 7,84
+            line.de.6020: 7,84
         category: de.Bf
-        de.Rangklasse: I
+        de.rang: I
         source: src.de.DRG.Bln.1927
     -   date: !!null
         de.lknr: 03 009
@@ -423,7 +403,7 @@ events:
     -   date: c1925
         name: Weißensee b Berlin
         source: src.de.Bfv.1928
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 03 018
         source: src.de.Bfv.1933
     -   date: 1938-10-01
@@ -439,17 +419,18 @@ events:
         de.VBL: Gfb
         source: src.dd.DR.Bln.1953
     -   date: c1960
-        de.Rangklasse: II
+        de.rang: II
         source: src.dd.DR.Bln.1968
     -   date: 1986-05-15
-        location: !keyloc line.de.6020 -
+        location:
+            line.de.6020: !!null
         source: src.de.Kuhlmann.2000
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BGFB
         source: src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.6020 gre left
+        site: path.de.6020 gre
 
 
 ---
@@ -466,15 +447,15 @@ events:
             - src.de.DRG.Bln.1927
     -   date: !!null
         location:
-            - !keyloc line.de.6170 10,29
-            - !keyloc line.de.6020 10,29
+            line.de.6170: 10,29
+            line.de.6020: 10,29
         category: de.Bf
-        de.Rangklasse: I
+        de.rang: I
         source: src.de.DRG.Bln.1927
     -   date: !!null
         de.lknr: 03 010
         source: src.de.Bfv.1928
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 03 021
         source: src.de.Bfv.1933
     -   date: !!null
@@ -482,21 +463,22 @@ events:
         source: src.de.DRG.Bln.1946
     -   date: c1950
         location:
-            - !keyloc line.de.6170 9,522
-            - !keyloc line.de.6020 10,41
+            line.de.6170: 9,522
+            line.de.6020: 10,41
         source: src.dd.DR.Bln.1959
     -   date: c1965
-        de.Rangklasse: II
+        de.rang: II
         source: src.dd.DR.Bln.1968
     -   date: 1977-10-15?
-        location: !keyloc line.de.6020 -
-    -   date: !var ds100.dr
+        location:
+            line.de.6020: !!null
+    -   date: de.ds100.dr
         de.DS100: BCF
     -   date: c2005
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.6020 zen right
+        site: path.de.6020 zen
 
 
 ---
@@ -516,15 +498,15 @@ events:
         source: src.de.Kuhlmann.2000
     -   date: !!null
         location:
-            - !keyloc line.de.6170 11,67
-            - !keyloc line.de.6020 11,67
+            line.de.6170: 11,67
+            line.de.6020: 11,67
         category: de.Bf
-        de.Rangklasse: I
+        de.rang: I
         source: src.de.DRG.Bln.1927
     -   date: !!null
         de.lknr: 03 011
         source: src.de.Bfv.1928
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 03 023
         source: src.de.Bfv.1933
     -   date: !!null
@@ -543,26 +525,27 @@ events:
         de.VBL: Fal
         source: src.dd.DR.Bln.1968
     -   date: c1965
-        de.Rangklasse: II
+        de.rang: II
         source: src.dd.DR.Bln.1968
     -   date: c1975
-        de.Rangklasse: I
+        de.rang: I
         source: src.dd.DR.Bln.1978
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BFAL
         source: src.de.TPP.2006
     -   date: 2006
-        location: !keyloc line.de.6020 -
+        location:
+            line.de.6020: !!null
         source: src.de.TPP.2007
     -   date: c2010
         location:
-            - !keyloc line.de.6170 11,700
-            - !keyloc line.de.6140 -0,013
+            line.de.6170: 11,700
+            line.de.6140: -0,013
         category: de.Bft
         source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.6020 fra right
+        site: path.de.6020 fra
 
 
 ---
@@ -577,9 +560,9 @@ events:
         source: src.de.DRG.Bln.1927
     -   date: !!null
         location:
-            - !keyloc line.de.6003  2,65
-            - !keyloc line.de.6170 12,93
-            - !keyloc line.de.6020 12,93
+            line.de.6003:  2,65
+            line.de.6170: 12,93
+            line.de.6020: 12,93
         source: src.de.DRG.Bln.1943
     -   date: 1933-05-15
         name: Okn
@@ -587,7 +570,8 @@ events:
             - src.de.Kuhlmann.2000
             - src.de.DRG.Bln.1943
     -   date: c1970
-        location: !keyloc line.de.6170 12,938
+        location:
+            line.de.6170: 12,938
         source: src.dd.DR.Bln.1978
     -   date: c1995
         category: de.Bf
@@ -599,7 +583,7 @@ events:
             - src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.6020 okn right
+        site: path.de.6020 okn
 
 
 ---
@@ -615,16 +599,16 @@ events:
         source: src.de.Kb.1914
     -   date: !!null
         category: de.Bf
-        de.Rangklasse: II
+        de.rang: II
         service: passenger
         de.lknr: 03 291
         source: src.de.Bfv.1933
     -   date: !!null
         location:
-            - !keyloc line.de.6170 13,13
-            - !keyloc line.de.6004 2,42
-            - !keyloc line.de.6006 2,14
-            - !keyloc line.de.6020 13,13
+            line.de.6170: 13,13
+            line.de.6004: 2,42
+            line.de.6006: 2,14
+            line.de.6020: 13,13
         source: src.dd.DR.Bln.1959
     -   date: !!null
         de.VBL: Sru
@@ -635,26 +619,28 @@ events:
     -   date: 1933-05-15
         de.VBL: Ok
         source: src.de.DRG.Bln.1946
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BOK
         source: src.de.DBAG.ISR
     -   date: c1995
         location:
-            - !keyloc line.de.6004 -
-            - !keyloc line.de.6007 -
-            - !keyloc line.de.6020 -
+            line.de.6004: !!null
+            line.de.6007: !!null
+            line.de.6020: !!null
     -   date: c2000
         name: Berlin Ostkreuz
         source: src.de.TPP.2006
     -   date: c2000
-        location: !keyloc line.de.6170 -
+        location:
+            line.de.6170: !!null
     -   date: c2012
-        location: !keyloc line.de.6170 13,13
+        location:
+            line.de.6170: 13,13
 
     -   date: !!null
         site:
-            - !noderef path.de.6153 okr right
-            - !noderef path.de.6020 okr right
+            - path.de.6153 okr
+            - path.de.6020 okr
 
 
 ---
@@ -666,7 +652,7 @@ events:
         name: Ostkreuz Abzw Südringkurve
 
     -   date: !!null
-        site: !noderef path.de.6020 fost
+        site: path.de.6020 fost
 
 
 ---
@@ -676,22 +662,22 @@ junction: True
 events:
     -   date: !!null
         location:
-            - !keyloc line.de.6170 15,05
-            - !keyloc line.de.6164 15,05
+            line.de.6170: 15,05
+            line.de.6164: 15,05
         name: Tw
         source: src.de.DRG.Bln.1927
     -   date: !!null
         category: de.Abzw
     -   date: c1940
         location:
-            - !keyloc line.de.6170 14,64
-            - !keyloc line.de.6164 14,64
+            line.de.6170: 14,64
+            line.de.6164: 14,64
         source: src.de.DRG.Bln.1943
     -   date: c1995
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.6020 btw left
+        site: path.de.6020 btw
 
 
 ---
@@ -702,14 +688,14 @@ events:
     -   date: !!null
         name: Berlin Treptower Park Streckenwechsel 6170/6164
         location:
-            - !keyloc line.de.6170 14,782
-            - !keyloc line.de.6164 14,782
+            line.de.6170: 14,782
+            line.de.6164: 14,782
         category: de.Strw
         de.DS100: YBBTW
         source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.6020 xbtw
+        site: path.de.6020 xbtw
 
 
 ---
@@ -721,12 +707,12 @@ events:
         name: Berlin Treptow Grenze
     -   date: !!null
         location:
-            - !keyloc line.de.6170 15,200
-            - !keyloc line.de.6020 15,200
+            line.de.6170: 15,200
+            line.de.6020: 15,200
         source: src.dd.DR.Bln.1953
 
     -   date: !!null
-        site: !noderef path.de.6020 gtre
+        site: path.de.6020 gtre
 
 
 ---
@@ -736,17 +722,17 @@ junction: True
 events:
     -   date: !!null
         location:
-            - !keyloc line.de.6170 15,70
-            - !keyloc line.de.6040 2,75
+            line.de.6170: 15,70
+            line.de.6040: 2,75
         category: de.Bf
-        de.Rangklasse: II
+        de.rang: II
         name: Neukölln-Treptow
         source: src.de.DRG.Bln.1927
     -   date: !!null
         service: freight
         de.lknr: 03 013
         source: src.de.Bfv.1928
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 03 029
         source: src.de.Bfv.1933
     -   date: 1937-10-03
@@ -757,16 +743,16 @@ events:
         source: src.de.DRG.Bln.1946
     -   date: c1960
         name: Berlin-Treptow Gbf
-        de.Rangklasse: U
+        de.rang: U
         master: point.de.Berlin-Neukoelln
         source: src.dd.DR.Bln.1968
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BTWG
     -   date: c2005
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.6020 trg left
+        site: path.de.6020 trg
 
 
 ---
@@ -785,17 +771,17 @@ events:
             - src.de.Kb.1914
     -   date: !!null
         location:
-            - !keyloc line.de.6170 17,67
-            - !keyloc line.de.6045 0,00
-            - !keyloc line.de.6020 17,67
-            - !keyloc line.de.6021 0,00
+            line.de.6170: 17,67
+            line.de.6045: 0,00
+            line.de.6020: 17,67
+            line.de.6021: 0,00
         category: de.Bf
-        de.Rangklasse: I
+        de.rang: I
         source: src.de.DRG.Bln.1927
     -   date: !!null
         de.lknr: 03 014
         source: src.de.Bfv.1928
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 03 033
         source: src.de.Bfv.1933
     -   date: 1938-05-15
@@ -805,18 +791,18 @@ events:
         de.VBL: Nkn
         source: src.de.DRG.Bln.1946
     -   date: c1965
-        de.Rangklasse: II
+        de.rang: II
         source: src.dd.DR.Bln.1968
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BNKN
         source: src.de.TPP.2006
     -   date: c2007
         location:
-            - !keyloc line.de.6020 -
-            - !keyloc line.de.6021 -
+            line.de.6020: !!null
+            line.de.6021: !!null
 
     -   date: !!null
-        site: !noderef path.de.6020 nko right
+        site: path.de.6020 nko
 
 
 ---
@@ -831,16 +817,16 @@ events:
         source: src.de.Kb.1914
     -   date: !!null
         location:
-            - !keyloc line.de.6170 21,93
-            - !keyloc line.de.6172 21,93
-            - !keyloc line.de.6020 21,93
+            line.de.6170: 21,93
+            line.de.6172: 21,93
+            line.de.6020: 21,93
         category: de.Bf
-        de.Rangklasse: I
+        de.rang: I
         source: src.de.DRG.Bln.1927
     -   date: !!null
         de.lknr: 03 015
         source: src.de.Bfv.1928
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 03 037
         source: src.de.Bfv.1933
     -   date: !!null
@@ -849,15 +835,16 @@ events:
     -   date: c1950
         name: Berlin-Tempelhof
         source: src.dd.DR.Bln.1953
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BTF
         source: src.de.TPP.2006
     -   date: 2006
-        location: !keyloc line.de.6020 -
+        location:
+            line.de.6020: !!null
         source: src.de.TPP.2007
 
     -   date: !!null
-        site: !noderef path.de.6020 tem right
+        site: path.de.6020 tem
 
 
 ---
@@ -867,20 +854,21 @@ junction: True
 events:
     -   date: !!null
         location:
-            - !keyloc line.de.6041  3,23
-            - !keyloc line.de.6020 23,89
-            - !keyloc line.de.6170 23,89
-            - !keyloc line.de.6176 23,89
-            - !keyloc line.de.6175  0,00
+            line.de.6041:  3,23
+            line.de.6020: 23,89
+            line.de.6170: 23,89
+            line.de.6176: 23,89
+            line.de.6175:  0,00
         name: Vdp
         source: src.de.DRG.Bln.1927
     -   date: c1930
-        location: !keyloc line.de.6175 0,06
+        location:
+            line.de.6175: 0,06
         source: src.de.DRG.Bln.1932
     -   date: !!null
         category: de.Abzw
         source: src.de.SuW.2005
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BVDP
         source: src.de.SuW.2005
     -   date: c1995
@@ -890,7 +878,7 @@ events:
         source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.6020 vdp right
+        site: path.de.6020 vdp
 
 
 ---
@@ -908,18 +896,18 @@ events:
             - src.de.Kb.1914
     -   date: !!null
         location:
-            - !keyloc line.de.6170 25,97
-            - !keyloc line.de.6020 25,97
+            line.de.6170: 25,97
+            line.de.6020: 25,97
         category: de.Bf
-        de.Rangklasse: I
+        de.rang: I
         source: src.de.DRG.Bln.1927
     -   date: !!null
         de.lknr: 03 016
         source: src.de.Bfv.1928
     -   date: c1930
-        de.Rangklasse: II
+        de.rang: II
         source: src.de.DRG.Bln.1932
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 03 042
         source: src.de.Bfv.1933
     -   date: 1938-05-15
@@ -929,20 +917,21 @@ events:
         de.VBL: Wi
         source: src.de.DRG.Bln.1946
     -   date: c1955
-        de.Rangklasse: I
+        de.rang: I
         source: src.dd.DR.Bln.1959
     -   date: c1965
-        de.Rangklasse: II
+        de.rang: II
         source: src.dd.DR.Bln.1968
     -   date: 1993-12-17
-        location: !keyloc line.de.6020 -
+        location:
+            line.de.6020: !!null
         source: src.de.Kuhlmann.2000
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BWL
         source: src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.6020 wil right
+        site: path.de.6020 wil
 
  
 ---
@@ -950,7 +939,8 @@ key: point.de.Berlin-Gas
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.6170 27,95
+        location:
+            line.de.6170: 27,95
         name: Gas
         category: de.Bk
         source: src.de.DRG.Bln.1932
@@ -959,7 +949,7 @@ events:
         source: src.dd.DR.Bln.1968
 
     -   date: !!null
-        site: !noderef path.de.6020 gas left
+        site: path.de.6020 gas
 
 
 ---
@@ -973,12 +963,12 @@ events:
         category: de.Bft
         de.DS100: BHLRS
         location:
-            - !keyloc line.de.6170 29,580
-            - !keyloc line.de.6178 2,313
+            line.de.6170: 29,580
+            line.de.6178: 2,313
         source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.6020 has left
+        site: path.de.6020 has
 
 
 ---
@@ -988,23 +978,23 @@ junction: True
 events:
     -   date: !!null
         location:
-            - !keyloc line.de.6170 30,90
-            - !keyloc line.de.6042 2,39
-            - !keyloc line.de.6020 30,90
+            line.de.6170: 30,90
+            line.de.6042: 2,39
+            line.de.6020: 30,90
         category: de.Abzw
         name: Mbf
         source: src.de.DRG.Bln.1932
     -   date: c1950
         location:
-            - !keyloc line.de.6170 30,907
-            - !keyloc line.de.6020 30,907
+            line.de.6170: 30,907
+            line.de.6020: 30,907
         source: src.dd.DR.Bln.1959
     -   date: c1970
         status: closed
         source: src.dd.DR.Bln.1978
 
     -   date: !!null
-        site: !noderef path.de.6020 mbf right
+        site: path.de.6020 mbf
 
 
 ---
@@ -1019,12 +1009,12 @@ events:
         category: de.Bft
         de.DS100: BHLRN
         location:
-            - !keyloc line.de.6170 30,982
-            - !keyloc line.de.6170 2,455
+            line.de.6170: 30,982
+            line.de.6170: 2,455
         source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.6020 han right
+        site: path.de.6020 han
 
 
  
@@ -1037,31 +1027,32 @@ events:
         source: src.de.Kuhlmann.2000
     -   date: !!null
         location:
-            - !keyloc line.de.6170 33,16
-            - !keyloc line.de.6170 4,66
-            - !keyloc line.de.6179 15,03
+            line.de.6170: 33,16
+            line.de.6170: 4,66
+            line.de.6179: 15,03
         category: de.Bf
-        de.Rangklasse: I
+        de.rang: I
         name: Charlottenburg Gbf
         source: src.de.DRG.Bln.1927
     -   date: !!null
         service: freight
         de.lknr: 03 018
         source: src.de.Bfv.1928
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 03 002
         source: src.de.Bfv.1933
     -   date: 1936-05-15
         name: Berlin-Charlottenburg Gbf
         source: src.de.web.Nosske
     -   date: c1940
-        location: !keyloc line.de.6170 33,25
+        location:
+            line.de.6170: 33,25
         source: src.de.DRG.Bln.1943
     -   date: !!null
         de.VBL: Chag
         source: src.de.DRG.Bln.1946
     -   date: c1950
-        de.Rangklasse: U
+        de.rang: U
         source: src.dd.DR.Bln.1953
     -   date: c1950
         master: point.de.Berlin-Westend
@@ -1078,12 +1069,12 @@ events:
         source: src.de.TPP.2006
     -   date: c2000
         location:
-            - !keyloc line.de.6170 32,973
-            - !keyloc line.de.6179  6,420
+            line.de.6170: 32,973
+            line.de.6179:  6,420
         source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.6020 chg right
+        site: path.de.6020 chg
 
 
 ---
@@ -1091,7 +1082,8 @@ key: point.de.Berlin-Moabit-Gaswerk
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.6170 35,05
+        location:
+            line.de.6170: 35,05
         name: Gaw
         category: de.Bk
         source: src.de.DRG.Bln.1932
@@ -1105,5 +1097,5 @@ events:
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.6107 gaw left
+        site: path.de.6107 gaw
 

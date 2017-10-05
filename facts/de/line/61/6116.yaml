@@ -6,74 +6,64 @@ type: line
 events:
     -   date: !!null
         region:
-            - !keyref org.de
-            - !keyref org.de.l.bb
+            - org.de
+            - org.de.l.bb
 
-    -   date: !var vzg.dr
+    -   date: de.vzg.dr
         de.VzG: !!str 6116
         source: src.de.DBAG.Geo-Strecke.2017
 
     #   Eröffnung
     #
-    -   date: !date 1956-09-30
-        start: !keyref point.de.Potsdam-Wildpark-West
+    -   date: 1956-09-30
+        start: point.de.Potsdam-Wildpark-West
         status: open
         note:
-            de: >
-                [Kuhlmann 2000]: „Potsdam Süd – Nesselgrund zunächst eingleisig,
+            deu: >
+                „Potsdam Süd – Nesselgrund zunächst eingleisig,
                 erst ab 10.02.1957 regelmäßiger Betrieb
                 mit 30 km/h; nach anderen Quellen erst ab 11.11.1956 bzw.
                 25.04.1957 regelmäßiger Betrieb“
-        source: !keyref src.de.Kuhlmann.2000
+        source: src.de.Kuhlmann.2000
     -   date: !!null
         category: de.Hauptbahn
         tracks: 1
-        source: !keyref src.dd.DR.Bln.1959
-    -   date: !date 1957-09-28
-        end: !keyref point.de.Potsdam-Wildpark-West
+        source: src.dd.DR.Bln.1959
+    -   date: 1957-09-28
+        end: point.de.Potsdam-Wildpark-West
         status: open
-        source: !keyref src.de.Kuhlmann.2000
-    -   date: !date c1960
+        source: src.de.Kuhlmann.2000
+    -   date: c1960
         tracks: 2
-        source: !keyref src.dd.DR.Bln.1968
+        source: src.dd.DR.Bln.1968
 
     #   Elektrifizierung
     #
-    -   date: !date 1982-12-15
-        electrified:
-            overhead: !var el.de
-        source: !keyref src.de.Kuhlmann.2000
+    -   date: 1982-12-15
+        electrified: de
+        source: src.de.Kuhlmann.2000
 
     #   Eigentümer und Betriebsführer
     #
     -   date: !!null
-        owner: !keyref org.dd
-        operator: !keyref org.dd.DR
-    -   date: !date 1990-10-03
-        owner: !keyref org.de
+        owner: org.dd
+        operator: org.dd.DR
 
-    -   date: !var org.de.Deutsche-Bahn.start
-        owner: !keyref org.de.Deutsche-Bahn
-        operator: !keyref org.de.Deutsche-Bahn
-    -   date: !var org.de.DBNetz.start
-        owner: !keyref org.de.DB-Netz
-        operator: !keyref org.de.DB-Netz
-        
     #   Verlauf
     #
     -   date: !!null
         course:
-            - !pathref path.de.6115 gol  awer  0
-            - !pathref path.de.6116 a    saa   0
+            -   path.de.6115 gol  awer
+            -   path.de.6116 a    saa
 
 points:
-    - !keyref point.de.Potsdam-Golm                         # line.de.6115
-    - !keyref point.de.Potsdam-Wildpark-West
-    - !keyref point.de.Potsdam-Pirschheide                  # line.de.6115
-    - !keyref point.de.Nesselgrund
-    - !keyref point.de.Wilhelmshorst-Nesselgrund
-    - !keyref point.de.Bergholz-Potsdam                     # line.de.6118
-    - !keyref point.de.Saarmund
+    - point.de.Potsdam-Golm                         # line.de.6115
+    - point.de.Potsdam-Wildpark-West
+    - point.de.Potsdam-Pirschheide                  # line.de.6115
+    - point.de.Nesselgrund
+    - point.de.Wilhelmshorst-Nesselgrund
+    - point.de.Bergholz-Potsdam                     # line.de.6118
+    - point.de.Saarmund
 
 ---
 key: point.de.Potsdam-Wildpark-West
@@ -81,48 +71,50 @@ type: point
 junction: True
 events:
     -   date: !!null
-        location: !keyloc line.de.6116 2,39
+        location:
+            line.de.6116: 2,39
         category: de.Abzw
         name: Wildpark West
-        source: !keyref src.dd.DR.Bln.1959
-    -   date: !var ds100.dr
+        source: src.dd.DR.Bln.1959
+    -   date: de.ds100.dr
         de.DS100: BAWP
-        source: !keyref src.de.TPP.2006
-    -   date: !date c2000
+        source: src.de.TPP.2006
+    -   date: c2000
         name: Potsdam Wildpark West
-        source: !keyref src.de.TPP.2006
+        source: src.de.TPP.2006
     -   date: !!null
         location:
-            - !keyloc line.de.6112 -0,118
-            - !keyloc line.de.6116 2,484
-        source: !keyref src.de.DBAG.ISR
+            line.de.6112: -0,118
+            line.de.6116: 2,484
+        source: src.de.DBAG.ISR
 
 
 ---
 key: point.de.Nesselgrund
 type: point
 events:
-    -   date: !date 1959-09-30
+    -   date: 1959-09-30
         status: open
         service: none
         name: Nesselgrund
-        source: !keyref src.de.Kuhlmann.2000
+        source: src.de.Kuhlmann.2000
     -   date: !!null
         category: de.Bf
-        de.Rangklasse: U
-        master: !keyref point.de.Potsdam-Pirschheide
+        de.rang: U
+        master: point.de.Potsdam-Pirschheide
         de.VBL: Nes
-        source: !keyref src.dd.DR.Bln.1959
+        source: src.dd.DR.Bln.1959
     -   date: !!null
-        location: !keyloc line.de.6116 7,868
-        source: !keyref src.dd.DR.Bln.1991
-    -   date: !var ds100.dr
+        location:
+            line.de.6116: 7,868
+        source: src.dd.DR.Bln.1991
+    -   date: de.ds100.dr
         de.DS100: BNESO
-    -   date: !date c2000
+    -   date: c2000
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.6116 nes right
+        site: path.de.6116 nes
 
 
 ---
@@ -131,24 +123,26 @@ type: point
 junction: True
 events:
     -   date: !!null
-        location: !keyloc line.de.6116 10,03
+        location:
+            line.de.6116: 10,03
         category: de.Abzw
         name: Nesselgrund Ost
         de.VBL: Nso
-        master: !keyref point.de.Potsdam-Pirschheide
-        source: !keyref src.dd.DR.Bln.1991
-    -   date: !var ds100.dr
+        master: point.de.Potsdam-Pirschheide
+        source: src.dd.DR.Bln.1991
+    -   date: de.ds100.dr
         de.DS100: BNES
-        source: !keyref src.de.TPP.2006
-    -   date: !date c2000
+        source: src.de.TPP.2006
+    -   date: c2000
         name: Wilhelmshorst Nesselgrund
-        source: !keyref src.de.TPP.2006
+        source: src.de.TPP.2006
     -   date: !!null
-        location: !keyloc line.de.6114 1,696
-        source: !keyref src.de.DBAG.ISR
+        location:
+            line.de.6114: 1,696
+        source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.6116 wne right
+        site: path.de.6116 wne
 
 
 ---
@@ -156,41 +150,42 @@ key: point.de.Saarmund
 type: point
 junction: True
 events:
-    -   date: !date 1918-04-01
+    -   date: 1918-04-01
         status: open
-        source: !keyref src.de.Kuhlmann.2000
+        source: src.de.Kuhlmann.2000
     -   date: !!null
         name: Saarmund
-        source: !keyref src.de.DRG.Bln.1927
+        source: src.de.DRG.Bln.1927
     -   date: !!null
         location:
-            - !keyloc line.de.6117 7,78
-            - !keyloc line.de.6126 7,78
-        source: !keyref src.de.DRG.Bln.1943
+            line.de.6117: 7,78
+            line.de.6126: 7,78
+        source: src.de.DRG.Bln.1943
     -   date: !!null
         de.VBL: Sam
-        source: !keyref src.de.DRG.Bln.1946
-    -   date: !date c1940
+        source: src.de.DRG.Bln.1946
+    -   date: c1940
         status: closed
-        source: !keyref src.de.DRG.Bln.1943
-    -   date: !date c1950
+        source: src.de.DRG.Bln.1943
+    -   date: c1950
         status: open
         category: de.Bf
-        de.Rangklasse: U
-        source: !keyref src.dd.DR.Bln.1953
-    -   date: !date c1950
+        de.rang: U
+        source: src.dd.DR.Bln.1953
+    -   date: c1950
         location:
-                - !keyloc line.de.6117 7,77
-                - !keyloc line.de.6126 7,77
-        master: !keyref point.de.Michendorf
-        source: !keyref src.dd.DR.Bln.1959
-    -   date: !var ds100.dr
+                line.de.6117: 7,77
+                line.de.6126: 7,77
+        master: point.de.Michendorf
+        source: src.dd.DR.Bln.1959
+    -   date: de.ds100.dr
         de.DS100: BASM
-        source: !keyref src.de.TPP.2006
+        source: src.de.TPP.2006
     -   date: !!null
-        location: !keyloc line.de.6116 14,689
-        source: !keyref src.de.DBAG.ISR
+        location:
+            line.de.6116: 14,689
+        source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.6116 saa left
+        site: path.de.6116 saa
 

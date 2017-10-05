@@ -47,12 +47,12 @@ events:
     #
     -   date: 1973-09-29
         start: point.de.Barmstedt
-        service: freight
+        passenger: none
         source: src.de.Lichte.1979
     -   date: 1973-12-31
         start: point.de.Barmstedt
         end: point.de.Blumendorf
-        service: none
+        freight: none
         source: src.de.WP.Bahnstrecke-Elmshorn-Bad-Oldesloe
     -   date: c1980
         start: point.de.Ulzburg
@@ -64,7 +64,7 @@ events:
     -   date: 1992
         start: point.de.Barmstedt
         end: point.de.Ulzburg
-        service: full
+        passenger: full
         source: src.de.WP.Bahnstrecke-Elmshorn-Bad-Oldesloe
 
     #   Eigenschaften
@@ -106,23 +106,16 @@ events:
         operator: org.de.AKN-Eisenbahn
         source: src.de.WP.Bahnstrecke-Elmshorn-Bad-Oldesloe
 
-    -   date: !var org.de.Deutsche-Bahn.start
-        start: point.de.Blumendorf
-        operator: org.de.Deutsche-Bahn
-    -   date: !var org.de.DBNetz.start
-        start: point.de.Blumendorf
-        operator: org.de.DB-Netz
-
     #   Verlauf
     #
     -   date: !!null
         course:
-            - !pathref path.de.1220 elm  aulz  1.5
-            - !pathref path.de.9120 a    aulz  0.0
-            - !pathref path.de.9121 aelm fold -1.0
-            - !pathref path.de.9120 fulz f     0.0
-            - !pathref path.de.6928 fulz f    -1.0
-            - !pathref path.de.1120 aulz old  -3.5
+            -   path.de.1220 elm  aulz
+            -   path.de.9120 a    aulz
+            -   path.de.9121 aelm fold
+            -   path.de.9120 fulz f
+            -   path.de.6928 fulz f
+            -   path.de.1120 aulz old
 
 points:
     - point.de.Elmshorn                         # line.de.1220
@@ -163,7 +156,8 @@ events:
         master: point.de.Elmshorn
         source: src.de.Bfv.1938
     -   date: !!null
-        location: !keyloc line.de.9120 2,0
+        location:
+            line.de.9120: 2,0
         source: src.de.DRG.Alt.Karte.1945
     -   date: !!null
         de.DS100: ALGM
@@ -177,7 +171,7 @@ events:
         source: src.de.SuW.2005
 
     -   date: !!null
-        site: !noderef path.de.9120 lam right
+        site: path.de.9120 lam
 
 
 ---
@@ -185,14 +179,15 @@ key: point.de.Sibirien
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.9120 2,5
+        location:
+            line.de.9120: 2,5
         name: Sibirien
         source: src.de.Kb.1914
     -   date: c1920
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.9120 sib
+        site: path.de.9120 sib
 
 
 ---
@@ -206,7 +201,8 @@ events:
         de.lknr: 41 823
         source: src.de.Bfv.1928
     -   date: !!null
-        location: !keyloc line.de.9120 3,8
+        location:
+            line.de.9120: 3,8
         source: src.de.DRG.Alt.Karte.1945
     -   date: !!null
         de.DS100: ASPS
@@ -217,7 +213,7 @@ events:
         source: src.de.SuW.2005
 
     -   date: !!null
-        site: !noderef path.de.9120 spa left
+        site: path.de.9120 spa
 
 
 ---
@@ -241,7 +237,8 @@ events:
         source: src.de.Bfv.1938
     -   date: !!null
         category: de.Hp
-        location: !keyloc line.de.9120 6,0
+        location:
+            line.de.9120: 6,0
         source: src.de.DRG.Alt.Karte.1945
     -   date: !!null
         de.DS100: ABHT
@@ -252,7 +249,7 @@ events:
         source: src.de.DBAG.BSV.2017
 
     -   date: !!null
-        site: !noderef path.de.9120 bok left
+        site: path.de.9120 bok
 
 
 ---
@@ -269,7 +266,8 @@ events:
         service: passenger
         source: src.de.Bfv.1944
     -   date: !!null
-        location: !keyloc line.de.9120 7,4
+        location:
+            line.de.9120: 7,4
         source: src.de.DRG.Alt.Karte.1945
     -   date: !!null
         de.DS100: AVSL
@@ -280,7 +278,7 @@ events:
         source: src.de.SuW.2005
 
     -   date: !!null
-        site: !noderef path.de.9120 vos right
+        site: path.de.9120 vos
 
 
 ---
@@ -297,7 +295,8 @@ events:
         source: src.de.Bfv.1938
     -   date: !!null
         category: de.Hp
-        location: !keyloc line.de.9120 9,1
+        location:
+            line.de.9120: 9,1
         source: src.de.DRG.Alt.Karte.1945
     -   date: !!null
         de.DS100: ABMB
@@ -306,7 +305,7 @@ events:
         source: src.de.DBAG.BSV.2017
 
     -   date: !!null
-        site: !noderef path.de.9120 bab right
+        site: path.de.9120 bab
 
 
 ---
@@ -321,7 +320,8 @@ events:
         source: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
-        location: !keyloc line.de.9120 10,0
+        location:
+            line.de.9120: 10,0
         source: src.de.DRG.Alt.Karte.1945
     -   date: !!null
         de.DS100: ABMS
@@ -332,7 +332,7 @@ events:
         source: src.de.DBAG.BSV.2017
 
     -   date: !!null
-        site: !noderef path.de.9120 bar right
+        site: path.de.9120 bar
 
 
 ---
@@ -347,7 +347,8 @@ events:
         source: src.de.Bfv.1928
     -   date: !!null
         category: de.Hp
-        location: !keyloc line.de.9120 15,4
+        location:
+            line.de.9120: 15,4
         source: src.de.DRG.Alt.Karte.1945
     -   date: 1973-09-29?
         status: closed
@@ -355,12 +356,13 @@ events:
         status: open
     -   date: 2000-05-28
         name: Langeln (Holst)
-        location: !keyloc line.de.9120 15,8
+        location:
+            line.de.9120: 15,8
         de.DS100: ALAL
         source: src.de.SuW.2005
 
     -   date: !!null
-        site: !noderef path.de.9120 lal left
+        site: path.de.9120 lal
 
 
 ---
@@ -375,7 +377,8 @@ events:
         source: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
-        location: !keyloc line.de.9120 19,4
+        location:
+            line.de.9120: 19,4
         source: src.de.DRG.Alt.Karte.1945
     -   date: 1992?
         category: de.Hp
@@ -385,7 +388,7 @@ events:
         source: src.de.DBAG.BSV.2017
 
     -   date: !!null
-        site: !noderef path.de.9120 alv right
+        site: path.de.9120 alv
 
 
 ---
@@ -400,11 +403,12 @@ events:
         source: src.de.Bfv.1928
     -   date: !!null
         category: de.Hp
-        location: !keyloc line.de.9120 26,6
+        location:
+            line.de.9120: 26,6
         source: src.de.DRG.Alt.Karte.1945
 
     -   date: !!null
-        site: !noderef path.de.9120 kis left
+        site: path.de.9120 kis
 
 
 ---
@@ -421,11 +425,12 @@ events:
         staff: none
         source: src.de.Bfv.1944
     -   date: !!null
-        location: !keyloc line.de.9120 29,1
+        location:
+            line.de.9120: 29,1
         source: src.de.DRG.Alt.Karte.1945
 
     -   date: !!null
-        site: !noderef path.de.9120 woh right
+        site: path.de.9120 woh
 
 
 ---
@@ -434,7 +439,8 @@ type: point
 events:
     -   date: !!null
         name: Wakendorf-Götzberg
-        location: !keyloc line.de.9120 31,4
+        location:
+            line.de.9120: 31,4
         source: src.de.Kb.1914
     -   date: !!null
         de.lknr: 48 823
@@ -444,7 +450,7 @@ events:
         source: src.de.DRG.Alt.Karte.1945
 
     -   date: !!null
-        site: !noderef path.de.9120 wak left
+        site: path.de.9120 wak
 
 
 ---
@@ -459,11 +465,12 @@ events:
         source: src.de.Bfv.1933
     -   date: !!null
         category: de.Bf
-        location: !keyloc line.de.9120 36,4
+        location:
+            line.de.9120: 36,4
         source: src.de.DRG.Alt.Karte.1945
 
     -   date: !!null
-        site: !noderef path.de.9120 nah right
+        site: path.de.9120 nah
 
 
 ---
@@ -476,7 +483,7 @@ events:
         source: src.de.Bfv.1933
 
     -   date: !!null
-        site: !noderef path.de.9120 nat right
+        site: path.de.9120 nat
 
 
 ---
@@ -491,11 +498,12 @@ events:
         source: src.de.Bfv.1933
     -   date: !!null
         category: de.Bf
-        location: !keyloc line.de.9120 42,5
+        location:
+            line.de.9120: 42,5
         source: src.de.DRG.Alt.Karte.1945
 
     -   date: !!null
-        site: !noderef path.de.9120 sul left
+        site: path.de.9120 sul
 
 
 ---
@@ -510,11 +518,12 @@ events:
         source: src.de.Bfv.1933
     -   date: !!null
         category: de.Bf
-        location: !keyloc line.de.9120 44,8
+        location:
+            line.de.9120: 44,8
         source: src.de.DRG.Alt.Karte.1945
 
     -   date: !!null
-        site: !noderef path.de.9120 gra left
+        site: path.de.9120 gra
 
 
 ---
@@ -529,7 +538,8 @@ events:
         source: src.de.Bfv.1933
     -   date: !!null
         category: de.Bf
-        location: !keyloc line.de.9120 48,4
+        location:
+            line.de.9120: 48,4
         source: src.de.DRG.Alt.Karte.1945
     -   date: !!null
         de.DS100: ABMD
@@ -539,7 +549,7 @@ events:
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.9120 blu right
+        site: path.de.9120 blu
 
 
 ---
@@ -556,5 +566,5 @@ events:
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.9120 rum left
+        site: path.de.9120 rum
 

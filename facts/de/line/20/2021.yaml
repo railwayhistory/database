@@ -6,46 +6,35 @@ type: line
 events:
     -   date: !!null
         region:
-            - !keyref org.de
-            - !keyref org.de.l.ni
+            - org.de
+            - org.de.l.ni
 
     -   date: !!null
         de.VzG: !!str 2021
         source: src.de.DBAG.Geo-Strecke.2017
 
     -   date: !!null
-        owner: !keyref org.de.l.pre
-        operator: !keyref org.de.e.mst
-        source: !keyref src.de.DRG.1935
-    -   date: !date 1918-10-01
+        owner: org.de.l.pre
+        operator: org.de.e.mst
+        source: src.de.DRG.1935
+    -   date: 1918-10-01
         status: open
-        service: freight
-        source: !keyref src.de.DRG.1935
+        passenger: none
+        source: src.de.DRG.1935
 
-    -   date: !date 1920-04-01
-        owner: !keyref org.de
-        operator: !keyref org.de.r.RVM.PH
-    -   date: !date 1924-02-12
-        operator: !keyref org.de.Deutsche-Reichsbahn-I
-    -   date: !date 1924-08-30
-        operator: !keyref org.de.DR
-    -   date: !var org.de.DB.start
-        operator: !keyref org.de.DB
+    -   date: c1975
+        electrified: de
 
-    -   date: !date c1975
-        electrified:
-            overhead: !var el.de
-
-    -   date: !date 1993
+    -   date: 1993
         status: closed
-    -   date: !date c2000
+    -   date: c2000
         status: removed
 
 points:
-    - !keyref point.de.Rheine-Rs                            # line.de.2931
-    - !keyref point.de.Rheine-Rbf-Rgf
-    - !keyref point.de.Rheine-Rbf
-    - !keyref point.de.Rheine                               # line.de.2931
+    - point.de.Rheine-Rs                            # line.de.2931
+    - point.de.Rheine-Rbf-Rgf
+    - point.de.Rheine-Rbf
+    - point.de.Rheine                               # line.de.2931
 
 ---
 key: point.de.Rheine-Rbf-Rgf
@@ -61,18 +50,19 @@ key: point.de.Rheine-Rbf
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.2021 1,55
-        source: !keyref src.de.web.Joost
+        location:
+            line.de.2021: 1,55
+        source: src.de.web.Joost
     -   date: !!null
         category: de.Bf
-        de.Rangklasse: I
+        de.rang: I
         service: none
         name: Rheine R
         de.lknr: 21 065
-        source: !keyref src.de.Bfv.1933
-    -   date: !date c1975
+        source: src.de.Bfv.1933
+    -   date: c1975
         name: Rheine Rbf
     -   date: !!null
         de.VBL: Rg
         de.DS100: HR R
-        source: !keyref src.de.web.Joost
+        source: src.de.web.Joost

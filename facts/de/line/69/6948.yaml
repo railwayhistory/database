@@ -6,10 +6,10 @@ type: line
 events:
     -   date: !!null
         region:
-            - !keyref org.de
-            - !keyref org.de.l.bb
+            - org.de
+            - org.de.l.bb
 
-    -   date: !var vzg.dr
+    -   date: de.vzg.dr
         de.VzG: !!str 6948
         source: src.de.DBAG.Geo-Strecke.2017
 
@@ -29,101 +29,92 @@ events:
         end: point.de.Neuruppin-Fehrbelliner-Strasse
         status: open
         source: src.de.DRG.1935 # 1880/28
-    -   date: !date 1905-06-21
-        start: !keyref point.de.Neuruppin-Fehrbelliner-Strasse
+    -   date: 1905-06-21
+        start: point.de.Neuruppin-Fehrbelliner-Strasse
         status: open
-        service: freight
-        source: !keyref src.de.web.Dudczak
-    -   date: !date 1930-05-15
-        start: !keyref point.de.Neuruppin-Fehrbelliner-Strasse
-        service: full
-        source: !keyref src.de.web.Dudczak
+        passenger: none
+        source: src.de.web.Dudczak
+    -   date: 1930-05-15
+        start: point.de.Neuruppin-Fehrbelliner-Strasse
+        passenger: full
+        source: src.de.web.Dudczak
 
 
-    -   date: !date 1970-05-20
-        service: freight
-        source: !keyref src.de.WP.Paulinenaue-Neuruppiner-Eisenbahn
-    -   date: !date 1973-06-03
-        start: !keyref point.de.Dammkrug
-        end: !keyref point.de.Neuruppin-Fehrbelliner-Strasse
+    -   date: 1970-05-20
+        passenger: none
+        source: src.de.WP.Paulinenaue-Neuruppiner-Eisenbahn
+    -   date: 1973-06-03
+        start: point.de.Dammkrug
+        end: point.de.Neuruppin-Fehrbelliner-Strasse
         status: closed
-        source: !keyref src.de.web.Mauruszat
-    -   date: !date c1974
-        start: !keyref point.de.Dammkrug
-        end: !keyref point.de.Neuruppin-Fehrbelliner-Strasse
+        source: src.de.web.Mauruszat
+    -   date: c1974
+        start: point.de.Dammkrug
+        end: point.de.Neuruppin-Fehrbelliner-Strasse
         status: removed
-    -   date: !date c1980
-        start: !keyref point.de.Fehrbellin-Ende
-        end: !keyref point.de.Dammkrug
+    -   date: c1980
+        start: point.de.Fehrbellin-Ende
+        end: point.de.Dammkrug
         status: removed
-        source: !keyref src.dd.DR.1989
-    -   date: !date 1995-05-28
-        end: !keyref point.de.Fehrbellin-Ende
+        source: src.dd.DR.1989
+    -   date: 1995-05-28
+        end: point.de.Fehrbellin-Ende
         category: de.Bfgleis
-        source: !keyref src.de.web.EBA.Still # Nr. 24
-    -   date: !date 2008
-        end: !keyref point.de.Fehrbellin-Ende
+        source: src.de.web.EBA.Still # Nr. 24
+    -   date: 2008
+        end: point.de.Fehrbellin-Ende
         status: removed
-        source: !keyref src.de.WP.Paulinenaue-Neuruppiner-Eisenbahn
-    -   date: !date c2000
-        start: !keyref point.de.Neuruppin-Fehrbelliner-Strasse
+        source: src.de.WP.Paulinenaue-Neuruppiner-Eisenbahn
+    -   date: c2000
+        start: point.de.Neuruppin-Fehrbelliner-Strasse
         status: removed
 
     #   Eigenschaften
     #
     -   date: !!null
         category: de.Nebenbahn
-        source: !keyref src.de.l.pre.pot.1879.48.501
+        source: src.de.l.pre.pot.1879.48.501
     -   date: !!null
         tracks: 1
-        gauge: 1435
-        source: !keyref src.de.DRG.1927
+        gauge: 1435mm
+        source: src.de.DRG.1927
 
     #   Eigentümer und Betriebsführer
     #
     -   date: !!null
         owner: org.de.Paulinenaue-Neuruppiner-Eisenbahn
         operator: org.de.Paulinenaue-Neuruppiner-Eisenbahn
-    -   date: !date 1923-03-17
+    -   date: 1923-03-17
         owner: org.de.Ruppiner-Eisenbahn
         operator: org.de.Ruppiner-Eisenbahn
         
-    -   date: !date 1949-04-01
-        operator: !keyref org.dd.DR
-    -   date: !date 1949-10-07
-        owner: !keyref org.dd
-
-    -   date: !date 1990-10-03
-        owner: !keyref org.de
-    -   date: !var org.de.Deutsche-Bahn.start
-        owner: !keyref org.de.Deutsche-Bahn
-        operator: !keyref org.de.Deutsche-Bahn
-    -   date: !var org.de.DBNetz.start
-        owner: !keyref org.de.DB-Netz
-        operator: !keyref org.de.DB-Netz
+    -   date: 1949-04-01
+        operator: org.dd.DR
+    -   date: 1949-10-07
+        owner: org.dd
     
     #   Verlauf
     #
     -   date: !!null
         course:
-            - !pathref path.de.6100 pau  anru  1.5
-            - !pathref path.de.6948 a    f     0.0
-            - !pathref path.de.6504 anst nru   2.0
+            -   path.de.6100 pau  anru
+            -   path.de.6948 a    f
+            -   path.de.6504 anst nru
 
 points:
-    - !keyref point.de.Paulinenaue                      # line.de.6100
-    - !keyref point.de.Lobeofsund
-    - !keyref point.de.Betzin-Karwesee
-    - !keyref point.de.Fehrbellin
-    - !keyref point.de.Fehrbellin-Anst
-    - !keyref point.de.Fehrbellin-Ende
-    - !keyref point.de.Dammkrug
-    - !keyref point.de.Buskow
-    - !keyref point.de.Treskow
-    - !keyref point.de.Neuruppin-Sued
-    - !keyref point.de.Neuruppin-Fehrbelliner-Strasse
-    - !keyref point.de.Neuruppin-Neustaedter-Strasse
-    - !keyref point.de.Neuruppin                        # line.de.6504
+    - point.de.Paulinenaue                      # line.de.6100
+    - point.de.Lobeofsund
+    - point.de.Betzin-Karwesee
+    - point.de.Fehrbellin
+    - point.de.Fehrbellin-Anst
+    - point.de.Fehrbellin-Ende
+    - point.de.Dammkrug
+    - point.de.Buskow
+    - point.de.Treskow
+    - point.de.Neuruppin-Sued
+    - point.de.Neuruppin-Fehrbelliner-Strasse
+    - point.de.Neuruppin-Neustaedter-Strasse
+    - point.de.Neuruppin                        # line.de.6504
 
 
 ---
@@ -132,15 +123,15 @@ type: point
 events:
     -   date: !!null
         name: Lobeofsund
-        source: !keyref src.de.Kb.1905
+        source: src.de.Kb.1905
     -   date: !!null
         de.lknr: 41 904
-        source: !keyref src.de.Bfv.1928
-    -   date: !date c1970
+        source: src.de.Bfv.1928
+    -   date: c1970
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.6948 lob left
+        site: path.de.6948 lob
 
 
 ---
@@ -149,18 +140,18 @@ type: point
 events:
     -   date: !!null
         name: Betzin-Carwesee
-        source: !keyref src.de.Kb.1905
+        source: src.de.Kb.1905
     -   date: !!null
         de.lknr: 42 904
-        source: !keyref src.de.Bfv.1928
-    -   date: !date c1930
+        source: src.de.Bfv.1928
+    -   date: c1930
         name: Betzin-Karwesee
-        source: !keyref src.de.Bfv.1933
-    -   date: !date c1970
+        source: src.de.Bfv.1933
+    -   date: c1970
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.6948 bet right
+        site: path.de.6948 bet
 
 
 ---
@@ -169,22 +160,23 @@ type: point
 events:
     -   date: !!null
         name: Fehrbellin
-        source: !keyref src.de.Kb.1905
+        source: src.de.Kb.1905
     -   date: !!null
         de.lknr: 43 904
-        source: !keyref src.de.Bfv.1928
+        source: src.de.Bfv.1928
     -   date: !!null
-        location: !keyloc line.de.6948 15,84
+        location:
+            line.de.6948: 15,84
         de.VBL: Fbn
-        source: !keyref src.dd.DR.1976
-    -   date: !date c1970
+        source: src.dd.DR.1976
+    -   date: c1970
         category: de.Anst
-        source: !keyref src.dd.DR.1976
-    -   date: !var ds100.dr
+        source: src.dd.DR.1976
+    -   date: de.ds100.dr
         de.DS100: WFB
 
     -   date: !!null
-        site: !noderef path.de.6948 feh left
+        site: path.de.6948 feh
 
 
 ---
@@ -192,19 +184,20 @@ key: point.de.Fehrbellin-Anst
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.6948 17,542
+        location:
+            line.de.6948: 17,542
         category: de.Anst
         name: Fehrbellin Bastfasterwerk
         de.VBL: Fba
-        source: !keyref src.dd.DR.1976
-    -   date: !date c1980
+        source: src.dd.DR.1976
+    -   date: c1980
         name: Fehrbellin Plakotex
-        source: !keyref src.dd.DR.1989
-    -   date: !date c1995
+        source: src.dd.DR.1989
+    -   date: c1995
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.6948 fea right
+        site: path.de.6948 fea
 
 ---
 key: point.de.Fehrbellin-Ende
@@ -214,11 +207,12 @@ events:
     -   date: !!null
         name: Fehrbellin Streckenende
     -   date: !!null
-        location: !keyloc line.de.6948 17,8
-        source: !keyref src.dd.DR.1989
+        location:
+            line.de.6948: 17,8
+        source: src.dd.DR.1989
 
     -   date: !!null
-        site: !noderef path.de.6948 fee
+        site: path.de.6948 fee
 
 
 ---
@@ -227,34 +221,35 @@ type: point
 events:
     -   date: !!null
         name: Dammkrug
-        source: !keyref src.de.Kb.1905
+        source: src.de.Kb.1905
     -   date: !!null
         de.lknr: 44 904
-        source: !keyref src.de.Bfv.1928
+        source: src.de.Bfv.1928
     -   date: !!null
-        location: !keyloc line.de.6948 19,13
+        location:
+            line.de.6948: 19,13
         de.VBL: Dkr
-        source: !keyref src.dd.DR.1976
-    -   date: !date c1970
+        source: src.dd.DR.1976
+    -   date: c1970
         category: de.Hp
-        source: !keyref src.dd.DR.1976
+        source: src.dd.DR.1976
 
     -   date: !!null
-        site: !noderef path.de.6948 dam left
+        site: path.de.6948 dam
 
 
 ---
 key: point.de.Buskow
 type: point
 events:
-    -   date: !date c1920
+    -   date: c1920
         status: open
         name: Buskow
         de.lknr: 95 904
-        source: !keyref src.de.Bfv.1928
+        source: src.de.Bfv.1928
     
     -   date: !!null
-        site: !noderef path.de.6948 bus right
+        site: path.de.6948 bus
 
 
 ---
@@ -263,43 +258,43 @@ type: point
 events:
     -   date: !!null
         name: Treskow
-        source: !keyref src.de.Kb.1905
+        source: src.de.Kb.1905
     -   date: !!null
         de.lknr: 45 904
-        source: !keyref src.de.Bfv.1928
-    -   date: !date c1930
+        source: src.de.Bfv.1928
+    -   date: c1930
         staff: none
-        master: !keyref point.de.Neuruppin
-        source: !keyref src.de.Bfv.1933
+        master: point.de.Neuruppin
+        source: src.de.Bfv.1933
 
     -   date: !!null
-        site: !noderef path.de.6948 tre left
+        site: path.de.6948 tre
 
 
 ---
 key: point.de.Neuruppin-Sued
 type: point
 events:
-    -   date: !date c1920
+    -   date: c1920
         status: open
         name: Neuruppin Anstalt
         staff: none
         service: passenger
-        master: !keyref point.de.Neuruppin-PNE
+        master: point.de.Neuruppin-PNE
         de.lknr: 94 904
-        source: !keyref src.de.Bfv.1928
-    -   date: !date c1930
-        master: !keyref point.de.Neuruppin
-    -   date: !date c1935
+        source: src.de.Bfv.1928
+    -   date: c1930
+        master: point.de.Neuruppin
+    -   date: c1935
         staff: full
         master: !!null
-        source: !keyref src.de.Bfv.1938
-    -   date: !date c1960
+        source: src.de.Bfv.1938
+    -   date: c1960
         name: Neuruppin Süd
-        source: !keyref src.de.web.Mauruszat
+        source: src.de.web.Mauruszat
 
     -   date: !!null
-        site: !noderef path.de.6948 nrs left
+        site: path.de.6948 nrs
 
 
 ---
@@ -307,51 +302,51 @@ key: point.de.Neuruppin-Fehrbelliner-Strasse
 type: point
 junction: True
 events:
-    -   date: !date 1930-05-15?
+    -   date: 1930-05-15?
         status: open
     -   date: !!null
         name: Neuruppin Königstor
         staff: none
         service: passenger
-        master: !keyref point.de.Neuruppin
+        master: point.de.Neuruppin
         de.lknr: 93 904
-        source: !keyref src.de.Bfv.1933
-    -   date: !date c1935
+        source: src.de.Bfv.1933
+    -   date: c1935
         staff: full
         master: !!null
-        source: !keyref src.de.Bfv.1938
-    -   date: !date c1960
+        source: src.de.Bfv.1938
+    -   date: c1960
         name: Neuruppin Fehrbelliner Straße
-        source: !keyref src.de.web.Mauruszat
-    -   date: !date c1970
+        source: src.de.web.Mauruszat
+    -   date: c1970
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.6948 nrf left
+        site: path.de.6948 nrf
 
 
 ---
 key: point.de.Neuruppin-Neustaedter-Strasse
 type: point
 events:
-    -   date: !date 1930-05-15?
+    -   date: 1930-05-15?
         status: open
     -   date: !!null
         name: Neuruppin Neustädter Straße
         staff: none
         service: passenger
-        master: !keyref point.de.Neuruppin
+        master: point.de.Neuruppin
         de.lknr: 40 934
-        source: !keyref src.de.Bfv.1933
-    -   date: !date c1935
+        source: src.de.Bfv.1933
+    -   date: c1935
         staff: full
         master: !!null
-        source: !keyref src.de.Bfv.1938
-    -   date: !date c1970
+        source: src.de.Bfv.1938
+    -   date: c1970
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.6948 nrn right
+        site: path.de.6948 nrn
 
 
 # point.de.Neuruppin - line.de.6504

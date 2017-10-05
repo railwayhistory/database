@@ -6,58 +6,48 @@ type: line
 events:
     -   date: !!null
         region:
-            - !keyref org.de
-            - !keyref org.de.l.be
+            - org.de
+            - org.de.l.be
 
-    -   date: !var vzg.dr
+    -   date: de.vzg.dr
         de.VzG: !!str 6067
         source: src.de.DBAG.Geo-Strecke.2017
 
     #   Eröffnung
     #
-    -   date: !date 1957-04-29
+    -   date: 1957-04-29
         status: open
-        source: !keyref src.de.Kuhlmann.2000
+        source: src.de.Kuhlmann.2000
 
     #   Eigenschaften
     #
     -   date: !!null
         category: de.Hauptbahn
         tracks: 2
-        gauge: 1435
-        source: !keyref src.dd.DR.Bln.1959
-    -   date: !date 1984-12-15
-        electrified:
-            overhead: !var el.de
-        source: !keyref src.de.Kuhlmann.2000
+        gauge: 1435mm
+        source: src.dd.DR.Bln.1959
+    -   date: 1984-12-15
+        electrified: de
+        source: src.de.Kuhlmann.2000
         
     #   Eigentümer und Betriebsführer
     #
     -   date: !!null
-        owner: !keyref org.dd
-        operator: !keyref org.dd.DR
-    -   date: !date 1990-10-03
-        owner: !keyref org.de
+        owner: org.dd
+        operator: org.dd.DR
 
-    -   date: !var org.de.Deutsche-Bahn.start
-        owner: !keyref org.de.Deutsche-Bahn
-        operator: !keyref org.de.Deutsche-Bahn
-    -   date: !var org.de.DBNetz.start
-        owner: !keyref org.de.DB-Netz
-        operator: !keyref org.de.DB-Netz
-        
     #   Verlauf
     #
     -   date: !!null
         course:
-            - !pathref path.de.6080 xbkn f    0.0
-            - !pathref path.de.6067 a    akar 0.0
+            -   path.de.6080 xbkn f
+            -   path.de.6067 a    akar
 
 points:
-    - !keyref point.de.Biesdorfer-Kreuz-Nord-Strw           # line.de.6080
-    - !keyref point.de.Berlin-Springpfuhl-Nord
-    - !keyref point.de.Berlin-Hohenschoenhausen
-    - !keyref point.de.Berlin-Karow-Ost
+    - point.de.Biesdorfer-Kreuz-Nord-Strw           # line.de.6080
+    - point.de.Berlin-Springpfuhl-Nord
+    - point.de.Berlin-Hohenschoenhausen
+    - point.de.Berlin-Karow-Ost
     -   point.de.Karower-Kreuz-Strw
     
 
@@ -67,13 +57,14 @@ type: point
 junction: True
 events:
     -   date: !!null
-        location: !keyloc line.de.6067 0,161
+        location:
+            line.de.6067: 0,161
         category: de.Abzw
         name: Sgn
-        source: !keyref src.dd.DR.Bln.Bpl.1967
+        source: src.dd.DR.Bln.Bpl.1967
 
     -   date: !!null
-        site: !noderef path.de.6080 sgn left
+        site: path.de.6080 sgn
 
 
 ---
@@ -82,40 +73,43 @@ type: point
 junction: True
 events:
     -   date: !!null
-        location: !keyloc line.de.6067 3,7
+        location:
+            line.de.6067: 3,7
         category: de.Bk
         name: Wt
-        source: !keyref src.dd.DR.Bln.1959
-    -   date: !date c1975
+        source: src.dd.DR.Bln.1959
+    -   date: c1975
         category: de.Abzw
-        location: !keyloc line.de.6067 3,675
-        source: !keyref src.dd.DR.Bln.1978
-    -   date: !date 1984-12-20?
+        location:
+            line.de.6067: 3,675
+        source: src.dd.DR.Bln.1978
+    -   date: 1984-12-20?
         category: de.Bf
-        de.Rangklasse: U
+        de.rang: U
         name: Hohenschönhausen
         de.VBL: Hsh
-        master: !keyref point.de.Berlin-Marzahn
-        source: !keyref src.dd.DR.1989
+        master: point.de.Berlin-Marzahn
+        source: src.dd.DR.1989
     -   date: !!null
-        location: !keyloc line.de.6012 13,49
-        source: !keyref src.dd.DR.1989
-    -   date: !var ds100.dr
-        de.DS100: BHSH
-        source: !keyref src.de.TPP.2006
-    -   date: !date c2000
-        name: Berlin-Hohenschönhausen
-        source: !keyref src.de.TPP.2006
-    -   date: !date 2006
         location:
-            - !keyloc line.de.6012 -
-            - !keyloc line.de.6067 3,568
-            - !keyloc line.de.6160 3,298
+            line.de.6012: 13,49
+        source: src.dd.DR.1989
+    -   date: de.ds100.dr
+        de.DS100: BHSH
+        source: src.de.TPP.2006
+    -   date: c2000
+        name: Berlin-Hohenschönhausen
+        source: src.de.TPP.2006
+    -   date: 2006
+        location:
+            line.de.6012: !!null
+            line.de.6067: 3,568
+            line.de.6160: 3,298
         category: [de.Abzw, de.Hp]
-        source: !keyref src.de.DBAG.ISR
+        source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.6067 hsc left
+        site: path.de.6067 hsc
 
 
 ---
@@ -123,27 +117,27 @@ key: point.de.Berlin-Karow-Ost
 type: point
 junction: True
 events:
-    -   date: !date 1952-11-25?
+    -   date: 1952-11-25?
         status: open
     -   date: !!null
         category: de.Abzw
         name: Ako
-        source: !keyref src.dd.DR.Bln.1959
-    -   date: !var ds100.dr 
+        source: src.dd.DR.Bln.1959
+    -   date: de.ds100.dr 
         de.DS100: BAKO
-        source: !keyref src.de.TPP.2006
-    -   date: !date c2000
+        source: src.de.TPP.2006
+    -   date: c2000
         name: Berlin-Karow Ost
-        source: !keyref src.de.TPP.2006
+        source: src.de.TPP.2006
     -   date: !!null
         location:
-            - !keyloc line.de.6067  8,402
-            - !keyloc line.de.6083 -0,059
-            - !keyloc line.de.6084 -0,055
-        source: !keyref src.de.DBAG.ISR
+            line.de.6067:  8,402
+            line.de.6083: -0,059
+            line.de.6084: -0,055
+        source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.6067 kao right
+        site: path.de.6067 kao
 
 
 ---
@@ -154,15 +148,15 @@ junction: True
 events:
     -   date: !!null
         location:
-            - !keyloc line.de.6067 8,895
-            - !keyloc line.de.6087 0,000
+            line.de.6067: 8,895
+            line.de.6087: 0,000
         category: de.Strw
         name: Karower Kreuz Streckenwechsel 6067/6087
         de.DS100: YBBAK
-        source: !keyref src.de.DBAG.ISR
+        source: src.de.DBAG.ISR
 
     -   date: !!null
         short_name: Karow Ost
 
     -   date: !!null
-        site: !noderef path.de.6067 akar
+        site: path.de.6067 akar

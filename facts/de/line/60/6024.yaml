@@ -118,24 +118,21 @@ events:
     -   date: !!null
         category: de.Hauptbahn
         tracks: 2
-        gauge: 1435
-        service: passenger
+        gauge: 1435mm
+        freight: none
         source: src.de.DRG.1927
     -   date: 1928-06-11
         end: point.de.Berlin-Grunewald
-        electrified:
-            rail: !var el.de.bln
+        electrified: de.bln
         source: src.de.Kuhlmann.2000
     -   date: 1928-06-11
         start: point.de.Berlin-Wannsee
-        electrified:
-            rail: !var el.de.bln
+        electrified: de.bln
         source: src.de.Kuhlmann.2000
     -   date: !!null
         start: point.de.Berlin-Grunewald
         end: point.de.Berlin-Wannsee
-        electrified:
-            rail: !var el.de.bln
+        electrified: de.bln
         source: src.de.Kuhlmann.2000
 
     -   date: c1945
@@ -146,10 +143,10 @@ events:
     #
     -   date: !!null
         course:
-            - !pathref path.de.6109 ost  awkr  2.0
-            - !pathref path.de.6024 a    f     0.0
-            - !pathref path.de.6118 fwkr koh   2.0
-            - !pathref path.de.6110 ggri pot   2.0
+            -   path.de.6109 ost  awkr
+            -   path.de.6024 a    f
+            -   path.de.6118 fwkr koh
+            -   path.de.6110 ggri pot
 
 points:
     -   point.de.Berlin-Ostbahnhof                  # de.6109
@@ -214,14 +211,14 @@ events:
         source: src.de.TPP.2007
     -   date: !!null
         location:
-            - !keyloc line.de.6003 0,000
-            - !keyloc line.de.6004 0,000
-            - !keyloc line.de.6024 0,000
+            line.de.6003: 0,000
+            line.de.6004: 0,000
+            line.de.6024: 0,000
         category: de.Bf
         source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.6109 ost
+        site: path.de.6109 ost
 
 
 ---
@@ -229,20 +226,21 @@ key: point.de.Berlin-Jannowitzbrücke
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.6024 1,18
+        location:
+            line.de.6024: 1,18
         name: Jannowitzbrücke
         category: de.Bf
-        de.Rangklasse: III
+        de.rang: III
         source: src.de.DRG.Bln.1927
     -   date: !!null
         de.lknr: 03 289
         service: passenger
         source: src.de.Bfv.1928
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 03 281
         source: src.de.Bfv.1933
     -   date: c1950
-        de.Rangklasse: U
+        de.rang: U
         master: point.de.Berlin-Alexanderplatz
         source: src.dd.DR.Bln.1953
     -   date: c1960
@@ -251,7 +249,7 @@ events:
     -   date: !!null
         de.VBL: Jan
         source: src.de.DRG.Bln.1946
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BJB
         source: src.de.TPP.2006
     -   date: c2000
@@ -259,7 +257,7 @@ events:
         source: src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.6109 jan
+        site: path.de.6109 jan
 
 
 # point.de.Berlin-Alexanderplatz              de.6109
@@ -272,7 +270,8 @@ events:
     -   date: c2007
         status: open
         split_from: point.de.Berlin-Alexanderplatz
-        location: !keyloc line.de.6024 2,17
+        location:
+            line.de.6024: 2,17
     -   date: !!null
         name: Berlin Alexanderplatz S-Bahn
         public_name: Alexanderplatz
@@ -283,7 +282,7 @@ events:
         source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.6109 ale
+        site: path.de.6109 ale
 
 
 ---
@@ -291,9 +290,10 @@ key: point.de.Berlin-Hackescher-Markt
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.6024 2,26
+        location:
+            line.de.6024: 2,26
         category: de.Bf
-        de.Rangklasse: III
+        de.rang: III
         name: Börse
         source: src.de.DRG.Bln.1927
     -   date: !!null
@@ -301,9 +301,10 @@ events:
         service: passenger
         source: src.de.Bfv.1928
     -   date: c1930
-        location: !keyloc line.de.6024 2,86
+        location:
+            line.de.6024: 2,86
         source: src.de.DRG.Bln.1932
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 03 279
         source: src.de.Bfv.1933
     -   date: !!null
@@ -324,12 +325,12 @@ events:
         source: src.de.Kuhlmann.2000
     -   date: c2000
         name: Berlin Hackescher Markt
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BHKM
         source: src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.6109 hac
+        site: path.de.6109 hac
 
 
 # point.de.Berlin-Friedrichstraße             de.6109
@@ -355,7 +356,7 @@ events:
         source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.6109 fri
+        site: path.de.6109 fri
 
 
 # point.de.Berlin-Friedrichstraße-Gr          de.6109
@@ -369,7 +370,8 @@ events:
         status: open
         source: src.de.WP.Berlin-Hauptbahnhof
     -   date: !!null
-        location: !keyloc line.de.6024 5,368
+        location:
+            line.de.6024: 5,368
         category: de.Hp
         name: Berlin Hauptbahnhof - Lehrter Bf S-Bahn
         de.DS100: BHBF
@@ -378,7 +380,7 @@ events:
         public_name: Berlin Hauptbahnhof
 
     -   date: !!null
-        site: !noderef path.de.6109 hbf
+        site: path.de.6109 hbf
 
 
 ---
@@ -389,9 +391,10 @@ events:
         name: Lehrter Bahnhof
         source: src.de.Kuhlmann.2000
     -   date: !!null
-        location: !keyloc line.de.6024 5,41
+        location:
+            line.de.6024: 5,41
         category: de.Bf
-        de.Rangklasse: III
+        de.rang: III
         source: src.de.DRG.Bln.1927
     -   date: 1911-05-01
         name: Lehrter Stadtbahnhof
@@ -403,26 +406,26 @@ events:
     -   date: c1925
         name: Berlin Lehrter Stadtbf
         source: src.de.Bfv.1928
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 03 277
         source: src.de.Bfv.1933
     -   date: !!null
         de.VBL: Leh
         source: src.de.DRG.Bln.1946
     -   date: c1950
-        de.Rangklasse: U
+        de.rang: U
         master: point.de.Berlin-Zoologischer-Garten
         source: src.dd.DR.Bln.1953
     -   date: c1970
         category: de.Hp
         source: src.dd.DR.Bln.1978
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BLEH
     -   date: 2002-06-22
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.6109 leh
+        site: path.de.6109 leh
 
 
 ---
@@ -430,9 +433,10 @@ key: point.de.Berlin-Bellevue
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.6024 7,10
+        location:
+            line.de.6024: 7,10
         category: de.Bf
-        de.Rangklasse: III
+        de.rang: III
         name: Bellevue
         source: src.de.DRG.Bln.1927
     -   date: !!null
@@ -440,19 +444,19 @@ events:
         service: passenger
         source: src.de.Bfv.1933
     -   date: c1940
-        de.Rangklasse: II
+        de.rang: II
         source: src.de.DRG.Bln.1943
     -   date: !!null
         de.VBL: Bell
         source: src.de.DRG.Bln.1946
     -   date: c1950
-        de.Rangklasse: III
+        de.rang: III
         source: src.dd.DR.Bln.1953
     -   date: c1960
         category: de.Hp
         master: point.de.Berlin-Zoologischer-Garten
         source: src.dd.DR.Bln.1968
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BBEV
         source: src.de.TPP.2006
     -   date: c2000
@@ -461,7 +465,7 @@ events:
         source: src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.6109 bel
+        site: path.de.6109 bel
 
 
 ---
@@ -476,22 +480,23 @@ events:
         name: Tiergarten
         source: src.de.Kuhlmann.2000
     -   date: !!null
-        location: !keyloc line.de.6024 8,23
+        location:
+            line.de.6024: 8,23
         category: de.Bf
-        de.Rangklasse: III
+        de.rang: III
         source: src.de.DRG.Bln.1927
     -   date: !!null
         de.lknr: 03 295
         service: passenger
         source: src.de.Bfv.1928
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 03 275
         source: src.de.Bfv.1933
     -   date: !!null
         de.VBL: Tg
         source: src.de.DRG.Bln.1946
     -   date: c1950
-        de.Rangklasse: U
+        de.rang: U
         master: point.de.Berlin-Zoologischer-Garten
         source:
             - src.dd.DR.Bln.1953
@@ -499,7 +504,7 @@ events:
     -   date: c1960
         category: de.Hp
         source: src.dd.DR.Bln.1968
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BTGN
         source: src.de.TPP.2006
     -   date: c2000
@@ -511,7 +516,7 @@ events:
         source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.6109 tie
+        site: path.de.6109 tie
 
 
 # point.de.Berlin-Zoologischer-Garten         de.6109
@@ -531,11 +536,12 @@ events:
         source: src.de.TPP.2007
     -   date: !!null
         category: de.Bf
-        location: !keyloc line.de.6024 9,128
+        location:
+            line.de.6024: 9,128
         source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.6109 zos
+        site: path.de.6109 zos
 
 
 ---
@@ -546,23 +552,24 @@ events:
         status: open
         source: src.de.Kuhlmann.2000
     -   date: !!null
-        location: !keyloc line.de.6024 10,07
+        location:
+            line.de.6024: 10,07
         category: de.Bf
-        de.Rangklasse: III
+        de.rang: III
         name: Savignyplatz
         source: src.de.DRG.Bln.1927
     -   date: !!null
         de.lknr: 03 297
         service: passenger
         source: src.de.Bfv.1928
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 03 273
         source: src.de.Bfv.1933
     -   date: !!null
         de.VBL: Sap
         source: src.de.DRG.Bln.1946
     -   date: c1950
-        de.Rangklasse: U
+        de.rang: U
         master: point.de.Berlin-Zoologischer-Garten
         source:
             - src.dd.DR.Bln.1953
@@ -570,7 +577,7 @@ events:
     -   date: c1970
         category: de.Hp
         source: src.dd.DR.Bln.1978
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BSAP
         source: src.de.TPP.2006
     -   date: c2000
@@ -578,7 +585,7 @@ events:
         public_name: Savignyplatz
 
     -   date: !!null
-        site: !noderef path.de.6109 sav
+        site: path.de.6109 sav
 
 
 # point.de.Berlin-Charlottenburg              de.6109
@@ -592,8 +599,8 @@ events:
         status: open
         split_from: point.de.Berlin-Charlottenburg
         location:
-            - !keyloc line.de.6023 11,26
-            - !keyloc line.de.6024 11,26
+            line.de.6023: 11,26
+            line.de.6024: 11,26
         public_name: Berlin-Charlottenburg
     -   date: !!null
         name: Berlin-Charlottenburg S-Bahn
@@ -604,7 +611,7 @@ events:
         source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.6109 cha
+        site: path.de.6109 cha
 
 
 ---
@@ -621,11 +628,11 @@ events:
         source: src.de.Kuhlmann.2000
     -   date: !!null
         location:
-            - !keyloc line.de.6020 30,44
-            - !keyloc line.de.6024 12,58
-            - !keyloc line.de.6025 12,58
+            line.de.6020: 30,44
+            line.de.6024: 12,58
+            line.de.6025: 12,58
         category: de.Bf
-        de.Rangklasse: IV
+        de.rang: IV
         source: src.de.DRG.Bln.1932
     -   date: !!null
         de.lknr: 03 048
@@ -633,19 +640,19 @@ events:
         source: src.de.Bfv.1933
     -   date: c1940
         location:
-            - !keyloc line.de.6024 12,56
-            - !keyloc line.de.6025 12,56
+            line.de.6024: 12,56
+            line.de.6025: 12,56
         source: src.de.DRG.Bln.1943
     -   date: !!null
         de.VBL: Wk
         source: src.de.DRG.Bln.1946
     -   date: c1950
         location: 
-            - !keyloc line.de.6020 30,34
-        de.Rangklasse: U
+            line.de.6020: 30,34
+        de.rang: U
         master: point.de.Berlin-Charlottenburg
         source: src.dd.DR.Bln.1959
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BWKR
         source: src.de.SuW.2005
     -   date: c2000
@@ -657,8 +664,8 @@ events:
 
     -   date: !!null
         site:
-            - !noderef path.de.6024 wkr left
-            - !noderef path.de.6020 wkr right
+            - path.de.6024 wkr
+            - path.de.6020 wkr
 
 
 ---
@@ -670,8 +677,8 @@ events:
         public_name: Westkreuz
     -   date: !!null
         location:
-            - !keyloc line.de.6024 12,560
-            - !keyloc line.de.6025 12,560
+            line.de.6024: 12,560
+            line.de.6025: 12,560
         source: src.de.DBAG.ISR
     -   date: !!null
         name: Berlin Westkreuz (Stadtbahn)
@@ -688,7 +695,7 @@ events:
         source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.6024 wkr
+        site: path.de.6024 wkr
 
 
 ---
@@ -696,16 +703,17 @@ key: point.de.Berlin-Eichkamp-alt
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.6024 13,68
+        location:
+            line.de.6024: 13,68
         name: Eichkamp
         category: de.Bf
-        de.Rangklasse: IV
+        de.rang: IV
         source: src.de.DRG.Bln.1927
     -   date: c1928
         status: closed
 
     -   date: !!null
-        site: !noderef path.de.6118 eic
+        site: path.de.6118 eic
 
 
 # point.de.Berlin-Grunewald                   de.6118
@@ -725,10 +733,11 @@ events:
         source: src.de.DBAG.ISR
     -   date: !!null
         split_from: point.de.Berlin-Grunewald
-        location: !keyloc line.de.6024 14,63
+        location:
+            line.de.6024: 14,63
 
     -   date: !!null
-        site: !noderef path.de.6118 gru
+        site: path.de.6118 gru
 
 
 # point.de.Berlin-Großer-Stern                de.6118
@@ -745,7 +754,8 @@ events:
     -   date: c2000
         status: open
         split_from: point.de.Berlin-Nikolassee
-        location: !keyloc line.de.6024 22,49
+        location:
+            line.de.6024: 22,49
         public_name: Nikolassee
     -   date: !!null
         category: de.Hp
@@ -759,7 +769,7 @@ events:
         source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.6118 nik
+        site: path.de.6118 nik
 
 
 # point.de.Berlin-Wannsee                     # de.6118
@@ -772,7 +782,8 @@ key: point.de.Berlin-Pohle
 type: point
 events:
     -   date: c1940
-        location: !keyloc line.de.6024 25,77
+        location:
+            line.de.6024: 25,77
         category: de.Bk
         name: Pohle
         source: src.de.DRG.Bln.1943
@@ -781,7 +792,7 @@ events:
         source: src.dd.DR.Bln.1959
 
     -   date: !!null
-        site: !noderef path.de.6118 poh right
+        site: path.de.6118 poh
 
 
 ---
@@ -789,7 +800,8 @@ key: point.de.Berlin-Teltow-Kanal
 type: point
 events:
     -   date: c1940
-        location: !keyloc line.de.6024 27,41
+        location:
+            line.de.6024: 27,41
         category: de.Bk
         name: Teltow-Kanal
         source: src.de.DRG.Bln.1943
@@ -798,7 +810,7 @@ events:
         source: src.dd.DR.Bln.1959
 
     -   date: !!null
-        site: !noderef path.de.6118 tel right
+        site: path.de.6118 tel
 
 
 # point.de.Kohlhasenbrücke                    de.6118
@@ -811,14 +823,15 @@ subtype: border
 events:
     -   date: 1949-10-07
         status: open
-        location: !keyloc line.de.6024 28,050
+        location:
+            line.de.6024: 28,050
         name: Berlin-Wannsee Grenze
     -   date: 1990-10-03
         name: Berlin-Wannsee BE/BB
         de.DS100: BQWS
 
     -   date: !!null
-        site: !noderef path.de.6110 ggri
+        site: path.de.6110 ggri
 
 
 # point.de.Potsdam-Griebnitzsee               de.6110
@@ -831,7 +844,8 @@ events:
     -   date: c2007
         status: open
         split_from: point.de.Potsdam-Griebnitzsee
-        location: !keyloc line.de.6024 28,75
+        location:
+            line.de.6024: 28,75
     -   date: !!null
         name: Potsdam Griebnitzsee S-Bahn
         de.DS100: BGRI
@@ -843,7 +857,7 @@ events:
         source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.6110 gri right
+        site: path.de.6110 gri
 
 
 ---
@@ -855,7 +869,8 @@ events:
         name: Neuendorf
         source: src.de.Kuhlmann.2000
     -   date: !!null
-        location: !keyloc line.de.6110 24,35?
+        location:
+            line.de.6110: 24,35?
     -   date: 1890-05-01
         name: Nowawes-Neuendorf
         source: src.de.Kuhlmann.2000
@@ -864,21 +879,21 @@ events:
         source: src.de.Kuhlmann.2000
     -   date: 1891-10-01?
         location:
-            - !keyloc line.de.6024 25,75
-            - !keyloc line.de.6110 -
+            line.de.6024: 25,75
+            line.de.6110: !!null
         source: src.de.DRG.Bln.1927
     -   date: !!null
         category: de.Bf
-        de.Rangklasse: IV
+        de.rang: IV
         source: src.de.DRG.Bln.1927
     -   date: !!null
         de.lknr: 03 229
         service: passenger
         source: src.de.Bfv.1928
     -   date: c1930
-        de.Rangklasse: III
+        de.rang: III
         source: src.de.Bfv.1933
-    -   date: !var lknr.30
+    -   date: de.lknr.30
         de.lknr: 03 138
         source: src.de.Bfv.1933
     -   date: 1938-04-01
@@ -888,10 +903,11 @@ events:
         de.VBL: Bbg
         source: src.de.DRG.Bln.1946
     -   date: c1940
-        location: !keyloc line.de.6024 31,22
+        location:
+            line.de.6024: 31,22
         source: src.de.DRG.Bln.1943
     -   date: c1950
-        de.Rangklasse: U
+        de.rang: U
         source: src.dd.DR.Bln.1953
     -   date: c1955
         category: de.Hp
@@ -900,7 +916,7 @@ events:
     -   date: c1965
         master: point.de.Potsdam-Hbf
         source: src.dd.DR.Bln.1968
-    -   date: !var ds100.dr
+    -   date: de.ds100.dr
         de.DS100: BBAB
         source: src.de.TPP.2006
     -   date: c2000
@@ -911,7 +927,7 @@ events:
         source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.6110 bab right
+        site: path.de.6110 bab
 
 
 # point.de.Potsdam-Hbf                        de.6110
@@ -924,7 +940,8 @@ events:
     -   date: c2007
         status: open
         split_from: point.de.Potsdam-Hbf
-        location: !keyloc line.de.6024 32,98
+        location:
+            line.de.6024: 32,98
     -   date: !!null
         name: Potsdam Hbf S-Bahn
         de.DS100: BPDH
@@ -936,5 +953,5 @@ events:
         source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.6110 pot right
+        site: path.de.6110 pot
 

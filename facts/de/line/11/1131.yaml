@@ -7,80 +7,72 @@ label: freight
 events:
     -   date: !!null
         region:
-            - !keyref org.de
-            - !keyref org.de.l.sh
+            - org.de
+            - org.de.l.sh
 
     -   date: !!null
-        start: !keyref point.de.Strecknitz
+        start: point.de.Strecknitz
         de.VzG: !!str 1131
         source: src.de.DBAG.Geo-Strecke.2017
 
     #   Genehmigung
     #
-    -   date: !date 1902-01-11
+    -   date: 1902-01-11
         concession:
-            by: !keyref org.de.l.lüb
-            for: !keyref org.de.Lübeck-Büchener-Eisenbahn
-        source: !keyref src.de.DRG.1935
+            by: org.de.l.lüb
+            for: org.de.Lübeck-Büchener-Eisenbahn
+        source: src.de.DRG.1935
 
     #   Eröffnung und Einstellung
     #
-    -   date: !date 1902-08-20
-        start: !keyref point.de.Strecknitz
+    -   date: 1902-08-20
+        start: point.de.Strecknitz
         status: open
-        source: !keyref src.de.DRG.1935
-    -   date: !date 1908-05-01
-        end: !keyref point.de.Strecknitz
+        source: src.de.DRG.1935
+    -   date: 1908-05-01
+        end: point.de.Strecknitz
         status: open
-        source: !keyref src.de.DRG.1935
-    -   date: !date 1914
+        source: src.de.DRG.1935
+    -   date: 1914
         passenger: none
-        source: !keyref src.de.Hecht.2001
-    -   date: !date c1950
-        end: !keyref point.de.Strecknitz
+        source: src.de.Hecht.2001
+    -   date: c1950
+        end: point.de.Strecknitz
         status: removed
 
     #   Eigenschaften
     #
     -   date: !!null
         category: de.Nebenbahn
-        source: !keyref src.de.DRG.1927
+        source: src.de.DRG.1927
 
     #   Eigentümer etc.
     #
     -   date: !!null
-        owner: !keyref org.de.Lübeck-Büchener-Eisenbahn
-        operator: !keyref org.de.Lübeck-Büchener-Eisenbahn
-        source: !keyref src.de.DRG.1935
-    -   date: !date 1938-01-01
-        owner: !keyref org.de
-        operator: !keyref org.de.DR
-        source: !keyref src.de.WP.Lübeck-Buechener-Eisenbahn
-    -   date: !var org.de.DB.start
-        operator: !keyref org.de.DB
-    -   date: !var org.de.Deutsche-Bahn.start
-        owner: !keyref org.de.Deutsche-Bahn
-        operator: !keyref org.de.Deutsche-Bahn
-    -   date: !var org.de.DBNetz.start
-        owner: !keyref org.de.DB-Netz
-        operator: !keyref org.de.DB-Netz
+        owner: org.de.Lübeck-Büchener-Eisenbahn
+        operator: org.de.Lübeck-Büchener-Eisenbahn
+        source: src.de.DRG.1935
+    -   date: 1938-01-01
+        owner: org.de
+        operator: org.de.DR
+        source: src.de.WP.Lübeck-Buechener-Eisenbahn
 
     #   Verlauf
     #
     -   date: !!null
         course:
-            - !pathref path.de.1120 lug  akle -4.5
-            - !pathref path.de.1122 a    aslu -1.5
-            - !pathref path.de.1131 a    f     0.0
+            -   path.de.1120 lug akle
+            -   path.de.1122 a aslu
+            -   path.de.1131 a f
 
 points:
-    - !keyref point.de.Lübeck-Hgbf                     # line.de.1120
-    - !keyref point.de.Strecknitz                       # line.de.1122
+    - point.de.Lübeck-Hgbf                     # line.de.1120
+    - point.de.Strecknitz                       # line.de.1122
     -   point.de.Brandenbaum
-    - !keyref point.de.Lübeck-Kirschenallee
-    - !keyref point.de.Lübeck-Schlutuper-Tannen
-    - !keyref point.de.Lübeck-Schlutup-W31
-    - !keyref point.de.Lübeck-Schlutup
+    - point.de.Lübeck-Kirschenallee
+    - point.de.Lübeck-Schlutuper-Tannen
+    - point.de.Lübeck-Schlutup-W31
+    - point.de.Lübeck-Schlutup
 
 
 ---
@@ -89,20 +81,21 @@ type: point
 junction: True
 events:
     -   date: !!null
-        location: !keyloc line.de.1131 8,495
+        location:
+            line.de.1131: 8,495
         source: src.de.DBAG.Geo-Betriebsstelle.2017
     -   date: !!null
         name: Brandenbaum
         de.DS100: ABRM
         de.dstnr: !!str 017038
-        source: !keyref src.de.DS100.1984
+        source: src.de.DS100.1984
     -   date: !!null
         category: de.Abzw
         de.name16: Brandenbaum
         PLC: DE11558
 
     -   date: !!null
-        site: !noderef path.de.1131 bra left
+        site: path.de.1131 bra
 
 
 ---
@@ -113,16 +106,17 @@ events:
         category: de.Anst
         name: Lübeck Hgbf Kirschenallee
         de.DS100: ALRK
-        source: !keyref src.de.DS100.1984
-    -   date: !date c1995
+        source: src.de.DS100.1984
+    -   date: c1995
         name: Lübeck Kirschenallee
-        source: !keyref src.de.TPP.2006
+        source: src.de.TPP.2006
     -   date: !!null
-        location: !keyloc line.de.1131 9,8
-        source: !keyref src.de.SuW.2005
+        location:
+            line.de.1131: 9,8
+        source: src.de.SuW.2005
 
     -   date: !!null
-        site: !noderef path.de.1131 kir right
+        site: path.de.1131 kir
 
 
 ---
@@ -133,16 +127,17 @@ events:
         category: de.Anst
         name: Lübeck Hgbf Schlutuper Tannen
         de.DS100: ALRT
-        source: !keyref src.de.DS100.1984
-    -   date: !date c1995
+        source: src.de.DS100.1984
+    -   date: c1995
         name: Lübeck Schlutuper Tannen
-        source: !keyref src.de.TPP.2006
+        source: src.de.TPP.2006
     -   date: !!null
-        location: !keyloc line.de.1131 12,3
-        source: !keyref src.de.SuW.2011
+        location:
+            line.de.1131: 12,3
+        source: src.de.SuW.2011
 
     -   date: !!null
-        site: !noderef path.de.1131 tan right
+        site: path.de.1131 tan
 
 
 ---
@@ -152,15 +147,15 @@ subtype: reference
 events:
     -   date: !!null
         location:
-            - !keyloc line.de.1131 13,6
-            - !keyloc line.de.1132  0,0
-        source: !keyref src.de.SuW.2005
+            line.de.1131: 13,6
+            line.de.1132:  0,0
+        source: src.de.SuW.2005
     -   date: !!null
         name: "Lübeck-Schlutup W\u202F31"
         short_name: Lübeck-Schlutup
 
     -   date: !!null
-        site: !noderef path.de.1131 slu.w31
+        site: path.de.1131 slu.w31
 
 
 ---
@@ -171,26 +166,27 @@ events:
         name: Schlutup
         de.lknr: 55 869
         service: freight
-        source: !keyref src.de.Bfv.1928
+        source: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
-        source: !keyref src.de.Bfv.1944
-    -   date: !date 1938-01-01
+        source: src.de.Bfv.1944
+    -   date: 1938-01-01
         name: Lübeck-Schlutup
-        de.Rangklasse: II
+        de.rang: II
         de.lknr: 27 292
-        source: !keyref src.de.Bfv.1944
+        source: src.de.Bfv.1944
     -   date: !!null
         de.DS100: ASLU
         de.dstnr: !!str 016709
-        source: !keyref src.de.DS100.1984
-    -   date: !date c1995
+        source: src.de.DS100.1984
+    -   date: c1995
         de.DS100: ALSC
-        source: !keyref src.de.TPP.2006
+        source: src.de.TPP.2006
     -   date: !!null
-        location: !keyloc line.de.1131 14,067
-        source: !keyref src.de.DBAG.ISR
+        location:
+            line.de.1131: 14,067
+        source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.1131 slu left
+        site: path.de.1131 slu
         

@@ -6,8 +6,8 @@ type: line
 events:
     -   date: !!null
         region:
-            - !keyref org.de
-            - !keyref org.de.l.ni
+            - org.de
+            - org.de.l.ni
 
     -   date: !!null
         de.VzG: !!str 1542
@@ -15,46 +15,30 @@ events:
 
     -   date: !!null
         category: de.Nebenbahn
-        gauge: 1000
+        gauge: 1000mm
 
-    -   date: !date 1897-03-20
-        end: !keyref point.de.Wangerooge-Saline
+    -   date: 1897-03-20
+        end: point.de.Wangerooge-Saline
         concession:
-            by: !keyref org.de.l.old
-        owner: !keyref org.de.l.old
-        operator: !keyref org.de.l.old.ED
-        source: !keyref src.de.DRG.1935
-    -   date: !date 1897-07-03
-        end: !keyref point.de.Wangerooge-Saline
+            by: org.de.l.old
+        owner: org.de.l.old
+        operator: org.de.l.old.ED
+        source: src.de.DRG.1935
+    -   date: 1897-07-03
+        end: point.de.Wangerooge-Saline
         status: open
-        source: !keyref src.de.DRG.1935
-    -   date: !date 1912
-        start: !keyref point.de.Wangerooge-Saline
+        source: src.de.DRG.1935
+    -   date: 1912
+        start: point.de.Wangerooge-Saline
         status: open
-        source: !keyref src.de.web.Werning
+        source: src.de.web.Werning
         
-    -   date: !date 1920-04-01
-        owner: !keyref org.de
-        operator: !keyref org.de.r.RVM.Old
-    -   date: !date 1924-02-12
-        operator: !keyref org.de.Deutsche-Reichsbahn-I
-    -   date: !date 1924-08-30
-        operator: !keyref org.de.DR
-    -   date: !var org.de.DB.start
-        operator: !keyref org.de.DB
-    -   date: !var org.de.Deutsche-Bahn.start
-        owner: !keyref org.de.Deutsche-Bahn
-        operator: !keyref org.de.Deutsche-Bahn
-    -   date: !var org.de.DBNetz.start
-        owner: !keyref org.de.DB-Netz
-        operator: !keyref org.de.DB-Netz
-
 points:
-    - !keyref point.de.Wangerooge
-    - !keyref point.de.Wangerooge-Saline
-    - !keyref point.de.Wangerooge-Saline-S
-    - !keyref point.de.Wangerooge-Steindamm
-    - !keyref point.de.Wangerooge-Westanleger
+    - point.de.Wangerooge
+    - point.de.Wangerooge-Saline
+    - point.de.Wangerooge-Saline-S
+    - point.de.Wangerooge-Steindamm
+    - point.de.Wangerooge-Westanleger
 
 ---
 key: point.de.Wangerooge
@@ -62,24 +46,24 @@ type: point
 events:
     -   date: !!null
         location:
-            - !keyloc line.de.1542 0,0
-            - !keyloc line.de.1545 0,0
-        source: !keyref src.de.SuW.2005
+            line.de.1542: 0,0
+            line.de.1545: 0,0
+        source: src.de.SuW.2005
     -   date: !!null
         name: Nordseebad Wangerooge
         category: de.Bf
-        de.Rangklasse: II
+        de.rang: II
         de.lknr: 23 191
-        source: !keyref src.de.Bfv.1933
-    -   date: !date 1935-01-01
+        source: src.de.Bfv.1933
+    -   date: 1935-01-01
         de.lknr: 21 680
-        source: !keyref src.de.Bfv.1944
-    -   date: !date c1975
+        source: src.de.Bfv.1944
+    -   date: c1975
         name: Wangerooge
-        source: !keyref src.de.SuW.2005
+        source: src.de.SuW.2005
     -   date: !!null
         de.DS100: HWG
-        source: !keyref src.de.SuW.2005
+        source: src.de.SuW.2005
 
 ---
 key: point.de.Wangerooge-Saline
@@ -87,13 +71,13 @@ type: point
 events:
     -   date: !!null
         location:
-            - !keyloc line.de.1542 1,4
-            - !keyloc line.de.1543 1,4
+            line.de.1542: 1,4
+            line.de.1543: 1,4
         category: de.Bf
         service: none
         name: Wangerooge Saline
         de.DS100: HSA
-        source: !keyref src.de.SuW.2005
+        source: src.de.SuW.2005
 
 ---
 key: point.de.Wangerooge-Saline-S
@@ -111,18 +95,19 @@ events:
         name: Steindamm
         category: de.Bf
         service: none
-        source: !keyref src.de.web.Werning
-    -   date: !date 1977
+        source: src.de.web.Werning
+    -   date: 1977
         status: closed
-        source: !keyref src.de.web.Werning
+        source: src.de.web.Werning
 
 ---
 key: point.de.Wangerooge-Westanleger
 type: point
 events:
     -   date: !!null
-        location: !keyloc line.de.1542 3,4
+        location:
+            line.de.1542: 3,4
         category: de.Bf
         name: Wangerooge Westanleger
         de.DS100: HWA
-        source: !keyref src.de.SuW.2005
+        source: src.de.SuW.2005

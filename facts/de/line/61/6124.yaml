@@ -6,82 +6,62 @@ type: line
 events:
     -   date: !!null
         region:
-            - !keyref org.de
-            - !keyref org.de.l.be
+            - org.de
+            - org.de.l.be
 
-    -   date: !var vzg.dr
+    -   date: de.vzg.dr
         de.VzG: !!str 6124
-        source: !keyref src.de.VzG
+        source: src.de.VzG
 
     # Konzessionen
     #
-    -   date: !date 1909-07-28
+    -   date: 1909-07-28
         concession:
-            by: !keyref org.de.l.pre
-            document: !keyref src.de.l.pre.1909.25.644
-        source: !keyref src.de.DRG.1935
-    -   date: !date 1914-06-10
+            by: org.de.l.pre
+        document: src.de.l.pre.1909.25.644
+        source: src.de.DRG.1935
+    -   date: 1914-06-10
         concession:
-            by: !keyref org.de.l.pre
-            document: !keyref src.de.l.pre.1914.17.97
-        source: !keyref src.de.DRG.1935
+            by: org.de.l.pre
+        document: src.de.l.pre.1914.17.97
+        source: src.de.DRG.1935
 
     # Eröffnungen
     #
-    -   date: !date 1918-03-19
+    -   date: 1918-03-19
         status: open
-        service: freight
-        source: !keyref src.de.DRG.1935
+        passenger: none
+        source: src.de.DRG.1935
     -   date: !!null
         category: de.Hauptbahn
-        source: !keyref src.de.DRG.1927
+        source: src.de.DRG.1927
 
     # Nach 1945
     #
-    -   date: !date 1982-05-22
-        electrified:
-            overhead: !var el.de
-        source: !keyref src.de.Kuhlmann.2000
+    -   date: 1982-05-22
+        electrified: de
+        source: src.de.Kuhlmann.2000
 
     # Eigentümer und Betreiber
     #
     -   date: !!null
-        owner: !keyref org.de.l.pre
-        operator: !keyref org.de.e.bln
+        owner: org.de.l.pre
+        operator: org.de.e.bln
     
-    -   date: !date 1920-04-01
-        owner: !keyref org.de
-        operator: !keyref org.de.r.RVM.PH
-    -   date: !date 1924-02-12
-        operator: !keyref org.de.Deutsche-Reichsbahn-I
-    -   date: !date 1924-08-30
-        operator: !keyref org.de.DR
-
-    -   date: !date 1949-10-07
-        owner: !keyref org.dd
-    -   date: !var org.de.DR.start
-        operator: !keyref org.dd.DR
-    -   date: !date 1990-10-03
-        owner: !keyref org.de
-
-    -   date: !var org.de.Deutsche-Bahn.start
-        owner: !keyref org.de.Deutsche-Bahn
-        operator: !keyref org.de.Deutsche-Bahn
-    -   date: !var org.de.DBNetz.start
-        owner: !keyref org.de.DB-Netz
-        operator: !keyref org.de.DB-Netz
+    -   date: 1949-10-07
+        owner: org.dd
 
     # Verlauf
     #
     -   date: !!null
         course:
-            - !pathref path.de.6118 sen  saw  -1.5
+            -   path.de.6118 sen  saw
 
 points:
-    - !keyref point.de.Seddin-Einf-Nord                 # line.de.6122
-    - !keyref point.de.Seddin                           # line.de.6118
-    - !keyref point.de.Seddin-Srw-Mitte
-    - !keyref point.de.Seddin-Ausf-West
+    - point.de.Seddin-Einf-Nord                 # line.de.6122
+    - point.de.Seddin                           # line.de.6118
+    - point.de.Seddin-Srw-Mitte
+    - point.de.Seddin-Ausf-West
     
 
 ---
@@ -92,10 +72,10 @@ events:
         category: de.Bft
         name: Seddin Srw Mitte
         de.DS100: BSE M
-        source: !keyref src.de.SuW.2011
+        source: src.de.SuW.2011
 
     -   date: !!null
-        site: !noderef path.de.6118 swm
+        site: path.de.6118 swm
 
 ---
 key: point.de.Seddin-Ausf-West
@@ -104,14 +84,14 @@ junction: True
 events:
     -   date: !!null
         location:
-            - !keyloc line.de.6124 33,423
-            - !keyloc line.de.6123 1,968
+            line.de.6124: 33,423
+            line.de.6123: 1,968
         category: de.Bft
         name: Seddin Ausf Nord
         de.DS100: BSE W
-        source: !keyref src.de.DBAG.ISR
+        source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.6118 saw
+        site: path.de.6118 saw
 
 

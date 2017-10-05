@@ -7,13 +7,13 @@ type: line
 label: de.S-Bahn
 events:
     -   date: !!null
-        region: !keyref org.de
+        region: org.de
     -   date: !!null
-        end: !keyref point.de.Berlin-Lichterfelde-Sued-LGr
-        region: !keyref org.de.l.be
+        end: point.de.Berlin-Lichterfelde-Sued-LGr
+        region: org.de.l.be
     -   date: !!null
-        start: !keyref point.de.Berlin-Lichterfelde-Sued-LGr
-        region: !keyref org.de.l.bb
+        start: point.de.Berlin-Lichterfelde-Sued-LGr
+        region: org.de.l.bb
 
     -   date: !!null
         de.VzG: !!str 6039
@@ -21,36 +21,35 @@ events:
 
     #   Eröffnung
     #
-    -   date: !date 2005-02-24
+    -   date: 2005-02-24
         status: open
-        source: !keyref src.de.web.Stadtschnellbahn-Berlin
+        source: src.de.web.Stadtschnellbahn-Berlin
 
     #   Eigenschaften
     #
     -   date: !!null
         category: de.Hauptbahn
         tracks: 1
-        gauge: 1435
-        electrified:
-            rail: !var el.de.bln
-        service: passenger
+        gauge: 1435mm
+        electrified: de.bln
+        freight: none
 
     #   Eigentümer etc.
     #
     -   date: !!null
-        owner: !keyref org.de.DB-Netz
-        operator: !keyref org.de.DB-Netz
+        owner: org.de.DB-Netz
+        operator: org.de.DB-Netz
         
     # Verlauf
     #
     -   date: !!null
         course:
-            - !pathref path.de.6132 lis gtel
-            - !pathref path.de.6039 a   tel
+            -   path.de.6132 lis gtel
+            -   path.de.6039 a   tel
 
 points:
-    - !keyref point.de.Berlin-Lichterfelde-Sued             # line.de.6036
-    - !keyref point.de.Berlin-Lichterfelde-Sued-LGr
+    - point.de.Berlin-Lichterfelde-Sued             # line.de.6036
+    - point.de.Berlin-Lichterfelde-Sued-LGr
     -   point.de.Teltow-Stadt
 
 
@@ -63,10 +62,10 @@ events:
     -   date: !!null
         name: Berlin-Lichterfelde Süd BE/BB
         de.DS100: BQLI
-        source: !keyref src.de.TPP.2006
+        source: src.de.TPP.2006
 
     -   date: !!null
-        site: !noderef path.de.6132 gtel
+        site: path.de.6132 gtel
 
 
 ---
@@ -75,11 +74,12 @@ type: point
 junction: True
 events:
     -   date: !!null
-        location: !keyloc line.de.6039 2,754
+        location:
+            line.de.6039: 2,754
         category: de.Bf
         name: Teltow Stadt
         de.DS100: BTLS
-        source: !keyref src.de.DBAG.ISR
+        source: src.de.DBAG.ISR
 
     -   date: !!null
-        site: !noderef path.de.6039 tel right
+        site: path.de.6039 tel
