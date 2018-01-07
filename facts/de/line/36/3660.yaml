@@ -1,5 +1,6 @@
-# DE 2660.  Frankfurt (Main) Süd - Aschaffenburg Hbf
+# DE 3660.  Frankfurt (Main) Süd - Aschaffenburg Hbf
 #
+#           Ursprünglicher Beginn: DE 8460.
 ---
 key: line.de.3660
 type: line
@@ -10,14 +11,14 @@ events:
         source: src.de.DBAG.Geo-Strecke.2017
 
     -   date: 1844-07-25
-        start: point.de.Frankfurt-Main-Ost
+        start: point.de.Frankfurt-Main-Ost-Gbf
         end: point.de.Kahl-Main-LGr
         concession:
             by: org.de.l.hes
             for: org.de.Frankfurt-Hanauer-Eisenbahn
         source: src.de.DRG.1935 # 1848/16
     -   date: 1844-08-06
-        start: point.de.Frankfurt-Main-Ost
+        start: point.de.Frankfurt-Main-Ost-Gbf
         end: point.de.Kahl-Main-LGr
         concession:
             by: org.de.Frankfurt-Main
@@ -40,7 +41,7 @@ events:
         source: src.de.DRG.1935 # 1854/5
 
     -   date: 1848-10-01
-        start: point.de.Frankfurt-Main-Ost
+        start: point.de.Frankfurt-Main-Ost-Gbf
         end: point.de.Hanau-Hbf
         status: open
         source: src.de.DRG.1935 # 1848/16
@@ -57,6 +58,9 @@ events:
 points:
     -   point.de.Frankfurt-Main-Süd                 # de.3600
     -   point.de.Frankfurt-Main-Ost
+    -   point.de.Frankfurt-Main-Ost-Gbf
+    -   point.de.Frankfurt-Main-Ost-Ubf
+    -   point.de.Frankfurt-Main-Ost-Vorbf
     -   point.de.Frankfurt-Osthafen                 # de.3626
     -   point.de.Hanau-West
     -   point.de.Hanau-Südseite
@@ -79,7 +83,55 @@ type: point
 progress: stub
 events:
     -   date: !!null
+        category: de.Bf
         name: Frankfurt (Main) Ost
+        de.name16: Frankfurt(M) Ost
+        de.DS100: FFO
+        PLC: DE13283
+        de.dstnr: !!str 110809
+        source: src.de.DBAG.BSV.2017
+
+
+---
+key: point.de.Frankfurt-Main-Ost-Gbf
+type: point
+events:
+    -   date: !!null
+        category: de.Bft
+        name: Frankfurt (Main) Ost Gbf
+        de.name16: Ffm Ost Gbf
+        de.DS100: FFO G
+        PLC: DE13284
+        de.dstnr: !!str 908987
+        source: src.de.DBAG.BSV.2017
+
+
+---
+key: point.de.Frankfurt-Main-Ost-Ubf
+type: point
+events:
+    -   date: !!null
+        category: de.Bft
+        name: Frankfurt (Main) Ost Umschlagbahnhof
+        de.name16: Ffm Ost Ubf
+        de.DS100: FFO U
+        PLC: DE13286
+        de.dstnr: !!str 107725
+        source: src.de.DBAG.BSV.2017
+
+
+---
+key: point.de.Frankfurt-Main-Ost-Vorbf
+type: point
+events:
+    -   date: !!null
+        category: de.Bft
+        name: Frankfurt (Main) Ost Vorbahnhof
+        de.name16: Ffm Ost Vbf
+        de.DS100: FFO V
+        PLC: DE13287
+        de.dstnr: !!str 107727
+        source: src.de.DBAG.BSV.2017
 
 
 # point.de.Frankfurt-Osthafen                 de.3626

@@ -108,18 +108,21 @@ events:
             -   path.de.1103 fbuw f
 
 points:
-    - point.de.Fehmarnsund
-    - point.de.Wulfen-Fehmarn
-    - point.de.Burgstaaken
-    - point.de.Burg-Fehmarn
-    - point.de.Burg-Fehmarn-Abzw
-    - point.de.Burg-Fehmarn-West                # line.de.1100
-    - point.de.Landkirchen
-    - point.de.Alt-Jellingsdorf
-    - point.de.Lemkendorf
-    - point.de.Petersdorf-Fehmarn
-    - point.de.Orth-Fehmarn
+    -   point.de.Fehmarnsund
+    -   point.de.Wulfen-Fehmarn
+    -   point.de.Burgstaaken
+    -   point.de.Burg-Fehmarn
+    -   point.de.Burg-Fehmarn-DB-Grenze
+    -   point.de.Burg-Fehmarn-Abzw
+    -   point.de.Burg-Fehmarn-West                  # de.1100
+    -   point.de.Landkirchen
+    -   point.de.Alt-Jellingsdorf
+    -   point.de.Lemkendorf
+    -   point.de.Petersdorf-Fehmarn
+    -   point.de.Orth-Fehmarn
 
+
+#-----------------------------------------------------------------------------
 
 ---
 key: point.de.Fehmarnsund
@@ -215,10 +218,15 @@ events:
         source: src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.DS100: ABUF
+        de.dstnr: !!str 016626
+        source: src.de.DS100.1984
     -   date: 2010-07-31
         category: de.Hp
         name: Fehmarn-Burg
         source: src.de.DBAG.ISR
+    -   date: 2012-07-01
+        category: de.Bft
+        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site: path.de.1103 bur
@@ -227,13 +235,37 @@ events:
 
 
 ---
+key: point.de.Burg-Fehmarn-DB-Grenze
+type: point
+subtype: border
+events:
+    -   date: !!null
+        category: de.Gp
+        name: Burg (Fehmarn) DB-Grenze
+        de.name16: Burg (F) DB-Gr
+        de.DS100: ABUG
+        PLC: DE11836
+        de.dstnr: !!str 106922
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        location:
+            line.de.1103: 7,980
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
 key: point.de.Burg-Fehmarn-Abzw
 type: point
 subtype: reference
 events:
     -   date: !!null
+        category: [ de.Bft, de.Abzw ]
         name: Burg (Fehmarn) Abzw
-        short_name: Burg (Fehmarn)
+        de.name16: Burg (F) Abzw
+        de.DS100: ABUA
+        PLC: DE21683
+        de.dstnr: !!str 109522
+        source: src.de.DBAG.BSV.2017
     -   date: !!null
         location:
             line.de.1104: 0,0
@@ -241,6 +273,9 @@ events:
 
     -   date: !!null
         site: path.de.1103.bur bua
+
+
+#    point.de.Burg-Fehmarn-West                  de.1100
 
 
 ---
