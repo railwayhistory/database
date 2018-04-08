@@ -14,14 +14,36 @@ events:
         de.VzG: !!str 6681
         source: src.de.DBAG.Geo-Strecke.2017
 
-    #   Genehmigungen
+    #   Verträge und Genehmigungen
     #
+    -   date: 1866-02-18
+        end: point.de.Tannroda
+        contract:
+            parties:
+                -   org.de.l.swe
+                -   org.de.Darmstädter-Bank
+                -   org.de.Hermann-Bachstein
+        document: src.de.l.swe.1886.7.103 
+        source: src.de.DRG.1935 # 1887/6
+    -   date: 1887-05-14
+        end: point.de.Tannroda
+        concession:
+            by: org.de.l.smg
+            for: org.de.Mitteldeutsches-Eisenbahnkonsortium
+        document: src.de.l.swe.1887.13.177a
+        source: src.de.DRG.1935 # 1887/6
 
     #   Eröffnung und Einstellung
     #
-    -   date: !!null
+    -   date: 1887-05-15
+        end: point.de.Tannroda
         status: open
-        source: src.de.SuW.2011
+        freight: none
+        source: src.de.DRG.1935 # 1887/6
+    -   date: 1887-06-13
+        end: point.de.Tannroda
+        freight: full
+        source: src.de.DRG.1935 # 1887/6
 
     #   Eigenschaften
     #
@@ -33,21 +55,52 @@ events:
     #
 
 points:
-    - point.de.Weimar-Berkaer-Bf                    # line.de.6711
-    - point.de.Bad-Berka
-    - point.de.Kranichfeld
+    -   point.de.Weimar-Berkaer-Bf                # de.6711
+    -   point.de.Bad-Berka
+    -   point.de.Tannroda
+    -   point.de.Kranichfeld
 
+
+#-----------------------------------------------------------------------------
+
+#    point.de.Weimar-Berkaer-Bf                    de.6711
 
 ---
 key: point.de.Bad-Berka
 type: point
 progress: stub
 events:
+    -   date: 1887-05-15
+        status: open
+        category: de.Bf
+        source:
+            -   src.de.l.swe.1886.7.103
+            -   src.de.DRG.1935 # 1887/6
     -   date: !!null
         category: de.Bf
         name: Bad Berka
         de.DS100: UBB
         source: src.de.DBAG.ISR
+
+
+---
+key: point.de.Tannroda
+type: point
+events:
+    -   date: 1887-05-15
+        status: open
+        category: de.Bf
+        source:
+            -   src.de.l.swe.1886.7.103
+            -   src.de.DRG.1935 # 1887/6
+    -   date: !!null
+        category: de.Hp
+        name: Tannroda
+        de.name16: Tannroda
+        de.DS100: UTA
+        PLC: DE20182
+        de.dstnr: !!str 160358
+        source: src.de.DBAG.BSV.2017
 
 
 ---
