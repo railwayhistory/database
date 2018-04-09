@@ -1,6 +1,6 @@
 # Line Numbers for Poland
 
-Lines are primarily number according to “Instrukcję Id – 12 (D-29) - Wykaz
+Lines are primarily numbered according to “Instrukcję Id – 12 (D-29) - Wykaz
 linii” as published by PKP Polskie Linie Kolejowe. The current text as of
 29 December 2017 is available at `https://www.plk-sa.pl/files/public/user_upload/pdf/Akty_prawne_i_przepisy/Instrukcje/Wydruk/Id-12__D29__Wykaz_linii_-_XIIa_2017.pdf`
 
