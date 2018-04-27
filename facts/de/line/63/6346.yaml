@@ -16,8 +16,15 @@ events:
 
     #   Genehmigungen
     #
+    -   date: 1844-08-20
+        start: point.de.Halle-Saale-Hbf
+        concession:
+            by: org.de.l.pre
+            for: org.de.Thüringische-Eisenbahn
+        document: src.de.l.pre.1844.34.419
+        source: src.de.DRG.1935 # 1846/6
     -   date: 1864-04-13
-        start: point.de.Staßfurt
+        end: point.de.Halle-Saale-Hbf
         concession:
             by: org.de.l.pre
             for: org.de.Magdeburg-Halberstädter-Eisenbahn
@@ -26,10 +33,19 @@ events:
 
     #   Eröffnung und Einstellung
     #
+    -   date: 1846-06-06
+        start: point.de.Halle-Saale-Hbf
+        status: open
+        source: src.de.DRG.1935 # 1846/6
     -   date: 1878-03
+        end: point.de.Halle-Saale-Hbf
         status: open
         passenger: none
         source: src.de.DRG.1935 # 1878/9
+
+    -   date: c1888
+        start: point.de.Halle-Thüringer-Bf
+        status: removed
 
     -   date: 1999-05-15
         start: point.de.Halle-Saale-Hbf
@@ -46,10 +62,16 @@ events:
     #
 
 points:
-    - point.de.Halle-Saale-Gbf                      # line.de.6350
-    - point.de.Halle-Saale-Steintorbf
-    - point.de.Halle-Saale-Hbf                      # line.de.6403
-    - point.de.Halle-Thüringer-Bf
+    -   point.de.Halle-Saale-Gbf-Hg-6               # de.6347
+    -   point.de.Halle-Saale-Steintorbf
+    -   point.de.Halle-Saale-Hbf                    # de.6403
+    -   point.de.Halle-Thüringer-Bf
+    -   point.de.Halle-Ammendorf-Nord               # de.6340
+
+
+#-----------------------------------------------------------------------------
+
+#    point.de.Halle-Saale-Gbf-Hg-6               # de.6347
 
 
 ---
@@ -60,16 +82,29 @@ events:
     -   date: !!null
         category: de.Bf
         name: Halle (Saale) Steintorbf
+        de.name16: Halle Steintorbf
         de.DS100: LHST
-        source: src.de.DBAG.ISR
+        PLC: DE14337 
+        de.dstnr: !!str 230946
+        source: src.de.DBAG.BSV.2017
+
+
+#    point.de.Halle-Saale-Hbf                    # de.6403
 
 
 ---
 key: point.de.Halle-Thüringer-Bf
 type: point
-progress: stub
 events:
     -   date: !!null
+        category: de.Bf
         name: Halle Thüringer Bf
-
+        de.name16: Halle Thür Bf
+        de.DS100: LHTB
+        PLC: DE14349
+        de.dstnr: !!str 230805
+        source: src.de.DBAG.BSV.2017
+    -   date: 2003-01-01?
+        status: closed
+        source: src.de.DBAG.BSV.2017
 

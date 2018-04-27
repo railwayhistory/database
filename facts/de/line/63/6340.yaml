@@ -63,6 +63,7 @@ events:
         document: src.de.l.pre.1844.34.444
         source: src.de.DRG.1935 # 1846/6
     -   date: 1844-08-20
+        start: point.de.Halle-Ammendorf-Nord
         end: point.de.Gerstungen
         concession:
             by: org.de.l.pre
@@ -97,10 +98,17 @@ events:
             for: org.de.Hessische-Nordbahn
         document: src.de.l.swe.1848.31.291
         source: src.de.DRG.1935 # 1849/14 (irrtümlich für Eisenach-Bebra)
+    -   date: 1883-07-19
+        end: point.de.Halle-Ammendorf-Nord
+        concession:
+            by: org.de.l.pre
+            for: org.de.l.pre
+        source: src.de.DRG.1935 # 1888/12 ref 1888/11
 
     #   Eröffnung und Einstellung
     #
     -   date: 1846-06-06
+        start: point.de.Halle-Ammendorf-Nord
         end: point.de.Weißenfels
         status: open
         source: src.de.DRG.1935 # 1846/6
@@ -138,6 +146,11 @@ events:
         end: point.de.Bebra
         status: open
         source: src.de.DRG.1935 # 1849/13 und 1849/14
+    -   date: 1888-04-01
+        end: point.de.Halle-Ammendorf-Nord
+        status: open
+        freight: none
+        source: src.de.DRG.1935 # 1888/12
 
     #   Eigenschaften
     #
@@ -159,7 +172,9 @@ events:
 points:
     -   point.de.Halle-Saale-Hbf                    # de.6403
     -   point.de.Halle-Thüringer-Bahn
+    -   point.de.Halle-Ammendorf-Nord
     -   point.de.Halle-Ammendorf
+    -   point.de.Halle-Ammendorf-Bahnsteig
     -   point.de.Merseburg
     -   point.de.Merseburg-Gbf
     -   point.de.Leuna-Werke-Nord
@@ -220,8 +235,20 @@ events:
     -   date: !!null
         category: de.Abzw
         name: Halle Thüringer Bahn
+        de.name16: Halle Thür Bahn
         de.DS100: LHAT
-        source: src.de.DBAG.ISR
+        PLC: DE14348
+        de.dstnr: !!str 909673
+        source: src.de.DBAG.BSV.2017
+
+
+---
+key: point.de.Halle-Ammendorf-Nord
+type: point
+subtype: reference
+events:
+    -   date: !!null
+        designation: Halle-Ammendorf Nord
 
 
 ---
@@ -232,8 +259,25 @@ events:
     -   date: !!null
         category: de.Bf
         name: Halle-Ammendorf
+        de.name16: Halle-Ammendorf
         de.DS100: LHAD
-        source: src.de.DBAG.ISR
+        PLC: DE14353
+        de.dstnr: !!str 230052
+        source: src.de.DBAG.BSV.2017
+
+
+---
+key: point.de.Halle-Ammendorf-Bahnsteig
+type: point
+events:
+    -   date: !!null
+        category: de.Bft
+        name: Halle-Ammendorf Bahnsteig
+        de.name16: Halle-Ammend Bst
+        de.DS100: LHADB
+        PLC: DE14354
+        de.dstnr: !!str 102507
+        source: src.de.DBAG.BSV.2017
 
 
 ---

@@ -207,10 +207,13 @@ points:
     - point.de.Hohenthurm
     - point.de.Rabatz
     - point.de.Halle-Saale-Ab
-    - point.de.Halle-Saale-Hnw
-    - point.de.Halle-Saale-Hno
-    - point.de.Halle-Saale-Hbf                      # line.de.6403
+    -   point.de.Halle-Saale-Bk-As
+    -   point.de.Halle-Saale-Hnw
+    -   point.de.Halle-Saale-Hno
+    -   point.de.Halle-Saale-Hbf                    # de.6403
 
+
+#-----------------------------------------------------------------------------
 
 ---
 key: point.de.Berlin-Anh-Bf
@@ -1986,10 +1989,15 @@ events:
         source: src.dd.DR.1976
     -   date: de.ds100.dr
         de.DS100: LHM
-        source: src.de.TPP.2006
+        de.dstnr: !!str 231530
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Hohenthurm
+        PLC: DE15030
+        source: src.de.DBAG.BSV.2017
     -   date: c2000
         category: de.Hp
-        source: src.de.SuW.2005
+        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site: path.de.6132 hoh
@@ -2023,22 +2031,49 @@ events:
     -   date: !!null
         location:
             line.de.6132: 157,32
+            line.de.6347: 157,32
         category: de.Abzw
-        name: Ab
-        source: src.dd.DR.1976
+        name: Abzw Berlin
+        source: src.de.DRG.Hl.1943
+    -   date: c1960
+        name: Abzw Ab
+        source: src.dd.DR.Hl.1966
     -   date: de.ds100.dr
         de.DS100: LHGB
-        source: src.de.TPP.2006
+        de.dstnr: !!str 910002
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Halle Abzw Ab
+        PLC: DE14319
+        source: src.de.DBAG.BSV.2017
     -   date: c1995
         name: Halle (Saale) Abzw Ab
-        source: src.de.TPP.2006
-    -   date: c1995
+        source: src.de.DBAG.BSV.2017
+    -   date: c2000
         location:
             line.de.6132: 156,981
-        source: src.de.DBAG.ISR
+            line.de.6347: 156,981
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site: path.de.6132 hab
+
+
+---
+key: point.de.Halle-Saale-Bk-As
+type: point
+events:
+    -   date: !!null
+        category: de.Bk
+        name: Halle (Saale) Bk As
+        de.name16: Halle Bk As
+        de.DS100: LHS D
+        PLC: DE21628
+        de.dstnr: !!str 910005
+        source: src.de.DBAG.BSV.2017
+    -   date: 2015-11-28?
+        status: closed
+        source: src.de.DBAG.BSV.2017
 
 
 ---
@@ -2046,13 +2081,16 @@ key: point.de.Halle-Saale-Hnw
 type: point
 events:
     -   date: !!null
+        category: de.Bft
         name: Halle (Saale) Betriebsbahnhof Hnw
+        de.name16: Halle Betrbf HNW
         de.DS100: LHNW
-        source: src.de.TPP.2006
+        PLC: DE14323
+        de.dstnr: !!str 230490
+        source: src.de.DBAG.BSV.2017
     -   date: !!null
         location:
             line.de.6132: 158,834
-        category: de.Bf
         source: src.de.DBAG.ISR
 
     -   date: !!null
@@ -2064,12 +2102,17 @@ key: point.de.Halle-Saale-Hno
 type: point
 events:
     -   date: !!null
-        name: Halle (Saale) Betriebsbf Hnw Abzw Hno
-        de.DS100: LHNWO
-        source: src.de.DBAG.ISR
-    -   date: !!null
         category: de.Bft
+        name: Halle (Saale) Hno
+        de.name16: Halle (S) Hno
+        de.DS100: LHNWO
+        PLC: DE14324
+        de.dstnr: !!str 910004
+        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site: path.de.6132 hno
+
+
+#    point.de.Halle-Saale-Hbf                    de.6403
 
