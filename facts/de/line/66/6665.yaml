@@ -9,6 +9,8 @@ events:
         de.VzG: !!str 6665
         source: src.de.DBAG.Geo-Strecke.2017
 
+    #   Genehmigungen, Eigentümer, Betreiber
+    #
     -   date: 1887-07-07
         concession:
             by: org.de.l.sn
@@ -16,12 +18,20 @@ events:
         document: src.de.l.sn.1887.10.102
         source: src.de.DRG.1935 # 1888/78
 
+    #   Eröffnung und Einstellung
+    #
     -   date: 1888-12-01
         status: open
         source: src.de.DRG.1935 # 1888/78
 
+    #   Verlauf
+    #
+    -   date: !!null
+        course: path.de.6971 swi spa
+
 points:
     -   point.de.Schönfeld-Wiesa                    # de.6644
+    -   point.de.Schönfeld-Zschopautal
     -   point.de.Schönfeld-Wiesa-Papierfabrik
 
 
@@ -31,10 +41,45 @@ points:
 
 
 ---
-key: point.de.Schönfeld-Wiesa-Papierfabrik
+key: point.de.Schönfeld-Zschopautal
 type: point
-progress: stub
 events:
     -   date: !!null
+        name: Schönfeld (Zschopautal)
+        category: de.Hp
+        staff: none
+        master: point.de.Schönfeld-Wiesa
+        service: passenger
+        de.lknr: 07 224
+        source: src.de.Bfv.1944
+    -   date: !!null
+        location:
+            line.de.6665: 1,34
+        source: src.de.DRG.Dre.1934
+    -   date: !!null
+        site:
+            path.de.6971: soh
+
+
+---
+key: point.de.Schönfeld-Wiesa-Papierfabrik
+type: point
+events:
+    -   date: !!null
+        category: de.Anst
         name: Schönfeld-Wiesa Papierfabrik
+        de.name16: Papierf Schönfd
+        PLC: DE19464
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: DSWP
+        de.dstnr: !!str 062547
+        source: src.de.DBAG.BSV.2017
+    -   date: 2004-02-11
+        status: closed
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        site:
+            path.de.6971: spa
+
 
