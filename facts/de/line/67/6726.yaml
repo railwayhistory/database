@@ -32,6 +32,22 @@ events:
         document: src.de.l.pre.1884.12.105
         source: src.de.DRG.1935 # 1889/34
 
+    -   date: c2000
+        start: point.de.Nebra-BGr
+        end: point.de.Nebra-LGr
+        concession:
+            by: org.de.l.st
+            for: org.de.Deutsche-Regionaleisenbahn
+        source: src.de.web.EBA.EIU
+    -   date: 2009-01-22
+        start: point.de.Nebra-LGr
+        end: point.de.Artern-BGr
+        concession:
+            by: org.de.l.th
+            for: org.de.Deutsche-Regionaleisenbahn
+            until: 2059-01-31
+        source: src.de.web.EBA.EIU
+
     #   Eröffnung und Einstellung
     #
     -   date: 1889-10-01
@@ -42,9 +58,6 @@ events:
     #   Eigenschaften
     #
 
-    #   Eigentümer etc.
-    #
-
     #   Verlauf
     #
 
@@ -53,9 +66,12 @@ points:
     -   point.de.Laucha-Unstrut
     -   point.de.Vitzenburg
     -   point.de.Wangen-Unstrut
+    -   point.de.Nebra-BGr
     -   point.de.Nebra-LGr
+    -   point.de.Roßleben
     -   point.de.Reinsdorf-Artern-W8
     -   point.de.Reinsdorf-Artern                   # de.6300
+    -   point.de.Artern-BGr
     -   point.de.Artern                             # de.6300
 
 
@@ -100,6 +116,25 @@ events:
 
 
 ---
+key: point.de.Nebra-BGr
+type: point
+subtype: reference
+events:
+    -   date: !!null
+        de.DS100: UNEG
+        name: Nebra DB-Grenze
+        de.name16: Nebra DB-Gr
+        category: de.Gp
+        PLC: DE17416
+        de.dstnr: !!str 106885
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        location:
+            line.de.6726: 29,595
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
 key: point.de.Nebra-LGr
 type: point
 subtype: border
@@ -108,6 +143,22 @@ events:
     -   date: !!null
         name: Nebra ST/TH
         de.DS100: UQNE
+
+
+---
+key: point.de.Roßleben
+type: point
+events:
+    -   date: !!null
+        name: Roßleben
+        de.name16: Roßleben
+        category: de.Bf
+        PLC: DE19027
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: URO
+        de.dstnr: !!str 166314
+        source: src.de.DBAG.BSV.2017
 
 
 ---
@@ -121,6 +172,25 @@ events:
 
 
 #    point.de.Reinsdorf-Artern                   de.6300
+
+
+---
+key: point.de.Artern-BGr
+type: point
+subtype: reference
+events:
+    -   date: !!null
+        de.DS100: UATG
+        name: Artern DB-Grenze
+        de.name16: Artern DB-Gr
+        category: de.Gp
+        PLC: DE10293
+        de.dstnr: !!str 106887
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        location:
+            line.de.6726: 54,771
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 #    point.de.Artern                             de.6300
 

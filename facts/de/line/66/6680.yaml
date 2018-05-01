@@ -17,6 +17,14 @@ events:
     #   Genehmigungen
     #
 
+    -   date: 2013-09-11
+        start: point.de.Naumburg-Saale-Gr
+        concession:
+            by: org.de.l.st
+            for: org.de.ZossenRail-Betrieb
+            until: 2063-08-31
+        source: src.de.web.EBA.EIU
+
     #   Eröffnung und Einstellung
     #
     -   date: !!null
@@ -40,9 +48,35 @@ events:
     #
 
 points:
-    - point.de.Naumburg-Saale-Hbf                   # line.de.6340
-    - point.de.Naumburg-Saale-Ost
-    - point.de.Teuchern                             # line.de.6306
+    -   point.de.Naumburg-Saale-Hbf                 # de.6340
+    -   point.de.Naumburg-Saale-Gr
+    -   point.de.Naumburg-Saale-Ost
+    -   point.de.Teuchern                           # de.6306
+
+
+#-----------------------------------------------------------------------------
+
+#    point.de.Naumburg-Saale-Hbf                 de.6340
+
+
+---
+key: point.de.Naumburg-Saale-Gr
+type: point
+subtype: reference
+events:
+    -   date: 2013-10-24
+        status: open
+        de.DS100: UNMG
+        name: Naumburg DB-Grenze
+        de.name16: Naumburg DB-Gr
+        category: de.Gp
+        PLC: DE17411
+        de.dstnr: !!str 107616
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        location:
+            line.de.6680: 0,805
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
@@ -55,4 +89,7 @@ events:
         name: Naumburg (Saale) Ost
         de.DS100: UNMO
         source: src.de.DBAG.ISR
+
+
+#    point.de.Teuchern                           de.6306
 

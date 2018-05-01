@@ -17,18 +17,47 @@ events:
         de.VzG: !!str 1300
         source: src.de.DBAG.Geo-Strecke.2017
 
-    -   date: !!null
-        category: de.Nebenbahn
-        source: src.de.DRG.1927
+    #   Staatsverträge
+    #
 
+    #   Genehmigungen
+    #
     -   date: 1892-06-06
         end: point.de.Hesedorf
         concession:
             by: org.de.l.pre
+            for: org.de.l.pre
         document: src.de.l.pre.1892.14.111
-        owner: org.de.l.pre
-        operator: org.de.e.hmb
         source: src.de.DRG.1935
+
+    -   date: 1895-04-08
+        start: point.de.Hesedorf
+        concession:
+            by: org.de.l.pre
+            for: org.de.l.pre
+        document: src.de.l.pre.1895.12.91
+        source: src.de.DRG.1935
+
+    -   date: 1995-12-28
+        start: point.de.Bremerhaven-Wulsdorf-BGr
+        end: point.de.Sellstedt-LGr
+        concession:
+            by: org.de.l.hb
+            for: org.de.Eisenbahnen-und-Verkehr-Elbe-Weser
+            until: 2045-12-27
+        source: src.de.web.EBA.EIU
+    -   date: 1995-12-28
+        start: point.de.Sellstedt-LGr
+        end: point.de.Harsefeld-Abzw # ???
+        concession:
+            by: org.de.l.ni
+            for: org.de.Eisenbahnen-und-Verkehr-Elbe-Weser
+            until: 2045-12-27
+        source: src.de.web.EBA.EIU
+
+
+    #   Eröffnung und Einstellung
+    #
     -   date: 1898-10-01
         start: point.de.Bremervörde
         end: point.de.Hesedorf
@@ -39,28 +68,10 @@ events:
         status: open
         source: src.de.DRG.1935
 
-    -   date: 1895-04-08
-        start: point.de.Hesedorf
-        concession:
-            by: org.de.l.pre
-        document: src.de.l.pre.1895.12.91
-        owner: org.de.l.pre
-        operator: org.de.e.hmb
-        source: src.de.DRG.1935
     -   date: 1902-02-01
         start: point.de.Hesedorf
         status: open
         source: src.de.DRG.1935
-
-    -   date: 1920-04-01
-        owner: org.de
-        operator: org.de.r.RVM.PH
-    -   date: 1924-02-12
-        operator: org.de.Deutsche-Reichsbahn-I
-    -   date: 1924-08-30
-        operator: org.de.DR
-    -   date: org.de.DB.start
-        operator: org.de.DB
 
     -   date: 1968-05-26
         start: point.de.Hollenstedt
@@ -86,18 +97,25 @@ events:
         status: removed
         source: src.de.WP.Bahnstrecke-Bremerhaven-Buxtehude
 
-    -   date: 1991
-        owner: org.de.Eisenbahnen-und-Verkehr-Elbe-Weser
-        operator: org.de.Eisenbahnen-und-Verkehr-Elbe-Weser
-        source: src.de.WP.Bahnstrecke-Bremerhaven-Buxtehude
-
     -   date: c2005
         start: point.de.Harsefeld-Abzw
         end: point.de.Beckdorf
         status: closed
 
+    #   Eigenschaften
+    #
+    -   date: !!null
+        category: de.Nebenbahn
+        source: src.de.DRG.1927
+
+
+    #   Verlauf
+    #
+
+
 points:
-    - point.de.Bremerhaven-Wulsdorf                 # line.de.1740
+    -   point.de.Bremerhaven-Wulsdorf               # de.1740
+    -   point.de.Bremerhaven-Wulsdorf-BGr
     - point.de.Sellstedt-LGr
     - point.de.Sellstedt-DGr
     -   point.de.Apeler
@@ -120,6 +138,26 @@ points:
     - point.de.Drestedt
     - point.de.Trelde
     - point.de.Buchholz-Nordheide                   # line.de.2200
+
+
+#-----------------------------------------------------------------------------
+
+#    point.de.Bremerhaven-Wulsdorf               de.1740
+
+
+---
+key: point.de.Bremerhaven-Wulsdorf-BGr
+type: point
+events:
+    -   date: !!null
+        de.DS100: HBWG
+        name: Bremerhaven-Wulsdorf DB-Grenze
+        de.name16: Brh-Wulsdf DB-Gr
+        category: de.Gp
+        PLC: DE11679
+        de.dstnr: !!str 719773
+        source: src.de.DBAG.BSV.2017
+
 
 ---
 key: point.de.Sellstedt-LGr

@@ -24,6 +24,23 @@ events:
         document: src.de.l.scg.g.1875.1.2
         source: src.de.DRG.1935 # 1876/14
 
+    -   date: 2013-09-18
+        start: point.de.Emleben
+        end: point.de.Gräfenroda-Gr
+        concession:
+            by: org.de.l.th
+            for: org.de.ZossenRail-Betrieb
+            until: 2063-09-21
+        source: src.de.web.EBA.EIU
+    -   date: 2013-10-14
+        start: point.de.Gotha-Gr
+        end: point.de.Emleben
+        concession:
+            by: org.de.l.th
+            for: org.de.ZossenRail-Betrieb
+            until: 2064-01-23
+        source: src.de.web.EBA.EIU
+
     #   Eröffnung und Einstellung
     #
     -   date: !!null
@@ -42,14 +59,53 @@ events:
 
 points:
     -   point.de.Gotha                              # de.6340
+    -   point.de.Gotha-Gr
+    -   point.de.Emleben
     -   point.de.Georgenthal-Thür
     -   point.de.Ohrdruf
+    -   point.de.Gräfenroda-Gr
     -   point.de.Gräfenroda                         # de.6298
 
 
 #-----------------------------------------------------------------------------
 
 # point.de.Gotha                              de.6340
+
+
+---
+key: point.de.Gotha-Gr
+subtype: reference
+type: point
+events:
+    -   date: 2013-10-24
+        status: open
+        de.DS100: UGOG
+        name: Gotha DB-Grenze
+        de.name16: Gotha DB-Grenze
+        category: de.Gp
+        PLC: DE13863
+        de.dstnr: !!str 107625
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        location:
+            line.de.6697: 0,804
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Emleben
+type: point
+events:
+    -   date: !!null
+        name: Emleben
+        de.name16: Emleben
+        category: de.Bf
+        PLC: DE12871
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: UEM
+        de.dstnr: !!str 160531
+        source: src.de.DBAG.BSV.2017
 
 
 ---
@@ -71,6 +127,26 @@ progress: stub
 events:
     -   date: !!null
         name: Ohrdruf
+
+
+---
+key: point.de.Gräfenroda-Gr
+type: point
+subtype: reference
+events:
+    -   date: 2013-12-01
+        status: open
+        de.DS100: UGDG
+        name: Gräfenroda DB-Grenze
+        de.name16: Gräfenroda DB-Gr
+        category: de.Gp
+        PLC: DE13897
+        de.dstnr: !!str 107627
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        location:
+            line.de.6697: 34,940
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 # point.de.Gräfenroda                         de.6298

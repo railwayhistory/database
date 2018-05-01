@@ -17,6 +17,14 @@ events:
     #   Genehmigungen
     #
 
+    -   date: c2000
+        start: point.de.Bad-Saarow-Pieskow-Gr
+        end: point.de.Beeskow-Gr
+        concession:
+            by: org.de.l.bb
+            for: org.de.Scharmützelseebahn
+        source: src.de.web.EBA.EIU
+
     #   Eröffnung und Einstellung
     #
     -   date: !!null
@@ -38,10 +46,17 @@ events:
     #
 
 points:
-    - point.de.Fürstenwalde-Spree                   # line.de.6153
-    - point.de.Petersdorf-Fürstenwalde
-    - point.de.Bad-Saarow-Klinikum
-    - point.de.Beeskow                              # line.de.6520
+    -   point.de.Fürstenwalde-Spree                 # de.6153
+    -   point.de.Petersdorf-Fürstenwalde
+    -   point.de.Bad-Saarow-Pieskow-Gr
+    -   point.de.Bad-Saarow-Klinikum
+    -   point.de.Beeskow-Gr
+    -   point.de.Beeskow                            # de.6520
+
+
+#-----------------------------------------------------------------------------
+
+#    point.de.Fürstenwalde-Spree                 de.6153
 
 
 ---
@@ -54,6 +69,25 @@ events:
 
 
 ---
+key: point.de.Bad-Saarow-Pieskow-Gr
+type: point
+subtype: reference
+events:
+    -   date: !!null
+        de.DS100: BPFG
+        name: Bad Saarow-Pieskow DB Grenze
+        de.name16: B Saarow-Piesk G
+        category: de.Gp
+        PLC: DE10522
+        de.dstnr: !!str 107483
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        location:
+            line.de.6521: 12,684
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
 key: point.de.Bad-Saarow-Klinikum
 type: point
 progress: stub
@@ -62,4 +96,16 @@ events:
         name: Bad Saarow-Klinikum
         source: src.de.SuW.2011
 
+
+---
+key: point.de.Beeskow-Gr
+type: point
+subtype: reference
+progress: stub
+events:
+    -   date: !!null
+        designation: Beeskow Betriebsgrenze
+
+
+#    point.de.Beeskow                            de.6520
 
