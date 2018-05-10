@@ -43,12 +43,39 @@ events:
 
     #   Verlauf
     #
+    -   date: !!null
+        course: path.de.6968 neb kro
 
 points:
-    - point.de.Nebitzschen                          # line.de.6967
-    - point.de.Kemmlitzer-Kaolin-und-Tonwerke
+    -   point.de.Nebitzschen                        # de.6967
+    -   point.de.Kemmlitz-Ort
+    -   point.de.Kemmlitzer-Kaolin-und-Tonwerke
     -   point.de.Kemmlitz-Bf
-    - point.de.Kroptewitz
+    -   point.de.Börtewitz
+    -   point.de.Kroptewitz
+
+
+#-----------------------------------------------------------------------------
+
+#    point.de.Nebitzschen                        de.6967
+
+
+---
+key: point.de.Kemmlitz-Ort
+type: point
+events:
+    -   date: c2000
+        status: open
+    -   date: !!null
+        de.DS100: DKEMO
+        name: Kemmlitz Ort
+        de.name16: Kemmlitz Ort
+        category: de.Hp
+        de.dstnr: !!str 912476
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        site:
+            path.de.6968: keo
 
 
 ---
@@ -57,10 +84,14 @@ type: point
 progress: stub
 events:
     -   date: !!null
-        category: de.Anst
         name: Kemmlitzer Kaolin- und Tonwerke GmbH
+        de.name16: Kaolinwerke Kemm
+        category: de.Anst
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
         de.DS100: DTON
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 069229
+        source: src.de.DBAG.BSV.2017
 
 
 ---
@@ -68,21 +99,66 @@ key: point.de.Kemmlitz-Bf
 type: point
 events:
     -   date: !!null
+        name: Kemmlitz (b Oschatz)
+        category: de.Bf
+        de.rang: IV
+        service: freight
+        de.lknr: 07 154
+        source: src.de.Bfv.1944
+    -   date: c2000
         name: Kemmlitz Bf
         de.name16: Kemmlitz Bf
-        category: de.Bf
         source: src.de.DBAG.BSV.2017
     -   date: de.ds100.dr
         de.DS100: DKEM
         de.dstnr: !!str 451690
         source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        location:
+            line.de.6968: 2,66
+        source: src.de.DRG.Dre.1934
+    -   date: !!null
+        site:
+            path.de.6968: kem
+
+
+---
+key: point.de.Börtewitz
+type: point
+events:
+    -   date: !!null
+        name: Börtewitz
+        category: de.Hp
+        staff: agent
+        service: freight
+        de.lknr: 07 155
+        source: src.de.Bfv.1944
+    -   date: !!null
+        location:
+            line.de.6968: 4,51
+        source: src.de.DRG.Dre.1934
+    -   date: !!null
+        site:
+            path.de.6968: bor
 
 
 ---
 key: point.de.Kroptewitz
 type: point
-progress: stub
 events:
     -   date: !!null
         name: Kroptewitz
+        category: de.Bf
+        de.rang: IV
+        staff: agent
+        service: freight
+        de.lknr: 07 156
+        source: src.de.Bfv.1944
+    -   date: !!null
+        location:
+            line.de.6968: 6,31
+        source: src.de.DRG.Dre.1934
+    -   date: !!null
+        site:
+            path.de.6968: kro
 
