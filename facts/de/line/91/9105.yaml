@@ -1,4 +1,4 @@
-# DE 9105.  Suchsdorf - Kiel-Wik
+# DE 9105.  Suchsdorf - Kiel-Scheerhafen
 #
 ---
 key: line.de.9105
@@ -15,7 +15,6 @@ events:
 
 
     -   date: c2000
-        end: point.de.Kiel-Scheerhafen
         concession:
             by: org.de.l.sh
             for: org.de.Seehafen-Kiel
@@ -60,14 +59,13 @@ events:
     #   Verlauf
     #
     -   date: !!null
-        course:
-            -   path.de.1020  suc  awik
-            -   path.de.9105  a    f
+        course: path.de.9105 sun see
 
 points:
     -   point.de.Suchsdorf                      # de.1020
-    -   point.de.Kiel-Scheerhafen
+    -   point.de.Suchsdorf-NE
     -   point.de.Kiel-Wik
+    -   point.de.Kiel-Scheerhafen
 
 
 #-----------------------------------------------------------------------------
@@ -76,16 +74,22 @@ points:
 
 
 ---
-key: point.de.Kiel-Scheerhafen
+key: point.de.Suchsdorf-NE
 type: point
 events:
+    -   date: c2000
+        status: open
+        split_from: point.de.Suchsdorf
     -   date: !!null
-        de.DS100: AKSC
-        name: Kiel Scheerhafen
-        de.name16: Kiel Scheerhafen
-        category: de.Bf
-        de.dstnr: !!str 546069
+        de.DS100: ASU N
+        name: Suchsdorf NE
+        de.name16: Suchsdorf NE
+        category: de.Bft
+        de.dstnr: !!str 108672
         source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        site:
+            path.de.9105: sun
 
 
 ---
@@ -107,9 +111,28 @@ events:
         source: src.de.DS100.1984
     -   date: !!null
         category: de.Bf
+        de.name16: Kiel-Wik
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
         location:
             line.de.9105: 3,0
-        source: src.de.SuW.2005
+        source: src.de.DB.Hmb.Karte.1984
+    -   date: !!null
+        site:
+            path.de.9105: wik
+
+
+---
+key: point.de.Kiel-Scheerhafen
+type: point
+events:
+    -   date: !!null
+        de.DS100: AKSC
+        name: Kiel Scheerhafen
+        de.name16: Kiel Scheerhafen
+        category: de.Bf
+        de.dstnr: !!str 546069
+        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:

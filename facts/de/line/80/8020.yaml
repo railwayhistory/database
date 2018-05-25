@@ -1,7 +1,7 @@
-# DE 8019.  Oppendorf - Kiel Ostuferhafen
+# DE 8020.  Oppendorf - Kiel Ostuferhafen
 #
 ---
-key: line.de.8019
+key: line.de.8020
 type: line
 progress: stub
 events:
@@ -13,14 +13,34 @@ events:
             for: org.de.Seehafen-Kiel
         source: src.de.web.EBA.EIU
 
+    -   date: !!null
+        course: path.de.8020 opp ost
+
 points:
     -   point.de.Oppendorf                          # de.9107
+    -   point.de.Oppendorf-Kraftwerk
     -   point.de.Kiel-Ostuferhafen
 
 
 #-----------------------------------------------------------------------------
 
 #    point.de.Oppendorf                          de.9107
+
+
+---
+key: point.de.Oppendorf-Kraftwerk
+type: point
+events:
+    -   date: !!null
+        de.DS100: AOPDK
+        name: Oppendorf Kraftwerk
+        de.name16: Oppendorf Kraftw
+        category: de.Anst
+        de.dstnr: !!str 912651
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        site:
+            path.de.8020: opk
 
 
 ---
@@ -32,5 +52,9 @@ events:
         name: Kiel Ostuferhafen
         de.name16: Kiel Ostuferhf
         de.DS100: AKOH
+        de.dstnr: !!str 489161
         source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        site:
+            path.de.8020: ost
 

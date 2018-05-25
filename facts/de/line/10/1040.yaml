@@ -133,18 +133,14 @@ events:
         electrified: de
         source: src.de.WP.Chronik-Streckenelektrifizierung-DBAG
 
-    #   Eigentümer etc.
-    #
-
     #   Verlauf
     #
     -   date: !!null
-        course:
-            -   path.de.1220 neu aren
-            -   path.de.1040 a fle
+        course: path.de.1040 neu fle
 
 points:
     -   point.de.Neumünster                         # de.1220
+    -   point.de.Neumünster-Ngn
     -   point.de.Stover
     -   point.de.Aspe
     -   point.de.Nortorf
@@ -174,7 +170,6 @@ points:
     -   point.de.Barderup
     -   point.de.Holzkrug
     -   point.de.Flensburg-Weiche-Süd
-    -   point.de.Flensburg-Weiche-Wa
     -   point.de.Flensburg-Weiche
     -   point.de.Flensburg-Nordkurve
     -   point.de.Flensburg-Wilhelminental
@@ -206,6 +201,7 @@ events:
     -   date: !!null
         site:
             path.de.1040: sto
+
 
 ---
 key: point.de.Aspe
@@ -270,10 +266,14 @@ events:
         de.DS100: ANF
         de.dstnr: !!str 014050
         source: src.de.DS100.1984
+    -   date: !!null
+        de.name16: Nortorf
+        PLC: DE17831
+        source: src.de.DBAG.BSV.2017
     -   date: 1981
         location:
             line.de.1040: 88,866
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -319,7 +319,8 @@ events:
         source: src.de.DS100.1984
     -   date: 1981
         location:
-            line.de.1040: 95,12
+            line.de.1040: 95,13
+        source: src.de.DB.Hmb.Karte.1984
     -   date: 1987-05-31
         service: freight
     -   date: c1995
@@ -344,9 +345,6 @@ events:
         PLC: DE21618
         de.dstnr: !!str 912270
         source: src.de.DBAG.BSV.2017
-    -   date: 2013
-        status: closed
-        source: src.de.TPP.2014
 
     -   date: !!null
         site:
@@ -380,7 +378,8 @@ events:
         source: src.de.DS100.1984
     -   date: 1981
         location:
-            line.de.1040: 99,19
+            line.de.1040: 99,533
+        source: src.de.DB.Hmb.Karte.1984
     -   date: 1987-05-30
         service: freight
     -   date: c1995
@@ -388,6 +387,9 @@ events:
     -   date: !!null
         de.name16: Bokelholm
         PLC: DE11450
+        source: src.de.DBAG.BSV.2017
+    -   date: 2003-01-01
+        status: closed
         source: src.de.DBAG.BSV.2017
 
     -   date: !!null
@@ -408,10 +410,7 @@ events:
         de.DS100: ABM N
         PLC: DE21617
         de.dstnr: !!str 912271
-        source: src.de.TPP.2006
-    -   date: 2013
-        status: closed
-        source: src.de.TPP.2014
+        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
@@ -422,7 +421,6 @@ events:
 key: point.de.Osterrönfeld-Heidkrug
 type: point
 subtype: reference
-junction: True
 events:
     -   date: !!null
         name: Osterrönfeld Heidkrug
@@ -431,12 +429,12 @@ events:
     -   date: !!null
         site:
             path.de.1040: osh
+            path.de.8006: osh
 
 
 ---
 key: point.de.Osterrönfeld
 type: point
-junction: True
 events:
     -   date: c1913
         status: open
@@ -461,6 +459,13 @@ events:
         source: src.de.DS100.1984
     -   date: c1960
         service: freight
+    -   date: !!null
+        de.name16: Osterrönfeld
+        PLC: DE18180
+        source: src.de.DBAG.BSV.2017
+    -   date: 2014-12-14?
+        category: [ de.Bf, de.Abzw ]
+        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         location:
@@ -480,6 +485,7 @@ events:
     -   date: !!null
         site:
             path.de.1040: oro
+            path.de.1022: oro
 
 
 # Überlänge 4813 m; km 104,40 + 4913 m = 104,50
@@ -492,13 +498,20 @@ events:
         status: open
     -   date: !!null
         category: de.Üst
-        location:
-            line.de.1040: 106,5
         name: Osterrönfeld Brücke
         de.DS100: AONB
         source: src.de.SuW.2005
-    -   date: c2005
-        status: closed
+    -   date: 2014-12-14
+        de.DS100: ARHB
+        name: Rendsburg Hochbrücke
+        de.name16: Rendsburg Hochbr
+        PLC: DE18791
+        de.dstnr: !!str 108849
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        location:
+            line.de.1040: 106,488
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -600,14 +613,19 @@ events:
         de.DS100: AR
         de.dstnr: !!str 014100
         source: src.de.DS100.1984
+    -   date: !!null
+        de.name16: Rendsburg
+        PLC: DE18788
+        source: src.de.DBAG.BSV.2017
     -   date: 1981
         location:
-            line.de.1040: 113,85
-        source: src.de.web.Erbeck
+            line.de.1040: 113,869
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
             path.de.1040: ren
+            path.de.8006: ren
 
 
 ---
@@ -704,8 +722,8 @@ events:
         source: src.de.Bfv.1938
     -   date: 1981
         location:
-            line.de.1040: 120,74
-        source: src.de.web.Erbeck
+            line.de.1040: 120,72
+        source: src.de.DB.Hmb.Karte.1984
     -   date: !!null
         de.DS100: ADV
         de.dstnr: !!str 014126
@@ -724,7 +742,6 @@ events:
 ---
 key: point.de.Owschlag
 type: point
-junction: True
 events:
     -   date: !!null
         name: Owschlag
@@ -747,10 +764,14 @@ events:
         de.DS100: AOS
         de.dstnr: !!str 014134
         source: src.de.DS100.1984
+    -   date: !!null
+        de.name16: Owschlag
+        PLC: DE18230
+        source: src.de.DBAG.BSV.2017
     -   date: 1981
         location:
-            line.de.1040: 125,41
-        source: src.de.web.Erbeck
+            line.de.1040: 125,410
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -795,9 +816,15 @@ events:
     -   date: c1990
         category: de.Üst
         de.DS100: ALOT
-        source: src.de.SuW.2005
-    -   date: c2005
+        de.dstnr: !!str 911450
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Lottorf
+        PLC: DE16494
+        source: src.de.DBAG.BSV.2017
+    -   date: 2008-01-01
         status: closed
+        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
@@ -845,6 +872,10 @@ events:
         de.DS100: ASW
         de.dstnr: !!str 014159
         source: src.de.DS100.1984
+    -   date: !!null
+        de.name16: Schleswig
+        PLC: DE19365
+        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         location:
@@ -856,12 +887,13 @@ events:
             line.de.9103:   3,2
     -   date: 1981
         location:
-            line.de.1040: 138,39
-        source: src.de.DB.Hmb.Karte.1984
+            line.de.1040: 138,389
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
             path.de.1040: sle
+            path.de.1010: sle
 
 
 ---
@@ -903,15 +935,17 @@ events:
         source: src.de.DS100.1984
     -   date: 1981
         location:
-            line.de.1040: 142,83
-        source: src.de.web.Erbeck
+            line.de.1040: 143,120
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
     -   date: c1995
         category: de.Awanst
         de.DS100: ASY
-        source: src.de.TPP.2006
-    -   date: c2000
         name: Schuby
-        source: src.de.TPP.2006
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Schuby
+        PLC: DE19509
+        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
@@ -940,6 +974,10 @@ events:
         de.DS100: AJ
         de.dstnr: !!str 014209
         source: src.de.DS100.1984
+    -   date: !!null
+        de.name16: Jübek
+        PLC: DE15308
+        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         location:
@@ -952,12 +990,13 @@ events:
         source: src.de.DRG.Alt.Karte.1949
     -   date: 1981
         location:
-            line.de.1040: 149,43
-        source: src.de.DB.Hmb.Karte.1984
+            line.de.1040: 149,427
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
             path.de.1040: jub
+            path.de.1011: jub
 
 
 ---
@@ -988,7 +1027,7 @@ events:
     -   date: 1981
         location:
             line.de.1040: 156,75
-        source: src.de.web.Erbeck
+        source: src.de.DB.Hmb.Karte.1984
     -   date: 1987-05-30
         service: freight
     -   date: c1990
@@ -1040,11 +1079,15 @@ events:
         source: src.de.DS100.1984
     -   date: 1981
         location:
-            line.de.1040: 161,97
-        source: src.de.web.Erbeck
+            line.de.1040: 161,974
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
     -   date: c1990
         category: de.Hp
-        source: src.de.SuW.2005
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Tarp
+        PLC: DE20186
+        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
@@ -1104,28 +1147,6 @@ events:
 key: point.de.Flensburg-Weiche-Süd
 type: point
 events:
-    -   date: c2000
-        status: open
-    -   date: !!null
-        name: Flensburg Weiche Süd
-        de.DS100: AFW S
-        source: src.de.TPP.2006
-    -   date: !!null
-        category: de.Bft
-        master: point.de.Flensburg-Weiche
-    -   date: 2011
-        status: closed
-        source: src.de.TPP.2012
-
-    -   date: !!null
-        site:
-            path.de.1040: fws
-
-
----
-key: point.de.Flensburg-Weiche-Wa
-type: point
-events:
     -   date: !!null
         category: de.Abzw
         location:
@@ -1144,13 +1165,17 @@ events:
         location:
             line.de.1040: 171,14
     -   date: c1990
+        de.DS100: AFW S
+        name: Flensburg Weiche Süd
+        de.name16: Flensbg W Süd
         category: de.Bft
-    -   date: c2000
-        status: closed
+        PLC: DE13220
+        de.dstnr: !!str 910552
+        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
-            path.de.1040: fwa
+            path.de.1040: fws
 
     
 ---
@@ -1196,42 +1221,17 @@ events:
         source: src.de.DRG.Alt.Karte.1935
     -   date: 1981
         location:
-            line.de.1002: 172,92
-        source: src.de.web.Erbeck
-    -   date: 1981
-        location:
             line.de.1000: 172,916
+            line.de.1002: 172,916
             line.de.1040: 172,916
         source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
             path.de.1040: fwe
-
-
----
-key: point.de.Flensburg-Wilhelminental
-type: point
-events:
-    -   date: c2000
-        status: open
-    -   date: !!null
-        category: de.Awanst
-        name: Flensburg Wilheminental
-        de.name16: Fl Wilhelminent
-        de.DS100: AFWI
-        source: src.de.DBAG.BSV.2016
-    -   date: !!null
-        location:
-            line.de.1040: 174,86
-            line.de.1002: 174,86
-    -   date: 2016-12-11
-        status: closed
-        source: src.de.DBAG.BSV.2016
-
-    -   date: !!null
-        site:
-            path.de.1040: wil
+            path.de.1000: flw
+            path.de.1001: flw
+            path.de.1002: flw
 
 
 ---
@@ -1241,6 +1241,36 @@ progress: stub
 events:
     -   date: !!null
         designation: Flensburg Nordkurve
+        site:
+            path.de.1040: fnk
+
+
+---
+key: point.de.Flensburg-Wilhelminental
+type: point
+events:
+    -   date: c2000
+        status: open
+    -   date: !!null
+        de.DS100: AFWI
+        name: Flensburg Wilheminental
+        de.name16: Fl Wilhelminent
+        category: de.Awanst
+        PLC: DE13221
+        de.dstnr: !!str 319434
+        source: src.de.DBAG.BSV.2017
+    -   date: 2016-12-11
+        status: closed
+        source: src.de.DBAG.BSV.2016
+    -   date: !!null
+        location:
+            line.de.1002: 174,864
+            line.de.1040: 174,864
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+    -   date: !!null
+        site:
+            path.de.1040: wil
 
 
 ---
@@ -1265,25 +1295,28 @@ events:
         de.DS100: AF
         de.dstnr: !!str 014274
         source: src.de.DS100.1984
-    -   date: 1981
-        location:
-            line.de.1040: 176,23
-        source: src.de.web.Erbeck
+    -   date: !!null
+        de.name16: Flensburg
+        PLC: DE13214
+        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         location:
             line.de.1040: 170,66
-            line.de.1005:   0,00
         source: src.de.DRG.Alt.Karte.1931
     -   date: !!null
         location:
+            line.de.1005:  0,000
             line.de.1020: 80,643
-        source:
-            -   src.de.DRG.Alt.Karte.1931
-            -   src.de.DBAG.Geo-Betriebsstelle.2017
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+    -   date: 1981
+        location:
+            line.de.1040: 176,230
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
             path.de.1040: fle
-
+            path.de.1005: fle
+            path.de.1020: fle
 

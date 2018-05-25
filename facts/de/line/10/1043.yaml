@@ -56,14 +56,13 @@ events:
     #   Verlauf
     #
     -   date: !!null
-        course:
-            -   path.de.1220 neu fnes
-            -   path.de.1043 a f
-            -   path.de.1120 fseg old
+        course: path.de.1043 neu old
 
 points:
     -   point.de.Neumünster                        # de.1220
+    -   point.de.Neumünster-Gr
     -   point.de.Neumünster-Süd
+    -   point.de.Neumünster-Süd-Gr
     -   point.de.Kleinkummerfeld
     -   point.de.Rickling-Ölweiche
     -   point.de.Rickling
@@ -80,6 +79,28 @@ points:
 #-----------------------------------------------------------------------------
 
 # point.de.Neumünster                        de.1220
+
+
+---
+key: point.de.Neumünster-Gr
+type: point
+subtype: reference
+events:
+    -   date: !!null
+        de.DS100: ANMG
+        name: Neumünster DB-Grenze
+        de.name16: Neumünster DB-Gr
+        category: de.Gp
+        PLC: DE17574
+        de.dstnr: !!str 107901
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        location:
+            line.de.1043: 75,320
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+    -   date: !!null
+        site:
+            path.de.1043: nmg
 
 
 ---
@@ -102,10 +123,36 @@ events:
     -   date: c1990
         de.DS100: ANMS
         source: src.de.TPP.2006
+    -   date: c2010
+        status: closed
+        merged: point.de.Neumünster-Süd-AKN
+        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
             path.de.1043: nes
+
+
+---
+key: point.de.Neumünster-Süd-Gr
+type: point
+subtype: reference
+events:
+    -   date: !!null
+        de.DS100: ANSG
+        name: Neumünster Süd DB-Grenze
+        de.name16: Neum Süd DB-Gr
+        category: de.Gp
+        PLC: DE17578
+        de.dstnr: !!str 107903
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        location:
+            line.de.1043: 78,500
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+    -   date: !!null
+        site:
+            path.de.1043: nsg
 
 
 ---
@@ -129,15 +176,20 @@ events:
         de.lknr: 01 342
         source: src.de.Bfv.1933
     -   date: !!null
-        location:
-            line.de.1043: 83,25
-        source: src.de.DRG.Alt.Karte.1949
-    -   date: !!null
         de.DS100: AKD
         de.dstnr: !!str 013425
         source: src.de.DS100.1984
+    -   date: !!null
+        de.name16: Kleinkummerfeld
+        PLC: DE15594
+        source: src.de.DBAG.BSV.2017
     -   date: 2002-12-15
         status: closed
+
+    -   date: !!null
+        location:
+            line.de.1043: 83,244
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -184,18 +236,25 @@ events:
         de.lknr: 01 341
         source: src.de.Bfv.1933
     -   date: !!null
-        location:
-            line.de.1043: 91,09
-        source: src.de.DRG.Alt.Karte.1949
-    -   date: !!null
         de.DS100: ARL
         de.dstnr: !!str 013417
         source: src.de.DS100.1984
+    -   date: !!null
+        de.name16: Rickling
+        PLC: DE18870
+        source: src.de.DBAG.BSV.2017
+    -   date: 2002
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.1043: 91,09
+        source: src.de.DRG.Alt.Karte.1949
     -   date: 2002
         location:
             line.de.1043: 91,007
-        category: de.Hp
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -212,12 +271,17 @@ events:
     -   date: 2002-12-15
         status: open
     -   date: !!null
+        de.DS100: AWAH
+        name: Wahlstedt
+        de.name16: Wahlstedt
         category: de.Hp
+        PLC: DE20683
+        de.dstnr: !!str 720425
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
         location:
             line.de.1043: 96,832
-        name: Wahlstedt
-        de.DS100: AWAH
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -242,22 +306,25 @@ events:
         de.lknr: 01 340
         source: src.de.Bfv.1933
     -   date: !!null
-        location:
-            line.de.1043: 99,26
-        source: src.de.DRG.Alt.Karte.1949
-    -   date: !!null
         de.DS100: AFK
         de.dstnr: !!str 013409
         source: src.de.DS100.1984
-    -   date: 2002
-        category: [de.Hp, de.Awanst]
+    -   date: !!null
+        de.name16: Fahrenkrug
+        PLC: DE13130
+        source: src.de.DBAG.BSV.2017
+    -   date: c2005
+        category: de.Bft
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.1043: 99,26
+        source: src.de.DRG.Alt.Karte.1949
     -   date: 2002
         location:
             line.de.1043: 99,363
-        source: src.de.DBAG.ISR
-    -   date: c2010
-        category: de.Bft
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -270,7 +337,6 @@ events:
 ---
 key: point.de.Bad-Segeberg
 type: point
-junction: True
 events:
     -   date: !!null
         name: Segeberg
@@ -288,21 +354,30 @@ events:
         de.lknr: 01 339
         source: src.de.Bfv.1933
     -   date: !!null
-        location:
-            line.de.1043: 103,41
-        source: src.de.DRG.Alt.Karte.1949
-    -   date: !!null
         de.DS100: ASB
         de.dstnr: !!str 013391
         source: src.de.DS100.1984
+    -   date: !!null
+        de.name16: Bad Segeberg
+        PLC: DE10546
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.1043: 103,41
+        source: src.de.DRG.Alt.Karte.1949
     -   date: c2002
         location:
             line.de.1043: 103,143
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
  
     -   date: !!null
         site:
             path.de.1043: seg
+        connection:
+            -   point.de.Bad-Segeberg-Lübecker-Kleinb
+            -   point.de.Bad-Segeberg-Nord
+            -   point.de.Bad-Segeberg-West
     -   date: c2002
         site:
             path.de.1043: seb
@@ -326,10 +401,6 @@ events:
         de.lknr: 01 338
         source: src.de.Bfv.1933
     -   date: !!null
-        location:
-            line.de.1043: 108,19
-        source: src.de.DRG.Alt.Karte.1949
-    -   date: !!null
         de.DS100: AAT
         de.dstnr: !!str 013383
         source: src.de.DS100.1984
@@ -340,6 +411,11 @@ events:
         de.name16: Altengörs
         PLC: DE10167
         source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.1043: 108,19
+        source: src.de.DRG.Alt.Karte.1949
     -   date: c2000
         location:
             line.de.1043: 108,173
@@ -368,20 +444,32 @@ events:
         de.lknr: 01 337
         source: src.de.Bfv.1933
     -   date: !!null
-        location:
-            line.de.1043: 111,98
-        source: src.de.DRG.Alt.Karte.1949
-    -   date: !!null
         de.DS100: AWK
         de.dstnr: !!str 013375
         source: src.de.DS100.1984
+    -   date: !!null
+        de.name16: Wakendorf
+        PLC: DE20692
+        source: src.de.DBAG.BSV.2017
     -   date: c1990
         category: de.Hp
-        source: src.de.SuW.2005
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.1043: 111,98
+        source: src.de.DRG.Alt.Karte.1949
+    -   date: c1990
+        location:
+            line.de.1043: 112,005
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
  
     -   date: !!null
         site:
             path.de.1043: wak
+    -   date: c1990
+        site:
+            path.de.1043: wkh
 
 
 ---
@@ -402,10 +490,6 @@ events:
         de.lknr: 01 336
         source: src.de.Bfv.1933
     -   date: !!null
-        location:
-            line.de.1043: 115,35
-        source: src.de.DRG.Alt.Karte.1949
-    -   date: !!null
         de.DS100: AFN
         de.dstnr: !!str 013367
         source: src.de.DS100.1984
@@ -413,10 +497,26 @@ events:
         category: de.Hp
         staff: none
         source: src.de.DS100.1984
+    -   date: !!null
+        de.name16: Fresenburg
+        PLC: DE13421
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.1043: 115,35
+        source: src.de.DRG.Alt.Karte.1949
+    -   date: c2000
+        location:
+            line.de.1043: 115,323
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
  
     -   date: !!null
         site:
             path.de.1043: fre
+    -   date: c2000
+        site:
+            path.de.1043: frh
 
 
 ---
@@ -425,9 +525,11 @@ type: point
 events:
     -   date: !!null
         location:
-            line.de.1043: 117,7
+            line.de.1043: 117,18
         name: Poggensee
         category: de.Hp
+        staff: none
+        source: src.de.DB.Hmb.Karte.1956
     -   date: c1950
         status: open
     -   date: c1980
