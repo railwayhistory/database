@@ -10,7 +10,6 @@ events:
             - org.de.l.sh
 
     -   date: !!null
-        start: point.de.Burgstaaken
         de.VzG: !!str 1103
         source: src.de.DBAG.Geo-Strecke.2017
 
@@ -92,29 +91,14 @@ events:
     #   Verlauf
     #
     -   date: !!null
-        course:
-            -   path.de.1103 a f
-    -   date: 1963-04-30?
-        course:
-            -   path.de.1103 a abuw
-            -   path.de.1103.bur fbur f
-            -   path.de.1100 abur fort
-            -   path.de.1103 fbuw f
-    -   date: 2010-07-31
-        course:
-            -   path.de.1103 a abur
-            -   path.de.1103.bur a f
-            -   path.de.1100 abur fort
-            -   path.de.1103 fbuw f
+        course: path.de.1103 bur ort
 
 points:
-    -   point.de.Fehmarnsund
-    -   point.de.Wulfen-Fehmarn
-    -   point.de.Burgstaaken
     -   point.de.Burg-Fehmarn
     -   point.de.Burg-Fehmarn-DB-Grenze
     -   point.de.Burg-Fehmarn-Abzw
     -   point.de.Burg-Fehmarn-West                  # de.1100
+    -   point.de.Landkirchen-Gabelung
     -   point.de.Landkirchen
     -   point.de.Alt-Jellingsdorf
     -   point.de.Lemkendorf
@@ -123,80 +107,6 @@ points:
 
 
 #-----------------------------------------------------------------------------
-
----
-key: point.de.Fehmarnsund
-type: point
-events:
-    -   date: !!null
-        name: Fehmarnsund
-        source: src.de.Kb.1914
-    -   date: de.lknr.kb
-        de.lknr: 44 179
-        source: src.de.Bfv.1938
-    -   date: !!null
-        category: de.Bf
-        source: src.de.Bfv.1944
-    -   date: 1941-07-31
-        de.rang: IV
-        de.lknr: 27 401
-        source: src.de.Bfv.1944
-    -   date: !!null
-        location:
-            line.de.1103: 0,05
-        source: src.de.DRG.Alt.Karte.1949
-
-    -   date: !!null
-        site:
-            path.de.1103: feh
-
-
----
-
-key: point.de.Wulfen-Fehmarn
-type: point
-events:
-    -   date: !!null
-        name: Wulfen (Fehmarn)
-        source: src.de.Kb.1914
-    -   date: !!null
-        category: de.Hp
-        source: src.de.Bfv.1944
-    -   date: 1941-07-31
-        de.lknr: 27 402
-        source: src.de.Bfv.1944
-    -   date: !!null
-        location:
-            line.de.1103: 2,57
-        source: src.de.DRG.Alt.Karte.1949
-
-    -   date: !!null
-        site:
-            path.de.1103: wul
-
-
----
-key: point.de.Burgstaaken
-type: point
-events:
-    -   date: !!null
-        name: Burgstaaken
-        source: src.de.Kb.1914
-    -   date: !!null
-        category: de.Hp
-        source: src.de.Bfv.1944
-    -   date: 1941-07-31
-        de.lknr: 27 403
-        source: src.de.Bfv.1944
-    -   date: !!null
-        location:
-            line.de.1103: 5,30
-        source: src.de.DRG.Alt.Karte.1949
-
-    -   date: !!null
-        site:
-            path.de.1103: bus
-
 
 ---
 key: point.de.Burg-Fehmarn
@@ -216,10 +126,6 @@ events:
         de.lknr: 27 404
         source: src.de.Bfv.1944
     -   date: !!null
-        location:
-            line.de.1103: 7,33
-        source: src.de.DRG.Alt.Karte.1949
-    -   date: !!null
         de.DS100: ABUF
         de.dstnr: !!str 016626
         source: src.de.DS100.1984
@@ -232,11 +138,14 @@ events:
         source: src.de.DBAG.BSV.2017
 
     -   date: !!null
+        location:
+            line.de.1103: 7,33
+        source: src.de.DRG.Alt.Karte.1949
+
+    -   date: !!null
         site:
+            path.de.8029: bur
             path.de.1103: bur
-    -   date: 2010-07-31
-        site:
-            path.de.1103.bur: bur
 
 
 ---
@@ -252,10 +161,15 @@ events:
         PLC: DE11836
         de.dstnr: !!str 106922
         source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         location:
             line.de.1103: 7,980
         source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+    -   date: !!null
+        site:
+            path.de.1103: bug
 
 
 ---
@@ -278,10 +192,22 @@ events:
 
     -   date: !!null
         site:
-            path.de.1103.bur: bua
+            path.de.1103: bua
 
 
 #    point.de.Burg-Fehmarn-West                  de.1100
+
+
+---
+key: point.de.Landkirchen-Gabelung
+type: point
+subtype: reference
+events:
+    -   date: !!null
+        designation: Landkirchen Gabelung
+        site:
+            path.de.1103: lag
+            path.de.8029: lag
 
 
 ---
@@ -302,10 +228,6 @@ events:
         de.lknr: 27 405
         source: src.de.Bfv.1944
     -   date: !!null
-        location:
-            line.de.1103: 10,68
-        source: src.de.DRG.Alt.Karte.1949
-    -   date: !!null
         de.VBL: Lak
         source: src.de.web.Kuestenbahn
     -   date: !!null
@@ -315,6 +237,15 @@ events:
     -   date: c1980
         category: de.Anst
         source: src.de.DS100.1984
+    -   date: !!null
+        de.name16: Landkirchen
+        PLC: DE16011
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.1103: 10,68
+        source: src.de.DRG.Alt.Karte.1949
 
     -   date: !!null
         site:
@@ -334,12 +265,13 @@ events:
     -   date: 1941-07-31
         de.lknr: 27 406
         source: src.de.Bfv.1944
+    -   date: c1970
+        status: closed
+
     -   date: !!null
         location:
             line.de.1103: 12,78
         source: src.de.DRG.Alt.Karte.1949
-    -   date: c1970
-        status: closed
 
     -   date: !!null
         site:
@@ -363,12 +295,13 @@ events:
         de.rang: IV
         de.lknr: 27 407
         source: src.de.Bfv.1944
+    -   date: c1970
+        status: closed
+
     -   date: !!null
         location:
             line.de.1103: 14,80
         source: src.de.DRG.Alt.Karte.1949
-    -   date: c1970
-        status: closed
 
     -   date: !!null
         site:
@@ -424,6 +357,7 @@ events:
         de.rang: IV
         de.lknr: 27 409
         source: src.de.Bfv.1944
+
     -   date: !!null
         location:
             line.de.1103: 20,79

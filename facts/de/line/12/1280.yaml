@@ -66,8 +66,8 @@ events:
             -   path.de.6100     aror  all
 
 points:
-    - point.de.Buchholz-Nordheide                   # line.de.2200
-    - point.de.Jesteburg
+    -   point.de.Buchholz-Nordheide                 # de.2200
+    -   point.de.Jesteburg
     - point.de.Maschen-Rbf-Süd
     - point.de.Maschen-Rbf-Msof
     - point.de.Maschen-Rbf-Mswf
@@ -91,10 +91,16 @@ points:
     - point.de.Hamburg-Allermöhe                   # line.de.6100
 
 
+#-----------------------------------------------------------------------------
+
+#    point.de.Buchholz-Nordheide                 de.2200
+
+# line.de.1151: point.de.Reindorf
+#               point.de.Jesteburg-Bf
+
 ---
 key: point.de.Jesteburg
 type: point
-junction: True
 events:
     -   date: !!null
         category: de.Abzw
@@ -103,10 +109,20 @@ events:
         de.dstnr: !!str 017087
         source: src.de.DS100.1984
     -   date: !!null
+        de.name16: Jesteburg
+        PLC: DE15289
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
         location:
             line.de.1151: 260,35
             line.de.1280:   7,97
         source: src.de.DB.Hmb.Karte.1984
+    -   date: c2000
+        location:
+            line.de.1280: 7,677
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
     -   date: 1994-10-01?
         category: de.Üst
         source: src.de.SuW.2005
@@ -114,6 +130,10 @@ events:
     -   date: !!null
         site:
             path.de.1280: jes
+            path.de.1151: jes
+    -   date: c2000
+        site:
+            path.de.1280: jen
 
 
 ---

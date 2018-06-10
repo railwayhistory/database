@@ -14,7 +14,7 @@ events:
         de.VzG: !!str 1110
         source: src.de.DBAG.Geo-Strecke.2017
 
-    #   Verträge und Genehmigungen
+    #   Staatsverträge
     #
     -   date: 1870-04-08
         treaty:
@@ -24,6 +24,9 @@ events:
         document:
             -   src.de.l.lüb.1870.162
         source: src.de.DRG.1935 # 1873/9
+
+    #   Genehmigungen, Eigentümer und Betreiber
+    #
     -   date: 1870-07-02
         start: point.de.Bad-Schwartau-LGr
         concession:
@@ -59,6 +62,7 @@ events:
     -   date: 1908-05-01
         start: point.de.Lübeck-Nord
         status: open
+
     -   date: 1963-05-14
         start: point.de.Bad-Schwartau
         status: closed
@@ -70,19 +74,16 @@ events:
         category: de.Hauptbahn
         tracks: 1
         gauge: 1435mm
-
-    #   Eigentümer und Betriebsführer
-    #
+        source: src.de.DBAG.Geo-Strecke.2017
 
     #   Verlauf
     #
     -   date: !!null
-        course:
-            -   path.de.1023 eut f
-            -   path.de.1023 a alub
-            -   path.de.1110 a f
-            -   path.de.1100 aeut a
-            -   path.de.1120 a lub
+        end: point.de.Bad-Schwartau-Abzw
+        course: path.de.1110 eut swa
+    -   date: !!null
+        start: point.de.Bad-Schwartau-Abzw
+        course: path.de.1100 swa lun
 
 points:
     -   point.de.Eutin                              # de.1023
@@ -93,11 +94,11 @@ points:
     -   point.de.Gleschendorf
     -   point.de.Pansdorf
     -   point.de.Bad-Schwartau-Abzw                 # de.1100
-    -   point.de.Bad-Schwartau                      # de.1100
-    -   point.de.Bad-Schwartau-LGr                  # de.1100
-    -   point.de.Schwartau-Waldhalle-Wr             # de.1100
+    -   point.de.Bad-Schwartau
+    -   point.de.Bad-Schwartau-LGr
+    -   point.de.Schwartau-Waldhalle-Wr
     -   point.de.Lübeck-Nord
-    -   point.de.Lübeck-Hbf                         # de.1100
+    -   point.de.Lübeck-Hbf
 
 
 #-----------------------------------------------------------------------------
@@ -114,6 +115,10 @@ events:
         name: Eutin Lübecker Bf
     -   date: 1882-01-23?
         status: closed
+
+    -   date: !!null
+        site:
+            path.de.1110: eut
 
 
 ---
@@ -136,12 +141,13 @@ events:
     -   date: 1941-01-01
         de.lknr: 27 398
         source: src.de.Bfv.1944
+    -   date: 1980-05-31
+        status: closed
+
     -   date: !!null
         location:
             line.de.1110: 4,84
         source: src.de.DRG.Alt.Karte.1949
-    -   date: 1980-05-31
-        status: closed
 
     -   date: !!null    
         site:
@@ -169,10 +175,6 @@ events:
         name: Ottendorf (Holst)
         source: src.de.Bfv.1944
     -   date: !!null
-        location:
-            line.de.1110: 8,72
-        source: src.de.DRG.Alt.Karte.1949
-    -   date: !!null
         de.DS100: AOD
         de.dstnr: !!str 016378
         source: src.de.DS100.1984
@@ -180,6 +182,11 @@ events:
         service: freight
     -   date: c1995
         status: closed
+
+    -   date: !!null
+        location:
+            line.de.1110: 8,72
+        source: src.de.DRG.Alt.Karte.1949
 
     -   date: !!null    
         site:
@@ -210,17 +217,29 @@ events:
         de.lknr: 27 393
         source: src.de.Bfv.1944
     -   date: !!null
-        location:
-            line.de.1110: 11,560
-            line.de.1111:  0,000
-    -   date: !!null
         de.DS100: APN
         de.dstnr: !!str 016360
         source: src.de.DS100.1984
+    -   date: !!null
+        de.name16: Pönitz (Holst)
+        PLC: DE18452
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        location:
+            line.de.1110: 11,56
+            line.de.1111:  0,00
+        source: src.de.DRG.Alt.Karte.1949
+    -   date: c1970
+        location:
+            line.de.1110: 11,542
+        source:
+            -   src.de.DB.Hmb.Karte.1984
+            -   src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null    
         site:
             path.de.1110: pon
+            path.de.1111: pon
 
 
 ---
@@ -247,16 +266,17 @@ events:
         de.lknr: 27 392
         source: src.de.Bfv.1944
     -   date: !!null
-        location:
-            line.de.1110: 13,80
-        source: src.de.DRG.Alt.Karte.1949
-    -   date: !!null
         de.DS100: AGLD
         de.dstnr: !!str 016352
         source: src.de.DS100.1984
     -   date: 1985-06-01
         status: closed
         source: src.de.Kloth.1983
+
+    -   date: !!null
+        location:
+            line.de.1110: 13,80
+        source: src.de.DRG.Alt.Karte.1949
 
     -   date: !!null    
         site:
@@ -281,10 +301,6 @@ events:
         de.lknr: 27 391
         source: src.de.Bfv.1944
     -   date: !!null
-        location:
-            line.de.1110: 19,23
-        source: src.de.DRG.Alt.Karte.1949
-    -   date: !!null
         de.DS100: APF
         de.dstnr: !!str 016345
         source: src.de.DS100.1984
@@ -293,6 +309,21 @@ events:
         source: src.de.Kloth.1983
     -   date: 2000
         service: full
+    -   date: !!null
+        de.name16: Pansdorf
+        PLC: DE18251
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.1110: 19,23
+        source: src.de.DRG.Alt.Karte.1949
+    -   date: c1970
+        location:
+            line.de.1110: 19,251
+        source:
+            -   src.de.DB.Hmb.Karte.1984
+            -   src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null    
         site:
@@ -301,23 +332,3 @@ events:
 
 # point.de.Bad-Schwartau-Abzw                 de.1100
 
-# point.de.Bad-Schwartau                      de.1100
-
-# point.de.Bad-Schwartau-LGr                  de.1100
-
-# point.de.Schwartau-Waldhalle-Wr             de.1100
-
-
----
-key: point.de.Lübeck-Nord
-type: point
-subtype: reference
-junction: True
-events:
-    -   date: !!null
-        short_name: Lübeck Nord
-        site:
-            path.de.1100: lun
-
-
-# point.de.Lübeck-Hbf                         de.1100

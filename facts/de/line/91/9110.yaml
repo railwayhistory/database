@@ -61,36 +61,31 @@ events:
     -   date: 1944-07-10
         operator: org.de.Osthannoversche-Eisenbahnen
         source: src.de.WP.Bahnstrecke-Lueneburg-Bleckede
-    -   date: 2012-02-01
-        start: point.de.Lüneburg-Nord-DGr
-        operator: org.de.Bleckeder-Kleinbahn
-        source: src.de.WP.Bahnstrecke-Lueneburg-Bleckede
 
     #   Verlauf
     #
     -   date: !!null
-        course:
-            -   path.de.1150 lun  able
-            -   path.de.9110 a    f
-
+        course: path.de.9110 lun ble
 
 points:
-    - point.de.Lüneburg-Nord
-    - point.de.Lüneburg-Nord-DGr
-    - point.de.Erbstorf-Ziegelei
-    - point.de.Erbstorf
-    - point.de.Scharnebeck
-    - point.de.Rullstorf
-    - point.de.Boltersen
-    - point.de.Neetze
-    - point.de.Neu-Neetze
-    - point.de.Bleckede
+    -   point.de.Lüneburg-Nord
+    -   point.de.Lüneburg-Nord-Gr
+    -   point.de.Erbstorf-Ziegelei
+    -   point.de.Erbstorf
+    -   point.de.Scharnebeck
+    -   point.de.Rullstorf
+    -   point.de.Boltersen
+    -   point.de.Neetze
+    -   point.de.Neetze-Gabelung
+    -   point.de.Neu-Neetze
+    -   point.de.Bleckede
 
+
+#-----------------------------------------------------------------------------
 
 ---
 key: point.de.Lüneburg-Nord
 type: point
-junction: True
 events:
     -   date: !!null
         name: Lüneburg
@@ -110,28 +105,30 @@ events:
         source: src.de.DS100.1984
     -   date: !!null
         category: de.Bf
+        de.name16: Lüneburg Nord
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
         location:
             line.de.9110: 0,0
-        source: src.de.DBAG.ISR
+        source: src.de.DB.Hmb.Karte.1984
 
     -   date: !!null
         connection: point.de.Lüneburg
-
-    -   date: !!null
         site:
-            path.de.1150: lun
+            path.de.9110: lun
 
 
 ---
-key: point.de.Lüneburg-Nord-DGr
+key: point.de.Lüneburg-Nord-Gr
 type: point
 events:
     -   date: !!null
         location:
             line.de.9110: 1,218
-        name: Grenze OHE/BlKB
+        designation: Grenze OHE/BlKB
         site:
-            path.de.9110: glun
+            path.de.9110: lug
 
 
 ---
@@ -145,13 +142,16 @@ events:
         de.lknr: 40 315
         source: src.de.Bfv.1938
     -   date: !!null
+        de.DS100: HERZ
+        de.name16: Erbstorf Ziegelei
+        category: de.Bf
+        de.dstnr: !!str 520023
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
         location:
             line.de.9110: 3,4
-        category: de.Bf
         source: src.de.DB.Hmb.Karte.1984
-    -   date: !!null
-        de.DS100: HERZ
-        source: src.de.DBAG.ISR
 
     -   date: !!null
         site:
@@ -169,13 +169,16 @@ events:
         de.lknr: 40 313
         source: src.de.Bfv.1938
     -   date: !!null
+        de.DS100: HERT
+        de.name16: Erbstorf
+        category: de.Bf
+        de.dstnr: !!str 521005
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
         location:
             line.de.9110: 4,7
-        category: de.Bf
         source: src.de.DB.Hmb.Karte.1984
-    -   date: !!null
-        de.DS100: HERT
-        source: src.de.DBAG.ISR
 
     -   date: !!null
         site:
@@ -197,13 +200,14 @@ events:
         de.dstnr: !!str 520049
         source: src.de.DS100.1984
     -   date: !!null
+        category: de.Hp
+        de.name16: Scharnebeck
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
         location:
             line.de.9110: 7,3
-        category: de.Bf
         source: src.de.DB.Hmb.Karte.1984
-    -   date: c2010
-        category: de.Hp
-        source: src.de.DBAG.ISR
 
     -   date: !!null
         site:
@@ -225,13 +229,14 @@ events:
         de.dstnr: !!str 520056
         source: src.de.DS100.1984
     -   date: !!null
+        category: de.Hp
+        de.name16: Rullstorf
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
         location:
             line.de.9110: 8,9
-        category: de.Bf
         source: src.de.DB.Hmb.Karte.1984
-    -   date: c2010
-        category: de.Hp
-        source: src.de.DBAG.ISR
 
     -   date: !!null
         site:
@@ -251,14 +256,19 @@ events:
     -   date: !!null
         de.DS100: ABTS
         source: src.de.DS100.1984
+    -   date: c1990
+        de.DS100: HBT
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Boltersen
+        category: de.Bf
+        de.dstnr: !!str 520841
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         location:
             line.de.9110: 11,7
-        category: de.Bf
         source: src.de.DB.Hmb.Karte.1984
-    -   date: c1990
-        de.DS100: HBT
-        source: src.de.DBAG.ISR
 
     -   date: !!null
         site:
@@ -278,21 +288,35 @@ events:
     -   date: !!null
         de.DS100: ANET
         source: src.de.DS100.1984
+    -   date: c1990
+        de.DS100: HNET
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Neetze
+        category: de.Hp
+        de.dstnr: !!str 520072
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         location:
             line.de.9110: 16,0
-        category: de.Bf
         source: src.de.DB.Hmb.Karte.1984
-    -   date: c1990
-        de.DS100: HNET
-        source: src.de.DBAG.ISR
-    -   date: c2010
-        category: de.Hp
-        source: src.de.DBAG.ISR
 
     -   date: !!null
         site:
             path.de.9110: nee
+
+
+---
+key: point.de.Neetze-Gabelung
+type: point
+subtype: reference
+events:
+    -   date: !!null
+        designation: Neetze Gabelung
+        site:
+            path.de.9110: neg
+            path.de.8048: neg
 
 
 ---
@@ -303,11 +327,12 @@ events:
         name: Neu Neetze
         source: src.de.Kb.W1937
     -   date: !!null
-        category: de.Hp
-        location:
-            line.de.9110: 19,2
         de.DS100: HNNT
-        source: src.de.DBAG.ISR
+        name: Neu Neetze
+        de.name16: Neu Neetze
+        category: de.Hp
+        de.dstnr: !!str 520080
+        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
@@ -329,9 +354,13 @@ events:
         de.dstnr: !!str 520148
         source: src.de.DS100.1984
     -   date: !!null
+        de.name16: Bleckede
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
         location:
             line.de.9110: 23,8
-        category: de.Bf
         source: src.de.DB.Hmb.Karte.1984
 
     -   date: !!null

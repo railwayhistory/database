@@ -70,46 +70,37 @@ events:
     -   date: 2008-12-14
         electrified: de
 
-    #   Eigentümer und Betreiber
-    #
-    -   date: !!null
-        owner: org.de.Lübeck-Büchener-Eisenbahn
-        operator: org.de.Lübeck-Büchener-Eisenbahn
-        source: src.de.DRG.1935
-
     #   Verlauf
     #
     -   date: !!null
-        course:
-            -   path.de.1120 lub ber
-            -   path.de.6100 flub ham
+        course: path.de.1120 lub ham
 
 points:
     -   point.de.Lübeck-Hbf                         # de.1100
-    - point.de.Lübeck-Hgbf
-    - point.de.Lübeck-Hgbf-Abzw
-    - point.de.Lübeck-Genin-Abzw
-    - point.de.Lübeck-Genin-Fehlstelle
-    - point.de.Lübeck-Niendorf
-    - point.de.Wesenburg
-    - point.de.Reinfeld-Holst
-    - point.de.Steinfeld
-    - point.de.Bad-Oldesloe
-    - point.de.Kupfermuehle
-    - point.de.Tremsbuettel
+    -   point.de.Lübeck-Hgbf
+    -   point.de.Lübeck-Hgbf-Abzw
+    -   point.de.Lübeck-Genin-Abzw
+    -   point.de.Lübeck-Genin-Fehlstelle
+    -   point.de.Lübeck-Niendorf
+    -   point.de.Wesenburg
+    -   point.de.Reinfeld-Holst
+    -   point.de.Steinfeld
+    -   point.de.Bad-Oldesloe
+    -   point.de.Kupfermühle
+    -   point.de.Tremsbüttel
     -   point.de.Bargteheide
-    - point.de.Delingsdorf
+    -   point.de.Delingsdorf
     -   point.de.Ahrensburg-Gartenholz
     -   point.de.Ahrensburg-Nord
     -   point.de.Ahrensburg
-    - point.de.Ahrensburg-LGr
-    - point.de.Meiendorf
-    - point.de.Hamburg-Rahlstedt-Bbf
-    - point.de.Hamburg-Rahlstedt
-    - point.de.Wandsbek-Ost-Bk
-    - point.de.Hamburg-Tonndorf
-    - point.de.Hamburg-Wandsbek-Wf
-    - point.de.Hamburg-Wandsbek
+    -   point.de.Ahrensburg-LGr
+    -   point.de.Meiendorf
+    -   point.de.Hamburg-Rahlstedt-Bbf
+    -   point.de.Hamburg-Rahlstedt
+    -   point.de.Wandsbek-Ost-Bk
+    -   point.de.Hamburg-Tonndorf
+    -   point.de.Hamburg-Wandsbek-Wf
+    -   point.de.Hamburg-Wandsbek
     -   point.de.Hamburg-Hasselbrook-S-Bahn         # de.1241
     -   point.de.Hamburg-Hasselbrook
     -   point.de.Hamburg-Berliner-Tor
@@ -152,21 +143,36 @@ events:
         name: Lübeck Hgbf
         source: src.de.DS100.1984
     -   date: !!null
+        de.name16: Lübeck Hgbf
+        PLC: DE16560
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
         location:
-            line.de.1120: 2,150
-            line.de.1121: 2,150
-            line.de.1122: 2,204
-        source: src.de.DBAG.ISR
+            line.de.1120: 2,28
+            line.de.1121: 2,26
+            line.de.1122: 2,20
+        source: src.de.DB.Hmb.Karte.1984
+    -   date: c2000
+        location:
+            line.de.1120: !!null
+            line.de.1121: !!null
+            line.de.1122: !!null
+            line.de.1130: 1,800
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
             path.de.1120: lug
+            path.de.1121: lug
+            path.de.1122: lug
+            path.de.1130: lug
+            path.de.1131: lug
 
 
 ---
 key: point.de.Lübeck-Hgbf-Abzw
 type: point
-junction: True
 events:
     -   date: !!null
         category: de.Glgr
@@ -174,27 +180,35 @@ events:
         de.DS100: ALR A
         source: src.de.DS100.1984
     -   date: c2000
-        category: de.Abzw
-        name: Lübeck Hgbf Abzw
         de.DS100: ALRA
-        source:
-            - src.de.SuW.2005
-            - src.de.TPP.2006
+        name: Lübeck Hgbf Abzw
+        de.name16: Lübeck Hgbf Abzw
+        category: [de.Bft, de.Abzw]
+        PLC: DE16561
+        de.dstnr: !!str 693424
+        source: src.de.DBAG.BSV.2017
     -   date: !!null
         location:
             line.de.1120: 2,488
             line.de.1121: 2,482
-            line.de.1122: 2,598
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+    -   date: !!null
+        location:
+            line.de.1130: 2,518
+        source: src.de.DBAG.Geo-Strecke.2017
 
     -   date: !!null
         site:
             path.de.1120: lua
+            path.de.1121: lua
+            path.de.1122: lua
+            path.de.1130: lua
+            path.de.1135: lua
 
 
 ---
 key: point.de.Lübeck-Genin-Abzw
 type: point
-junction: True
 events:
     -   date: 1908-05-01?
         status: open
@@ -213,7 +227,9 @@ subtype: break
 events:
     -   date: !!null
         location:
-            line.de.1120: 4,7+50=5,8
+            line.de.1120: 4,751=5,800
+        source: src.de.DBAG.Geo-Strecke.2017
+    -   date: !!null
         site:
             path.de.1120: gef
 
@@ -241,14 +257,24 @@ events:
         de.rang: IV
         source: src.de.Bfv.1944
     -   date: !!null
-        location:
-            line.de.1120: 7,52
-        source: src.de.DRG.Alt.Karte.1945
-    -   date: !!null
         de.DS100: AND
         de.dstnr: !!str 016808
-    -   date: c2005
+        source: src.de.DS100.1984
+    -   date: c1995
+        de.DS100: ALN
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Lübeck-Niendorf
+        PLC: DE16577
+        source: src.de.DBAG.BSV.2017
+    -   date: 2008-06-20
         status: closed
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.1120: 7,511
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -264,7 +290,7 @@ events:
         location:
             line.de.1120: 11,55
         name: Wesenburg
-        source: src.de.DRG.Alt.Karte.1945
+        source: src.de.DRG.Alt.Karte.1949
     -   date: c1970
         status: closed
 
@@ -293,13 +319,18 @@ events:
         de.rang: II
         source: src.de.Bfv.1944
     -   date: !!null
-        location:
-            line.de.1120: 15,84
-        source: src.de.DRG.Alt.Karte.1945
-    -   date: !!null
         de.DS100: ARD
         de.dstnr: !!str 016816
         source: src.de.DS100.1984
+    -   date: !!null
+        de.name16: Reinfeld (Holst)
+        PLC: DE18755
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.1120: 15,833
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -349,10 +380,14 @@ events:
         de.dstnr: !!str 013268
         source: src.de.DS100.1984
     -   date: !!null
+        de.name16: Bad Oldesloe
+        PLC: DE10507
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
         location:
             line.de.9120: 52,7
         source: src.de.SuW.2005
-
     -   date: !!null
         location:
             line.de.1043: 119,54
@@ -363,16 +398,18 @@ events:
     -   date: c2000
         location:
             line.de.1043: 119,574
+            line.de.1120:  23,887
         source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
             path.de.1120: old
             path.de.1043: old
+            path.de.1141: old
 
  
 ---
-key: point.de.Kupfermuehle
+key: point.de.Kupfermühle
 type: point
 events:
     -   date: !!null
@@ -387,9 +424,7 @@ events:
         source: src.de.Bfv.1938
     -   date: !!null
         category: [de.Hp, de.Bk]
-        location:
-            line.de.1120: 29,97
-        source: src.de.DRG.Alt.Karte.1945
+        source: src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.DS100: AKUP
         de.dstnr: !!str 016303
@@ -397,6 +432,15 @@ events:
     -   date: c1970
         category: de.Hp
         source: src.de.DS100.1984
+    -   date: !!null
+        de.name16: Kupfermühle
+        PLC: DE15970
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.1120: 29,971
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -404,7 +448,7 @@ events:
 
 
 ---
-key: point.de.Tremsbuettel
+key: point.de.Tremsbüttel
 type: point
 events:
     -   date: c1960
@@ -429,10 +473,6 @@ events:
 key: point.de.Bargteheide
 type: point
 events:
-    -   date: !!null
-        location:
-            line.de.1120: 35,405
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
     -   date: !!null    
         name: Bargteheide
         source: src.de.Kb.1914
@@ -456,6 +496,11 @@ events:
         de.name16: Bargteheide
         PLC: DE10635
         source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.1120: 35,405
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -493,6 +538,7 @@ events:
         PLC: DE10069
         de.dstnr: !!str 899401
         source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         location:
             line.de.1120: 39,910
@@ -518,6 +564,7 @@ events:
         PLC: DE10067
         de.dstnr: !!str 909500
         source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         location:
             line.de.1120: 40,300
@@ -559,6 +606,7 @@ events:
         de.name16: Ahrensburg
         PLC: DE10066
         source: src.de.DBAG.BSV.2017
+
     -   date: c2000
         location:
             line.de.1120: 42,437
@@ -575,9 +623,13 @@ type: point
 subtype: border
 events:
     -   date: !!null
-        category: de.LGr
-        name: Ahrensburg SH/HH
         de.DS100: AQAH
+        name: Ahrensburg SH/HH
+        de.name16: Ahrensburg SH/HH
+        category: de.LGr
+        PLC: DE10068
+        de.dstnr: !!str 103963
+        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
@@ -593,7 +645,7 @@ events:
         location:
             line.de.1120: 47,40
         name: Meiendorf
-        source: src.de.DRG.Alt.Karte.1945
+        source: src.de.DRG.Alt.Karte.1949
     -   date: c1980
         status: closed
 
@@ -607,13 +659,13 @@ key: point.de.Hamburg-Rahlstedt-Bbf
 type: point
 events:
     -   date: c1990
-        status: open
-        category: de.Bft
-        location:
-            line.de.1120: 51,0
-        name: Hamburg-Rahlstedt Bbf
         de.DS100: ARALB
-        source: src.de.SuW.2005
+        name: Hamburg-Rahlstedt Bbf
+        de.name16: Hmb-Rahl Bbf
+        category: de.Bft
+        PLC: DE14473
+        de.dstnr: !!str 911261
+        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
@@ -646,13 +698,18 @@ events:
         name: Hamburg-Rahlstedt
         source: src.de.Bfv.1938
     -   date: !!null
-        location:
-            line.de.1120: 51,66
-        source: src.de.DRG.Alt.Karte.1945
-    -   date: !!null
         de.DS100: ARAL
         de.dstnr: !!str 016279
-        source: src.de.DS100.1982
+        source: src.de.DS100.1984
+    -   date: !!null
+        de.name16: Hmb-Rahlstedt
+        PLC: DE14472
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.1120: 51,665
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -695,16 +752,21 @@ events:
         name: Wandsbek Ost
         source: src.de.Bfv.1944
     -   date: !!null
-        location:
-            line.de.1120: 54,44
-        source: src.de.DRG.Alt.Karte.1945
-    -   date: !!null
         de.DS100: AOW
         de.dstnr: !!str 016253
         source: src.de.DS100.1984
-    -   date: c2005
+    -   date: !!null
+        PLC: DE14489
+        source: src.de.DBAG.BSV.2017
+    -   date: 2008-12-14
         name: Hamburg-Tonndorf
-        source: src.de.DBAG.ISR
+        de.name16: Hamburg-Tonndorf
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.1120: 54,436
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -716,15 +778,13 @@ key: point.de.Hamburg-Wandsbek-Wf
 type: point
 events:
     -   date: !!null
-        category: de.Bft
-        location:
-            line.de.1242: 57,0
-            line.de.1120: 57,0
-        source: src.de.SuW.2005
-    -   date: !!null
         de.DS100: AWN F
         name: Hamburg-Wandsbek Wf
-        source: src.de.TPP.2006
+        de.name16: Hmb-Wandsbek Wf
+        category: de.Bft
+        PLC: DE14495
+        de.dstnr: !!str 910809
+        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
@@ -752,15 +812,23 @@ events:
         name: Hamburg-Wandsbek
         source: src.de.web.Nosske
     -   date: !!null
-        location:
-            line.de.1242: 58,19
-            line.de.1120: 58,19
-        source:
-            - src.de.DRG.Alt.Karte.1945
-    -   date: !!null
         de.DS100: AWN
         de.dstnr: !!str 016261
         source: src.de.DS100.1984
+    -   date: !!null
+        de.name16: Hamburg-Wandsbek
+        PLC: DE14494
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.1242: 58,19
+            line.de.1120: 58,19
+        source: src.de.DRG.Alt.Karte.1949
+    -   date: c2000
+        location:
+            line.de.1120: 58,200
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -782,17 +850,46 @@ events:
         de.DS100: AHSF
         de.dstnr: !!str 011270
         source: src.de.DS100.1984
+    -   date: c2000
+        de.dstnr: !!str 011247
+        name: Hamburg-Hasselbrook
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Hasselbrook
+        PLC: DE14391
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         location:
-            line.de.1120: 59,7
-        source: src.de.SuW.2005
-    -   date: c2000
-        name: Hamburg-Hasselbrook
-        source: src.de.TPP.2006
+            line.de.1120: 59,689
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
             path.de.1120: has
+
+
+---
+key: point.de.Hamburg-Berliner-Tor-Üst
+type: point
+events:
+    -   date: 2014-12-14?
+        status: open
+        de.DS100: AHBT
+        name: Hamburg Berliner Tor (Üst)
+        de.name16: Hmb Bln Tor Üst
+        category: de.Üst
+        PLC: DE14380
+        de.dstnr: !!str 108804
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        location:
+            line.de.1120: 61,671
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+    -   date: !!null
+        site:
+            path.de.1120: btu
 
 
 ---
@@ -814,14 +911,29 @@ events:
         de.lknr: 01 070
         source: src.de.Bfv.1933
     -   date: !!null
+        de.dstnr: !!str 010264
+        de.DS100: ABTB
+        source: src.de.DS100.1984
+    -   date: c1995
+        de.DS100: ABTS
+        category: de.Bft
+        name: Hamburg Berliner Tor
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Berliner Tor
+        PLC: DE14379
+        source: src.de.DBAG.BSV.2017
+    -   date: 2017-12-10
+        status: closed
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
         location:
             line.de.1241: 1,53
             line.de.1244: 1,53
             line.de.1120: 62,32
             line.de.6100: 285,13
         source: src.de.DRG.Alt.Karte.1949
-    -   date: c1970
-        status: closed
 
     -   date: !!null
         site:
@@ -841,7 +953,7 @@ events:
 
     -   date: !!null
         site:
-            path.de.6100: lub
+            path.de.1120: lub
 
 
 #    point.de.Hamburg-Hbf                        de.6100

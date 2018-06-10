@@ -17,15 +17,15 @@ events:
     #
     -   date: c1950
         start: point.de.Neustadt-Holst-Gbf
-        end: point.de.Suedschleuse
+        end: point.de.Südschleuse
         status: open
     -   date: 1951-05-14
-        start: point.de.Luetjenbrode-Sued
-        end: point.de.Luetjenbrode-Ost
+        start: point.de.Lütjenbrode-Süd
+        end: point.de.Lütjenbrode-Ost
         status: open
         source: src.de.web.Kuestenbahn
     -   date: 1963-04-30
-        start: point.de.Grossenbrode
+        start: point.de.Großenbrode
         end: point.de.Burg-Fehmarn-West
         status: open
         source: src.de.web.Kuestenbahn
@@ -33,12 +33,12 @@ events:
         end: point.de.Neustadt-Holst-Gbf
         status: open
     -   date: 1963-05-14
-        start: point.de.Suedschleuse
-        end: point.de.Luetjenbrode-Sued
+        start: point.de.Südschleuse
+        end: point.de.Lütjenbrode-Süd
         status: open
     -   date: 1963-05-14
-        start: point.de.Luetjenbrode-Ost
-        end: point.de.Grossenbrode
+        start: point.de.Lütjenbrode-Ost
+        end: point.de.Großenbrode
         status: open
     -   date: 1963-05-14
         start: point.de.Burg-Fehmarn-West
@@ -73,12 +73,11 @@ events:
     #   Verlauf
     #
     -   date: !!null
-        course:
-            -   path.de.1120 lub a
-            -   path.de.1100 a f
+        course: path.de.1100 lub put
 
 points:
     -   point.de.Lübeck-Hbf
+    -   point.de.Lübeck-Nord
     -   point.de.Schwartau-Waldhalle-Wr
     -   point.de.Bad-Schwartau-LGr
     -   point.de.Bad-Schwartau
@@ -89,28 +88,31 @@ points:
     -   point.de.Haffkrug
     -   point.de.Sierksdorf-Hp
     -   point.de.Sierksdorf
-    -   point.de.Neustadt-Holst-Gbf             # line.de.11300
-    -   point.de.Suedschleuse
+    -   point.de.Neustadt-Holst-Gbf                 # de.1023
+    -   point.de.Südschleuse
     -   point.de.Hasselburg
-    -   point.de.Gross-Schlamin
-    -       point.de.Beschendorf
+    -   point.de.Groß-Schlamin
+    -   point.de.Beschendorf
     -   point.de.Lensahn
-    -   point.de.Gruener-Hirsch
+    -   point.de.Grüner-Hirsch
     -   point.de.Oldenburg-Holst-Gbf
     -   point.de.Oldenburg-Holst
     -   point.de.Oldenburg-Holst-Stadt
-    -   point.de.Goehl
+    -   point.de.Göhl
     -   point.de.Heringsdorf-Holst
     -   point.de.Neukirchen-Holst
-    -   point.de.Luetjenbrode-Sued
-    -   point.de.Luetjenbrode-Ost
-    -   point.de.Grossenbrode-Abzw
-    -   point.de.Grossenbrode
+    -   point.de.Lütjenbrode-Süd
+    -   point.de.Lütjenbrode-Ost
+    -   point.de.Großenbrode-Abzw
+    -   point.de.Großenbrode
     -   point.de.Strukkamp
-    -       point.de.Burg-Fehmarn-West
+    -   point.de.Burg-Fehmarn-West
     -   point.de.Burg-West-Nordkurve
     -   point.de.Puttgarden-Ps
     -   point.de.Puttgarden
+
+
+#-----------------------------------------------------------------------------
 
 ---
 key: point.de.Lübeck-Hbf
@@ -134,29 +136,46 @@ events:
         de.rang: I
         source: src.de.Bfv.1944
     -   date: !!null
+        de.DS100: AL
+        de.dstnr: !!str 016311
+        source: src.de.DS100.1984
+    -   date: !!null
+        de.name16: Lübeck Hbf
+        PLC: DE16559
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
         location:
             line.de.1110: 32,96
             line.de.1121: -1,6
         source: src.de.DRG.Alt.Karte.1949
     -   date: !!null
-        de.DS100: AL
-        de.dstnr: !!str 016311
-        source: src.de.DS100.1984
-    -   date: !!null
         location:
-            line.de.8025: 0,0
-        source: src.de.SuW.2005
+            line.de.1120: 0,000
+        source: src.de.DBAG.Geo-Strecke.2017
     -   date: !!null
         location:
             line.de.1100: 0,000
-            line.de.1120: 0,000
-            line.de.1121: 0,000
-            line.de.1122: 0,484
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.Geo-Strecke.2017
 
     -   date: !!null
         site:
+            path.de.1100: lub
             path.de.1120: lub
+            path.de.1121: lub
+            path.de.1122: lub
+            path.de.1130: lub
+
+
+---
+key: point.de.Lübeck-Nord
+type: point
+subtype: reference
+events:
+    -   date: !!null
+        short_name: Lübeck Nord
+        site:
+            path.de.1100: lun
 
 
 ---
@@ -164,26 +183,42 @@ key: point.de.Schwartau-Waldhalle-Wr
 type: point
 events:
     -   date: !!null
-        location:
-            line.de.1113: 4,88
-            line.de.1110: 28,04
+        de.dstnr: !!str 017210
+        de.DS100: AWR
+        name: Schwarzau-Waldhalle (Wr)
         category: de.Abzw
-        name: Wr
-        source: src.de.DRG.Alt.Karte.1949
+        source: src.de.DS100.1984
     -   date: !!null
         location:
             line.de.1100: 4,9
         source: src.de.SuW.2005
-    -   date: !!null
-        de.DS100: AWR
-        source: src.de.TPP.2006
     -   date: c2000
         name: Schwartau Waldhalle
         source: src.de.TPP.2006
+    -   date: !!null
+        de.name16: Schwart Waldh
+        PLC: DE19548
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.1113: 4,88
+            line.de.1110: 28,04
+        source: src.de.DRG.Alt.Karte.1949
+    -   date: !!null
+        location:
+            line.de.1100: 4,89
+        source: src.de.DB.Hmb.Karte.1984
+    -   date: c2000
+        location:
+            line.de.1100: 4,699
+            line.de.1113: 4,699
+        source: src.de.DBAG.Geo-Strecke.2017
 
     -   date: !!null
         site:
             path.de.1100: wal
+            path.de.1113: wal
 
 
 ---
@@ -193,7 +228,9 @@ subtype: border
 progress: stub
 events:
     -   date: !!null
-        name: Bad Schwartau Lüb/Old
+        designation: Bad Schwartau Lüb/Old
+        site:
+            path.de.1100: swg
 
 
 ---
@@ -212,29 +249,39 @@ events:
     -   date: !!null
         category: de.Bf
         de.rang: II
+        de.lknr:
+            -   41 825
+            -   01 344
         note:
             deu: >
-                Gemeinschaftsbf. Lochkartennr. RBD Altona: 01 344
-        source: src.de.Bfv.1933
+                „Gemeinschaftsbf der Eutin—Lübecker Eisenb u der RBD
+                Hamburg, der Gesamtdienst wird von der Eutin—Lübecker
+                Eisenb wahrgenommen“
+        source: src.de.Bfv.1938
     -   date: c1940
         de.lknr: 27 365
         source: src.de.Bfv.1944
+    -   date: !!null
+        de.DS100: ASCH
+        de.dstnr: !!str 016337
+        source: src.de.DS100.1984
+    -   date: !!null
+        de.name16: Bad Schwartau
+        PLC: DE10543
+        source: src.de.DBAG.BSV.2017
+    -   date: 2008-12-14
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         location:
             line.de.1110: 26,94
             line.de.8023: 0,00
         source: src.de.DRG.Alt.Karte.1949
     -   date: !!null
-        de.DS100: ASCH
-        de.dstnr: !!str 016337
-        source: src.de.DS100.1984
-    -   date: !!null
         location:
             line.de.1100: 6,002
-        source: src.de.DBAG.ISR
-    -   date: c2010
-        category: de.Hp
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -248,19 +295,24 @@ events:
     -   date: c1990
         status: open
     -   date: !!null
-        name: Bad Schwartau Abzw
         de.DS100: ASCA
-        source: src.de.TPP.2006
-    -   date: !!null
+        name: Bad Schwartau Abzw
+        de.name16: B Schwart Abzw
         category: de.Abzw
+        PLC: DE10544
+        de.dstnr: !!str 733923
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
         location:
-            line.de.1100:  6,443
+            line.de.1100: 6,443
             line.de.1110: 26,505
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
             path.de.1100: swa
+            path.de.1110: swa
 
 
 ---
@@ -287,10 +339,6 @@ events:
         de.lknr: 27 366
         staff: full
         source: src.de.Bfv.1944
-    -   date: !!null
-        location:
-            line.de.8023: 4,80
-        source: src.de.DRG.Alt.Karte.1949
     -   date: c1970
         service: none
     -   date: !!null
@@ -301,9 +349,18 @@ events:
         staff: none
         source: src.de.DS100.1984
     -   date: !!null
+        de.name16: Ratekau
+        PLC: DE18656
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.8023: 4,80
+        source: src.de.DRG.Alt.Karte.1949
+    -   date: !!null
         location:
             line.de.1100: 10,588
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -329,20 +386,25 @@ events:
         de.lknr: 27 367
         source: src.de.Bfv.1944
     -   date: !!null
-        location:
-            line.de.8023: 9,77
-        source: src.de.DRG.Alt.Karte.1949
-    -   date: !!null
         de.DS100: ATIM
         de.dstnr: !!str 016402
         source: src.de.DS100.1984
     -   date: !!null
+        PLC: DE20280
+        source: src.de.DBAG.BSV.2017
+    -   date: 2012-12-09
+        name: Timmendorfer Strand
+        de.name16: Timmend Strand
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.8023: 9,77
+        source: src.de.DRG.Alt.Karte.1949
+    -   date: !!null
         location:
             line.de.1100: 15,766
-        source: src.de.DBAG.ISR
-    -   date: 2012
-        name: Timmendorfer Strand
-        source: src.de.TPP.2013
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -368,17 +430,22 @@ events:
         de.lknr: 27 368
         source: src.de.Bfv.1944
     -   date: !!null
-        location:
-            line.de.8023: 12,71
-        source: src.de.DRG.Alt.Karte.1949
-    -   date: !!null
         de.DS100: ASAZ
         de.dstnr: !!str 016410
         source: src.de.DS100.1984
     -   date: !!null
+        de.name16: Scharbeutz
+        PLC: DE19304
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.8023: 12,71
+        source: src.de.DRG.Alt.Karte.1949
+    -   date: !!null
         location:
             line.de.1100: 18,698
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -404,17 +471,22 @@ events:
         de.lknr: 27 369
         source: src.de.Bfv.1944
     -   date: !!null
-        location:
-            line.de.8023: 17,07
-        source: src.de.DRG.Alt.Karte.1949
-    -   date: !!null
         de.DS100: AHAF
         de.dstnr: !!str 016428
         source: src.de.DS100.1984
     -   date: !!null
+        de.name16: Haffkrug
+        PLC: DE14232
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.8023: 17,07
+        source: src.de.DRG.Alt.Karte.1949
+    -   date: !!null
         location:
             line.de.1100: 23,044
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -433,10 +505,6 @@ events:
         name: Sierksdorf
         master: point.de.Sierksdorf
         source: src.de.DS100.1984
-    -   date: !!null
-        location:
-            line.de.1100: 25,3
-        source: src.de.SuW.2005
     -   date: c1990
         name: Sierksdorf Hp
         category: [de.Hp, de.Bft]
@@ -444,14 +512,15 @@ events:
     -   date: c2010
         status: closed
         merged: point.de.Sierksdorf
+
     -   date: !!null
         location:
-            line.de.1100: 24,400
-        source: src.de.DBAG.ISR
+            line.de.1100: 25,3
+        source: src.de.SuW.2005
 
     -   date: !!null
         site:
-            path.de.1100: sih
+            path.de.1100: sie
 
 
 ---
@@ -474,21 +543,40 @@ events:
         master: !!null
         source: src.de.Bfv.1944
     -   date: !!null
+        de.DS100: ASID
+        de.dstnr: !!str 016436
+        source: src.de.DS100.1984
+    -   date: !!null
+        de.name16: Sierksdorf
+        PLC: DE19737
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
         location:
             line.de.8023: 19,38
         source: src.de.DRG.Alt.Karte.1949
     -   date: !!null
-        de.DS100: ASID
-        de.dstnr: !!str 016436
-        source: src.de.DS100.1984
+        location:
+            line.de.1100: 26,16
+        source: src.de.DB.Hmb.Karte.1984
+    -   date: c2010
+        location:
+            line.de.1100: 25,400
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
+    -   date: !!null
+        site:
+            path.de.1100: sib
     -   date: !!null
         site:
             path.de.1100: sie
 
 
+#    point.de.Neustadt-Holst-Gbf                 de.1023
+
+
 ---
-key: point.de.Suedschleuse
+key: point.de.Südschleuse
 type: point
 events:
     -   date: c1950
@@ -521,10 +609,6 @@ events:
         de.lknr: 27 373
         source: src.de.Bfv.1944
     -   date: !!null
-        location:
-            line.de.8024: 5,31
-        source: src.de.DRG.Alt.Karte.1949
-    -   date: !!null
         de.DS100: AHSG
         de.dstnr: !!str 016451
         source: src.de.DS100.1984
@@ -535,9 +619,18 @@ events:
         service: none
         staff: none
     -   date: !!null
+        de.name16: Hasselburg
+        PLC: DE14615
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.8023: 5,31
+        source: src.de.DRG.Alt.Karte.1949
+    -   date: !!null
         location:
             line.de.1100: 34,467
-        source: src.de.SuW.2005
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -545,7 +638,7 @@ events:
 
 
 ---
-key: point.de.Gross-Schlamin
+key: point.de.Groß-Schlamin
 type: point
 events:
     -   date: !!null
@@ -561,20 +654,25 @@ events:
         de.rang: IV
         de.lknr: 27 374
         source: src.de.Bfv.1944
-    -   date: !!null
-        location:
-            line.de.8024: 9,21
-        source: src.de.DRG.Alt.Karte.1949
+    -   date: c1980
+        service: none
     -   date: !!null
         de.DS100: AGR
         de.dstnr: !!str 016469
         source: src.de.DS100.1984
     -   date: !!null
+        de.name16: Groß Schlamin
+        PLC: DE14024
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.8023: 9,21
+        source: src.de.DRG.Alt.Karte.1949
+    -   date: !!null
         location:
             line.de.1100: 38,365
-        source: src.de.DBAG.ISR
-    -   date: c1980
-        service: none
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -600,10 +698,6 @@ events:
         service: full
         source: src.de.Bfv.1944
     -   date: !!null
-        location:
-            line.de.8024: 11,31
-        source: src.de.DRG.Alt.Karte.1949
-    -   date: !!null
         de.DS100: ABDF
         de.dstnr: !!str 016477
         source: src.de.DS100.1984
@@ -617,6 +711,11 @@ events:
         de.name16: Beschendorf
         PLC: DE11185
         source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.8023: 11,31
+        source: src.de.DRG.Alt.Karte.1949
     -   date: !!null
         location:
             line.de.1100: 41,684
@@ -645,17 +744,22 @@ events:
         de.lknr: 27 376
         source: src.de.Bfv.1944
     -   date: !!null
-        location:
-            line.de.8024: 15,80
-        source: src.de.DRG.Alt.Karte.1949
-    -   date: !!null
         de.DS100: ALS
         de.dstnr: !!str 016485
         source: src.de.DS100.1984
     -   date: !!null
+        de.name16: Lensahn
+        PLC: DE16306
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.8023: 15,80
+        source: src.de.DRG.Alt.Karte.1949
+    -   date: !!null
         location:
             line.de.1100: 44,963
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -663,7 +767,7 @@ events:
 
 
 ---
-key: point.de.Gruener-Hirsch
+key: point.de.Grüner-Hirsch
 type: point
 events:
     -   date: !!null
@@ -684,22 +788,27 @@ events:
         staff: full
         source: src.de.Bfv.1944
     -   date: !!null
-        location:
-            line.de.8024: 17,94
-        source: src.de.DRG.Alt.Karte.1949
-    -   date: !!null
         de.DS100: AGHI
         de.dstnr: !!str 016493
-        source: src.de.TPP.2006
+        source: src.de.DS100.1984
     -   date: c1960
         category: de.Bf
     -   date: c1970
         service: none
         staff: none
     -   date: !!null
+        de.name16: Grüner Hirsch
+        PLC: DE14146
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.8023: 17,94
+        source: src.de.DRG.Alt.Karte.1949
+    -   date: !!null
         location:
             line.de.1100: 47,096
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -711,14 +820,13 @@ key: point.de.Oldenburg-Holst-Gbf
 type: point
 events:
     -   date: !!null
-        name: Oldenburg (Holst) Gbf
         de.DS100: AOL A
-        source: src.de.TPP.2006
-    -   date: !!null
-        location:
-            line.de.1100: 51,7
+        name: Oldenburg (Holst) Gbf
+        de.name16: Oldenburg(H) Gbf
         category: de.Bft
-        source: src.de.SuW.2011
+        PLC: DE18115
+        de.dstnr: !!str 908678
+        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
@@ -743,17 +851,22 @@ events:
         de.lknr: 27 378
         source: src.de.Bfv.1944
     -   date: !!null
-        location:
-            line.de.8024: 23,13
-        source: src.de.DRG.Alt.Karte.1949
-    -   date: !!null
         de.DS100: AOL
         de.dstnr: !!str 016501
         source: src.de.DS100.1984
     -   date: !!null
+        de.name16: Oldenburg(Holst)
+        PLC: DE18114
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.8023: 23,13
+        source: src.de.DRG.Alt.Karte.1949
+    -   date: !!null
         location:
             line.de.1100: 52,272
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -785,10 +898,6 @@ events:
         staff: full
         source: src.de.Bfv.1944
     -   date: !!null
-        location:
-            line.de.8024: 24,05
-        source: src.de.DRG.Alt.Karte.1949
-    -   date: !!null
         de.DS100: AOLS
         source: src.de.DS100.1984
     -   date: c1970
@@ -798,12 +907,17 @@ events:
         status: closed
 
     -   date: !!null
+        location:
+            line.de.8023: 24,05
+        source: src.de.DRG.Alt.Karte.1949
+
+    -   date: !!null
         site:
             path.de.1100: ols
 
 
 ---
-key: point.de.Goehl
+key: point.de.Göhl
 type: point
 events:
     -   date: !!null
@@ -819,21 +933,26 @@ events:
         de.rang: IV
         de.lknr: 27 380
         source: src.de.Bfv.1944
-    -   date: !!null    
-        location:
-            line.de.8024: 27,46
-        source: src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.DS100: AGOE
         de.dstnr: !!str 016527
         source: src.de.DS100.1984
-    -   date: !!null
-        location:
-            line.de.1100: 56,603
-        source: src.de.DBAG.ISR
     -   date: c1970
         service: none
         staff: none
+    -   date: !!null
+        de.name16: Göhl
+        PLC: DE13810
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null    
+        location:
+            line.de.8023: 27,46
+        source: src.de.DRG.Alt.Karte.1949
+    -   date: !!null
+        location:
+            line.de.1100: 56,603
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -860,24 +979,29 @@ events:
         de.rang: IV
         de.lknr: 27 381
         source: src.de.Bfv.1944
-    -   date: !!null    
-        location:
-            line.de.8024: 32,30
-        source: src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.DS100: AHER
         de.dstnr: !!str 016535
         source: src.de.TPP.2006
-    -   date: !!null
-        location:
-            line.de.1100: 61,4
-        source: src.de.SuW.2005
     -   date: c1970
         service: none
         staff: none
-    -   date: 2008
+    -   date: 2009-01-24
         status: closed
-        source: src.de.TPP.2009
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Heringsdorf(Hol)
+        PLC: DE14805
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null    
+        location:
+            line.de.8023: 32,30
+        source: src.de.DRG.Alt.Karte.1949
+    -   date: !!null
+        location:
+            line.de.1100: 61,42
+        source: src.de.DB.Hmb.Karte.1984
 
     -   date: !!null
         site:
@@ -904,21 +1028,26 @@ events:
         de.rang: IV
         de.lknr: 27 382
         source: src.de.Bfv.1944
-    -   date: !!null    
-        location:
-            line.de.8024: 35,24
-        source: src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.DS100: ANEK
         de.dstnr: !!str 016543
-        source: src.de.TPP.2006
+        source: src.de.DS100.1984
     -   date: c1970
         service: none
         staff: none
     -   date: !!null
+        de.name16: Neukirchen/Holst
+        PLC: DE17558
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null    
+        location:
+            line.de.8023: 35,24
+        source: src.de.DRG.Alt.Karte.1949
+    -   date: !!null
         location:
             line.de.1100: 64,349
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -926,7 +1055,7 @@ events:
 
 
 ---
-key: point.de.Luetjenbrode-Sued
+key: point.de.Lütjenbrode-Süd
 type: point
 events:
     -   date: c1960
@@ -939,10 +1068,11 @@ events:
     -   date: !!null
         site:
             path.de.1100: lus
+            path.de.1102: lus
 
 
 ---
-key: point.de.Luetjenbrode-Ost
+key: point.de.Lütjenbrode-Ost
 type: point
 events:
     -   date: c1960
@@ -962,16 +1092,16 @@ events:
     -   date: !!null
         site:
             path.de.1100: luo
+            path.de.1101: luo
 
 
 ---
-key: point.de.Grossenbrode-Abzw
+key: point.de.Großenbrode-Abzw
 type: point
 subtype: reference
 events:
     -   date: !!null
-        name: Großenbrode, Abzw zum Kai
-        short_name: Großenbrode
+        designation: Großenbrode, Abzw zum Kai
 
     -   date: !!null
         site:
@@ -979,7 +1109,7 @@ events:
 
 
 ---
-key: point.de.Grossenbrode
+key: point.de.Großenbrode
 type: point
 events:
     -   date: !!null
@@ -995,18 +1125,23 @@ events:
         de.rang: IV
         de.lknr: 27 385
         source: src.de.Bfv.1944
-    -   date: !!null    
-        location:
-            line.de.8024: 3,04
-        source: src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.DS100: AGRO
         de.dstnr: !!str 016576
-        source: src.de.TPP.2006
+        source: src.de.DS100.1984
+    -   date: !!null
+        de.name16: Großenbrode
+        PLC: DE14057
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null    
+        location:
+            line.de.8027: 3,04
+        source: src.de.DRG.Alt.Karte.1949
     -   date: !!null
         location:
             line.de.1100: 70,490
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -1014,7 +1149,7 @@ events:
 
 
 ---
-key: struct.de.Fehmarnsundbruecke
+key: struct.de.Fehmarnsundbrücke
 type: structure
 subtype: bridge
 events:
@@ -1036,9 +1171,14 @@ events:
         de.dstnr: !!str 016683
         source: src.de.DS100.1984
     -   date: !!null
+        de.name16: Strukkamp
+        PLC: DE20051
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
         location:
             line.de.1100: 77,824
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -1060,11 +1200,12 @@ events:
         staff: none
     -   date: c1995
         name: Burg (Fehmarn) West
-        source: src.de.TPP.2006
+        source: src.de.DBAG.BSV.2017
     -   date: !!null
         de.name16: Burg(F)West
         PLC: DE11837
         source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         location:
             line.de.1100: 82,154
@@ -1073,12 +1214,12 @@ events:
     -   date: !!null
         site:
             path.de.1100: buw
+            path.de.1103: buw
 
 
 ---
 key: point.de.Burg-West-Nordkurve
 type: point
-junction: True
 events:
     -   date: !!null
         category: de.Abzw
@@ -1089,11 +1230,11 @@ events:
     -   date: c1990
         status: closed
         merged: point.de.Burg-Fehmarn-West
+
     -   date: !!null
         location:
             line.de.1104: 0,804
         source: src.de.DBAG.Geo-Strecke.2017
-
 
     -   date: !!null
         site:
@@ -1131,9 +1272,14 @@ events:
         de.dstnr: !!str 016691
         source: src.de.DS100.1984
     -   date: !!null
+        de.name16: Puttgarden
+        PLC: DE18557
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
         location:
             line.de.1100: 88,588
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:

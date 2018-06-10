@@ -13,12 +13,12 @@ events:
         de.VzG: !!str 1141
         source: src.de.DBAG.Geo-Strecke.2017
 
-
     #   Genehmigung
     #
     -   date: 1883-05-21
         concession:
             by: org.de.l.pre
+            for: org.de.l.pre
         document: src.de.l.pre.1883.15.85
         source: src.de.DRG.1935 # 1887/20
 
@@ -42,7 +42,7 @@ events:
         status: closed
         source: src.de.web.Leiding
     -   date: 1980-01-31
-        start: point.de.Moehnsen
+        start: point.de.Möhnsen
         end: point.de.Trittau
         status: closed
         source: src.de.web.Leiding
@@ -51,7 +51,7 @@ events:
         status: closed
         source: src.de.web.Leiding
     -   date: 1985-03-01
-        end: point.de.Moehnsen
+        end: point.de.Möhnsen
         status: closed
         source: src.de.web.Leiding
     -   date: c1990
@@ -65,47 +65,56 @@ events:
         gauge: 1435mm
         source: src.de.DRG.1927
 
-    #   Eigentümer etc.
-    #
-    -   date: !!null
-        owner: org.de.l.pre
-        operator: org.de.e.hmb
-        source: src.de.DRG.1935
-
-    -   date: 1920-04-01
-        owner: org.de
-        operator: org.de.r.RVM.PH
-    -   date: 1924-02-12
-        operator: org.de.Deutsche-Reichsbahn-I
-    -   date: 1924-08-30
-        operator: org.de.DR
-
-    -   date: 1949-07-01
-        operator: org.de.DB
-
     #   Verlauf
     #
     -   date: !!null
-        course:
-            -   path.de.6100 swa aold
-            -   path.de.1141 a f
-            -   path.de.1120 aswa old
+        course: path.de.1141 swa old
 
 points:
-    - point.de.Schwarzenbek                     # line.de.6100
-    - point.de.Moehnsen
-    - point.de.Vorburg-Trittau
-    - point.de.Trittau
-    - point.de.Dwerkathen
-    - point.de.Sprenge
-    - point.de.Mollhagen
-    - point.de.Barkhorst
-    - point.de.Rohlfshagen
-    - point.de.Bad-Oldesloe                     # line.de.1043
+    -   point.de.Schwarzenbek                       # de.6100
+    -   point.de.Havekost
+    -   point.de.Möhnsen
+    -   point.de.Dahmker
+    -   point.de.Hamfelde
+    -   point.de.Vorburg-Trittau
+    -   point.de.Trittau
+    -   point.de.Grönwohld
+    -   point.de.Dwerkathen
+    -   point.de.Sprenge
+    -   point.de.Mollhagen
+    -   point.de.Barkhorst
+    -   point.de.Rohlfshagen
+    -   point.de.Rümpel
+    -   point.de.Bad-Oldesloe                       # de.1043
+
+
+#-----------------------------------------------------------------------------
+
+#    point.de.Schwarzenbek                       de.6100
 
 
 ---
-key: point.de.Moehnsen
+key: point.de.Havekost
+type: point
+events:
+    -   date: c1950
+        status: open
+        name: Havekost
+        category: de.Hp
+        staff: none
+        location:
+            line.de.1141: 253,04
+        source: src.de.DB.Hmb.Karte.1956
+    -   date: 1976-05-30?
+        status: closed
+
+    -   date: !!null
+        site:
+            path.de.1141: hav
+
+
+---
+key: point.de.Möhnsen
 type: point
 events:
     -   date: !!null
@@ -121,22 +130,63 @@ events:
     -   date: de.lknr.30
         de.lknr: 01 335
         source: src.de.Bfv.1933
-    -   date: !!null
-        location:
-            line.de.1141: 255,54
-        source: src.de.DRG.Alt.Karte.1949
+    -   date: c1950
+        category: de.Hst
+        staff: none
+        source: src.de.DB.Hmb.Karte.1956
     -   date: !!null
         de.DS100: AMOE
         de.dstnr: !!str 013359
         source: src.de.DS100.1984
-    -   date: c1970
-        category: de.Hst
-        staff: none
-        source: src.de.DS100.1984
+
+    -   date: !!null
+        location:
+            line.de.1141: 255,54
+        source: src.de.DRG.Alt.Karte.1949
 
     -   date: !!null
         site:
             path.de.1141: moh
+
+
+---
+key: point.de.Dahmker
+type: point
+events:
+    -   date: c1950
+        status: open
+        name: Dahmker
+        category: de.Hp
+        staff: none
+        location:
+            line.de.1141: 259,28
+        source: src.de.DB.Hmb.Karte.1956
+    -   date: 1976-05-30?
+        status: closed
+
+    -   date: !!null
+        site:
+            path.de.1141: dah
+
+
+---
+key: point.de.Hamfelde
+type: point
+events:
+    -   date: c1950
+        status: open
+        name: Hamfelde
+        category: de.Hp
+        staff: none
+        location:
+            line.de.1141: 260,62
+        source: src.de.DB.Hmb.Karte.1956
+    -   date: 1976-05-30?
+        status: closed
+
+    -   date: !!null
+        site:
+            path.de.1141: ham
 
 
 ---
@@ -159,6 +209,7 @@ events:
     -   date: c1930
         staff: agent
         source: src.de.Bfv.1933
+
     -   date: !!null
         location:
             line.de.1141: 261,91
@@ -172,7 +223,6 @@ events:
 ---
 key: point.de.Trittau
 type: point
-junction: True
 events:
     -   date: !!null
         name: Trittau
@@ -187,6 +237,7 @@ events:
     -   date: de.lknr.30
         de.lknr: 01 333
         source: src.de.Bfv.1933
+
     -   date: !!null
         location:
             line.de.1141: 263,69
@@ -197,7 +248,26 @@ events:
         site:
             path.de.1141: tri
 
-# point.de.Trittau-Kreisb trk
+
+---
+key: point.de.Grönwohld
+type: point
+events:
+    -   date: c1950
+        status: open
+        name: Grönwohld
+        category: de.Hp
+        staff: none
+        location:
+            line.de.1141: 266,02
+        source: src.de.DB.Hmb.Karte.1956
+    -   date: 1976-05-30?
+        status: closed
+
+    -   date: !!null
+        site:
+            path.de.1141: gro
+
 
 ---
 key: point.de.Dwerkathen
@@ -225,6 +295,7 @@ events:
     -   date: c1935
         staff: full
         source: src.de.Bfv.1938
+
     -   date: !!null
         location:
             line.de.1141: 268,76
@@ -255,6 +326,7 @@ events:
     -   date: c1930
         staff: agent
         source: src.de.Bfv.1933
+
     -   date: !!null
         location:
             line.de.1141: 271,98
@@ -283,16 +355,17 @@ events:
         de.lknr: 01 330
         source: src.de.Bfv.1933
     -   date: !!null
-        location:
-            line.de.1141: 273,69
-        source: src.de.DRG.Alt.Karte.1945
-    -   date: !!null
         de.DS100: AMH
         de.dstnr: !!str 013300
         source: src.de.DS100.1984
     -   date: c1970
         staff: none
         source: src.de.DS100.1984
+
+    -   date: !!null
+        location:
+            line.de.1141: 273,69
+        source: src.de.DRG.Alt.Karte.1945
 
     -   date: !!null
         site:
@@ -317,10 +390,6 @@ events:
         de.lknr: 01 329
         source: src.de.Bfv.1933
     -   date: !!null
-        location:
-            line.de.1141: 277,62
-        source: src.de.DRG.Alt.Karte.1945
-    -   date: !!null
         de.DS100: ABAR
         de.dstnr: !!str 013292
         source: src.de.DS100.1984
@@ -328,6 +397,11 @@ events:
         category: de.Hst
         staff: none
         source: src.de.DS100.1984
+
+    -   date: !!null
+        location:
+            line.de.1141: 277,62
+        source: src.de.DRG.Alt.Karte.1945
 
     -   date: !!null
         site:
@@ -358,10 +432,6 @@ events:
         staff: full
         source: src.de.Bfv.1938
     -   date: !!null
-        location:
-            line.de.1141: 280,32
-        source: src.de.DRG.Alt.Karte.1945
-    -   date: !!null
         de.DS100: ARG
         de.dstnr: !!str 013284
         source: src.de.DS100.1984
@@ -370,6 +440,34 @@ events:
         source: src.de.DS100.1984
 
     -   date: !!null
+        location:
+            line.de.1141: 280,32
+        source: src.de.DRG.Alt.Karte.1945
+
+    -   date: !!null
         site:
             path.de.1141: roh
+
+
+---
+key: point.de.Rümpel
+type: point
+events:
+    -   date: c1950
+        status: open
+        name: Rümpel
+        category: de.Hp
+        staff: none
+        location:
+            line.de.1141: 282,14
+        source: src.de.DB.Hmb.Karte.1956
+    -   date: 1976-05-30?
+        status: closed
+
+    -   date: !!null
+        site:
+            path.de.1141: rum
+
+
+#    point.de.Bad-Oldesloe                       de.1120
 

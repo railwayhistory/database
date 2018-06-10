@@ -64,21 +64,10 @@ events:
         gauge: 1435mm
         source: src.de.DRG.1927
 
-    #   Eigentümer etc.
-    #
-    -   date: !!null
-        owner: org.de.Lübeck-Büchener-Eisenbahn
-        operator: org.de.Lübeck-Büchener-Eisenbahn
-        source: src.de.DRG.1935
-
     #   Verlauf
     #
     -   date: !!null
-        course:
-            -   path.de.1120 lub akle
-            -   path.de.1122 a abuc
-            -   path.de.1121 a f
-            -   path.de.6100 alub buc
+        course: path.de.1121 lub buc
 
 points:
     -   point.de.Lübeck-Hbf                         # de.1100
@@ -161,16 +150,18 @@ type: point
 events:
     -   date: 2013-12-15
         status: open
-        source: src.de.WP.Bahnstrecke-Lübeck-Lueneburg
+        de.DS100: ALHS
+        name: Lübeck Hochschulstadtteil
+        de.name16: L Hochschulstadt
+        category: de.Hp
+        PLC: DE16562
+        de.dstnr: !!str 108704
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         location:
             line.de.1121: 4,512
-        category: de.Hp
-        name: Lübeck Hochschulstadtteil
-        de.DS100: ALHS
-        source: src.de.DBAG.ISR
-    -   date: !!null
-        staff: none
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -181,18 +172,20 @@ events:
 key: point.de.Lübeck-Flughafen
 type: point
 events:
-    -   date: 2008-05-26
+    -   date: 2008-12-20
         status: open
-        source: src.de.WP.Bahnstrecke-Lübeck-Lueneburg
+        de.DS100: ALB
+        name: Lübeck Flughafen
+        de.name16: Lübeck Flughafen
+        category: de.Hp
+        PLC: DE16557
+        de.dstnr: !!str 16824
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         location:
             line.de.1121: 7,409
-        category: de.Hp
-        name: Lübeck Flughafen
-        de.DS100: ALB
-        source: src.de.DBAG.ISR
-    -   date: !!null
-        staff: none
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -219,10 +212,6 @@ events:
         de.rang: III
         de.lknr: 27 294
         source: src.de.Bfv.1944
-    -   date: !!null
-        location:
-            line.de.1121: 7,73
-        source: src.de.DRG.Alt.Karte.1949
     -   date: c1980
         service: none
     -   date: !!null
@@ -233,7 +222,11 @@ events:
         de.DS100: ALB
     -   date: c2000
         status: closed
-        source: src.de.SuW.2005
+
+    -   date: !!null
+        location:
+            line.de.1121: 7,73
+        source: src.de.DRG.Alt.Karte.1949
 
     -   date: !!null
         site:
@@ -256,12 +249,13 @@ events:
     -   date: 1938-01-01
         de.lknr: 27 295
         source: src.de.Bfv.1944
+    -   date: c1960
+        status: closed
+
     -   date: !!null
         location:
             line.de.1121: 12,67
         source: src.de.DRG.Alt.Karte.1949
-    -   date: c1960
-        status: closed
 
     -   date: !!null
         site:
@@ -282,10 +276,16 @@ events:
         source: src.de.DS100.1984
     -   date: !!null
         service: none
+        source: src.de.DB.Hmb.Karte.1984
+    -   date: !!null
+        de.name16: Pogeez
+        PLC: DE18434
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         location:
             line.de.1121: 13,573
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -313,7 +313,6 @@ events:
 ---
 key: point.de.Ratzeburg
 type: point
-junction: True
 events:
     -   date: !!null
         name: Ratzeburg
@@ -338,14 +337,22 @@ events:
         name: Ratzeburg
         source: src.de.Bfv.1944
     -   date: !!null
-        location:
-            line.de.1121: 19,95
-            line.de.6928: 49,16
-        source: src.de.DRG.Alt.Karte.1949
-    -   date: !!null
         de.DS100: ARF
         de.dstnr: !!str 013219
         source: src.de.DS100.1984
+    -   date: !!null
+        de.name16: Ratzeburg
+        PLC: DE18669
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6928: 49,16
+        source: src.de.DRG.Alt.Karte.1949
+    -   date: !!null
+        location:
+            line.de.1121: 19,950
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -355,7 +362,6 @@ events:
 ---
 key: point.de.Mölln-Lauenburg
 type: point
-junction: True
 events:
     -   date: !!null
         name: Mölln (Lauenb)
@@ -385,11 +391,6 @@ events:
         de.lknr: 27 297
         source: src.de.Bfv.1944
     -   date: !!null
-        location:
-            line.de.1121: 29,23
-            line.de.8045: 11,74
-        source: src.de.DRG.Alt.Karte.1949
-    -   date: !!null
         de.DS100: AMLN
         de.dstnr: !!str 016840
         source: src.de.DS100.1984
@@ -398,11 +399,25 @@ events:
         source: src.de.DS100.1984
     -   date: c1990
         name: Mölln (Lauenburg)
-        source: src.de.TPP.2006
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Mölln (Lauenb)
+        PLC: DE17105
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.8040: 11,74
+        source: src.de.DRG.Alt.Karte.1949
+    -   date: !!null
+        location:
+            line.de.1121: 29,230
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
             path.de.1121: mol
+            path.de.8040: mol
 
 
 ---
@@ -414,19 +429,15 @@ events:
         name: Mölln (b Lauenburg) Industriegleis
         de.DS100: AMLI
         source: src.de.DS100.1984
-    -   date: !!null
-        location:
-            line.de.1121: 32,2
-        source: src.de.SuW.2005
     -   date: c1990
         name: Mölln (Lauenburg) Industriegleis
-        source: src.de.TPP.2006
-    -   date: c1990
         category: de.Awanst
-        source: src.de.SuW.2005
-    -   date: c2010
-        status: closed
-        source: src.de.SuW.2011
+        de.dstnr: !!str 337311
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Mölln(Laubg)Ind
+        PLC: DE17106
+        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
@@ -468,15 +479,29 @@ events:
         service: passenger
         source: src.de.Bfv.1944
     -   date: !!null
-        location:
-            line.de.1121: 39,36
-        source: src.de.DRG.Alt.Karte.1949
-    -   date: !!null
         de.DS100: AGUE
         de.dstnr: !!str 016857
         source: src.de.DS100.1984
-    -   date: c1990
+    -   date: c1980
         service: none
+        source: src.de.DB.Hmb.Karte.1984
+    -   date: !!null
+        de.name16: Güster
+        PLC: DE14182
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.1121: 39,36
+        source: src.de.DRG.Alt.Karte.1949
+    -   date: c1980
+        location:
+            line.de.1121: 38,18
+        source: src.de.DB.Hmb.Karte.1984
+    -   date: c1995
+        location:
+            line.de.1121: 39,348
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -501,10 +526,6 @@ events:
         de.lknr: 27 298
         source: src.de.Bfv.1944
     -   date: !!null
-        location:
-            line.de.1121: 41,73
-        source: src.de.DRG.Alt.Karte.1949
-    -   date: !!null
         de.DS100: AROS
         de.dstnr: !!str 016865
         source: src.de.DS100.1984
@@ -513,6 +534,11 @@ events:
         source: src.de.DS100.1984
     -   date: c1995
         status: closed
+
+    -   date: !!null
+        location:
+            line.de.1121: 41,73
+        source: src.de.DRG.Alt.Karte.1949
 
     -   date: !!null
         site:
@@ -532,11 +558,13 @@ events:
         de.DS100: ANUE
         de.dstnr: !!str 016931
         source: src.de.DS100.1984
+    -   date: 1984
+        status: closed
+
     -   date: !!null
         location:
-            line.de.1121: 45,5
-    -   date: c1990
-        status: closed
+            line.de.1121: 45,50
+        source: src.de.DB.Hmb.Karte.1984
 
     -   date: !!null
         site:

@@ -11,6 +11,7 @@ events:
             - org.de.l.sh
 
     -   date: !!null
+        start: point.de.Lübeck-Hbf
         de.VzG: !!str 1130
         source: src.de.DBAG.Geo-Strecke.2017
 
@@ -39,18 +40,18 @@ events:
         source: src.de.WP.Lübecker-Hafenbahn
 
     -   date: 1936-07
-        end: point.de.Lübeck-Hafen-EGr
+        end: point.de.Lübeck-Hafen-Gr
         owner: org.de.Lübecker-Hafengesellschaft
         operator: org.de.Lübecker-Hafengesellschaft
         source: src.de.WP.Lübecker-Hafenbahn
     -   date: 2008-01-01
-        end: point.de.Lübeck-Hafen-EGr
+        end: point.de.Lübeck-Hafen-Gr
         owner: org.de.Lübeck-Port-Authority
         operator: org.de.Lübeck-Port-Authority
         source: src.de.WP.Lübecker-Hafenbahn
 
     -   date: 1938-01-01
-        start: point.de.Lübeck-Hafen-EGr
+        start: point.de.Lübeck-Hafen-Gr
         owner: org.de
         operator: org.de.DR
         source: src.de.WP.Lübeck-Buechener-Eisenbahn
@@ -58,18 +59,19 @@ events:
     #   Verlauf
     #
     -   date: !!null
-        course:
-            -   path.de.1130 a f
-            -   path.de.1100 aluh a
-            -   path.de.1120 a lua
+        course: path.de.1130 luh lua
 
 points:
-    - point.de.Lübeck-Hafen
-    - point.de.Lübeck-Hafen-EGr
-    - point.de.Lübeck-Hbf                      # line.de.1100
-    - point.de.Lübeck-Hgbf                     # line.de.1120
-    - point.de.Lübeck-Hgbf-Abzw                # line.de.1120
+    -   point.de.Lübeck-Hafen
+    -   point.de.Lübeck-Hafen-Gr
+    -   point.de.Lübeck-Hbf                         # de.1100
+    -   point.de.Lübeck-Hgbf-Ntm
+    -   point.de.Lübeck-Hgbf-Mtm
+    -   point.de.Lübeck-Hgbf                        # de.1120
+    -   point.de.Lübeck-Hgbf-Abzw                   # de.1120
 
+
+#-----------------------------------------------------------------------------
 
 ---
 key: point.de.Lübeck-Hafen
@@ -83,9 +85,9 @@ events:
         staff: none
         source: src.de.DS100.1984
     -   date: !!null
-        location:
-            line.de.1130: -1,4
-        source: src.de.SuW.2005
+        de.name16: Lübeck Hafen
+        PLC: DE16558
+        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
@@ -93,14 +95,57 @@ events:
 
 
 ---
-key: point.de.Lübeck-Hafen-EGr
+key: point.de.Lübeck-Hafen-Gr
 type: point
 subtype: border
 events:
     -   date: !!null
-        name: Lübeck Hafen EGr
+        name: Lübeck Hafen Betriebsgrenze
 
     -   date: !!null
         site:
-            path.de.1100: gluh
+            path.de.1130: lhe
+
+
+#    point.de.Lübeck-Hbf                         de.1100
+
+
+---
+key: point.de.Lübeck-Hgbf-Ntm
+type: point
+events:
+    -   date: !!null
+        name: Lübeck Hgbf (Ntm)
+        category: de.Glgr
+        de.DS100: ALR N
+        source: src.de.DS100.1984
+    -   date: c2000
+        status: closed
+
+    -   date: !!null
+        site:
+            path.de.1130: lun
+
+
+---
+key: point.de.Lübeck-Hgbf-Mtm
+type: point
+events:
+    -   date: !!null
+        name: Lübeck Hgbf (Mtm)
+        category: de.Glgr
+        de.DS100: ALR M
+        source: src.de.DS100.1984
+    -   date: c2000
+        status: closed
+
+    -   date: !!null
+        site:
+            path.de.1130: lun
+
+
+#    point.de.Lübeck-Hgbf                        de.1120
+
+
+#    point.de.Lübeck-Hgbf-Abzw                   de.1120
 
