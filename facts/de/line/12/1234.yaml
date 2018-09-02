@@ -1,4 +1,4 @@
-# DE 1234.  Hamburg-Eidelstedt - Hamburg-Rothenburgsort
+# DE 1234.  Hamburg-Eidelstedt (Ef) - Hamburg Lübecker Gbf
 #
 ---
 key: line.de.1234
@@ -59,6 +59,9 @@ events:
         start: point.de.Hamburg-Barmbek
         end: point.de.Hamburg-Wandsbeker-Chaussee
         status: open
+    -   date: c1950
+        start: point.de.Hamburg-Rothenburgsort
+        status: closed
 
     #   Eigenschaften
     #
@@ -74,64 +77,33 @@ events:
         start: point.de.Hamburg-Horn
         tracks: 2
 
-    #   Eigentümer und Betreiber
-    #
-    -   date: !!null
-        end: point.de.Hamburg-Horn
-        owner: org.de.e.hmb
-        operator: org.de.e.hmb
-        source: src.de.DRG.1935
-    -   date: !!null
-        start: point.de.Hamburg-Horn
-        owner: org.de.Lübeck-Büchener-Eisenbahn
-        operator: org.de.Lübeck-Büchener-Eisenbahn
-        source: src.de.DRG.1935
-
-    -   date: 1920-04-01
-        end: point.de.Hamburg-Horn
-        owner: org.de
-        operator: org.de.r.RVM.PH
-    -   date: 1924-02-12
-        end: point.de.Hamburg-Horn
-        operator: org.de.Deutsche-Reichsbahn-I
-    -   date: 1924-08-30
-        end: point.de.Hamburg-Horn
-        operator: org.de.DR
-
-    -   date: 1938-01-01
-        start: point.de.Hamburg-Horn
-        owner: org.de
-        operator: org.de.DR
-
     #   Verlauf
     #
     -   date: !!null
-        course:
-            -   path.de.1220     eid  fbar
-            -   path.de.1234.eid a    f
-            -   path.de.1241     aeid fhor
-            -   path.de.1234.rot a    f
-            -   path.de.6100a    fhor rot
+        course: path.de.1234 eid rot
 
 points:
-    - point.de.Hamburg-Eidelstedt                   # line.de.1220
-    - point.de.Hamburg-Lokstedt
+    -   point.de.Hamburg-Eidelstedt-Ef              # de.1220
+    -   point.de.Hamburg-Lokstedt
     -   point.de.Hamburg-Barmbek
-    - point.de.Hamburg-Wandsbeker-Chaussee          # line.de.1241
-    - point.de.Hamburg-Barmbek-Gleichrichterwerk
-    - point.de.Hamburg-Horn
-    - point.de.Hamburg-Rothenburgsort-SStK
-    - point.de.Hamburg-Rothenburgsort               # line.de.13500
+    -   point.de.Hamburg-Wandsbeker-Chaussee        # de.1241
+    -   point.de.Hamburg-Barmbek-Gleichrichterwerk
+    -   point.de.Hamburg-Horn
+    -   point.de.Hamburg-Rothenburgsort-SStK
+    -   point.de.Hamburg-Rothenburgsort-Ro          # de.1280
+    -   point.de.Hamburg-Rothenburgsort             # de.1280
+    -   point.de.Hamburg-Lübecker-Gbf               # de.8080
+
+
+#-----------------------------------------------------------------------------
+
+#    point.de.Hamburg-Eidelstedt-Ef              de.1220
 
 
 ---
 key: point.de.Hamburg-Lokstedt
 type: point
 events:
-    -   date: !!null
-        location:
-            line.de.1234: 5,74
-        source: src.de.DRG.Alt.Karte.1945
     -   date: !!null
         category: de.Hp
         name: Hamburg-Lokstedt
@@ -145,34 +117,37 @@ events:
     -   date: c1970
         category: de.Bf
         source: src.de.DS100.1984
+    -   date: !!null
+        de.name16: Hamburg-Lokstedt
+        PLC: DE14462
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.1234: 5,74
+        source: src.de.DRG.Alt.Karte.1949
+    -   date: c1970
+        location:
+            line.de.1234: 5,71
+        source: src.de.DB.Hmb.Karte.1984
+    -   date: c2000
+        location:
+            line.de.1234: 5,950
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
-            path.de.1234.eid: lok
+            path.de.1234: lok
 
 
 ---
 key: point.de.Hamburg-Barmbek
 type: point
-junction: True
 events:
     -   date: 1941?
         status: open
         note:
             deu: ab c1930 selbständige Ga [src.de.Bfv.1928]
-
-    -   date: !!null
-        location:
-            line.de.1243: 8,33
-        source: src.de.DRG.Alt.Karte.1945
-    -   date: !!null
-        location:
-            line.de.1234: 11,60
-        source: src.de.DB.Hmb.Karte.1984
-    -   date: c2000
-        location:
-            line.de.1234: 11,100
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         category: de.Bf
@@ -194,9 +169,29 @@ events:
         source: src.de.DBAG.BSV.2017
 
     -   date: !!null
-        site:
-            path.de.1241: bag
+        location:
+            line.de.1243: 8,33
+        source: src.de.DRG.Alt.Karte.1949
+    -   date: !!null
+        location:
+            line.de.1234: 11,72
+        source: src.de.DB.Hmb.Karte.1956
+    -   date: c1970
+        location:
+            line.de.1234: 11,60
+        source: src.de.DB.Hmb.Karte.1984
+    -   date: c2000
+        location:
+            line.de.1234: 11,100
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
+    -   date: !!null
+        site:
+            path.de.1234: bar
+            path.de.1243: bar
+
+
+#    point.de.Hamburg-Wandsbeker-Chaussee        de.1241
 
 
 ---
@@ -204,45 +199,73 @@ key: point.de.Hamburg-Barmbek-Gleichrichterwerk
 type: point
 events:
     -   date: !!null
-        category: de.Anst
-        location:
-            line.de.1234: 15,345
-        source: src.de.DBAG.ISR
-    -   date: !!null
-        name: Hamburg-Barmbek Gleichrichterwerk
         de.DS100: ABGL
-        source: src.de.TPP.2006
+        name: Hamburg-Barmbek Gleichrichterwerk
+        category: de.Anst
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+    -   date: !!null
+        location:
+            line.de.1234: 15,348
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
-            path.de.1234.rot: gle
+            path.de.1234: gle
 
 
 ---
 key: point.de.Hamburg-Horn
 type: point
-junction: True
 events:
+    -   date: !!null
+        category: de.Abzw
+        name: Gw
+        note: km 4,09
+        source: src.de.DRG.Alt.Karte.1931
+    -   date: 1941?
+        category: de.Bf
+        de.rang: III
+        service: none
+        name: Horn
+        source: src.de.DRG.Alt.Karte.1949
+    -   date: !!null
+        de.DS100: AHOR
+        de.dstnr: !!str 010850
+        source: src.de.DS100.1984
+    -   date: c2000
+        category: de.Abzw
+        name: Hamburg-Horn
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Horn
+        PLC: DE14456
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         location:
             line.de.1234: 15,94
             line.de.1242: 59,54
-        source: src.de.DRG.Alt.Karte.1945
-    -   date: !!null
-        name: Horn
-        de.DS100: AHOR
-        de.dstnr: !!str 010850
-        source: src.de.DS100.1984
-    -   date: !!null
-        service: none
-        source: src.de.SuW.2005
+        source: src.de.DRG.Alt.Karte.1949
+    -   date: c1975
+        location:
+            line.de.1234: 15,96
+            line.de.1242: 59,50
+        source: src.de.DB.Hmb.Karte.1984
     -   date: c2000
-        name: Hamburg-Horn
-        source: src.de.TPP.2006
+        location:
+            line.de.1234: 16,097
+            line.de.1242: 59,638
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
-            path.de.1234.rot: hor
+            path.de.1234: hob
+            path.de.1242: hob
+    -   date: c2000
+        site:
+            path.de.1234: hoa
+            path.de.1242: hoa
 
 
 ---
@@ -251,11 +274,17 @@ type: point
 subtype: reference
 events:
     -   date: !!null
-        name: Hamburg-Rothenburgsort W135
-
-    -   date: !!null
+        designation: Hamburg-Rothenburgsort W135
         site:
-            path.de.1234.rot: ros
+            path.de.1234: ros
+            path.de.9125: ros
 
 
+#    point.de.Hamburg-Rothenburgsort-Ro          de.1280
+
+
+#    point.de.Hamburg-Rothenburgsort             de.1280
+
+
+#    point.de.Hamburg-Lübecker-Gbf               de.8080
 

@@ -17,8 +17,11 @@ events:
         de.VzG: !!str 1280
         source: src.de.DBAG.Geo-Strecke.2017
 
-    #   Genehmigungen
+    #   Genehmigungen, Eigentümer etc.
     #
+    -   date: !!null
+        owner: org.de
+        operator: org.de.DB
 
     #   Eröffnung und Einstellung
     #
@@ -46,57 +49,44 @@ events:
         tracks: 2
         source: src.de.SuW.2005
 
-    #   Eigentümer etc.
-    #
-    -   date: !!null
-        owner: org.de
-        operator: org.de.DB
-
     #   Verlauf
     #
     -   date: !!null
-        course:
-            -   path.de.1280     buc   mss
-            -   path.de.1280.mr  a     f
-            -   path.de.1720     msofa xhar
-            -   path.de.2200     fste  arot
-            -   path.de.1280.oha a     f
-            -   path.de.6100a    aeri  fhor
-            -   path.de.1234.rot f     fber
-            -   path.de.6100     aror  all
+        course: path.de.1280 buc all
 
 points:
     -   point.de.Buchholz-Nordheide                 # de.2200
     -   point.de.Jesteburg
-    - point.de.Maschen-Rbf-Süd
-    - point.de.Maschen-Rbf-Msof
-    - point.de.Maschen-Rbf-Mswf
-    - point.de.Maschen-Rbf
-    - point.de.Maschen-Rbf-Mnwf
-    - point.de.Maschen-Rbf-Mnof
-    - point.de.Meckelfeld-Abzw                      # line.de.1720
-    - point.de.Meckelfeld                           # line.de.1720
-    - point.de.Maschen-LGr-1280
-    - point.de.Hamburg-Harburg                      # line.de.2200
-    - point.de.Hamburg-Wilhelmsburg-Abzw-S-Bahn     # line.de.1271
-    - point.de.Hamburg-Wilhelmsburg-Abzw            # line.de.2200
-    - point.de.Hamburg-Veddel                       # line.de.2200
-    - point.de.Hamburg-Oberhafen                    # line.de.1250
-    - point.de.Hamburg-Rothenburgsort-Ro
-    - point.de.Hamburg-Rothenburgsort
-    - point.de.Hamburg-Rothenburgsort-Tk            # line.de.6100
-    - point.de.Hamburg-Billwerder-Moorfleet-Abzw    # line.de.6100
-    - point.de.Hamburg-Billwerder
-    - point.de.Hamburg-Billwerder-Ubf
-    - point.de.Hamburg-Allermöhe                   # line.de.6100
+    -   point.de.Maschen-Rbf-Süd
+    -   point.de.Maschen-Rbf-Msof
+    -   point.de.Maschen-Rbf
+    -   point.de.Maschen-Rbf-Mswf
+    -   point.de.Maschen-Rbf-Mnwf
+    -   point.de.Maschen-Rbf-Mnof
+    -   point.de.Meckelfeld-Abzw                    # de.1720
+    -   point.de.Meckelfeld                         # de.1720
+    -   point.de.Maschen-LGr-1280
+    -   point.de.Hamburg-Harburg                    # de.2200
+    -   point.de.Hamburg-Harburg-Nordkopf           # de.2200
+    -   point.de.Hamburg-Wilhelmsburg-Abzw-S-Bahn   # de.1271
+    -   point.de.Hamburg-Wilhelmsburg-Abzw          # de.2200
+    -   point.de.Hamburg-Veddel                     # de.2200
+    -   point.de.Hamburg-Oberhafen                  # de.1250
+    -   point.de.Hamburg-Rothenburgsort-Ro
+    -   point.de.Hamburg-Rothenburgsort
+    -   point.de.Hamburg-Rothenburgsort-Tk          # de.6100
+    -   point.de.Hamburg-Billwerder-Moorfleet-Abzw  # de.6100
+    -   point.de.Hamburg-Billwerder
+    -   point.de.Hamburg-Billwerder-Ubf
+    -   point.de.Hamburg-Allermöhe                  # de.6100
 
 
 #-----------------------------------------------------------------------------
 
 #    point.de.Buchholz-Nordheide                 de.2200
 
-# line.de.1151: point.de.Reindorf
-#               point.de.Jesteburg-Bf
+# de.1151: point.de.Reindorf
+#          point.de.Jesteburg-Bf
 
 ---
 key: point.de.Jesteburg
@@ -112,6 +102,9 @@ events:
         de.name16: Jesteburg
         PLC: DE15289
         source: src.de.DBAG.BSV.2017
+    -   date: 1994-10-01?
+        category: de.Üst
+        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         location:
@@ -122,10 +115,6 @@ events:
         location:
             line.de.1280: 7,677
         source: src.de.DBAG.Geo-Betriebsstelle.2017
-
-    -   date: 1994-10-01?
-        category: de.Üst
-        source: src.de.SuW.2005
 
     -   date: !!null
         site:
@@ -141,16 +130,14 @@ key: point.de.Maschen-Rbf-Süd
 type: point
 events:
     -   date: !!null
-        location:
-            line.de.1280: 19,6
-        name: Maschen Rbf Süd
-        source: src.de.WP.Gueterumgehungsbahn-Hamburg
-    -   date: !!null
         de.DS100: "AM  J"
+        name: Maschen Rbf Süd
         source: src.de.TPP.2006
     -   date: !!null
         category: de.Bft
         source: src.de.SuW.2005
+    -   date: c2010
+        status: closed
 
     -   date: !!null
         site:
@@ -160,38 +147,26 @@ events:
 ---
 key: point.de.Maschen-Rbf-Msof
 type: point
-junction: True
 events:
     -   date: !!null
-        location:
-            line.de.1280:  21,1
-            line.de.1281: 161,6
         name: Maschen Rbf (Msof)
-        category: de.Bft
         de.DS100: "AM  S"
-        source: src.de.SuW.2011
-
-    -   date: !!null
-        site:
-            path.de.1720: msof
-
-
----
-key: point.de.Maschen-Rbf-Mswf
-type: point
-events:
-    -   date: !!null
-        location:
-            line.de.1280: 21,7
-            line.de.1284: 21,7
-        name: Maschen Rbf (Mswf)
+        category: de.Glgr
+        source: src.de.DS100.1984
+    -   date: c1995
         category: de.Bft
-        de.DS100: "AM  W"
-        source: src.de.SuW.2011
+        de.dstnr: !!str 911761
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Maschen Rbf Msof
+        PLC: DE16860
+        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
-            path.de.1720: mswf
+            path.de.1280: mso
+            path.de.1281: mso
+            path.de.1284: mso
 
 
 ---
@@ -199,17 +174,49 @@ key: point.de.Maschen-Rbf
 type: point
 events:
     -   date: !!null
+        de.dstnr: !!str 011759
+        name: Maschen Rbf
+        de.DS100: AM
+        category: de.Bf
+        source: src.de.DS100.1984
+    -   date: !!null
+        de.name16: Maschen Rbf
+        PLC: DE16857
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
         location:
             line.de.1280: 21,741
-            line.de.1284: 21,808
-        name: Maschen Rbf
-        category: de.Bf
-        de.DS100: AM
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
-            path.de.1720: mas
+            path.de.1280: mas
+            path.de.1284: mas
+
+
+---
+key: point.de.Maschen-Rbf-Mswf
+type: point
+events:
+    -   date: !!null
+        name: Maschen Rbf (Mswf)
+        de.DS100: "AM  W"
+        category: de.Glgr
+        source: src.de.DS100.1984
+    -   date: c1995
+        category: de.Bft
+        de.dstnr: !!str 910136
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Maschen Rbf Mswf
+        PLC: DE16861
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        site:
+            path.de.1280: msw
+            path.de.1284: msw
 
 
 ---
@@ -217,17 +224,22 @@ key: point.de.Maschen-Rbf-Mnwf
 type: point
 events:
     -   date: !!null
-        location:
-            line.de.1280: 22,9
-            line.de.1284: 22,9
         name: Maschen Rbf (Mnwf)
-        category: de.Bft
         de.DS100: "AM  N"
-        source: src.de.SuW.2011
+        category: de.Glgr
+        source: src.de.DS100.1984
+    -   date: c1995
+        category: de.Bft
+        de.dstnr: !!str 908671
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Maschen Rbf Mnwf
+        PLC: DE16859
+        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
-            path.de.1720: mnwf
+            path.de.1280: mnw
 
 
 ---
@@ -235,16 +247,28 @@ key: point.de.Maschen-Rbf-Mnof
 type: point
 events:
     -   date: !!null
-        location:
-            line.de.1280: 23,2
         name: Maschen Rbf (Mnof)
-        category: de.Bft
         de.DS100: "AM  O"
-        source: src.de.SuW.2011
+        category: de.Glgr
+        source: src.de.DS100.1984
+    -   date: c1995
+        category: de.Bft
+        de.dstnr: !!str 911760
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Maschen Rbf Mnof
+        PLC: DE16858
+        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
-            path.de.1720: mnof
+            path.de.1280: mno
+
+
+#    point.de.Meckelfeld-Abzw                    de.1720
+
+
+#    point.de.Meckelfeld                         de.1720
 
 
 ---
@@ -252,19 +276,40 @@ key: point.de.Maschen-LGr-1280
 type: point
 events:
     -   date: !!null
-        name: Maschen NI/HH 1280
         de.DS100: AQM G
-        source: src.de.TPP.2006
+        name: Maschen NI/HH 1280
+        de.name16: Maschen 1280
+        category: de.LGr
+        PLC: DE16855
+        de.dstnr: !!str 103971
+        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
-            path.de.1720: gmec
+            path.de.1280: mag
+
+
+#    point.de.Hamburg-Harburg                    de.2200
+
+
+#    point.de.Hamburg-Harburg-Nordkopf           de.2200
+
+
+#    point.de.Hamburg-Wilhelmsburg-Abzw-S-Bahn   de.1271
+
+
+#    point.de.Hamburg-Wilhelmsburg-Abzw          de.2200
+
+
+#    point.de.Hamburg-Veddel                     de.2200
+
+
+#    point.de.Hamburg-Oberhafen                  de.1250
 
 
 ---
 key: point.de.Hamburg-Rothenburgsort-Ro
 type: point
-junction: True
 events:
     -   date: !!null
         category: de.Glgr
@@ -275,25 +320,24 @@ events:
     -   date: c1995
         category: de.Bft
         name: Hamburg-Rothenburgsort Ro
-        source: src.de.SuW.2005
+        de.dstnr: !!str 911018
+        source: src.de.DBAG.BSV.2017
     -   date: !!null
-        location:
-            line.de.1234: 21,2
-            line.de.1280: 40,3
-        source: src.de.SuW.2005
-    -   date: !!null
-        location:
-            line.de.1245: 0,0
+        de.name16: Hmb-Roth Ro
+        PLC: DE14481
+        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
-            path.de.6100a: roo
+            path.de.1280: roo
+            path.de.1234: roo
+            path.de.1245: roo
+            path.de.1291: roo
 
 
 ---
 key: point.de.Hamburg-Rothenburgsort
 type: point
-junction: True
 events:
     -   date: !!null
         name: Hamburg-Rothenburgsort Vbf
@@ -311,22 +355,35 @@ events:
         name: Hamburg-Rothenburgsort
         source: src.de.Bfv.1938
     -   date: !!null
-        location:
-            line.de.1234: 20,82
-        source: src.de.DRG.Alt.Karte.1949
-    -   date: !!null
         de.DS100: AHRO
         de.dstnr: !!str 010694
         source: src.de.DS100.1984
+    -   date: !!null
+        de.name16: Hmb-Rothburgsort
+        PLC: DE14479
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.1234: 20,82
+        source: src.de.DRG.Alt.Karte.1949
     -   date: 1996-08-13?
         location:
-            line.de.1234:  21,160
             line.de.1280:  42,330
-        source: src.de.DBAG.ISR
+            line.de.6100: 280,590
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
-            path.de.6100a: rot
+            path.de.1280: rot
+            path.de.1234: rot
+            path.de.8079: rot
+
+
+#    point.de.Hamburg-Rothenburgsort-Tk          de.6100
+
+
+#    point.de.Hamburg-Billwerder-Moorfleet-Abzw  de.6100
 
 
 ---
@@ -340,17 +397,25 @@ events:
         de.dstnr: !!str 010660
         source: src.de.DS100.1984
     -   date: !!null
+        de.name16: Hmb-Billwerder
+        PLC: DE14432
+        source: src.de.DBAG.BSV.2017
+    -   date: c1995
+        de.dstnr: !!str 070177
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
         location:
             line.de.1246: 6,14
         source: src.de.DB.Hmb.Karte.1984
     -   date: !!null
         location:
             line.de.1280: 45,894
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
-            path.de.6100: biu
+            path.de.1280: bil
 
 
 ---
@@ -358,15 +423,18 @@ key: point.de.Hamburg-Billwerder-Ubf
 type: point
 events:
     -   date: !!null
-        location:
-            line.de.1280: 46,0
-        category: de.Bft
-        name: Hamburg-Billwerder Ubf
         de.DS100: AHBIU
-        source: src.de.SuW.2005
+        name: Hamburg-Billwerder Ubf
+        de.name16: Hmb-Billwerd Ubf
+        category: de.Bft
+        PLC: DE14434
+        de.dstnr: !!str 908658
+        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
-            path.de.6100: biu
+            path.de.1280: biu
 
+
+#    point.de.Hamburg-Allermöhe                  de.6100
 

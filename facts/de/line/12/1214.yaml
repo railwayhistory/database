@@ -44,30 +44,28 @@ events:
         tracks: 1
         gauge: 1435mm
 
-    #   Eigentümer etc.
-    #
-    -   date: !!null
-        owner: org.de.l.pre
-        operator: org.de.e.hmb
-        source: src.de.DRG.1935
-
     #   Verlauf
     #
     -   date: !!null
-        course:
-            -   path.de.1210 abrx abru
-            -   path.de.1214 a f
+        course: path.de.1210 wil bru
 
 points:
-    - point.de.Wilster                          # line.de.1210
-    - point.de.Rumfleth
-    - point.de.Schotten-Steinburg
-    - point.de.Nortorf-Steinburg
-    - point.de.Landscheide
-    - point.de.St-Margarethen
-    - point.de.Kudensee
+    -   point.de.Wilster                            # de.1210
+    -   point.de.Rumfleth
+    -   point.de.Kuskoppermoor
+    -   point.de.Schotten-Steinburg
+    -   point.de.Nortorf-Steinburg
+    -   point.de.Landscheide
+    -   point.de.St-Margarethen
+    -   point.de.St-Margarethen-Gabelung
+    -   point.de.Kudensee
     -   point.de.Brunsbüttel-Ost
     -   point.de.Brunsbüttel
+
+
+#-----------------------------------------------------------------------------
+
+#    point.de.Wilster                            de.1210
 
 
 ---
@@ -83,16 +81,39 @@ events:
         de.DS100: ARUM
         de.dstnr: !!str 010017
         source: src.de.DS100.1984
-    -   date: !!null
-        location:
-            line.de.1214: 1,2
-        service: passenger
     -   date: 1988-05-29?
         status: closed
 
     -   date: !!null
+        location:
+            line.de.1214: 1,22
+        source: src.de.DB.Hmb.Karte.1956
+
+    -   date: !!null
         site:
             path.de.1214: rum
+
+
+---
+key: point.de.Kuskoppermoor
+type: point
+events:
+    -   date: c1950
+        status: open
+        category: de.Hp
+        staff: none
+        name: Kuskoppermoor
+        location:
+            line.de.1214: 2,32
+        source: src.de.DB.Hmb.Karte.1956
+    -   date: c1975
+        status: closed
+        source: src.de.DB.Hmb.Karte.1984
+
+    -   date: !!null
+        site:
+            path.de.1214: kus
+
 
 
 ---
@@ -108,12 +129,13 @@ events:
         de.DS100: ASHO
         de.dstnr: !!str 010033
         source: src.de.DS100.1984
-    -   date: !!null
-        location:
-            line.de.1214: 4,3
-        service: passenger
     -   date: 1980-09-27?
         status: closed
+
+    -   date: !!null
+        location:
+            line.de.1214: 4,38
+        source: src.de.DB.Hmb.Karte.1956
 
     -   date: !!null
         site:
@@ -143,6 +165,11 @@ events:
         status: closed
 
     -   date: !!null
+        location:
+            line.de.1214: 5,49
+        source: src.de.DB.Hmb.Karte.1956
+
+    -   date: !!null
         site:
             path.de.1214: nor
 
@@ -160,12 +187,13 @@ events:
         de.DS100: ALDS
         de.dstnr: !!str 010058
         source: src.de.DS100.1984
-    -   date: !!null
-        location:
-            line.de.1214: 7,3
-        service: passenger
     -   date: 1988-05-29?
         status: closed
+
+    -   date: !!null
+        location:
+            line.de.1214: 7,25
+        source: src.de.DB.Hmb.Karte.1956
 
     -   date: !!null
         site:
@@ -175,14 +203,10 @@ events:
 ---
 key: point.de.St-Margarethen
 type: point
-junction: True
 events:
     -   date: !!null
         name: St Margarethen
         source: src.de.Kb.1905
-    -   date: !!null
-        location:
-            line.de.8069: 46,6
     -   date: !!null
         de.lknr: 01 088
         source: src.de.Bfv.1928
@@ -194,10 +218,6 @@ events:
         de.lknr: 01 500
         source: src.de.Bfv.1933
     -   date: !!null
-        location:
-            line.de.1214: 8,82
-        source: src.de.DRG.Alt.Karte.1949
-    -   date: !!null
         de.DS100: ASM
         de.dstnr: !!str 015008
         source: src.de.DS100.1984
@@ -207,11 +227,34 @@ events:
     -   date: 1988-05-29
         category: de.Anst
         source: src.de.Bock.1989
+    -   date: !!null
+        de.name16: St Margarethen
+        PLC: DE19884
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.8069: 46,6
+    -   date: !!null
+        location:
+            line.de.1214: 8,822
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
             path.de.1214: sma
 
+
+---
+key: point.de.St-Margarethen-Gabelung
+type: point
+subtype: reference
+events:
+    -   date: !!null    
+        designation: St Margarethen Gabelung
+        site:
+            path.de.1214: smg
+            path.de.8069: smg
 
 
 ---
@@ -227,12 +270,18 @@ events:
         de.DS100: AKUD
         de.dstnr: !!str 010066
         source: src.de.DS100.1984
-    -   date: !!null
-        location:
-            line.de.1214: 10,9
-        source: src.de.SuW.2005
     -   date: c1990
         category: de.Awanst
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Kudensee
+        PLC: DE15939
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.1214: 10,923
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -260,10 +309,6 @@ events:
         category: de.Bf
         de.rang: IV
         source: src.de.Bfv.1938
-    -   date: !!null
-        location:
-            line.de.1214: 13,80
-        source: src.de.DRG.Alt.Karte.1949
     -   date: c1960
         category: de.Hst
         staff: none
@@ -285,6 +330,11 @@ events:
         source: src.de.DBAG.BSV.2017
 
     -   date: !!null
+        location:
+            line.de.1214: 13,80
+        source: src.de.DRG.Alt.Karte.1949
+
+    -   date: !!null
         site:
             path.de.1214: bro
 
@@ -292,7 +342,6 @@ events:
 ---
 key: point.de.Brunsbüttel
 type: point
-junction: True
 events:
     -   date: !!null
         name: Brunsbüttelkoog
@@ -308,10 +357,6 @@ events:
         de.lknr: 01 502
         source: src.de.Bfv.1933
     -   date: !!null
-        location:
-            line.de.1214: 15,64
-        source: src.de.DRG.Alt.Karte.1949
-    -   date: !!null
         de.DS100: ABK
         de.dstnr: !!str 015024
         source: src.de.DS100.1984
@@ -324,6 +369,11 @@ events:
         de.name16: Brunsbüttel
         PLC: DE11760
         source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.1214: 15,64
+        source: src.de.DRG.Alt.Karte.1949
     -   date: c2000
         location:
             line.de.1214: 15,648

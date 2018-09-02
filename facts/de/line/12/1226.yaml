@@ -17,7 +17,7 @@ events:
         de.VzG: !!str 1226
         source: src.de.DBAG.Geo-Strecke.2017
 
-    #   Genehmigung und Eröffnung
+    #   Genehmigung, Eigentümer, Betreiber
     #
     -   date: 1883-10-29
         concession:
@@ -25,6 +25,9 @@ events:
             for: org.de.Altona-Kieler-Eisenbahn
         document: src.de.l.pre.sle.1883.59.731
         source: src.de.DRG.1935 # 1883/46
+
+    #   Eröffnung und Einstellung
+    #
     -   date: 1883-12-02
         status: open
         source: src.de.DRG.1935 # 1883/46
@@ -40,35 +43,39 @@ events:
         category: de.Hauptbahn
         source: src.de.SuW.2005
     -   date: 1950-05-04
-        end: point.de.Hamburg-Suelldorf
+        end: point.de.Hamburg-Sülldorf
         electrified: de.hmb
         source: src.de.WP.Altona-Blankeneser-Eisenbahn
     -   date: 1950-10-31
-        start: point.de.Hamburg-Suelldorf
+        start: point.de.Hamburg-Sülldorf
         electrified: de.hmb
         source: src.de.WP.Altona-Blankeneser-Eisenbahn
     -   date: 1960
         start: point.de.Hamburg-Rissen
-        end: point.de.Hamburg-Rissen-Oelweiche-Üst
+        end: point.de.Hamburg-Rissen-Ölweiche-Üst
         tracks: 2
         source: src.de.SuW.2005
 
     #   Verlauf
     #
     -   date: !!null
-        course:
-            -   path.de.1224 bla fwed
-            -   path.de.1226 a   wed
+        course: path.de.1226 bla wed
 
 points:
-    - point.de.Hamburg-Blankenese                   # line.de.1224
-    - point.de.Hamburg-Iserbrook
-    - point.de.Hamburg-Suelldorf
-    - point.de.Hamburg-Rissen
-    - point.de.Hamburg-Rissen-LGr
-    - point.de.Hamburg-Rissen-Oelweiche
-    - point.de.Hamburg-Rissen-Oelweiche-Üst
-    - point.de.Wedel
+    -   point.de.Hamburg-Blankenese                 # de.1224
+    -   point.de.Hamburg-Iserbrook
+    -   point.de.Hamburg-Sülldorf
+    -   point.de.Hamburg-Rissen-Üst
+    -   point.de.Hamburg-Rissen
+    -   point.de.Hamburg-Rissen-LGr
+    -   point.de.Hamburg-Rissen-Ölweiche
+    -   point.de.Hamburg-Rissen-Ölweiche-Üst
+    -   point.de.Wedel-Holst
+
+
+#-----------------------------------------------------------------------------
+
+#    point.de.Hamburg-Blankenese                 de.1224
 
 
 ---
@@ -84,13 +91,18 @@ events:
         de.DS100: AIS
         de.dstnr: !!str 011015
         source: src.de.DS100.1984
-    -   date: !!null
-        location:
-            line.de.1226: 11,3
-        source: src.de.SuW.2005
     -   date: c2000
         name: Hamburg-Iserbrook
-        source: src.de.TPP.2007
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Iserbrook
+        PLC: DE14457
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.1226: 11,257
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
     
     -   date: !!null
         site:
@@ -98,7 +110,7 @@ events:
 
 
 ---
-key: point.de.Hamburg-Suelldorf
+key: point.de.Hamburg-Sülldorf
 type: point
 events:
     -   date: !!null
@@ -115,20 +127,51 @@ events:
         de.lknr: 01 108
         source: src.de.Bfv.1933
     -   date: !!null
-        location:
-            line.de.1226: 12,62
-        source: src.de.DRG.Alt.Karte.1945
-    -   date: !!null
         de.DS100: ASDF
         de.dstnr: !!str 011080
         source: src.de.DS100.1984
     -   date: c2000
         name: Hamburg-Sülldorf
-        source: src.de.TPP.2007
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Sülldorf
+        PLC: DE14487
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.1226: 12,620
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
     
     -   date: !!null
         site:
             path.de.1226: sul
+
+
+---
+key: point.de.Hamburg-Rissen-Üst
+type: point
+events:
+    -   date: c2000
+        status: open
+        split_from: point.de.Hamburg-Rissen
+    -   date: !!null
+        de.DS100: ARIU
+        name: Hamburg-Rissen Üst
+        de.name16: Rissen Üst
+        category: de.Üst
+        PLC: DE14478
+        de.dstnr: !!str 913376
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.1226: 14,919
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+ 
+    -   date: !!null
+        site:
+            path.de.1226: riu
 
 
 ---
@@ -149,22 +192,30 @@ events:
         de.lknr: 01 109
         source: src.de.Bfv.1933
     -   date: !!null
-        location:
-            line.de.1226: 15,35
-        source: src.de.DRG.Alt.Karte.1945
-    -   date: !!null
         de.DS100: ARI
         de.dstnr: !!str 011098
         source: src.de.DS100.1984
     -   date: c1970
-        category: [de.Hp, de.Üst]
-        source:
-            - src.de.SuW.2005
-            - src.de.DS100.1984
+        category: de.Hst
+        source: src.de.DS100.1984
     -   date: c2000
-        name: Hamburg-Rissen
-        source: src.de.TPP.2007
-    
+        category: de.Hp
+        name: Hamburg-Rissen Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Rissen Hp
+        PLC: DE14474
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.1226: 15,35
+        source: src.de.DRG.Alt.Karte.1949
+    -   date: c2000
+        location:
+            line.de.1226: 15,300
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+ 
     -   date: !!null
         site:
             path.de.1226: ris
@@ -186,13 +237,9 @@ events:
 
 
 ---
-key: point.de.Hamburg-Rissen-Oelweiche
+key: point.de.Hamburg-Rissen-Ölweiche
 type: point
 events:
-    -   date: !!null
-        location:
-            line.de.1226: 17,05
-        source: src.de.DRG.Alt.Karte.1945
     -   date: !!null
         de.lknr: 01 427
         category: de.Ahst
@@ -212,16 +259,26 @@ events:
         source: src.de.Bfv.1938
     -   date: !!null
         de.DS100: AROE
+        de.dstnr: !!str 011106
         source: src.de.DS100.1984
     -   date: c1970
         category: de.Bf
         source: src.de.DS100.1984
     -   date: c2000
         name: Hamburg-Rissen Ölweiche
-        source: src.de.TPP.2007
-    -   date: 2008
+        source: src.de.DBAG.BSV.2017
+    -   date: 2008-12-14
         status: closed
-        source: src.de.TPP.2009
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Hmb-Rissen Ölw
+        PLC: DE14476
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.1226: 17,05
+        source: src.de.DRG.Alt.Karte.1949
     
     -   date: !!null
         site:
@@ -229,26 +286,31 @@ events:
 
 
 ---
-key: point.de.Hamburg-Rissen-Oelweiche-Üst
+key: point.de.Hamburg-Rissen-Ölweiche-Üst
 type: point
 events:
     -   date: !!null
-        category: de.Üst
-        location:
-            line.de.1226: 17,2
-        name: Hamburg-Rissen Ölweiche Üst
         de.DS100: AROW
-        source: src.de.SuW.2005
+        name: Hamburg-Rissen Ölweiche (Üst)
+        de.name16: Hmb-Rissen Ölw Ü
+        category: de.Üst
+        PLC: DE14477
+        de.dstnr: !!str 014514
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.1226:  17,558
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
     
     -   date: !!null
         site:
-            path.de.1226: riu
+            path.de.1226: rou
 
 
 ---
-key: point.de.Wedel
+key: point.de.Wedel-Holst
 type: point
-junction: True
 events:
     -   date: !!null
         name: Wedel
@@ -263,10 +325,6 @@ events:
     -   date: de.lknr.30
         de.lknr: 01 111
         source: src.de.Bfv.1933
-    -   date: !!null
-        location:
-            line.de.1226: 18,98
-        source: src.de.DRG.Alt.Karte.1945
     -   date: c1938
         name: Wedel (Holst)
         source: src.de.Bfv.1938
@@ -274,7 +332,20 @@ events:
         de.DS100: AWL
         de.dstnr: !!str 011114
         source: src.de.DS100.1984
-    
+    -   date: !!null
+        de.name16: Wedel (Holst)
+        PLC: DE20830
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.1226: 18,98
+        source: src.de.DRG.Alt.Karte.1949
+    -   date: c2000
+        location:
+            line.de.1226: 18,959
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+ 
     -   date: !!null
         site:
             path.de.1226: wed

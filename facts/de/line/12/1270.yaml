@@ -14,18 +14,24 @@ events:
         de.VzG: !!str 1270
         source: src.de.DBAG.Geo-Strecke.2017
 
+    #   Genehmigungen, Eigentümer und Betriebsführer
+    #
+    -   date: !!null
+        owner: org.de
+        operator: org.de.DB
+
     #   Eröffnung
     #
     -   date: 1967-10
         status: construction
         source: src.de.web.Matthaei
     -   date: 1975-05-30
-        end: point.de.Hamburg-Landungsbruecken
+        end: point.de.Hamburg-Landungsbrücken
         freight: none
         status: open
         source: src.de.web.Matthaei
     -   date: 1979-08-30
-        start: point.de.Hamburg-Landungsbruecken
+        start: point.de.Hamburg-Landungsbrücken
         freight: none
         status: open
         source: src.de.web.Matthaei
@@ -39,35 +45,27 @@ events:
         electrified: de.hmb
         source: src.de.SuW.2005
 
-    #   Eigentümer und Betriebsführer
-    #
-    -   date: !!null
-        owner: org.de
-        operator: org.de.DB
-
     #   Verlauf
     #
     -   date: !!null
-        course:
-            -   path.de.6100 ham  asta
-            -   path.de.1270 tcta f
-            -   path.de.1225 fals dit
+        course: path.de.1270 ham die
 
 points:
-    - point.de.Hamburg-Hbf-S-Bahn
-    - point.de.Hamburg-Jungfernstieg
-    - point.de.Hamburg-Stadthausbruecke
-    - point.de.Hamburg-Landungsbruecken
-    - point.de.Hamburg-Reeperbahn
-    - point.de.Hamburg-Koenigstrasse
+    -   point.de.Hamburg-Hbf-S-Bahn
+    -   point.de.Hamburg-Jungfernstieg
+    -   point.de.Hamburg-Stadthausbrücke
+    -   point.de.Hamburg-Landungsbrücken
+    -   point.de.Hamburg-Reeperbahn
+    -   point.de.Hamburg-Königstraße
     -   point.de.Hamburg-Altona-S-Bahn
     -   point.de.Hamburg-Diebsteich                 # de.1225
 
 
+#-----------------------------------------------------------------------------
+
 ---
 key: point.de.Hamburg-Hbf-S-Bahn
 type: point
-junction: True
 events:
     -   date: 1960
         status: open
@@ -83,18 +81,28 @@ events:
         category: de.Bft
         name: Hamburg Hbf (S-Bahn)
         de.DS100: AHS
-        source: src.de.SuW.2005
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Hauptbahnhof SB
+        PLC: DE14394
+        source: src.de.DBAG.BSV.2017
+    -   date: 2017-12-10
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         location:
-            line.de.1270:   0,000
-            line.de.1240: 286,672
-            line.de.1271:   0,000
-            line.de.1244:   0,000
-        source: src.de.VzG
+            line.de.1241:   0,110
+            line.de.1244:   0,106
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
-            path.de.6100: ham
+            path.de.1240: ham
+            path.de.1241: ham
+            path.de.1244: ham
+            path.de.1270: ham
+            path.de.1271: ham
 
 
 ---
@@ -120,14 +128,19 @@ events:
         de.DS100: AJUS
         de.dstnr: !!str 010496
         source: src.de.DS100.1984
-    -   date: !!null
-        location:
-            line.de.1270: 1,3
-        source: src.de.SuW.2005
     -   date: c2000
         name: Hamburg Jungfernstieg
         public_name: Jungfernstieg
-        source: src.de.TPP.2007
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Jungfernstieg
+        PLC: DE14400
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.1270: 1,295
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -135,7 +148,7 @@ events:
 
 
 ---
-key: point.de.Hamburg-Stadthausbruecke
+key: point.de.Hamburg-Stadthausbrücke
 type: point
 events:
     -   date: 1975-05-30
@@ -146,20 +159,19 @@ events:
         de.DS100: ASHS
         de.dstnr: !!str 010504
         source: src.de.DS100.1984
-    -   date: !!null
-        location:
-            line.de.1270: 2,0
-        source: src.de.SuW.2005
-    -   date: c1990
-        category: de.Bf
-        source: src.de.SuW.2005
-    -   date: c2000
-        name: Hamburg-Stadthausbrücke
-        public_name: Stadthausbrücke
-        source: src.de.TPP.2007
     -   date: c2000
         category: de.Bft
-        source: src.de.DBAG.ISR
+        name: Hamburg-Stadthausbrücke
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Stadthausbrücke
+        PLC: DE14485
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.1270: 2,012
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -167,7 +179,7 @@ events:
 
 
 ---
-key: point.de.Hamburg-Landungsbruecken
+key: point.de.Hamburg-Landungsbrücken
 type: point
 events:
     -   date: 1975-05-30
@@ -178,14 +190,18 @@ events:
         de.DS100: ALAS
         de.dstnr: !!str 010512
         source: src.de.DS100.1984
-    -   date: !!null
-        location:
-            line.de.1270: 3,0
-        source: src.de.SuW.2005
     -   date: c2000
         name: Hamburg Landungsbrücken
-        public_name: Landungsbrücken
-        source: src.de.TPP.2007
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Landungsbrücken
+        PLC: DE14404
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.1270: 3,028
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -204,14 +220,18 @@ events:
         de.DS100: ARES
         de.dstnr: !!str 010520
         source: src.de.DS100.1984
-    -   date: !!null
-        location:
-            line.de.1270: 4,0
-        source: src.de.SuW.2005
     -   date: c2000
         name: Hamburg Reeperbahn
-        public_name: Reeperbahn
-        source: src.de.TPP.2007
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Reeperbahn
+        PLC: DE14410
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.1270: 3,994
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -219,7 +239,7 @@ events:
 
 
 ---
-key: point.de.Hamburg-Koenigstrasse
+key: point.de.Hamburg-Königstraße
 type: point
 events:
     -   date: 1979-08-30
@@ -230,14 +250,18 @@ events:
         de.DS100: AKS
         de.dstnr: !!str 010538
         source: src.de.DS100.1984
-    -   date: !!null
-        location:
-            line.de.1270: 4,9
-        source: src.de.SuW.2005
     -   date: c2000
         name: Hamburg Königstraße
-        public_name: Königstraße
-        source: src.de.TPP.2007
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Königstraße
+        PLC: DE14402
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.1270: 4,914
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -247,7 +271,6 @@ events:
 ---
 key: point.de.Hamburg-Altona-S-Bahn
 type: point
-junction: True
 events:
     -   date: 1960
         status: open
@@ -259,15 +282,6 @@ events:
         source: src.de.DS100.1984
     -   date: !!null
         public_name: Altona
-    -   date: !!null
-        location:
-            line.de.1224:   1,0
-            line.de.1240: 292,9
-        source: src.de.SuW.2005
-    -   date: !!null
-        location:
-            line.de.1270: 5,886
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
     -   date: c2000
         name: Hamburg-Altona (S-Bahn)
         source: src.de.DBAG.BSV.2017
@@ -279,8 +293,20 @@ events:
         source: src.de.DBAG.BSV.2017
 
     -   date: !!null
+        location:
+            line.de.1224:   1,0
+            line.de.1240: 292,9
+        source: src.de.SuW.2005
+    -   date: !!null
+        location:
+            line.de.1270: 5,886
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+    -   date: !!null
         site:
             path.de.1270: als
+            path.de.1224: als
+            path.de.1240: als
 
 
 #    point.de.Hamburg-Diebsteich                 de.1225

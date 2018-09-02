@@ -13,6 +13,12 @@ events:
         de.VzG: !!str 1271
         source: src.de.DBAG.Geo-Strecke.2017
 
+    #   Genehmigungen, Eigentümer und Betreiber
+    #
+    -   date: !!null
+        owner: org.de
+        operator: org.de.DB
+
     #   Eröffnung
     #
     -   date: 1983-09-25
@@ -30,36 +36,30 @@ events:
         category: de.Hauptbahn
         tracks: 2
         electrified: de.hmb
-        source: src.de.SuW.2005
-
-    #   Eigentümer und Betreiber
-    #
-    -   date: !!null
-        owner: org.de
-        operator: org.de.DB
+        source: src.de.DBAG.Geo-Strecke.2017
 
     #   Verlauf
     #
     -   date: !!null
-        course:
-            -   path.de.6100     ham  ahab
-            -   path.de.1271.ham a    f
-            -   path.de.2200     arot fneu
-            -   path.de.1271.har a    f
-            -   path.de.1720     fhrs nrs
+        course: path.de.1271 ham ngr
 
 points:
-    - point.de.Hamburg-Hbf-S-Bahn                   # line.de.1270
-    - point.de.Hamburg-Hammerbrook
-    - point.de.Hamburg-Veddel-S-Bahn
-    - point.de.Hamburg-Wilhelmsburg-S-Bahn
-    - point.de.Hamburg-Wilhelmsburg-Abzw-S-Bahn
-    - point.de.Hamburg-Harburg-S-Bahn
-    - point.de.Hamburg-Harburg-Rathaus
-    - point.de.Hamburg-Heimfeld
-    - point.de.Hamburg-Hausbruch-S-Bahn
-    - point.de.Hamburg-Neuwiedenthal
-    - point.de.Hamburg-Neugraben-S-Bahn
+    -   point.de.Hamburg-Hbf-S-Bahn                 # de.1270
+    -   point.de.Hamburg-Hammerbrook
+    -   point.de.Hamburg-Veddel-S-Bahn
+    -   point.de.Hamburg-Wilhelmsburg-S-Bahn
+    -   point.de.Hamburg-Wilhelmsburg-Abzw-S-Bahn
+    -   point.de.Hamburg-Harburg-S-Bahn
+    -   point.de.Hamburg-Harburg-Rathaus
+    -   point.de.Hamburg-Heimfeld
+    -   point.de.Hamburg-Hausbruch-S-Bahn
+    -   point.de.Hamburg-Neuwiedenthal
+    -   point.de.Hamburg-Neugraben-S-Bahn
+
+
+#-----------------------------------------------------------------------------
+
+#    point.de.Hamburg-Hbf-S-Bahn                 de.1270
 
 
 ---
@@ -73,20 +73,26 @@ events:
         source: src.de.DS100.1984
     -   date: !!null
         service: passenger
+    -   date: c1995
+        category: de.Bft
+        source: src.de.DBAG.BSV.2017
+    -   date: c2000
+        name: Hamburg-Hammerbrook
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Hammerbrook
+        PLC: DE14446
+        de.dstnr: !!str 010405
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         location:
             line.de.1271: 1,637
-        source: src.de.DBAG.ISR
-    -   date: c1995
-        category: de.Bft
-        source: src.de.DBAG.ISR
-    -   date: c2000
-        name: Hamburg-Hammerbrook
-        source: src.de.TPP.2007
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
-            path.de.1271.ham: ham
+            path.de.1271: hab
 
 
 ---
@@ -100,17 +106,26 @@ events:
         source: src.de.DS100.1984
     -   date: !!null
         service: passenger
+    -   date: c1995
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: c2000
+        name: Hamburg-Veddel (S-Bahn)
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Veddel (S-Bahn)
+        PLC: DE14491
+        de.dstnr: !!str 010413
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         location:
             line.de.1271: 4,620
-        source: src.de.DBAG.ISR
-    -   date: c2000
-        name: Hamburg-Veddel (S-Bahn)
-        source: src.de.TPP.2007
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
-            path.de.2200: ves
+            path.de.1271: ved
 
 
 ---
@@ -124,17 +139,23 @@ events:
         source: src.de.DS100.1984
     -   date: !!null
         service: passenger
+    -   date: c1990
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Wilhelmsburg SB
+        PLC: DE14498
+        de.dstnr: !!str 010421
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         location:
             line.de.1271: 7,232
-        source: src.de.DBAG.ISR
-    -   date: c1990
-        category: de.Bf
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
-            path.de.2200: wbs
+            path.de.1271: wil
 
 
 ---
@@ -144,19 +165,18 @@ events:
     -   date: c1995
         status: open
     -   date: !!null
-        location:
-            line.de.1271: 6,9??
-            line.de.1280: 33,2
-        category: de.Abzw
-        source: src.de.SuW.2005
-    -   date: !!null
-        name: Hamburg-Wilhelmsburg Abzw S-Bahn
         de.DS100: AWLBS
-        source: src.de.TPP.2007
+        name: Hamburg-Wilhelmsburg Abzw S-Bahn
+        de.name16: Hmb-Wlb Abzw S-B
+        category: [de.Bft, de.Abzw]
+        PLC: DE14500
+        de.dstnr: !!str 308205
+        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
-            path.de.2200: was
+            path.de.1271: was
+            path.de.1280: was
 
 
 ---
@@ -181,17 +201,23 @@ events:
         source: src.de.DS100.1984
     -   date: !!null
         service: passenger
+    -   date: c1995
+        category: de.Hp
+        de.dstnr: !!str 010439
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Harburg S-Bahn
+        PLC: DE14448
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         location:
             line.de.1271: 12,330
-        source: src.de.DBAG.ISR
-    -   date: c1995
-        category: de.Hp
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
-            path.de.1271.har: har
+            path.de.1271: har
 
 
 ---
@@ -205,14 +231,23 @@ events:
         source: src.de.DS100.1984
     -   date: !!null
         service: passenger
+    -   date: c1995
+        category: de.Bf
+        de.dstnr: !!str 010447
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Harburg Rathaus
+        PLC: DE14451
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         location:
             line.de.1271: 13,231
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
-            path.de.1271.har: rat
+            path.de.1271: rat
 
 
 ---
@@ -226,17 +261,25 @@ events:
         source: src.de.DS100.1984
     -   date: !!null
         service: passenger
+    -   date: c2000
+        name: Hamburg-Heimfeld
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Heimfeld
+        PLC: DE14455
+        source: src.de.DBAG.BSV.2017
+    -   date: c1995
+        de.dstnr: !!str 010454
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         location:
             line.de.1271: 14,503
-        source: src.de.DBAG.ISR
-    -   date: c2000
-        name: Hamburg-Heimfeld
-        source: src.de.TPP.2007
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
-            path.de.1271.har: hei
+            path.de.1271: hei
 
 
 ---
@@ -244,23 +287,17 @@ key: point.de.Hamburg-Hausbruch-S-Bahn
 type: point
 events:
     -   date: !!null
-        category: [de.Hp, de.Bft]
-        service: none
-    -   date: !!null
+        de.DS100: AHBRS
         name: Hamburg-Hausbruch (S-Bahn)
-        de.DS100: AHRBS
-        source: src.de.TPP.2009
-    -   date: !!null
-        location:
-            line.de.1271: 17,618
-        source: src.de.DBAG.ISR
-    -   date: c2010
+        de.name16: Hmb-Hausbruch SB
         category: de.Üst
-        source: src.de.DBAG.ISR
+        PLC: DE14453
+        de.dstnr: !!str 911020
+        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
-            path.de.1720: has
+            path.de.1271: hau
 
 
 ---
@@ -274,23 +311,30 @@ events:
         source: src.de.DS100.1984
     -   date: !!null
         service: passenger
+    -   date: c2000
+        name: Hamburg-Neuwiedenthal
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Neuwiedenthal
+        PLC: DE14466
+        source: src.de.DBAG.BSV.2017
+    -   date: c1995
+        de.dstnr: !!str 010462
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         location:
             line.de.1271: 20,433
-        source: src.de.DBAG.ISR
-    -   date: c2000
-        name: Hamburg-Neuwiedenthal
-        source: src.de.TPP.2007
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
-            path.de.1720: nwi
+            path.de.1271: nwi
 
 
 ---
 key: point.de.Hamburg-Neugraben-S-Bahn
 type: point
-junction: True
 events:
     -   date: !!null
         name: Hamburg-Neugraben (S-Bahn)
@@ -299,16 +343,21 @@ events:
         source: src.de.DS100.1984
     -   date: !!null
         service: passenger
-        connection: point.de.Hamburg-Neugraben
+    -   date: !!null
+        de.name16: Neugr (S-Bahn)
+        PLC: DE14465
+        source: src.de.DBAG.BSV.2017
+    -   date: c1995
+        de.dstnr: !!str 010470
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         location:
             line.de.1271: 22,127
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         connection: point.de.Hamburg-Neugraben
-
-    -   date: !!null
         site:
-            path.de.1720: ngr
+            path.de.1271: ngr
        

@@ -116,36 +116,57 @@ events:
     #   Verlauf
     #
     -   date: !!null
-        course:
-            -   path.de.1220 elm  aulz
-            -   path.de.9120 a    aulz
-            -   path.de.9121 aelm fold
-            -   path.de.9120 fulz f
-            -   path.de.6928 fulz f
-            -   path.de.1120 aulz old
+        course: path.de.9120 elm old
 
 points:
-    - point.de.Elmshorn                         # line.de.1220
-    - point.de.Elmshorn-Langenmoor
-    - point.de.Sibirien
-    - point.de.Sparrieshoop
+    -   point.de.Elmshorn                           # de.1220
+    -   point.de.Elmshorn-Gr
+    -   point.de.Elmshorn-Langenmoor
+    -   point.de.Sibirien
+    -   point.de.Sparrieshoop
     -   point.de.Bokholt
-    - point.de.Vossloch
-    -   point.de.Barmstedt-Brunnenstrasse
-    - point.de.Barmstedt
-    - point.de.Langeln-Holst
+    -   point.de.Vossloch
+    -   point.de.Barmstedt-Brunnenstraße
+    -   point.de.Barmstedt
+    -   point.de.Langeln-Holst
+    -   point.de.Hoffnung
     -   point.de.Alveslohe
-    - point.de.Ulzburg                          # line.de.9121
-    - point.de.Henstedt-Kisdorf
-    - point.de.Henstedt-Wohld
-    - point.de.Wakendorf-Goetzberg
-    - point.de.Nahe
-    - point.de.Nahe-Torfverladestelle
-    - point.de.Suelfeld
-    - point.de.Grabau
-    - point.de.Blumendorf
-    - point.de.Ruempeler-Weg
-    - point.de.Bad-Oldesloe                     # line.de.1120
+    -   point.de.Ulzburg                            # de.9121
+    -   point.de.Henstedt-Kisdorf
+    -   point.de.Henstedt-Wohld
+    -   point.de.Wakendorf-Götzberg
+    -   point.de.Nahe
+    -   point.de.Nahe-Torfverladestelle
+    -   point.de.Sülfeld-Oldesloe
+    -   point.de.Grabau
+    -   point.de.Blumendorf
+    -   point.de.Rümpeler-Weg
+    -   point.de.Bad-Oldesloe                       # de.1120
+
+
+#-----------------------------------------------------------------------------
+
+#    point.de.Elmshorn                           de.1220
+
+
+---
+key: point.de.Elmshorn-Gr
+type: point
+subtype: border
+events:
+    -   date: !!null
+        de.DS100: AELG
+        name: Elmshorn DB-Grenze
+        de.name16: Elmshorn DB-Gr
+        category: de.Gp
+        PLC: DE21669
+        de.dstnr: !!str 109473
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        site:
+            path.de.9120: elg
+
 
 ---
 key: point.de.Elmshorn-Langenmoor
@@ -163,19 +184,21 @@ events:
         master: point.de.Elmshorn
         source: src.de.Bfv.1938
     -   date: !!null
-        location:
-            line.de.9120: 2,0
-        source: src.de.DRG.Alt.Karte.1945
-    -   date: !!null
         de.DS100: ALGM
         de.dstnr: !!str 438028
         source: src.de.DS100.1984
     -   date: !!null
         category: de.Hp
-        source: src.de.SuW.2005
+        de.name16: Langenmoor
+        source: src.de.DBAG.BSV.2017
     -   date: c2000
         name: Elmshorn Langenmoor
-        source: src.de.SuW.2005
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.9120: 2,0
+        source: src.de.DRG.Alt.Karte.1949
 
     -   date: !!null
         site:
@@ -210,16 +233,18 @@ events:
         de.lknr: 41 823
         source: src.de.Bfv.1928
     -   date: !!null
-        location:
-            line.de.9120: 3,8
-        source: src.de.DRG.Alt.Karte.1945
-    -   date: !!null
         de.DS100: ASPS
         de.dstnr: !!str 438036
         source: src.de.DS100.1984
     -   date: !!null
         category: de.Bf
-        source: src.de.SuW.2005
+        de.name16: Sparrieshoop
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.9120: 3,8
+        source: src.de.DRG.Alt.Karte.1949
 
     -   date: !!null
         site:
@@ -246,17 +271,18 @@ events:
         staff: none
         source: src.de.Bfv.1938
     -   date: !!null
-        category: de.Hp
-        location:
-            line.de.9120: 6,0
-        source: src.de.DRG.Alt.Karte.1945
-    -   date: !!null
         de.DS100: ABHT
         de.dstnr: !!str 438044
         source: src.de.DS100.1984
     -   date: !!null
+        category: de.Hp
         de.name16: Bokholt
         source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.9120: 6,0
+        source: src.de.DRG.Alt.Karte.1949
 
     -   date: !!null
         site:
@@ -277,16 +303,23 @@ events:
         service: passenger
         source: src.de.Bfv.1944
     -   date: !!null
-        location:
-            line.de.9120: 7,4
-        source: src.de.DRG.Alt.Karte.1945
+        category: de.Bf
+        source: src.de.DB.Hmb.Karte.1956
     -   date: !!null
         de.DS100: AVSL
         de.dstnr: !!str 438051
         source: src.de.DS100.1984
     -   date: c1970
         category: de.Hp
-        source: src.de.SuW.2005
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Voßloch
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.9120: 7,4
+        source: src.de.DRG.Alt.Karte.1949
 
     -   date: !!null
         site:
@@ -294,7 +327,7 @@ events:
 
 
 ---
-key: point.de.Barmstedt-Brunnenstrasse
+key: point.de.Barmstedt-Brunnenstraße
 type: point
 events:
     -   date: c1935
@@ -306,15 +339,16 @@ events:
         service: passenger
         source: src.de.Bfv.1938
     -   date: !!null
-        category: de.Hp
-        location:
-            line.de.9120: 9,1
-        source: src.de.DRG.Alt.Karte.1945
-    -   date: !!null
         de.DS100: ABMB
         de.name16: Barm Brunnenstr
+        category: de.Hp
         de.dstnr: !!str 438069
         source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.9120: 9,1
+        source: src.de.DRG.Alt.Karte.1949
 
     -   date: !!null
         site:
@@ -332,17 +366,18 @@ events:
         de.lknr: 43 823
         source: src.de.Bfv.1928
     -   date: !!null
-        category: de.Bf
-        location:
-            line.de.9120: 10,0
-        source: src.de.DRG.Alt.Karte.1945
-    -   date: !!null
         de.DS100: ABMS
         de.dstnr: !!str 438077
         source: src.de.DS100.1984
     -   date: !!null
         de.name16: Barmstedt
+        category: de.Bf
         source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.9120: 10,0
+        source: src.de.DRG.Alt.Karte.1949
 
     -   date: !!null
         site:
@@ -360,24 +395,60 @@ events:
         de.lknr: 44 823
         source: src.de.Bfv.1928
     -   date: !!null
-        category: de.Hp
-        location:
-            line.de.9120: 15,4
-        source: src.de.DRG.Alt.Karte.1945
+        category: de.Bf
+        source: src.de.DB.Hmb.Karte.1956
     -   date: 1973-09-29?
         status: closed
     -   date: 2000-05-28
         status: open
     -   date: 2000-05-28
-        name: Langeln (Holst)
-        location:
-            line.de.9120: 15,8
         de.DS100: ALAL
-        source: src.de.SuW.2005
+        name: Langeln (Holst)
+        de.name16: Langeln(Holst)
+        category: de.Hp
+        de.dstnr: !!str 438325
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.9120: 15,4
+        source: src.de.DRG.Alt.Karte.1949
 
     -   date: !!null
         site:
             path.de.9120: lal
+
+
+---
+key: point.de.Hoffnung
+type: point
+events:
+    -   date: c1935
+        status: open
+        source:
+            -   src.de.Bfv.1933
+            -   src.de.Kb.W1937
+    -   date: !!null
+        name: Hoffnung
+        service: passenger
+        staff: none
+        de.lknr: 58 823
+        master: point.de.Langeln-Holst
+        source: src.de.Bfv.1938
+    -   date: !!null
+        category: de.Hp
+        source: src.de.DB.Hmb.Karte.1956
+    -   date: c1975
+        status: closed
+
+    -   date: !!null
+        location:
+            line.de.9120: 16,7
+        source: src.de.DRG.Alt.Karte.1949
+
+    -   date: !!null
+        site:
+            path.de.9120: hof
 
 
 ---
@@ -392,9 +463,7 @@ events:
         source: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
-        location:
-            line.de.9120: 19,4
-        source: src.de.DRG.Alt.Karte.1945
+        source: src.de.DB.Hmb.Karte.1956
     -   date: 1992?
         category: de.Hp
         de.name16: Alvesloe
@@ -403,8 +472,16 @@ events:
         source: src.de.DBAG.BSV.2017
 
     -   date: !!null
+        location:
+            line.de.9120: 19,4
+        source: src.de.DRG.Alt.Karte.1949
+
+    -   date: !!null
         site:
             path.de.9120: alv
+
+
+#    point.de.Ulzburg                            de.9121
 
 
 ---
@@ -421,7 +498,7 @@ events:
         category: de.Hp
         location:
             line.de.9120: 26,6
-        source: src.de.DRG.Alt.Karte.1945
+        source: src.de.DRG.Alt.Karte.1949
 
     -   date: !!null
         site:
@@ -442,9 +519,10 @@ events:
         staff: none
         source: src.de.Bfv.1944
     -   date: !!null
+        category: de.Bf
         location:
             line.de.9120: 29,1
-        source: src.de.DRG.Alt.Karte.1945
+        source: src.de.DRG.Alt.Karte.1949
 
     -   date: !!null
         site:
@@ -452,20 +530,20 @@ events:
 
 
 ---
-key: point.de.Wakendorf-Goetzberg
+key: point.de.Wakendorf-Götzberg
 type: point
 events:
     -   date: !!null
         name: Wakendorf-Götzberg
-        location:
-            line.de.9120: 31,4
         source: src.de.Kb.1914
     -   date: !!null
         de.lknr: 48 823
         source: src.de.Bfv.1933
-    -   date: c1945
-        status: closed
-        source: src.de.DRG.Alt.Karte.1945
+    -   date: !!null
+        category: de.Bf
+        location:
+            line.de.9120: 31,4
+        source: src.de.DB.Hmb.Karte.1956
 
     -   date: !!null
         site:
@@ -486,7 +564,7 @@ events:
         category: de.Bf
         location:
             line.de.9120: 36,4
-        source: src.de.DRG.Alt.Karte.1945
+        source: src.de.DRG.Alt.Karte.1949
 
     -   date: !!null
         site:
@@ -508,7 +586,7 @@ events:
 
 
 ---
-key: point.de.Suelfeld
+key: point.de.Sülfeld-Oldesloe
 type: point
 events:
     -   date: !!null
@@ -521,7 +599,7 @@ events:
         category: de.Bf
         location:
             line.de.9120: 42,5
-        source: src.de.DRG.Alt.Karte.1945
+        source: src.de.DRG.Alt.Karte.1949
 
     -   date: !!null
         site:
@@ -542,7 +620,7 @@ events:
         category: de.Bf
         location:
             line.de.9120: 44,8
-        source: src.de.DRG.Alt.Karte.1945
+        source: src.de.DRG.Alt.Karte.1949
 
     -   date: !!null
         site:
@@ -577,7 +655,7 @@ events:
 
 
 ---
-key: point.de.Ruempeler-Weg
+key: point.de.Rümpeler-Weg
 type: point
 events:
     -   date: c1950
@@ -592,4 +670,7 @@ events:
     -   date: !!null
         site:
             path.de.9120: rum
+
+
+#    point.de.Bad-Oldesloe                       de.1120
 

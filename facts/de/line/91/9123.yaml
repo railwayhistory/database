@@ -17,8 +17,17 @@ events:
         de.VzG: !!str 9123
         source: src.de.DBAG.Geo-Strecke.2017
 
-    #   Genehmigung
+    #   Genehmigung, Eigentümer und Betriebsführer
     #
+    -   date: !!null
+        owner: org.de.Bergedorf-Geesthachter-Eisenbahn
+        operator: org.de.Bergedorf-Geesthachter-Eisenbahn
+    -   date: 1954
+        owner: org.de.Verkehrsbetriebe-Hamburg-Holstein
+        operator: org.de.Verkehrsbetriebe-Hamburg-Holstein
+    -   date: 1956-01-01
+        operator: org.de.AKN-Eisenbahn
+        source: src.de.web.VHH
 
     -   date: 2009-11-16
         end: point.de.Börnsen-LGr
@@ -63,35 +72,21 @@ events:
         passenger: none
         source: src.de.web.VHH
 
-    #   Eigentümer und Betriebsführer
-    #
-    -   date: !!null
-        owner: org.de.Bergedorf-Geesthachter-Eisenbahn
-        operator: org.de.Bergedorf-Geesthachter-Eisenbahn
-    -   date: 1954
-        owner: org.de.Verkehrsbetriebe-Hamburg-Holstein
-        operator: org.de.Verkehrsbetriebe-Hamburg-Holstein
-    -   date: 1956-01-01
-        operator: org.de.AKN-Eisenbahn
-        source: src.de.web.VHH
-
     #   Verlauf
     #
     -   date: !!null
-        course:
-            -   path.de.6100 beg fbes
-            -   path.de.9123 a   f
+        course: path.de.9112 beg gee
 
 points:
     -   point.de.Hamburg-Bergedorf-Gbf              # de.6100
     -   point.de.Hamburg-Bergedorf-Süd
-    - point.de.Holtenklinke
+    -   point.de.Holtenklinke
     -   point.de.Börnsen-LGr
     -   point.de.Börnsen
-    - point.de.Escheburg
+    -   point.de.Escheburg
     -   point.de.Besenhorst
-    - point.de.Dueneberg
-    - point.de.Geesthacht
+    -   point.de.Düneberg
+    -   point.de.Geesthacht
 
 
 #-----------------------------------------------------------------------------
@@ -102,7 +97,6 @@ points:
 ---
 key: point.de.Hamburg-Bergedorf-Süd
 type: point
-junction: True
 events:
     -   date: !!null
         name: Bergedorf Süd
@@ -118,17 +112,21 @@ events:
         de.dstnr: !!str 404517
         source: src.de.DS100.1984
     -   date: !!null
-        location:
-            line.de.9123: 1,6
-        source: src.de.SuW.2005
-    -   date: !!null
         category: de.Bf
         de.name16: Hmb-Berged.Süd
         source: src.de.DBAG.BSV.2017
 
     -   date: !!null
+        location:
+            line.de.9123: 1,6
+            line.de.9124: 0,0
+        source: src.de.DB.Hmb.Karte.1956
+
+    -   date: !!null
         site:
             path.de.9123: bes
+            path.de.9124: bes
+            path.de.8088: bes
 
 
 ---
@@ -142,9 +140,14 @@ events:
         source: src.de.Kb.W1937
     -   date: !!null
         category: de.Hp
+        source: src.de.DB.Hmb.Karte.1956
+    -   date: c1970
+        status: closed
+
+    -   date: !!null
         location:
             line.de.9123: 3,7
-        source: src.de.SuW.2005
+        source: src.de.DB.Hmb.Karte.1956
 
     -   date: !!null
         site:
@@ -162,7 +165,7 @@ events:
 
     -   date: !!null
         site:
-            path.de.9123: gbor
+            path.de.9123: bog
 
 
 ---
@@ -177,17 +180,23 @@ events:
         de.lknr: 40 226
         source: src.de.Bfv.1944
     -   date: !!null
+        category: de.Bf
+        source: src.de.DB.Hmb.Karte.1956
+    -   date: !!null
         de.DS100: ABSF
         de.dstnr: !!str 404533
         source: src.de.DS100.1984
-    -   date: !!null
+    -   date: c1990 
         category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
         de.name16: Börnsen
         source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         location:
             line.de.9123: 6,3
-        source: src.de.SuW.2005
+        source: src.de.DB.Hmb.Karte.1956
 
     -   date: !!null
         site:
@@ -209,10 +218,14 @@ events:
         de.dstnr: !!str 404541
         source: src.de.DS100.1984
     -   date: !!null
+        de.name16: Escheburg
         category: de.Bf
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
         location:
             line.de.9123: 8,9
-        source: src.de.SuW.2005
+        source: src.de.DB.Hmb.Karte.1956
 
     -   date: !!null
         site:
@@ -226,9 +239,6 @@ events:
     -   date: !!null
         name: Besenhorst
         source: src.de.Kb.1914
-    -   date: !!null
-        location:
-            line.de.9123: 11,4
     -   date: de.lknr.kb
         de.lknr: 40 228
         source: src.de.Bfv.1944
@@ -245,12 +255,17 @@ events:
         source: src.de.DBAG.BSV.2017
 
     -   date: !!null
+        location:
+            line.de.9123: 11,4
+        source: src.de.DB.Hmb.Karte.1984
+
+    -   date: !!null
         site:
             path.de.9123: beh
 
 
 ---
-key: point.de.Dueneberg
+key: point.de.Düneberg
 type: point
 events:
     -   date: !!null
@@ -261,18 +276,18 @@ events:
     -   date: !!null
         category: de.Hp
         source: src.de.mtbl.2528.1922
-    -   date: c1950
+    -   date: c1960
         status: closed
 
     -   date: !!null
         site:
             path.de.9123: dun
+            path.de.8089: dun
 
 
 ---
 key: point.de.Geesthacht
 type: point
-junction: True
 events:
     -   date: !!null
         name: Geesthacht
@@ -285,7 +300,20 @@ events:
         de.dstnr: !!str 513168
         source: src.de.DS100.1984
     -   date: !!null
+        de.name16: Geesthacht
         category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: c2000
+        de.dstnr: !!str 404574
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
         location:
             line.de.9123: 13,9
-        source: src.de.SuW.2005
+        source: src.de.DB.Hmb.Karte.1984
+
+    -   date: !!null
+        site:
+            path.de.9123: gee
+            path.de.8089: gee
+

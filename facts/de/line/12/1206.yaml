@@ -22,6 +22,7 @@ events:
             for: org.de.Westholsteinische-Eisenbahn
         document: src.de.l.pre.sle.1875.49.395
         source: src.de.DRG.1935 # 1877/31
+
     -   date: 1878-07-22
         start: point.de.Weddinghusen
         end: point.de.Wesselburen
@@ -30,6 +31,25 @@ events:
             for: org.de.Wesselburen-Heider-Eisenbahn
         document: src.de.l.pre.sle.1878.45.297
         source: src.de.DRG.1935 # 1878/41
+    -   date: !!null
+        start: point.de.Weddinghusen
+        end: point.de.Wesselburen
+        owner: org.de.Wesselburen-Heider-Eisenbahn
+        operator: org.de.Westholsteinische-Eisenbahn
+        source:
+            -   src.de.DRG.1935 # 1878/41
+            -   src.de.l.pre.1878.17.141
+    -   date: 1881-04-01
+        start: point.de.Weddinghusen
+        end: point.de.Wesselburen
+        owner: org.de.Westholsteinische-Eisenbahn
+        note:
+            deu: >
+                „Durch Kaufvertrag vom 23. Dezember 1880 ging diese Bahn
+                am 1. April 1881 auf die Westholsteinische
+                Eisenbahn-Gesellschaft über.“
+        source: src.de.DRG.1935
+
     -   date: 1883-09-12
         start: point.de.Wesselburen
         concession:
@@ -68,76 +88,37 @@ events:
         gauge: 1435mm
         source: src.de.DRG.1927
 
-    #   Eigentümer etc.
-    #
-    -   date: !!null
-        end: point.de.Weddinghusen
-        owner: org.de.Westholsteinische-Eisenbahn
-        operator: org.de.Westholsteinische-Eisenbahn
-        source: src.de.DRG.1935
-    -   date: !!null
-        start: point.de.Weddinghusen
-        end: point.de.Wesselburen
-        owner: org.de.Wesselburen-Heider-Eisenbahn
-        operator: org.de.Westholsteinische-Eisenbahn
-        source:
-            -   src.de.DRG.1935 # 1878/41
-            -   src.de.l.pre.1878.17.141
-    -   date: !!null
-        start: point.de.Wesselburen
-        owner: org.de.Westholsteinische-Eisenbahn
-        operator: org.de.Westholsteinische-Eisenbahn
-        source: src.de.DRG.1935
-
-    -   date: 1881-04-01
-        owner: org.de.Westholsteinische-Eisenbahn
-        end: point.de.Wesselburen
-        note:
-            deu: >
-                „Durch Kaufvertrag vom 23. Dezember 1880 ging diese Bahn
-                am 1. April 1881 auf die Westholsteinische
-                Eisenbahn-Gesellschaft über.“
-        source: src.de.DRG.1935
-
-    -   date: 1890-04-01
-        owner: org.de.l.pre
-        operator: org.de.e.hmb
-
     #   Verlauf
     #
     -   date: !!null
-        course:
-            -   path.de.1210 hei awex
-            -   path.de.1210 fwex abus
-            -   path.de.1206 a f
+        course: path.de.1206 hei bus
 
 points:
-    - point.de.Heide-Holst                      # line.de.1210
-    - point.de.Weddinghusen
-    - point.de.Dellweg
-    - point.de.Tiebensee
-    - point.de.Haferwisch
-    - point.de.Jarrenwisch
-    - point.de.Wesselburen
-    - point.de.Suederdeich
-    - point.de.Reinsbuettel
-    - point.de.Osterhof
+    -   point.de.Heide-Holst                        # de.1210
+    -   point.de.Weddinghusen
+    -   point.de.Dellweg
+    -   point.de.Tiebensee
+    -   point.de.Haferwisch
+    -   point.de.Jarrenwisch
+    -   point.de.Wesselburen
+    -   point.de.Süderdeich
+    -   point.de.Reinsbüttel
+    -   point.de.Osterhof
     -   point.de.Büsum
+
+
+#-----------------------------------------------------------------------------
+
+#    point.de.Heide-Holst                        de.1210
 
 
 ---
 key: point.de.Weddinghusen
 type: point
-junction: True
 events:
     -   date: !!null
         name: Weddinghusen
         source: src.de.Kb.1905
-    -   date: !!null
-        location:
-            line.de.1206: 3,33
-            line.de.1207: 3,33
-        source: src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.lknr: 01 111
         source: src.de.Bfv.1928
@@ -160,9 +141,15 @@ events:
         status: closed
 
     -   date: !!null
+        location:
+            line.de.1206: 3,33
+            line.de.1207: 3,33
+        source: src.de.DRG.Alt.Karte.1949
+
+    -   date: !!null
         site:
-            path.de.1210: weh
             path.de.1206: weh
+            path.de.1207: weh
 
 
 ---
@@ -173,10 +160,11 @@ events:
         status: open
         category: de.Hp
         location:
-            line.de.1206: 6,0
+            line.de.1206: 6,05
         name: Dellweg
         service: passenger
         staff: none
+        source: src.de.DB.Hmb.Karte.1956
     -   date: c1980
         status: closed
 
@@ -203,10 +191,6 @@ events:
         de.lknr: 01 535
         source: src.de.Bfv.1933
     -   date: !!null
-        location:
-            line.de.1206: 8,08
-        source: src.de.DRG.Alt.Karte.1949
-    -   date: !!null
         de.DS100: ATB
         de.dstnr: !!str 015354
         source: src.de.DS100.1984
@@ -215,10 +199,21 @@ events:
         staff: none
         source: src.de.DS100.1984
     -   date: c1990
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Tiebensee
+        PLC: DE20272
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.1206: 8,08
+        source: src.de.DRG.Alt.Karte.1949
+    -   date: c1990
         location:
             line.de.1206: 8,167
-        category: de.Hp
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.Geo-Strecke.2017
 
     -   date: !!null
         site:
@@ -246,10 +241,6 @@ events:
         staff: agent
         source: src.de.Bfv.1933
     -   date: !!null
-        location:
-            line.de.1206: 10,52
-        source: src.de.DRG.Alt.Karte.1949
-    -   date: !!null
         de.DS100: AHAH
         de.dstnr: !!str 015362
         source: src.de.DS100.1984
@@ -259,7 +250,11 @@ events:
         source: src.de.DS100.1984
     -   date: 2006
         status: closed
-        source: src.de.TPP.2007
+
+    -   date: !!null
+        location:
+            line.de.1206: 10,52
+        source: src.de.DRG.Alt.Karte.1949
 
     -   date: !!null
         site:
@@ -287,10 +282,6 @@ events:
         staff: agent
         source: src.de.Bfv.1933
     -   date: !!null
-        location:
-            line.de.1206: 11,90
-        source: src.de.DRG.Alt.Karte.1949
-    -   date: !!null
         de.DS100: AJHH
         de.dstnr: !!str 015370
         source: src.de.DS100.1984
@@ -298,6 +289,15 @@ events:
         category: de.Hp
         service: passenger
         source: src.de.DS100.1984
+    -   date: !!null
+        de.name16: Jarrenwisch
+        PLC: DE15271
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.1206: 11,903
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -307,7 +307,6 @@ events:
 ---
 key: point.de.Wesselburen
 type: point
-junction: True
 events:
     -   date: !!null
         name: Wesselburen
@@ -323,16 +322,25 @@ events:
         de.lknr: 01 538
         source: src.de.Bfv.1933
     -   date: !!null
-        location:
-            line.de.1206: 13,96
-        source: src.de.DRG.Alt.Karte.1949
-    -   date: !!null
         de.DS100: AWBU
         de.dstnr: !!str 015388
         source: src.de.DS100.1984
     -   date: c2000
         category: de.Hp
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Wesselburen
+        PLC: DE21041
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.1206: 13,96
+        source: src.de.DRG.Alt.Karte.1949
+    -   date: c2000
+        location:
+            line.de.1206: 13,949
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -340,7 +348,7 @@ events:
 
 
 ---
-key: point.de.Suederdeich
+key: point.de.Süderdeich
 type: point
 events:
     -   date: !!null
@@ -360,10 +368,6 @@ events:
         staff: agent
         source: src.de.Bfv.1933
     -   date: !!null
-        location:
-            line.de.1206: 15,64
-        source: src.de.DRG.Alt.Karte.1949
-    -   date: !!null
         de.DS100: ASDD
         de.dstnr: !!str 015396
         source: src.de.DS100.1984
@@ -373,7 +377,20 @@ events:
         source: src.de.DS100.1984
     -   date: c1990
         category: de.Hp
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Süderdeich
+        PLC: DE20126
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.1206: 15,64
+        source: src.de.DRG.Alt.Karte.1949
+    -   date: c1990
+        location:
+            line.de.1206: 15,671
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -381,7 +398,7 @@ events:
 
 
 ---
-key: point.de.Reinsbuettel
+key: point.de.Reinsbüttel
 type: point
 events:
     -   date: !!null
@@ -398,10 +415,6 @@ events:
         de.lknr: 01 540
         source: src.de.Bfv.1933
     -   date: !!null
-        location:
-            line.de.1206: 17,68
-        source: src.de.DRG.Alt.Karte.1949
-    -   date: !!null
         de.DS100: ARE
         de.dstnr: !!str 015404
         source: src.de.DS100.1984
@@ -409,6 +422,19 @@ events:
         category: de.Hp
         staff: none
         source: src.de.DS100.1984
+    -   date: !!null
+        de.name16: Reinsbüttel
+        PLC: DE18760
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.1206: 17,68
+        source: src.de.DRG.Alt.Karte.1949
+    -   date: c1990
+        location:
+            line.de.1206: 17,768
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -433,10 +459,6 @@ events:
         de.lknr: 01 541
         source: src.de.Bfv.1933
     -   date: !!null
-        location:
-            line.de.1206: 20,27
-        source: src.de.DRG.Alt.Karte.1949
-    -   date: !!null
         de.DS100: AOHF
         de.dstnr: !!str 015412
         source: src.de.DS100.1984
@@ -451,6 +473,11 @@ events:
         source: src.de.TPP.2007
 
     -   date: !!null
+        location:
+            line.de.1206: 20,27
+        source: src.de.DRG.Alt.Karte.1949
+
+    -   date: !!null
         site:
             path.de.1206: oho
 
@@ -458,7 +485,6 @@ events:
 ---
 key: point.de.Büsum
 type: point
-junction: True
 events:
     -   date: !!null
         name: Büsum

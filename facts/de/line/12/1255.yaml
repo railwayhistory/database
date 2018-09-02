@@ -1,8 +1,9 @@
-# DE 1255.  Maschen Rbf - Hamburg Süd
+# DE 1255.  Meckelfeld - Hamburg Süd
 #
 ---
 key: line.de.1255
 type: line
+label: freight
 events:
     -   date: !!null
         region: org.de
@@ -19,6 +20,9 @@ events:
 
     #   Genehmigungen
     #
+    -   date: !!null
+        owner: org.de
+        operator: org.de.DB
 
     #   Eröffnung und Einstellung
     #
@@ -29,58 +33,169 @@ events:
     #
     -   date: !!null
         category: de.Hauptbahn
-        source: src.de.SuW.2005
-    -   date: !!null
         electrified: de
         tracks: 2
         gauge: 1435mm
-        source: src.de.DBAG.ISR
-
-    #   Eigentümer etc.
-    #
-    -   date: !!null
-        owner: org.de
-        operator: org.de.DB
+        source: src.de.DBAG.Geo-Strecke.2017
 
     #   Verlauf
     #
     -   date: !!null
-        course:
-            -   path.de.1720 mas  xhar
-            -   path.de.2200 fste har
-            -   path.de.2200 fhar wix
-            -   path.de.2200 wia  asud
-            -   path.de.1255 a    f
+        course: path.de.1255 mas sud
 
 points:
-    - point.de.Maschen-Rbf                          # line.de.1280
-    - point.de.Meckelfeld                           # line.de.1280
-    - point.de.Meckelfeld-Abzw                      # line.de.1720
-    - point.de.Maschen-LGr-1255
-    - point.de.Hamburg-Harburg                      # line.de.1250
-    - point.de.Hamburg-Süderelbbrücke             # line.de.1250
-    - point.de.Hamburg-Wilhelmsburg                 # line.de.1250
-    - point.de.Hamburg-Süd
+    -   point.de.Meckelfeld                         # de.1720
+    -   point.de.Maschen-LGr-1255
+    -   point.de.Hamburg-Harburg-Achterkamp
+    -   point.de.Hamburg-Harburg-Bbf-Süd
+    -   point.de.Hamburg-Harburg-Bbf
+    -   point.de.Hamburg-Harburg-Hst                # de.2200
+    -   point.de.Hamburg-Harburg                    # de.1250
+    -   point.de.Hamburg-Harburg-Nordkopf           # de.2200
+    -   point.de.Hamburg-Süderelbbrücke             # de.2200
+    -   point.de.Hamburg-Süderelbbrücke-Brack       # de.2200
+    -   point.de.Hamburg-Wilhelmsburg-Ws            # de.1250
+    -   point.de.Hamburg-Wilhelmsburg               # de.1250
+    -   point.de.Hamburg-Wilhelmsburg-Wa            # de.1250
+    -   point.de.Hamburg-Süd-Gr
+    -   point.de.Hamburg-Süd-W4
+    -   point.de.Hamburg-Süd
+
+
+#-----------------------------------------------------------------------------
+
+#    point.de.Meckelfeld                         de.1720
 
 
 ---
 key: point.de.Maschen-LGr-1255
 type: point
+subtype: border
 events:
     -   date: !!null
+        de.DS100: AQM
         name: Maschen NI/HH 1255
-        de.DS100: AQM 
-        source: src.de.TPP.2006
+        de.name16: Maschen 1255
+        category: de.LGr
+        PLC: DE16854
+        de.dstnr: !!str 103970
+        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
-            path.de.1720: gmec
+            path.de.1255: mag
+
+
+---
+key: point.de.Hamburg-Harburg-Achterkamp
+type: point
+subtype: reference
+events:
+    -   date: !!null
+        designation: Hamburg-Harburg Achterkamp
+        site:
+            path.de.1255: ach
+
+
+---
+key: point.de.Hamburg-Harburg-Bbf-Süd
+type: point
+events:
+    -   date: !!null
+        de.DS100: AHARH
+        name: Hamburg-Harburg Betriebsbahnhof Süd
+        de.name16: Hmb-Harb Bbf Süd
+        category: de.Bft
+        PLC: DE14450
+        de.dstnr: !!str 912305
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        site:
+            path.de.1255: has
+
+
+---
+key: point.de.Hamburg-Harburg-Bbf
+type: point
+events:
+    -   date: !!null
+        de.DS100: AHARB
+        name: Hamburg-Harburg Bbf
+        de.name16: Hmb-Harburg Bbf
+        category: de.Bft
+        PLC: DE14449
+        de.dstnr: !!str 908657
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        site:
+            path.de.1255: hab
+
+
+#    point.de.Hamburg-Harburg-Hst                de.2200
+
+
+#    point.de.Hamburg-Harburg                    de.1250
+
+
+#    point.de.Hamburg-Harburg-Nordkopf           de.2200
+
+
+#    point.de.Hamburg-Süderelbbrücke             de.2200
+
+
+#    point.de.Hamburg-Süderelbbrücke-Brack       de.2200
+
+
+#    point.de.Hamburg-Wilhelmsburg-Ws            de.1250
+
+
+#    point.de.Hamburg-Wilhelmsburg               de.1250
+
+
+#    point.de.Hamburg-Wilhelmsburg-Wa            de.1250
+
+
+---
+key: point.de.Hamburg-Süd-Gr
+type: point
+subtype: border
+events:
+    -   date: !!null
+        de.DS100: AHDG
+        name: Hamburg Süd DB-Grenze
+        de.name16: Hmb Süd DB-Gr
+        category: de.Gp
+        PLC: DE14413
+        de.dstnr: !!str 106855
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.1255: 11,780
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+    -   date: !!null
+        site:
+            path.de.1255: sug
+
+
+---
+key: point.de.Hamburg-Süd-W4
+type: point
+subtype: reference
+events:
+    -   date: !!null
+        designation: Hamburg Süd W 4
+        site:
+            path.de.1255: suv
+            path.de.1248: suv
 
 
 ---
 key: point.de.Hamburg-Süd
 type: point
-junction: True
 events:
     -   date: !!null
         name: Niedernfelde Rbf
@@ -105,6 +220,12 @@ events:
         de.DS100: AHBS
         de.dstnr: !!str 010793
         source: src.de.DS100.1984
+    -   date: !!null
+        de.name16: Hamburg Süd
+        source: src.de.DBAG.BSV.2017
+    -   date: c2000
+        category: de.Bft
+        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:

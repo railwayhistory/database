@@ -1,4 +1,4 @@
-# DE 9122.  Hamburg-Ochsenzoll - Ulzburg Süd
+# DE 9122.  Ochsenzoll - Ulzburg Süd
 #
 ---
 key: line.de.9122
@@ -7,10 +7,10 @@ events:
     -   date: !!null
         region: org.de
     -   date: !!null
-        end: point.de.Hamburg-Ochsenzoll-LGr
+        end: point.de.Ochsenzoll-LGr
         region: org.de.l.hh
     -   date: !!null
-        start: point.de.Hamburg-Ochsenzoll-LGr
+        start: point.de.Ochsenzoll-LGr
         region: org.de.l.sh
 
     -   date: !!null
@@ -18,12 +18,20 @@ events:
         de.VzG: !!str 9122
         source: src.de.DBAG.Geo-Strecke.2017
 
-    #   Genehmigung
+    #   Genehmigung, Eigentümer, Betreiber
     #
     -   date: 1953-05-15
         concession:
             by: org.de.l.sh
         source: src.de.web.AKN.A2
+    -   date: !!null
+        owner: org.de.Kreis-Pinneberg
+        operator: org.de.AKN-Eisenbahn
+    -   date: 1965
+        owner: org.de.l.sh
+        source: src.de.web.AKN.A2
+    -   date: 1992
+        owner: org.de.Verkehrsgesellschaft-Norderstedt
 
     -   date: c2000
         start: point.de.Norderstedt-Mitte # LGr?
@@ -63,75 +71,83 @@ events:
         tracks: 2
         source: src.de.web.AKN.A2
 
-    #   Eigentümer etc.
-    #
-    -   date: !!null
-        owner: org.de.Kreis-Pinneberg
-        operator: org.de.AKN-Eisenbahn
-    -   date: 1965
-        owner: org.de.l.sh
-        source: src.de.web.AKN.A2
-    -   date: 1992
-        owner: org.de.Verkehrsgesellschaft-Norderstedt
-
     #   Verlauf
     #
     -   date: !!null
-        course:
-            -   path.de.1247 och  f
-            -   path.de.9122 a    f
-            -   path.de.9121 foch uls
+        course: path.de.9122 och uls
 
 points:
-    - point.de.Hamburg-Ochsenzoll                   # line.de.1247
-    - point.de.Hamburg-Ochsenzoll-LGr
-    - point.de.Garstedt-alt
-    - point.de.Garstedt
-    - point.de.Garstedt-Birkenweg
-    - point.de.Garstedt-Richtweg
-    - point.de.Norderstedt-Mitte
-    - point.de.Norderstedt-Waldstrasse
-    - point.de.Norderstedt-Moorbekhalle
-    - point.de.Harckesheyde
-    - point.de.Friedrichsgabe
-    - point.de.Norderstedt-Quickborner-Strasse
-    - point.de.Haslohfurth
-    - point.de.Meeschensee
-    - point.de.Ulzburg-Abzw
-    - point.de.Ulzburg-Sued                         # line.de.9121
+    -   point.de.Ochsenzoll
+    -   point.de.Ochsenzoll-LGr
+    -   point.de.Garstedt-Hp
+    -   point.de.Garstedt
+    -   point.de.Garstedt-Birkenweg
+    -   point.de.Norderstedt-Richtweg
+    -   point.de.Norderstedt-Mitte
+    -   point.de.Norderstedt-Waldstrasse
+    -   point.de.Norderstedt-Moorbekhalle
+    -   point.de.Harckesheyde
+    -   point.de.Friedrichsgabe
+    -   point.de.Norderstedt-Quickborner-Straße
+    -   point.de.Haslohfurth
+    -   point.de.Meeschensee
+    -   point.de.Ulzburg-Abzw
+    -   point.de.Ulzburg-Süd                        # de.9121
+
+
+#-----------------------------------------------------------------------------
 
 ---
+key: point.de.Ochsenzoll
+type: point
+events:
+    -   date: !!null
+        name: Ochsenzoll
+        category: de.Bf
+        location:
+            line.de.9122: 0,0
+        source: src.de.DB.Hmb.Karte.1956
 
-key: point.de.Hamburg-Ochsenzoll-LGr
+    -   date: !!null
+        connection: point.de.Hamburg-Ochsenzoll
+        site:
+            path.de.9122: och
+
+
+---
+key: point.de.Ochsenzoll-LGr
 type: point
 subtype: border
 events:
     -   date: !!null
         category: de.LGr
-        name: Hamburg-Ochsenzoll HH/SH
+        name: Ochsenzoll HH/SH
 
     -   date: !!null
         site:
-            path.de.9122: goch
+            path.de.9122: ocg
 
 
 ---
-key: point.de.Garstedt-alt
+key: point.de.Garstedt-Hp
 type: point
 events:
     -   date: !!null
         category: de.Hp
-        location:
-            line.de.9122: 1,1
         name: Garstedt
-        source: src.de.WP.Alsternordbahn
+        source: src.de.DB.Hmb.Karte.1956
     -   date: 1967
         status: closed
         source: src.de.WP.Alsternordbahn
 
     -   date: !!null
+        location:
+            line.de.9122: 1,1
+        source: src.de.DB.Hmb.Karte.1956
+
+    -   date: !!null
         site:
-            path.de.9122: gaa
+            path.de.9122: gah
 
 
 ---
@@ -140,13 +156,22 @@ type: point
 events:
     -   date: 1969
         status: open
-        name: Garstedt
-        category: de.Bf
-        location:
-            line.de.9122: 1,5
         source: src.de.WP.Alsternordbahn
     -   date: !!null
         de.DS100: AGAS
+        name: Garstedt
+        de.name16: Garstedt
+        category: de.Bf
+        de.dstnr: !!str 593012
+        source: src.de.DBAG.BSV.2017
+    -   date: 2009-01-24
+        status: closed
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.9122: 1,6
+        source: src.de.DB.Hmb.Karte.1984
 
     -   date: !!null
         site:
@@ -159,13 +184,16 @@ type: point
 events:
     -   date: !!null
         category: de.Hp
-        location:
-            line.de.9122: 1,7
         name: Garstedt Birkenweg
-        source: src.de.WP.Alsternordbahn
+        source: src.de.DB.Hmb.Karte.1956
     -   date: 1969
         status: closed
         source: src.de.WP.Alsternordbahn
+
+    -   date: !!null
+        location:
+            line.de.9122: 1,6
+        source: src.de.DB.Hmb.Karte.1956
 
     -   date: !!null
         site:
@@ -173,20 +201,36 @@ events:
 
 
 ---
-key: point.de.Garstedt-Richtweg
+key: point.de.Norderstedt-Richtweg
 type: point
 events:
     -   date: !!null
-        category: de.Bf
-        location:
-            line.de.9122: 2,8
+        category: de.Hp
         name: Garstedt Richtweg
+        source: src.de.DB.Hmb.Karte.1956
+    -   date: 1979
+        category: de.Bf
+        name: Richtweg
         source: src.de.WP.Alsternordbahn
     -   date: !!null
         de.DS100: ARWG
-    -   date: 1979
-        name: Richtweg
-        source: src.de.WP.Alsternordbahn
+        de.dstnr: !!str 593020
+        source: src.de.DS100.1984
+    -   date: !!null
+        de.name16: Richtweg
+        source: src.de.DBAG.BSV.2017
+    -   date: c1995
+        name: Norderstedt Richtweg
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.9122: 2,9
+        source: src.de.DB.Hmb.Karte.1956
+    -   date: c1970
+        location:
+            line.de.9122: 2,7
+        source: src.de.DB.Hmb.Karte.1984
 
     -   date: !!null
         site:
@@ -198,20 +242,27 @@ key: point.de.Norderstedt-Mitte
 type: point
 events:
     -   date: !!null
-        location:
-            line.de.9122: 4,0
         name: Harkseichen-Falkenberg
-        source: src.de.WP.Alsternordbahn
-    -   date: !!null
-        category: de.Bf
-        source: src.de.SuW.2005
+        category: de.Hp
+        source: src.de.DB.Hmb.Karte.1956
     -   date: 1979
+        category: de.Bf
         name: Norderstedt Mitte
-        source: src.de.WP.Alsternordbahn
+        source:
+            -   src.de.WP.Alsternordbahn
+            -   src.de.DB.Hmb.Karte.1984
     -   date: !!null
         de.DS100: ANDM
         de.dstnr: !!str 593038
         source: src.de.DS100.1984
+    -   date: !!null
+        de.name16: Norderst Mitte
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.9122: 4,0
+        source: src.de.DB.Hmb.Karte.1956
 
     -   date: !!null
         site:
@@ -223,12 +274,11 @@ key: point.de.Norderstedt-Waldstrasse
 type: point
 events:
     -   date: !!null
-        category: de.Bf
-        location:
-            line.de.9122: 4,6
         name: Friedrichsgabe Waldstraße
-        source: src.de.WP.Alsternordbahn
+        category: de.Hp
+        source: src.de.DB.Hmb.Karte.1956
     -   date: 1979
+        category: de.Bf
         name: Waldstraße
         source: src.de.WP.Alsternordbahn
     -   date: !!null
@@ -240,6 +290,11 @@ events:
         source: src.de.WP.Alsternordbahn
 
     -   date: !!null
+        location:
+            line.de.9122: 4,7
+        source: src.de.DB.Hmb.Karte.1956
+
+    -   date: !!null
         site:
             path.de.9122: wal
 
@@ -248,21 +303,16 @@ events:
 key: point.de.Norderstedt-Moorbekhalle
 type: point
 events:
-    -   date: !!null
-        category: de.Hp
-        de.DS100: AMBH
-        source: src.de.SuW.2005
-    -   date: !!null
-        location:
-            line.de.9122: 4,7
-        name: Moorbekhalle
-        source: src.de.WP.Alsternordbahn
     -   date: 1992
         status: open
         source: src.de.WP.Alsternordbahn
-    -   date: c2000
+    -   date: !!null
+        de.DS100: AMBH
         name: Norderstedt Moorbekhalle
-        source: src.de.DBAG.ISR
+        de.name16: Moorbekhalle
+        category: de.Hp
+        de.dstnr: !!str 404293
+        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
@@ -275,13 +325,14 @@ type: point
 events:
     -   date: !!null
         category: de.Hp
-        location:
-            line.de.9122: 5,6
         name: Friedrichsgabe-Heidberg
-        source: src.de.WP.Alsternordbahn
+        source: src.de.DB.Hmb.Karte.1956
     -   date: 1979
+        category: de.Bf
         name: Harckesheyde
-        source: src.de.WP.Alsternordbahn
+        source:
+            -   src.de.WP.Alsternordbahn
+            -   src.de.DB.Hmb.Karte.1984
     -   date: !!null
         de.DS100: AHKH
         de.dstnr: !!str 593053
@@ -289,6 +340,11 @@ events:
     -   date: 1992
         status: closed
         source: src.de.WP.Alsternordbahn
+
+    -   date: !!null
+        location:
+            line.de.9122: 5,6
+        source: src.de.DB.Hmb.Karte.1956
 
     -   date: !!null
         site:
@@ -300,11 +356,8 @@ key: point.de.Friedrichsgabe
 type: point
 events:
     -   date: 1957-05
-        category: de.Hp
-        location:
-            line.de.9122: 6,4
-        name: Friedrichsgabe Mitte
         status: open
+        name: Friedrichsgabe Mitte
         source: src.de.WP.Alsternordbahn
     -   date: 1979
         name: Friedrichsgabe
@@ -313,22 +366,32 @@ events:
         de.DS100: AFRG
         de.dstnr: !!str 593061
         source: src.de.DS100.1984
+    -   date: !!null
+        category: de.Hp
+        de.name16: Friedrichsgabe
+        source: src.de.DBAG.BSV.2017
+    -   date: c1995
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.9122: 6,4
+        source: src.de.DB.Hmb.Karte.1984
 
     -   date: !!null
         site:
-            path.de.9122: har
+            path.de.9122: fri
 
 
 ---
-key: point.de.Norderstedt-Quickborner-Strasse
+key: point.de.Norderstedt-Quickborner-Straße
 type: point
 events:
-    -   date: 1953
-        location:
-            line.de.9122: 7,1
+    -   date: !!null
         name: Friedrichsgabe Dorf
-        status: open
-        source: src.de.WP.Alsternordbahn
+        category: de.Bf
+        source: src.de.DB.Hmb.Karte.1956
     -   date: 1979
         name: Quickborner Straße
         source: src.de.WP.Alsternordbahn
@@ -336,11 +399,16 @@ events:
         de.DS100: AQBS
         de.dstnr: !!str 593079
     -   date: !!null
+        de.name16: Quickborner Str
+        source: src.de.DBAG.BSV.2017
+    -   date: c1990
         category: de.Hp
-        source: src.de.SuW.2005
-    -   date: c2000
-        name: Norderstedt Quickborner Straße
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.9122: 7,1
+        source: src.de.DB.Hmb.Karte.1956
 
     -   date: !!null
         site:
@@ -351,13 +419,10 @@ events:
 key: point.de.Haslohfurth
 type: point
 events:
-    -   date: 1953
+    -   date: !!null
         category: de.Hp
-        location:
-            line.de.9122: 8,3
         name: Haslohfurth-Kampmoor
-        status: open
-        source: src.de.WP.Alsternordbahn
+        source: src.de.DB.Hmb.Karte.1956
     -   date: 1979
         name: Haslohfurth
         source: src.de.WP.Alsternordbahn
@@ -365,6 +430,14 @@ events:
         de.DS100: AHLF
         de.dstnr: !!str 593087
         source: src.de.DS100.1984
+    -   date: !!null
+        de.name16: Haslohfurth
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.9122: 8,3
+        source: src.de.DB.Hmb.Karte.1956
 
     -   date: !!null
         site:
@@ -375,12 +448,10 @@ events:
 key: point.de.Meeschensee
 type: point
 events:
-    -   date: 1953
-        location:
-            line.de.9122: 9,5
+    -   date: !!null
         name: Meeschensee-Alsterquelle
-        status: open
-        source: src.de.WP.Alsternordbahn
+        category: de.Hp
+        source: src.de.DB.Hmb.Karte.1956
     -   date: 1979
         name: Meeschensee
         source: src.de.WP.Alsternordbahn
@@ -389,8 +460,13 @@ events:
         de.dstnr: !!str 593095
         source: src.de.DS100.1984
     -   date: !!null
-        category: de.Hp
-        source: src.de.SuW.2005
+        de.name16: Meeschensee
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.9122: 9,5
+        source: src.de.DB.Hmb.Karte.1956
 
     -   date: !!null
         site:
@@ -401,12 +477,15 @@ events:
 key: point.de.Ulzburg-Abzw
 type: point
 subtype: reference
-junction: True
 events:
     -   date: !!null
-        name: Ulzburg Abzw
+        designation: Ulzburg Abzw
 
     -   date: !!null
         site:
             path.de.9122: ula
+            path.de.8074: ula
+
+
+#    point.de.Ulzburg-Süd                        de.9121
 

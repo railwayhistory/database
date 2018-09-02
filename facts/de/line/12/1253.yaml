@@ -37,11 +37,11 @@ events:
         passenger: none
 
     -   date: !!null
-        end: point.de.Hamburg-Süderelbbrücke-EGr
+        end: point.de.Hamburg-Süderelbbrücke-Gr
         owner: org.de
         operator: org.de.DB
     -   date: !!null
-        start: point.de.Hamburg-Süderelbbrücke-EGr
+        start: point.de.Hamburg-Süderelbbrücke-Gr
         owner: org.de.l.hh
         operator: org.de.Hamburg-Port-Authority
         source: src.de.web.HHA
@@ -49,55 +49,76 @@ events:
     #   Verlauf
     #
     -   date: !!null
-        course:
-            -   path.de.2200 sel  ahoh
-            -   path.de.1253 a    ahau
-            -   path.de.1720 fkat awal
-            -   path.de.1253 fhau f
+        course: path.de.1253 seb dra
 
 points:
-    - point.de.Hamburg-Süderelbbrücke             # line.de.2200
-    - point.de.Hamburg-Süderelbbrücke-EGr
-    - point.de.Hamburg-Hohe-Schaar-Sued
-    - point.de.Hamburg-Hohe-Schaar
-    - point.de.Kattwykbruecke
-    - point.de.Hamburg-Hausbruch-Mitte
+    -   point.de.Hamburg-Süderelbbrücke             # de.2200
+    -   point.de.Hamburg-Süderelbbrücke-Gr
+    -   point.de.Hamburg-Hohe-Schaar-Süd-W1
+    -   point.de.Hamburg-Hohe-Schaar-Süd
+    -   point.de.Hamburg-Hohe-Schaar
+    -   point.de.Kattwykbrücke
+    -   point.de.Hamburg-Hausbruch-Mitte
     -   point.de.Hamburg-Waltershof-Alte-Süderelbe
-    - point.de.Hamburg-Waltershof-W318
-    - point.de.Hamburg-Waltershof
+    -   point.de.Hamburg-Waltershof-W184
+    -   point.de.Hamburg-Waltershof-W318
+    -   point.de.Hamburg-Waltershof-W323
+    -   point.de.Hamburg-Waltershof
     -   point.de.Hamburg-Waltershof-Dradenau
 
 
+#-----------------------------------------------------------------------------
+
+#    point.de.Hamburg-Süderelbbrücke             de.2200
+
+
 ---
-key: point.de.Hamburg-Süderelbbrücke-EGr
+key: point.de.Hamburg-Süderelbbrücke-Gr
 type: point
 subtype: border
 events:
     -   date: !!null
-        category: de.EGr
+        de.DS100: ASEG
+        name: Hamburg Süderelbbrücke DB-Grenze
+        de.name16: Süderelbbr DB-Gr
+        category: de.Gp
+        PLC: DE14415
+        de.dstnr: !!str 106856
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
         location:
-            line.de.1253: 1,000
-        source: src.de.web.HHA
+            line.de.1253: 0,993
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
-            path.de.1253: gsel
+            path.de.1253: seg
 
 
 ---
-key: point.de.Hamburg-Hohe-Schaar-Sued
+key: point.de.Hamburg-Hohe-Schaar-Süd-W1
 type: point
-junction: True
+subtype: reference
 events:
     -   date: !!null
-        name: Hamburg Hohe Schaar Süd
-        de.DS100: AHOSS
-        source: src.de.TPP.2006
+        designation: Hamburg-Hohe Schaar Süd, W 1
+        site:
+            path.de.1253: hse
+            path.de.1254: hse
+
+
+---
+key: point.de.Hamburg-Hohe-Schaar-Süd
+type: point
+events:
     -   date: !!null
-        location:
-            line.de.1253: 1,895
+        de.DS100: AHOSS
+        name: Hamburg Hohe Schaar Süd
+        de.name16: Hmb H Schaar Süd
         category: de.Bft
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 911756
+        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
@@ -110,14 +131,12 @@ key: point.de.Hamburg-Hohe-Schaar
 type: point
 events:
     -   date: !!null
-        name: Hamburg Hohe Schaar
         de.DS100: AHOS
-        source: src.de.TPP.2006
-    -   date: !!null
-        category: de.Bf
-        location:
-            line.de.1253: 3,700
-        source: src.de.DBAG.ISR
+        name: Hamburg Hohe Schaar
+        de.name16: Hmb Hohe Schaar
+        category: de.Bft
+        de.dstnr: !!str 011338
+        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
@@ -125,7 +144,7 @@ events:
 
 
 ---
-key: point.de.Kattwykbruecke
+key: point.de.Kattwykbrücke
 type: point
 events:
     -   date: !!null
@@ -146,25 +165,19 @@ events:
 ---
 key: point.de.Hamburg-Hausbruch-Mitte
 type: point
-junction: True
 events:
     -   date: !!null
-        category: de.Bft
-    -   date: !!null
-        location:
-            line.de.1253: 9,554
-        source: src.de.DBAG.ISR
-    -   date: !!null
-        name: Hamburg-Hausbruch Mitte
         de.DS100: AHBRM
-        source: src.de.TPP.2006
-
-    -   date: !!null
-        connection: point.de.Hamburg-Hausbruch
+        name: Hamburg-Hausbruch Mitte
+        de.name16: Hausbruch Mitte
+        category: de.Bft
+        de.dstnr: !!str 908391
+        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
-            path.de.1720: hbm
+            path.de.1253: ham
+            path.de.1293: ham
 
 
 ---
@@ -172,16 +185,12 @@ key: point.de.Hamburg-Waltershof-Alte-Süderelbe
 type: point
 events:
     -   date: !!null
-        location:
-            line.de.1253: 13,6
-        source: src.de.SuW.2005
-    -   date: !!null
-        category: de.Bft
-        name: Hamburg-Waltershof Alte Süderelbe
         de.DS100: AWHOS
+        name: Hamburg-Waltershof Alte Süderelbe
+        de.name16: Alte Süderelbe
+        category: de.Bft
+        de.dstnr: !!str 908676
         source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        master: point.de.Hamburg-Waltershof
 
     -   date: !!null
         site:
@@ -189,36 +198,69 @@ events:
 
 
 ---
+key: point.de.Hamburg-Waltershof-W184
+type: point
+subtype: reference
+events:
+    -   date: !!null
+        name: Hamburg-Waltershof W 184
+        site:
+            path.de.1253: wan
+            path.de.1295: wan
+
+
+---
 key: point.de.Hamburg-Waltershof-W318
 type: point
 subtype: reference
-junction: True
 events:
     -   date: !!null
-        location:
-            line.de.1253: 15,1?
-            line.de.1251: 0,000?
-        name: Hamburg-Waltershof W318
-
-    -   date: !!null
+        name: Hamburg-Waltershof W 318
         site:
             path.de.1253: waw
+            path.de.1251: waw
+
+
+---
+key: point.de.Hamburg-Waltershof-W323
+type: point
+subtype: reference
+events:
+    -   date: !!null
+        name: Hamburg-Waltershof W 323
+        site:
+            path.de.1253: way
+            path.de.1296: way
 
 
 ---
 key: point.de.Hamburg-Waltershof
 type: point
-junction: True
 events:
     -   date: !!null
-        category: de.Bft
-        location:
-            line.de.1253: 15,8
-        source: src.de.SuW.2005
-    -   date: !!null
+        name: Hamburg Waltershof
+        category: de.Ahst
+        de.lknr: 01 082
+        source: src.de.Bfv.1944
+    -   date: c1970
         name: Hamburg-Waltershof
+        source: src.de.DS100.1984
+    -   date: !!null
+        de.dstnr: !!str 010819
         de.DS100: AWHO
-        source: src.de.TPP.2006
+        category: de.Bf
+        source: src.de.DS100.1984
+    -   date: !!null
+        de.name16: Hmb-Waltershof
+        source: src.de.DBAG.BSV.2017
+    -   date: c2000
+        category: de.Bft
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.1253: 15,79
+        source: src.de.DB.Hmb.Karte.1984
 
     -   date: !!null
         site:
@@ -231,9 +273,14 @@ type: point
 progress: stub
 events:
     -   date: !!null
-        category: de.Bft
-        name: Hamburg-Waltershof Dradenau
         de.DS100: AWHOD
+        name: Hamburg-Waltershof Dradenau
+        de.name16: Dradenau
+        category: de.Bft
+        de.dstnr: !!str 107789
         source: src.de.DBAG.BSV.2017
+
     -   date: !!null
-        master: point.de.Hamburg-Waltershof
+        site:
+            path.de.1253: dra
+

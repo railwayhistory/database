@@ -1,4 +1,4 @@
-# DE 1250.  Hamburg-Harburg - Hamburg Hbf
+# DE 1250.  Hamburg-Harburg Hga - Hamburg Hbf
 #
 ---
 key: line.de.1250
@@ -13,7 +13,7 @@ events:
         de.VzG: !!str 1250
         source: src.de.VzG
     
-    #   Genehmigungen, Eigentümer- und Betreiberwechsel
+    #   Genehmigungen, Eigentümer und Betreiber
     #
     -   date: 1868-06-20
         end: point.de.Hamburg-Wilhelmsburg-LGr
@@ -54,27 +54,25 @@ events:
 
     #   Teilstilllegung
     #
-    -   date: c1990
+    -   date: c1995
         end: point.de.Hamburg-Oberhafen
         status: closed
-        reused: line.de.1280
-
-    #   Eigentümer und Betreiber
-    #
-    -   date: !!null
-        owner: org.de.l.pre
-        operator: org.de.e.hmb
+        reused: line.de.2200
 
     # Verlauf
     #
     -   date: !!null
-        course:
-            -   path.de.2200 har ham
+        end: point.de.Hamburg-Oberhafen
+        course: path.de.2200 hnk oha
+    -   date: !!null
+        start: point.de.Hamburg-Oberhafen
+        course: path.de.1250 oha ham
 
 points:
-    -   point.de.Hamburg-Harburg                    # de.2200
+    -   point.de.Hamburg-Harburg-Nordkopf           # de.2200
     -   point.de.Hamburg-Neuland                    # de.2200
     -   point.de.Hamburg-Süderelbbrücke             # de.2200
+    -   point.de.Hamburg-Süderelbbrücke-Brack       # de.2200
     -   point.de.Hamburg-Wilhelmsburg-Ws
     -   point.de.Hamburg-Wilhelmsburg
     -   point.de.Hamburg-Wilhelmsburg-Wp
@@ -82,8 +80,8 @@ points:
     -   point.de.Hamburg-Wilhelmsburg-Wk
     -   point.de.Hamburg-Wilhelmsburg-LGr           # de.2200
     -   point.de.Hamburg-Veddel                     # de.2200
-    -   point.de.Hamburg-Elbbrücke-Bk               # de.2200
     -   point.de.Hamburg-Oberhafen
+    -   point.de.Hamburg-Elbbrücke                  # de.2200
     -   point.de.Hamburg-Hgbf
     -   point.de.Hamburg-Ericus
     -   point.de.Hamburg-Hbf                        # de.6100
@@ -91,42 +89,45 @@ points:
 
 #-----------------------------------------------------------------------------
 
-# point.de.Hamburg-Harburg                    de.2200
-# point.de.Hamburg-Neuland                    de.2200
-# point.de.Hamburg-Süderelbbrücke             de.2200
+#    point.de.Hamburg-Harburg-Nordkopf           de.2200
+
+
+#    point.de.Hamburg-Neuland                    de.2200
+
+
+#    point.de.Hamburg-Süderelbbrücke             de.2200
+
+
+#    point.de.Hamburg-Süderelbbrücke-Brack       de.2200
+
 
 ---
 key: point.de.Hamburg-Wilhelmsburg-Ws
 type: point
 events:
     -   date: !!null
-        location:
-            line.de.1250: 347,81
-        source: src.de.DRG.Alt.Karte.1949
-    -   date: !!null
         category: de.Glgr
         name: Hamburg-Wilhelmsburg (Ws)
         de.DS100: AWLBS
         source: src.de.DS100.1984
+    -   date: c1995
+        status: closed
+
+    -   date: !!null
+        location:
+            line.de.1250: 347,81
+        source: src.de.DRG.Alt.Karte.1949
 
     -   date: !!null
         site:
             path.de.2200: wis
+            path.de.1250: wis
 
 
 ---
 key: point.de.Hamburg-Wilhelmsburg
 type: point
-junction: True
 events:
-    -   date: !!null
-        location:
-            line.de.1250: 348,53
-        source: src.de.DRG.Alt.Karte.1949
-    -   date: !!null
-        location:
-            line.de.1255: 9,6
-        source: src.de.SuW.2005
     -   date: !!null
         category: de.Bf
         de.rang: I
@@ -144,26 +145,42 @@ events:
     -   date: c1970
         name: Hamburg-Wilhelmsburg
         source: src.de.DS100.1984
+    -   date: !!null
+        de.name16: Hmb-Wilhelmsbg
+        PLC: DE14497
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.1250: 348,53
+        source: src.de.DRG.Alt.Karte.1949
+    -   date: !!null
+        location:
+            line.de.1255: 9,631
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
             path.de.2200: wil
+            path.de.1255: wil
 
 
 ---
 key: point.de.Hamburg-Wilhelmsburg-Wp
 type: point
-subtype: reference
 events:
     -   date: !!null
         location:
             line.de.1250: 348,88
         name: Hamburg-Wilhelmsburg Wp
         source: src.de.DRG.Alt.Karte.1949
+    -   date: c1970
+        status: closed
 
     -   date: !!null
         site:
             path.de.2200: wip
+            path.de.1280: wip
 
 
 ---
@@ -171,81 +188,94 @@ key: point.de.Hamburg-Wilhelmsburg-Wa
 type: point
 events:
     -   date: !!null
-        location:
-            line.de.1250: 349,91
-        source: src.de.DRG.Alt.Karte.1949
-    -   date: !!null
         category: de.Glgr
         name: Hamburg-Wilhelmsburg (Wa)
         de.DS100: AWLBA
         source: src.de.DS100.1984
+    -   date: c1995
+        status: closed
+
+    -   date: !!null
+        location:
+            line.de.1250: 349,91
+        source: src.de.DRG.Alt.Karte.1949
 
     -   date: !!null
         site:
             path.de.2200: wia
+            path.de.1280: wia
+            path.de.1255: wia
+            path.de.1290: wia
 
 
 ---
 key: point.de.Hamburg-Wilhelmsburg-Wk
 type: point
-subtype: reference
 events:
-    -   date: !!null
-        location:
-            line.de.1250: 350,43
-        source: src.de.DRG.Alt.Karte.1949
     -   date: !!null
         category: de.Glgr
         name: Hamburg-Wilhelmsburg (Wk)
         de.DS100: AWLBK
         source: src.de.DS100.1984
+    -   date: c1995
+        status: closed
+
+    -   date: !!null
+        location:
+            line.de.1250: 350,43
+        source: src.de.DRG.Alt.Karte.1949
 
     -   date: !!null
         site:
             path.de.2200: wik
+            path.de.1280: wik
 
 
-# point.de.Hamburg-Wilhelmsburg-LGr           de.2200
+#    point.de.Hamburg-Wilhelmsburg-LGr           de.2200
+
+
 # point.de.Hamburg-Veddel                     de.2200
-# point.de.Hamburg-Elbbrücke-Bk               de.2200
+
 
 ---
 key: point.de.Hamburg-Oberhafen
 type: point
 events:
-    -   date: c1990
+    -   date: c1995
         status: open
     -   date: !!null
+        de.DS100: AOHA
+        name: Hamburg Oberhafen
+        de.name16: Oberhafen
         category: de.Abzw
+        PLC: DE14408
+        de.dstnr: !!str 319442
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
         location:
             line.de.1250: 352,456
             line.de.1280:  38,514  
-        source: src.de.DBAG.ISR
-    -   date: !!null
-        name: Hamburg-Oberhafen
-        de.DS100: AOHA
-        source: src.de.TPP.2006
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
-            path.de.2200: oha
+            path.de.1250: oha
+            path.de.1280: oha
+
+
+#    point.de.Hamburg-Elbbrücke                  de.2200
 
 
 ---
 key: point.de.Hamburg-Hgbf
 type: point
-junction: True
 events:
     -   date: !!null
-        name: Hamburg Hann Bf
-        source: src.de.Kb.1905
-    -   date: !!null
-        category: de.Bf
-        de.lknr: 01 033
-        source: src.de.Bfv.1928
-    -   date: c1910
         name: Hamburg Hgbf (Han)
         service: freight
+        category: de.Bf
+        de.lknr: 01 033
         source: src.de.Bfv.1928
     -   date: !!null
         de.rang: I
@@ -260,10 +290,6 @@ events:
         name: Hamburg Han
         source: src.de.Bfv.1938
     -   date: !!null
-        location:
-            line.de.1250: 353,5
-        source: src.de.DRG.Alt.Karte.1949
-    -   date: !!null
         de.DS100: AHBN
         de.dstnr: !!str 010744
         source: src.de.DS100.1984
@@ -274,32 +300,44 @@ events:
         status: closed
 
     -   date: !!null
+        location:
+            line.de.1250: 353,5
+        source: src.de.DRG.Alt.Karte.1949
+
+    -   date: !!null
         site:
-            path.de.2200: hag
+            path.de.1250: hag
+            path.de.1291: hag
+            path.de.8078: hag
 
 
 ---
 key: point.de.Hamburg-Ericus
 type: point
-junction: True
 events:
     -   date: c2000
         status: open
     -   date: !!null
-        name: Hamburg Ericus
         de.DS100: AERI
-        source: src.de.TPP.2006
-    -   date: !!null
+        name: Hamburg Ericus
+        de.name16: Ericus
         category: de.Abzw
+        PLC: DE14388
+        de.dstnr: !!str 070219
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
         location:
-            line.de.1291: 284,930
-            line.de.1292: 353,894
             line.de.1250: 353,921
-        source: src.de.DBAG.ISR
+            line.de.1292: 353,894
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
-            path.de.2200: eri
+            path.de.1250: eri
+            path.de.1291: eri
+            path.de.1292: eri
 
 
 # point.de.Hamburg-Hbf                        de.6100
+

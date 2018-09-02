@@ -173,7 +173,7 @@ points:
     -   point.de.Ashausen-Abzw
     -   point.de.Ashausen
     -   point.de.Stelle
-    -   point.de.Stelle-DGr
+    -   point.de.Stelle-Gr
     -   point.de.Maschen-Pbf
     -   point.de.Meckelfeld-Abzw
     -   point.de.Meckelfeld
@@ -190,11 +190,13 @@ points:
     -   point.de.Hamburg-Neugraben
     -   point.de.Neu-Wulmstorf-LGr
     -   point.de.Neu-Wulmstorf
+    -   point.de.Buxtehude-W400
     -   point.de.Buxtehude
     -   point.de.Neukloster-Stade
     -   point.de.Horneburg
     -   point.de.Dollern
     -   point.de.Agathenburg
+    -   point.de.Stade-W100
     -   point.de.Stade
     -   point.de.Hahle
     -   point.de.Hammah
@@ -210,8 +212,10 @@ points:
     -   point.de.Otterndorf
     -   point.de.Otterndorf-Westerende
     -   point.de.Altenbruch
+    -   point.de.Cuxhaven-Groden
     -   point.de.Cuxhaven-CF
     -   point.de.Cuxhaven-Gbf
+    -   point.de.Cuxhaven-Cs
     -   point.de.Cuxhaven
 
 
@@ -1148,7 +1152,7 @@ events:
 key: point.de.Ashausen-Abzw
 type: point
 events:
-    -   date: 2014-08-14?
+    -   date: 2014-08-14
         status: open
         category: de.Abzw
         name: Ashausen Abzw
@@ -1157,6 +1161,7 @@ events:
         PLC: DE10314
         de.dstnr: !!str 107558
         source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         location:
             line.de.1720: 154,755
@@ -1166,12 +1171,12 @@ events:
     -   date: !!null
         site:
             path.de.1720: asa
+            path.de.1281: asa
 
 
 ---
 key: point.de.Ashausen
 type: point
-junction: false
 events:
     -   date: !!null
         name: Ashausen
@@ -1186,10 +1191,6 @@ events:
     -   date: de.lknr.30
         de.lknr: 01 180
         source: src.de.Bfv.1933
-    -   date: c1970
-        location:
-            line.de.1720: 154,85
-        source: src.de.DB.Hmb.Karte.1984
     -   date: !!null
         de.DS100: AASN
         de.dstnr: !!str 011809
@@ -1206,6 +1207,10 @@ events:
         location:
             line.de.1720: 154,83
         source: src.de.DRG.Alt.Karte.1931
+    -   date: c1970
+        location:
+            line.de.1720: 154,85
+        source: src.de.DB.Hmb.Karte.1984
     -   date: 2014-08-14?
         location:
             line.de.1153: 154,964
@@ -1217,6 +1222,7 @@ events:
         site:
             path.de.1720: ash
             path.de.1153: ash
+            path.de.1281: ash
 
 
 ---
@@ -1263,15 +1269,17 @@ events:
         site:
             path.de.1720: ste
             path.de.1153: ste
+            path.de.1281: ste
+            path.de.1284: ste
 
 
 ---
-key: point.de.Stelle-DGr
+key: point.de.Stelle-Gr
 type: point
 subtype: border
 events:
     -   date: !!null
-        name: RBD-Grenze Han/Alt
+        designation: Stelle RBD-Grenze Han/Alt
     -   date: !!null
         location:
             line.de.1720: 159,41
@@ -1279,7 +1287,7 @@ events:
 
     -   date: !!null
         site:
-            path.de.1720: gste
+            path.de.1720: stg
 
 
 ---
@@ -1292,10 +1300,6 @@ events:
     -   date: !!null
         de.lknr: 01 303
         source: src.de.Bfv.1928
-    -   date: !!null
-        location:
-            line.de.1720: 162,37
-        source: src.de.DRG.Alt.Karte.1931
     -   date: !!null
         category: de.Bf
         de.rang: IV
@@ -1310,17 +1314,26 @@ events:
         category: de.Bf
         staff: none
         source: src.de.DS100.1984
-    -   date: 1977?
-        location:
-            line.de.1720: 161,637
-        source: src.de.DBAG.ISR
     -   date: !!null
         de.DS100: AMA
         de.dstnr: !!str 011825
         source: src.de.DS100.1984
     -   date: c1990
         name: Maschen Pbf
-        source: src.de.TPP.2006
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Maschen Pbf
+        PLC: DE16856
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.1720: 162,37
+        source: src.de.DRG.Alt.Karte.1931
+    -   date: 1977?
+        location:
+            line.de.1720: 161,637
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -1331,7 +1344,7 @@ events:
 key: point.de.Meckelfeld-Abzw
 type: point
 events:
-    -   date: c1990
+    -   date: c1995
         status: open
         split_from: point.de.Meckelfeld
     -   date: !!null
@@ -1351,12 +1364,12 @@ events:
     -   date: !!null
         site:
             path.de.1720: mea
+            path.de.1280: mea
 
 
 ---
 key: point.de.Meckelfeld
 type: point
-junction: True
 events:
     -   date: !!null
         name: Meckelfeld
@@ -1364,10 +1377,6 @@ events:
     -   date: !!null
         de.lknr: 01 377
         source: src.de.Bfv.1928
-    -   date: !!null
-        location:
-            line.de.1720: 164,80
-        source: src.de.DRG.Alt.Karte.1931
     -   date: !!null
         category: de.Bf
         de.rang: IV
@@ -1382,39 +1391,67 @@ events:
     -   date: 1977?
         staff: none
         source: src.de.DS100.1984
-    -   date: 1977?
-        location:
-            line.de.1720: 164,85
-        source: src.de.DB.Hmb.Karte.1984
     -   date: c1990
         name: Meckelfeld
         category: de.Bft
         source: src.de.SuW.2005
+    -   date: 2007
+        category: [de.Bft, de.Abzw]
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Meckelfeld
+        PLC: DE16895
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.1720: 164,80
+        source: src.de.DRG.Alt.Karte.1931
+    -   date: 1977?
+        location:
+            line.de.1280:  24,95
+            line.de.1720: 164,85
+        source: src.de.DB.Hmb.Karte.1984
+    -   date: !!null
+        location:
+            line.de.1255:   0,000
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+    -   date: c1995
+        location:
+            line.de.1280:  24,600
+            line.de.1720: 164,200
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
             path.de.1720: mec
-    -   date: 1977?
+            path.de.1280: mec
+    -   date: c1995
         site:
             path.de.1720: mea
+            path.de.1280: mea
 
 
 ---
 key: point.de.Meckelfeld-Hp
 type: point
 events:
-    -   date: c1990
+    -   date: c1995
         status: open
         split_from: point.de.Meckelfeld
     -   date: !!null
         de.DS100: AMDH
         name: Meckelfeld Hp
-        source: src.de.TPP.2006
-    -   date: !!null
+        de.name16: Meckelfeld Hp
         category: de.Hp
+        PLC: DE16896
+        de.dstnr: !!str 382234
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
         location:
             line.de.1720: 165,000
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -1427,13 +1464,18 @@ type: point
 subtype: border
 events:
     -   date: !!null
-        name: Meckelfeld NI/HH
         de.DS100: AQMD
-        source: src.de.TPP.2006
+        name: Meckelfeld NI/HH
+        de.name16: Meckelfeld NI/HH
+        category: de.LGr
+        PLC: DE16897
+        de.dstnr: !!str 103979
+        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
-            path.de.1720: gmec
+            path.de.1720: meg
+
 
 # point.de.Hamburg-Harburg-Hga de.2200
 
@@ -1461,14 +1503,16 @@ events:
 
     -   date: !!null
         site:
+            path.de.1720: mev
             path.de.2200: mev
 
+
 # point.de.Hamburg-Harburg  de.2200
+
 
 ---
 key: point.de.Hamburg-Unterelbe
 type: point
-junction: True
 events:
     -   date: !!null
         name: Harburg U E
@@ -1476,10 +1520,6 @@ events:
     -   date: !!null
         de.lknr: 01 282
         source: src.de.Bfv.1928
-    -   date: !!null
-        location:
-            line.de.1720: 170,78
-        source: src.de.DRG.Alt.Karte.1931
     -   date: !!null
         category: de.Bf
         de.rang: I
@@ -1497,18 +1537,24 @@ events:
         de.DS100: AHB
         de.dstnr: !!str 011387
         source: src.de.DS100.1984
+    -   date: 1984-08-05
+        service: freight
+        source: src.de.web.Leiding
+    -   date: !!null
+        de.name16: Hmb Unterelbe
+        PLC: DE14416
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         location:
             line.de.1720: 170,782
             line.de.1252:   0,000
-        source: src.de.DBAG.ISR
-    -   date: 1984-08-05
-        service: freight
-        source: src.de.web.Leiding
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
             path.de.1720: unt
+            path.de.1252: unt
 
 
 ---
@@ -1555,7 +1601,6 @@ events:
 ---
 key: point.de.Hamburg-Hausbruch
 type: point
-junction: True
 events:
     -   date: !!null
         location:
@@ -1580,19 +1625,25 @@ events:
     -   date: 1984-08-05?
         category: de.Bf
         name: Hamburg-Hausbruch
-        de.DS100: AHBR
         source: src.de.DB.Hmb.Karte.1984
+    -   date: 1984-08-05?
+        de.DS100: AHBR
+        de.dstnr: !!str 011858
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Hmb-Hausbruch
+        PLC: DE14452
+        source: src.de.DBAG.BSV.2017
+
     -   date: c2000
         location:
             line.de.1720: 175,020
-        source: src.de.DBAG.ISR
-
-    -   date: !!null
-        connection: point.de.Hamburg-Hausbruch-Mitte
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
             path.de.1720: haa
+            path.de.1293: haa
 
 
 ---
@@ -1688,18 +1739,23 @@ events:
         status: open
         source: src.de.WP.Niederelbebahn
     -   date: !!null
+        de.DS100: AFIB
+        name: Fischbek
+        de.name16: Fischbek
+        category: de.Hp
+        PLC: DE13204
+        de.dstnr: !!str 873992
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
         location:
             line.de.1720: 181,487
-        category: de.Hp
-        name: Fischbek
-        de.DS100: AFIB
-        source: src.de.DBAG.ISR
-    -   date: !!null
-        staff: none
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
             path.de.1720: fis
+
 
 # 181,6 Anschluß HH-Fischbek Bundeswehr. [src.de.SuW.2005]
 
@@ -1766,9 +1822,19 @@ events:
 
 
 ---
+key: point.de.Buxtehude-W400
+type: point
+subtype: reference
+events:
+    -   date: !!null
+        designation: Buxtehude W 400
+        site:
+            path.de.1720: bua
+
+
+---
 key: point.de.Buxtehude
 type: point
-junction: True
 events:
     -   date: !!null
         name: Buxtehude
@@ -1802,6 +1868,8 @@ events:
     -   date: !!null
         site:
             path.de.1720: bux
+            path.de.1261: bux
+            path.de.1269: bux
 
 
 ---
@@ -1860,9 +1928,14 @@ events:
         de.dstnr: !!str 011908
         source: src.de.DS100.1984
     -   date: !!null
+        de.name16: Horneburg
+        PLC: DE15107
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
         location:
             line.de.1720: 198,961
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
@@ -1946,9 +2019,20 @@ events:
 
 
 ---
+key: point.de.Stade-W100
+type: point
+subtype: reference
+events:
+    -   date: !!null
+        designation: Stade W 100
+        site:
+            path.de.1720: stx
+            path.de.1263: stx
+
+
+---
 key: point.de.Stade
 type: point
-junction: True
 events:
     -   date: !!null
         name: Stade
@@ -1974,16 +2058,14 @@ events:
         source: src.de.DS100.1984
     -   date: c1970
         location:
-            line.de.1260:  25,631
             line.de.1720: 211,174
         source: src.de.DBAG.ISR
 
     -   date: !!null
         connection: point.de.Stade-Kreisb
-
-    -   date: !!null
         site:
             path.de.1720: sta
+            path.de.1260: sta
 
 
 ---
@@ -2040,9 +2122,14 @@ events:
         category: de.Hp
         source: src.de.SuW.2005
     -   date: !!null
+        de.name16: Hammah
+        PLC: DE14524
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
         location:
-            line.de.1720: 218,679
-        source: src.de.DBAG.ISR
+            line.de.1720: 218,708
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -2060,10 +2147,6 @@ events:
         de.lknr: 01 292
         source: src.de.Bfv.1928
     -   date: !!null
-        location:
-            line.de.1720: 222,62
-        source: src.de.DRG.Alt.Karte.1931
-    -   date: !!null
         category: de.Bf
         de.rang: III
         source: src.de.Bfv.1933
@@ -2074,13 +2157,22 @@ events:
         de.DS100: AHPF
         de.dstnr: !!str 011957
         source: src.de.DS100.1984
+    -   date: c2010
+        category: [de.Hp, de.Üst]
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Himmelpforten
+        PLC: DE14907
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.1720: 222,62
+        source: src.de.DRG.Alt.Karte.1931
     -   date: c1970
         location:
             line.de.1720: 222,629
-        source: src.de.DBAG.ISR
-    -   date: c2010
-        category: [de.Hp, de.Üst]
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -2127,10 +2219,6 @@ events:
         de.lknr: 01 293
         source: src.de.Bfv.1928
     -   date: !!null
-        location:
-            line.de.1720: 228,41
-        source: src.de.DRG.Alt.Karte.1931
-    -   date: !!null
         category: de.Bf
         de.rang: III
         source: src.de.Bfv.1933
@@ -2141,13 +2229,22 @@ events:
         de.DS100: AHEN
         de.dstnr: !!str 011965
         source: src.de.DS100.1984
-    -   date: c1970
-        location:
-            line.de.1720: 228,403
-        source: src.de.DBAG.ISR
-    -   date: c2010
+    -   date: !!null
+        de.name16: Hechthausen
+        PLC: DE14658
+        source: src.de.DBAG.BSV.2017
+    -   date: 2014-12-14?
         category: [de.Hp, de.Üst]
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.1720: 228,41
+        source: src.de.DRG.Alt.Karte.1931
+    -   date: 2014-12-14?
+        location:
+            line.de.1720: 228,425
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -2165,10 +2262,6 @@ events:
         de.lknr: 01 294
         source: src.de.Bfv.1928
     -   date: !!null
-        location:
-            line.de.1720: 234,97
-        source: src.de.DRG.Alt.Karte.1931
-    -   date: !!null
         category: de.Bf
         de.rang: III
         source: src.de.Bfv.1933
@@ -2182,14 +2275,23 @@ events:
     -   date: c1990
         name: Hemmoor
         de.DS100: AHEM
-        source: src.de.TPP.2006
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Hemmoor
+        PLC: DE14759
+        source: src.de.DBAG.BSV.2017
+    -   date: c2005
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.1720: 234,97
+        source: src.de.DRG.Alt.Karte.1931
     -   date: c1970
         location:
             line.de.1720: 234,967
-        source: src.de.DBAG.ISR
-    -   date: c2010
-        category: de.Hp
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -2481,16 +2583,21 @@ events:
 
 
 ---
-key: point.de.Cuxhaven-CF
+key: point.de.Cuxhaven-Groden
 type: point
-junction: True
+subtype: reference
 events:
     -   date: !!null
-        location:
-            line.de.1264: 0,0
-            line.de.1310: 227,1
-            line.de.1720: 271,7
-        source: src.de.SuW.2005
+        designation: Cuxhaven-Groden
+        site:
+            path.de.1720: gro
+            path.de.1264: gro
+
+
+---
+key: point.de.Cuxhaven-CF
+type: point
+events:
     -   date: !!null
         category: de.Glgr
         name: Cuxhaven Amerika-Bahnhof (Cf)
@@ -2526,6 +2633,23 @@ events:
         PLC: DE12032
         de.dstnr: !!str 911732
         source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        site:
+            path.de.1720: cug
+            path.de.1265: cug
+
+
+---
+key: point.de.Cuxhaven-Cs
+type: point
+subtype: reference
+events:
+    -   date: !!null
+        designation: Cuxhaven Cs
+        site:
+            path.de.1720: cus
+            path.de.1265: cus
 
 
 ---

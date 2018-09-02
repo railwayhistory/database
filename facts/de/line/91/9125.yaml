@@ -1,4 +1,5 @@
-# DE 9125.  Tiefstack - Hamburg-Rothenburgsort SStK
+# DE 9125.  Hamburg-Rothenburgsort SStK - Trittau
+#
 ---
 key: line.de.9125
 type: line
@@ -7,23 +8,27 @@ events:
         region: org.de
     -   date: !!null
         end: point.de.Boberg-Havighorst-LGr
-        region: org.de.l.sh
+        region: org.de.l.hh
     -   date: !!null
         start: point.de.Boberg-Havighorst-LGr
-        region: org.de.l.hh
+        region: org.de.l.sh
 
     -   date: !!null
-        start: point.de.Glinde
-        end: point.de.Hamburg-Tiefstack-Bbf
+        end: point.de.Glinde
         de.VzG: !!str 9125
         source: src.de.DBAG.Geo-Strecke.2017
 
     #   Genehmigung
     #
 
+    -   date: !!null
+        category: de.Kleinbahn
+    -   date: c1950
+        category: de.Nebenbahn
+
     -   date: 2009-11-16
-        start: point.de.Hamburg-Billstedt
-        end: point.de.Hamburg-Tiefstack-Bbf
+        start: point.de.Hamburg-Tiefstack-Bbf
+        end: point.de.Hamburg-Billstedt
         concession:
             by: org.de.l.hh
             for: org.de.AKN-Eisenbahn
@@ -31,25 +36,20 @@ events:
         source: src.de.web.EBA.EIU
 
     -   date: 2010-08-16
-        start: point.de.Glinde
-        end: point.de.Boberg-Havighorst-LGr
+        start: point.de.Boberg-Havighorst-LGr
         concession:
             by: org.de.l.sh
             for: org.de.Braaker-Mühle
             until: 2056-12-31
         source: src.de.web.EBA.EIU
     -   date: 2010-08-16
-        start: point.de.Boberg-Havighorst-LGr
-        end: point.de.Hamburg-Billstedt
+        start: point.de.Hamburg-Billstedt
+        end: point.de.Boberg-Havighorst-LGr
         concession:
             by: org.de.l.hh
             for: org.de.Braaker-Mühle
             until: 2056-12-31
         source: src.de.web.EBA.EIU
-
-
-    -   date: !!null
-        category: de.Kleinbahn
 
     -   date: 1905-08-31
         status: construction
@@ -57,17 +57,15 @@ events:
     -   date: 1907-12-17
         status: open
         source: src.de.WP.Suedstormarnsche-Kreisbahn
-    -   date: c1950
-        category: de.Nebenbahn
     -   date: 1952-03-15
         passenger: none
         source:  src.de.VHH.2003
     -   date: 1952-03-15
-        end: point.de.Glinde
+        start: point.de.Glinde
         status: closed
-        source:  src.de.VHH.2003
+        source: src.de.VHH.2003
     -   date: c1970
-        start: point.de.Hamburg-Billbrook
+        end: point.de.Hamburg-Billbrook
         status: closed
 
     -   date: !!null
@@ -79,294 +77,135 @@ events:
         source: src.de.VHH.2003
 
     -   date: !!null
-        course:
-            -   path.de.1141 trk  abil
-            -   path.de.9125 a    f
-            -   path.de.6100 fbil tie
+        course: path.de.9125 rot tri
 
 points:
-    - point.de.Trittau-Kreisb
-    - point.de.Groehnwohld
-    - point.de.Luetjensee
-    - point.de.Hoisdorf
-    - point.de.Siek
-    - point.de.Papendorf
-    - point.de.Langelohe
-    - point.de.Stellau
-    - point.de.Willinghusen-Stemwarde
-    - point.de.Glinde
-    - point.de.Domhorst
-    - point.de.Boberg-Havighorst-LGr
-    - point.de.Boberg-Havighorst
-    - point.de.Billstedt-Ost
-    -   point.de.Hamburg-Billstedt
+    -   point.de.Hamburg-Rothenburgsort-SStK        # de.1234
+    -   point.de.Hamburg-Tiefstack-Bbf
     -   point.de.Hamburg-Billbrook
-    - point.de.Hamburg-Tiefstack-Bbf
-    - point.de.Hamburg-Rothenburgsort-SStK          # line.de.1234
+    -   point.de.Hamburg-Billstedt
+    -   point.de.Billstedt-Ost
+    -   point.de.Boberg-Havighorst
+    -   point.de.Boberg-Havighorst-LGr
+    -   point.de.Domhorst
+    -   point.de.Glinde
+    -   point.de.Willinghusen-Stemwarde
+    -   point.de.Stellau
+    -   point.de.Langelohe
+    -   point.de.Papendorf
+    -   point.de.Siek
+    -   point.de.Hoisdorf
+    -   point.de.Lütjensee
+    -   point.de.Grönwohld-Trittau
+    -   point.de.Trittau-Kreisb
+
+
+#-----------------------------------------------------------------------------
+
+#    point.de.Hamburg-Rothenburgsort-SStK        de.1234
+
 
 ---
-
-key: point.de.Trittau-Kreisb
+key: point.de.Hamburg-Tiefstack-Bbf
 type: point
-junction: True
 events:
     -   date: !!null
-        location:
-            line.de.9125: 0,0
-        name: Trittau
+        name: Tiefstack
         source: src.de.Kb.1914
-    -   date: de.lknr.kb
-        de.lknr: 47 520
-        source: src.de.Bfv.1938
+
+    -   date: !!null
+        site:
+            path.de.9125: tie
+
+
+---
+key: point.de.Hamburg-Billbrook
+type: point
+events:
+    -   date: !!null
+        name: Billbrook
+        source: src.de.Kb.1914
     -   date: !!null
         category: de.Bf
-        connection: point.de.Trittau
-    -   date: c1940
-        name: Trittau Kreisb
-        source: src.de.Bfv.1944
-
-    -   date: !!null
-        site:
-            path.de.1141: tri
-
-
----
-key: point.de.Groehnwohld
-type: point
-events:
-    -   date: !!null
-        category: de.Hp
-        source: src.de.mtbl.2328.1908
-    -   date: !!null
-        location:
-            line.de.9125: 2,0
-        name: Gröhnwohld
-        source: src.de.Kb.1914
     -   date: de.lknr.kb
-        de.lknr: 47 521
+        de.lknr: 40 299
         source: src.de.Bfv.1938
+    -   date: 1940
+        name: Hamburg-Billbrook
+        source: src.de.Bfv.1944
+    -   date: !!null
+        de.DS100: ABBK
+        de.dstnr: !!str 404814
+        source: src.de.DS100.1984
+    -   date: !!null
+        de.name16: Hmb-Billbrook
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.9125: 2,3
+        source: src.de.DB.Hmb.Karte.1984
 
     -   date: !!null
         site:
-            path.de.9125: gro
+            path.de.9125: bib
+            path.de.9126: bib
 
 
 ---
-key: point.de.Luetjensee
+key: point.de.Hamburg-Billstedt
 type: point
 events:
     -   date: !!null
-        category: de.Hp
-        source: src.de.mtbl.2328.1908
-    -   date: !!null
-        location:
-            line.de.9125: 4,5
-        name: Lütjensee Klbf
+        name: Schiffbek-Kirchensteinbek
         source: src.de.Kb.1914
-    -   date: c1920
-        name: Lütjensee
+    -   date: !!null
+        category: de.Bf
+    -   date: c1930
+        name: Billstedt
         source: src.de.Bfv.1933
     -   date: de.lknr.kb
-        de.lknr: 47 522
+        de.lknr: 47 533
         source: src.de.Bfv.1938
-
     -   date: !!null
-        site:
-            path.de.9125: lut
-
-
----
-key: point.de.Hoisdorf
-type: point
-events:
-    -   date: !!null
-        category: de.Hp
-        source: src.de.mtbl.2327.1908
-    -   date: !!null
-        location:
-            line.de.9125: 6,7
-        name: Hoisdorf
-        source: src.de.Kb.1914
-    -   date: de.lknr.kb
-        de.lknr: 47 523
-        source: src.de.Bfv.1938
-
-    -   date: !!null
-        site:
-            path.de.9125: hoi
-
-
----
-key: point.de.Siek
-type: point
-events:
-    -   date: !!null
-        category: de.Hp
-        source: src.de.mtbl.2327.1908
-    -   date: !!null
-        location:
-            line.de.9125: 9,0
-        name: Siek
-        source: src.de.Kb.1914
-    -   date: de.lknr.kb
-        de.lknr: 47 524
-        source: src.de.Bfv.1938
-
-    -   date: !!null
-        site:
-            path.de.9125: sie
-
-
----
-key: point.de.Papendorf
-type: point
-events:
-    -   date: !!null
-        category: de.Hp
-        source: src.de.mtbl.2327.1908
-    -   date: !!null
-        location:
-            line.de.9125: 11,8
-        name: Siek
-        source: src.de.Kb.1914
-    -   date: de.lknr.kb
-        de.lknr: 47 525
-        source: src.de.Bfv.1938
-
-    -   date: !!null
-        site:
-            path.de.9125: pap
-
-
----
-key: point.de.Langelohe
-type: point
-events:
-    -   date: !!null
-        location:
-            line.de.9125: 14,1
-        name: Langelohe
-        source: src.de.Kb.1914
-    -   date: !!null
-        category: de.Hp
-        source: src.de.mtbl.2427.1922
-    -   date: de.lknr.kb
-        de.lknr: 47 526
-        source: src.de.Bfv.1938
-
-    -   date: !!null
-        site:
-            path.de.9125: lan
-
-
----
-key: point.de.Stellau
-type: point
-events:
-    -   date: !!null
-        location:
-            line.de.9125: 16,1
-        name: Stellau
-        source: src.de.Kb.1914
-    -   date: !!null
-        category: de.Hp
-        source: src.de.mtbl.2427.1922
-    -   date: de.lknr.kb
-        de.lknr: 47 527
-        source: src.de.Bfv.1938
-
-    -   date: !!null
-        site:
-            path.de.9125: ste
-
-
----
-key: point.de.Willinghusen-Stemwarde
-type: point
-events:
-    -   date: !!null
-        location:
-            line.de.9125: 18,6
-        name: Willinghusen-Stemwarde
-        source: src.de.Kb.1914
-    -   date: !!null
-        category: de.Bf
-        source: src.de.mtbl.2427.1922
-    -   date: de.lknr.kb
-        de.lknr: 47 528
-        source: src.de.Bfv.1938
-
-    -   date: !!null
-        site:
-            path.de.9125: wil
-
-
----
-key: point.de.Glinde
-type: point
-junction: True
-events:
-    -   date: !!null
-        location:
-            line.de.9125: 22,0
-        name: Glinde
-        source: src.de.Kb.1914
-    -   date: !!null
-        category: de.Hp
-        source: src.de.mtbl.2427.1922
-    -   date: de.lknr.kb
-        de.lknr: 47 529
-        source: src.de.Bfv.1938
-    -   date: c1952
-        category: de.Bf
-    -   date: !!null
-        de.DS100: AGND
-        de.dstnr: !!str 404905
+        de.DS100: ABIS
+        de.dstnr: !!str 404921
         source: src.de.DS100.1984
     -   date: c1970
+        name: Hamburg-Billstedt
+        source: src.de.DS100.1984
+    -   date: !!null
+        de.name16: Hmb-Billstedt
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
         location:
-            line.de.9125: 12,3
-        source: src.de.SuW.2005
+            line.de.9125: 4,2
+        source: src.de.DB.Hmb.Karte.1984
 
     -   date: !!null
         site:
-            path.de.9125: gli
+            path.de.9125: bis
 
 
 ---
-key: point.de.Domhorst
+key: point.de.Billstedt-Ost
 type: point
 events:
-    -   date: c1920
+    -   date: c1930
         status: open
     -   date: !!null
-        category: de.Hp
-        source: src.de.mtbl.2427.1922
-    -   date: !!null
-        location:
-            line.de.9125: 24,0
-        name: Domhorst
+        name: Ohlenburg
+        source: src.de.WP.Suedstormarnsche-Kreisbahn
+    -   date: c1935
+        name: Billstedt Ost
         source: src.de.Kb.W1937
     -   date: c1952
         status: closed
 
     -   date: !!null
         site:
-            path.de.9125: dom
-
-
----
-key: point.de.Boberg-Havighorst-LGr
-type: point
-subtype: border
-events:
-    -   date: !!null
-        category: de.LGr
-        name: Domhorst SH/HH
-
-    -   date: !!null
-        site:
-            path.de.9125: gbob
+            path.de.9125: bio
 
 
 ---
@@ -374,13 +213,10 @@ key: point.de.Boberg-Havighorst
 type: point
 events:
     -   date: !!null
-        location:
-            line.de.9125: 26,1
         name: Boberg-Havighorst
         source: src.de.Kb.1914
     -   date: !!null
-        category: de.Hp
-        source: src.de.mtbl.2427.1922
+        category: de.Bf
     -   date: de.lknr.kb
         de.lknr: 47 531
         source: src.de.Bfv.1938
@@ -400,119 +236,235 @@ events:
         source: src.de.DBAG.BSV.2017
 
     -   date: !!null
+        location:
+            line.de.9125: 8,2
+        source: src.de.DB.Hmb.Karte.1984
+
+    -   date: !!null
         site:
             path.de.9125: bob
 
 
 ---
-key: point.de.Billstedt-Ost
+key: point.de.Boberg-Havighorst-LGr
 type: point
+subtype: border
 events:
     -   date: !!null
-        location:
-            line.de.9125: 29,4
-        source: src.de.Kb.W1937
+        category: de.LGr
+        name: Domhorst SH/HH
+
     -   date: !!null
-        name: Ohlenburg
-        source: src.de.WP.Suedstormarnsche-Kreisbahn
-    -   date: c1930
+        site:
+            path.de.9125: bog
+
+
+---
+key: point.de.Domhorst
+type: point
+events:
+    -   date: c1920
         status: open
-    -   date: c1935
-        name: Billstedt Ost
+    -   date: !!null
+        name: Domhorst
         source: src.de.Kb.W1937
     -   date: c1952
         status: closed
 
     -   date: !!null
         site:
-            path.de.9125: bio
+            path.de.9125: dom
 
 
 ---
-key: point.de.Hamburg-Billstedt
+key: point.de.Glinde
 type: point
 events:
     -   date: !!null
-        location:
-            line.de.9125: 29,9
-        name: Schiffbek-Kirchensteinbek
+        name: Glinde
         source: src.de.Kb.1914
-    -   date: !!null
-        category: de.Bf
-        source: src.de.mtbl.2426.1927
-    -   date: c1930
-        name: Billstedt
-        source: src.de.Bfv.1933
     -   date: de.lknr.kb
-        de.lknr: 47 533
+        de.lknr: 47 529
         source: src.de.Bfv.1938
     -   date: !!null
-        de.DS100: ABIS
-        de.dstnr: !!str 404921
+        de.DS100: AGND
+        de.dstnr: !!str 404905
         source: src.de.DS100.1984
-    -   date: c1970
-        name: Hamburg-Billstedt
-        source: src.de.DS100.1984
-    -   date: c1970
-        location:
-            line.de.9125: 4,3
-        source: src.de.SuW.2005
     -   date: !!null
-        de.name16: Hmb-Billstedt
+        category: de.Bf
+        de.name16: Glinde
         source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
-            path.de.9125: bis
+            path.de.9125: gli
 
 
 ---
-key: point.de.Hamburg-Billbrook
+key: point.de.Willinghusen-Stemwarde
 type: point
-junction: True
 events:
     -   date: !!null
-        location:
-            line.de.9125: 31,2
-        name: Billbrook
+        name: Willinghusen-Stemwarde
         source: src.de.Kb.1914
     -   date: !!null
         category: de.Bf
-        source: src.de.mtbl.2426.1927
     -   date: de.lknr.kb
-        de.lknr: 40 299
+        de.lknr: 47 528
         source: src.de.Bfv.1938
-    -   date: 1940
-        name: Hamburg-Billbrook
+
+    -   date: !!null
+        site:
+            path.de.9125: wil
+
+
+---
+key: point.de.Stellau
+type: point
+events:
+    -   date: !!null
+        name: Stellau
+        source: src.de.Kb.1914
+    -   date: !!null
+        category: de.Bf
+    -   date: de.lknr.kb
+        de.lknr: 47 527
+        source: src.de.Bfv.1938
+
+    -   date: !!null
+        site:
+            path.de.9125: ste
+
+
+---
+key: point.de.Langelohe
+type: point
+events:
+    -   date: !!null
+        name: Langelohe
+        source: src.de.Kb.1914
+    -   date: !!null
+        category: de.Bf
+    -   date: de.lknr.kb
+        de.lknr: 47 526
+        source: src.de.Bfv.1938
+
+    -   date: !!null
+        site:
+            path.de.9125: lan
+
+
+---
+key: point.de.Papendorf
+type: point
+events:
+    -   date: !!null
+        name: Siek
+        source: src.de.Kb.1914
+    -   date: !!null
+        category: de.Bf
+    -   date: de.lknr.kb
+        de.lknr: 47 525
+        source: src.de.Bfv.1938
+
+    -   date: !!null
+        site:
+            path.de.9125: pap
+
+
+---
+key: point.de.Siek
+type: point
+events:
+    -   date: !!null
+        name: Siek
+        source: src.de.Kb.1914
+    -   date: !!null
+        category: de.Bf
+    -   date: de.lknr.kb
+        de.lknr: 47 524
+        source: src.de.Bfv.1938
+
+    -   date: !!null
+        site:
+            path.de.9125: sie
+
+
+---
+key: point.de.Hoisdorf
+type: point
+events:
+    -   date: !!null
+        name: Hoisdorf
+        source: src.de.Kb.1914
+    -   date: !!null
+        category: de.Bf
+    -   date: de.lknr.kb
+        de.lknr: 47 523
+        source: src.de.Bfv.1938
+
+    -   date: !!null
+        site:
+            path.de.9125: hoi
+
+
+---
+key: point.de.Lütjensee
+type: point
+events:
+    -   date: !!null
+        name: Lütjensee Klbf
+        source: src.de.Kb.1914
+    -   date: c1920
+        name: Lütjensee
+        source: src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+    -   date: de.lknr.kb
+        de.lknr: 47 522
+        source: src.de.Bfv.1938
+
+    -   date: !!null
+        site:
+            path.de.9125: lut
+
+
+---
+key: point.de.Grönwohld-Trittau
+type: point
+events:
+    -   date: !!null
+        name: Grönwohld
+        source: src.de.Kb.1914
+    -   date: !!null
+        category: de.Bf
+    -   date: de.lknr.kb
+        de.lknr: 47 521
+        source: src.de.Bfv.1938
+
+    -   date: !!null
+        site:
+            path.de.9125: gro
+
+
+---
+key: point.de.Trittau-Kreisb
+type: point
+events:
+    -   date: !!null
+        name: Trittau
+        source: src.de.Kb.1914
+    -   date: de.lknr.kb
+        de.lknr: 47 520
+        source: src.de.Bfv.1938
+    -   date: !!null
+        category: de.Bf
+    -   date: c1940
+        name: Trittau Kreisb
         source: src.de.Bfv.1944
-    -   date: !!null
-        de.DS100: ABBK
-        de.dstnr: !!str 404814
-        source: src.de.DS100.1984
-    -   date: c1970
-        location:
-            line.de.9125: 3,0
-        source: src.de.SuW.2005
-    -   date: !!null
-        de.name16: Hmb-Billbrook
-        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
+        connection: point.de.Trittau
         site:
-            path.de.9125: bib
-
-
----
-key: point.de.Hamburg-Tiefstack-Bbf
-type: point
-junction: True
-events:
-    -   date: !!null
-        name: Tiefstack
-        location:
-            line.de.9125: 33,7
-
-    -   date: !!null
-        site:
-            path.de.6100: tie
+            path.de.9125: tri
 

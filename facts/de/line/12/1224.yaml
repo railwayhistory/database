@@ -39,29 +39,28 @@ events:
             deu: Umstellung schrittweise zwischen 1940 und 1955
         source: src.de.WP.Altona-Blankeneser-Eisenbahn
 
-    #   Eigentümer und Betreiber
-    #
-    -   date: !!null
-        operator: org.de.Altona-Kieler-Eisenbahn
-        owner: org.de.Altona-Kieler-Eisenbahn
-        source: src.de.DRG.1935
-
     #   Verlauf
     #
     -   date: !!null
-        course:
-            -   path.de.1270 als abls
-            -   path.de.1224 a   f
+        course: path.de.1224 als bla
 
 points:
-    -   point.de.Hamburg-Altona                     # de.1220
     -   point.de.Hamburg-Altona-S-Bahn              # de.1270
+    -   point.de.Hamburg-Altona                     # de.1220
     -   point.de.Hamburg-Bahrenfeld-Abzw
     -   point.de.Hamburg-Bahrenfeld
     -   point.de.Hamburg-Othmarschen
     -   point.de.Hamburg-Klein-Flottbek
     -   point.de.Hamburg-Hochkamp
     -   point.de.Hamburg-Blankenese
+
+
+#-----------------------------------------------------------------------------
+
+#    point.de.Hamburg-Altona-S-Bahn              de.1270
+
+
+#    point.de.Hamburg-Altona                     de.1220
 
 
 ---
@@ -79,6 +78,7 @@ events:
         PLC: DE14425
         de.dstnr: !!str 722694
         source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         location:
             line.de.1224: 2,533
@@ -88,18 +88,13 @@ events:
     -   date: !!null
         site:
             path.de.1224: baa
+            path.de.1230: baa
 
 
 ---
 key: point.de.Hamburg-Bahrenfeld
 type: point
-junction: True
 events:
-    -   date: !!null
-        location:
-            line.de.1224: 2,910
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
-
     -   date: !!null
         name: Bahrenfeld
         source: src.de.Kb.1914
@@ -133,10 +128,16 @@ events:
         name: Hamburg-Bahrenfeld
         de.dstnr: !!str 010306
         source: src.de.DBAG.BSV.2017
-    
+
+    -   date: !!null
+        location:
+            line.de.1224: 2,910
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
     -   date: !!null
         site:
             path.de.1224: bah
+            path.de.1230: bah
 
 
 ---
@@ -164,17 +165,22 @@ events:
         name: Othmarschen
         source: src.de.Bfv.1938
     -   date: !!null
-        location:
-            line.de.1224: 4,44
-        source: src.de.DRG.Alt.Karte.1945
-    -   date: !!null
         de.DS100: AOH
         de.dstnr: !!str 011049
         source: src.de.DS100.1984
     -   date: c2000
         name: Hamburg-Othmarschen
-        source: src.de.TPP.2007
-    
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Othmarschen
+        PLC: DE14470
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.1224: 4,441
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
     -   date: !!null
         site:
             path.de.1224: oth
@@ -198,17 +204,22 @@ events:
         de.lknr: 01 105
         source: src.de.Bfv.1933
     -   date: !!null
-        location:
-            line.de.1224: 6,19
-        source: src.de.DRG.Alt.Karte.1945
-    -   date: !!null
         de.DS100: AFB
         de.dstnr: !!str 011056
         source: src.de.DS100.1984
     -   date: c2000
         name: Hamburg-Klein Flottbek
-        source: src.de.TPP.2007
-    
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Klein Flottbek
+        PLC: DE14458
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.1224: 6,188
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+ 
     -   date: !!null
         site:
             path.de.1224: kfl
@@ -232,22 +243,25 @@ events:
         de.lknr: 01 106
         source: src.de.Bfv.1933
     -   date: !!null
-        location:
-            line.de.1224: 7,52
-        source: src.de.DRG.Alt.Karte.1945
-    -   date: !!null
         category: [de.Hp, de.Bk]
-        source:
-            - src.de.Bfv.1933
-            - src.de.DRG.Alt.Karte.1945
+        source: src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.DS100: AHPS
         de.dstnr: !!str 011064
         source: src.de.DS100.1984
     -   date: c2000
         name: Hamburg Hochkamp
-        source: src.de.TPP.2007
-    
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Hochkamp
+        PLC: DE14395
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.1224: 7,520
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+ 
     -   date: !!null
         site:
             path.de.1224: hoc
@@ -256,7 +270,6 @@ events:
 ---
 key: point.de.Hamburg-Blankenese
 type: point
-junction: True
 events:
     -   date: !!null
         name: Blankenese
@@ -272,6 +285,18 @@ events:
         de.lknr: 01 107
         source: src.de.Bfv.1933
     -   date: !!null
+        de.DS100: AB
+        de.dstnr: !!str 011072
+        source: src.de.DS100.1984
+    -   date: !!null
+        de.name16: Blankenese
+        PLC: DE14437
+        source: src.de.DBAG.BSV.2017
+    -   date: c2000
+        name: Hamburg-Blankenese
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
         location:
             line.de.1224: 9,57
             line.de.1226: 9,57
@@ -283,19 +308,9 @@ events:
         source:
             -   src.de.DB.Hmb.Karte.1984
             -   src.de.DBAG.Geo-Betriebsstelle.2017
-    -   date: !!null
-        de.DS100: AB
-        de.dstnr: !!str 011072
-        source: src.de.DS100.1984
-    -   date: !!null
-        de.name16: Blankenese
-        PLC: DE14437
-        source: src.de.DBAG.BSV.2017
-    -   date: c2000
-        name: Hamburg-Blankenese
-        source: src.de.DBAG.BSV.2017
-    
+ 
     -   date: !!null
         site:
             path.de.1224: bla
+            path.de.1226: bla
 

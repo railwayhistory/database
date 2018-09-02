@@ -21,7 +21,11 @@ events:
             for: org.de.Schleswig-Holsteinische-Marschbahn
         document: src.de.l.pre.sle.1884.50.1043
         source: src.de.DRG.1935 # 1887/42
-    
+
+    -   date: 2003-04
+        owner: org.de.neg-Niebüll
+        operator: org.de.neg-Niebüll
+
     -   date: 2007-03-19
         concession:
             by: org.de
@@ -57,31 +61,47 @@ events:
         category: de.Nebenbahn
         tracks: 1
 
-    #   Eigentümer etc.
-    #
-    -   date: !!null
-        owner: org.de.Schleswig-Holsteinische-Marschbahn
-        operator: org.de.Schleswig-Holsteinische-Marschbahn
-        source: src.de.DRG.1935
-
-    -   date: 2003-04
-        owner: org.de.neg-Niebüll
-        operator: org.de.neg-Niebüll
-
     #   Verlauf
     #
     -   date: !!null
-        course:
-            -   path.de.1210 nie asul
-            -   path.de.1201 a gsud
+        course: path.de.1201 nie sug
 
 points:
-    - point.de.Niebuell                         # line.de.1210
-    - point.de.Uphusum
-    - point.de.Suederluegum-Awanst
-    - point.de.Suederluegum
-    - point.de.Suederluegum-EGr
-    - point.int.Suederluegum-Tonder
+    -   point.de.Niebüll                            # de.1210
+    -   point.de.Niebüll-Gr
+    -   point.de.Uphusum
+    -   point.de.Süderlügum-Awanst
+    -   point.de.Süderlügum
+    -   point.de.Süderlügum-EGr
+    -   point.int.Süderlügum-Tønder
+
+
+#-----------------------------------------------------------------------------
+
+#    point.de.Niebüll                            de.1210
+
+
+---
+key: point.de.Niebüll-Gr
+type: point
+events:
+    -   date: !!null
+        de.DS100: ANBG
+        name: Niebüll DB-Grenze
+        de.name16: Niebüll DB-Gr
+        category: de.Gp
+        PLC: DE17676
+        de.dstnr: !!str 885400
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.1201: 162,319
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+    -   date: !!null
+        site:
+            path.de.1201: nig
 
 
 ---
@@ -108,10 +128,6 @@ events:
         category: de.Hst
         source: src.de.Bfv.1938
     -   date: !!null
-        location:
-            line.de.1201: 167,77
-        source: src.de.DRG.Alt.Karte.1949
-    -   date: !!null
         de.DS100: ANBU
         de.dstnr: !!str 015768
         source: src.de.DS100.1984
@@ -122,11 +138,16 @@ events:
     -   date: 2007-05-17
         status: open
     -   date: 2007-05-17
-        location:
-            line.de.1201: 167,790
-        category: de.Hp
         de.DS100: AUP
-        source: src.de.DBAG.ISR
+        de.name16: Uphusum
+        category: de.Hp
+        de.dstnr: !!str 887612
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.1201: 167,77
+        source: src.de.DRG.Alt.Karte.1949
 
     -   date: !!null
         site:
@@ -134,17 +155,18 @@ events:
 
 
 ---
-key: point.de.Suederluegum-Awanst
+key: point.de.Süderlügum-Awanst
 type: point
 events:
-    -   date: 2001?
+    -   date: 2001-06-24
         status: open
-        split_from: point.de.Suederluegum
-    -   date: !!null
-        category: de.Awanst
-        name: Süderlügum Awanst
+        split_from: point.de.Süderlügum
         de.DS100: ANBA
-        source: src.de.Abk100.2014
+        name: Süderlügum Awanst
+        de.name16: Süderlügum Awans
+        category: de.Awanst
+        de.dstnr: !!str 107396
+        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
@@ -152,7 +174,7 @@ events:
 
 
 ---
-key: point.de.Suederluegum
+key: point.de.Süderlügum
 type: point
 events:
     -   date: !!null
@@ -169,10 +191,6 @@ events:
         de.lknr: 01 577
         source: src.de.Bfv.1933
     -   date: !!null
-        location:
-            line.de.1201: 171,64
-        source: src.de.DRG.Alt.Karte.1949
-    -   date: !!null
         de.DS100: ANBS
         de.dstnr: !!str 015776
         source: src.de.DS100.1984
@@ -181,6 +199,14 @@ events:
         source: src.de.Bock.1989
     -   date: 2001-06-17
         category: de.Hp
+    -   date: !!null
+        de.name16: Süderlügum
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.1201: 171,64
+        source: src.de.DRG.Alt.Karte.1949
 
     -   date: !!null
         site:
@@ -188,7 +214,7 @@ events:
 
 
 ---
-key: point.de.Suederluegum-EGr
+key: point.de.Süderlügum-EGr
 type: point
 subtype: reference
 events:
@@ -203,7 +229,7 @@ events:
 
  
 ---
-key: point.int.Suederluegum-Tonder
+key: point.int.Süderlügum-Tønder
 type: point
 subtype: border
 events:
@@ -219,20 +245,27 @@ events:
         de.lknr: 01 578
         source: src.de.Bfv.1933
     -   date: !!null
-        location:
-            line.de.1201: 175,290
-        source: src.de.DRG.Alt.Karte.1949
-    -   date: !!null
         de.DS100: AGRT
         de.dstnr: !!str 015784
         source: src.de.DS100.1984
     -   date: c1990
         de.DS100: AXS
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Süderlügum Gr
+        PLC: DE20127
+        source: src.de.DBAG.BSV.2017
     -   date: !!null
         name:
             da: Tønder Grænse
 
     -   date: !!null
+        location:
+            line.de.1201: 175,290
+        source: src.de.DRG.Alt.Karte.1949
+
+    -   date: !!null
         site:
-            path.de.1201: gsud
+            path.de.1201: sug
+            path.dk.30: tog
 

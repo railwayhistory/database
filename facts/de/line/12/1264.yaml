@@ -1,4 +1,4 @@
-# DE 1264.  Cuxhaven CF - Cuxhaven Amerika Bahnhof
+# DE 1264.  Cuxhaven-Groden - Cuxhaven Amerika Bahnhof
 #
 ---
 key: line.de.1264
@@ -20,19 +20,21 @@ events:
         status: open
 
 points:
-    -   point.de.Cuxhaven-CF                        # de.1720
+    -   point.de.Cuxhaven-Groden                    # de.1720
+    -   point.de.Cuxhaven-Gr
+    -   point.de.Cuxhaven-Neuer-Fischereihafen
     -   point.de.Cuxhaven-Amerika-Bahnhof
 
 
 #-----------------------------------------------------------------------------
 
-#    point.de.Cuxhaven-CF                        de.1720
+#    point.de.Cuxhaven-Groden                    de.1720
 
 
 ---
 key: point.de.Cuxhaven-Gr
 type: point
-subtype: reference
+subtype: border
 events:
     -   date: !!null
         de.DS100: ACVG
@@ -42,32 +44,53 @@ events:
         PLC: DE12031
         de.dstnr: !!str 107378
         source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         location:
             line.de.1264: 0,016
         source: src.de.DBAG.Geo-Betriebsstelle.2017
 
+    -   date: !!null
+        site:
+            path.de.1264: cug
+
+
+---
+key: point.de.Cuxhaven-Neuer-Fischereihafen
+type: point
+events:
+    -   date: !!null
+        name: Cuxhaven Neuer Fischereihafen
+        site:
+            path.de.1264: cuf
+
 
 ---
 key: point.de.Cuxhaven-Amerika-Bahnhof
 type: point
-junction: True
 events:
-    -   date: !!null
-        location:
-            line.de.1264: 3,0
-        source: src.de.SuW.2005
     -   date: !!null
         category: de.Bf
         de.rang: I
         name: Cuxhaven Hafen
         service: passenger
         source: src.de.Bfv.1944
+    -   date: !!null
+        de.DS100: ACV A
+        source: src.de.DS100.1984
+    -   date: c1970
+        name: Cuxhaven Amerika-Bahnhof (Ca)
+        category: de.Ldst
+        source: src.de.DS100.1984
     -   date: c1995
         category: de.Bft
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.DS100: ACV M
+        name: Cuxhaven Amerika Bahnhof
         de.name16: Cux Amerika Bf
         de.dstnr: !!str 911084
         source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        site:
+            path.de.1264: cua
+

@@ -3,6 +3,7 @@
 ---
 key: line.de.1244
 type: line
+label: de.S-Bahn
 events:
     -   date: !!null
         region: org.de
@@ -17,7 +18,19 @@ events:
         de.VzG: !!str 1244
         source: src.de.DBAG.Geo-Strecke.2017
 
-    #   Genehmigung und Eröffnung
+    #   Genehmigungen, Eigentümer, Betreiber
+    #
+    -   date: !!null
+        end: point.de.Hamburg-Berliner-Tor-Bergedorf
+        owner: org.de.l.pre
+        operator: org.de.e.hmb
+
+    -   date: !!null
+        start: point.de.Hamburg-Berliner-Tor-Bergedorf
+        owner: org.de.DB-Netz
+        operator: org.de.DB-Netz
+
+    #   Eröffnung
     #
     -   date: 1906-12-05?
         end: point.de.Hamburg-Berliner-Tor-Bergedorf
@@ -39,28 +52,16 @@ events:
     -   date: 2002-05-26
         start: point.de.Hamburg-Berliner-Tor-Bergedorf
         electrified: de.hmb
-
-    #   Eigentümer und Betreiber
-    #
-    -   date: !!null
-        end: point.de.Hamburg-Berliner-Tor-Bergedorf
-        owner: org.de.l.pre
-        operator: org.de.e.hmb
-
-    -   date: !!null
-        start: point.de.Hamburg-Berliner-Tor-Bergedorf
-        owner: org.de.DB-Netz
-        operator: org.de.DB-Netz
-    
+     
     #   Verlauf
     #
     -   date: !!null
-        course: path.de.6100 ham aum
+        course: path.de.1244 ham aum
 
 points:
     -   point.de.Hamburg-Hbf-S-Bahn                 # de.1270
-    -   point.de.Hamburg-Berliner-Tor               # de.1120
-    -   point.de.Hamburg-Berliner-Tor-Bergedorf     # de.6100
+    -   point.de.Hamburg-Berliner-Tor-S-Bahn        # de.1244
+    -   point.de.Hamburg-Berliner-Tor-Bergedorf
     -   point.de.Hamburg-Rothenburgsort-S-Bahn      # de.6100
     -   point.de.Hamburg-Tiefstack                  # de.6100
     -   point.de.Hamburg-Billwerder-Moorfleet       # de.6100
@@ -80,9 +81,35 @@ points:
 
 #    point.de.Hamburg-Hbf-S-Bahn                 de.1270
 
-#    point.de.Hamburg-Berliner-Tor               de.1120
 
-#    point.de.Hamburg-Berliner-Tor-Bergedorf     de.6100
+#    point.de.Hamburg-Berliner-Tor-S-Bahn        de.1244
+
+
+---
+key: point.de.Hamburg-Berliner-Tor-Bergedorf
+type: point
+events:
+    -   date: c1995
+        status: open
+        split_from: point.de.Hamburg-Berliner-Tor
+    -   date: !!null
+        de.DS100: ABTSB
+        name: Hamburg Berliner Tor (Bergedorf)
+        de.name16: Berliner Tor B
+        category: de.Bft
+        PLC: DE14382
+        de.dstnr: !!str 910021
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.1244: 1,528
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+    -   date: !!null
+        site:
+            path.de.1244: btb
+
 
 #    point.de.Hamburg-Rothenburgsort-S-Bahn      de.6100
 
@@ -103,6 +130,7 @@ events:
         PLC: DE14433
         de.dstnr: !!str 192153
         source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         location:
             line.de.1244: 9,437
@@ -110,7 +138,7 @@ events:
 
     -   date: !!null
         site:
-            path.de.6100: biu
+            path.de.1244: biu
 
 
 #    point.de.Hamburg-Mittlerer-Landweg          de.6100
@@ -123,15 +151,10 @@ events:
 ---
 key: point.de.Hamburg-Bergedorf-S-Bahn
 type: point
-junction: True
 events:
     -   date: 2002-05-26?
         status: open
         split_from: point.de.Hamburg-Bergedorf
-    -   date: !!null
-        location:
-            line.de.1244: 16,345
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
     -   date: !!null
         category: de.Bft
         name: Hamburg-Bergedorf (S-Bahn)
@@ -142,8 +165,13 @@ events:
         source: src.de.DBAG.BSV.2017
 
     -   date: !!null
+        location:
+            line.de.1244: 16,345
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+    -   date: !!null
         site:
-            path.de.6100: ber
+            path.de.1244: ber
 
 
 ---
@@ -152,13 +180,17 @@ type: point
 subtype: border
 events:
     -   date: !!null
-        category: de.LGr
-        name: Reinbek SH/HH 1244
         de.DS100: AQRBK
+        name: Reinbek SH/HH 1244
+        de.name16: Reinbek 1244
+        category: de.LGr
+        PLC: DE18753
+        de.dstnr: !!str 103969
+        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
-            path.de.6100: grei
+            path.de.1244: reg
 
 
 #    point.de.Reinbek                            de.6100
@@ -184,11 +216,12 @@ events:
         source: src.de.DBAG.BSV.2017
     -   date: 2014-06-12?
         status: closed
+        merged: point.de.Aumühle
         source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
-            path.de.6100: aum
+            path.de.1244: aum
 
 
 #    point.de.Aumühle                            de.6100
