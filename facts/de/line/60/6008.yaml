@@ -9,10 +9,10 @@ events:
     -   date: !!null
         region: org.de
     -   date: !!null
-        end: point.de.Berlin-Gruenbergallee-LGr
+        end: point.de.Berlin-Grünbergallee-LGr
         region: org.de.l.be
     -   date: !!null
-        start: point.de.Berlin-Gruenbergallee-LGr
+        start: point.de.Berlin-Grünbergallee-LGr
         region: org.de.l.bb
 
     -   date: de.vzg.dr
@@ -22,12 +22,12 @@ events:
     #   Eröffnung
     #
     -   date: 1962-02-26
-        end: point.de.Berlin-Schoenefeld-Flughafen
+        end: point.de.Berlin-Schönefeld-Flughafen
         status: open
         freight: none
         source: src.de.Kuhlmann.2000
     -   date: 2011-10-30
-        start: point.de.Berlin-Schoenefeld-Flughafen
+        start: point.de.Berlin-Schönefeld-Flughafen
         status: open
         freight: none
         passenger: none
@@ -70,28 +70,29 @@ events:
             -   path.de.6151     fson flu
 
 points:
-    - point.de.Gruenauer-Kreuz-Suedost              # line.de.6007
-    - point.de.Berlin-Altglienicke
-    - point.de.Berlin-Gruenbergallee
-    - point.de.Berlin-Gruenbergallee-LGr
-    - point.de.Berlin-Schoenefeld-Flughafen         # line.de.6126
-    - point.de.Schoenefeld-S-Bahn
-    - point.de.Wassmannsdorf
-    - point.de.Berlin-Flughafen-BER-S-Bahn
+    -   point.de.Grünauer-Kreuz-Südost              # de.6007
+    -   point.de.Berlin-Altglienicke
+    -   point.de.Berlin-Grünbergallee
+    -   point.de.Berlin-Grünbergallee-LGr
+    -   point.de.Berlin-Schönefeld-Flughafen        # de.6126
+    -   point.de.Schönefeld-S-Bahn
+    -   point.de.Waßmannsdorf
+    -   point.de.Berlin-Flughafen-BER-S-Bahn
+
+
+#-----------------------------------------------------------------------------
+
+#    point.de.Grünauer-Kreuz-Südost              de.6007
 
 
 ---
 key: point.de.Berlin-Altglienicke
 type: point
-junction: True
 events:
     -   date: 1941-01-01
         status: open
         source: src.de.Kuhlmann.2000
     -   date: !!null
-        location:
-            line.de.6541: 17,51
-            line.de.8704: 17,51
         name: Altglienicke
         source: src.de.DRG.Bln.1943
     -   date: !!null
@@ -120,21 +121,37 @@ events:
         source: src.de.Kuhlmann.2000
     -   date: 1962-02-26?
         category: [de.Hp, de.Abzw]
-        master: point.de.Berlin-Schoenefeld-Flughafen
+        master: point.de.Berlin-Schönefeld-Flughafen
         source: src.dd.DR.Bln.1968
-    -   date: !!null
-        location:
-            line.de.6008: 1,95
-        source: src.dd.DR.Bln.1973
     -   date: 1987-06-29
         category: de.Hp
         source: src.dd.DR.1989
     -   date: de.ds100.dr
         de.DS100: BAGL
-        source: src.de.TPP.2006
+        de.dstnr: !!str 033670
+        source: src.de.DBAG.BSV.2017
     -   date: c2000
         name: Berlin-Altglienicke
-        source: src.de.TPP.2006
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Altglienicke
+        PLC: DE10980
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6541: 17,51
+            line.de.8704: 17,51
+        source: src.de.DRG.Bln.1943
+    -   date: !!null
+        location:
+            line.de.6008: 1,95
+        source: src.dd.DR.Bln.1973
+    -   date: c2000
+        location:
+            line.de.6008: 1,853
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -142,7 +159,7 @@ events:
 
 
 ---
-key: point.de.Berlin-Gruenbergallee
+key: point.de.Berlin-Grünbergallee
 type: point
 events:
     -   date: 1949-05-15
@@ -153,7 +170,7 @@ events:
             line.de.6541: 17,8
         category: de.Hp
         name: Grünbergallee
-        master: point.de.Berlin-Schoenefeld-Flughafen
+        master: point.de.Berlin-Schönefeld-Flughafen
         source: src.dd.DR.Bln.1959
     -   date: !!null
         de.VBL: Gal
@@ -162,12 +179,23 @@ events:
         location:
             line.de.6008: 3,40
         source: src.dd.DR.Bln.1973
+
     -   date: de.ds100.dr
         de.DS100: BGBA
-        source: src.de.TPP.2006
+        de.dstnr: !!str 033688
+        source: src.de.DBAG.BSV.2017
     -   date: c2000
         name: Berlin Grünbergallee
-        source: src.de.TPP.2006
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Grünbergallee
+        PLC: DE10865
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6008: 3,357
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -175,41 +203,61 @@ events:
 
 
 ---
-key: point.de.Berlin-Gruenbergallee-LGr
+key: point.de.Berlin-Grünbergallee-LGr
 type: point
 subtype: border
 events:
     -   date: !!null
         name: Berlin Grünbergallee BE/BB
+        de.name16: Bln Grünbga LGr
+        category: de.LGr
+        PLC: DE10866
+        de.dstnr: !!str 104014
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
         de.DS100: BQFHS
         source: src.de.TPP.2006
+    -   date: 2014-03-01
+        de.DS100: BQFLH
+        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
             path.de.6008: ggru
 
 
+#    point.de.Berlin-Schönefeld-Flughafen        de.6126
+
+
 ---
-key: point.de.Schoenefeld-S-Bahn
+key: point.de.Schönefeld-S-Bahn
 type: point
 events:
     -   date: 2006
         status: open
+        split_from: point.de.Berlin-Schönefeld-Flughafen
         source:
             - src.de.TPP.2006
             - src.de.TPP.2007
+
+    -   date: !!null
+        de.DS100: BFLH
+        category: de.Bf
+        PLC: DE19458
+        de.dstnr: !!str 857623
+        source: src.de.DBAG.BSV.2017
     -   date: !!null
         name: Berlin-Schönefeld Flughafen S-Bahn
-        de.DS100: BFLH
         source: src.de.TPP.2007
+    -   date: 2012-06-03
+        name: Schönefeld (S-Bahn)
+        de.name16: Schönefeld S-B
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         location:
             line.de.6008: 5,961
-        category: de.Bf
-        source: src.de.DBAG.ISR
-    -   date: 2012
-        name: Schönefeld S-Bahn
-        source: src.de.TPP.2013
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -217,21 +265,26 @@ events:
 
 
 ---
-key: point.de.Wassmannsdorf
+key: point.de.Waßmannsdorf
 type: point
 events:
     -   date: 2011-10-30
         status: open
         service: none
+        staff: none
+    -   date: !!null
+        de.DS100: BWAF
+        name: Waßmannsdorf
+        de.name16: Waßmannsdorf
+        category: de.Hp
+        PLC: DE20817
+        de.dstnr: !!str 844126
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         location:
             line.de.6008: 9,800
-        category: de.Hp
-        name: Waßmannsdorf
-        de.DS100: BWAF
-        source: src.de.DBAG.ISR
-    -   date: !!null
-        staff: none
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -241,22 +294,27 @@ events:
 ---
 key: point.de.Berlin-Flughafen-BER-S-Bahn
 type: point
-junction: True
 events:
     -   date: 2011-10-30
         status: open
         service: none
+        staff: none
+    -   date: !!null
+        de.DS100: BFBB
+        name: Berlin Flughafen BER (S-Bahn)
+        de.name16: Bln Flughf S-B
+        category: de.Bf
+        PLC: DE10852
+        de.dstnr: !!str 844134
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         location:
             line.de.6008: 13,500
-        category: de.Bf
-        name: Berlin Flughafen BER S-Bahn
-        de.DS100: BFBB
-        source: src.de.DBAG.ISR
-    -   date: !!null
-        staff: none
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
+        connection: point.de.Berlin-Flughafen-BER
         site:
             path.de.6151: flu
 

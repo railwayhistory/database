@@ -59,17 +59,21 @@ events:
             -   path.de.6153 ffra rum
 
 points:
-    - point.de.Berlin-Frankfurter-Allee             # line.de.6170
-    - point.de.Berlin-Lichtenberg-B1
-    - point.de.Berlin-Rummelsburg-Rgbw
-    - point.de.Berlin-Rummelsburg                   # line.de.6153
+    -   point.de.Berlin-Frankfurter-Allee           # de.6170
+    -   point.de.Berlin-Lichtenberg-B1
+    -   point.de.Berlin-Rummelsburg-Rgbw
+    -   point.de.Berlin-Rummelsburg                 # de.6153
     -   point.de.Berlin-Rummelsburg-Rgbo            # de.6153
+
+
+#-----------------------------------------------------------------------------
+
+#    point.de.Berlin-Frankfurter-Allee           de.6170
 
 
 ---
 key: point.de.Berlin-Lichtenberg-B1
 type: point
-junction: True
 events:
     -   date: !!null
         location:
@@ -83,12 +87,16 @@ events:
         category: de.Glgr
         name: Berlin-Lichtenberg B1
         source: src.dd.DR.Bln.1968
+
     -   date: de.ds100.dr
         de.DS100: BLO G
-        source: src.de.TPP.2006
-    -   date: c1995
-        category: de.Bft
-        source: src.de.SuW.2005
+        category: [de.Bft, de.Abzw]
+        de.dstnr: !!str 911774
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Bln-Lichtenbg B1
+        PLC: DE11053
+        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
@@ -99,7 +107,6 @@ events:
 ---
 key: point.de.Berlin-Rummelsburg-Rgbw
 type: point
-junction: True
 events:
     -   date: !!null
         location:
@@ -110,14 +117,24 @@ events:
     -   date: c1965
         location:
             line.de.6152: 3,835
+
     -   date: de.ds100.dr
-        category: de.Bft
-        name: Berlin-Rummelsburg (Rgbw)
         de.DS100: BRGBW
-        source:
-            - src.de.TPP.2006
-            - src.de.SuW.2005
+        name: Berlin-Rummelsburg (Rgbw)
+        category: de.Bft
+        de.dstnr: !!str 086744
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Bln-Rummels Rgw
+        PLC: DE11098
+        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
             path.de.6153: rgw
+
+
+#    point.de.Berlin-Rummelsburg                 de.6153
+
+#    point.de.Berlin-Rummelsburg-Rgbo            de.6153
+

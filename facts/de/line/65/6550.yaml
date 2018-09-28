@@ -16,12 +16,12 @@ events:
     #   Eröffnung
     #
     -   date: 1908-08-17
-        start: point.de.Berlin-Luebars
+        start: point.de.Berlin-Lübars
         status: open
         source: src.de.Kuhlmann.2000
     -   date: 1908-10-31
         start: point.de.Berlin-Tegel-Ost
-        end: point.de.Berlin-Luebars
+        end: point.de.Berlin-Lübars
         status: open
         source: src.de.Kuhlmann.2000
     -   date: 1978-12-14
@@ -42,7 +42,7 @@ events:
     #   Stilllegung und Abbau
     #
     -   date: 1961?
-        start: point.de.Berlin-Luebars-Gr
+        start: point.de.Berlin-Lübars-Gr
         end: point.de.Berlin-Nordend
         status: removed
         source: src.dd.DR.Bln.1968
@@ -58,12 +58,12 @@ events:
         source: src.dd.DR.Bln.1983
     -   date: c2000
         start: point.de.Berlin-Tegel-Ost
-        end: point.de.Berlin-Luebars
+        end: point.de.Berlin-Lübars
         status: closed
         source: src.de.SuW.2005
     -   date: c2010
         start: point.de.Berlin-Tegel-Ost
-        end: point.de.Berlin-Luebars
+        end: point.de.Berlin-Lübars
         status: removed
         source: src.de.SuW.2011
         
@@ -90,15 +90,20 @@ events:
             -   path.de.6550 a    bla
 
 points:
-    - point.de.Berlin-Tegel                         # line.de.6183
-    - point.de.Berlin-Tegel-Ost
-    - point.de.Berlin-Wittenau
-    - point.de.Berlin-Luebars
-    - point.de.Berlin-Luebars-Gr
-    - point.de.Berlin-Rosenthal-Industriebahn
-    - point.de.Berlin-Nordend
-    - point.de.Berlin-Buchholz
-    - point.de.Berlin-Blankenburg-Iab
+    -   point.de.Berlin-Tegel                       # de.6183
+    -   point.de.Berlin-Tegel-Ost
+    -   point.de.Berlin-Wittenau
+    -   point.de.Berlin-Lübars
+    -   point.de.Berlin-Lübars-Gr
+    -   point.de.Berlin-Rosenthal-Industriebahn
+    -   point.de.Berlin-Nordend
+    -   point.de.Berlin-Buchholz
+    -   point.de.Berlin-Blankenburg-Iab
+
+
+#-----------------------------------------------------------------------------
+
+#    point.de.Berlin-Tegel                       de.6183
 
 
 ---
@@ -155,7 +160,7 @@ events:
 
 
 ---
-key: point.de.Berlin-Luebars
+key: point.de.Berlin-Lübars
 type: point
 junction: True
 events:
@@ -181,12 +186,15 @@ events:
         category: de.Hp
         master: point.de.Berlin-Tegel
         source: src.dd.DR.Bln.1978
+
     -   date: de.ds100.dr
         de.DS100: BLUE
+        de.dstnr: !!str 253864
+        source: src.de.DBAG.BSV.2017
     -   date: !!null
-        location:
-            line.de.6552: 0,000
-        source: src.de.VzG
+        de.name16: Berlin-Lübars
+        PLC: DE11066
+        source: src.de.DBAG.BSV.2017
         
     -   date: !!null
         site:
@@ -194,7 +202,7 @@ events:
 
 
 ---
-key: point.de.Berlin-Luebars-Gr
+key: point.de.Berlin-Lübars-Gr
 type: point
 subtype: border
 events:
@@ -258,7 +266,7 @@ events:
     -   date: !!null
         location:
             line.de.6550: 8,9
-        master: point.de.Berlin-Weissensee
+        master: point.de.Berlin-Weißensee
     -   date: c1960
         status: closed
         source: src.dd.DR.Bln.1968
@@ -289,15 +297,27 @@ events:
         de.VBL: Bhz
         source: src.dd.DR.Bln.1953
     -   date: !!null
-        location:
-            line.de.6550: 10,61
         category: de.Hp
         staff: agent
-        master: point.de.Berlin-Weissensee
+        master: point.de.Berlin-Weißensee
         source: src.dd.DR.Bln.1959
     -   date: c1960
         status: closed
         source: src.dd.DR.Bln.1968
+
+    -   date: de.ds100.dr
+        de.DS100: BBHZ
+        de.dstnr: !!str 909492
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Berlin-Buchholz
+        PLC: DE10990
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6550: 10,61
+        source: src.dd.DR.Bln.1959
 
     -   date: !!null
         site:
@@ -308,7 +328,6 @@ events:
 key: point.de.Berlin-Blankenburg-Iab
 type: point
 subtype: reference
-junction: True
 events:
     -   date: !!null
         name: Berlin-Blankenburg Industriebahn

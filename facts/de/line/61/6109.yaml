@@ -102,7 +102,6 @@ points:
     -   point.de.Berlin-Holzmarkt
     -   point.de.Bk-4-Stadtbahn
     -   point.de.Berlin-Alexanderplatz
-    -   point.de.Berlin-Alexanderplatz-Hp
     -   point.de.Bk-6-Stadtbahn
     -   point.de.Berlin-Busch
     -   point.de.Berlin-Friedrichstraße
@@ -126,7 +125,6 @@ points:
 ---
 key: point.de.Berlin-Ostbahnhof
 type: point
-junction: True
 events:
     -   date: !!null
         name: Berlin Frankfurter Bf
@@ -142,13 +140,6 @@ events:
         service: passenger
         source: src.de.Bfv.1928
     -   date: !!null
-        location:
-            line.de.6109: 0,00
-            line.de.6152: 0,10
-            line.de.6024: 0,00
-            line.de.6003: 0,10
-            line.de.6004: 0,10
-            line.de.6153: 0,10
         category: de.Bf
         de.rang: I
         source: src.de.DRG.Bln.1927
@@ -177,14 +168,33 @@ events:
     -   date: 1998-05-24
         name: Berlin Ostbahnhof
         source: src.de.Kuhlmann.2000
+
     -   date: de.ds100.dr
         de.DS100: BHF
-        source: src.de.TPP.2006
+        de.dstnr: !!str 031377
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Bln Ostbahnhof
+        PLC: DE10909
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6003: 0,10
+            line.de.6004: 0,10
+            line.de.6024: 0,00
+        source: src.de.DRG.Bln.1927
+    -   date: !!null
+        location:
+            line.de.6109: 0,000
+            line.de.6152: 0,098
+            line.de.6153: 0,098
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
     -   date: 2006
         location:
-            line.de.6024: !!null
             line.de.6003: !!null
             line.de.6004: !!null
+            line.de.6024: !!null
 
     -   date: !!null
         site:
@@ -213,9 +223,6 @@ events:
             path.de.6109: hol
 
 
-# point.de.Berlin-Jannowitzbrücke jan
-
-
 ---
 key: point.de.Bk-4-Stadtbahn
 type: point
@@ -239,9 +246,6 @@ key: point.de.Berlin-Alexanderplatz
 type: point
 events:
     -   date: !!null
-        location:
-            line.de.6109: 2,17
-            line.de.6024: 2,17
         category: de.Bf
         de.rang: I
         name: Berlin Alexanderplatz
@@ -264,37 +268,32 @@ events:
         source: src.dd.DR.Bln.1968
     -   date: de.ds100.dr
         de.DS100: BALE
-        source: src.de.TPP.2006
+        de.dstnr: !!str 031351
+        source: src.de.DBAG.BSV.2017
+
     -   date: 1998
-        location:
-            line.de.6109: !!null
-    -   date: c2007
-        category: de.Hp
-        location:
-            line.de.6109: 2,17
-            line.de.6024: !!null
-
-    -   date: !!null
-        site:
-            path.de.6109: ale
-
-
----
-key: point.de.Berlin-Alexanderplatz-Hp
-type: point
-events:
-    -   date: 1998
-        status: open
-        split_from: point.de.Berlin-Alexanderplatz
-        location:
-            line.de.6109: 2,17
-    -   date: !!null
         name: Berlin Alexanderplatz (Hp)
         de.DS100: BALEF
         source: src.de.TPP.2006
     -   date: c2007
-        status: closed
-        merged: point.de.Berlin-Alexanderplatz
+        name: Berlin Alexanderplatz
+        de.DS100: BALE
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Bln Alex Hp
+        PLC: DE10829
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6109: 2,17
+            line.de.6024: 2,17
+        source: src.de.DRG.Bln.1932
+    -   date: 1998
+        location:
+            line.de.6109: 2,180
+            line.de.6024: !!null
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -318,9 +317,6 @@ events:
     -   date: !!null
         site:
             path.de.6109: bvi
-
-
-# point.de.Berlin-Hackescher-Markt hac
 
 
 ---
@@ -371,9 +367,20 @@ events:
     -   date: c1965
         de.rang: II
         source: src.dd.DR.Bln.1968
+
     -   date: de.ds100.dr
         de.DS100: BFRI
-        source: src.de.TPP.2006
+        de.dstnr: !!str 030445
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Bln Friedrichstr
+        PLC: DE10857
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6109: 3,977
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
     -   date: c2007
         location:
             line.de.6024: !!null
@@ -409,21 +416,23 @@ events:
         status: open
         source: src.de.WP.Berlin-Hauptbahnhof
     -   date: !!null
-        location:
-            line.de.6109: 5,4
-        category: de.Bf
-    -   date: !!null
-        name: Berlin Hauptbahnhof-Lehrter Bf (Stadtb)
         de.DS100: BLS
-        source: src.de.TPP.2011
+        name: Berlin Hauptbahnhof-Lehrter Bf  (Stadtb)
+        de.name16: Bln Hbf-Le Bf(S)
+        category: de.Bf
+        PLC: DE10874
+        de.dstnr: !!str 659698
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
-        public_name: Berlin Hauptbahnhof
+        location:
+            line.de.6109: 5,359
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
             path.de.6109: hbf
 
-# point.de.Berlin-Lehrter-Stadtbf leh
 
 ---
 key: point.de.Berlin-Humboldt
@@ -500,7 +509,6 @@ events:
         site:
             path.de.6109: bru
 
-# point.de.Berlin-Bellevue bel
 
 ---
 key: point.de.Berlin-Bachstraße
@@ -525,7 +533,6 @@ events:
         site:
             path.de.6109: bac
 
-# point.de.Berlin-Tiergarten tie
 
 ---
 key: point.de.Berlin-Zoologischer-Garten
@@ -549,9 +556,20 @@ events:
     -   date: !!null
         de.VBL: Zoo
         source: src.de.DRG.Bln.1946
+
     -   date: de.ds100.dr
         de.DS100: BZOO
-        source: src.de.TPP.2006
+        de.dstnr: !!str 030361
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Bln Zool Garten
+        PLC: DE10975
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6109: 9,036
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
     -   date: c2007
         location:
             line.de.6024: !!null
@@ -559,9 +577,6 @@ events:
     -   date: !!null
         site:
             path.de.6109: zoo
-
-
-# point.de.Berlin-Zoologischer-Garten-S-Bahn zos
 
 
 ---
@@ -591,13 +606,9 @@ events:
             path.de.6109: kne
 
 
-# point.de.Berlin-Savignyplatz sav
-
-
 ---
 key: point.de.Berlin-Charlottenburg
 type: point
-junction: True
 events:
     -   date: !!null
         name: Charlottenburg Personenbf
@@ -605,12 +616,6 @@ events:
         service: passenger
         source: src.de.Bfv.1928
     -   date: !!null
-        location:
-            line.de.6014: 11,26
-            line.de.6023: 11,26
-            line.de.6024: 11,26
-            line.de.6109: 11,26
-            line.de.8693: 11,26
         category: de.Bf
         de.rang: I
         source: src.de.DRG.Bln.1932
@@ -629,9 +634,29 @@ events:
     -   date: !!null
         de.VBL: Chb
         source: src.de.DRG.Bln.1946
+
     -   date: de.ds100.dr
         de.DS100: BCHB
-        source: src.de.TPP.2006
+        de.dstnr: !!str 030346
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Bln-Charlottenbg
+        PLC: DE10992
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6014: 11,26
+            line.de.6023: 11,26
+            line.de.6024: 11,26
+            line.de.6109: 11,26
+            line.de.8693: 11,26
+        source: src.de.DRG.Bln.1932
+    -   date: c2000
+        location:
+            line.de.6109: 11,244
+            line.de.6118: -0,123
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
     -   date: c2007
         location:
             line.de.6024: !!null
@@ -689,6 +714,7 @@ events:
             path.de.6109: osa
 
 
-# point.de.Berlin-Spandau-Ost                 de.6107
+#    point.de.Berlin-Spandau-Ost                 de.6107
 
-# point.de.Berlin-Stresow                     de.6107
+#    point.de.Berlin-Stresow                     de.6107
+

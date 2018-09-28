@@ -54,11 +54,11 @@ events:
     #
     -   date: 1893-10-01
         start: point.de.Berlin-Tga
-        end: point.de.Velten
+        end: point.de.Velten-Mark
         status: open
         source: src.de.DRG.1935 # 1893/30
     -   date: 1893-12-20
-        start: point.de.Velten
+        start: point.de.Velten-Mark
         status: open
         source: src.de.DRG.1935 # 1893/51
     -   date: 1905-10-01
@@ -88,34 +88,34 @@ events:
         tracks: 2
         source: src.de.web.Stadtschnellbahn-Berlin
     -   date: 1910
-        end: point.de.Velten
+        end: point.de.Velten-Mark
         category: de.Hauptbahn
         source: src.de.web.Stadtschnellbahn-Berlin
     -   date: c1920
         start: point.de.Berlin-Tegel
-        end: point.de.Velten
+        end: point.de.Velten-Mark
         tracks: 2
         source: src.de.web.Stadtschnellbahn-Berlin
 
     -   date: 1927-03-16
         start: point.de.Berlin-Tga
-        end: point.de.Velten
+        end: point.de.Velten-Mark
         electrified: de.bln
         source: src.de.Kuhlmann.2000
 
     -   date: c1945
-        end: point.de.Velten
+        end: point.de.Velten-Mark
         tracks: 1
         source: src.dd.DR.Bln.1953
 
     -   date: 1961-08-13
         start: point.de.Berlin-Heiligensee
-        end: point.de.Stolpe-Sued
+        end: point.de.Stolpe-Süd
         passenger: none
         freight: none
         source: src.de.Kuhlmann.2000
     -   date: 1961-08-16
-        start: point.de.Stolpe-Sued
+        start: point.de.Stolpe-Süd
         end: point.de.Hennigsdorf
         passenger: none
         freight: none
@@ -127,7 +127,7 @@ events:
 
     -   date: 1983-09-21
         start: point.de.Hennigsdorf
-        end: point.de.Velten
+        end: point.de.Velten-Mark
         electrified: !!null
         source: src.de.web.Stadtschnellbahn-Berlin
 
@@ -175,36 +175,43 @@ events:
             -   path.de.6183 a   kre
 
 points:
-    - point.de.Berlin-Schoenholz                    # line.de.6088
-    - point.de.Berlin-Schoenholz-S-Bahn             # line.de.6030
-    - point.de.Berlin-Tga
-    - point.de.Berlin-Alt-Reinickendorf
-    - point.de.Berlin-Reinickendorf
-    - point.de.Berlin-Karl-Bonhoeffer-Nervenklinik
-    - point.de.Berlin-Eichborndamm
-    - point.de.Berlin-Tegel
-    - point.de.Berlin-Tegelgrund
-    - point.de.Berlin-Schulzendorf
-    - point.de.Berlin-Heiligensee
-    - point.de.Berlin-Heiligensee-LGr
-    - point.de.Stolpe-Sued
-    - point.de.Hennigsdorf-S-Bahn
-    - point.de.Hennigsdorf
-    - point.de.Hennigsdorf-Nord                     # line.de.6087
-    - point.de.Hennigsdorf-Nord-unterer-Bahnsteig
-    - point.de.Jaegerberg
-    - point.de.Hohenschoepping
-    - point.de.Velten
-    - point.de.Baerenklau
-    - point.de.Vehlefanz
-    - point.de.Schwante
-    - point.de.Kremmen
+    -   point.de.Berlin-Schönholz                   # de.6088
+    -   point.de.Berlin-Schönholz-S-Bahn            # de.6030
+    -   point.de.Berlin-Tga
+    -   point.de.Berlin-Alt-Reinickendorf
+    -   point.de.Berlin-Reinickendorf
+    -   point.de.Berlin-Karl-Bonhoeffer-Nervenklinik
+    -   point.de.Berlin-Eichborndamm
+    -   point.de.Berlin-Tegel
+    -   point.de.Berlin-Tegelgrund
+    -   point.de.Berlin-Schulzendorf
+    -   point.de.Berlin-Heiligensee
+    -   point.de.Berlin-Heiligensee-LGr
+    -   point.de.Stolpe-Süd
+    -   point.de.Hennigsdorf-S-Bahn
+    -   point.de.Hennigsdorf
+    -   point.de.Hennigsdorf-Nord                   # de.6087
+    -   point.de.Hennigsdorf-Nord-unterer-Bahnsteig
+    -   point.de.Jägerberg
+    -   point.de.Hohenschöpping
+    -   point.de.Velten-Mark
+    -   point.de.Bärenklau
+    -   point.de.Vehlefanz
+    -   point.de.Schwante
+    -   point.de.Kremmen
+
+
+#-----------------------------------------------------------------------------
+
+#    point.de.Berlin-Schönholz                   de.6088
+
+      
+#    point.de.Berlin-Schönholz-S-Bahn            de.6030
 
 
 ---
 key: point.de.Berlin-Tga
 type: point
-junction: True
 events:
     -   date: 1905-10-01?
         status: open
@@ -237,19 +244,18 @@ events:
         split_from: point.de.Berlin-Reinickendorf
         source: src.de.Kuhlmann.2000
     -   date: !!null
-        category: de.Hp
-        source: src.de.SuW.2005
-    -   date: !!null
-        name: Berlin Alt Reinickendorf
         de.DS100: BARF
-        source: src.de.TPP.2006
+        name: Berlin Alt Reinickendorf
+        de.name16: Alt Reinickend
+        category: de.Bft
+        PLC: DE10831
+        de.dstnr: !!str 318550
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         location:
             line.de.6183: 6,140
-        source: src.de.DBAG.ISR
-    -   date: c2010
-        category: de.Bft
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -298,16 +304,21 @@ events:
     -   date: 1984-01-09
         service: freight
         source: src.de.Kuhlmann.2000
+
     -   date: de.ds100.dr
         de.DS100: BRKD
-        source: src.de.TPP.2006
+        de.dstnr: !!str 030783
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Bln-Reinickendf
+        PLC: DE11090
+        source: src.de.DBAG.BSV.2017
+
     -   date: 1995-05-27?
         location:
-            line.de.6182: 7,291
             line.de.6183: 6,450
-        note:
-            deu: Stw Rkd [src.dd.DR.Bln.1973]
-        source: src.de.DBAG.ISR
+        note: Stw Rkd [src.dd.DR.Bln.1973]
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -364,17 +375,22 @@ events:
     -   date: c1975
         category: [de.Hp, de.Bk]
         source: src.dd.DR.Bln.1978
+
     -   date: 1994-05-29
-        name: Berlin Karl-Bonhoeffer-Nervenklinik
         de.DS100: BKBO
-        source:
-            - src.de.Kuhlmann.2000
-            - src.de.TPP.2006
-    -   date: 1994-05-29?
+        name: Berlin Karl-Bonhoeffer-Nervenklinik
+        category: de.Hp
+        de.dstnr: !!str 354191
         location:
             line.de.6183: 7,630
-        category: de.Hp
-        source: src.de.DBAG.ISR
+        source:
+            -   src.de.Kuhlmann.2000
+            -   src.de.DBAG.BSV.2017
+            -   src.de.DBAG.Geo-Betriebsstelle.2017
+    -   date: !!null
+        de.name16: K-Bonhoeffer-Nkl
+        PLC: DE10887
+        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
@@ -410,15 +426,22 @@ events:
     -   date: c1975
         category: [de.Hp, de.Bk]
         source: src.dd.DR.Bln.1978
+
     -   date: 1994-05-29
-        name: Berlin Eichborndamm
         de.DS100: BEBD
-        source:
-            - src.de.Kuhlmann.2000
-            - src.de.TPP.2006
-    -   date: 1994-05-29?
+        name: Berlin Eichborndamm
         category: de.Hp
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 354209
+        location:
+            line.de.6183: 8,445
+        source:
+            -   src.de.Kuhlmann.2000
+            -   src.de.DBAG.BSV.2017
+            -   src.de.DBAG.Geo-Betriebsstelle.2017
+    -   date: !!null
+        de.name16: Eichborndamm
+        PLC: DE10846
+        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
@@ -428,15 +451,12 @@ events:
 ---
 key: point.de.Berlin-Tegel
 type: point
-junction: True
 events:
     -   date: 1893-10-01
         status: open
         name: Tegel
         source: src.de.Kuhlmann.2000
     -   date: !!null
-        location:
-            line.de.6183: 10,97
         category: de.Bf
         de.rang: II
         source: src.de.DRG.Bln.1927
@@ -458,9 +478,20 @@ events:
     -   date: c1965
         de.rang: II
         source: src.dd.DR.Bln.1968
+
     -   date: de.ds100.dr
         de.DS100: BTG
-        source: src.de.TPP.2006
+        de.dstnr: !!str 030759
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Bln-Tegel
+        PLC: DE11134
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6183: 10,968
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -538,12 +569,23 @@ events:
     -   date: c1950
         master: point.de.Berlin-Tegel
         source: src.dd.DR.Bln.1959
+
     -   date: de.ds100.dr
         de.DS100: BSZF
-        source: src.de.TPP.2006
+        de.dstnr: !!str 354217
+        source: src.de.DBAG.BSV.2017
     -   date: c2000
         name: Berlin-Schulzendorf
-        source: src.de.TPP.2006
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Schulzendorf(Tg)
+        PLC: DE11118
+        source: src.de.DBAG.BSV.2017
+
+    -   date: 1998-12-30?
+        location:
+            line.de.6183: 15,230
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -559,8 +601,6 @@ events:
         name: Heiligensee
         source: src.de.Kuhlmann.2000
     -   date: !!null
-        location:
-            line.de.6183: 17,01
         category: de.Bf
         de.rang: IV
         source: src.de.DRG.Bln.1927
@@ -583,9 +623,20 @@ events:
     -   date: c1950
         master: point.de.Berlin-Tegel
         source: src.dd.DR.Bln.1959
+
     -   date: de.ds100.dr
         de.DS100: BHLS
-        source: src.de.TPP.2006
+        de.dstnr: !!str 354225
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Bln-Heiligensee
+        PLC: DE11027
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6183: 17,010
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -602,9 +653,13 @@ events:
             line.de.6183: 17,459
         source: src.dd.DR.Bln.1968
     -   date: !!null
-        name: Berlin-Heiligensee BE/BB
         de.DS100: BQHL
-        source: src.de.TPP.2006
+        name: Berlin-Heiligensee BE/BB
+        de.name16: Bln-Heiligs LGr
+        category: de.LGr
+        PLC: DE11028
+        de.dstnr: !!str 104042
+        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
@@ -612,7 +667,7 @@ events:
 
 
 ---
-key: point.de.Stolpe-Sued
+key: point.de.Stolpe-Süd
 type: point
 events:
     -   date: 1954-06-04
@@ -654,14 +709,18 @@ events:
             - src.de.TPP.2006
             - src.de.TPP.2007
     -   date: !!null
-        name: Hennigsdorf (b Berlin) S-Bahn
         de.DS100: BHD
-        source: src.de.TPP.2007
+        name: Hennigsdorf (b Berlin) S-Bahn
+        de.name16: Hennigsdorf S-B
+        category: de.Bf
+        PLC: DE14772
+        de.dstnr: !!str 857698
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         location:
             line.de.6183: 19,200
-        category: de.Bf
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -671,7 +730,6 @@ events:
 ---
 key: point.de.Hennigsdorf
 type: point
-junction: True
 events:
     -   date: 1893-10-01
         status: open
@@ -683,8 +741,6 @@ events:
             - src.de.Kuhlmann.2000
             - src.de.Kb.1914
     -   date: !!null
-        location:
-            line.de.6183: 19,48
         category: de.Bf
         de.rang: II
         source: src.de.DRG.Bln.1927
@@ -704,9 +760,20 @@ events:
     -   date: c1965
         de.rang: II
         source: src.dd.DR.Bln.1968
+
     -   date: de.ds100.dr
         de.DS100: BHND
-        source: src.de.TPP.2006
+        de.dstnr: !!str 035444
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Hennigsd (b Bln)
+        PLC: DE14771
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6183: 19,482
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
     -   date: !!null
         location:
             line.de.6093: -0,764
@@ -715,6 +782,9 @@ events:
     -   date: !!null
         site:
             path.de.6183: hen
+
+
+#    point.de.Hennigsdorf-Nord                   de.6087
 
 
 ---
@@ -741,7 +811,7 @@ events:
 
 
 ---
-key: point.de.Jaegerberg
+key: point.de.Jägerberg
 type: point
 events:
     -   date: !!null
@@ -766,7 +836,7 @@ events:
 
 
 ---
-key: point.de.Hohenschoepping
+key: point.de.Hohenschöpping
 type: point
 events:
     -   date: 1938-04-13
@@ -785,7 +855,7 @@ events:
         de.VBL: Hch
         source: src.de.DRG.Bln.1946
     -   date: c1950
-        master: point.de.Velten
+        master: point.de.Velten-Mark
         source: src.dd.DR.Bln.1959
     -   date: de.ds100.dr
         de.DS100: BHCH
@@ -799,9 +869,8 @@ events:
 
 
 ---
-key: point.de.Velten
+key: point.de.Velten-Mark
 type: point
-junction: True
 events:
     -   date: 1893-10-01
         status: open
@@ -811,8 +880,6 @@ events:
         name: Velten (Mark)
         source: src.de.Kuhlmann.2000
     -   date: !!null
-        location:
-            line.de.6183: 25,36
         category: de.Bf
         de.rang: II
         source: src.de.DRG.Bln.1927
@@ -834,16 +901,26 @@ events:
         source: src.dd.DR.Bln.1959
     -   date: de.ds100.dr
         de.DS100: BVLT
-        source: src.de.TPP.2006
+        de.dstnr: !!str 035485
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Velten (Mark)
+        PLC: DE20583
+        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
+        location:
+            line.de.6183: 25,355
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+    -   date: !!null
+        connection: point.de.Velten-Osth-E      # line.de.6509
         site:
             path.de.6183: vel
-        connection: point.de.Velten-Osth-E      # line.de.6509
 
 
 ---
-key: point.de.Baerenklau
+key: point.de.Bärenklau
 type: point
 events:
     -   date: c1944
@@ -855,13 +932,21 @@ events:
         de.VBL: Bkl
         source: src.dd.DR.Bln.1953
     -   date: !!null
-        location:
-            line.de.6183: 28,18
-        master: point.de.Velten
+        master: point.de.Velten-Mark
         source: src.dd.DR.Bln.1959
     -   date: de.ds100.dr
         de.DS100: BBKL
-        source: src.de.TPP.2006
+        de.dstnr: !!str 035493
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Bärenklau
+        PLC: DE10630
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6183: 28,180
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -877,8 +962,6 @@ events:
         name: Vehlefanz
         source: src.de.Kuhlmann.2000
     -   date: !!null
-        location:
-            line.de.6183: 30,98
         category: de.Bf
         de.rang: IV
         source: src.de.DRG.Bln.1927
@@ -898,12 +981,24 @@ events:
         de.rang: U
         master: point.de.Kremmen
         source: src.dd.DR.Bln.1968
+
     -   date: de.ds100.dr
         de.DS100: BVLZ
-        source: src.de.TPP.2006
+        de.dstnr: !!str 035501
+        source: src.de.DBAG.BSV.2017
     -   date: c2000
         category: de.Hp
-        source: src.de.SuW.2005
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Vehlefanz
+        PLC: DE20567
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6183: 30,980
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
 
     -   date: !!null
         site:
@@ -919,8 +1014,6 @@ events:
         name: Schwante
         source: src.de.Kuhlmann.2000
     -   date: !!null
-        location:
-            line.de.6183: 33,06
         category: de.Bf
         de.rang: IV
         source: src.de.DRG.Bln.1927
@@ -954,13 +1047,23 @@ events:
         staff: full
         de.VBL: She
         source: src.dd.DR.1989
+
     -   date: de.ds100.dr
         de.DS100: BSHE
-        source: src.de.TPP.2006
-    -   date: c1995
+        de.dstnr: !!str 035519
+        source: src.de.DBAG.BSV.2017
+    -   date: c2000
         category: de.Hp
-        staff: none
-        source: src.de.SuW.2005
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Schwante
+        PLC: DE19546
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6183: 33,060
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -970,7 +1073,6 @@ events:
 ---
 key: point.de.Kremmen
 type: point
-junction: True
 events:
     -   date: !!null
         name: Kremmen
@@ -998,9 +1100,15 @@ events:
     -   date: c1965
         de.rang: III
         source: src.dd.DR.Bln.1968
+
     -   date: de.ds100.dr
         de.DS100: BKRM
-        source: src.de.TPP.2006
+        de.dstnr: !!str 035527
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Kremmen
+        PLC: DE15883
+        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:

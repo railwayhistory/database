@@ -101,12 +101,13 @@ events:
             -   path.de.27200 fwer wri
 
 points:
-    -   point.de.Ahrensfelde
+    -   point.de.Ahrensfelde                        # de.6072
     -   point.de.Ahrensfelde-LGr
     -   point.de.Ahrensfelde-Friedhof
     -   point.de.Ahrensfelde-Nord
-    -   point.de.Blumberg
-    -   point.de.Seefeld
+    -   point.de.Blumberg-Rehhahn
+    -   point.de.Blumberg-Berlin
+    -   point.de.Seefeld-Mark
     -   point.de.Werneuchen
     -   point.de.Werneuchen-BGr
     -   point.de.Werftpfuhl
@@ -120,58 +121,7 @@ points:
 
 #-----------------------------------------------------------------------------
 
----
-key: point.de.Ahrensfelde
-type: point
-junction: True
-events:
-    -   date: 1898-05-01
-        status: open
-        source: src.de.Kuhlmann.2000
-    -   date: !!null
-        name: Ahrensfelde
-        source: src.de.Kb.1914
-    -   date: !!null
-        location:
-            line.de.6528: 13,49
-            line.de.6531: 13,49
-        category: de.Bf
-        de.rang: IV
-        source: src.de.DRG.Bln.1927
-    -   date: !!null
-        de.lknr: 03 083
-        source: src.de.Bfv.1928
-    -   date: c1930
-        de.rang: III
-        source: src.de.DRG.Bln.1932
-    -   date: de.lknr.30
-        de.lknr: 03 249
-        source: src.de.Bfv.1933
-    -   date: !!null
-        de.VBL: Ahr
-        source: src.de.DRG.Bln.1946
-    -   date: c1950
-        de.rang: U
-        source: src.dd.DR.Bln.1953
-    -   date: c1950
-        master: point.de.Berlin-Marzahn
-        source: src.dd.DR.Bln.1959
-    -   date: !!null
-        location:
-            line.de.6072: 13,49
-            line.de.6011: 13,49
-        source: src.dd.DR.Bln.1983
-    -   date: de.ds100.dr
-        de.DS100: BAHR
-        source: src.de.TPP.2006
-    -   date: 2006
-        location:
-            line.de.6011: !!null
-        source: src.de.TPP.2007
-
-    -   date: !!null
-        site:
-            path.de.6531: ahr
+#    point.de.Ahrensfelde                        de.6072
 
 
 ---
@@ -180,9 +130,13 @@ type: point
 subtype: border
 events:
     -   date: !!null
-        name: Ahrensfelde BE/BB
         de.DS100: BQAH
-        source: src.de.TPP.2006
+        name: Ahrensfelde BE/BB
+        de.name16: Ahrensfelde LGr
+        category: de.LGr
+        PLC: DE10072
+        de.dstnr: !!str 104052
+        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
@@ -200,8 +154,6 @@ events:
         name: Ahrensfelde Friedhof
         source: src.de.Kb.1914
     -   date: !!null
-        location:
-            line.de.6528: 14,72
         category: de.Bf
         de.rang: IV
         source: src.de.DRG.Bln.1927
@@ -240,7 +192,21 @@ events:
         source: src.dd.DR.Bln.1991
     -   date: de.ds100.dr
         de.DS100: BAFR
-        source: src.de.TPP.2006
+        de.dstnr: !!str 032458
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Ahrensf Friedhof
+        PLC: DE10073
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6528: 14,72
+        source: src.de.DRG.Bln.1927
+    -   date: c2000
+        location:
+            line.de.6528: 14,684
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -263,9 +229,20 @@ events:
         master: point.de.Werneuchen
         de.VBL: Afn
         source: src.dd.DR.Bln.1983
+
     -   date: de.ds100.dr
-        de.DS100: ABFN
-        source: src.de.TPP.2006
+        de.DS100: BAFN
+        de.dstnr: !!str 032466
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Ahrensf Nord
+        PLC: DE10074
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6528: 15,928
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -273,7 +250,27 @@ events:
 
 
 ---
-key: point.de.Blumberg
+key: point.de.Blumberg-Rehhahn
+type: point
+events:
+    -   date: 2012-12-09
+        status: open
+        de.DS100: BAHH
+        name: Blumberg-Rehhahn
+        de.name16: Blumberg-Rehhahn
+        category: de.Hp
+        PLC: DE11352
+        de.dstnr: !!str 894360
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6528: 16,900
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Blumberg-Berlin
 type: point
 events:
     -   date: 1898-05-01
@@ -305,16 +302,27 @@ events:
         name: Blumberg (b Berlin)
         de.rang: U
         source: src.dd.DR.Bln.1953
+    -   date: c1950
+        master: point.de.Werneuchen
+        source: src.dd.DR.Bln.1959
+
+    -   date: de.ds100.dr
+        de.DS100: BBLU
+        de.dstnr: !!str 032474
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Blumberg(b Bln)
+        PLC: DE11351
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         location:
             line.de.6528: 18,543
         source: src.dd.DR.Bln.1959
-    -   date: c1950
-        master: point.de.Werneuchen
-        source: src.dd.DR.Bln.1959
-    -   date: de.ds100.dr
-        de.DS100: BBLU
-        source: src.de.TPP.2006
+    -   date: c2000
+        location:
+            line.de.6528: 18,542
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -322,7 +330,7 @@ events:
 
 
 ---
-key: point.de.Seefeld
+key: point.de.Seefeld-Mark
 type: point
 events:
     -   date: 1898-05-01
@@ -355,12 +363,23 @@ events:
     -   date: c1950
         master: point.de.Werneuchen
         source: src.dd.DR.Bln.1959
+
     -   date: de.ds100.dr
         de.DS100: BSEE
-        source: src.de.TPP.2006
+        de.dstnr: !!str 032482
+        source: src.de.DBAG.BSV.2017
     -   date: c2000
         category: [de.Hp, de.Awanst]
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Seefeld (Mark)
+        PLC: DE19649
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6528: 23,324
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -395,9 +414,20 @@ events:
     -   date: !!null
         de.VBL: Wer
         source: src.de.DRG.Bln.1946
+
     -   date: de.ds100.dr
         de.DS100: BWER
-        source: src.de.TPP.2006
+        de.dstnr: !!str 032490
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Werneuchen
+        PLC: DE21019
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6528: 28,044
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -417,6 +447,12 @@ events:
         PLC: DE21020
         de.dstnr: !!str 108675
         source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6528: 28,955
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
 
 # 29,07 Dir-Gr Bln/Ost src.de.DRG.Bln.1927, src.de.DRG.Bln.1932
 # 29,30 Dir-Gr Bln/Ost src.de.DRG.Bln.1943, src.de.DRG.Bln.1946
@@ -458,9 +494,14 @@ events:
     -   date: c1980
         staff: none
         source: src.dd.DR.Bln.1983
+
     -   date: de.ds100.dr
         de.DS100: BWPF
-        source: src.de.TPP.2006
+        de.dstnr: !!str 032508
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Werftpfuhl
+        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
@@ -498,9 +539,14 @@ events:
         de.rang: U
         master: point.de.Werneuchen
         source: src.dd.DR.Bln.1968
+
     -   date: de.ds100.dr
         de.DS100: BTFS
-        source: src.de.TPP.2006
+        de.dstnr: !!str 032516
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Tiefensee
+        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
@@ -539,8 +585,18 @@ events:
     -   date: c1975
         staff: none
         source: src.dd.DR.Bln.1978
+
     -   date: de.ds100.dr
         de.DS100: BLBG
+        de.dstnr: !!str 032524
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Leuenberg
+        PLC: DE16322
+        source: src.de.DBAG.BSV.2017
+    -   date: c2000
+        status: closed
+        source: src.de.DBAG.BSV.2017
         
     -   date: !!null
         site:
@@ -576,9 +632,19 @@ events:
     -   date: c1990
         staff: none
         source: src.dd.DR.Bln.1991
+
     -   date: de.ds100.dr
         de.DS100: BSBK
-        
+        de.dstnr: !!str 032532
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Sternebeck
+        PLC: DE19985
+        source: src.de.DBAG.BSV.2017
+    -   date: c2000
+        status: closed
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         site:
             path.de.6528: ste
@@ -623,11 +689,22 @@ events:
     -   date: c1990
         category: [de.Hp, de.Anst]
         source: src.dd.DR.Bln.1991
+
     -   date: de.ds100.dr
         de.DS100: BSZD
-    -   date: c1995
+        de.dstnr: !!str 032540
+        source: src.de.DBAG.BSV.2017
+    -   date: c2000
         category: de.Hp
         name: Schulzendorf (b Bad Freienwalde)
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Schulzendf b BFw
+        PLC: DE19514
+        source: src.de.DBAG.BSV.2017
+    -   date: c2000
+        status: closed
+        source: src.de.DBAG.BSV.2017
         
     -   date: !!null
         site:
@@ -646,7 +723,7 @@ events:
         category: de.Anst
         name: Betonwerk
         source: src.dd.DR.1976
-    -   date: c1990
+    -   date: c1985
         status: closed
         
     -   date: !!null

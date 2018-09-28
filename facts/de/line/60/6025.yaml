@@ -90,27 +90,32 @@ events:
             -   path.de.6107 foly sdu
 
 points:
-    - point.de.Berlin-Westkreuz                     # line.de.6024
-    - point.de.Berlin-Westkreuz-Stadtbahn           # line.de.6024
-    - point.de.Berlin-Messe-Sued
-    - point.de.Berlin-Heerstraße
-    - point.de.Berlin-Olympiastadion
-    - point.de.Berlin-Pichelsberg
-    - point.de.Berlin-Stresow
-    - point.de.Berlin-Spandau-S-Bahn
-    - point.de.Berlin-Spandau                       # line.de.6107 
+    -   point.de.Berlin-Westkreuz                   # de.6024
+    -   point.de.Berlin-Westkreuz-Stadtbahn         # de.6024
+    -   point.de.Berlin-Messe-Süd
+    -   point.de.Berlin-Heerstraße
+    -   point.de.Berlin-Olympiastadion
+    -   point.de.Berlin-Pichelsberg
+    -   point.de.Berlin-Stresow
+    -   point.de.Berlin-Spandau-S-Bahn
+    -   point.de.Berlin-Spandau                     # de.6107 
+
+
+#-----------------------------------------------------------------------------
+
+#    point.de.Berlin-Westkreuz                   de.6024
+
+#    point.de.Berlin-Westkreuz-Stadtbahn         de.6024
 
 
 ---
-key: point.de.Berlin-Messe-Sued
+key: point.de.Berlin-Messe-Süd
 type: point
 events:
     -   date: 1928-08-23
         status: open
         source: src.de.Kuhlmann.2000
     -   date: !!null
-        location:
-            line.de.6025: 13,58
         name: Eichkamp
         source: src.de.DRG.Bln.1932
     -   date: !!null
@@ -140,6 +145,10 @@ events:
     -   date: c1970
         master: point.de.Berlin-Charlottenburg
         source: src.dd.DR.Bln.1973
+
+    -   date: de.ds100.dr
+        de.dstnr: !!str 354142
+        source: src.de.DBAG.BSV.2017
     -   date: de.ds100.dr
         de.DS100: BEIC
     -   date: 2002-06-16
@@ -148,6 +157,15 @@ events:
     -   date: 2002-06-16?
         de.DS100: BMS
         source: src.de.TPP.2006
+    -   date: !!null
+        de.name16: Messe Süd
+        PLC: DE10895
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6025: 13,577
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -157,7 +175,6 @@ events:
 ---
 key: point.de.Berlin-Heerstraße
 type: point
-junction: True
 events:
     -   date: 1909-11-01
         status: open
@@ -204,12 +221,23 @@ events:
     -   date: !!null
         de.VBL: Hst
         source: src.de.DRG.Bln.1946
-    -   date: !!null
+
+    -   date: de.ds100.dr
         de.DS100: BHST
-        source: src.de.TPP.2006
+        de.dstnr: !!str 030619
+        source: src.de.DBAG.BSV.2017
     -   date: c2000
         name: Berlin Heerstraße
-        source: src.de.TPP.2006
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Heerstraße
+        PLC: DE10876
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6025: 14,847
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -219,7 +247,6 @@ events:
 ---
 key: point.de.Berlin-Olympiastadion
 type: point
-junction: True
 events:
     -   date: 1909-05-23
         status: open
@@ -266,12 +293,23 @@ events:
     -   date: c1970
         master: point.de.Berlin-Charlottenburg
         source: src.dd.DR.Bln.1973
+
     -   date: de.ds100.dr
         de.DS100: BOLS
-        source: src.de.TPP.2006
+        de.dstnr: !!str 030676
+        source: src.de.DBAG.BSV.2017
     -   date: c2000
         name: Berlin Olympiastadion
-        source: src.de.TPP.2006
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Olympiastadion
+        PLC: DE10906
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6025: 16,218
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -324,16 +362,23 @@ events:
     -   date: c1970
         master: point.de.Berlin-Charlottenburg
         source: src.dd.DR.Bln.1973
+
     -   date: de.ds100.dr
         de.DS100: BPIC
-        source: src.de.TPP.2006
+        de.dstnr: !!str 354159
+        source: src.de.DBAG.BSV.2017
     -   date: c2000
         name: Berlin Pichelsberg
-        source: src.de.TPP.2006
-    -   date: c2002
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Pichelsberg
+        PLC: DE10924
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
         location:
             line.de.6025: 17,330
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -389,20 +434,21 @@ events:
             - src.de.Kuhlmann.2000
             - src.de.TPP.2006
     -   date: 1998-12-30?
+        de.DS100: BSRW
+        category: de.Bft
+        de.dstnr: !!str 199018
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Stresow
+        PLC: DE11133
+        source: src.de.DBAG.BSV.2017
+
+    -   date: 1998-12-30?
         location:
             line.de.6025: 20,582
             line.de.6107: !!null
             line.de.6109: !!null
-        source: src.de.DBAG.ISR
-    -   date: 1998-12-30?
-        category: de.Hp
-        source: src.de.SuW.2005
-    -   date: 1998-12-30?
-        de.DS100: BSRW
-        source: src.de.TPP.2006
-    -   date: c2010
-        category: [de.Hp, de.Bft]
-        source: src.de.SuW.2011
+        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
@@ -423,16 +469,23 @@ events:
             - src.de.TPP.2006
             - src.de.TPP.2007
     -   date: !!null
-        name: Berlin-Spandau S-Bahn
         de.DS100: BSPA
-        source: src.de.TPP.2007
+        name: Berlin-Spandau S-Bahn
+        de.name16: Bln-Spandau S-B
+        category: de.Bf
+        PLC: DE11121
+        de.dstnr: !!str 857888
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         location:
             line.de.6025: 21,390
-        category: de.Bf
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
             path.de.6107: sdu
+
+
+#    point.de.Berlin-Spandau                     de.6107 
 

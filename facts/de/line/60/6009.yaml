@@ -39,11 +39,11 @@ events:
         source: src.de.DBAG.ISR
     -   date: !!null
         start: point.de.Berlin-Arkenberge
-        end: point.de.Schoenfliess-S-Bahn
+        end: point.de.Schönfließ-S-Bahn
         tracks: 1
         source: src.de.DBAG.ISR
     -   date: !!null
-        start: point.de.Schoenfliess-S-Bahn
+        start: point.de.Schönfließ-S-Bahn
         tracks: 2
         source: src.de.DBAG.ISR
 
@@ -60,15 +60,20 @@ events:
             -   path.de.6087 kaw  bex
 
 points:
-    - point.de.Berlin-Karow-West                    # line.de.6087
-    - point.de.Berlin-Karow-West-S-Bahn
-    - point.de.Berlin-Karow-West-LGr-S-Bahn
-    - point.de.Berlin-Arkenberge
-    - point.de.Muehlenbeck-Moenchmuehle
-    - point.de.Schoenfliess                         # line.de.6087
-    - point.de.Schoenfliess-S-Bahn
-    - point.de.Bergfelde-Berlin
-    - point.de.Bergfelde-Strw
+    -   point.de.Berlin-Karow-West                  # de.6087
+    -   point.de.Berlin-Karow-West-S-Bahn
+    -   point.de.Berlin-Karow-West-LGr-S-Bahn
+    -   point.de.Berlin-Arkenberge
+    -   point.de.Mühlenbeck-Mönchmühle
+    -   point.de.Schönfließ                         # de.6087
+    -   point.de.Schönfließ-S-Bahn
+    -   point.de.Bergfelde-Berlin
+    -   point.de.Bergfelde-Strw
+
+
+#-----------------------------------------------------------------------------
+
+#    point.de.Berlin-Karow-West                  de.6087
 
 
 ---
@@ -82,15 +87,19 @@ events:
             - src.de.TPP.2006
             - src.de.TPP.2007
     -   date: !!null
-        name: Berlin-Karow West S-Bahn
         de.DS100: BAKS
-        source: src.de.TPP.2007
+        name: Berlin-Karow West S-Bahn
+        de.name16: Bln-Karow W S-B
+        category: de.Abzw
+        PLC: DE11041
+        de.dstnr: !!str 857532
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         location:
             line.de.6005: 11,405
-            line.de.6009:  1,600
-        category: de.Abzw
-        source: src.de.DBAG.ISR
+            line.de.6009:  1,501
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null    
         site:
@@ -103,9 +112,13 @@ type: point
 subtype: border
 events:
     -   date: !!null
+        de.DS100: BQAKS
         name: Berlin-Karow West BE/BB 6009
-        de.DS100: BQAKW
-        source: src.de.TPP.2006
+        de.name16: Bln-Kar W 6009
+        category: de.LGr
+        PLC: DE11042
+        de.dstnr: !!str 104015
+        source: src.de.DBAG.BSV.2017
     
     -   date: !!null
         site:
@@ -117,16 +130,27 @@ key: point.de.Berlin-Arkenberge
 type: point
 events:
     -   date: !!null
-        location:
-            line.de.6009: 6,64
         category: de.Abzw
         name: Ark
         source: src.dd.DR.Bln.1991
     -   date: de.ds100.dr
-        category: de.Üst
-        name: Berlin Arkenberge
         de.DS100: BARK
-        source: src.de.DBAG.ISR
+        name: Berlin Arkenberge
+        de.dstnr: !!str 840132
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Arkenberge
+        PLC: DE10835
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6009: 6,64
+        source: src.dd.DR.Bln.1991
+    -   date: c2000
+        location:
+            line.de.6009: 6,684
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null    
         site:
@@ -134,7 +158,7 @@ events:
 
 
 ---
-key: point.de.Muehlenbeck-Moenchmuehle
+key: point.de.Mühlenbeck-Mönchmühle
 type: point
 events:
     -   date: 1984-09-02
@@ -148,34 +172,52 @@ events:
         name: Mühlenbeck-Mönchmühle
         de.VBL: Mkm
         source: src.dd.DR.1989
+
     -   date: de.ds100.dr
         de.DS100: BMM
-        source: src.de.TPP.2006
+        de.dstnr: !!str 035659
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Mühlenbeck-Mön
+        PLC: DE17175
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6009: 7,820
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null    
         site:
             path.de.6087: mum
 
 
+#    point.de.Schönfließ                         de.6087
+
+
 ---
-key: point.de.Schoenfliess-S-Bahn
+key: point.de.Schönfließ-S-Bahn
 type: point
 events:
     -   date: 2006
         status: open
-        split_from: point.de.Schoenfliess
+        split_from: point.de.Schönfließ
         source:
             - src.de.TPP.2006
             - src.de.TPP.2007
     -   date: !!null
-        name: Schönfließ S-Bahn
         de.DS100: BSNF
-        source: src.de.TPP.2007
+        name: Schönfließ S-Bahn
+        de.name16: Schönfließ S-B
+        category: de.Bf
+        PLC: DE19466
+        de.dstnr: !!str 857862
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         location:
             line.de.6009: 11,000
-        category: de.Bf
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -192,13 +234,22 @@ events:
     -   date: !!null
         category: de.Hp
         name: Bergfelde (b Berlin)
-        master: point.de.Schoenfliess
+        master: point.de.Schönfließ
         de.VBL: Bgf
         source: src.dd.DR.Bln.1968
+    -   date: de.ds100.dr
+        de.DS100: BBFE
+        de.dstnr: !!str 035683
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Bergfelde b Bln
+        PLC: DE10796
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         location:
             line.de.6009: 12,506
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -209,18 +260,23 @@ events:
 key: point.de.Bergfelde-Strw
 type: point
 subtype: reference
-junction: True
 events:
+    -   date: !!null
+        short_name: Bergfelde (b Berlin)
+    -   date: !!null
+        de.DS100: YBBFE
+        name: Bergfelde Streckenwechsel 6009/6010
+        de.name16: Bergfelde Strw
+        category: de.Strw
+        PLC: DE10798
+        de.dstnr: !!str 912297
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         location:
             line.de.6009: 12,976
             line.de.6010:  2,937
-        category: de.Strw
-        name: Bergfelde Streckenwechsel 6009/6010
-        de.DS100: YBBFE
-        source: src.de.DBAG.ISR
-    -   date: !!null
-        short_name: Bergfelde (b Berlin)
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
     
     -   date: !!null
         site:

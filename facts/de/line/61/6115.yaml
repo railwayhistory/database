@@ -100,43 +100,59 @@ events:
             -   path.de.6115 awil gol
 
 points:
-    - point.de.Beelitz-Stadt                        # line.de.6511
-    - point.de.Beelitz-Bea
-    - point.de.Lienewitz-Lia
-    - point.de.Ferch-Lienewitz
-    - point.de.Caputh-Schwielowsee
-    - point.de.Caputh-Geltow
-    - point.de.Potsdam-Pirschheide
-    - point.de.Potsdam-Pirschheide-unt-Bf
-    - point.de.Potsdam-Wildpark-Sued
-    - point.de.Potsdam-Park-Sanssouci               # line.de.6110
-    - point.de.Potsdam-Golm
+    -   point.de.Beelitz-Stadt                        # de.6511
+    -   point.de.Beelitz-Bea
+    -   point.de.Lienewitz-Lia
+    -   point.de.Ferch-Lienewitz
+    -   point.de.Caputh-Schwielowsee
+    -   point.de.Caputh-Geltow
+    -   point.de.Potsdam-Pirschheide
+    -   point.de.Potsdam-Pirschheide-unt-Bf
+    -   point.de.Potsdam-Wildpark-Süd
+    -   point.de.Potsdam-Park-Sanssouci             # de.6110
+    -   point.de.Potsdam-Wildpark-Gbf               # de.6115
+    -   point.de.Potsdam-Golm
+
+
+#-----------------------------------------------------------------------------
+
+#    point.de.Beelitz-Stadt                        de.6511
 
 
 ---
 key: point.de.Beelitz-Bea
 type: point
-junction: True
 events:
     -   date: 1927-05-06?
         status: open
     -   date: !!null
-        location:
-            line.de.6115: 43,96
-            line.de.6119:  0,00
         category: de.Abzw
         name: Bea
         source: src.de.DRG.Bln.1927
+
     -   date: de.ds100.dr
         de.DS100: BBEA
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 031120
+        source: src.de.DBAG.BSV.2017
+    -   date: c2000
+        category: de.Strw
+        name: Beelitz Bea Streckenwechsel 6115/6119
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Beelitz Bea Strw
+        PLC: DE10728
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6115: 43,96
+            line.de.6119:  0,00
+        source: src.de.DRG.Bln.1927
     -   date: c2000
         location:
             line.de.6115: 43,902
             line.de.6119: 35,600
-        category: de.Strw
-        name: Beelitz Bea Streckenwechsel 6115/6119
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -146,16 +162,27 @@ events:
 ---
 key: point.de.Lienewitz-Lia
 type: point
-junction: True
 events:
     -   date: 1910-04-01?
         status: open
     -   date: !!null
+        category: de.Abzw
+        name: Lia
+        source: src.de.DRG.Bln.1927
+    -   date: de.ds100.dr
+        de.DS100: BLIA
+        name: Lienewitz (Lia)
+        de.dstnr: !!str 031518
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Lienewitz (Lia)
+        PLC: DE16371
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
         location:
             line.de.6115: 44,88
             line.de.6121:  3,08
-        category: de.Abzw
-        name: Lia
         source: src.de.DRG.Bln.1927
     -   date: c1930
         location:
@@ -171,14 +198,8 @@ events:
         source: src.dd.DR.Bln.1959
     -   date: c2010
         location:
-            line.de.6115: 44,948
+           #line.de.6115: 
             line.de.6123:  0,013
-        source: src.de.DBAG.ISR
-    -   date: de.ds100.dr
-        de.DS100: BLIA
-        source: src.de.DBAG.ISR
-    -   date: c2000
-        name: Lienewitz (Lia)
         source: src.de.DBAG.ISR
 
     -   date: !!null
@@ -221,9 +242,20 @@ events:
         de.rang: U
         master: point.de.Caputh-Geltow
         source: src.dd.DR.Bln.1968
+
     -   date: de.ds100.dr
         de.DS100: BFLZ
-        source: src.de.TPP.2006
+        de.dstnr: !!str 034884
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Ferch-Lienewitz
+        PLC: DE13175
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6115: 47,448
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -236,8 +268,6 @@ type: point
 events:
     -   date: c1920
         status: open
-        location:
-            line.de.6115: 51,93
         category: de.Hp
         name: Schwielowsee
         source: src.de.DRG.Bln.1927
@@ -254,12 +284,23 @@ events:
     -   date: c1950
         master: point.de.Caputh-Geltow
         source: src.dd.DR.Bln.1959
+
     -   date: de.ds100.dr
         de.DS100: BSIS
-        source: src.de.TPP.2006
+        de.dstnr: !!str 034876
+        source: src.de.DBAG.BSV.2017
     -   date: c2000
         name: Caputh Schwielowsee
-        source: src.de.TPP.2006
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Caputh Schwielow
+        PLC: DE11900
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6115: 51,930
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -277,8 +318,6 @@ events:
         name: Caputh-Geltow
         source: src.de.Kb.1914
     -   date: !!null
-        location:
-            line.de.6115: 53,01
         category: de.Bf
         de.rang: IV
         source: src.de.DRG.Bln.1927
@@ -297,12 +336,23 @@ events:
     -   date: c1965
         de.rang: IV
         source: src.dd.DR.Bln.1968
+
     -   date: de.ds100.dr
         de.DS100: BCAP
-        source: src.de.TPP.2006
+        de.dstnr: !!str 034868
+        source: src.de.DBAG.BSV.2017
     -   date: c2003
         category: de.Hp
-        source: src.de.SuW.2005
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Caputh-Geltow
+        PLC: DE11901
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6115: 53,010
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -312,7 +362,6 @@ events:
 ---
 key: point.de.Potsdam-Pirschheide
 type: point
-junction: True
 events:
     -   date: 1957-11
         status: open
@@ -345,16 +394,27 @@ events:
     -   date: 1993-05-23
         name: Potsdam Pirschheide
         source: src.de.Kuhlmann.2000
+
     -   date: de.ds100.dr
         de.DS100: BPDP
-        source: src.de.TPP.2006
+        de.dstnr: !!str 034751
+        source: src.de.DBAG.BSV.2017
+    -   date: c2012
+        category: [ de.Hp, de.Bk ]
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Potsdam Pirschh
+        PLC: DE18489
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6115: 56,110
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
     -   date: c2002
         location:
             line.de.6116: !!null
         source: src.de.SuW.2005
-    -   date: c2012
-        category: [ de.Hp, de.Bk ]
-        source: src.de.DBAG.ISR
 
     -   date: !!null
         site:
@@ -382,32 +442,43 @@ events:
 
 
 ---
-key: point.de.Potsdam-Wildpark-Sued
+key: point.de.Potsdam-Wildpark-Süd
 type: point
-junction: True
 events:
     -   date: 1952-10-04
         status: open
     -   date: !!null
+        category: de.Abzw
+        name: Potsdam Wildpark Süd
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: BWPS
+        de.dstnr: !!str 032169
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Wildpark Süd
+        PLC: DE18492
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
         location:
             line.de.6113: -0,031
             line.de.6115: 58,052
-        category: de.Abzw
-        name: Potsdam Wildpark Süd
-        source: src.de.DBAG.ISR
-    -   date: c1995
-        de.DS100: BWPS
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
             path.de.6115: wps
 
 
+#    point.de.Potsdam-Park-Sanssouci             de.6110
+
+#    point.de.Potsdam-Wildpark-Gbf               de.6115
+
+
 ---
 key: point.de.Potsdam-Golm
 type: point
-junction: True
 events:
     -   date: 1902-09-01
         status: open
@@ -416,9 +487,6 @@ events:
         name: Golm
         source: src.de.Kb.1914
     -   date: !!null
-        location:
-            line.de.6068: 62,74
-            line.de.6115: 62,74
         category: de.Hp
         source: src.de.DRG.Bln.1927
     -   date: !!null
@@ -438,15 +506,35 @@ events:
         de.VBL: Gol
         source: src.dd.DR.Bln.1953
     -   date: 1959-01-26
-        location:
-            line.de.6068: 60,71
-            line.de.6115: 60,71
         category: de.Bf
         de.rang: U
         master: point.de.Potsdam-Park-Sanssouci
         source:
             - src.de.Kuhlmann.2000
             - src.dd.DR.Bln.1959
+
+    -   date: de.ds100.dr
+        de.DS100: BGOL
+        de.dstnr: !!str 035121
+        source: src.de.DBAG.BSV.2017
+    -   date: 2006
+        name: Potsdam Wissenschaftspark Golm
+        source: src.de.TPP.2007
+    -   date: !!null
+        de.name16: P Wissensch Golm
+        PLC: DE18494
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6068: 62,74
+            line.de.6115: 62,74
+        source: src.de.DRG.Bln.1927
+    -   date: 1959-01-26
+        location:
+            line.de.6068: 60,71
+            line.de.6115: 60,71
+        source: src.dd.DR.Bln.1959
     -   date: c1965
         location:
             line.de.6068: 63,00
@@ -454,18 +542,12 @@ events:
             line.de.6116: -0,267
             line.de.6507: -0,267
         source: src.dd.DR.Bln.1968
-    -   date: de.ds100.dr
-        de.DS100: BGOL
-        source: src.de.TPP.2006
-    -   date: 2006
-        name: Potsdam Wissenschaftspark Golm
-        source: src.de.TPP.2007
     -   date: c2010
         location:
-            line.de.6068: 62,733
-            line.de.6507: -0,259
-            line.de.6116: 62,992
+            line.de.6068: 62,999
+            line.de.6115: 62,992
             line.de.6116:  0,000
+            line.de.6507: -0,259
         source: src.de.DBAG.ISR
 
     -   date: !!null

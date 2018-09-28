@@ -176,12 +176,14 @@ points:
     -   point.de.Potsdam-Charlottenhof
     -   point.de.Potsdam-Wildpark-Ost
     -   point.de.Potsdam-Park-Sanssouci
+    -   point.de.Potsdam-Wildpark-Gbf
     -   point.de.Kuhfort
     -   point.de.Werder-Havel
     -   point.de.Kemnitz-Werder
     -   point.de.Groß-Kreutz
     -   point.de.Götz
     -   point.de.Gollwitz
+    -   point.de.Brandenburg-Hbf-Gbf
     -   point.de.Brandenburg-Hbf
     -   point.de.Wilhelmsdorf-Brandenburg
     -   point.de.Malge
@@ -216,6 +218,7 @@ points:
     -   point.de.Dreileben-Drakenstedt
     -   point.de.Ovelgünne-Bk
     -   point.de.Ovelgünne
+    -   point.de.Eilsleben-Magdeburg-Gbf
     -   point.de.Eilsleben-Magdeburg
 
 
@@ -225,12 +228,12 @@ points:
 
 # point.de.Kohlhasenbrücke                    de.6118
 
+
 ---
 key: point.de.Potsdam-Griebnitzsee-LGr-Kurve
 type: point
 subtype: border
 events:
-    -   date: !!null
     -   date: !!null
         location:
             line.de.6110: 21,443
@@ -248,7 +251,6 @@ events:
 ---
 key: point.de.Potsdam-Griebnitzsee
 type: point
-junction: True
 events:
     -   date: 1874-06-01
         status: open
@@ -256,7 +258,6 @@ events:
     -   date: !!null
         location:
             line.de.6024: 23,25
-            line.de.6110: 21,86
             line.de.6177: 21,86
         category: de.Bf
         de.rang: II
@@ -287,12 +288,23 @@ events:
     -   date: c1950
         de.rang: III
         source: src.dd.DR.Bln.1953
+
     -   date: de.ds100.dr
         de.DS100: BGBS
-        source: src.de.TPP.2006
+        de.dstnr: !!str 034777
+        source: src.de.DBAG.BSV.2017
     -   date: c2000
         name: Potsdam Griebnitzsee
-        source: src.de.TPP.2006
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Griebnitzsee
+        PLC: DE18479
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6110: 21,864
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
     -   date: c2007
         location:
             line.de.6024: !!null
@@ -302,18 +314,16 @@ events:
             path.de.6110: gri
 
 
-# point.de.Potsdam-Babelsberg                 de.6024
+#    point.de.Potsdam-Babelsberg                 de.6024
 
 
 ---
 key: point.de.Potsdam-Hbf
 type: point
-junction: True
 events:
     -   date: !!null
         location:
             line.de.6024: 27,43
-            line.de.6110: 26,12
         category: de.Bf
         de.rang: I
         name: Potsdam
@@ -337,12 +347,23 @@ events:
     -   date: c1965
         de.rang: II
         source: src.dd.DR.Bln.1968
+
     -   date: de.ds100.dr
         de.DS100: BPD
-        source: src.de.TPP.2006
+        de.dstnr: !!str 034793
+        source: src.de.DBAG.BSV.2017
     -   date: 1999-09-26
         name: Potsdam Hbf
         source: src.de.Kuhlmann.2000
+    -   date: !!null
+        de.name16: Potsdam Hbf
+        PLC: DE18484
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6110: 26,115
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
     -   date: c2007
         location:
             line.de.6024: !!null
@@ -391,12 +412,23 @@ events:
     -   date: c1950
         master: point.de.Potsdam-Hbf
         source: src.dd.DR.Bln.1959
-    -   date: c1990
-        name: Potsdam Charlottenhof
-        source: src.de.TPP.2006
+
     -   date: de.ds100.dr
         de.DS100: BPDC
-        source: src.de.TPP.2006
+        de.dstnr: !!str 034801
+        source: src.de.DBAG.BSV.2017
+    -   date: c1995
+        name: Potsdam Charlottenhof
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Potsd.Charlotten
+        PLC: DE18478
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6110: 28,203
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -406,23 +438,29 @@ events:
 ---
 key: point.de.Potsdam-Wildpark-Ost
 type: point
-junction: True
 events:
     -   date: 1952-10-04
         status: open
-    -   date: !!null
-        location:
-            line.de.6113: 0,639
-            line.de.6110: 28,798
-        source: src.de.DBAG.ISR
     -   date: c1990
         category: de.Abzw
         name: Wps
         source: src.dd.DR.Bln.1991
-    -   date: c1995
-        name: Potsdam Wildpark Ost
+
+    -   date: de.ds100.dr
         de.DS100: BWPO
-        source: src.de.TPP.2006
+        name: Potsdam Wildpark Ost
+        de.dstnr: !!str 032250
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Wildpark Ost
+        PLC: DE18491
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6110: 28,798
+            line.de.6113:  0,639
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -432,7 +470,6 @@ events:
 ---
 key: point.de.Potsdam-Park-Sanssouci
 type: point
-junction: True
 events:
     -   date: 1868
         status: open
@@ -462,12 +499,27 @@ events:
     -   date: de.ds100.dr
         de.DS100: BWP
         source: src.de.TPP.2006
+
+    -   date: de.ds100.dr
+        de.DS100: BWP
+        de.dstnr: !!str 034819
+        source: src.de.DBAG.BSV.2017
     -   date: 1994-05-29
         name: Potsdam Wildpark
         source: src.de.Kuhlmann.2000
     -   date: 1999-05-30
         name: Potsdam Park Sanssouci
         source: src.de.Kuhlmann.2000
+    -   date: !!null
+        de.name16: Potsdam Park S
+        PLC: DE18487
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6110: 29,723
+            line.de.6115: 58,854
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -475,9 +527,32 @@ events:
 
 
 ---
+key: point.de.Potsdam-Wildpark-Gbf
+type: point
+events:
+    -   date: !!null
+        name: Potsdam Wildpark Gbf
+        category: de.Bft
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: BWP G
+        de.dstnr: !!str 913329
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Wildpark Gbf
+        PLC: DE18490
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6110: 30,700
+            line.de.6115: 59,818
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
 key: point.de.Kuhfort
 type: point
-junction: True
 events:
     -   date: !!null
         location:
@@ -505,7 +580,6 @@ events:
 ---
 key: point.de.Werder-Havel
 type: point
-junction: True
 events:
     -   date: 1846-12-10
         status: open
@@ -531,14 +605,22 @@ events:
     -   date: c1965
         de.rang: III
         source: src.dd.DR.Bln.1968
+
     -   date: de.ds100.dr
         de.DS100: BWE
-        source: src.de.TPP.2006
+        de.dstnr: !!str 034827
+        source: src.de.DBAG.BSV.2017
     -   date: !!null
+        de.name16: Werder (Havel)
+        PLC: DE21004
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
         location:
-            line.de.6507: 2,820
-            line.de.6112: 2,994
-        source: src.de.DBAG.ISR
+            line.de.6110: 35,994
+           #line.de.6507: 
+           #line.de.6112: 
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -583,7 +665,6 @@ events:
 ---
 key: point.de.Groß-Kreutz
 type: point
-junction: True
 events: 
     -   date: !!null
         name: Groß Kreutz
@@ -606,9 +687,20 @@ events:
     -   date: c1965
         de.rang: III
         source: src.dd.DR.1976
+
     -   date: de.ds100.dr
         de.DS100: LGZ
-        source: src.de.TPP.2006
+        de.dstnr: !!str 240226
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Groß Kreutz
+        PLC: DE14015
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6110: 46,756
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         connection: point.de.Groß-Kreutz-Kleinb     # line.de.8940
@@ -644,12 +736,23 @@ events:
     -   date: c1985
         category: [ de.Hp, de.Bk ]
         source: src.dd.DR.1989
+
     -   date: de.ds100.dr
         de.DS100: LGOE
-        source: src.de.TPP.2006
-    -   date: c1995
+        de.dstnr: !!str 240218
+        source: src.de.DBAG.BSV.2017
+    -   date: c2000
         category: de.Hp
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Götz
+        PLC: DE13879
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6110: 50,194
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -680,10 +783,18 @@ events:
         category: de.Abzw
         de.VBL: Gwz
         source: src.dd.DR.1989
+
     -   date: de.ds100.dr
         de.DS100: LGWZ
-    -   date: c1995
+        de.dstnr: !!str 240200
+        source: src.de.DBAG.BSV.2017
+    -   date: c2000
         status: closed
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Gollwitz
+        PLC: DE13823
+        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
@@ -691,9 +802,26 @@ events:
 
 
 ---
+key: point.de.Brandenburg-Hbf-Gbf
+type: point
+events:
+    -   date: !!null
+        name: Brandenburg Hbf Gbf
+        category: de.Bft
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: "LB  G"
+        de.dstnr: !!str 908829
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Brandbg Hbf Gbf
+        PLC: DE11561
+        source: src.de.DBAG.BSV.2017
+
+
+---
 key: point.de.Brandenburg-Hbf
 type: point
-junction: True
 events:
     -   date: !!null
         name: Brandenburg Stsbf
@@ -705,8 +833,6 @@ events:
         name: Brandenburg (Havel) Reichsb
         source: src.de.Bfv.1928
     -   date: !!null
-        location:
-            line.de.6110: 61,32
         category: de.Bf
         de.rang: II
         source: src.de.DRG.Bln.1932
@@ -725,9 +851,20 @@ events:
     -   date: c1950
         name: Brandenburg Hbf
         source: src.dd.DR.1976
+
     -   date: de.ds100.dr
         de.DS100: LB
-        source: src.de.TPP.2006
+        de.dstnr: !!str 240192
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Brandenburg Hbf
+        PLC: DE11560
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6110: 61,320
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -774,12 +911,21 @@ events:
         master: point.de.Brandenburg-Hbf
         service: none
         source: src.dd.DR.1976
+
     -   date: de.ds100.dr
         de.DS100: LMAL
-    -   date: c1992
-        category: de.Abzw
+        de.dstnr: !!str 240184
+        source: src.de.DBAG.BSV.2017
     -   date: c1995
+        category: de.Abzw
+        source: src.de.DBAG.BSV.2017
+    -   date: c2000
         status: closed
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Malge
+        PLC: DE16726
+        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
@@ -819,8 +965,6 @@ events:
         de.lknr: 18 005
         source: src.de.Bfv.1928
     -   date: !!null
-        location:
-            line.de.6110: 73,06
         category: de.Bf
         de.rang: II
         name: Kirchmöser
@@ -834,9 +978,20 @@ events:
     -   date: c1965
         de.rang: III
         source: src.dd.DR.1976
+
     -   date: de.ds100.dr
         de.DS100: LKIM
-        source: src.de.TPP.2006
+        de.dstnr: !!str 240176
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Kirchmöser
+        PLC: DE15542
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6110: 73,063
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -846,7 +1001,6 @@ events:
 ---
 key: point.de.Wusterwitz
 type: point
-junction: True
 events:
     -   date: !!null
         name: Großwusterwitz Stsbf
@@ -873,9 +1027,20 @@ events:
         name: Wusterwitz
         de.VBL: Wuz
         source: src.dd.DR.1976
+
     -   date: de.ds100.dr
         de.DS100: LWUZ
-        source: src.de.TPP.2006
+        de.dstnr: !!str 240168
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Wusterwitz
+        PLC: DE21410
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6110: 76,518
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -916,8 +1081,13 @@ type: point
 subtype: border
 events:
     -   date: !!null
-        name: Wusterwitz BB/ST
         de.DS100: LQWU
+        name: Wusterwitz BB/ST
+        de.name16: Wusterwitz BB/ST
+        category: de.LGr
+        PLC: DE21411
+        de.dstnr: !!str 104153
+        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
@@ -956,12 +1126,20 @@ events:
         source:
             - src.dd.DR.1976
             - src.dd.DR.1989
-    -   date: c1995
-        category: [ de.Hp, de.Bk]
-        source: src.de.DBAG.ISR
+
     -   date: de.ds100.dr
         de.DS100: LKE
-        source: src.de.TPP.2006
+        de.dstnr: !!str 240150
+        source: src.de.DBAG.BSV.2017
+    -   date: c1995
+        category: [ de.Hp, de.Bk]
+    -   date: !!null
+        de.name16: Kade
+        PLC: DE15322
+        source: src.de.DBAG.BSV.2017
+    -   date: 2013-08-21?
+        category: de.Bk
+        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
@@ -1006,7 +1184,6 @@ events:
 ---
 key: point.de.Genthin
 type: point
-junction: True
 events:
     -   date: !!null
         name: Genthin Stsbf
@@ -1029,9 +1206,20 @@ events:
     -   date: !!null
         de.VBL: Gn
         source: src.dd.DR.1976
+
     -   date: de.ds100.dr
         de.DS100: LGN
-        source: src.de.TPP.2006
+        de.dstnr: !!str 240135
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Genthin
+        PLC: DE13655
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6110: 91,509
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -1090,10 +1278,27 @@ events:
         source:
             - src.dd.DR.1976
             - src.dd.DR.1989
-    -   date: c1995
-        category: de.Hp
+
+    -   date: de.ds100.dr
+        de.DS100: LBP
+        de.dstnr: !!str 240127
+        source: src.de.DBAG.BSV.2017
     -   date: c2000
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: 2004-03-01?
         status: closed
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Bergzow-Parchen
+        PLC: DE10821
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6110: 98,700
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
 
     -   date: !!null
         site:
@@ -1127,7 +1332,6 @@ events:
 ---
 key: point.de.Güsen-Genthin
 type: point
-junction: True
 events:
     -   date: !!null
         name: Güsen
@@ -1139,8 +1343,6 @@ events:
         name: Güsen (Bez Magdeburg)
         source: src.de.Bfv.1928
     -   date: !!null
-        location:
-            line.de.6110: 106,20
         category: de.Bf
         de.rang: III
         source: src.de.DRG.Bln.1932
@@ -1157,9 +1359,20 @@ events:
         de.rang: III
         name: Güsen (Kr Genthin)
         source: src.dd.DR.1976
+
     -   date: de.ds100.dr
         de.DS100: LGSN
-        source: src.de.TPP.2006
+        de.dstnr: !!str 240101
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Güsen (Kr Genth)
+        PLC: DE14177
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6110: 106,196
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -1198,7 +1411,6 @@ events:
 ---
 key: point.de.Burg-Magdeburg
 type: point
-junction: True
 events:
     -   date: !!null
         name: Burg Stsbf
@@ -1207,8 +1419,6 @@ events:
         de.lknr: 18 013
         source: src.de.Bfv.1928
     -   date: !!null
-        location:
-            line.de.6110: 117,61
         category: de.Bf
         de.rang: II
         source: src.de.DRG.Bln.1932
@@ -1230,9 +1440,20 @@ events:
     -   date: c1965
         de.rang: II
         source: src.dd.DR.1976
+
     -   date: de.ds100.dr
         de.DS100: LBU
-        source: src.de.TPP.2006
+        de.dstnr: !!str 240085
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Burg (b Mg)
+        PLC: DE11831
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6110: 117,613
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -1286,9 +1507,20 @@ events:
     -   date: c1965
         de.rang: IV
         source: src.dd.DR.1976
+
     -   date: de.ds100.dr
         de.DS100: LMOS
-        source: src.de.TPP.2006
+        de.dstnr: !!str 240077
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Möser
+        PLC: DE17147
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6110: 124,983
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -1306,8 +1538,6 @@ events:
         de.lknr: 18 015
         source: src.de.Bfv.1928
     -   date: !!null
-        location:
-            line.de.6110: 130,51
         category: de.Bf
         de.rang: III
         source: src.de.DRG.Bln.1932
@@ -1320,9 +1550,20 @@ events:
     -   date: c1965
         de.rang: IV
         source: src.dd.DR.1976
+
     -   date: de.ds100.dr
         de.DS100: LGWS
-        source: src.de.TPP.2006
+        de.dstnr: !!str 240069
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Gerwisch
+        PLC: DE13721
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6110: 130,514
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -1335,7 +1576,6 @@ events:
 ---
 key: point.de.Biederitz
 type: point
-junction: True
 events:
     -   date: !!null
         name: Biederitz
@@ -1358,9 +1598,20 @@ events:
     -   date: c1965
         de.rang: III
         source: src.dd.DR.1976
+
     -   date: de.ds100.dr
         de.DS100: LBZ
-        source: src.de.TPP.2006
+        de.dstnr: !!str 240051
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Biederitz
+        PLC: DE11223
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6110: 133,682
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -1394,13 +1645,19 @@ events:
     -   date: c1995
         status: open
     -   date: !!null
-        location:
-            line.de.6110: 136,68
-        category: de.Hp
-        name: Magdeburg-Herrenkrug
         de.DS100: LMHR
-        source: src.de.DBAG.ISR
+        name: Magdeburg-Herrenkrug
+        de.name16: Mg-Herrenkrug
+        category: de.Hp
+        PLC: DE16658
+        de.dstnr: !!str 374447
+        source: src.de.DBAG.BSV.2017
 
+    -   date: !!null
+        location:
+            line.de.6110: 136,680
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+ 
     -   date: !!null
         site:
             path.de.6110: her
@@ -1409,7 +1666,6 @@ events:
 ---
 key: point.de.Magdeburg-Brücke
 type: point
-junction: True
 events:
     -   date: !!null
         location:
@@ -1424,9 +1680,20 @@ events:
     -   date: c1985
         de.VBL: Brü
         source: src.dd.DR.1989
+
     -   date: de.ds100.dr
         de.DS100: LBRC
-        source: src.de.TPP.2006
+        de.dstnr: !!str 240044
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Brücke
+        PLC: DE11748
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6110: 137,727
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -1436,7 +1703,6 @@ events:
 ---
 key: point.de.Magdeburg-Neustadt
 type: point
-junction: True
 events:
     -   date: !!null
         name: Magdeburg Neustadt
@@ -1458,16 +1724,25 @@ events:
         de.rang: I
         source: src.de.Bfv.1944
     -   date: !!null
-        location:
-            line.de.6110: 139,55
         de.VBL: Nt
         source: src.dd.DR.1976
     -   date: c1965
         de.rang: II
         source: src.dd.DR.1976
+
     -   date: de.ds100.dr
         de.DS100: LMN
-        source: src.de.TPP.2006
+        de.dstnr: !!str 240028
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Mg-Neustadt
+        PLC: DE16659
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6110: 139,545
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -1477,7 +1752,6 @@ events:
 ---
 key: point.de.Magdeburg-Hbf
 type: point
-junction: True
 events:
     -   date: !!null
         name: Magdeburg Hbf
@@ -1497,9 +1771,20 @@ events:
             line.de.6110: 141,87
         de.VBL: Mg
         source: src.dd.DR.1976
+
     -   date: de.ds100.dr
         de.DS100: LM
-        source: src.de.TPP.2006
+        de.dstnr: !!str 240010
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Magdeburg Hbf
+        PLC: DE16643
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6110: 141,836
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -1509,7 +1794,6 @@ events:
 ---
 key: point.de.Magdeburg-Sudenburg
 type: point
-junction: True
 events:
     -   date: !!null
         name: Magdeburg-Sudenburg
@@ -1528,20 +1812,28 @@ events:
         de.rang: I
         source: src.de.Bfv.1938
     -   date: !!null
-        location:
-            line.de.6110: 144,75
         de.VBL: Sb
         source: src.dd.DR.1976
     -   date: c1965
         de.rang: II
         source: src.dd.DR.1976
+
     -   date: de.ds100.dr
         de.DS100: LMS
-        source: src.de.TPP.2006
-    -   date: c2010
+        de.dstnr: !!str 240275
+        source: src.de.DBAG.BSV.2017
+    -   date: c2005
         category: de.Bft
-        master: point.de.Magdeburg-Hbf
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Mg-Sudenburg
+        PLC: DE16664
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6110: 144,752
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -1584,16 +1876,25 @@ events:
         de.lknr: 13 218
         source: src.de.Bfv.1933
     -   date: !!null
-        location:
-            line.de.6110: 151,24
         de.VBL: Nr
         source: src.dd.DR.1976
     -   date: c1965
         de.rang: IV
         source: src.dd.DR.1976
+
     -   date: de.ds100.dr
         de.DS100: LNR
-        source: src.de.TPP.2006
+        de.dstnr: !!str 240283
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Niederndodeleben
+        PLC: DE17729
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6110: 151,239
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -1629,15 +1930,26 @@ events:
     -   date: c1960
         name: Wellen (b Magdeburg)
         source: src.dd.DR.1976
+
     -   date: de.ds100.dr
         de.DS100: LWL
-        source: src.de.TPP.2006
+        de.dstnr: !!str 240291
+        source: src.de.DBAG.BSV.2017
     -   date: c1995
         category: de.Hp
         source: src.de.SuW.2005
-    -   date: c2010
+    -   date: c2005
         category: [ de.Hp, de.Üst ]
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Wellen
+        PLC: DE20958
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6110: 156,315
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -1669,12 +1981,23 @@ events:
     -   date: c1965
         de.rang: U
         source: src.dd.DR.1976
+
     -   date: de.ds100.dr
         de.DS100: LOL
-        source: src.de.TPP.2006
-    -   date: c1995
+        de.dstnr: !!str 240309
+        source: src.de.DBAG.BSV.2017
+    -   date: c2000
         category: de.Hp
-        source: src.de.SuW.2005
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Ochtmersleben
+        PLC: DE18040
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6110: 159,988
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -1706,9 +2029,20 @@ events:
     -   date: c1965
         de.rang: U
         source: src.dd.DR.1976
+
     -   date: de.ds100.dr
         de.DS100: LDD
-        source: src.de.TPP.2006
+        de.dstnr: !!str 240317
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Dreileben-Drack
+        PLC: DE12442
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6110: 162,763
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -1745,9 +2079,20 @@ events:
         category: de.Hp
         name: Ovelgünne
         source: src.dd.DR.1976
+
     -   date: de.ds100.dr
         de.DS100: LOV
-        source: src.de.TPP.2006
+        de.dstnr: !!str 240325
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Ovelgünne
+        PLC: DE18227
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6110: 167,769
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -1755,9 +2100,26 @@ events:
 
 
 ---
+key: point.de.Eilsleben-Magdeburg-Gbf
+type: point
+events:
+    -   date: !!null
+        name: Eilsleben (b Magdeburg) Gbf
+        category: de.Bft
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: LEI G
+        de.dstnr: !!str 911798
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Eilsleb(b Mg)Gbf
+        PLC: DE12772
+        source: src.de.DBAG.BSV.2017
+
+
+---
 key: point.de.Eilsleben-Magdeburg
 type: point
-junction: True
 events:
     -   date: !!null
         name: Eilsleben (Bz Magdeburg)
@@ -1784,9 +2146,20 @@ events:
     -   date: c1960
         name: Eilsleben (b Magdeburg)
         source: src.dd.DR.1976
+
     -   date: de.ds100.dr
         de.DS100: LEI
-        source: src.de.TPP.2006
+        de.dstnr: !!str 240341
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Eilsleben (b Mg)
+        PLC: DE12771
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6110: 171,676
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:

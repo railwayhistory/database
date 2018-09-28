@@ -44,17 +44,21 @@ events:
             -   path.de.6067 a    akar
 
 points:
-    - point.de.Biesdorfer-Kreuz-Nord-Strw           # line.de.6080
-    - point.de.Berlin-Springpfuhl-Nord
-    - point.de.Berlin-Hohenschoenhausen
-    - point.de.Berlin-Karow-Ost
+    -   point.de.Biesdorfer-Kreuz-Nord-Strw         # de.6080
+    -   point.de.Berlin-Springpfuhl-Nord
+    -   point.de.Berlin-Hohenschönhausen
+    -   point.de.Berlin-Karow-Ost
     -   point.de.Karower-Kreuz-Strw
     
+
+#-----------------------------------------------------------------------------
+
+#    point.de.Biesdorfer-Kreuz-Nord-Strw         de.6080
+
 
 ---
 key: point.de.Berlin-Springpfuhl-Nord
 type: point
-junction: True
 events:
     -   date: !!null
         location:
@@ -62,6 +66,17 @@ events:
         category: de.Abzw
         name: Sgn
         source: src.dd.DR.Bln.Bpl.1967
+    -   date: c1990
+        status: closed
+        source: src.dd.DR.Bln.1991
+
+    -   date: c2000
+        de.DS100: BSGN
+        name: Berlin Sgn
+        de.name16: Berlin Sgn
+        PLC: DE10941
+        de.dstnr: !!str 910968
+        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
@@ -69,9 +84,8 @@ events:
 
 
 ---
-key: point.de.Berlin-Hohenschoenhausen
+key: point.de.Berlin-Hohenschönhausen
 type: point
-junction: True
 events:
     -   date: !!null
         location:
@@ -95,19 +109,30 @@ events:
         location:
             line.de.6012: 13,49
         source: src.dd.DR.1989
+
     -   date: de.ds100.dr
         de.DS100: BHSH
-        source: src.de.TPP.2006
+        de.dstnr: !!str 032383
+        source: src.de.DBAG.BSV.2017
     -   date: c2000
         name: Berlin-Hohenschönhausen
-        source: src.de.TPP.2006
+        source: src.de.DBAG.BSV.2017
+    -   date: c2000
+        category: [de.Abzw, de.Hp]
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Bln-Hohenschhsn
+        PLC: DE11031
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6067: 3,568
+           #line.de.6160: 
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
     -   date: 2006
         location:
             line.de.6012: !!null
-            line.de.6067: 3,568
-            line.de.6160: 3,298
-        category: [de.Abzw, de.Hp]
-        source: src.de.DBAG.ISR
 
     -   date: !!null
         site:
@@ -117,7 +142,6 @@ events:
 ---
 key: point.de.Berlin-Karow-Ost
 type: point
-junction: True
 events:
     -   date: 1952-11-25?
         status: open
@@ -128,15 +152,22 @@ events:
     -   date: de.ds100.dr 
         de.DS100: BAKO
         source: src.de.TPP.2006
-    -   date: c2000
+    -   date: de.ds100.dr
+        de.DS100: BAKO
         name: Berlin-Karow Ost
-        source: src.de.TPP.2006
+        de.dstnr: !!str 031443
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Bln-Karow Ost
+        PLC: DE11039
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         location:
             line.de.6067:  8,402
-            line.de.6083: -0,059
-            line.de.6084: -0,055
-        source: src.de.DBAG.ISR
+           #line.de.6083: 
+           #line.de.6084: 
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -147,16 +178,21 @@ events:
 key: point.de.Karower-Kreuz-Strw
 type: point
 subtype: reference
-junction: True
 events:
+    -   date: !!null
+        de.DS100: YBBAK
+        name: Karower Kreuz Streckenwechsel 6067/6087
+        de.name16: Karower Kr Strw
+        category: de.Strw
+        PLC: DE15398
+        de.dstnr: !!str 912289
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         location:
             line.de.6067: 8,895
             line.de.6087: 0,000
-        category: de.Strw
-        name: Karower Kreuz Streckenwechsel 6067/6087
-        de.DS100: YBBAK
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         short_name: Karow Ost

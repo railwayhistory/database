@@ -23,16 +23,16 @@ events:
     # Eröffnungen
     #
     -   date: 1901-12-01
-        end: point.de.Berlin-Suedende
+        end: point.de.Berlin-Südende
         status: open
         passenger: none
         source: src.de.DRG.1935
     -   date: !!null
-        end: point.de.Berlin-Suedende
+        end: point.de.Berlin-Südende
         tracks: 2
         source: src.de.DRG.Bln.1927
     -   date: 1941-12-31
-        start: point.de.Berlin-Suedende
+        start: point.de.Berlin-Südende
         status: open
         passenger: none
         source: src.de.web.Dudczak
@@ -46,7 +46,7 @@ events:
     # Nach 1945
     #
     -   date: c1945
-        start: point.de.Berlin-Suedende
+        start: point.de.Berlin-Südende
         end: point.de.Berlin-Lichterfelde-Ost
         status: removed
         source: src.dd.DR.Bln.1953
@@ -76,11 +76,11 @@ events:
     # Eigentümer und Betreiber
     #
     -   date: !!null
-        end: point.de.Berlin-Suedende
+        end: point.de.Berlin-Südende
         owner: org.de.l.pre
         operator: org.de.e.bln
     -   date: !!null
-        start: point.de.Berlin-Suedende
+        start: point.de.Berlin-Südende
         owner: org.de
         operator: org.de.DR
 
@@ -95,19 +95,55 @@ events:
             -   path.de.6132 ahg gbe
 
 points:
-    - point.de.Berlin-Anh-Gbf                       # line.de.6132
-    - point.de.Berlin-Tempelhof-Rbf                 # line.de.6132
-    - point.de.Berlin-Suedende                      # line.de.6132
-    - point.de.Berlin-Lichterfelde-Ost              # line.de.6036
-    - point.de.Teltow-LGr                           # line.de.6132
-    - point.de.Teltow                               # line.de.6132
-    - point.de.Grossbeeren-Vbf
-    - point.de.Grossbeeren                          # line.de.6132
+    -   point.de.Berlin-Anh-Gbf                     # de.6132
+    -   point.de.Berlin-Tempelhof-Rbf               # de.6132
+    -   point.de.Berlin-Südende                     # de.6132
+    -   point.de.Berlin-Lichterfelde-Ost            # de.6036
+    -   point.de.Teltow-LGr                         # de.6132
+    -   point.de.Teltow-Gbf
+    -   point.de.Teltow                             # de.6132
+    -   point.de.Großbeeren-Vbf
+    -   point.de.Großbeeren-Ubf
+    -   point.de.Großbeeren                         # de.6132
+
+
+#-----------------------------------------------------------------------------
+
+#    point.de.Berlin-Anh-Gbf                     de.6132
+
+#    point.de.Berlin-Tempelhof-Rbf               de.6132
+
+#    point.de.Berlin-Südende                     de.6132
+
+#    point.de.Berlin-Lichterfelde-Ost            de.6036
+
+#    point.de.Teltow-LGr                         de.6132
+
 
 ---
-key: point.de.Grossbeeren-Vbf
+key: point.de.Teltow-Gbf
 type: point
-junction: True
+events:
+    -   date: !!null
+        name: Teltow Gbf
+        category: de.Bft
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: BGSBT
+        de.dstnr: !!str 913098
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Teltow Gbf
+        PLC: DE20209
+        source: src.de.DBAG.BSV.2017
+
+
+#    point.de.Teltow                             de.6132
+#
+
+---
+key: point.de.Großbeeren-Vbf
+type: point
 events:
     -   date: 1941-08-15
         status: open
@@ -133,4 +169,23 @@ events:
     -   date: !!null
         site:
             path.de.6132: gbv
+
+
+---
+key: point.de.Großbeeren-Ubf
+type: point
+events:
+    -   date: c2000
+        status: open
+    -   date: !!null
+        de.DS100: BGSBC
+        name: Großbeeren Ubf
+        de.name16: Großbeeren Ubf
+        category: de.Bft
+        PLC: DE14035
+        de.dstnr: !!str 912386
+        source: src.de.DBAG.BSV.2017
+
+
+#    point.de.Großbeeren                         de.6132
 

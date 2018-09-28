@@ -176,7 +176,9 @@ points:
     -   point.de.Berlin-Eichkamp-alt
     -   point.de.Berlin-Grunewald                   # de.6118
     -   point.de.Berlin-Grunewald-S-Bahn
+    -   point.de.Berlin-Hundekehle
     -   point.de.Berlin-Großer-Stern                # de.6118
+    -   point.de.Berlin-Forstweg
     -   point.de.Berlin-Havelchaussee               # de.6118
     -   point.de.Berlin-Nikolassee                  # de.6033
     -   point.de.Berlin-Nikolassee-Stadtbahn
@@ -195,7 +197,7 @@ points:
 
 #-----------------------------------------------------------------------------
 
-# point.de.Berlin-Ostbahnhof                  de.6109
+#    point.de.Berlin-Ostbahnhof                  de.6109
 
 
 ---
@@ -210,16 +212,20 @@ events:
             - src.de.TPP.2006
             - src.de.TPP.2007
     -   date: !!null
-        name: Berlin Ostbahnhof S-Bahn
         de.DS100: BOSB
-        source: src.de.TPP.2007
+        name: Berlin Ostbahnhof S-Bahn
+        de.name16: Bln Ostbf S-B
+        category: de.Bf
+        PLC: DE10910
+        de.dstnr: !!str 857680
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         location:
             line.de.6003: 0,000
             line.de.6004: 0,000
             line.de.6024: 0,000
-        category: de.Bf
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -254,38 +260,56 @@ events:
     -   date: !!null
         de.VBL: Jan
         source: src.de.DRG.Bln.1946
+
     -   date: de.ds100.dr
         de.DS100: BJB
-        source: src.de.TPP.2006
+        de.dstnr: !!str 031369
+        source: src.de.DBAG.BSV.2017
     -   date: c2000
         name: Berlin Jannowitzbrücke
-        source: src.de.TPP.2006
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Jannowitzbrücke
+        PLC: DE10883
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6024: 1,143
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
             path.de.6109: jan
 
 
-# point.de.Berlin-Alexanderplatz              de.6109
+#    point.de.Berlin-Alexanderplatz              de.6109
 
 
 ---
 key: point.de.Berlin-Alexanderplatz-S-Bahn
 type: point
 events:
-    -   date: c2007
+    -   date: 1998
         status: open
         split_from: point.de.Berlin-Alexanderplatz
-        location:
-            line.de.6024: 2,17
     -   date: !!null
-        name: Berlin Alexanderplatz S-Bahn
-        public_name: Alexanderplatz
-        de.DS100: BALX
-        source: src.de.TPP.2007
-    -   date: !!null
+        de.DS100: BALE
+        name: Berlin-Alexanderplatz
         category: de.Bf
-        source: src.de.DBAG.ISR
+    -   date: c2007
+        de.DS100: BALX
+        name: Berlin Alexanderplatz S-Bahn
+        de.name16: Alexanderplatz
+        category: de.Bf
+        PLC: DE10830
+        de.dstnr: !!str 857540
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6024: 2,180
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -307,10 +331,6 @@ events:
         de.lknr: 03 281
         service: passenger
         source: src.de.Bfv.1928
-    -   date: c1930
-        location:
-            line.de.6024: 2,86
-        source: src.de.DRG.Bln.1932
     -   date: de.lknr.30
         de.lknr: 03 279
         source: src.de.Bfv.1933
@@ -330,18 +350,32 @@ events:
     -   date: 1992-05-31
         name: Hackescher Markt
         source: src.de.Kuhlmann.2000
-    -   date: c2000
-        name: Berlin Hackescher Markt
+
     -   date: de.ds100.dr
         de.DS100: BHKM
-        source: src.de.TPP.2006
+        de.dstnr: !!str 031344
+        source: src.de.DBAG.BSV.2017
+    -   date: c2000
+        name: Berlin Hackescher Markt
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Hackescher Markt
+        PLC: DE10867
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c1930
+        location:
+            line.de.6024: 2,864
+        source:
+            -   src.de.DRG.Bln.1932
+            -   src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
             path.de.6109: hac
 
 
-# point.de.Berlin-Friedrichstraße             de.6109
+#    point.de.Berlin-Friedrichstraße             de.6109
 
 
 ---
@@ -354,21 +388,29 @@ events:
         name: Friedrichstraße (Stadtb)
         de.DS100: BFSTS
         source: src.de.TPP.2007
+    -   date: !!null
+        de.name16: Friedrichstraße
+        category: de.Bf
+        PLC: DE10859
+        de.dstnr: !!str 857649
+        source: src.de.DBAG.BSV.2017
     -   date: c2009
         name: Berlin Friedrichstraße (Stadtb) S-Bahn
         public_name: Friedrichstraße
         de.DS100: BFST
         source: src.de.TPP.2009
+
     -   date: !!null
-        category: de.Bf
-        source: src.de.DBAG.ISR
+        location:
+            line.de.6024: 3,971
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
             path.de.6109: fri
 
 
-# point.de.Berlin-Friedrichstraße-Gr          de.6109
+#    point.de.Berlin-Friedrichstraße-Gr          de.6109
 
 
 ---
@@ -379,14 +421,18 @@ events:
         status: open
         source: src.de.WP.Berlin-Hauptbahnhof
     -   date: !!null
+        de.DS100: BHBF
+        name: Berlin Hauptbahnhof - Lehrter Bf S-Bahn
+        de.name16: Bln Hbf Lehrt Bf
+        category: de.Hp
+        PLC: DE10872
+        de.dstnr: !!str 334524
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
         location:
             line.de.6024: 5,368
-        category: de.Hp
-        name: Berlin Hauptbahnhof - Lehrter Bf S-Bahn
-        de.DS100: BHBF
-        source: src.de.DBAG.ISR
-    -   date: !!null
-        public_name: Berlin Hauptbahnhof
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -444,8 +490,6 @@ key: point.de.Berlin-Bellevue
 type: point
 events:
     -   date: !!null
-        location:
-            line.de.6024: 7,10
         category: de.Bf
         de.rang: III
         name: Bellevue
@@ -467,13 +511,27 @@ events:
         category: de.Hp
         master: point.de.Berlin-Zoologischer-Garten
         source: src.dd.DR.Bln.1968
+
     -   date: de.ds100.dr
         de.DS100: BBEV
-        source: src.de.TPP.2006
+        de.dstnr: !!str 334490
+        source: src.de.DBAG.BSV.2017
     -   date: c2000
         name: Berlin Bellevue
-        public_name: Bellevue
-        source: src.de.TPP.2006
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Bellevue
+        PLC: DE10837
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6024: 7,10
+        source: src.de.DRG.Bln.1927
+    -   date: c2000
+        location:
+            line.de.6024: 7,092
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -519,23 +577,33 @@ events:
     -   date: c1960
         category: de.Hp
         source: src.dd.DR.Bln.1968
+
     -   date: de.ds100.dr
         de.DS100: BTGN
-        source: src.de.TPP.2006
+        de.dstnr: !!str 248708
+        source: src.de.DBAG.BSV.2017
     -   date: c2000
         name: Berlin-Tiergarten
-        public_name: Tiergarten
-        source: src.de.TPP.2006
+        source: src.de.DBAG.BSV.2017
     -   date: c2005
         category: de.Bf
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Tiergarten
+        PLC: DE11140
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6024: 8,216
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
             path.de.6109: tie
 
 
-# point.de.Berlin-Zoologischer-Garten         de.6109
+#   point.de.Berlin-Zoologischer-Garten         de.6109
 
 
 ---
@@ -545,16 +613,19 @@ events:
     -   date: c2007
         status: open
         split_from: point.de.Berlin-Zoologischer-Garten
-        public_name: Zoologischer Garten
     -   date: !!null
-        name: Berlin Zoologischer Garten S-Bahn
         de.DS100: BZOS
-        source: src.de.TPP.2007
-    -   date: !!null
+        name: Berlin Zoologischer Garten S-Bahn
+        de.name16: Bln Zool G S-B
         category: de.Bf
+        PLC: DE10976
+        de.dstnr: !!str 851899
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
         location:
             line.de.6024: 9,128
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -594,19 +665,30 @@ events:
     -   date: c1970
         category: de.Hp
         source: src.dd.DR.Bln.1978
+
     -   date: de.ds100.dr
         de.DS100: BSAP
-        source: src.de.TPP.2006
+        de.dstnr: !!str 334722
+        source: src.de.DBAG.BSV.2017
     -   date: c2000
         name: Berlin Savignyplatz
-        public_name: Savignyplatz
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Savignyplatz
+        PLC: DE10936
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6024: 10,060
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
             path.de.6109: sav
 
 
-# point.de.Berlin-Charlottenburg              de.6109
+#   point.de.Berlin-Charlottenburg              de.6109
 
 
 ---
@@ -616,17 +698,21 @@ events:
     -   date: c2007
         status: open
         split_from: point.de.Berlin-Charlottenburg
-        location:
-            line.de.6023: 11,26
-            line.de.6024: 11,26
         public_name: Berlin-Charlottenburg
     -   date: !!null
-        name: Berlin-Charlottenburg S-Bahn
         de.DS100: BCHS
-        source: src.de.TPP.2007
-    -   date: !!null
+        name: Berlin-Charlottenburg S-Bahn
+        de.name16: Charlottenbg S-B
         category: de.Bf
-        source: src.de.DBAG.ISR
+        PLC: DE10993
+        de.dstnr: !!str 851881
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6023: 11,350
+            line.de.6024: 11,262
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -636,7 +722,6 @@ events:
 ---
 key: point.de.Berlin-Westkreuz
 type: point
-junction: True
 events:
     -   date: 1928-12-10
         status: open
@@ -695,14 +780,14 @@ events:
         status: open
         public_name: Westkreuz
     -   date: !!null
-        location:
-            line.de.6024: 12,560
-            line.de.6025: 12,560
-        source: src.de.DBAG.ISR
-    -   date: !!null
         name: Berlin Westkreuz (Stadtbahn)
         de.DS100: BWKRV
         source: src.de.TPP.2006
+    -   date: !!null
+        de.name16: Bln Westkr (S)
+        PLC: DE10960
+        de.dstnr: !!str 249565
+        source: src.de.DBAG.BSV.2017
     -   date: !!null
         category: [de.Hp, de.Bft]
         source: src.de.SuW.2005
@@ -711,7 +796,16 @@ events:
         source: src.de.TPP.2009
     -   date: c2009
         category: de.Bf
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.BSV.2017
+    -   date: 2015-12-13?
+        de.DS100: BWKS
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6024: 12,560
+            line.de.6025: 12,560
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -737,7 +831,7 @@ events:
             path.de.6118: eic
 
 
-# point.de.Berlin-Grunewald                   de.6118
+#    point.de.Berlin-Grunewald                   de.6118
 
 
 ---
@@ -746,27 +840,70 @@ type: point
 events:
     -   date: c2007
         status: open
-        de.DS100: BGWD
-        name: Berlin-Grunewald S-Bahn
         source: src.de.TPP.2007
     -   date: !!null
+        de.DS100: BGWD
+        name: Berlin-Grunewald S-Bahn
+        de.name16: Grunewald S-B
         category: de.Bf
-        source: src.de.DBAG.ISR
+        PLC: DE11016
+        de.dstnr: !!str 857664
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
-        split_from: point.de.Berlin-Grunewald
         location:
-            line.de.6024: 14,63
+            line.de.6024: 14,636
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
             path.de.6118: gru
 
 
-# point.de.Berlin-Großer-Stern                de.6118
+---
+key: point.de.Berlin-Hundekehle
+type: point
+events:
+    -   date: !!null
+        name: Berlin Hundekehle
+        category: de.Bft
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: BHKE
+        de.dstnr: !!str 107368
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Hundekehle
+        PLC: DE10881
+        source: src.de.DBAG.BSV.2017
 
-# point.de.Berlin-Havelchaussee               de.6118
 
-# point.de.Berlin-Nikolassee                  de.6033
+#    point.de.Berlin-Großer-Stern                de.6118
+
+
+---
+key: point.de.Berlin-Forstweg
+type: point
+events:
+    -   date: 2010-05-01
+        status: open
+        de.DS100: BFOW
+        name: Berlin Forstweg
+        de.name16: Forstweg
+        category: de.Üst
+        PLC: DE10853
+        de.dstnr: !!str 913504
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6024: 19,035
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+#    point.de.Berlin-Havelchaussee               de.6118
+
+#    point.de.Berlin-Nikolassee                  de.6033
 
 
 ---
@@ -776,28 +913,28 @@ events:
     -   date: c2000
         status: open
         split_from: point.de.Berlin-Nikolassee
-        location:
-            line.de.6024: 22,49
-        public_name: Nikolassee
     -   date: !!null
-        category: de.Hp
-        source: src.de.SuW.2005
-    -   date: !!null
-        name: Berlin-Nikolassee (Stadtbahn)
         de.DS100: BNIS
-        source: src.de.TPP.2006
-    -   date: c2010
-        category: [ de.Hp, de.Üst ]
-        source: src.de.DBAG.ISR
+        name: Berlin-Nikolassee (Stadtbahn)
+        de.name16: Nikolassee St-B
+        category: [de.Hp, de.Üst]
+        PLC: DE11083
+        de.dstnr: !!str 354092
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6024: 22,466
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
             path.de.6118: nik
 
 
-# point.de.Berlin-Wannsee                     # de.6118
+#    point.de.Berlin-Wannsee                     de.6118
 
-# point.de.Berlin-Wannsee-S-Bahn              # de.6033
+#    point.de.Berlin-Wannsee-S-Bahn              de.6033
 
 
 ---
@@ -838,7 +975,7 @@ events:
             path.de.6118: tel
 
 
-# point.de.Kohlhasenbrücke                    de.6118
+#    point.de.Kohlhasenbrücke                    de.6118
 
 
 ---
@@ -846,21 +983,25 @@ key: point.de.Berlin-Wannsee-LGr
 type: point
 subtype: border
 events:
+    -   date: !!null
+        de.DS100: BQWS
+        name: Berlin-Wannsee BE/BB
+        de.name16: Bln-Wannsee LGr
+        category: de.LGr
+        PLC: DE10954
+        de.dstnr: !!str 104016
+        source: src.de.DBAG.BSV.2017
+
     -   date: 1949-10-07
-        status: open
         location:
             line.de.6024: 28,050
-        name: Berlin-Wannsee Grenze
-    -   date: 1990-10-03
-        name: Berlin-Wannsee BE/BB
-        de.DS100: BQWS
 
     -   date: !!null
         site:
             path.de.6110: ggri
 
 
-# point.de.Potsdam-Griebnitzsee               de.6110
+#   point.de.Potsdam-Griebnitzsee               de.6110
 
 
 ---
@@ -870,17 +1011,19 @@ events:
     -   date: c2007
         status: open
         split_from: point.de.Potsdam-Griebnitzsee
-        location:
-            line.de.6024: 28,75
     -   date: !!null
-        name: Potsdam Griebnitzsee S-Bahn
         de.DS100: BGRI
-        source: src.de.TPP.2006
-    -   date: !!null
-        public_name: Potsdam Griebnitzsee
-    -   date: !!null
+        name: Potsdam Griebnitzsee S-Bahn
+        de.name16: Griebnitzsee S-B
         category: de.Bf
-        source: src.de.DBAG.ISR
+        PLC: DE18480
+        de.dstnr: !!str 857656
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6024: 28,749
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -895,20 +1038,12 @@ events:
         status: open
         name: Neuendorf
         source: src.de.Kuhlmann.2000
-    -   date: !!null
-        location:
-            line.de.6110: 24,35?
     -   date: 1890-05-01
         name: Nowawes-Neuendorf
         source: src.de.Kuhlmann.2000
     -   date: 1908-03-01
         name: Nowawes
         source: src.de.Kuhlmann.2000
-    -   date: 1891-10-01?
-        location:
-            line.de.6024: 25,75
-            line.de.6110: !!null
-        source: src.de.DRG.Bln.1927
     -   date: !!null
         category: de.Bf
         de.rang: IV
@@ -929,10 +1064,6 @@ events:
     -   date: 1938-04-01
         de.VBL: Bbg
         source: src.de.DRG.Bln.1946
-    -   date: c1940
-        location:
-            line.de.6024: 31,22
-        source: src.de.DRG.Bln.1943
     -   date: c1950
         de.rang: U
         source: src.dd.DR.Bln.1953
@@ -943,22 +1074,45 @@ events:
     -   date: c1965
         master: point.de.Potsdam-Hbf
         source: src.dd.DR.Bln.1968
+
     -   date: de.ds100.dr
         de.DS100: BBAB
-        source: src.de.TPP.2006
+        de.dstnr: !!str 034785
+        source: src.de.DBAG.BSV.2017
     -   date: c2000
         name: Potsdam-Babelsberg
-        source: src.de.TPP.2006
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Babelsberg
+        PLC: DE18495
+        source: src.de.DBAG.BSV.2017
     -   date: c2000
         category: de.Bf
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6110: 24,35?
+    -   date: 1891-10-01?
+        location:
+            line.de.6024: 25,75
+            line.de.6110: !!null
+        source: src.de.DRG.Bln.1927
+    -   date: c1940
+        location:
+            line.de.6024: 31,22
+        source: src.de.DRG.Bln.1943
+    -   date: c2000
+        location:
+            line.de.6024: 31,196
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
             path.de.6110: bab
 
 
-# point.de.Potsdam-Hbf                        de.6110
+#    point.de.Potsdam-Hbf                        de.6110
 
 
 ---
@@ -968,17 +1122,19 @@ events:
     -   date: c2007
         status: open
         split_from: point.de.Potsdam-Hbf
-        location:
-            line.de.6024: 32,98
     -   date: !!null
-        name: Potsdam Hbf S-Bahn
         de.DS100: BPDH
-        source: src.de.TPP.2007
-    -   date: !!null
-        public_name: Potsdam Hbf
-    -   date: !!null
+        name: Potsdam Hbf S-Bahn
+        de.name16: Potsdam Hbf S-B
         category: de.Bf
-        source: src.de.DBAG.ISR
+        PLC: DE18485
+        de.dstnr: !!str 857839
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6024: 32,930
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:

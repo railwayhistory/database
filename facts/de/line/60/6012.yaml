@@ -18,11 +18,11 @@ events:
     #   Eröffnung
     #
     -   date: 1984-12-20
-        end: point.de.Berlin-Hohenschoenhausen
+        end: point.de.Berlin-Hohenschönhausen
         status: open
         source: src.de.Kuhlmann.2000
     -   date: 1985-12-20
-        start: point.de.Berlin-Hohenschoenhausen
+        start: point.de.Berlin-Hohenschönhausen
         status: open
         source: src.de.Kuhlmann.2000
 
@@ -51,11 +51,38 @@ events:
             -   path.de.6067 fbno war
 
 points:
-    - point.de.Berlin-Springpfuhl                   # line.de.6011
-    - point.de.Berlin-Gehrenseestrasse
-    - point.de.Berlin-Hohenschoenhausen             # line.de.6067
-    - point.de.Berlin-Hohenschoenhausen-S-Bahn
-    - point.de.Berlin-Wartenberg
+    -   point.de.Berlin-Springpfuhl                 # de.6011
+    -   point.de.Berlin-Bürknersfelde
+    -   point.de.Berlin-Gehrenseestrasse
+    -   point.de.Berlin-Hohenschönhausen            # de.6067
+    -   point.de.Berlin-Hohenschönhausen-S-Bahn
+    -   point.de.Berlin-Wartenberg
+
+
+#-----------------------------------------------------------------------------
+
+#    point.de.Berlin-Springpfuhl                 de.6011
+
+
+---
+key: point.de.Berlin-Bürknersfelde
+type: point
+events:
+    -   date: !!null
+        status: closed
+    -   date: !!null
+        de.DS100: BBKF
+        name: Berlin-Bürknersfelde
+        de.name16: Bürknersfelde
+        category: de.Hp
+        PLC: DE10991
+        de.dstnr: !!str 318568
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6012: 10,115
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
@@ -73,35 +100,55 @@ events:
         de.VBL: Gen
         master: point.de.Berlin-Marzahn
         source: src.dd.DR.1989
+
     -   date: de.ds100.dr
         de.DS100: BGSE
-        source: src.de.TPP.2006
+        de.dstnr: !!str 032367
+        source: src.de.DBAG.BSV.2017
     -   date: c2000
         name: Berlin Gehrenseestraße
-        source: src.de.TPP.2006
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Gehrenseestr
+        PLC: DE10861
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6012: 12,053
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
             path.de.6067: geh
 
 
+#    point.de.Berlin-Hohenschönhausen            de.6067
+
+
 ---
-key: point.de.Berlin-Hohenschoenhausen-S-Bahn
+key: point.de.Berlin-Hohenschönhausen-S-Bahn
 type: point
 events:
     -   date: 2006
         status: open
-        split_from: point.de.Berlin-Hohenschoenhausen
+        split_from: point.de.Berlin-Hohenschönhausen
         source:
             - src.de.TPP.2006
             - src.de.TPP.2007
     -   date: !!null
+        de.DS100: BHH
+        name: Berlin-Hohenschönhausen S-Bahn
+        de.name16: Hohenschhsn S-B
+        category: de.Bf
+        PLC: DE11032
+        de.dstnr: !!str 857714
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
         location:
             line.de.6012: 13,596
-        category: de.Bf
-        name: Berlin-Hohenschönhausen S-Bahn
-        de.DS100: BHH
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -111,24 +158,35 @@ events:
 ---
 key: point.de.Berlin-Wartenberg
 type: point
-junction: True
 events:
     -   date: 1985-12-20
         status: open
         source: src.de.Kuhlmann.2000
     -   date: !!null
-        location:
-            line.de.6012: 14,48
         category: de.Hp
         name: Wartenberg
         de.VBL: Wtb
         source: src.dd.DR.1989
+
     -   date: de.ds100.dr
         de.DS100: BWAB
-        source: src.de.TPP.2006
+        de.dstnr: !!str 032391
+        source: src.de.DBAG.BSV.2017
+    -   date: c2000
+        category: de.Bft
+        source: src.de.DBAG.BSV.2017
     -   date: c2000
         name: Berlin-Wartenberg
-        source: src.de.TPP.2006
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Wartenberg
+        PLC: DE11147
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6012: 14,477
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:

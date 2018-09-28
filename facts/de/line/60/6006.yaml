@@ -103,31 +103,45 @@ events:
             -   path.de.6078     bio  str
 
 points:
-    - point.de.Berlin-Warschauer-Strasse-Vsr        # line.de.6003
-    - point.de.Berlin-Ostkreuz                      # line.de.6170
-    - point.de.Berlin-Ostkreuz-Stadtbahn            # line.de.6004
-    - point.de.Berlin-Ostkreuz-S-Bahn               # line.de.6004
-    - point.de.Berlin-Nöldnerplatz
-    - point.de.Berlin-Lichtenberg                   # line.de.6078
-    - point.de.Berlin-Lichtenberg-S-Bahn
-    - point.de.Berlin-Friedrichsfelde-Ost
-    - point.de.Biesdorfer-Kreuz-S-Bahn
-    - point.de.Berlin-Biesdorf
-    - point.de.Berlin-Wuhletal
-    - point.de.Berlin-Kaulsdorf                     # line.de.6078
+    -   point.de.Berlin-Warschauer-Strasse          # de.6004
+    -   point.de.Berlin-Warschauer-Strasse-Vsr      # de.6004
+    -   point.de.Berlin-Ostkreuz                    # de.6170
+    -   point.de.Berlin-Ostkreuz-Stadtbahn          # de.6004
+    -   point.de.Berlin-Nöldnerplatz
+    -   point.de.Berlin-Lichtenberg                 # de.6078
+    -   point.de.Berlin-Lichtenberg-S-Bahn
+    -   point.de.Berlin-Friedrichsfelde-Ost
+    -   point.de.Biesdorfer-Kreuz-S-Bahn
+    -   point.de.Berlin-Biesdorf
+    -   point.de.Berlin-Wuhletal
+    -   point.de.Berlin-Kaulsdorf                   # de.6078
     -   point.de.Berlin-Kaulsdorf-S-Bahn
-    - point.de.Berlin-Mahlsdorf
-    - point.de.Berlin-Mahlsdorf-LGr-S-Bahn
-    - point.de.Birkenstein
-    - point.de.Hoppegarten-Mark                     # line.de.6078
-    - point.de.Hoppegarten-S-Bahn
-    - point.de.Neuenhagen-Berlin
-    - point.de.Fredersdorf-Berlin                   # line.de.6078
-    - point.de.Fredersdorf-Berlin-S-Bahn
-    - point.de.Petershagen-Nord
-    - point.de.Strausberg-Abzw                      # line.de.6078
-    - point.de.Strausberg                           # line.de.6078
-    - point.de.Strausberg-S-Bahn
+    -   point.de.Berlin-Mahlsdorf
+    -   point.de.Berlin-Mahlsdorf-LGr-S-Bahn
+    -   point.de.Birkenstein
+    -   point.de.Hoppegarten-Mark                   # de.6078
+    -   point.de.Hoppegarten-S-Bahn
+    -   point.de.Neuenhagen-Berlin
+    -   point.de.Fredersdorf-Berlin                 # de.6078
+    -   point.de.Fredersdorf-Berlin-S-Bahn
+    -   point.de.Petershagen-Nord
+    -   point.de.Strausberg-Abzw                    # de.6078
+    -   point.de.Strausberg                         # de.6078
+    -   point.de.Strausberg-S-Bahn
+
+
+#-----------------------------------------------------------------------------
+
+#    point.de.Berlin-Warschauer-Strasse          de.6004
+
+
+#    point.de.Berlin-Warschauer-Strasse-Vsr      de.6004
+
+
+#    point.de.Berlin-Ostkreuz                    de.6170
+
+
+#    point.de.Berlin-Ostkreuz-Stadtbahn          de.6004
 
 
 ---
@@ -168,16 +182,33 @@ events:
     -   date: c1950
         master: point.de.Berlin-Lichtenberg
         source: src.dd.DR.Bln.1959
+
     -   date: de.ds100.dr
         de.DS100: BNPL
-        source: src.de.TPP.2006
+        de.dstnr: !!str 032300
+        source: src.de.DBAG.BSV.2017
     -   date: c2000
         name: Berlin Nöldnerplatz
-        source: src.de.TPP.2006
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Nöldnerplatz
+        PLC: DE10899
+        source: src.de.DBAG.BSV.2017
+    -   date: 2017-12-10
+        category: de.Bft
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6006: 3,440
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
             path.de.6078: nol
+
+
+#    point.de.Berlin-Lichtenberg                 de.6078
 
 
 ---
@@ -191,14 +222,18 @@ events:
             - src.de.TPP.2006
             - src.de.TPP.2007
     -   date: !!null
-        name: Berlin-Lichtenberg S-Bahn
         de.DS100: BLI
-        source: src.de.TPP.2007
+        name: Berlin-Lichtenberg S-Bahn
+        de.name16: Lichtenberg S-B
+        category: de.Bf
+        PLC: DE11052
+        de.dstnr: !!str 857789
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         location:
             line.de.6006: 4,442
-        category: de.Bf
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -231,13 +266,23 @@ events:
     -   date: c1965
         master: point.de.Berlin-Lichtenberg
         source: src.dd.DR.Bln.1968
+
     -   date: de.ds100.dr
         de.DS100: BFFO
-        source: src.de.TPP.2006
-    -   date: c1995
+        de.dstnr: !!str 032326
+        source: src.de.DBAG.BSV.2017
+    -   date: c2000
+        name: Berlin-Friedrichsfelde Ost
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Friedrichsf Ost
+        PLC: DE10998
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
         location:
             line.de.6006: 6,192
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -251,26 +296,27 @@ events:
 ---
 key: point.de.Biesdorfer-Kreuz-S-Bahn
 type: point
-junction: True
 events:
     -   date: 1976-12-30?
         status: open
         source: src.de.Kuhlmann.2000
+
     -   date: !!null
         name: Biesdorfer Kreuz S-Bahn
-        source: src.de.TPP.2006
+        de.name16: Biesdf Kr S-Bahn
+        category: de.Abzw
+        PLC: DE11243
+        source: src.de.DBAG.BSV.2017
     -   date: de.ds100.dr
-        de.DS100: BBIKF
-        source: src.de.TPP.2006
+        de.DS100: BBKS
+        de.dstnr: !!str 687509
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         location:
             line.de.6006: 6,945
             line.de.6011: 6,945
-        category: de.Abzw
-        source: src.de.DBAG.ISR
-    -   date: c2010
-        de.DS100: BBKS
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -286,8 +332,6 @@ events:
         name: Biesdorf
         source: src.de.Kuhlmann.2000
     -   date: !!null
-        location:
-            line.de.6078: 8,56
         category: de.Bf
         de.rang: IV
         source: src.de.DRG.Bln.1927
@@ -301,10 +345,6 @@ events:
     -   date: de.lknr.30
         de.lknr: 03 255
         source: src.de.Bfv.1933
-    -   date: 1941-07-03
-        location:
-            line.de.6006: 8,56
-            line.de.6078: !!null
     -   date: !!null
         de.VBL: Bsf
         source: src.de.DRG.Bln.1946
@@ -314,21 +354,38 @@ events:
     -   date: c1950
         master: point.de.Berlin-Kaulsdorf
         source: src.dd.DR.Bln.1959
+
+    -   date: de.ds100.dr
+        de.DS100: BBDF
+        de.dstnr: !!str 032557
+        source: src.de.DBAG.BSV.2017
+    -   date: c2000
+        name: Berlin-Biesdorf
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Biesdorf
+        PLC: DE10983
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6078: 8,56
+        source: src.de.DRG.Bln.1927
+    -   date: 1941-07-03
+        location:
+            line.de.6006: 8,56
+            line.de.6078: !!null
     -   date: c1985
         location:
             line.de.6006: 8,603
         source:
             - src.dd.DR.1989
             - src.dd.DR.Bln.1991
-    -   date: de.ds100.dr
-        de.DS100: BBDF
-        source: src.de.TPP.2006
     -   date: c2000
-        category: de.Hp
-        source: src.de.SuW.2005
-    -   date: c2000
-        name: Berlin-Biesdorf
-        source: src.de.TPP.2006
+        location:
+            line.de.6006: 8,650
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -349,19 +406,33 @@ events:
         name: Wuhletal
         master: point.de.Berlin-Kaulsdorf
         source: src.dd.DR.Bln.1991
+
     -   date: de.ds100.dr
         de.DS100: BWT
-        source: src.de.TPP.2006
+        de.dstnr: !!str 032565
+        source: src.de.DBAG.BSV.2017
     -   date: c2000
         name: Berlin Wuhletal
-        source: src.de.TPP.2006
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Wuhletal
+        PLC: DE10965
+        source: src.de.DBAG.BSV.2017
     -   date: c2010
         category: de.Bft
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6006: 9,904
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
             path.de.6078: wuh
+
+
+#    point.de.Berlin-Kaulsdorf                   de.6078
 
 
 ---
@@ -375,14 +446,18 @@ events:
             - src.de.TPP.2006
             - src.de.TPP.2007
     -   date: !!null
-        name: Berlin-Kaulsdorf S-Bahn
         de.DS100: BKAD
-        source: src.de.TPP.2007
+        name: Berlin-Kaulsdorf S-Bahn
+        de.name16: Kaulsdorf S-B
+        category: de.Bf
+        PLC: DE11045
+        de.dstnr: !!str 857730
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         location:
             line.de.6006: 10,960
-        category: de.Bf
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -431,9 +506,20 @@ events:
         location:
             line.de.6078: !!null
         source: src.dd.DR.Bln.1983
+
     -   date: de.ds100.dr
         de.DS100: BMDF
-        source: src.de.TPP.2006
+        de.dstnr: !!str 032581
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Bln-Mahlsdorf
+        PLC: DE11067
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6006: 12,438
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -446,11 +532,13 @@ type: point
 subtype: border
 events:
     -   date: !!null
-        category: de.LGr
-    -   date: !!null
-        name: Berlin-Mahlsdorf BE/BB 6006
         de.DS100: BQMDF
-        source: src.de.TPP.2006
+        name: Berlin-Mahlsdorf BE/BB 6006
+        de.name16: Bln-Mahlsdf 6006
+        category: de.LGr
+        PLC: DE11069
+        de.dstnr: !!str 104012
+        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
@@ -466,17 +554,26 @@ events:
         source: src.de.Kuhlmann.2000
     -   date: !!null
         name: Birkenstein
+        de.name16: Birkenstein
+        category: de.Hp
+        PLC: DE11288
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
         de.DS100: BBIS
-        source: src.de.TPP.2006
+        de.dstnr: !!str 334573
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         location:
             line.de.6006: 14,880
-        category: de.Hp
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
             path.de.6078: bir
+
+
+#    point.de.Hoppegarten-Mark                   de.6078
 
 
 ---
@@ -490,14 +587,18 @@ events:
             - src.de.TPP.2006
             - src.de.TPP.2007
     -   date: !!null
-        name: Hoppegarten (Mark) S-Bahn
         de.DS100: BHPG
-        source: src.de.TPP.2007
+        name: Hoppegarten (Mark) S-Bahn
+        de.name16: Hoppegarten S-B
+        category: de.Bf
+        PLC: DE15081
+        de.dstnr: !!str 857706
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         location:
             line.de.6006: 16,640
-        category: de.Bf
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -552,13 +653,27 @@ events:
     -   date: c1970
         location:
             line.de.6078: !!null
+
     -   date: de.ds100.dr
         de.DS100: BNG
-        source: src.de.TPP.2006
+        de.dstnr: !!str 032607
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Neuenhagen b Bln
+        PLC: DE17515
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6006: 18,552
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
             path.de.6078: nha
+
+
+#    point.de.Fredersdorf-Berlin                 de.6078
 
 
 ---
@@ -572,14 +687,18 @@ events:
             - src.de.TPP.2006
             - src.de.TPP.2007
     -   date: !!null
-        name: Fredersdorf (b Berlin) S-Bahn
         de.DS100: BFD
-        source: src.de.TPP.2007
+        name: Fredersdorf (b Berlin) S-Bahn
+        de.name16: Fredersdorf S-B
+        category: de.Bf
+        PLC: DE13373
+        de.dstnr: !!str 857631
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         location:
             line.de.6006: 22,788
-        category: de.Bf
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -609,13 +728,30 @@ events:
     -   date: 1967-05-28?
         de.VBL: Pen
         source: src.dd.DR.Bln.1973
+
     -   date: de.ds100.dr
         de.DS100: BPEN
-        source: src.de.TPP.2006
+        de.dstnr: !!str 032813
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Petershagen Nord
+        PLC: DE18323
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6006: 24,607
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
             path.de.6078: pet
+
+
+#    point.de.Strausberg-Abzw                    de.6078
+
+
+#    point.de.Strausberg                         de.6078
 
 
 ---
@@ -629,14 +765,18 @@ events:
             - src.de.TPP.2006
             - src.de.TPP.2007
     -   date: !!null
-        name: Strausberg S-Bahn
         de.DS100: BSTV
-        source: src.de.TPP.2007
+        name: Strausberg S-Bahn
+        de.name16: Strausberg S-B
+        category: de.Bft
+        PLC: DE20036
+        de.dstnr: !!str 857896
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         location:
-            line.de.6006: 27,739
-        category: de.Bf
-        source: src.de.DBAG.ISR
+            line.de.6079: 0,000
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:

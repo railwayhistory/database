@@ -16,11 +16,11 @@ events:
     #   Eröffnung
     #
     -   date: 1907-12-16
-        start: point.de.Berlin-Hohenschoenhausen-Gbf
+        start: point.de.Berlin-Hohenschönhausen-Gbf
         status: open
         source: src.de.Kuhlmann.2000
     -   date: 1979-09-30
-        end: point.de.Berlin-Hohenschoenhausen-Gbf
+        end: point.de.Berlin-Hohenschönhausen-Gbf
         status: open
         source: src.de.Kuhlmann.2000
 
@@ -35,8 +35,8 @@ events:
     #   Stilllegung und Abbau
     #
     -   date: c1985
-        start: point.de.Berlin-Hohenschoenhausen-Ende
-        end: point.de.Berlin-Weissensee
+        start: point.de.Berlin-Hohenschönhausen-Ende
+        end: point.de.Berlin-Weißensee
         status: removed
         source: src.dd.DR.Bln.1991
 
@@ -65,57 +65,75 @@ events:
             -   path.de.6160 fhoh bno
 
 points:
-    - point.de.Berlin-Nordost                       # line.de.6160
-    - point.de.Berlin-Hohenschoenhausen-Gbf
-    - point.de.Berlin-Hohenschoenhausen-Ende
-    - point.de.Berlin-Weissensee
-    - point.de.Berlin-Heinersdorf
-    - point.de.Berlin-Blankenburg-Iab               # line.de.6550
-    - point.de.Berlin-Blankenburg                   # line.de.6081
+    -   point.de.Berlin-Nordost                     # de.6160
+    -   point.de.Berlin-Hohenschönhausen-Gbf
+    -   point.de.Berlin-Hohenschönhausen-Ende
+    -   point.de.Berlin-Weißensee
+    -   point.de.Berlin-Heinersdorf
+    -   point.de.Berlin-Blankenburg-Iab             # de.6550
+    -   point.de.Berlin-Blankenburg                 # de.6081
+
+
+#-----------------------------------------------------------------------------
+
+#    point.de.Berlin-Nordost                     de.6160
 
 
 ---
-key: point.de.Berlin-Heinersdorf
+key: point.de.Berlin-Hohenschönhausen-Gbf
 type: point
+junction: True
 events:
     -   date: 1907-12-16
         status: open
         service: freight
         source: src.de.Kuhlmann.2000
     -   date: !!null
-        name: Heinersdorf (Industriebahn)
+        name: Hohenschönhausen
         source: src.de.DRG.Bln.1927
     -   date: de.lknr.kb
-        de.lknr: 43 059
+        de.lknr: 43 061
         source: src.de.Bfv.1938
     -   date: c1940
-        name: Berlin-Heinersdorf Industriebahn
+        name: Berlin-Hohenschönhausen
         source: src.de.Bfv.1944
     -   date: c1950
-        name: Berlin-Heinersdorf
-        de.VBL: Ihd
+        de.VBL: Hsch
         source: src.dd.DR.Bln.1953
     -   date: !!null
         location:
-            line.de.6535: 13,85
+            line.de.6535: 19,75
+            line.de.8709: 19,75
         source: src.dd.DR.Bln.1959
     -   date: c1950
-        master: point.de.Berlin-Weissensee
+        master: point.de.Berlin-Weißensee
         source: src.dd.DR.Bln.1959
-    -   date: c1960
+    -   date: c1965
         category: de.Anst
         master: point.de.Berlin-Pankow-Rbf
         source: src.dd.DR.Bln.1968
-    -   date: de.ds100.dr
-        de.DS100: BIHD
 
     -   date: !!null
         site:
-            path.de.6535: hei
+            path.de.6535: hsc
 
 
 ---
-key: point.de.Berlin-Weissensee
+key: point.de.Berlin-Hohenschönhausen-Ende
+type: point
+junction: True
+subtype: reference
+events:
+    -   date: !!null
+        name: Berlin-Hohenschönhausen Streckenende
+
+    -   date: !!null
+        site:
+            path.de.6535: hse
+
+
+---
+key: point.de.Berlin-Weißensee
 type: point
 events:
     -   date: 1907-12-16
@@ -147,8 +165,15 @@ events:
         de.rang: U
         master: point.de.Berlin-Pankow-Rbf
         source: src.dd.DR.Bln.1968
+
     -   date: de.ds100.dr
         de.DS100: BIWW
+        de.dstnr: !!str 033365
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Bln-Weißensee
+        PLC: DE11151
+        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
@@ -156,53 +181,46 @@ events:
 
 
 ---
-key: point.de.Berlin-Hohenschoenhausen-Ende
+key: point.de.Berlin-Heinersdorf
 type: point
-junction: True
-subtype: reference
-events:
-    -   date: !!null
-        name: Berlin-Hohenschönhausen Streckenende
-
-    -   date: !!null
-        site:
-            path.de.6535: hse
-
-
----
-key: point.de.Berlin-Hohenschoenhausen-Gbf
-type: point
-junction: True
 events:
     -   date: 1907-12-16
         status: open
         service: freight
         source: src.de.Kuhlmann.2000
     -   date: !!null
-        name: Hohenschönhausen
+        name: Heinersdorf (Industriebahn)
         source: src.de.DRG.Bln.1927
     -   date: de.lknr.kb
-        de.lknr: 43 061
+        de.lknr: 43 059
         source: src.de.Bfv.1938
     -   date: c1940
-        name: Berlin-Hohenschönhausen
+        name: Berlin-Heinersdorf Industriebahn
         source: src.de.Bfv.1944
     -   date: c1950
-        de.VBL: Hsch
+        name: Berlin-Heinersdorf
+        de.VBL: Ihd
         source: src.dd.DR.Bln.1953
     -   date: !!null
         location:
-            line.de.6535: 19,75
-            line.de.8709: 19,75
+            line.de.6535: 13,85
         source: src.dd.DR.Bln.1959
     -   date: c1950
-        master: point.de.Berlin-Weissensee
+        master: point.de.Berlin-Weißensee
         source: src.dd.DR.Bln.1959
-    -   date: c1965
+    -   date: c1960
         category: de.Anst
         master: point.de.Berlin-Pankow-Rbf
         source: src.dd.DR.Bln.1968
+    -   date: de.ds100.dr
+        de.DS100: BIHD
 
     -   date: !!null
         site:
-            path.de.6535: hsc
+            path.de.6535: hei
+
+
+#    point.de.Berlin-Blankenburg-Iab             de.6550
+
+#    point.de.Berlin-Blankenburg                 de.6081
+

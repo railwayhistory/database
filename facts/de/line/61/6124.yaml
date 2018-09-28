@@ -1,4 +1,4 @@
-# DE 6124.  Seddin Einf Nord - Seddin Ausf West
+# DE 6124.  Seddin Einf Nord - Seddin Srw Mitte
 #
 ---
 key: line.de.6124
@@ -58,42 +58,59 @@ events:
             -   path.de.6118 sen  saw
 
 points:
-    - point.de.Seddin-Einf-Nord                 # line.de.6122
-    - point.de.Seddin                           # line.de.6118
-    - point.de.Seddin-Srw-Mitte
-    - point.de.Seddin-Ausf-West
+    -   point.de.Seddin-Einf-Nord                 # de.6122
+    -   point.de.Seddin                           # de.6118
+    -   point.de.Seddin-Ausf-West
+    -   point.de.Seddin-Srw-Mitte
     
+
+#-----------------------------------------------------------------------------
+
+#    point.de.Seddin-Einf-Nord                 de.6122
+
+#    point.de.Seddin                           de.6118
+
+---
+key: point.de.Seddin-Ausf-West
+type: point
+events:
+    -   date: !!null
+        name: Seddin Ausf West
+        category: de.Bft
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: BSE W
+        de.dstnr: !!str 911776
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Seddin Ausf W
+        PLC: DE19632
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        site:
+            path.de.6118: saw
+
 
 ---
 key: point.de.Seddin-Srw-Mitte
 type: point
 events:
     -   date: !!null
-        category: de.Bft
         name: Seddin Srw Mitte
+        category: de.Bft
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
         de.DS100: BSE M
-        source: src.de.SuW.2011
+        de.dstnr: !!str 912259
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Seddin Srw M
+        PLC: DE19636
+        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
             path.de.6118: swm
-
----
-key: point.de.Seddin-Ausf-West
-type: point
-junction: True
-events:
-    -   date: !!null
-        location:
-            line.de.6124: 33,423
-            line.de.6123: 1,968
-        category: de.Bft
-        name: Seddin Ausf Nord
-        de.DS100: BSE W
-        source: src.de.DBAG.ISR
-
-    -   date: !!null
-        site:
-            path.de.6118: saw
 
 

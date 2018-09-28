@@ -119,6 +119,7 @@ events:
 points:
     -   point.de.Berlin-Wriezener-Bf
     -   point.de.Berlin-Warschauer-Strasse          # de.6004
+    -   point.de.Berlin-Ostkreuz-Ostbahn
     -   point.de.Berlin-Nöldnerplatz                # de.6006
     -   point.de.Berlin-Lichtenberg
     -   point.de.Biesdorfer-Kreuz-West
@@ -127,41 +128,42 @@ points:
     -   point.de.Biesdorfer-Kreuz-Ost
     -   point.de.Berlin-Biesdorf                    # de.6006
     -   point.de.Berlin-Kaulsdorf
+    -   point.de.Berlin-Mahlsdorf-Hp
     -   point.de.Berlin-Mahlsdorf                   # de.6006
-    -   point.de.Berlin-Hoehnow
+    -   point.de.Berlin-Höhnow
     -   point.de.Berlin-Mahlsdorf-LGr-Fernbahn
     -   point.de.Birkenstein-Bk
-    - point.de.Hoppegarten-Rennbf
-    - point.de.Hoppegarten-Mark
-    - point.de.Neuenhagen-Berlin                    # line.de.6006
-    - point.de.Bollensdorf
-    - point.de.Fredersdorf-Berlin-Vbf
-    - point.de.Fredersdorf-Berlin
-    - point.de.Giebel
-    - point.de.Eggersdorf-Strausberg
-    - point.de.Strausberg-Abzw
-    - point.de.Strausberg
-    - point.de.Herrensee
-    - point.de.Rehfelde
-    - point.de.Garzau
-    - point.de.Rotes-Luch
-    - point.de.Müncheberg-Mark
-    - point.de.Obersdorf
-    - point.de.Trebnitz-Mark
-    - point.de.Worin
-    - point.de.Alt-Rosenthal
-    - point.de.Goerlsdorf
-    - point.de.Gusow-Seelow
-    - point.de.Werbig-Pbf
-    - point.de.Werbig-Bahnsteig-unten
-    - point.de.Werbig-Gbf
-    - point.de.Werbig
-    - point.de.Annahof
-    - point.de.Golzow-Oderbruch
-    - point.de.Gorgast
-    - point.de.Küstrin-Kietz-W1
-    - point.de.Küstrin-Kietz
-    - point.de.Küstrin-Altstadt
+    -   point.de.Hoppegarten-Rennbf
+    -   point.de.Hoppegarten-Mark
+    -   point.de.Neuenhagen-Berlin                  # de.6006
+    -   point.de.Bollensdorf
+    -   point.de.Fredersdorf-Berlin-Vbf
+    -   point.de.Fredersdorf-Berlin
+    -   point.de.Giebel
+    -   point.de.Eggersdorf-Strausberg
+    -   point.de.Strausberg-Abzw
+    -   point.de.Strausberg
+    -   point.de.Herrensee-Üst
+    -   point.de.Herrensee
+    -   point.de.Rehfelde
+    -   point.de.Garzau
+    -   point.de.Rotes-Luch
+    -   point.de.Müncheberg-Mark
+    -   point.de.Obersdorf
+    -   point.de.Trebnitz-Mark
+    -   point.de.Worin
+    -   point.de.Alt-Rosenthal
+    -   point.de.Görlsdorf
+    -   point.de.Gusow-Seelow
+    -   point.de.Werbig-Bahnsteig-unten
+    -   point.de.Werbig
+    -   point.de.Werbig-Gbf
+    -   point.de.Annahof
+    -   point.de.Golzow-Oderbruch
+    -   point.de.Gorgast
+    -   point.de.Küstrin-Kietz-W1
+    -   point.de.Küstrin-Kietz
+    -   point.de.Küstrin-Altstadt
     -   point.int.Kostrzyn-Küstrin-Kietz            # pl.203
 
 
@@ -170,7 +172,6 @@ points:
 ---
 key: point.de.Berlin-Wriezener-Bf
 type: point
-junction: True
 events:
     -   date: 1867-10-01
         status: open
@@ -209,22 +210,54 @@ events:
     -   date: c1950
         master: point.de.Berlin-Ostgbf
         source: src.dd.DR.Bln.1959
+
     -   date: de.ds100.dr
         de.DS100: BWRG
-        source: src.de.TPP.2006
+        de.dstnr: !!str 031419
+        source: src.de.DBAG.BSV.2017
+    -   date: c2000
+        category: de.Bft
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Bln Wriezener Bf
+        PLC: DE10964
+        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
             path.de.6078.bln: bwr
 
 
-# point.de.Berlin-Warschauer-Strasse          # de.6004
-# point.de.Berlin-Nöldnerplatz                # de.6006
+#    point.de.Berlin-Warschauer-Strasse          de.6004
+
+
+---
+key: point.de.Berlin-Ostkreuz-Ostbahn
+type: point
+events:
+    -   date: !!null
+        status: closed
+    -   date: !!null
+        de.DS100: BOKO
+        name: Berlin Ostkreuz (Ostbahn)
+        de.name16: Ostkreuz Ostbahn
+        category: de.Bf
+        PLC: DE10916
+        de.dstnr: !!str 108691
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6078: 2,194
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+#    point.de.Berlin-Nöldnerplatz                de.6006
+
 
 ---
 key: point.de.Berlin-Lichtenberg
 type: point
-junction: True
 events:
     -   date: 1879-09-01
         status: open
@@ -255,9 +288,21 @@ events:
     -   date: !!null
         de.VBL: Blo
         source: src.de.DRG.Bln.1946
+
     -   date: de.ds100.dr
         de.DS100: BLO
-        source: src.de.TPP.2006
+        de.dstnr: !!str 032318
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Bln-Lichtenberg
+        PLC: DE11051
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6072: 4,442
+            line.de.6078: 4,442
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
     -   date: 2006
         location:
             line.de.6006: !!null
@@ -273,27 +318,38 @@ events:
 ---
 key: point.de.Biesdorfer-Kreuz-West
 type: point
-junction: True
 events:
     -   date: 1975-01-24?
         status: open
         source: src.de.Kuhlmann.2000
     -   date: !!null
-        location:
-            line.de.6072: 6,70
-            line.de.6078: 6,70
         category: de.Abzw
         name: Bkw
         master: point.de.Berlin-Lichtenberg
         source: src.dd.DR.1989
+
     -   date: de.ds100.dr
         de.DS100: BBIKW
-        source: src.de.TPP.2006
-    -   date: c1995
+        de.dstnr: !!str 032847
+        source: src.de.DBAG.BSV.2017
+    -   date: c2000
+        name: Biesdorfer Kreuz West
+    -   date: !!null
+        de.name16: Biesdf Kr West
+        PLC: DE11247
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6072: 6,70
+            line.de.6078: 6,70
+        source: src.dd.DR.1989
+    -   date: c2000
         location:
             line.de.6071: 6,040
+            line.de.6072: 6,150
             line.de.6078: 6,150
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -303,21 +359,27 @@ events:
 ---
 key: point.de.Biesdorfer-Kreuz-Süd-Ost
 type: point
-junction: True
 events:
     -   date: 1976-12-30?
         status: open
         source: src.de.Kuhlmann.2000
+
     -   date: !!null
         name: Biesdorfer Kreuz Süd-Ost
+        de.name16: Biesdf Kr SO
+        category: de.Abzw
+        PLC: DE11245
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
         de.DS100: BBIKL
-        source: src.de.TPP.2006
+        de.dstnr: !!str 032821
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         location:
             line.de.6076: 2,474
             line.de.6078: 7,736
-        category: de.Abzw
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -327,7 +389,6 @@ events:
 ---
 key: point.de.Berlin-Ffo
 type: point
-junction: True
 events:
     -   date: 1940-01-01?
         status: open
@@ -352,40 +413,46 @@ events:
 ---
 key: point.de.Biesdorfer-Kreuz-Ost
 type: point
-junction: True
 events:
     -   date: 1976-12-30?
         status: open
         source: src.de.Kuhlmann.2000
     -   date: !!null
-        location:
-            line.de.6078: 8,50
         category: de.Abzw
         name: Bko
         master: point.de.Berlin-Lichtenberg
         source: src.dd.DR.1989
+
     -   date: de.ds100.dr
-        de.DS100: BKIKO
+        de.DS100: BBIKO
+        de.dstnr: !!str 032623
+        source: src.de.DBAG.BSV.2017
+    -   date: c2000
         name: Biesdorfer Kreuz Ost
-        source: src.de.TPP.2006
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Biesdf Kr Ost
+        PLC: DE11242
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         location:
-            line.de.6075: 1,252
             line.de.6074: 1,928
-        source: src.de.DBAG.ISR
+            line.de.6075: 1,252
+            line.de.6078: 8,500
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
             path.de.6078: bio
 
 
-# point.de.Berlin-Biesdorf                    de.6006
+#    point.de.Berlin-Biesdorf                    de.6006
 
 
 ---
 key: point.de.Berlin-Kaulsdorf
 type: point
-junction: True
 events:
     -   date: 1869-08-25
         status: open
@@ -395,9 +462,6 @@ events:
         name: Kaulsdorf
         source: src.de.web.Krebs.Ostbahn
     -   date: !!null
-        location:
-            line.de.8703: 11,74
-            line.de.6078: 10,84
         category: de.Bf
         de.rang: II
         source: src.de.DRG.Bln.1927
@@ -419,9 +483,24 @@ events:
     -   date: c1965
         de.rang: II
         source: src.dd.DR.Bln.1968
+
     -   date: de.ds100.dr
         de.DS100: BKD
-        source: src.de.TPP.2006
+        de.dstnr: !!str 032573
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Bln-Kaulsdorf
+        PLC: DE11044
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.8703: 11,74
+        source: src.de.DRG.Bln.1927
+    -   date: !!null
+        location:
+            line.de.6078: 10,840
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
     -   date: 2006
         location:
             line.de.6006: !!null
@@ -434,10 +513,25 @@ events:
             path.de.6078: kau
 
 
-# point.de.Berlin-Mahlsdorf                   de.6006
+---
+key: point.de.Berlin-Mahlsdorf-Hp
+type: point
+events:
+    -   date: 2017-12-10?
+        status: open
+        de.DS100: BMHL
+        name: Berlin-Mahlsdorf Hp
+        de.name16: Bln-Mahlsdorf Hp
+        category: de.Hp
+        PLC: DE21714
+        de.dstnr: !!str 109992
+        source: src.de.DBAG.BSV.2017
+
+
+#   point.de.Berlin-Mahlsdorf                   de.6006
 
 ---
-key: point.de.Berlin-Hoehnow
+key: point.de.Berlin-Höhnow
 type: point
 events:
     -   date: !!null
@@ -469,11 +563,13 @@ type: point
 subtype: border
 events:
     -   date: !!null
-        category: de.LGr
-    -   date: !!null
-        name: Berlin-Mahlsdorf BE/BB 6078
         de.DS100: BQMD
-        source: src.de.TPP.2006
+        name: Berlin-Mahlsdorf BE/BB 6078
+        de.name16: Bln-Mahlsdf 6078
+        category: de.LGr
+        PLC: DE11070
+        de.dstnr: !!str 104020
+        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
@@ -530,7 +626,6 @@ events:
 ---
 key: point.de.Hoppegarten-Mark
 type: point
-junction: True
 events:
     -   date: 1870-05-01
         status: open
@@ -563,9 +658,20 @@ events:
     -   date: c1975
         de.rang: III
         source: src.dd.DR.Bln.1978
+
     -   date: de.ds100.dr
         de.DS100: BHPN
-        source: src.de.TPP.2006
+        de.dstnr: !!str 032599
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Hoppegarten (M)
+        PLC: DE15080
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6078: 17,200
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
     -   date: 2006
         location:
             line.de.6006: !!null
@@ -576,6 +682,9 @@ events:
     -   date: !!null
         site:
             path.de.6078: hop
+
+
+#    point.de.Neuenhagen-Berlin                  de.6006
 
 
 ---
@@ -638,7 +747,6 @@ events:
 ---
 key: point.de.Fredersdorf-Berlin
 type: point
-junction: True
 events:
     -   date: 1872-09-15
         status: open
@@ -681,9 +789,24 @@ events:
     -   date: c1975
         de.rang: II
         source: src.dd.DR.Bln.1978
+
     -   date: de.ds100.dr
         de.DS100: BFRD
-        source: src.de.TPP.2006
+        de.dstnr: !!str 032615
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Fredersdorf(Bln)
+        PLC: DE13372
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6533: 0,018
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+    -   date: c2000
+        location:
+            line.de.6078: 22,6+190
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
     -   date: 2006
         location:
             line.de.6006: !!null
@@ -762,7 +885,6 @@ events:
 ---
 key: point.de.Strausberg
 type: point
-junction: True
 events:
     -   date: 1867-10-01
         status: open
@@ -798,9 +920,20 @@ events:
     -   date: c1965
         de.rang: II
         source: src.dd.DR.Bln.1968
+
     -   date: de.ds100.dr
         de.DS100: BST
-        source: src.de.TPP.2006
+        de.dstnr: !!str 032631
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Strausberg
+        PLC: DE20035
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6078: 27,790
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
     -   date: 2006
         location:
             line.de.6006: !!null
@@ -810,13 +943,29 @@ events:
 
     -   date: !!null
         connection:
-            - point.de.Strausberg-S-Bahn            # line.de.6006
-            - point.de.Strausberg-StE               # line.de.8725
+            - point.de.Strausberg-S-Bahn          # de.6006
+            - point.de.Strausberg-StE             # de.8725
         site:
             path.de.6078: str
 
 
 # 28,27 Dir-Gr Bln/Ost src.de.DRG.Bln.1927 - src.de.DRG.Bln.1943
+
+
+---
+key: point.de.Herrensee-Üst
+type: point
+events:
+    -   date: 2017-12-10
+        status: open
+        de.DS100: BHES
+        name: Herrensee Üst
+        de.name16: Herrensee Üst
+        category: de.Üst
+        PLC: DE21711
+        de.dstnr: !!str 109967
+        source: src.de.DBAG.BSV.2017
+
 
 ---
 key: point.de.Herrensee
@@ -834,10 +983,6 @@ events:
         de.lknr: 25 080
         source: src.de.Bfv.1933
     -   date: !!null
-        location:
-            line.de.6078: 31,25
-        source: src.de.DRG.Bln.1943
-    -   date: !!null
         de.VBL: He
         source: src.dd.DR.Bln.1959
     -   date: c1950
@@ -845,9 +990,20 @@ events:
         source: src.dd.DR.Bln.1959
     -   date: c1965
         master: point.de.Strausberg
+
     -   date: de.ds100.dr
         de.DS100: BHE
-        source: src.de.TPP.2006
+        de.dstnr: !!str 032854
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Herrensee
+        PLC: DE14832
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6078: 31,250
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -875,8 +1031,6 @@ events:
         name: Rehfelde (Kr Niederbarnim)
         source: src.de.Bfv.1944
     -   date: !!null
-        location:
-            line.de.6078: 33,71
         de.VBL: Rd
         source: src.de.DRG.Bln.1946
     -   date: c1950
@@ -892,12 +1046,23 @@ events:
     -   date: c1965
         master: point.de.Strausberg
         source: src.dd.DR.Bln.1973
+
     -   date: de.ds100.dr
         de.DS100: BRE
-        source: src.de.TPP.2006
+        de.dstnr: !!str 032672
+        source: src.de.DBAG.BSV.2017
     -   date: 1996-06-02
         name: Rehfelde
         source: src.de.web.Krebs.Ostbahn
+    -   date: !!null
+        de.name16: Rehfelde
+        PLC: DE18727
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6078: 33,710
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -960,7 +1125,6 @@ events:
 ---
 key: point.de.Müncheberg-Mark
 type: point
-junction: True
 events:
     -   date: !!null
         name: Dahmsdorf-Müncheberg
@@ -989,9 +1153,20 @@ events:
     -   date: c1990
         de.VBL: Mub
         source: src.dd.DR.Bln.1991
+
     -   date: de.ds100.dr
         de.DS100: BMB
-        source: src.de.TPP.2006
+        de.dstnr: !!str 032698
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Müncheberg (M)
+        PLC: DE17201
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6078: 45,836
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -1021,9 +1196,20 @@ events:
     -   date: c1970
         category: de.Hp
         source: src.dd.DR.Bln.1973
+
     -   date: de.ds100.dr
         de.DS100: BOB
-        source: src.de.TPP.2006
+        de.dstnr: !!str 032730
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Obersdorf
+        PLC: DE18010
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6078: 50,647
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -1057,12 +1243,18 @@ events:
         location:
             line.de.6078: 53,951
         source: src.dd.DR.1976
+
     -   date: de.ds100.dr
         de.DS100: BTZ
-        source: src.de.TPP.2006
+        de.dstnr: !!str 032748
+        source: src.de.DBAG.BSV.2017
     -   date: c2005
         category: [de.Hp, de.Üst]
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Trebnitz (Mark)
+        PLC: DE20324
+        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
@@ -1097,8 +1289,6 @@ events:
             - src.dd.DR.Bln.1953
             - src.dd.DR.Bln.1959
     -   date: !!null
-        location:
-            line.de.6078: 58,4
         category: de.Hp
         name: Alt Rosenthal
         de.VBL: Aro
@@ -1111,7 +1301,21 @@ events:
         source: src.dd.DR.Bln.1991
     -   date: de.ds100.dr
         de.DS100: BARO
-        source: src.de.TPP.2006
+        de.dstnr: !!str 032805
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Alt Rosenthal
+        PLC: DE10138
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6078: 58,45
+        source: src.dd.DR.Bln.1991
+    -   date: c2000
+        location:
+            line.de.6078: 58,444
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -1119,7 +1323,7 @@ events:
 
 
 ---
-key: point.de.Goerlsdorf
+key: point.de.Görlsdorf
 type: point
 events:
     -   date: !!null
@@ -1155,69 +1359,29 @@ events:
         de.lknr: 25 084
         source: src.de.Bfv.1933
     -   date: !!null
-        location:
-            line.de.6078: 63,47
         de.VBL: Gs
         source: src.de.DRG.Bln.1946
     -   date: c1965
         de.rang: U
         master: point.de.Trebnitz-Mark
         source: src.dd.DR.Bln.1968
+
     -   date: de.ds100.dr
         de.DS100: BGSW
-        source: src.de.TPP.2006
+        de.dstnr: !!str 032755
+        source: src.de.DBAG.BSV.2017
     -   date: c2005
         name: Gusow-Seelow
-        source: src.de.TPP.2006
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Gusow
+        PLC: DE19663
+        source: src.de.DBAG.BSV.2017
 
-    -   date: !!null
-        site:
-            path.de.6078: gus
-
-
----
-key: point.de.Werbig-Pbf
-type: point
-events:
-    -   date: !!null
-        name: Werbig Pbf
-        source: src.de.Kb.1914
-    -   date: !!null
-        de.lknr: 25 529
-        service: passenger
-        source: src.de.Bfv.1928
-    -   date: !!null
-        category: de.Bf
-        de.rang: III
-        source: src.de.Bfv.1933
-    -   date: de.lknr.30
-        de.lknr: 25 182
-        source: src.de.Bfv.1933
-    -   date: !!null
-        de.VBL: Wro
-        source: src.de.DRG.Bln.1946
-    -   date: c1950
-        service: full
-    -   date: c1950
-        name: Werbig
-        source: src.dd.DR.Bln.1953
     -   date: !!null
         location:
-            line.de.6078: 67,17
-        source: src.dd.DR.Bln.1959
-    -   date: c1965
-        de.rang: IV
-        source: src.dd.DR.Bln.1968
-    -   date: c1985
-        category: de.Hp
-        source: src.dd.DR.1989
-    -   date: de.ds100.dr
-        de.DS100: BWRO
-        name: Werbig (Pbf)
-        source: src.de.TPP.2006
-    -   date: c2000
-        location:
-            line.de.6078: !!null
+            line.de.6078: 63,470
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -1232,18 +1396,55 @@ events:
         status: open
         split_from: point.de.Werbig
     -   date: !!null
-        name: Werbig (Bahnsteig unten)
         de.DS100: BWRU
-        source: src.de.TPP.2006
+        name: Werbig (Bahnsteig unten)
+        de.name16: Werbig Bstg unt
+        category: de.Hp
+        PLC: DE20994
+        de.dstnr: !!str 624031
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         location:
             line.de.6078: 67,332
-        category: de.Hp
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
             path.de.6078: weu
+
+
+---
+key: point.de.Werbig
+type: point
+events:
+    -   date: !!null
+        name: Werbig
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: BWR
+        de.dstnr: !!str 032763
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Werbig
+        PLC: DE20992
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6078:  67,17
+            line.de.6156: 101,88
+        source: src.dd.DR.Bln.1959
+    -   date: c2000
+        location:
+            line.de.6078: 67,910
+            line.de.6156: !!null
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+    -   date: !!null
+        site:
+            path.de.6078: wer
 
 
 ---
@@ -1264,32 +1465,7 @@ events:
         source: src.de.Bfv.1933
     -   date: c1950
         status: closed
-        merged: point.de.Werbig-Pbf
-
-    -   date: !!null
-        site:
-            path.de.6078: wer
-
-
----
-key: point.de.Werbig
-type: point
-events:
-    -   date: c1985
-        status: open
-        split_from: point.de.Werbig-Pbf
-    -   date: !!null
-        location:
-            line.de.6078: 67,17
-        category: de.Bf
-        name: Werbig
-        de.VBL: Wru
-        source: src.dd.DR.1989
-    -   date: de.ds100.dr
-        de.DS100: BWR
-        source: src.de.TPP.2006
-    -   date: c2000
-        service: freight
+        merged: point.de.Werbig
 
     -   date: !!null
         site:
@@ -1320,7 +1496,6 @@ events:
 ---
 key: point.de.Golzow-Oderbruch
 type: point
-junction: True
 events:
     -   date: !!null
         name: Golzow (Oderbruch)
@@ -1338,10 +1513,6 @@ events:
     -   date: !!null
         de.VBL: G
         source: src.de.DRG.Bln.1946
-    -   date: !!null
-        location:
-            line.de.6078: 74,46
-        source: src.dd.DR.Bln.1959
     -   date: c1965
         de.rang: V
         source: src.dd.DR.Bln.1968
@@ -1351,12 +1522,23 @@ events:
     -   date: c1975
         de.VBL: God
         source: src.dd.DR.Bln.1978
+
     -   date: de.ds100.dr
         de.DS100: BGZ
-        source: src.de.TPP.2006
-    -   date: c2010
+        de.dstnr: !!str 032771
+        source: src.de.DBAG.BSV.2017
+    -   date: c2000
         category: de.Hp
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Golzow (Oderbr)
+        PLC: DE13830
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6078: 74,460
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -1381,17 +1563,26 @@ events:
         de.lknr: 25 087
         source: src.de.Bfv.1933
     -   date: !!null
-        location:
-            line.de.6078: 77,06
         de.VBL: Gor
         source: src.de.DRG.Bln.1946
     -   date: c1965
         de.rang: U
         master: point.de.Golzow-Oderbruch
         source: src.dd.DR.Bln.1968
+
     -   date: de.ds100.dr
         de.DS100: BGOR
-        source: src.de.TPP.2006
+        de.dstnr: !!str 032789
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Gorgast
+        PLC: DE13842
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6078: 77,060
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -1401,7 +1592,6 @@ events:
 ---
 key: point.de.Küstrin-Kietz-W1
 type: point
-junction: True
 events:
     -   date: !!null
         location:
@@ -1428,7 +1618,6 @@ events:
 ---
 key: point.de.Küstrin-Kietz
 type: point
-junction: True
 events:
     -   date: !!null
         name: Kietz
@@ -1450,8 +1639,6 @@ events:
         de.lknr: 25 086
         source: src.de.Bfv.1933
     -   date: !!null
-        location:
-            line.de.6078: 80,99
         de.VBL: Ky
         source: src.de.DRG.Bln.1946
     -   date: c1950
@@ -1466,9 +1653,20 @@ events:
     -   date: c1965
         de.rang: II
         source: src.dd.DR.Bln.1968
+
     -   date: de.ds100.dr
         de.DS100: BKI
-        source: src.de.TPP.2006
+        de.dstnr: !!str 032797
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Küstrin-Kietz
+        PLC: DE15950
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6078: 80,990
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -1507,4 +1705,4 @@ events:
         site:
             path.de.6078: kus
 
-# point.int.Kostrzyn-Küstrin-Kietz            pl.203
+#    point.int.Kostrzyn-Küstrin-Kietz            pl.203

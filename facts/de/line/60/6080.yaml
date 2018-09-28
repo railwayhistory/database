@@ -44,35 +44,40 @@ events:
             -   path.de.6080 a   xbkn
 
 points:
-    - point.de.Berlin-Eichgestell                   # line.de.6126
-    - point.de.Berlin-Eichgestell-Egb
-    - point.de.Eichgestell-Nord
-    - point.de.Berlin-Wuhlheide-Rbf-B8
-    - point.de.Berlin-Wuhlheide-Rbf-W6
-    - point.de.Berlin-Wuhlheide-Rbf
-    - point.de.Berlin-Wuhlheide-Rbf-B4
-    - point.de.Biesdorfer-Kreuz-Süd
-    - point.de.Biesdorfer-Kreuz-Mitte
-    - point.de.Biesdorfer-Kreuz-Nord
-    - point.de.Biesdorfer-Kreuz-Nord-Strw
+    -   point.de.Berlin-Eichgestell                   # de.6126
+    -   point.de.Berlin-Eichgestell-Egb
+    -   point.de.Eichgestell-Nord
+    -   point.de.Berlin-Wuhlheide-Rbf-B8
+    -   point.de.Berlin-Wuhlheide-Rbf-W6
+    -   point.de.Berlin-Wuhlheide-Rbf
+    -   point.de.Berlin-Wuhlheide-Rbf-B4
+    -   point.de.Biesdorfer-Kreuz-Süd
+    -   point.de.Biesdorfer-Kreuz-Mitte
+    -   point.de.Biesdorfer-Kreuz-Nord
+    -   point.de.Biesdorfer-Kreuz-Nord-Strw
+
+
+#-----------------------------------------------------------------------------
+
+#    point.de.Berlin-Eichgestell                   de.6126
 
 
 ---
 key: point.de.Berlin-Eichgestell-Egb
 type: point
 subtype: reference
-junction: True
 events:
     -   date: !!null
         location:
             line.de.6080: 25,732
         name: Eichgestell Egb
         source: src.dd.DR.Bln.1968
+
     -   date: !!null
         location:
-            line.de.6150:  1,006
-            line.de.6148: 25,762
-        source: src.de.VzG
+            line.de.6150:  1,017
+            line.de.6148: 25,763
+        source: src.de.DBAG.Geo-Strecke.2017
 
     -   date: !!null
         site:
@@ -82,21 +87,29 @@ events:
 ---
 key: point.de.Eichgestell-Nord
 type: point
-junction: True
 events:
     -   date: !!null
         name: Wu
         source: src.dd.DR.Bln.1959
+
+    -   date: de.ds100.dr
+        de.DS100: BEGN
+        de.dstnr: !!str 087833
+        source: src.de.DBAG.BSV.2017
     -   date: c2000
+        name: Eichgestell Nord
+        category: de.Abzw
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Eichgestell Nord
+        PLC: DE12753
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
         location:
             line.de.6149: -0,019
             line.de.6080: 26,477
-        category: de.Abzw
-        name: Eichgestell Nord
-        de.DS100: BEGN
-        source:
-            - src.de.DBAG.ISR
-            - src.de.TPP.2006
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -116,6 +129,8 @@ events:
     -   date: de.ds100.dr
         category: de.Bft
         de.DS100: BWHRS
+    -   date: c2000
+        status: closed
         
     -   date: !!null
         site:
@@ -133,9 +148,18 @@ events:
         name: Berlin-Wuhlheide Rbf W6
         source: src.dd.DR.Bln.Bpl.1967
     -   date: de.ds100.dr
-        category: de.Bft
         de.DS100: BWHRA
-        
+        category: de.Bft
+        de.dstnr: !!str 908709
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Bln Wuhlheide W6
+        PLC: DE10970
+        source: src.de.DBAG.BSV.2017
+    -   date: 2005-02-26?
+        status: closed
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         site:
             path.de.6080: wuh6
@@ -144,7 +168,6 @@ events:
 ---
 key: point.de.Berlin-Wuhlheide-Rbf
 type: point
-junction: True
 events:
     -   date: 1941-01-01
         status: open
@@ -186,11 +209,18 @@ events:
     -   date: c1985
         de.VBL: Whr
         source: src.dd.DR.1989
-    -   date: de.ds100.dr
-        de.DS100: BWHR
     -   date: 1994-01-10
         status: closed
         source: src.de.Kuhlmann.2000
+    -   date: de.ds100.dr
+        de.DS100: BWHR
+        category: de.Bft
+        de.dstnr: !!str 034207
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Bln Wuhlhde Rbf
+        PLC: DE10967
+        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
@@ -208,9 +238,17 @@ events:
         name: Berlin-Wuhlheide Rbf B4
         source: src.dd.DR.Bln.Bpl.1967
     -   date: de.ds100.dr
-        category: de.Bft
         de.DS100: BWHRM
-        
+        de.dstnr: !!str 908711
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Bln Wuhlhde Rbf
+        PLC: DE10968
+        source: src.de.DBAG.BSV.2017
+    -   date: 2005-02-26?
+        status: closed
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         site:
             path.de.6080: wuh4
@@ -219,27 +257,34 @@ events:
 ---
 key: point.de.Biesdorfer-Kreuz-Süd
 type: point
-junction: True
 events:
     -   date: !!null
-        location:
-            line.de.6080: 30,32
         category: de.Abzw
         de.VBL: Bks
         master: point.de.Berlin-Lichtenberg
         source: src.dd.DR.Bln.1991
-    -   date: !!null
-        name: Biesdorfer Kreuz Süd
-        source: src.de.TPP.2006
+
     -   date: de.ds100.dr
         de.DS100: BBIKS
-        source: src.de.TPP.2006
+        de.dstnr: !!str 032706
+        source: src.de.DBAG.BSV.2017
+    -   date: c2000
+        name: Biesdorfer Kreuz Süd
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Biesdf Kr Süd
+        PLC: DE11244
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6080: 30,32
+        source: src.dd.DR.Bln.1991
     -   date: c2010
         location:
             line.de.6080: 29,953
-            line.de.6076: -0,080
             line.de.6069: 29,953
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -249,26 +294,34 @@ events:
 ---
 key: point.de.Biesdorfer-Kreuz-Mitte
 type: point
-junction: True
 events:
     -   date: !!null
-        location:
-            line.de.6080: 30,87
         category: de.Abzw
         de.VBL: Bkm
         master: point.de.Berlin-Lichtenberg
         source: src.dd.DR.Bln.1991
-    -   date: !!null
-        name: Biesdorfer Kreuz Mitte
-        source: src.de.TPP.2006
+
     -   date: de.ds100.dr
         de.DS100: BBIKM
-        source: src.de.TPP.2006
+        de.dstnr: !!str 032284
+        source: src.de.DBAG.BSV.2017
+    -   date: c2000
+        name: Biesdorfer Kreuz Mitte
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Biesdf Kr Mitte
+        PLC: DE11239
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6080: 30,87
+        source: src.dd.DR.Bln.1991
     -   date: c2010
         location:
             line.de.6080: 31,235
             line.de.6075: -0,032
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -278,14 +331,11 @@ events:
 ---
 key: point.de.Biesdorfer-Kreuz-Nord
 type: point
-junction: True
 events:
     -   date: 1971-08-31
         status: open
         source: src.de.Kuhlmann.2000
     -   date: !!null
-        location:
-            line.de.6080: 33,06
         category: de.Bf
         de.rang: U
         master: point.de.Berlin-Marzahn
@@ -302,14 +352,25 @@ events:
         source: src.dd.DR.Bln.1983
     -   date: de.ds100.dr
         de.DS100: BBKN
-        source: src.de.TPP.2006
+        de.dstnr: !!str 075564
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Biesdf Kr Nord
+        PLC: DE11240
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         location:
-            line.de.6070: 10,835
+            line.de.6080: 33,06
+        source: src.dd.DR.Bln.1973
+    -   date: !!null
+        location:
+           #line.de.6070: 
+            line.de.6072:  8,439
+           #line.de.6074: 
             line.de.6080: 32,977
-            line.de.6074: -0,021
-            line.de.6160: -1,204
-        source: src.de.DBAG.ISR
+           #line.de.6160: 
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -326,16 +387,21 @@ events:
             line.de.6080: 34,36
             line.de.6067:  0,00
     -   date: !!null
-        category: de.Strw
-        name: Biesdorfer Kreuz Nord Strw 6067/6080
         de.DS100: YBBIK
-        source: src.de.DBAG.ISR
+        name: Biesdorfer Kreuz Nord Strw 6067/6080
+        de.name16: Biesdf Kr N Strw
+        category: de.Strw
+        PLC: DE11241
+        de.dstnr: !!str 912313
+        source: src.de.DBAG.BSV.2017
+
     -   date: c2000
         location:
             line.de.6080: 35,099
             line.de.6067:  0,840
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
             path.de.6080: xbkn
+

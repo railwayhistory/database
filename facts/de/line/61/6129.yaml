@@ -16,10 +16,10 @@ events:
     #   Eröffnung und Schließung
     #
     -   date: 1951-07-10?
-        end: point.de.Birkengrund-Sued-Abzw
+        end: point.de.Birkengrund-Süd-Abzw
         status: open
     -   date: 2006-05-28?
-        start: point.de.Birkengrund-Sued-Abzw
+        start: point.de.Birkengrund-Süd-Abzw
         status: open
         electrified: de
     
@@ -30,7 +30,7 @@ events:
         tracks: 1
         gauge: 1435mm
     -   date: 1982-05-22
-        end: point.de.Birkengrund-Sued-Abzw
+        end: point.de.Birkengrund-Süd-Abzw
         electrified: de
         source: src.de.Kuhlmann.2000
 
@@ -49,39 +49,51 @@ events:
             -   path.de.6132 fgen lud
 
 points:
-    - point.de.Genshagener-Heide-Mitte              # line.de.6126
-    - point.de.Genshagener-Heide-Nord
-    - point.de.Grossbeeren-West
-    - point.de.Birkengrund                          # line.de.6132
-    - point.de.Birkengrund-Sued-Abzw                # line.de.6132
-    - point.de.Birkengrund-Sued-Hp                  # line.de.6036
-    - point.de.Ludwigsfelde                         # line.de.6132
+    -   point.de.Genshagener-Heide-Mitte            # de.6126
+    -   point.de.Genshagener-Heide-Nord
+    -   point.de.Großbeeren-West
+    -   point.de.Birkengrund                        # de.6132
+    -   point.de.Birkengrund-Süd-Abzw               # de.6132
+    -   point.de.Ludwigsfelde-Werkbahnhof
+    -   point.de.Birkengrund-Süd-Hp                 # de.6036
+    -   point.de.Ludwigsfelde                       # de.6132
+
+
+#-----------------------------------------------------------------------------
+
+#    point.de.Genshagener-Heide-Mitte            de.6126
 
 
 ---
 key: point.de.Genshagener-Heide-Nord
 type: point
-junction: True
 events:
     -   date: !!null
         category: de.Abzw
         name: Ghn
         source: src.dd.DR.Bln.1968
     -   date: !!null
-        master: point.de.Grossbeeren
+        master: point.de.Großbeeren
         source: src.dd.DR.Bln.1991
+
     -   date: de.ds100.dr
-        name: Genshagener Heide Nord
         de.DS100: BGH N
-        source: src.de.TPP.2006
+        name: Genshagener Heide Nord
+        de.dstnr: !!str 030544
+        source: src.de.DBAG.BSV.2017
     -   date: c2000
         category: de.Bft
-        source: src.de.SuW.2005
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Gensh Heide Nord
+        PLC: DE13648
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         location:
             line.de.6129: 1,428
             line.de.6130: 1,382
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -89,21 +101,56 @@ events:
 
 
 ---
-key: point.de.Grossbeeren-West
+key: point.de.Großbeeren-West
 type: point
-junction: True
 events:
     -   date: 2006-05-28?
         status: open
     -   date: !!null
+        de.DS100: BGBW
+        name: Großbeeren West
+        de.name16: Großbeeren West
+        category: de.Abzw
+        PLC: DE14036
+        de.dstnr: !!str 843110
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
         location:
             line.de.6129: 2,849
             line.de.6065: 1,000
-        category: de.Abzw
-        name: Großbeeren West
-        de.DS100: BGBW
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
             path.de.6129: gbw
+
+
+#    point.de.Birkengrund                        de.6132
+
+
+#    point.de.Birkengrund-Süd-Abzw               de.6132
+
+
+---
+key: point.de.Ludwigsfelde-Werkbahnhof
+type: point
+events:
+    -   date: !!null
+        name: Ludwigsfelde Werkbahnhof
+        category: de.Bft
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: BLFW
+        de.dstnr: !!str 034678
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Ludwigsf Werkbf
+        source: src.de.DBAG.BSV.2017
+
+
+#    point.de.Birkengrund-Süd-Hp                 de.6036
+
+
+#    point.de.Ludwigsfelde                       de.6132
+

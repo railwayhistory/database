@@ -8,10 +8,10 @@ events:
     -   date: !!null
         region: org.de
     -   date: !!null
-        end: point.de.Bohnsdorf-Nord-LGr
+        end: point.de.Berlin-Grünau-LGr-6519
         region: org.de.l.be
     -   date: !!null
-        start: point.de.Bohnsdorf-Nord-LGr
+        start: point.de.Berlin-Grünau-LGr-6519
         region: org.de.l.bb
 
     -   date: !!null
@@ -55,32 +55,45 @@ events:
             -   path.de.6151 agru bow
 
 points:
-    - point.de.Berlin-Gruenau                       # line.de.6142
-    - point.de.Bohnsdorf-Nord-LGr
-    - point.de.Bohnsdorf-West                       # line.de.6151
-    - point.de.Diepensee-Abzw-Cargo                 # line.de.6151
-    - point.de.Berlin-Schoenefeld-Flughafen-Sued
+    -   point.de.Berlin-Grünau                      # de.6142
+    -   point.de.Berlin-Grünau-LGr-6519
+    -   point.de.Bohnsdorf-West                     # de.6151
+    -   point.de.Diepensee-Abzw-Cargo               # de.6151
+    -   point.de.Berlin-Schoenefeld-Flughafen-Süd
+
+
+#-----------------------------------------------------------------------------
+
+#    point.de.Berlin-Grünau                      de.6142
 
 
 ---
-key: point.de.Bohnsdorf-Nord-LGr
+key: point.de.Berlin-Grünau-LGr-6519
 type: point
 subtype: border
 events:
     -   date: !!null
-        name: Berlin-Grünau BE/BB 6519
         de.DS100: BQGAF
-        source: src.de.TPP.2012
+        name: Berlin-Grünau BE/BB 6519
+        de.name16: Bln-Grünau 6519
+        category: de.LGr
+        PLC: DE11013
+        de.dstnr: !!str 104051
+        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
             path.de.6519: gboh
 
 
+#    point.de.Bohnsdorf-West                     de.6151
+
+#    point.de.Diepensee-Abzw-Cargo               de.6151
+
+
 ---
-key: point.de.Berlin-Schoenefeld-Flughafen-Sued
+key: point.de.Berlin-Schoenefeld-Flughafen-Süd
 type: point
-junction: True
 events:
     -   date: !!null
         name: Zentralflughafen Süd
@@ -91,19 +104,25 @@ events:
         source: src.dd.DR.Bln.1978
     -   date: !!null
         category: de.Ldst
-        master: point.de.Berlin-Gruenau
+        master: point.de.Berlin-Grünau
         source: src.dd.DR.Bln.1991
+
     -   date: de.ds100.dr
         de.DS100: BFSS
-        name: Berlin-Schönefeld Flughafen Süd
-        source: src.de.TPP.2006
+        de.dstnr: !!str 033704
+        source: src.de.DBAG.BSV.2017
+    -   date: 2011-10-01?
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Fh Bln-Schönef S
+        PLC: DE11108
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         location:
             line.de.6519: 6,850
-        source: src.de.DBAG.ISR
-    -   date: c2010
-        category: de.Bf
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:

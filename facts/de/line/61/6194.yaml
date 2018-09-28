@@ -68,11 +68,14 @@ events:
 points:
     -   point.de.Großräschen-Gabelung               # de.6193
     -   point.de.Senftenberg                        # de.6253
-    -   point.de.Hohenbocka-Nord
+    -   point.de.Hosena-Nord
     -   point.de.Hosena                             # de.6207
     -   point.de.Hosena-Strw
     -   point.de.Hosena-LGr
+    -   point.de.Wiednitz
     -   point.de.Straßgräbchen-Bernsdorf-Oberlausitz
+    -   point.de.Hausdorf
+    -   point.de.Cunnersdorf-Kamenz
     -   point.de.Kamenz-Sachs-Nord-Awanst
     -   point.de.Kamenz-Sachs                       # de.6200
 
@@ -86,17 +89,22 @@ points:
 
 
 ---
-key: point.de.Hohenbocka-Nord
+key: point.de.Hosena-Nord
 type: point
 progress: stub
 events:
     -   date: !!null
-        name: Hohenbocka Nord
-        note:
-            deu: >
-                „Güter-Bhf. Hohenbocka Nord“ im Meßtischblatt 1924. Als
-                Güter-Bhf ohne Namen in den Blättern 1888 bis 1918. Völlig
-                ohne Bezeichnung im Meßtischblatt 1937.
+        name: Hosena Nord
+        category: de.Bft
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: BHC N
+        de.dstnr: !!str 102370
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Hosena Nord
+        PLC: DE15124
+        source: src.de.DBAG.BSV.2017
 
 
 # point.de.Hosena                             de.6207
@@ -106,36 +114,128 @@ events:
 key: point.de.Hosena-Strw
 type: point
 subtype: reference
-progress: stub
 events:
     -   date: !!null
-        category: de.Strw
-        name: Hosena Streckenwechsel 6198/6194
         de.DS100: YLLHC
-        source: src.de.DBAG.ISR
+        name: Hosena Streckenwechsel 6198/6194
+        de.name16: Hosena Strw
+        category: de.Strw
+        PLC: DE15125
+        de.dstnr: !!str 911701
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6194: 137,600
+            line.de.6198:  13,282
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Hosena-LGr
 type: point
 subtype: border
-progress: stub
 events:
     -   date: !!null
-        name: Hosena BB/SN
         de.DS100: BQHC
+        name: Hosena BB/SN
+        de.name16: Hosena BB/SN
+        category: de.LGr
+        PLC: DE15122
+        de.dstnr: !!str 104155
+        source: src.de.DBAG.BSV.2017
+
+
+---
+key: point.de.Wiednitz
+type: point
+events:
+    -   date: !!null
+        name: Wiednitz
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: DWID
+        de.dstnr: !!str 061788
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Wiednitz
+        PLC: DE21089
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6194: 142,170
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Straßgräbchen-Bernsdorf-Oberlausitz
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Bf
         name: Straßgräbchen-Bernsdorf (Oberlausitz)
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
         de.DS100: DSTR
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 061796
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Straßgr-Bernsdf
+        PLC: DE20029
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6194: 145,684
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Hausdorf
+type: point
+events:
+    -   date: !!null
+        name: Hausdorf
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: DHDF
+        de.dstnr: !!str 061804
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Hausdorf
+        PLC: DE14640
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6194: 149,563
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Cunnersdorf-Kamenz
+type: point
+events:
+    -   date: !!null
+        name: Cunnersdorf (b Kamenz)
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: DCF
+        de.dstnr: !!str 061812
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Cunnersdorf b Ka
+        PLC: DE12027
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6194: 152,265
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
@@ -149,4 +249,5 @@ events:
         de.DS100: DKAN
 
 
-# point.de.Kamenz-Sachs                       de.6200
+#    point.de.Kamenz-Sachs                       de.6200
+

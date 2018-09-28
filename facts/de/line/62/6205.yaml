@@ -45,6 +45,9 @@ events:
 
 points:
     -   point.de.Cottbus                            # de.6142
+    -   point.de.Cottbus-Sandow                     # de.6345
+    -   point.de.Cottbus-Heizkraftwerk
+    -   point.de.Klinge
     -   point.de.Forst-Abc
     -   point.de.Forst-Lausitz
     -   point.int.Forst-Lausitz-Zasieki
@@ -52,7 +55,55 @@ points:
 
 #-----------------------------------------------------------------------------
 
-# point.de.Cottbus                            de.6142
+#    point.de.Cottbus                            de.6142
+
+#    point.de.Cottbus-Sandow                     de.6345
+
+
+---
+key: point.de.Cottbus-Heizkraftwerk
+type: point
+events:
+    -   date: !!null
+        name: Cottbus Heizkraftwerk
+        category: de.Awanst
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: BCKW
+        de.dstnr: !!str 043414
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Heizkw Cottbus
+        PLC: DE11995
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6205: 2,484
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Klinge
+type: point
+events:
+    -   date: !!null
+        name: Klinge
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: BKG
+        de.dstnr: !!str 043422
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Klinge
+        PLC: DE15610
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6205: 13,786
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
@@ -67,23 +118,47 @@ events:
 ---
 key: point.de.Forst-Lausitz
 type: point
-progress: stub
 events:
     -   date: !!null
         name: Forst (Lausitz)
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
         de.DS100: BFO
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 077131
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Forst (Lausitz)
+        PLC: DE13251
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6205: 22,020
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.int.Forst-Lausitz-Zasieki
 type: point
 subtype: border
-progress: stub
 events:
     -   date: !!null
         name:
             de: Forst (Lausitz) Grenze
+        category: de.Gp
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
         de.DS100: BXFO
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 098558
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Forst(L) Grenze
+        PLC: DE13252
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6205: 23,720
+        source: src.dd.DR.Cs.1991
 

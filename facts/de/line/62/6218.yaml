@@ -32,7 +32,7 @@ events:
     #   Eröffnung und Einstellung
     #
     -   date: 1999-08-15
-        start: point.de.Weißkolm-Abzw
+        start: point.de.Weißkollm-Abzw
         end: point.de.Spreewitz-Süd
         tracks: 1
         source: src.de.web.EBA.Still # Nr. 288
@@ -56,92 +56,282 @@ events:
     #
 
 points:
-    - point.de.Knappenrode                          # line.de.6207
-    - point.de.Weißkolm-Abzw
-    - point.de.Spreewitz-Süd
-    - point.de.Spreewitz
-    - point.de.Spreewitz-LGr
-    - point.de.Schwarze-Pumpe-LGr
-    - point.de.Sabrodt-LGr
-    - point.de.Sornoer-Buden-Ost
-    - point.de.Sornoer-Buden-West                   # line.de.6253
+    -   point.de.Knappenrode                        # de.6207
+    -   point.de.Weißkollm-Abzw
+    -   point.de.Weißkollm
+    -   point.de.Weißkollm-Awanst
+    -   point.de.Spreewitz-Süd
+    -   point.de.Spreewitz
+    -   point.de.Spreewitz-LGr
+    -   point.de.Schwarze-Pumpe
+    -   point.de.Schwarze-Pumpe-LGr
+    -   point.de.Sabrodt
+    -   point.de.Sabrodt-LGr
+    -   point.de.Lieske
+    -   point.de.Sornoer-Buden-Ost
+    -   point.de.Sornoer-Buden-West                 # de.6253
+
+
+#-----------------------------------------------------------------------------
+
+#    point.de.Knappenrode                        de.6207
 
 
 ---
-key: point.de.Weißkolm-Abzw
+key: point.de.Weißkollm-Abzw
 type: point
-progress: stub
+events:
+    -   date: c1995
+        status: open
+    -   date: !!null
+        name: Weißkollm Abzw
+        category: de.Abzw
+        de.DS100: BWKA
+        de.dstnr: !!str 912318
+        de.name16: Weißkollm Abzw
+        PLC: DE20940
+        source: src.de.DBAG.BSV.2017
+    -   date: 2000-10-30?
+        status: closed
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6218: 3,669
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Weißkollm
+type: point
 events:
     -   date: !!null
-        category: de.Abzw
-        name: Weißkolm Abzw
-        de.DS100: BWKA
+        name: Weißkollm
+        category: de.Bf
+        de.rang: U
+        de.VBL: Wkm
+        master: point.de.Knappenrode
+        source: src.dd.DR.Cs.1991
+
+    -   date: 2000-10-30?
+        category: de.Bk
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: BWKM
+        de.dstnr: !!str 042010
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Weißkollm
+        PLC: DE21658
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6218:  3,669
+            line.de.6579: 32,817
+        source: src.dd.DR.Cs.1991
+
+
+---
+key: point.de.Weißkollm-Awanst
+type: point
+events:
+    -   date: !!null
+        de.DS100: BWKO
+        name: Weißkollm Ausweichanschlussstelle
+        de.name16: Weißkollm Awanst
+        category: de.Awanst
+        PLC: DE20941
+        de.dstnr: !!str 108101
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6218: 6,850
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Spreewitz-Süd
 type: point
-progress: stub
 events:
     -   date: !!null
+        name: Spreewitz Süd 
         category: de.Abzw
-        name: Spreewitz Süd
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
         de.DS100: BSPS
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 042028
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Spreewitz Süd
+        PLC: DE19861
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6218: 9,674
+           #line.de.6222: 
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Spreewitz
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Bf
         name: Spreewitz
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
         de.DS100: BSPE
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 042069
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Spreewitz
+        PLC: DE19857
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6218: 12,130
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Spreewitz-LGr
 type: point
 subtype: border
-progress: stub
 events:
     -   date: !!null
-        name: Spreewitz SN/BB
         de.DS100: BQSP
+        name: Spreewitz SN/BB
+        de.name16: Spreewitz SN/BB
+        category: de.LGr
+        PLC: DE19860
+        de.dstnr: !!str 104157
+        source: src.de.DBAG.BSV.2017
+
+
+---
+key: point.de.Schwarze-Pumpe
+type: point
+events:
+    -   date: !!null
+        name: Schwarze Pumpe
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: BSU
+        de.dstnr: !!str 042077
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Schwarze Pumpe
+        PLC: DE19551
+        source: src.de.DBAG.BSV.2017
+    -   date: 2002-05-31
+        status: closed
+        source:
+            -   src.de.DBAG.BSV.2017
+            -   src.de.web.EBA.Still
 
 
 ---
 key: point.de.Schwarze-Pumpe-LGr
 type: point
 subtype: border
-progress: stub
 events:
     -   date: !!null
-        name: Schwarze Pumpe BB/SN
         de.DS100: BQSU
+        name: Schwarze Pumpe BB/SN
+        de.name16: Schw Pumpe LGr
+        category: de.LGr
+        PLC: DE19552
+        de.dstnr: !!str 104159
+        source: src.de.DBAG.BSV.2017
+
+
+---
+key: point.de.Sabrodt
+type: point
+events:
+    -   date: !!null
+        name: Sabrodt
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: BSD
+        de.dstnr: !!str 042085
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Sabrodt
+        PLC: DE19189
+        source: src.de.DBAG.BSV.2017
+    -   date: 2002-05-31
+        status: closed
+        source:
+            -   src.de.DBAG.BSV.2017
+            -   src.de.web.EBA.Still
 
 
 ---
 key: point.de.Sabrodt-LGr
 type: point
 subtype: border
-progress: stub
 events:
     -   date: !!null
+        de.DS100: BQSD
         name: Sabrodt SN/BB
-        de.DS100: BQSP
+        de.name16: Sabrodt SN/BB
+        category: de.LGr
+        PLC: DE19190
+        de.dstnr: !!str 104160
+        source: src.de.DBAG.BSV.2017
+
+
+---
+key: point.de.Lieske
+type: point
+events:
+    -   date: !!null
+        name: Lieske
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: BLK
+        de.dstnr: !!str 042101
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Lieske
+        PLC: DE16372
+        source: src.de.DBAG.BSV.2017
+    -   date: 2002-05-31
+        status: closed
+        source:
+            -   src.de.DBAG.BSV.2017
+            -   src.de.web.EBA.Still
 
 
 ---
 key: point.de.Sornoer-Buden-Ost
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Abzw
         name: Sornoer Buden Ost
+        de.name16: Sornoer Buden O
+        category: de.Abzw
+        PLC: DE19832
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
         de.DS100: BASO
+        de.dstnr: !!str 042119
+        source: src.de.DBAG.BSV.2017
+    -   date: 2002-05-31
+        status: closed
+        source:
+            -   src.de.DBAG.BSV.2017
+            -   src.de.web.EBA.Still
+
+
+#    point.de.Sornoer-Buden-West                 de.6253
 

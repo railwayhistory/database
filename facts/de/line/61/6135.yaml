@@ -147,10 +147,11 @@ events:
 points:
     -   point.de.Berlin-Dresdener-Bf
     -   point.de.Berlin-Papestrasse-Abzw            # de.6132
-    -   point.de.Berlin-Attilastrasse               # de.6035
+    -   point.de.Berlin-Attilastraße                # de.6035
     -   point.de.Berlin-Mariendorf-Abzw
     -   point.de.Berlin-Marienfelde-Gaswerk
     -   point.de.Berlin-Marienfelde
+    -   point.de.Berlin-Marienfelde-Gbf
     -   point.de.Berlin-Buckower-Chaussee
     -   point.de.Berlin-Kettinger-Strasse
     -   point.de.Berlin-Schichauweg
@@ -159,6 +160,7 @@ points:
     -   point.de.Berlin-Goltzstrasse
     -   point.de.Berlin-Lichtenrade-LGr
     -   point.de.Mahlow
+    -   point.de.Glasower-Damm-Nord
     -   point.de.Glasower-Damm-Süd
     -   point.de.Blankenfelde-Teltow-Fläming
     -   point.de.Dahlewitz
@@ -195,7 +197,6 @@ points:
 ---
 key: point.de.Berlin-Dresdener-Bf
 type: point
-junction: True
 events:
     -   date: 1875-06-17
         status: open
@@ -213,27 +214,32 @@ events:
             path.de.6135.bln: bdr
 
 
-# point.de.Berlin-Papestrasse-Abzw            de.6132
+#    point.de.Berlin-Papestrasse-Abzw           de.6132
 
-# point.de.Berlin-Attilastrasse               de.6035
+#    point.de.Berlin-Attilastraße               de.6035
 
 
 ---
 key: point.de.Berlin-Mariendorf-Abzw
 type: point
-junction: True
 events:
     -   date: c1990
         status: open
-        split_from: point.de.Berlin-Attilastrasse
+        split_from: point.de.Berlin-Attilastraße
+    -   date: !!null
+        de.DS100: BMD
+        name: Berlin-Mariendorf
+        de.name16: Bln-Mariendorf
+        category: de.Abzw
+        PLC: DE11072
+        de.dstnr: !!str 067900
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         location:
-            line.de.6135: 6,869
             line.de.6035: 6,928
-        category: de.Abzw
-        name: Berlin-Mariendorf
-        de.DS100: BMD
-        source: src.de.DBAG.ISR
+            line.de.6135: 6,869
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -301,13 +307,42 @@ events:
     -   date: c1965
         de.rang: III
         source: src.dd.DR.Bln.1968
+
     -   date: de.ds100.dr
         de.DS100: BMF
-        source: src.de.TPP.2006
+        de.dstnr: !!str 030858
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Bln-Marienfelde
+        PLC: DE11073
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6135: 9,404
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
             path.de.6135: maf
+
+
+---
+key: point.de.Berlin-Marienfelde-Gbf
+type: point
+events:
+    -   date: !!null
+        name: Berlin-Marienfelde Gbf
+        category: de.Bft
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: BMAF
+        de.dstnr: !!str 857805
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Bln-Marienf Gbf
+        PLC: DE11074
+        source: src.de.DBAG.BSV.2017
 
 
 ---
@@ -325,13 +360,28 @@ events:
         category: de.Hp
         source: src.dd.DR.Bln.1953
     -   date: !!null
-        location:
-            line.de.6135: 11,1
         master: point.de.Berlin-Marienfelde
         source: src.dd.DR.Bln.1959
     -   date: de.ds100.dr
         de.DS100: BBCH
-        source: src.de.TPP.2006
+        de.dstnr: !!str 334599
+        source: src.de.DBAG.BSV.2017
+    -   date: c2000
+        name: Berlin Buckower Chaussee
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Buckower Chauss
+        PLC: DE10843
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6135: 11,1
+        source: src.dd.DR.Bln.1959
+    -   date: c2000
+        location:
+            line.de.6135: 10,974
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -374,13 +424,21 @@ events:
         source: src.de.Kuhlmann.2000
     -   date: !!null
         name: Berlin Schichauweg
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
         de.DS100: BSC
-        source: src.de.TPP.2006
+        de.dstnr: !!str 334730
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Schichauweg
+        PLC: DE10937
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         location:
             line.de.6135: 12,331
-        category: de.Hp
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -409,7 +467,6 @@ events:
 ---
 key: point.de.Berlin-Lichtenrade
 type: point
-junction: True
 events:
     -   date: 1883-06-01
         status: open
@@ -446,12 +503,23 @@ events:
     -   date: c1988
         category: de.Hp
         source: src.dd.DR.Bln.1991
+
     -   date: c1992
         category: de.Bf
         source: src.de.SuW.2005
     -   date: de.ds100.dr
         de.DS100: BLRD
-        source: src.de.TPP.2006
+        de.dstnr: !!str 031195
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Lichtenrade
+        PLC: DE11057
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6135: 13,757
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -493,14 +561,17 @@ type: point
 subtype: border
 events:
     -   date: !!null
-    -   date: !!null
         location:
             line.de.6135: 14,900
         source: src.dd.DR.Bln.1953
     -   date: !!null
-        name: Berlin-Lichtenrade BB/BE
         de.DS100: BQLR
-        source: src.de.TPP.2006
+        name: Berlin-Lichtenrade BE/BB
+        de.name16: Bln-Li-rade LGr
+        category: de.LGr
+        PLC: DE11058
+        de.dstnr: !!str 104018
+        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
@@ -510,7 +581,6 @@ events:
 ---
 key: point.de.Mahlow
 type: point
-junction: True
 events:
     -   date: 1875-06-17
         status: open
@@ -543,9 +613,20 @@ events:
     -   date: c1965
         de.rang: III
         source: src.dd.DR.Bln.1968
+
     -   date: de.ds100.dr
         de.DS100: BMAH
-        source: src.de.TPP.2006
+        de.dstnr: !!str 033902
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Mahlow
+        PLC: DE16668
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6135: 16,835
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -553,9 +634,28 @@ events:
 
 
 ---
+key: point.de.Glasower-Damm-Nord
+type: point
+events:
+    -   date: !!null
+        status: closed
+        de.DS100: BAG N 
+        name: Glasower Damm Nord
+        de.name16: Glasow Damm Nord
+        category: de.Abzw
+        PLC: DE13779
+        de.dstnr: !!str 913551
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6135: 17,200
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
 key: point.de.Glasower-Damm-Süd
 type: point
-junction: True
 events:
     -   date: 1951-07-10?
         status: open
@@ -566,21 +666,28 @@ events:
     -   date: c1970
         name: Agds
         source: src.dd.DR.1976
+    -   date: c1995
+        name: Glasower Damm Süd
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: BAG S
+        de.dstnr: !!str 031989
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Glasow Damm Süd
+        PLC: DE13781
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         location:
             line.de.6135: 19,10
         source: src.dd.DR.1989
-    -   date: de.ds100.dr
-        de.DS100: BAG S
-        source: src.de.TPP.2006
-    -   date: c1995
-        name: Glasower Damm Süd
-        source: src.de.TPP.2006
-    -   date: !!null
+    -   date: c2000
         location:
-            line.de.6136:  0,036
+            line.de.6135: 18,972
+           #line.de.6136: 
             line.de.6138: 19,225
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
  
     -   date: !!null
         site:
@@ -590,7 +697,6 @@ events:
 ---
 key: point.de.Blankenfelde-Teltow-Fläming
 type: point
-junction: True
 events:
     -   date: c1935
         status: open
@@ -598,9 +704,6 @@ events:
             - src.de.DRG.Bln.1932
             - src.de.DRG.Bln.1932
     -   date: !!null
-        location:
-            line.de.6037: 19,40
-            line.de.6135: 19,40
         category: de.Bk
         name: Blankenfelde
         source: src.de.DRG.Bln.1943
@@ -622,16 +725,32 @@ events:
     -   date: 1953-05-17
         name: Blankenfelde (Kr Zossen)
         source: src.de.Kuhlmann.2000
+
     -   date: de.ds100.dr
         de.DS100: BBF
-        source: src.de.TPP.2006
+        de.dstnr: !!str 033928
+        source: src.de.DBAG.BSV.2017
     -   date: 1996-06-02
         name: Blankenfelde (Kr Teltow-Fläming)
         source: src.de.Kuhlmann.2000
+    -   date: !!null
+        de.name16: Blankenfelde
+        PLC: DE11325
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6037: 19,40
+            line.de.6135: 19,40
+        source: src.de.DRG.Bln.1943
+    -   date: c2000
+        location:
+            line.de.6135: 19,553
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
     -   date: 2006
         location:
-            line.de.6135: !!null
-        
+            line.de.6037: !!null
+
     -   date: !!null
         site:
             path.de.6135: bla
@@ -671,10 +790,21 @@ events:
     -   date: c1990
         category: de.Hp
         source: src.dd.DR.Bln.1991
+
     -   date: de.ds100.dr
         de.DS100: BDT
-        source: src.de.TPP.2006
-        
+        de.dstnr: !!str 033936
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Dahlewitz
+        PLC: DE12048
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6135: 20,647
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
     -   date: !!null
         site:
             path.de.6135: dah
@@ -708,9 +838,20 @@ events:
     -   date: !!null
         de.VBL: Rsf
         source: src.de.DRG.Bln.1946
+
     -   date: de.ds100.dr
         de.DS100: BRSF
-        source: src.de.TPP.2006
+        de.dstnr: !!str 033944
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Rangsdorf
+        PLC: DE18637
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6135: 24,240
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -741,7 +882,15 @@ events:
             - src.dd.DR.Bln.1968
     -   date: de.ds100.dr
         de.DS100: BPM
-        source: src.de.TPP.2006
+        de.dstnr: !!str 910266
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Pramsdorf
+        PLC: DE21641
+        source: src.de.DBAG.BSV.2017
+    -   date: 2017-12-10
+        status: closed
+        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
@@ -776,9 +925,26 @@ events:
     -   date: c1950
         master: point.de.Zossen
         source: src.dd.DR.Bln.1959
+
+    -   date: de.ds100.dr
+        de.DS100: BDAB
+        de.dstnr: !!str 033951
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Dabendorf
+        PLC: DE12034
+        source: src.de.DBAG.BSV.2017
     -   date: c2000
-        category: [ de.Hp, de.Bft ]
-        source: src.de.DBAG.ISR
+        category: de.Bft
+        source: src.de.DBAG.BSV.2017
+    -   date: 2017-12-10
+        category: [ de.Hp, de.Bk ]
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6135: 30,667
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -788,7 +954,6 @@ events:
 ---
 key: point.de.Zossen-Zoa
 type: point
-junction: True
 events:
     -   date: 1949-01-03
         status: open
@@ -803,19 +968,25 @@ events:
         location:
             line.de.6135: 30,655
         source: src.dd.DR.Bln.1968
+
     -   date: de.ds100.dr
         de.DS100: BZO A
-        source: src.de.TPP.2006
-    -   date: c1995
+        name: Zossen (Zoa)
         category: de.Bft
-        master: point.de.Zossen
-        source: src.de.DBAG.ISR
-    -   date: c1995
+        de.dstnr: !!str 911782
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Zossen (Zoa)
+        PLC: DE21518
+        source: src.de.DBAG.BSV.2017
+    -   date: 2017-12-10
+        category: de.Awanst
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
         location:
-            line.de.6135: 31,20
-        source:
-            - src.de.TPP.2006
-            - src.de.DBAG.ISR
+            line.de.6135: 31,222
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -825,7 +996,6 @@ events:
 ---
 key: point.de.Zossen
 type: point
-junction: True
 events:
     -   date: 1875-06-17
         status: open
@@ -834,8 +1004,6 @@ events:
         name: Zossen
         source: src.de.Kb.1914
     -   date: !!null
-        location:
-            line.de.6135: 32,74
         category: de.Bf
         de.rang: II
         source: src.de.DRG.Bln.1927
@@ -850,7 +1018,17 @@ events:
         source: src.de.DRG.Bln.1946
     -   date: de.ds100.dr
         de.DS100: BZO
-        source: src.de.TPP.2006
+        de.dstnr: !!str 033969
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Zossen
+        PLC: DE21517
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6135: 32,740
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -913,12 +1091,23 @@ events:
     -   date: c1985
         de.VBL: Wue
         source: src.dd.DR.1989
+
     -   date: de.ds100.dr
         de.DS100: BWUE
-        source: src.de.TPP.2006
+        de.dstnr: !!str 033977
+        source: src.de.DBAG.BSV.2017
     -   date: 1998-05-24
         name: Wünsdorf-Waldstadt
         source: src.de.Kuhlmann.2000
+    -   date: !!null
+        de.name16: Wünsdorf-Waldst
+        PLC: DE21334
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6135: 39,075
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -948,8 +1137,6 @@ events:
         name: Neuhof (Kr Zossen)
         source: src.dd.DR.Bln.1953
     -   date: !!null
-        location:
-            line.de.6135: 42,08
         de.VBL: Ne
         source: src.dd.DR.1976
     -   date: c1965
@@ -959,15 +1146,26 @@ events:
         de.rang: U
         master: point.de.Baruth-Mark
         source: src.dd.DR.Bln.1991
+
     -   date: de.ds100.dr
         de.DS100: BNE
-        source: src.de.TPP.2006
+        de.dstnr: !!str 043620
+        source: src.de.DBAG.BSV.2017
     -   date: c1995
         name: Neuhof (b Zossen)
-        source: src.de.TPP.2006
+        source: src.de.DBAG.BSV.2017
     -   date: c2000
         category: [de.Hp, de.Bk]
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Neuhof(b Zossen)
+        PLC: DE17545
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6135: 42,080
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -1010,8 +1208,6 @@ events:
         de.lknr: 12 538
         source: src.de.Bfv.1933
     -   date: !!null
-        location:
-            line.de.6135: 51,39
         de.VBL: Ba
         source: src.dd.DR.1976
     -   date: c1960
@@ -1020,9 +1216,24 @@ events:
     -   date: c1965
         de.rang: IV
         source: src.dd.DR.1976
+
     -   date: de.ds100.dr
         de.DS100: BBA
-        source: src.de.TPP.2006
+        de.dstnr: !!str 043612
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Baruth (Mark)
+        PLC: DE10651
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6135: 51,39
+        source: src.dd.DR.1976
+    -   date: c2000
+        location:
+            line.de.6135: 51,460
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -1047,8 +1258,6 @@ events:
         de.lknr: 12 537
         source: src.de.Bfv.1933
     -   date: !!null
-        location:
-            line.de.6135: 56,11
         de.VBL: Ka
         source: src.dd.DR.1976
     -   date: c1965
@@ -1057,15 +1266,26 @@ events:
     -   date: c1980
         category: [de.Hp, de.Anst]
         source: src.dd.DR.1989
+
     -   date: de.ds100.dr
         de.DS100: BKDF
-        source: src.de.TPP.2006
+        de.dstnr: !!str 043604
+        source: src.de.DBAG.BSV.2017
     -   date: c1995
         category: de.Hp
-        source: src.de.SuW.2005
+        source: src.de.DBAG.BSV.2017
     -   date: c2007
         name: Klasdorf Glashütte
         source: src.de.TPP.2008
+    -   date: !!null
+        de.name16: Klasdorf
+        PLC: DE15565
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6135: 56,110
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -1098,16 +1318,25 @@ events:
             - src.de.Bfv.1933
             - src.de.Kb.W1937
     -   date: !!null
-        location:
-            line.de.6135: 61,79
         de.VBL: Go
         source: src.dd.DR.1976
     -   date: c1965
         de.rang: IV
         source: src.dd.DR.1976
+
     -   date: de.ds100.dr
         de.DS100: BGO
-        source: src.de.TPP.2006
+        de.dstnr: !!str 043596
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Golßen NL
+        PLC: DE13826
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6135: 61,790
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -1131,20 +1360,30 @@ events:
     -   date: de.lknr.30
         de.lknr: 12 535
         source: src.de.Bfv.1933
+
     -   date: !!null
-        location:
-            line.de.6135: 68,56
         de.VBL: Df
         source: src.dd.DR.1976
     -   date: c1965
         de.rang: V
         source: src.dd.DR.1976
+
     -   date: de.ds100.dr
         de.DS100: BDF
-        source: src.de.TPP.2006
+        de.dstnr: !!str 043588
+        source: src.de.DBAG.BSV.2017
     -   date: c2000
         category: [de.Hp, de.Bk]
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Drahnsdorf
+        PLC: DE12425
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6135: 68,560
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -1154,7 +1393,6 @@ events:
 ---
 key: point.de.Luckau-Uckro
 type: point
-junction: True
 events:
     -   date: !!null
         name: Uckro
@@ -1177,15 +1415,26 @@ events:
             line.de.6135: 75,99
         de.VBL: Uk
         source: src.dd.DR.1976
+
     -   date: de.ds100.dr
         de.DS100: BUK
-        source: src.de.TPP.2006
+        de.dstnr: !!str 043554
+        source: src.de.DBAG.BSV.2017
     -   date: c2005
         name: Luckau-Uckro
         source: src.de.TPP.2006
+    -   date: !!null
+        de.name16: Luckau-Uckro
+        PLC: DE16507
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6135: 76,000
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
-        connection: point.de.Uckro-Süd              # line.de.6829
+        connection: point.de.Uckro-Süd              # de.6829
         site:
             path.de.6135: uck
 
@@ -1207,16 +1456,28 @@ events:
         de.lknr: 12 530
         source: src.de.Bfv.1933
     -   date: !!null
-        location:
-            line.de.6135: 81,15
         de.VBL: Gn
         source: src.dd.DR.1976
+
     -   date: de.ds100.dr
         de.DS100: BGN
+        de.dstnr: !!str 043547
+        source: src.de.DBAG.BSV.2017
     -   date: c1995
         name: Gehren (b Luckau)
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Gehren(b Luckau)
+        PLC: DE13592
+        source: src.de.DBAG.BSV.2017
     -   date: c2000
         status: closed
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6135: 81,150
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -1246,16 +1507,25 @@ events:
             - src.de.Kb.W1937
             - src.de.Bfv.1938
     -   date: !!null
-        location:
-            line.de.6135: 85,54
         de.VBL: Wa
         source: src.dd.DR.1976
     -   date: c1965
         de.rang: IV
         source: src.dd.DR.1976
+
     -   date: de.ds100.dr
         de.DS100: BWA
-        source: src.de.TPP.2006
+        de.dstnr: !!str 043539
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Walddrehna
+        PLC: DE20697
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6135: 85,535
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -1280,16 +1550,25 @@ events:
         de.lknr: 12 528
         source: src.de.Bfv.1933
     -   date: !!null
-        location:
-            line.de.6135: 93,65
         de.VBL: Bs
         source: src.dd.DR.1976
     -   date: c1965
         de.rang: IV
         source: src.dd.DR.1976
+
     -   date: de.ds100.dr
         de.DS100: BBRS
-        source: src.de.TPP.2006
+        de.dstnr: !!str 043521
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Brenitz-Sonnew
+        PLC: DE11681
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6135: 93,650
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -1299,7 +1578,6 @@ events:
 ---
 key: point.de.Doberlug-Kirchhain-Nord
 type: point
-junction: True
 events:
     -   date: c1980
         status: open
@@ -1313,9 +1591,20 @@ events:
         name: Doberlug-Kirchhain Nord
         de.VBL: Dkn
         source: src.dd.DR.1989
+
     -   date: de.ds100.dr
         de.DS100: BDKN
-        source: src.de.TPP.2006
+        de.dstnr: !!str 044008
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Doberlug-Kh Nord
+        PLC: DE12266
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6135: 99,909
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -1325,7 +1614,6 @@ events:
 ---
 key: point.de.Doberlug-Kirchhain
 type: point
-junction: True
 events:
     -   date: !!null
         name: Dobrilugk-Kirchhain
@@ -1363,22 +1651,23 @@ events:
 ---
 key: point.de.Doberlug-Kirchhain-ob-Bf
 type: point
-junction: True
 events:
     -   date: c1995
         status: open
         split_from: point.de.Doberlug-Kirchhain
     -   date: !!null
-        location:
-            line.de.6135: 102,88
-        source: src.de.web.Erbeck
-    -   date: !!null
-        name: Doberlug-Kirchhain ob Bf
         de.DS100: BDKO
-        source: src.de.TPP.2006
-    -   date: !!null
+        name: Doberlug-Kirchhain ob Bf
+        de.name16: Doberlug-K ob Bf
         category: de.Bf
-        source: src.de.DBAG.ISR
+        PLC: DE12267
+        de.dstnr: !!str 044081
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6135: 102,886
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -1403,19 +1692,28 @@ events:
         de.lknr: 12 522
         source: src.de.Bfv.1933
     -   date: !!null
-        location:
-            line.de.6135: 108,90
         de.VBL: Ro
         source: src.dd.DR.1976
     -   date: c1965
         de.rang: IV
         source: src.dd.DR.1976
+
     -   date: de.ds100.dr
         de.DS100: BRO
-        source: src.de.TPP.2006
+        de.dstnr: !!str 043513
+        source: src.de.DBAG.BSV.2017
     -   date: c2000
         name: Rückersdorf (Niederl)
-        source: src.de.TPP.2006
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Rückersdorf NL
+        PLC: DE19110
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6135: 108,900
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -1435,12 +1733,20 @@ events:
         name: Gorden
         de.VBL: Grn
         source: src.dd.DR.1976
+
     -   date: de.ds100.dr
         de.DS100: BGRN
+        de.dstnr: !!str 043505
+        source: src.de.DBAG.BSV.2017
     -   date: c1995
         category: de.Bk
+        source: src.de.DBAG.BSV.2017
     -   date: c2000
         status: closed
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Gorden
+        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
@@ -1465,16 +1771,25 @@ events:
         de.lknr: 12 521
         source: src.de.Bfv.1933
     -   date: !!null
-        location:
-            line.de.6135: 116,51
         de.VBL: Hl
         source: src.dd.DR.1976
     -   date: c1965
         de.rang: IV
         source: src.dd.DR.1976
+
     -   date: de.ds100.dr
         de.DS100: BHL
-        source: src.de.TPP.2006
+        de.dstnr: !!str 043497
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Hohenleipisch
+        PLC: DE15013
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6135: 116,510
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -1517,7 +1832,6 @@ events:
 ---
 key: point.de.Elsterwerda
 type: point
-junction: True
 events:
     -   date: !!null
         name: Elsterwerda Berlin-Dresd Bf
@@ -1540,9 +1854,20 @@ events:
             line.de.6135: 122,75
         de.VBL: Ew
         source: src.dd.DR.1976
+
     -   date: de.ds100.dr
         de.DS100: BEW
-        source: src.de.TPP.2006
+        de.dstnr: !!str 043489
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Elsterwerda
+        PLC: DE12845
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6135: 122,750
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -1552,17 +1877,22 @@ events:
 ---
 key: point.de.Elsterwerda-Strw
 type: point
-junction: True
 subtype: reference
 events:
+    -   date: !!null
+        de.DS100: YLLEW
+        name: Elsterwerda Streckenwechsel 6135/6248
+        de.name16: Elsterwerda Strw
+        category: de.Strw
+        PLC: DE12846
+        de.dstnr: !!str 911700
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         location:
             line.de.6135: 124,563
             line.de.6248:  50,360
-        name: Elsterwerda Streckenwechsel 6135/6248
-        de.DS100: YLLEW
-        category: de.Strw
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:

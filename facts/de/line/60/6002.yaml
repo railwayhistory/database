@@ -118,29 +118,33 @@ events:
             -   path.de.6081     a    ber
 
 points:
-    - point.de.Berlin-Stett-Vorortbf
-    - point.de.Berlin-Nordbf-Strw                   # line.de.6032
-    - point.de.Berlin-Nordbf-Gr                     # line.de.6081
-    - point.de.Berlin-Nordbf-Ntm                    # line.de.6081
-    - point.de.Berlin-Humboldthain
-    - point.de.Berlin-Gesundbrunnen                 # line.de.6170
-    - point.de.Berlin-Gesundbrunnen-S-Bahn          # line.de.6020
-    - point.de.Berlin-Gesundbrunnen-Sga             # line.de.6081
-    - point.de.Berlin-Bornholmer-Strasse-Gr         # line.de.6081
-    - point.de.Berlin-Bornholmer-Strasse
-    - point.de.Berlin-Pankow-Pkrs
-    - point.de.Berlin-Pankow
-    - point.de.Berlin-Pankow-Heinersdorf
-    - point.de.Berlin-Blankenburg                   # line.de.6081
-    - point.de.Berlin-Blankenburg-S-Bahn
-    - point.de.Berlin-Karow                         # line.de.6081
-    - point.de.Berlin-Karow-S-Bahn
-    - point.de.Berlin-Buch                          # line.de.6081
-    - point.de.Berlin-Buch-LGr-S-Bahn
-    - point.de.Roentgental
-    - point.de.Zepernick-Bernau
-    - point.de.Bernau-Berlin-S-Bahn
-    - point.de.Bernau-Berlin                        # line.de.6081
+    -   point.de.Berlin-Stett-Vorortbf
+    -   point.de.Berlin-Nordbf-Strw                 # de.6032
+    -   point.de.Berlin-Nordbf-Gr                   # de.6081
+    -   point.de.Berlin-Nordbf-Ntm                  # de.6081
+    -   point.de.Berlin-Humboldthain
+    -   point.de.Berlin-Gesundbrunnen               # de.6170
+    -   point.de.Berlin-Gesundbrunnen-S-Bahn        # de.6020
+    -   point.de.Berlin-Gesundbrunnen-Sga           # de.6081
+    -   point.de.Berlin-Bornholmer-Strasse-Gr       # de.6081
+    -   point.de.Berlin-Bornholmer-Strasse
+    -   point.de.Berlin-Pankow-Pkrs                 # de.6081
+    -   point.de.Berlin-Pankow
+    -   point.de.Berlin-Pankow-Heinersdorf
+    -   point.de.Berlin-Blankenburg                 # de.6081
+    -   point.de.Berlin-Blankenburg-S-Bahn
+    -   point.de.Berlin-Karow                       # de.6081
+    -   point.de.Berlin-Karow-S-Bahn
+    -   point.de.Berlin-Buch                        # de.6081
+    -   point.de.Berlin-Buch-LGr-S-Bahn
+    -   point.de.Röntgental
+    -   point.de.Zepernick-Bernau
+    -   point.de.Bernau-Friedenstal
+    -   point.de.Bernau-Berlin-S-Bahn
+    -   point.de.Bernau-Berlin                      # de.6081
+
+
+#-----------------------------------------------------------------------------
 
 ---
 key: point.de.Berlin-Stett-Vorortbf
@@ -167,6 +171,13 @@ events:
             path.de.6081.nob: nov
 
 
+#    point.de.Berlin-Nordbf-Strw                 de.6032
+
+#    point.de.Berlin-Nordbf-Gr                   de.6081
+
+#    point.de.Berlin-Nordbf-Ntm                  de.6081
+
+
 ---
 key: point.de.Berlin-Humboldthain
 type: point
@@ -181,31 +192,50 @@ events:
         de.lknr: 03 191
         source: src.de.Bfv.1938
     -   date: !!null
-        location:
-            line.de.6002: 1,17
-        source: src.de.DRG.Bln.1943
-    -   date: !!null
         de.VBL: Hum
         source: src.de.DRG.Bln.1946
     -   date: c1950
         master: point.de.Berlin-Gesundbrunnen
         source: src.dd.DR.Bln.1959
+
     -   date: de.ds100.dr
         de.DS100: BHUM
-        source: src.de.TPP.2006
+        de.dstnr: !!str 334656
+        source: src.de.DBAG.BSV.2017
     -   date: c2000
         name: Berlin Humboldthain
-        source: src.de.TPP.2006
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Humboldthain
+        PLC: DE10880
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6002: 1,17
+        source: src.de.DRG.Bln.1943
+    -   date: c2000
+        location:
+            line.de.6002: 1,249
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
             path.de.6081.nob: hum
 
 
+#    point.de.Berlin-Gesundbrunnen               de.6170
+
+#    point.de.Berlin-Gesundbrunnen-S-Bahn        de.6020
+
+#    point.de.Berlin-Gesundbrunnen-Sga           de.6081
+
+#    point.de.Berlin-Bornholmer-Strasse-Gr       de.6081
+
+
 ---
 key: point.de.Berlin-Bornholmer-Strasse
 type: point
-junction: True
 events:
     -   date: 1935-10-01
         status: open
@@ -216,11 +246,6 @@ events:
         name: Bornholmer Straße
         de.lknr: 03 199
         source: src.de.Bfv.1938
-    -   date: !!null
-        location:
-            line.de.6002: 3,13
-            line.de.6030: 1,55
-        source: src.de.DRG.Bln.1943
     -   date: !!null
         de.VBL: Bos
         source: src.de.DRG.Bln.1946
@@ -241,33 +266,49 @@ events:
     -   date: 1990-12-22
         service: passenger
         source: src.de.Kuhlmann.2000
+
+    -   date: de.ds100.dr
+        de.DS100: BBOS
+        de.dstnr: !!str 030528
+        source: src.de.DBAG.BSV.2017
+    -   date: c2000
+        name: Berlin Bornholmer Straße
+        source: src.de.DBAG.BSV.2017
+    -   date: c2010
+        category: de.Bft
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Bornholmer Str
+        PLC: DE10839
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6002: 3,13
+            line.de.6030: 1,55
+        source: src.de.DRG.Bln.1943
     -   date: 1991-05-05
         location:
             line.de.6002: ??
         source: src.de.Kuhlmann.2000
-    -   date: de.ds100.dr
-        de.DS100: BBOS
-        source: src.de.TPP.2006
-    -   date: !!null
-        location:
-            line.de.6018: 0,000
-        source: src.de.DBAG.ISR
     -   date: c2000
-        name: Berlin Bornholmer Straße
-        source: src.de.TPP.2006
-    -   date: c2010
-        category: de.Bft
-        source: src.de.DBAG.ISR
+        location:
+            line.de.6002: 3,168
+           #line.de.6018: 
+            line.de.6030: 1,574
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
             path.de.6081: bor
 
 
+#    point.de.Berlin-Pankow-Pkrs                 de.6081
+
+
 ---
 key: point.de.Berlin-Pankow
 type: point
-junction: True
 events:
     -   date: 1880-10-15
         status: open
@@ -302,22 +343,30 @@ events:
     -   date: 1954-10-03
         name: Berlin-Pankow
         source: src.de.Kuhlmann.2000
+
+    -   date: 1997-06-02?
+        de.DS100: BPKR
+        name: Berlin-Pankow
+        de.name16: Bln-Pankow
+        category: de.Bf
+        PLC: DE11085
+        de.dstnr: !!str 033399
+        source: src.de.DBAG.BSV.2017
+
+    -   date: 2006
+        de.DS100: BPKW
+        name: Berlin-Pankow S-Bahn
+        de.name16: Bln-Pankow S-B
+        category: de.Bf
+        PLC: DE11086
+        de.dstnr: !!str 857854
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         location:
-            line.de.6001: 0,00
-        source: src.de.VzG
-    -   date: 1997-06-02?
-        category: de.Bf
-        de.DS100: BPKR
-    -   date: 2006
-        name: Berlin-Pankow (S-Bahn)
-        de.DS100: BPKW
-        source: src.de.TPP.2007
-    -   date: 2006
-        location:
+           #line.de.6001
             line.de.6002: 4,618
-        category: de.Bf
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -336,16 +385,8 @@ events:
         name: Pankow-Heinersdorf
         source: src.de.Kuhlmann.2000
     -   date: !!null
-        location:
-            line.de.6002: 6,65
         category: de.Hp
         source: src.de.DRG.Bln.1927
-    -   date: !!null
-        location:
-            line.de.6081: 6,65
-    -   date: c1912
-        location:
-            line.de.6081: !!null
     -   date: !!null
         service: passenger
         de.lknr: 03 247
@@ -359,13 +400,39 @@ events:
     -   date: c1950
         master: point.de.Berlin-Pankow-Rbf
         source: src.dd.DR.Bln.1959
+
     -   date: de.ds100.dr
         de.DS100: BPHD
-        source: src.de.TPP.2006
+        de.dstnr: !!str 033381
+        source: src.de.DBAG.BSV.2017
+    -   date: c2000
+        name: Berlin-Pankow-Heinersdorf
+        source: src.de.DBAG.BSV.2017
+    -   date: 2016-01-01?
+        category: [de.Hp, de.Bk]
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Pankow-Heinersdf
+        PLC: DE11087
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6002: 6,649
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+    -   date: !!null
+        location:
+            line.de.6081: 6,65
+    -   date: c1912
+        location:
+            line.de.6081: !!null
 
     -   date: !!null
         site:
             path.de.6081: pah
+
+
+#    point.de.Berlin-Blankenburg                 de.6081
 
 
 ---
@@ -378,18 +445,25 @@ events:
             - src.de.TPP.2006
             - src.de.TPP.2007
     -   date: !!null
-        name: Berlin-Blankenburg S-Bahn
         de.DS100: BBLB
-        source: src.de.TPP.2007
+        name: Berlin-Blankenburg S-Bahn
+        de.name16: Bln-Blankenb S-B
+        category: de.Bf
+        PLC: DE10985
+        de.dstnr: !!str 857573
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         location:
             line.de.6002: 8,348
-        category: de.Bf
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
             path.de.6081: bla
+
+
+#    point.de.Berlin-Karow                       de.6081
 
 
 ---
@@ -402,18 +476,25 @@ events:
             - src.de.TPP.2006
             - src.de.TPP.2007
     -   date: !!null
-        name: Berlin-Karow S-Bahn
         de.DS100: BKRW
-        source: src.de.TPP.2007
+        name: Berlin-Karow S-Bahn
+        de.name16: Bln-Karow S-B
+        category: de.Bft
+        PLC: DE11036
+        de.dstnr: !!str 857722
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         location:
             line.de.6002: 11,529
-        category: de.Bf
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
             path.de.6081: kar
+
+
+#    point.de.Berlin-Buch                        de.6081
 
 
 ---
@@ -422,9 +503,13 @@ type: point
 subtype: border
 events:
     -   date: !!null
-        name: Berlin-Buch BE/BB 6002
         de.DS100: BQBUS
-        source: src.de.TPP.2006
+        name: Berlin-Buch BE/BB 6002
+        de.name16: Bln-Buch 6002
+        category: de.LGr
+        PLC: DE10988
+        de.dstnr: !!str 104010
+        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
@@ -432,7 +517,7 @@ events:
 
 
 ---
-key: point.de.Roentgental
+key: point.de.Röntgental
 type: point
 events:
     -   date: 1903-05-01
@@ -465,9 +550,20 @@ events:
     -   date: c1950
         master: point.de.Bernau-Berlin
         source: src.dd.DR.Bln.1959
+
     -   date: de.ds100.dr
         de.DS100: BRGT
-        source: src.de.TPP.2006
+        de.dstnr: !!str 033308
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Röntgental
+        PLC: DE18991
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6002: 16,386
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -511,9 +607,20 @@ events:
     -   date: c1950
         master: point.de.Bernau-Berlin
         source: src.dd.DR.Bln.1959
+
     -   date: de.ds100.dr
         de.DS100: BZEP
-        source: src.de.TPP.2006
+        de.dstnr: !!str 033290
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Zepernick(b Brn)
+        PLC: DE21458
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6002: 18,175
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
     -   date: 2006
         location:
             line.de.6081: !!null
@@ -527,25 +634,53 @@ events:
 
 
 ---
+key: point.de.Bernau-Friedenstal
+type: point
+events:
+    -   date: c1995
+        status: open
+        name: Bernau-Friedenstal
+        de.name16: Bernau-Friedenst
+        category: de.Hp
+        PLC: DE11165
+        de.DS100: BBRF
+        de.dstnr: !!str 078634
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6002: 20,571
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
 key: point.de.Bernau-Berlin-S-Bahn
 type: point
 events:
     -   date: 2006
         status: open
+        split_from: point.de.Bernau-Berlin
         source:
             - src.de.TPP.2006
             - src.de.TPP.2007
     -   date: !!null
-        name: Bernau (b Berlin) S-Bahn
         de.DS100: BBER
-        source: src.de.TPP.2007
+        name: Bernau (b Berlin) S-Bahn
+        de.name16: Bernau S-B
+        category: de.Bf
+        PLC: DE11163
+        de.dstnr: !!str 857581
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         location:
             line.de.6002: 22,661
-        category: de.Bf
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
             path.de.6081: ber
         
+
+#    point.de.Bernau-Berlin                      de.6081
+

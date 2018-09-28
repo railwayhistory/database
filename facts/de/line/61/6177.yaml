@@ -119,11 +119,13 @@ points:
     -   point.de.Berlin-Kolonnenstraße              # de.6043
     -   point.de.Berlin-Schöneberg-Bk-7
     -   point.de.Berlin-Steglitz-Gbf
-    -   point.de.Berlin-Rathaus-Steglitz
+    -   point.de.Berlin-Rathaus-Steglitz            # de.6033
     -   point.de.Berlin-Lichterfelde-West
     -   point.de.Berlin-Zehlendorf
+    -   point.de.Berlin-Zehlendorf-Strw
     -   point.de.Berlin-Zehlendorf-Süd
     -   point.de.Berlin-Düppel
+    -   point.de.Berlin-Düppel-LGr
     -   point.de.Machnow
     -   point.de.Berlin-Stolperweg-LGr
     -   point.de.Berlin-Stolperweg
@@ -136,7 +138,6 @@ points:
 ---
 key: point.de.Berlin-Potsd-Bf
 type: point
-junction: True
 events:
     -   date: !!null
         name: Berlin Potsd Bf
@@ -171,12 +172,10 @@ events:
         site:
             path.de.6177: bpo
 
-# point.de.Berlin-Wannseebf bwa
 
 ---
 key: point.de.Berlin-Potsd-Gbf
 type: point
-junction: True
 events:
     -   date: !!null
         location:
@@ -203,14 +202,24 @@ events:
         service: none
         source: src.de.Kuhlmann.2000
 
+    -   date: de.ds100.dr
+        de.DS100: BPOG
+        de.dstnr: !!str 031823
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Bln Potsd Gbf
+        PLC: DE10927
+        source: src.de.DBAG.BSV.2017
+    -   date: 2016-12-11?
+        status: closed
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         site:
             path.de.6177: bpg
 
-# point.de.Berlin-Grossgoerschenstrasse ggo
 
-
-# point.de.Berlin-Kolonnenstraße                de.6043
+#    point.de.Berlin-Kolonnenstraße                de.6043
 
 
 ---
@@ -232,16 +241,9 @@ events:
             path.de.6177: vii
 
 
-# point.de.Berlin-Schoeneberg-Strw xsob
-# point.de.Berlin-Schoeneberg-Vorortbahn sob
-# point.de.Berlin-Schoeneberg-Betriebsbf sbb
-# point.de.Berlin-Friedenau fri
-# point.de.Berlin-Feuerbachstrasse feu
-
 ---
 key: point.de.Berlin-Steglitz-Gbf
 type: point
-junction: True
 events:
     -   date: !!null
         location:
@@ -273,16 +275,26 @@ events:
         source: src.dd.DR.Bln.1953
     -   date: c1950
         name: Berlin-Steglitz Gbf
+
     -   date: de.ds100.dr
         de.DS100: BSTZ
-        source: src.de.SuW.2005
+        de.dstnr: !!str 030635
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Berlin-Steglitz Gbf
+        PLC: DE11132
+        source: src.de.DBAG.BSV.2017
+    -   date: c2000
+        status: closed
+        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
             path.de.6177: stg
 
-# point.de.Berlin-Rathaus-Steglitz ste de.6033
-# point.de.Berlin-Botanischer-Garten bot de.6033
+
+#    point.de.Berlin-Rathaus-Steglitz            de.6033
+
 
 ---
 key: point.de.Berlin-Lichterfelde-West
@@ -334,9 +346,20 @@ events:
         source:
             - src.dd.DR.Bln.1983
             - src.dd.DR.Bln.1991
+
     -   date: de.ds100.dr
         de.DS100: BLIW
-        source: src.de.TPP.2006
+        de.dstnr: !!str 030650
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Bln-Lichterf W
+        PLC: DE11064
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6177: 9,825
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
     -   date: c2010
         location:
             line.de.6033: !!null
@@ -345,13 +368,10 @@ events:
         site:
             path.de.6177: lic
 
-# point.de.Berlin-Lichterfelde-West-S-Bahn lis
-# point.de.Berlin-Sundgauer-Strasse sun
 
 ---
 key: point.de.Berlin-Zehlendorf
 type: point
-junction: True
 events:
     -   date: !!null
         name: Zehlendorf
@@ -385,13 +405,45 @@ events:
         de.rang: U
         master: point.de.Berlin-Wannsee
         source: src.dd.DR.Bln.1968
+
     -   date: de.ds100.dr
         de.DS100: BZD
-        source: src.de.TPP.2006
+        de.dstnr: !!str 031971
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Bln-Zehlendorf
+        PLC: DE11158
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6033: 12,040
+           #line.de.6177:
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
             path.de.6177: zeh
+
+
+---
+key: point.de.Berlin-Zehlendorf-Strw
+type: point
+events:
+    -   date: !!null
+        de.DS100: YBBZD
+        name: Berlin-Zehlendorf Strw 6184/6177
+        de.name16: Zehlendorf Strw
+        category: de.Strw
+        PLC: DE11159
+        de.dstnr: !!str 913010
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6177: 12,350
+            line.de.6184: 12,184
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
@@ -408,8 +460,15 @@ events:
         staff: none
         name: Zehlendorf Süd
         source: src.dd.DR.Bln.1973
+
     -   date: de.ds100.dr
         de.DS100: BZFS
+        de.dstnr: !!str 316471
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Zehlendorf Süd
+        PLC: DE11160
+        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
@@ -427,7 +486,7 @@ events:
         name: Bk 19
         source: src.de.DRG.Bln.1932
     -   date: 1939-07-15
-        category: [ de.Hp, de.Bk ]
+        category: de.Hp
         source:
             - src.de.Kuhlmann.2000
             - src.de.DRG.Bln.1943
@@ -451,8 +510,18 @@ events:
     -   date: 1973-05-15
         name: Düppel
         source: src.de.Kuhlmann.2000
+
     -   date: de.ds100.dr
         de.DS100: BDP
+        de.dstnr: !!str 909495
+        source: src.de.DBAG.BSV.2017
+    -   date: c2000
+        name: Berlin-Düppel
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Düppel
+        PLC: DE10995
+        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
@@ -539,6 +608,14 @@ type: point
 subtype: border
 events:
     -   date: !!null
+        de.DS100: BQGBZ
+        name: Potsdam Griebnitzsee BE/BB 6177
+        de.name16: Pd Griebns 6177
+        category: de.LGr
+        PLC: DE18483
+        de.dstnr: !!str 104425
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         location:
             line.de.6177: 20,84
@@ -549,5 +626,5 @@ events:
             path.de.6177: ggri
 
 
-# point.de.Potsdam-Griebnitzsee               de.6110
+#    point.de.Potsdam-Griebnitzsee               de.6110
 

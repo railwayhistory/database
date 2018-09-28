@@ -43,11 +43,11 @@ events:
         status: removed
         source: src.de.Kuhlmann.2000
     -   date: 1948-01-03
-        end: point.de.Berlin-Koepenick
+        end: point.de.Berlin-Köpenick
         status: open
         source: src.de.Kuhlmann.2000
     -   date: 1948-04-30
-        start: point.de.Berlin-Koepenick
+        start: point.de.Berlin-Köpenick
         end: point.de.Berlin-Friedrichshagen
         status: open
         source: src.de.Kuhlmann.2000
@@ -74,31 +74,38 @@ events:
             -   path.de.6153 a    erk
 
 points:
-    - point.de.Berlin-Ostbahnhof                 # line.de.6109
-    - point.de.Berlin-Ostbahnhof-S-Bahn         # line.de.6024
-    - point.de.Berlin-Warschauer-Strasse
-    - point.de.Berlin-Warschauer-Strasse-Vsr
-    - point.de.Berlin-Ostkreuz                  # line.de.6170
-    - point.de.Berlin-Ostkreuz-Stadtbahn
-    - point.de.Berlin-Ostkreuz-S-Bahn
-    - point.de.Berlin-Rummelsburg-S-Bahn
-    - point.de.Berlin-Rummelsburg-Betriebsbahnhof
-    - point.de.Berlin-Karlshorst                # line.de.6153
-    - point.de.Berlin-Karlshorst-S-Bahn
-    - point.de.Berlin-Rennbahn                  # line.de.6153
-    - point.de.Berlin-Wuhlheide-S-Bahn
-    - point.de.Berlin-Pferdebucht               # line.de.6153
-    - point.de.Berlin-Koepenick                 # line.de.6153
-    - point.de.Berlin-Koepenick-S-Bahn
-    - point.de.Berlin-Hirschgarten
-    - point.de.Berlin-Friedrichshagen
-    - point.de.Berlin-Mueggelsee                # line.de.6153
-    - point.de.Berlin-Rahnsdorf
-    - point.de.Berlin-Fichtenau                 # line.de.6153
-    - point.de.Berlin-Wilhelmshagen
-    - point.de.Berlin-Wilhelmshagen-LGr
-    - point.de.Erkner                           # line.de.6153
-    - point.de.Erkner-S-Bahn
+    -   point.de.Berlin-Ostbahnhof                  # de.6109
+    -   point.de.Berlin-Ostbahnhof-S-Bahn           # de.6024
+    -   point.de.Berlin-Warschauer-Strasse
+    -   point.de.Berlin-Warschauer-Strasse-Vsr
+    -   point.de.Berlin-Ostkreuz                    # de.6170
+    -   point.de.Berlin-Ostkreuz-Stadtbahn
+    -   point.de.Berlin-Rummelsburg-S-Bahn
+    -   point.de.Berlin-Rummelsburg-Betriebsbahnhof
+    -   point.de.Berlin-Karlshorst                  # de.6153
+    -   point.de.Berlin-Karlshorst-S-Bahn
+    -   point.de.Berlin-Rennbahn                    # de.6153
+    -   point.de.Berlin-Wuhlheide-S-Bahn
+    -   point.de.Berlin-Pferdebucht                 # de.6153
+    -   point.de.Berlin-Köpenick                   # de.6153
+    -   point.de.Berlin-Köpenick-S-Bahn
+    -   point.de.Berlin-Hirschgarten
+    -   point.de.Berlin-Friedrichshagen
+    -   point.de.Berlin-Müggelsee                  # de.6153
+    -   point.de.Berlin-Rahnsdorf
+    -   point.de.Berlin-Fichtenau                   # de.6153
+    -   point.de.Berlin-Wilhelmshagen
+    -   point.de.Berlin-Wilhelmshagen-LGr
+    -   point.de.Erkner-S-Bahn
+    -   point.de.Erkner                             # de.6153
+
+
+#-----------------------------------------------------------------------------
+
+#    point.de.Berlin-Ostbahnhof                  de.6109
+
+
+#    point.de.Berlin-Ostbahnhof-S-Bahn           de.6024
 
 
 ---
@@ -145,12 +152,28 @@ events:
     -   date: c1950
         master: point.de.Berlin-Ostkreuz
         source: src.dd.DR.Bln.1959
+
     -   date: de.ds100.dr
         de.DS100: BWRS
-        source: src.de.TPP.2006
+        de.dstnr: !!str 031401
+        source: src.de.DBAG.BSV.2017
     -   date: c2000
         name: Berlin Warschauer Straße
-        source: src.de.TPP.2006
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Warschauer Str
+        PLC: DE10955
+        source: src.de.DBAG.BSV.2017
+    -   date: 2017-12-10?
+        category: de.Bft
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2010
+        location:
+            line.de.6003: 1,311
+            line.de.6004: 1,300
+            line.de.6006: 1,120
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -160,7 +183,6 @@ events:
 ---
 key: point.de.Berlin-Warschauer-Strasse-Vsr
 type: point
-junction: True
 events:
     -   date: !!null
         location:
@@ -179,55 +201,41 @@ events:
             path.de.6153: vsr
 
 
+#    point.de.Berlin-Ostkreuz                    de.6170
+
+
 ---
 key: point.de.Berlin-Ostkreuz-Stadtbahn
 type: point
-junction: True
 events:
     -   date: c1995
         status: open
+        split_from: point.de.Berlin-Ostkreuz
+    -   date: !!null
         name: Berlin Ostkreuz (Stadtbahn)
         de.DS100: BOK V
         source: src.de.TPP.2006
-    -   date: !!null
-        location:
-            line.de.6004: 2,42
-            line.de.6006: 2,14
-            line.de.6007: 0,00
-        category: de.Bft
-        master: point.de.Berlin-Ostkreuz
-    -   date: c2012
-        status: closed
-        merged: point.de.Berlin-Ostkreuz-S-Bahn
-
-    -   date: !!null
-        site:
-            path.de.6153: okr
-
-
----
-key: point.de.Berlin-Ostkreuz-S-Bahn
-type: point
-junction: True
-events:
-    -   date: c2012
-        status: open
-        name: Berlin Ostkreuz (S-Bahn)
+    -   date: 2013-09-05
         de.DS100: BOKS
-        source:
-            - src.de.TPP.2012
-            - src.de.TPP.2013
+        name: Berlin Ostkreuz (S-Bahn)
+        de.name16: Ostkreuz (S-B)
+        category: de.Bf
+        PLC: DE10919
+        de.dstnr: !!str 107834
+        source: src.de.DBAG.BSV.2017
+    -   date: 2017-12-10
+        category: de.Bft
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         location:
-            line.de.6004: 2,42
-            line.de.6006: 2,14
-            line.de.6007: 0,00
-            line.de.6020: 13,13
-        category: de.Bf
+            line.de.6004: 2,400
+            line.de.6006: 2,200
 
     -   date: !!null
         site:
             path.de.6153: okr
+
 
 ---
 key: point.de.Berlin-Rummelsburg-S-Bahn
@@ -279,9 +287,23 @@ events:
     -   date: c1975
         category: de.Hp
         source: src.dd.DR.Bln.1978
+
     -   date: de.ds100.dr
         de.DS100: BRH
-        source: src.de.TPP.2006
+        de.dstnr: !!str 031450
+        source: src.de.DBAG.BSV.2017
+    -   date: c2000
+        name: Berlin-Rummelsburg (S-Bahn)
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Bln-Rummelsb SB
+        PLC: DE11099
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6004: 3,196
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -294,6 +316,10 @@ events:
     -   date: 1902-10-01
         status: open
         note:
+            eng: >
+                Platform for staff of Rbf Rummelsburg on main line tracks
+                possibly since 1879 already, definitely since at least March
+                1902.
             deu: > 
                 Bahnsteig für Bedienstete des Rbf Rummelsburg an den
                 Fernbahngleisen möglicherweise bereits seit 1879, spätestens
@@ -330,13 +356,30 @@ events:
     -   date: c1985
         de.VBL: Rgv
         source: src.dd.DR.1989
+
     -   date: de.ds100.dr
         de.DS100: BRB
-        source: src.de.TPP.2006
+        de.dstnr: !!str 031476
+        source: src.de.DBAG.BSV.2017
+    -   date: c2000
+        name: Berlin-Rummelsburg Betriebsbahnhof
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Bbf Bln-Rummelsb
+        PLC: DE11101
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6004: 4,780
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
             path.de.6153: rub
+
+
+#    point.de.Berlin-Karlshorst                  de.6153
 
 
 ---
@@ -350,16 +393,25 @@ events:
             - src.de.TPP.2006
             - src.de.TPP.2007
     -   date: !!null
+        de.DS100: BKLH
+        name: Berlin-Karlshorst S-Bahn
+        de.name16: Karlshorst S-B
+        category: de.Bf
+        PLC: DE11034
+        de.dstnr: !!str 857748
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
         location:
             line.de.6004: 7,151
-        name: Berlin-Karlshorst S-Bahn
-        category: de.Bf
-        de.DS100: BKLH
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
             path.de.6153: kar
+
+
+#    point.de.Berlin-Rennbahn                    de.6153
 
 
 ---
@@ -407,35 +459,58 @@ events:
     -   date: c1965
         category: de.Hp
         source: src.dd.DR.Bln.1968
-    -   date: de.ds100.dr
+
+    -   date: !!null
         de.DS100: BWHH
-        source: src.de.TPP.2006
-    -   date: c1995
+        de.dstnr: !!str 031500
+        source: src.de.DBAG.BSV.2017
+    -   date: c2000
         name: Berlin-Wuhlheide (S-Bahn)
-        source: src.de.TPP.2006
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Wuhlheide (SB)
+        PLC: DE10966
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6004: 9,552
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
             path.de.6153: wuh
 
 
+#    point.de.Berlin-Pferdebucht                 de.6153
+
+
+#    point.de.Berlin-Köpenick                   de.6153
+
+
 ---
-key: point.de.Berlin-Koepenick-S-Bahn
+key: point.de.Berlin-Köpenick-S-Bahn
 type: point
 events:
     -   date: 2006
         status: open
-        split_from: point.de.Berlin-Koepenick
+        split_from: point.de.Berlin-Köpenick
         source:
             - src.de.TPP.2006
             - src.de.TPP.2007
     -   date: !!null
+        de.DS100: BKPK
+        name: Berlin-Köpenick S-Bahn
+        de.name16: Bln-Köpenick S-B
+        category: de.Bf
+        PLC: DE11048
+        de.dstnr: !!str 857755
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
         location:
             line.de.6004: 11,628
-        category: de.Bf
-        name: Berlin-Köpenick S-Bahn
-        de.DS100: BKPK
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -470,14 +545,25 @@ events:
         de.VBL: Hir
         source: src.de.DRG.Bln.1946
     -   date: c1950
-        master: point.de.Berlin-Koepenick
+        master: point.de.Berlin-Köpenick
         source: src.dd.DR.Bln.1959
+        
     -   date: de.ds100.dr
         de.DS100: BHI
-        source: src.de.TPP.2006
+        de.dstnr: !!str 031542
+        source: src.de.DBAG.BSV.2017
     -   date: c2000
         name: Berlin-Hirschgarten
-        source: src.de.TPP.2006
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Hirschgarten
+        PLC: DE11030
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6004: 13,215
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -515,18 +601,32 @@ events:
         de.rang: U
         source: src.dd.DR.Bln.1953
     -   date: c1950
-        master: point.de.Berlin-Koepenick
+        master: point.de.Berlin-Köpenick
         source: src.dd.DR.Bln.1959
+
     -   date: de.ds100.dr
         de.DS100: BFRH
-        source: src.de.TPP.2006
+        de.dstnr: !!str 031559
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Bln-Friedrichshg
+        PLC: DE10999
+        source: src.de.DBAG.BSV.2017
     -   date: c2000
         location:
             line.de.6153: !!null
 
+    -   date: c2000
+        location:
+            line.de.6004: 14,716 
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
     -   date: !!null
         site:
             path.de.6153: fri
+
+
+#    point.de.Berlin-Müggelsee                  de.6153
 
 
 ---
@@ -563,24 +663,33 @@ events:
     -   date: c1975
         de.rang: IV
         source: src.dd.DR.Bln.1978
+
     -   date: de.ds100.dr
         de.DS100: BRD
-        source: src.de.TPP.2006
-    -   date: c2000
-        category: de.Hp
+        de.dstnr: !!str 912288
+        source: src.de.DBAG.BSV.2017
     -   date: c2000
         name: Berlin-Rahnsdorf
         source: src.de.TPP.2006
     -   date: c2000
         location:
             line.de.6153: !!null
-    -   date: c2010
-        category: de.Bf
-        source: src.de.DBAG.ISR
+    -   date: !!null
+        de.name16: Rahnsdorf
+        PLC: DE11088
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6004: 19,222
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
             path.de.6153: rah
+
+
+#    point.de.Berlin-Fichtenau                   de.6153
 
 
 ---
@@ -615,12 +724,23 @@ events:
     -   date: c1950
         master: point.de.Berlin-Rahnsdorf
         source: src.dd.DR.Bln.1959
+
     -   date: de.ds100.dr
         de.DS100: BWIG
-        source: src.de.TPP.2006
+        de.dstnr: !!str 031575
+        source: src.de.DBAG.BSV.2017
     -   date: c2000
         name: Berlin-Wilhelmshagen
-        source: src.de.TPP.2006
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Wilhelmshagen
+        PLC: DE11153
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6004: 22,007
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -633,9 +753,13 @@ type: point
 subtype: border
 events:
     -   date: !!null
-        name: Berlin-Wilhelmshagen BE/BB
         de.DS100: BQWI
-        source: src.de.TPP.2006
+        name: Berlin-Wilhelmshagen BE/BB
+        de.name16: Bln-Wilhhg Lgr
+        category: de.LGr
+        PLC: DE11154
+        de.dstnr: !!str 104011
+        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
@@ -648,20 +772,29 @@ type: point
 events:
     -   date: 2006
         status: open
+        split_from: point.de.Erkner
         source:
             - src.de.TPP.2006
             - src.de.TPP.2007
+
     -   date: !!null
-        name: Erkner S-Bahn
         de.DS100: BE
-        source: src.de.TPP.2007
+        name: Erkner S-Bahn
+        de.name16: Erkner S-B
+        category: de.Bf
+        PLC: DE12968
+        de.dstnr: !!str 857607
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         location:
             line.de.6004: 24,363
-        category: de.Bf
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
             path.de.6153: erk
+
+
+#    point.de.Erkner                             de.6153
 

@@ -7,10 +7,10 @@ events:
     -   date: !!null
         region: org.de
     -   date: !!null
-        end: point.de.Bohnsdorf-Sued-LGr
+        end: point.de.Bohnsdorf-Süd-LGr
         region: org.de.l.bb
     -   date: !!null
-        start: point.de.Bohnsdorf-Sued-LGr
+        start: point.de.Bohnsdorf-Süd-LGr
         region: org.de.l.be
 
     -   date: !!null
@@ -20,6 +20,7 @@ events:
     #   Eröffnung
     #
     -   date: 2011-10-30
+        start: point.de.Glasower-Damm-Ost
         end: point.de.Berlin-Flughafen-BER
         status: open
         passenger: none
@@ -60,31 +61,43 @@ events:
             -   path.de.6142 fflu bos
 
 points:
-    #   point.de.Glasower-Damm-Nord
-    - point.de.Glasower-Damm-Ost                # line.de.6151
-    - point.de.Selchow-Sued
-    - point.de.Berlin-Flughafen-BER
-    - point.de.Diepensee-Abzw-Cargo
-    - point.de.Kienberg
-    - point.de.Bohnsdorf-West
-    - point.de.Bohnsdorf-Sued-LGr
-    - point.de.Bohnsdorf-Sued                   # line.de.6142
+    -   point.de.Glasower-Damm-Nord                 # de.6135
+    -   point.de.Glasower-Damm-Ost                  # de.6126
+    -   point.de.Selchow-Süd
+    -   point.de.Berlin-Flughafen-BER
+    -   point.de.Diepensee-Abzw-Cargo
+    -   point.de.Kienberg
+    -   point.de.Bohnsdorf-West
+    -   point.de.Bohnsdorf-Süd-LGr
+    -   point.de.Bohnsdorf-Süd                      # de.6142
+
+
+#-----------------------------------------------------------------------------
+
+#    point.de.Glasower-Damm-Nord                 de.6135
+
+
+#    point.de.Glasower-Damm-Ost                  de.6126
 
 
 ---
-key: point.de.Selchow-Sued
+key: point.de.Selchow-Süd
 type: point
-junction: True
 events:
-    -   date: 2011-10-30?
+    -   date: 2010-12-23
         status: open
+        de.DS100: BASS
+        name: Selchow Süd
+        de.name16: Selchow Süd
+        category: de.Abzw
+        PLC: DE19688
+        de.dstnr: !!str 913418
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         location:
             line.de.6151: 30,789
-        category: de.Abzw
-        name: Selchow West
-        de.DS100: BASS
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
     
     -   date: !!null
         site:
@@ -94,20 +107,26 @@ events:
 ---
 key: point.de.Berlin-Flughafen-BER
 type: point
-junction: True
 events:
     -   date: 2011-10-30
         status: open
         service: none
     -   date: !!null
-        location:
-            line.de.6151: 34,500
-        category: de.Bf
-        name: Berlin Flughafen BER
         de.DS100: BFBI
-        source: src.de.DBAG.ISR
+        name: Berlin Flughafen BER
+        de.name16: Bln Flughf BER
+        category: de.Bf
+        PLC: DE10851
+        de.dstnr: !!str 844076
+        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
+        location:
+            line.de.6151: 34,500
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+    -   date: !!null
+        connection: point.de.Berlin-Flughafen-BER-S-Bahn
         site:
             path.de.6151: flu
 
@@ -115,18 +134,22 @@ events:
 ---
 key: point.de.Diepensee-Abzw-Cargo
 type: point
-junction: True
 events:
-    -   date: 2012-06-03?
+    -   date: 2013-09-05
         status: open
+        de.DS100: BACO
+        name: Diepensee Abzw Cargo
+        de.name16: Diepensee C
+        category: [ de.Bft, de.Abzw ]
+        PLC: DE12186
+        de.dstnr: !!str 845800
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         location:
             line.de.6151: 37,193
             line.de.6519:  5,618
-        category: de.Abzw
-        name: Diepensee Abzw Cargo
-        de.DS100: BACO
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
     
     -   date: !!null
         site:
@@ -137,13 +160,20 @@ events:
 key: point.de.Kienberg
 type: point
 events:
+    -   date: 2011-05-19
+        status: open
+        de.DS100: BAKB
+        name: Kienberg
+        de.name16: Kienberg
+        category: de.Awanst
+        PLC: DE15506
+        de.dstnr: !!str 844084
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         location:
-            line.de.6151: 38,3
-        category: de.Awanst
-        name: Kienberg
-        de.DS100: BAKB
-        source: src.de.SuW.2011
+            line.de.6151: 38,280
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
     
     -   date: !!null
         site:
@@ -153,18 +183,22 @@ events:
 ---
 key: point.de.Bohnsdorf-West
 type: point
-junction: True
 events:
-    -   date: 2012-06-02?
+    -   date: 2013-10-23
         status: open
+        de.DS100: BBDW
+        name: Bohnsdorf West
+        de.name16: Bohnsdorf West
+        category: de.Abzw
+        PLC: DE11445
+        de.dstnr: !!str 844092
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         location:
             line.de.6151: 40,698
             line.de.6519:  1,805
-        category: de.Abzw
-        name: Bohnsdorf West
-        de.DS100: BBDW
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
     
     -   date: !!null
         site:
@@ -172,15 +206,23 @@ events:
 
 
 ---
-key: point.de.Bohnsdorf-Sued-LGr
+key: point.de.Bohnsdorf-Süd-LGr
 type: point
 subtype: border
 events:
     -   date: !!null
-        name: Bohnsdorf 6151
         de.DS100: BQBD
-        source: src.de.TPP.2012
+        name: Bohnsdorf 6151
+        de.name16: Bohnsdorf 6151
+        category: de.LGr
+        PLC: DE11443
+        de.dstnr: !!str 107720
+        source: src.de.DBAG.BSV.2017
     
     -   date: !!null
         site:
             path.de.6151: gbos
+
+
+#    point.de.Bohnsdorf-Süd                      de.6142
+

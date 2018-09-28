@@ -53,10 +53,36 @@ events:
             -   path.de.6143 a    f
 
 points:
-    - point.de.Berlin-Schoeneweide-Pbf              # line.de.6142
-    - point.de.Berlin-Schoeneweide-S-Bahn           # line.de.6007
-    - point.de.Berlin-Oberspree
-    - point.de.Berlin-Spindlersfeld
+    -   point.de.Berlin-Schöneweide-Pbf             # de.6142
+    -   point.de.Berlin-Schöneweide-S-Bahn          # de.6007
+    -   point.de.Berlin-Schöneweide-Ost
+    -   point.de.Berlin-Oberspree
+    -   point.de.Berlin-Spindlersfeld
+
+
+#-----------------------------------------------------------------------------
+
+#    point.de.Berlin-Schöneweide-Pbf             de.6142
+      
+#    point.de.Berlin-Schöneweide-S-Bahn          de.6007
+
+
+---
+key: point.de.Berlin-Schöneweide-Ost
+type: point
+events:
+    -   date: !!null
+        name: Berlin-Schöneweide Ost
+        category: de.Bft
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: BSWO
+        de.dstnr: !!str 109060
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Bln-Schönew Ost
+        PLC: DE21574
+        source: src.de.DBAG.BSV.2017
 
 
 ---
@@ -97,12 +123,23 @@ events:
     -   date: c1970
         category: de.Hp
         source: src.dd.DR.Bln.1973
+
     -   date: de.ds100.dr
         de.DS100: BOSP
-        source: src.de.TPP.2006
+        de.dstnr: !!str 033621
+        source: src.de.DBAG.BSV.2017
     -   date: c2000
         name: Berlin Oberspree
-        source: src.de.TPP.2006
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Oberspree
+        PLC: DE10905
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6143: 2,203
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -112,7 +149,6 @@ events:
 ---
 key: point.de.Berlin-Spindlersfeld
 type: point
-junction: True
 events:
     -   date: 1892-04-01
         status: open
@@ -144,13 +180,24 @@ events:
     -   date: c1965
         de.rang: IV
         source: src.dd.DR.Bln.1968
+
     -   date: de.ds100.dr
         de.DS100: BSPF
-        source: src.de.TPP.2006
+        de.dstnr: !!str 033639
+        source: src.de.DBAG.BSV.2017
     -   date: 2010-11-15
         category: de.Hp
         staff: none
         source: src.de.web.Stadtschnellbahn-Berlin
+    -   date: !!null
+        de.name16: Bln-Spindlersfd
+        PLC: DE11126
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6143: 4,043
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:

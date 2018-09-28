@@ -55,42 +55,169 @@ events:
     #
 
 points:
-    - point.de.Eberswalde-Hbf                       # line.de.6081
-    - point.de.Eberswalde-Forsthaus
-    - point.de.Bad-Freienwalde-Oder
-    - point.de.Wriezen
-    - point.de.Alt-Bliesdorf-Abzw
-    - point.de.Letschin
+    -   point.de.Eberswalde-Hbf                     # de.6081
+    -   point.de.Eberswalde-Forsthaus
+    -   point.de.Niederfinow
+    -   point.de.Falkenberg-Mark
+    -   point.de.Bad-Freienwalde-Ziegelei
+    -   point.de.Bad-Freienwalde-Oder
+    -   point.de.Altranft
+    -   point.de.Wriezen
+    -   point.de.Alt-Bliesdorf-Abzw
+    -   point.de.Neutrebbin
+    -   point.de.Sietzing
+    -   point.de.Letschin
     - point.de.Werbig-oben
+
+
+#-----------------------------------------------------------------------------
+
+#    point.de.Eberswalde-Hbf                     de.6081
 
 
 ---
 key: point.de.Eberswalde-Forsthaus
 type: point
-progress: stub
 events:
     -   date: !!null
-        name: Forsthaus
-        source: src.de.SuW.2011
+        name: Eberswalde Forsthaus
+        category: de.Abzw
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: WFST
+        de.dstnr: !!str 282418
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Forsthaus
+        PLC: DE12661
+        source: src.de.DBAG.BSV.2017
+    -   date: c2000
+        status: closed
+        source: src.de.DBAG.BSV.2017
+
+
+---
+key: point.de.Niederfinow
+type: point
+events:
+    -   date: !!null
+        name: Niederfinow
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: WNW
+        de.dstnr: !!str 282426
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Niederfinow
+        PLC: DE17707
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6758: 55,172
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Falkenberg-Mark
+type: point
+events:
+    -   date: !!null
+        name: Falkenberg (Mark)
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: WFBG
+        de.dstnr: !!str 282434
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Falkenberg (M)
+        PLC: DE13144
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6758: 58,510
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Bad-Freienwalde-Ziegelei
+type: point
+events:
+    -   date: !!null
+        name: Bad Freienwalde Ziegelei
+        category: de.Anst
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: WDRW
+        de.dstnr: !!str 282459
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Ziegelei
+        PLC: DE10439
+        source: src.de.DBAG.BSV.2017
+    -   date: 2015-12-13?
+        status: closed
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6758: 61,642
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Bad-Freienwalde-Oder
 type: point
-progress: stub
 events:
     -   date: !!null
-        name: Bad Freiewalde (Oder)
+        name: Bad Freienwalde (Oder)
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
         de.DS100: WFW
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 282467
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Bad Freienw (O)
+        PLC: DE10438
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6758: 64,355
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
     -   date: !!null
         connection: point.de.Bad-Freienwalde-Oder-Kleinb # line.de.8904
 
 
 ---
+key: point.de.Altranft
+type: point
+events:
+    -   date: !!null
+        name: Altranft
+        de.name16: Altranft
+        category: de.Hp
+        PLC: DE10207
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: BART
+        de.dstnr: !!str 032193
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6758: 68,707
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
 key: point.de.Wriezen
 type: point
-junction: True
 events:
     -   date: !!null
         name: Wriezen
@@ -113,10 +240,21 @@ events:
     -   date: c1965
         de.rang: II
         source: src.dd.DR.Bln.1968
+
     -   date: de.ds100.dr
         de.DS100: BWRZ
-        source: src.de.TPP.2006
-        
+        de.dstnr: !!str 032185
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Wriezen
+        PLC: DE21325
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6758: 75,574
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+ 
     -   date: !!null
         connection: point.de.Wriezen-Kleinb         # line.de.6524
         site:
@@ -126,31 +264,112 @@ events:
 ---
 key: point.de.Alt-Bliesdorf-Abzw
 type: point
-progress: stub
 events:
     -   date: !!null
+        de.DS100: BABL
         name: Alt Bliesdorf
-        source: src.de.SuW.2011
+        de.name16: Alt Bliesdorf
+        category: de.Abzw
+        PLC: DE10134
+        de.dstnr: !!str 031237
+        source: src.de.DBAG.BSV.2017
+    -   date: c2000
+        status: closed
+        source: src.de.DBAG.BSV.2017
+
+
+---
+key: point.de.Neutrebbin
+type: point
+events:
+    -   date: !!null
+        name: Neutrebbin
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: BNTB
+        de.dstnr: !!str 032151
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Neutrebbin
+        PLC: DE17657
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6758: 84,255
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Sietzing
+type: point
+events:
+    -   date: !!null
+        name: Sietzing
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: BSIZ
+        de.dstnr: !!str 032144
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Sietzing
+        PLC: DE19742
+        source: src.de.DBAG.BSV.2017
+    -   date: c2000
+        status: closed
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6758: 88,530
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Letschin
 type: point
-progress: stub
 events:
     -   date: !!null
         name: Letschin
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
         de.DS100: BLTS
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 032136
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Letschin
+        PLC: DE16313
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6758: 93,209
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Werbig-oben
 type: point
-progress: stub
 events:
     -   date: !!null
         name: Werbig oben
+        category: de.Bft
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
         de.DS100: BWRA
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 032086
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Werbig oben
+        PLC: DE20995
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6156: 101,65
+            line.de.6758: 101,65
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 

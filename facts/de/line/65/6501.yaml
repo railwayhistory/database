@@ -49,11 +49,20 @@ events:
     #
 
 points:
-    - point.de.Berlin-Wilhelmsruh                   # line.de.6030
-    - point.de.Berlin-Wilhelmsruh-Gabelung
-    - point.de.Berlin-Rosenthal
-    - point.de.Berlin-Blankenfelde-LGr
-    - point.de.Schönwalde-Barnim-Abzw               # line.de.6500
+    -   point.de.Berlin-Wilhelmsruh                 # de.6030
+    -   point.de.Berlin-Wilhelmsruh-Gabelung
+    -   point.de.Berlin-Rosenthal
+    -   point.de.Berlin-Blankenfelde
+    -   point.de.Berlin-Blankenfelde-LGr
+    -   point.de.Schildow
+    -   point.de.Schildow-Mönchmühle
+    -   point.de.Mühlenbeck-Berlin
+    -   point.de.Schönwalde-Barnim-Abzw             # de.6500
+
+
+#-----------------------------------------------------------------------------
+
+#    point.de.Berlin-Wilhelmsruh                 de.6030
 
 
 ---
@@ -69,21 +78,104 @@ events:
 ---
 key: point.de.Berlin-Rosenthal
 type: point
-junction: True
 progress: stub
 events:
     -   date: !!null
-        location:
-            line.de.6552: 0,923
-        source: src.de.VzG
+        name: Berlin-Rosenthal
+
+
+---
+key: point.de.Berlin-Blankenfelde
+type: point
+events:
+    -   date: !!null
+        name: Berlin-Blankenfelde
+        de.name16: Bln-Blankenfelde
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: BBLF
+        de.dstnr: !!str 035873
+        source: src.de.DBAG.BSV.2017
+    -   date: 2006-01-01
+        status: open
+        source: src.de.DBAG.BSV.2017
 
 
 ---
 key: point.de.Berlin-Blankenfelde-LGr
 type: point
 subtype: border
-progress: stub
 events:
     -   date: !!null
+        de.DS100: BQBL
         name: Berlin-Blankenfelde BE/BB
+        de.name16: Bln-Blankfde LGr
+        category: de.LGr
+        PLC: DE10986
+        de.dstnr: !!str 104050
+        source: src.de.DBAG.BSV.2017
+
+
+---
+key: point.de.Schildow
+type: point
+events:
+    -   date: !!null
+        name: Schildow
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: BSCW
+        de.dstnr: !!str 105668
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Schildow
+        source: src.de.DBAG.BSV.2017
+    -   date: 2005-04-01?
+        status: closed
+        source: src.de.DBAG.BSV.2017
+
+
+---
+key: point.de.Schildow-Mönchmühle
+type: point
+events:
+    -   date: !!null
+        name: Schildow-Mönchmühle
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: BSCM
+        de.dstnr: !!str 105666
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Schildow-Mönchm
+        source: src.de.DBAG.BSV.2017
+    -   date: 2005-04-01?
+        status: closed
+        source: src.de.DBAG.BSV.2017
+
+
+---
+key: point.de.Mühlenbeck-Berlin
+type: point
+events:
+    -   date: !!null
+        name: Mühlenbeck (b Berlin)
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: BMK
+        de.dstnr: !!str 035907
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Mühlenbeck
+        source: src.de.DBAG.BSV.2017
+    -   date: 2005-04-01?
+        status: closed
+        source: src.de.DBAG.BSV.2017
+
+
+#    point.de.Schönwalde-Barnim-Abzw             de.6500
 

@@ -91,18 +91,26 @@ events:
             -   path.de.6100     fwus nau
 
 points:
-    - point.de.Priort                           # line.de.6068
-    - point.de.Priort-Nordkopf                  # line.de.6068
-    - point.de.Wustermark                       # line.de.6107
-    - point.de.Wustermark-Awb
-    - point.de.Bredow
-    - point.de.Nauen                            # line.de.6100
+    -   point.de.Priort                             # de.6068
+    -   point.de.Priort-Nordkopf                    # de.6068
+    -   point.de.Wustermark                         # de.6107
+    -   point.de.Wustermark-Awb
+    -   point.de.Bredow
+    -   point.de.Nauen                              # de.6100
+
+
+#-----------------------------------------------------------------------------
+
+#    point.de.Priort                             de.6068
+
+#    point.de.Priort-Nordkopf                    de.6068
+
+#    point.de.Wustermark                         de.6107
 
 
 ---
 key: point.de.Wustermark-Awb
 type: point
-junction: True
 events:
     -   date: 1950?
         status: open
@@ -110,11 +118,20 @@ events:
         category: de.Abzw
         name: Awb
         source: src.dd.DR.Bln.1959
+
     -   date: de.ds100.dr
-        name: Wustermark Awb
         de.DS100: BWUB
+        de.dstnr: !!str 032243
+        source: src.de.DBAG.BSV.2017
     -   date: 1993?
         status: closed
+    -   date: c2000
+        name: Wustermark Awb
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Wus/Bredow
+        PLC: DE21402
+        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
@@ -168,3 +185,7 @@ events:
     -   date: !!null
         site:
             path.de.6105: bre
+
+
+#    point.de.Nauen                              de.6100
+

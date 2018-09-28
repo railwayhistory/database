@@ -53,21 +53,25 @@ events:
             -   path.de.6531     fbik ahr
 
 points:
-    - point.de.Biesdorfer-Kreuz-S-Bahn              # line.de.6006
-    - point.de.Berlin-Springpfuhl
-    - point.de.Berlin-Poelchaustrasse
-    - point.de.Berlin-Marzahn                       # line.de.6531
-    - point.de.Berlin-Marzahn-S-Bahn
-    - point.de.Berlin-Raoul-Wallenberg-Strasse
-    - point.de.Berlin-Mehrower-Allee
-    - point.de.Ahrensfelde                          # line.de.6531
-    - point.de.Ahrensfelde-S-Bahn
+    -   point.de.Biesdorfer-Kreuz-S-Bahn            # de.6006
+    -   point.de.Berlin-Springpfuhl
+    -   point.de.Berlin-Poelchaustrasse
+    -   point.de.Berlin-Marzahn                     # de.6531
+    -   point.de.Berlin-Marzahn-S-Bahn
+    -   point.de.Berlin-Raoul-Wallenberg-Strasse
+    -   point.de.Berlin-Mehrower-Allee
+    -   point.de.Ahrensfelde                        # de.6531
+    -   point.de.Ahrensfelde-S-Bahn
+
+
+#-----------------------------------------------------------------------------
+
+#    point.de.Biesdorfer-Kreuz-S-Bahn            de.6006
 
 
 ---
 key: point.de.Berlin-Springpfuhl
 type: point
-junction: True
 events:
     -   date: 1976-12-30
         status: open
@@ -86,17 +90,24 @@ events:
         location:
             line.de.6011: 8,750
         source: src.dd.DR.Bln.1991
+
     -   date: de.ds100.dr
         de.DS100: BSPH
-        source: src.de.TPP.2006
+        de.dstnr: !!str 032342
+        source: src.de.DBAG.BSV.2017
     -   date: c2000
         name: Berlin Springpfuhl
-        source: src.de.TPP.2006
-    -   date: c2010
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Springpfuhl
+        PLC: DE10943
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
         location:
             line.de.6011: 8,679
-            line.de.6012: 8,956
-        source: src.de.DBAG.ISR
+           #line.de.6012:
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -122,18 +133,31 @@ events:
     -   date: 1992-01-31
         name: Poelchaustraße
         source: src.de.Kuhlmann.2000
+
     -   date: de.ds100.dr
         de.DS100: BPOE
-        source: src.de.TPP.2006
+        de.dstnr: !!str 032409
+        source: src.de.DBAG.BSV.2017
     -   date: c2000
-        name: Berlin Pölchaustraße
-        source: src.de.TPP.2006
+        name: Berlin Poelchaustraße
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Poelchaustraße
+        PLC: DE10926
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6011: 9,750
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
             path.de.6531: poe
 
-# point.de.Berlin-Marzahn 9,92
+
+#    point.de.Berlin-Marzahn                     de.6531
+
 
 ---
 key: point.de.Berlin-Marzahn-S-Bahn
@@ -145,14 +169,18 @@ events:
             - src.de.TPP.2006
             - src.de.TPP.2007
     -   date: !!null
-        name: Berlin-Marzahn S-Bahn
         de.DS100: BMAZ
-        source: src.de.TPP.2007
+        name: Berlin-Marzahn S-Bahn
+        de.name16: Bln-Marzahn S-B
+        category: de.Bf
+        PLC: DE11076
+        de.dstnr: !!str 857797
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         location:
             line.de.6011: 10,625
-        category: de.Bf
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -178,16 +206,23 @@ events:
     -   date: 1992-01-31
         name: Raoul-Wallenberg-Straße
         source: src.de.Kuhlmann.2000
+
     -   date: de.ds100.dr
         de.DS100: BRW
-        source: src.de.TPP.2006
+        de.dstnr: !!str 032425
+        source: src.de.DBAG.BSV.2017
     -   date: c2000
         name: Berlin Raoul-Wallenberg-Straße
-        source: src.de.TPP.2006
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: R-Wallenberg-Str
+        PLC: DE10934
+        source: src.de.DBAG.BSV.2017
+
     -   date: c2000
         location:
             line.de.6011: 11,595
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -213,20 +248,30 @@ events:
     -   date: 1992-01-31
         name: Mehrower Allee
         source: src.de.Kuhlmann.2000
+
     -   date: de.ds100.dr
         de.DS100: BMEA
-        source: src.de.TPP.2006
+        de.dstnr: !!str 032433
+        source: src.de.DBAG.BSV.2017
     -   date: c2000
         name: Berlin Mehrower Allee
-        source: src.de.TPP.2006
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Mehrower Allee
+        PLC: DE10893
+        source: src.de.DBAG.BSV.2017
+
     -   date: c2000
         location:
             line.de.6011: 12,462
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
             path.de.6531: meh
+
+
+#    point.de.Ahrensfelde                        de.6531
 
 
 ---
@@ -235,19 +280,25 @@ type: point
 events:
     -   date: 2006
         status: open
+        split_from: point.de.Ahrensfelde
         source:
             - src.de.TPP.2006
             - src.de.TPP.2007
     -   date: !!null
-        name: Ahrensfelde S-Bahn
         de.DS100: BAF
-        source: src.de.TPP.2007
+        name: Ahrensfelde S-Bahn
+        de.name16: Ahrensfelde S-B
+        category: de.Bf
+        PLC: DE10071
+        de.dstnr: !!str 857524
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         location:
             line.de.6011: 14,277
-        category: de.Bf
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
             path.de.6531: ahr
+

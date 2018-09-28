@@ -102,30 +102,48 @@ events:
             -   path.de.6177      fsox xsob
 
 points:
-    - point.de.Berlin-Nordbf-Strw
-    - point.de.Berlin-Nordbf-unten
-    - point.de.Berlin-Oranienburger-Strasse
-    - point.de.Berlin-Friedrichstraße-unten
-    - point.de.Berlin-Brandenburger-Tor
-    - point.de.Berlin-Potsdamer-Platz-S-Bahn
-    - point.de.Berlin-Potsdamer-Platz-Gr
-    - point.de.Berlin-Anh-Bf-S-Bahn
+    -   point.de.Berlin-Nordbf-Strw
+    -   point.de.Berlin-Nordbf-unten
+    -   point.de.Berlin-Oranienburger-Strasse
+    -   point.de.Berlin-Friedrichstraße-unten
+    -   point.de.Berlin-Brandenburger-Tor
+    -   point.de.Berlin-Potsdamer-Platz-S-Bahn
+    -   point.de.Berlin-Potsdamer-Platz-Gr
+    -   point.de.Berlin-Anh-Bf-S-Bahn
     -   point.de.Berlin-Yorckstraße-Großgörschenstraße # de.6033
-    - point.de.Berlin-Julius-Leber-Brücke
-    - point.de.Berlin-Schöneberg-Strw              # line.de.6033
+    -   point.de.Berlin-Julius-Leber-Brücke
+    -   point.de.Berlin-Schöneberg-Strw             # de.6033
+    -   point.de.Berlin-Schöneberg-Vorortbahn       # de.6033
 
+
+#-----------------------------------------------------------------------------
 
 ---
 key: point.de.Berlin-Nordbf-Strw
 type: point
 subtype: reference
-junction: True
 events:
     -   date: !!null
-        name: Berlin Nordbahnhof Strw Nord-Süd-Tunnel
-        short_name: Berlin Nordbahnhof
+        name: Berlin Nordbahnhof Strw 6032/6002
+        category: de.Strw
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: YBBNB
+        de.dstnr: !!str 913472
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Nordbf Strw
+        PLC: DE10901
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        short_name: Berlin Nordbahnhof Strw
+
+    -   date: !!null
         location:
-            line.de.6032: 0,000
+            line.de.6002:  0,072
+            line.de.6032: -0,072
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -157,10 +175,6 @@ events:
         de.lknr: 03 380
         source: src.de.Bfv.1938
     -   date: !!null
-        location:
-            line.de.6032: 0,32
-        source: src.de.DRG.Bln.1943
-    -   date: !!null
         de.VBL: Stu
         source: src.de.DRG.Bln.1946
     -   date: 1950-12-01
@@ -186,12 +200,23 @@ events:
         de.rang: U
         master: point.de.Berlin-Friedrichstraße
         source: src.dd.DR.Bln.1978
+
     -   date: de.ds100.dr
         de.DS100: BNB
-        source: src.de.TPP.2006
+        de.dstnr: !!str 030551
+        source: src.de.DBAG.BSV.2017
     -   date: c2000
         name: Berlin Nordbahnhof
-        source: src.de.TPP.2006
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Bln Nordbahnhof
+        PLC: DE10900
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6032: 0,320
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -212,10 +237,6 @@ events:
         de.lknr: 03 381
         source: src.de.Bfv.1938
     -   date: !!null
-        location:
-            line.de.6032: 1,29
-        source: src.de.DRG.Bln.1943
-    -   date: !!null
         de.VBL: Oru
         source: src.de.DRG.Bln.1946
     -   date: c1950
@@ -233,12 +254,26 @@ events:
     -   date: 1990-07-02
         service: passenger
         source: src.de.web.Stadtschnellbahn-Berlin
+
     -   date: de.ds100.dr
         de.DS100: BORS
-        source: src.de.TPP.2006
+        de.dstnr: !!str 030569
+        source: src.de.DBAG.BSV.2017
+    -   date: c2000
+        category: de.Bft
+        source: src.de.DBAG.BSV.2017
     -   date: c2000
         name: Berlin Oranienburger Straße
-        source: src.de.TPP.2006
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: OranienburgerStr
+        PLC: DE10907
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6032: 1,290
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -260,31 +295,38 @@ events:
         de.lknr: 03 382
         source: src.de.Bfv.1938
     -   date: !!null
-        location:
-            line.de.6032: 2,02
-        source: src.de.DRG.Bln.1943
-    -   date: !!null
         de.VBL: Fru
         source: src.de.DRG.Bln.1943
     -   date: c1955
         category: de.Glgr
         master: point.de.Berlin-Friedrichstraße
         source: src.dd.DR.Bln.1959
+
     -   date: de.ds100.dr
-        category: de.Bft
         name: Friedrichstraße (Nord-Süd-Tunnel)
+        category: de.Bft
         de.DS100: BFRIU
         source: src.de.SuW.2005
-    -   date: c2008
+    -   date: de.ds100.dr
+        de.dstnr: !!str 908729
+        source: src.de.DBAG.BSV.2017
+    -   date: c2005
         category: de.Hp
         name: Berlin Friedrichstraße (Nord-Süd-Tunnel)
         de.DS100: BFSTT
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Friedrichstr Tun
+        PLC: DE10858
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6032: 2,020
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         connection: point.de.Berlin-Friedrichstraße
-
-    -   date: !!null
         site:
             path.de.6032: fri
 
@@ -302,10 +344,6 @@ events:
         service: passenger
         de.lknr: 03 383
         source: src.de.Bfv.1938
-    -   date: !!null
-        location:
-            line.de.6032: 2,68
-        source: src.de.DRG.Bln.1943
     -   date: c1940
         category: de.Bf
         de.rang: IV
@@ -334,21 +372,34 @@ events:
     -   date: 1990-06-01
         service: passenger
         source: src.de.web.Stadtschnellbahn-Berlin
+
     -   date: de.ds100.dr
         de.DS100: BUDL
         source: src.de.TPP.2006
+    -   date: de.ds100.dr
+        de.dstnr: !!str 030577
+        source: src.de.DBAG.BSV.2017
     -   date: c2000
         name: Berlin Unter den Linden
         source: src.de.TPP.2006
-    -   date: 2009-08-08
-        name: Berlin Brandenburger Tor
-        de.DS100: BTOR
-        source:
-            - src.de.web.Stadtschnellbahn-Berlin
-            - src.de.DBAG.ISR
     -   date: c2008
         category: de.Hp
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.BSV.2017
+    -   date: 2009-08-08
+        de.DS100: BTOR
+        name: Berlin Brandenburger Tor
+        de.name16: BrandenburgerTor
+        source:
+            - src.de.web.Stadtschnellbahn-Berlin
+            - src.de.DBAG.BSV.2017
+    -   date: !!null
+        PLC: DE10842
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6032: 2,680
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -358,14 +409,11 @@ events:
 ---
 key: point.de.Berlin-Potsdamer-Platz-S-Bahn
 type: point
-junction: True
 events:
     -   date: 1939-04-15
         status: open
         source: src.de.Kuhlmann.2000
     -   date: !!null
-        location:
-            line.de.6032: 3,62
         category: de.Bf
         de.rang: II
         name: Potsdamer Platz
@@ -390,20 +438,29 @@ events:
     -   date: 1992-03-01
         service: passenger
         source: src.de.web.Stadtschnellbahn-Berlin
+
     -   date: de.ds100.dr
         de.DS100: BPOP
-        source: src.de.TPP.2006
+        de.dstnr: !!str 030585
+        source: src.de.DBAG.BSV.2017
     -   date: c2000
         name: Berlin Potsdamer Platz
         source: src.de.TPP.2006
     -   date: c2008
         name: Berlin Potsdamer Platz (S-Bahn)
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Potsdamer Platz
+        PLC: DE10929
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6032: 3,620
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         connection: point.de.Berlin-Potsdamer-Platz-Fernbf
-
-    -   date: !!null
         site:
             path.de.6032: pot
 
@@ -418,19 +475,14 @@ events:
         site:
             path.de.6032: gpot
 
+
 ---
 key: point.de.Berlin-Anh-Bf-S-Bahn
 type: point
-junction: True
 events:
     -   date: 1939-10-09
         status: open
         source: src.de.Kuhlmann.2000
-    -   date: !!null
-        location:
-            line.de.6032: 4,47
-            line.de.6034: 4,47
-        source: src.de.DRG.Bln.1943
     -   date: !!null
         category: de.Bf
         de.rang: II
@@ -451,19 +503,32 @@ events:
     -   date: c1980
         master: point.de.Berlin-Wilmersdorf
         source: src.dd.DR.Bln.1983
+
     -   date: de.ds100.dr
         de.DS100: BAHU
-        source: src.de.TPP.2006
+        de.dstnr: !!str 249680
+        source: src.de.DBAG.BSV.2017
     -   date: c2000
         name: Berlin Anhalter Bf
-        source: src.de.TPP.2006
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Berlin Anhalt.Bf
+        PLC: DE10832
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6032: 4,471
+            line.de.6034: 4,471
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         connection: point.de.Berlin-Anh-Bf
-
-    -   date: !!null
         site:
             path.de.6032: anh
+
+
+#    point.de.Berlin-Yorckstraße-Großgörschenstraße de.6033
 
 
 ---
@@ -474,14 +539,26 @@ events:
         status: open
         source: src.de.web.Stadtschnellbahn-Berlin
     -   date: !!null
+        de.DS100: BJLB
+        name: Berlin Julius-Leber-Brücke SB
+        de.name16: J-Leber-Brücke
+        category: de.Hp
+        PLC: DE10884
+        de.dstnr: !!str 887562
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
         location:
             line.de.6032: 6,817
-        category: de.Hp
-        name: Berlin Julius-Leber-Brücke SB
-        de.DS100: BJLB
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
             path.de.6177: jul
+
+
+#    point.de.Berlin-Schöneberg-Strw             de.6033
+
+
+#    point.de.Berlin-Schöneberg-Vorortbahn       de.6033
 

@@ -57,36 +57,53 @@ events:
             -   path.de.6116 a    saa
 
 points:
-    - point.de.Potsdam-Golm                         # line.de.6115
-    - point.de.Potsdam-Wildpark-West
-    - point.de.Potsdam-Pirschheide                  # line.de.6115
-    - point.de.Nesselgrund
-    - point.de.Wilhelmshorst-Nesselgrund
-    - point.de.Bergholz-Potsdam                     # line.de.6118
-    - point.de.Saarmund
+    -   point.de.Potsdam-Golm                       # de.6115
+    -   point.de.Potsdam-Wildpark-West
+    -   point.de.Potsdam-Pirschheide                # de.6115
+    -   point.de.Nesselgrund
+    -   point.de.Wilhelmshorst-Nesselgrund
+    -   point.de.Bergholz-Potsdam
+    -   point.de.Saarmund
+
+
+#-----------------------------------------------------------------------------
+
+#    point.de.Potsdam-Golm                       de.6115
+
 
 ---
 key: point.de.Potsdam-Wildpark-West
 type: point
-junction: True
 events:
     -   date: !!null
-        location:
-            line.de.6116: 2,39
         category: de.Abzw
         name: Wildpark West
         source: src.dd.DR.Bln.1959
+
     -   date: de.ds100.dr
         de.DS100: BAWP
-        source: src.de.TPP.2006
+        de.dstnr: !!str 031609
+        source: src.de.DBAG.BSV.2017
     -   date: c2000
         name: Potsdam Wildpark West
-        source: src.de.TPP.2006
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Wildpark West
+        PLC: DE18493
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6116: 2,39
+        source: src.dd.DR.Bln.1959
     -   date: !!null
         location:
             line.de.6112: -0,118
-            line.de.6116: 2,484
-        source: src.de.DBAG.ISR
+            line.de.6116:  2,484
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+#    point.de.Potsdam-Pirschheide                de.6115
 
 
 ---
@@ -121,7 +138,6 @@ events:
 ---
 key: point.de.Wilhelmshorst-Nesselgrund
 type: point
-junction: True
 events:
     -   date: !!null
         location:
@@ -131,16 +147,24 @@ events:
         de.VBL: Nso
         master: point.de.Potsdam-Pirschheide
         source: src.dd.DR.Bln.1991
+
     -   date: de.ds100.dr
         de.DS100: BNES
-        source: src.de.TPP.2006
+        de.dstnr: !!str 86348
+        source: src.de.DBAG.BSV.2017
     -   date: c2000
         name: Wilhelmshorst Nesselgrund
-        source: src.de.TPP.2006
+        source: src.de.DBAG.BSV.2017
     -   date: !!null
+        de.name16: Nesselgrund
+        PLC: DE21158
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
         location:
             line.de.6114: 1,696
-        source: src.de.DBAG.ISR
+            line.de.6116: 9,876
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -148,9 +172,61 @@ events:
 
 
 ---
+key: point.de.Bergholz-Potsdam
+type: point
+events:
+    -   date: 1958-08-18
+        status: open
+        source: src.de.web.Krebs
+    -   date: !!null
+        category: de.Hp
+        name: Bergholz (b Potsdam)
+        master: point.de.Potsdam-Rehbrücke
+        de.VBL: Bgh
+        source: src.dd.DR.Bln.1959
+
+    -   date: de.ds100.dr
+        de.DS100: BBGH
+        de.dstnr: !!str 035006
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Bergholz b Potsd
+        PLC: DE10810
+        source: src.de.DBAG.BSV.2017
+    -   date: 1998-05-24
+        status: closed
+        source: src.de.web.Krebs
+    -   date: c2000
+        name: Bergholz (bei Potsdam)
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6116: 11,1
+            line.de.6118: 24,3
+        source: src.dd.DR.Bln.1959
+    -   date: c1970
+        location:
+            line.de.6116: 10,95
+            line.de.6118: 24,2
+        source: src.dd.DR.Bln.1973
+    -   date: c1975
+        location:
+            line.de.6116: 10,96
+        source: src.dd.DR.Bln.1978
+    -   date: c1995
+        location:
+            line.de.6118: !!null
+
+    -   date: !!null
+        site:
+            path.de.6118: ber
+            path.de.6116: ber
+
+
+---
 key: point.de.Saarmund
 type: point
-junction: True
 events:
     -   date: 1918-04-01
         status: open
@@ -180,13 +256,15 @@ events:
                 line.de.6126: 7,77
         master: point.de.Michendorf
         source: src.dd.DR.Bln.1959
+
     -   date: de.ds100.dr
-        de.DS100: BASM
-        source: src.de.TPP.2006
+        de.DS100: BSAM
+        de.dstnr: !!str 034710
+        source: src.de.DBAG.BSV.2017
     -   date: !!null
-        location:
-            line.de.6116: 14,689
-        source: src.de.DBAG.ISR
+        de.name16: Saarmund
+        PLC: DE19184
+        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
