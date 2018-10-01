@@ -129,31 +129,56 @@ events:
 points:
     -   point.de.Dresden-Hbf                        # de.6240
     -   point.de.Dresden-Altstadt
+    -   point.de.Dresden-Plauen
     -   point.de.Freital-Ost
     -   point.de.Freital-Potschappel
     -   point.de.Freital-Deuben-Abzw
+    -   point.de.Freital-Deuben
     -   point.de.Freital-Hainsberg
+    -   point.de.Freital-Hainsberg-Hp
+    -   point.de.Freital-Hainsberg-West
     -   point.de.Tharandt
+    -   point.de.Höckendorf-Edle-Krone
+    -   point.de.Seerenteich
     -   point.de.Klingenberg-Colmnitz
+    -   point.de.Niederbobritzsch
+    -   point.de.Muldenhütten
     -   point.de.Freiberg-Sachs
-    -   point.de.Flöha
+    -   point.de.Kleinschirma
+    -   point.de.Frankenstein-Sachs
+    -   point.de.Oederan
     -   point.de.Hetzdorf-Bk
     -   point.de.Falkenau-Sachs-Süd
+    -   point.de.Flöha
     -   point.de.Niederwiesa-Stw-1
     -   point.de.Niederwiesa
     -   point.de.Chemnitz-Hilbersdorf-Strw
     -   point.de.Chemnitz-Hbf-Strw
     -   point.de.Chemnitz-Hbf
+    -   point.de.Chemnitz-Süd-Hp
+    -   point.de.Chemnitz-Mitte
+    -   point.de.Chemnitz-Kappel-Solaris
+    -   point.de.Chemnitz-Schönau
+    -   point.de.Chemnitz-Siegmar
+    -   point.de.Grüna-Sachs
     -   point.de.Wüstenbrand-Stw-1
     -   point.de.Wüstenbrand
     -   point.de.Hohenstein-Ernstthal
     -   point.de.St-Egidien
     -   point.de.Glauchau-Sachs
+    -   point.de.Glauchau-Gewerbegebiet
+    -   point.de.Glauchau-Gewerbegebiet
     -   point.de.Glauchau-Schönbörnchen
     -   point.de.Mosel
+    -   point.de.Oberrothenbach
+    -   point.de.Niederhohndorf
+    -   point.de.Zwickau-Pölbitz
     -   point.de.Zwickau-Sachs-Hbf
+    -   point.de.Zwickau-Sachs-Hbf-Bk-B13
     -   point.de.Lichtentanne-Sachs
+    -   point.de.Steinpleis
     -   point.de.Werdau-Bogendreieck-Zwickauer-Spitze
+    -   point.de.Werdau-Bogendreieck
     -   point.de.Werdau-Bogendreieck-Neumarker-Spitze # de.6362
 
 
@@ -165,25 +190,71 @@ points:
 ---
 key: point.de.Dresden-Altstadt
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Bft
         name: Dresden-Altstadt
+        category: de.Bft
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
         de.DS100: DA
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 063313
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Dresden-Altstadt
+        PLC: DE12458
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6258: 1,400
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Dresden-Plauen
+type: point
+events:
+    -   date: !!null
+        name: Dresden-Plauen
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: DPL
+        de.dstnr: !!str 063339
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Dre-Plauen
+        PLC: DE12481
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.: 
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Freital-Ost
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Bft
         name: Freital Ost
+        category: de.Bft
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
         de.DS100: DFBS
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 062851
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Freital Ost
+        PLC: DE13407
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6258: 5,607
+            line.de.6259: 5,678
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
@@ -198,14 +269,15 @@ events:
         note:
             deu: Ga, 06 488.
         source: src.de.Bfv.1944
-    -   date: !!null
-        de.name16: Freit-Potschapp
-        PLC: DE13414
-        source: src.de.DBAG.BSV.2017
     -   date: de.ds100.dr
         de.DS100: DPA
         de.dstnr: !!str 063404
         source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Freit-Potschapp
+        PLC: DE13414
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         location:
             line.de.6258: 6,84
@@ -213,6 +285,11 @@ events:
     -   date: !!null
         location:
             line.de.6978: 0,00
+    -   date: c2000
+        location:
+            line.de.6258: 6,846
+            line.de.6259: 6,840
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -231,9 +308,31 @@ events:
 
 
 ---
+key: point.de.Freital-Deuben
+type: point
+events:
+    -   date: !!null
+        name: Freital-Deuben
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: DFD
+        de.dstnr: !!str 063412
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Freit-Deuben
+        PLC: DE13409
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6258: 8,740
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
 key: point.de.Freital-Hainsberg
 type: point
-progress: stub
 events:
     -   date: !!null
         name: Hainsberg (Sachs)
@@ -246,88 +345,371 @@ events:
     -   date: c1965
         name: Freital-Hainsberg
         source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Freital-Hainsbg
-        PLC: DE13410
-        source: src.de.DBAG.BSV.2017
+
     -   date: de.ds100.dr
         de.DS100: DHG
         de.dstnr: !!str 063420
         source: src.de.DBAG.BSV.2017
     -   date: !!null
+        de.name16: Freital-Hainsbg
+        PLC: DE13410
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
         location:
             line.de.6258: 10,10
             line.de.6966:  0,11
         source: src.dd.DR.Dre.1976
+    -   date: c2000
+        location:
+            line.de.6258: !!null
+            line.de.6259: 10,100
+
     -   date: !!null
         site:
             path.de.6966: hai
 
 
 ---
-key: point.de.Tharandt
+key: point.de.Freital-Hainsberg-Hp
 type: point
-progress: stub
+events:
+    -   date: c2000
+        status: open
+        split_from: point.de.Freital-Hainsberg
+    -   date: !!null
+        de.DS100: DFH
+        name: Freital-Hainsberg Hp
+        de.name16: Freit-Hainsbg Hp
+        category: de.Hp
+        PLC: DE13411
+        de.dstnr: !!str 063982
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6258: 10,100
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Freital-Hainsberg-West
+type: point
 events:
     -   date: !!null
-        category: de.Bf
+        name: Freital-Hainsberg West
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: DHGW
+        de.dstnr: !!str 063396
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Freital-Hainsb W
+        PLC: DE13413
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6258: 11,550
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Tharandt
+type: point
+events:
+    -   date: !!null
         name: Tharandt
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
         de.DS100: DTH
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 063438
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Tharandt
+        PLC: DE20247
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6258: 13,708
+            line.de.6259: 13,708
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Höckendorf-Edle-Krone
+type: point
+events:
+    -   date: !!null
+        name: Höckendorf Edle Krone
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: DKR
+        de.dstnr: !!str 063446
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Edle Krone
+        PLC: DE14963
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6228: 17,937
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Seerenteich
+type: point
+events:
+    -   date: !!null
+        name: Seerenteich
+        category: de.Bk
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: DSE
+        de.dstnr: !!str 064105
+        source: src.de.DBAG.BSV.2017
+    -   date: c2000
+        status: closed
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Seerenteich
+        source: src.de.DBAG.BSV.2017
 
 
 ---
 key: point.de.Klingenberg-Colmnitz
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Bf
         name: Klingenberg-Colmnitz
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
         de.DS100: DKC
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 063453
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Klingenb-Colmn
+        PLC: DE15612
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6258: 25,370
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Niederbobritzsch
+type: point
+events:
+    -   date: !!null
+        name: Niederbobritzsch
+        category: [de.Hp, de.Üst]
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: DNBO
+        de.dstnr: !!str 063479
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Niederbobritzsch
+        PLC: DE17694
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6258: 30,845
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Muldenhütten
+type: point
+events:
+    -   date: !!null
+        name: Muldenhütten
+        category: [de.Hp, de.Üst]
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: DMH
+        de.dstnr: !!str 063487
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Muldenhütten
+        PLC: DE17362
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6258: 35,884
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Freiberg-Sachs
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Bf
         name: Freiberg (Sachs)
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
         de.DS100: DFR
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 063495
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Freiberg (Sachs)
+        PLC: DE13376
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6258: 40,005
+            line.de.6614: 23,970
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Kleinschirma
+type: point
+events:
+    -   date: !!null
+        name: Kleinschirma
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: DKMA
+        de.dstnr: !!str 063693
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Kleinschirma
+        PLC: DE15598
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6258: 45,380
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Frankenstein-Sachs
+type: point
+events:
+    -   date: !!null
+        name: Frankenstein (Sachs)
+        category: [de.Hp, de.Üst]
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: DFRS
+        de.dstnr: !!str 063701
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Frankenstein
+        PLC: DE13266
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6258: 49,815
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Oederan
+type: point
+events:
+    -   date: !!null
+        name: Oederan
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: DOR
+        de.dstnr: !!str 063719
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Oederan
+        PLC: DE18052
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6258: 57,148
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Hetzdorf-Bk
 type: point
-progress: stub
 events:
     -   date: !!null
-        name: Hetzdorf Bk
+        name: Hetzdorf
+        category: de.Bk
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: DHZ
+        de.dstnr: !!str 065045
+        source: src.de.DBAG.BSV.2017
+    -   date: c2000
+        status: closed
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Hetzdorf
+        source: src.de.DBAG.BSV.2017
 
 
 ---
 key: point.de.Falkenau-Sachs-Süd
 type: point
-progress: stub
 events:
     -   date: !!null
         name: Falkenau (Sachs) Süd
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: DFUS
+        de.dstnr: !!str 063727
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Falkenau Süd
+        PLC: DE13133
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6258: 64,600
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Flöha
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Bf
         name: Flöha
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
         de.DS100: DFL
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 063735
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Flöha
+        PLC: DE13225
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6258: 67,365
+            line.de.6544: 43,515
+            line.de.6619: 57,920
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
@@ -337,38 +719,62 @@ events:
     -   date: !!null
         category: de.Bft
         name: Niederwiesa Stw 1
-        de.name16: Niederwiesa Stw1
-        de.DS100: DNR A
-        PLC: DE17763
         source: src.de.DBAG.BSV.2017
-    -   date: 2008-12-14?
+    -   date: de.ds100.dr
+        de.DS100: DNR A
+        de.dstnr: !!str 911786
+        source: src.de.DBAG.BSV.2017
+    -   date: c2000
         status: closed
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Niederwiesa Stw1
+        PLC: DE17763
         source: src.de.DBAG.BSV.2017
 
 
 ---
 key: point.de.Niederwiesa
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Bf
         name: Niederwiesa
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
         de.DS100: DNR
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 063750
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Niederwiesa
+        PLC: DE17761
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6258: 71,280
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Chemnitz-Hilbersdorf-Strw
 type: point
 subtype: reference
-progress: stub
 events:
-    -   date: !!null
-        category: de.Strw
+    -   date: c2005
         name: Chemnitz-Hilbersdorf Strw 6258/6257
+        category: de.Strw
         de.DS100: YLLCI
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 911699
+        de.name16: Chemn-Hilb Strw
+        PLC: DE11948
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6257:  0,000
+            line.de.6258: 76,021
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
@@ -377,23 +783,185 @@ type: point
 subtype: reference
 progress: stub
 events:
-    -   date: !!null
-        category: de.Strw
-        name: Chemnitz Hbf Streckenwechsel 6257/6258
+    -   date: c2005
         de.DS100: YLLCH
-        source: src.de.DBAG.ISR
+        name: Chemnitz Hbf Streckenwechsel 6257/6258
+        de.name16: Chemn Hbf Strw
+        category: de.Strw
+        PLC: DE11925
+        de.dstnr: !!str 911698
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6257:  3,098
+            line.de.6258: 78,600
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Chemnitz-Hbf
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Bf
         name: Chemnitz Hbf
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
         de.DS100: DC
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 063776
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Chemnitz Hbf
+        PLC: DE11923
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6258: 79,827
+            line.de.6645: -0,105
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Chemnitz-Süd-Hp
+type: point
+events:
+    -   date: !!null
+        name: Chemnitz Süd Hp
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: DCD
+        de.dstnr: !!str 066183
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Chemnitz Süd Hp
+        PLC: DE11932
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6258: 81,825
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Chemnitz-Mitte
+type: point
+events:
+    -   date: !!null
+        name: Chemnitz Mitte
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: DCM
+        de.dstnr: !!str 066274
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Chemnitz Mitte
+        PLC: DE11927
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6258: 82,848
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Chemnitz-Kappel-Solaris
+type: point
+events:
+    -   date: !!null
+        name: Chemnitz-Kappel Solaris
+        category: de.Anst
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: DCKS
+        de.dstnr: !!str 660530
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Solaris
+        PLC: DE11951
+        source: src.de.DBAG.BSV.2017
+    -   date: 2014-06-12?
+        status: closed
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6258: 84,300
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Chemnitz-Schönau
+type: point
+events:
+    -   date: !!null
+        name: Chemnitz-Schönau
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: DCC
+        de.dstnr: !!str 066290
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Chemnitz-Schönau
+        PLC: DE11955
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6258: 85,617
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Chemnitz-Siegmar
+type: point
+events:
+    -   date: !!null
+        name: Chemnitz-Siegmar
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: DCSI
+        de.dstnr: !!str 066308
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Chemnitz-Siegmar
+        PLC: DE11956
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6258: 87,987
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Grüna-Sachs
+type: point
+events:
+    -   date: !!null
+        name: Grüna (Sachs)
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: DGN
+        de.dstnr: !!str 066316
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Grüna (Sachs)
+        PLC: DE14131
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6258: 91,240
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
@@ -409,61 +977,139 @@ events:
 ---
 key: point.de.Wüstenbrand
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Bf
         name: Wüstenbrand
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
         de.DS100: DWD
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 066324
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Wüstenbrand
+        PLC: DE21354
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6258: 94,317
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Hohenstein-Ernstthal
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Bf
         name: Hohenstein-Ernstthal
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
         de.DS100: DHO
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 066332
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Hohenst-Ernstt
+        PLC: DE15026
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6258: 98,230
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.St-Egidien
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Bf
         name: St Egidien
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
         de.DS100: DEG
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 066340
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: St Egidien
+        PLC: DE19872
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6258: 104,914
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Glauchau-Sachs
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Bf
         name: Glauchau (Sachs)
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
         de.DS100: DGL
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 066357
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Glauchau (Sachs)
+        PLC: DE13786
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6258: 112,140
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Glauchau-Gewerbegebiet
+type: point
+events:
+    -   date: !!null
+        name: Glauchau Gewerbegebiet
+        category: de.Awanst
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: DGLG
+        de.dstnr: !!str 725242
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Glauchau Gewerbe
+        PLC: DE13788
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6258: 113,487
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Glauchau-Schönbörnchen
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: [de.Hp, de.Abzw]
         name: Glauchau-Schönbörnchen
+        category: [de.Hp, de.Abzw]
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
         de.DS100: DGLS
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 066365
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Glauchau-Schönb
+        PLC: DE13789
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6258: 115,992
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
@@ -476,14 +1122,16 @@ events:
         de.rang: II
         de.lknr: 06 524
         source: src.de.Bfv.1944
-    -   date: !!null
-        de.name16: Mosel
-        PLC: DE17144
-        source: src.de.DBAG.BSV.2017
+
     -   date: de.ds100.dr
         de.DS100: DML
         de.dstnr: !!str 066373
         source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Mosel
+        PLC: DE17144
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         location:
             line.de.6258: 120,53
@@ -491,45 +1139,218 @@ events:
     -   date: !!null
         location:
             line.de.6974: 0,00
+    -   date: c2000
+        location:
+            line.de.6258: 120,542
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
     -   date: !!null
         site:
             path.de.6974: mos
+
+
+---
+key: point.de.Oberrothenbach
+type: point
+events:
+    -   date: !!null
+        name: Oberrothenbach
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: DOH
+        de.dstnr: !!str 066381
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Oberrothenbach
+        PLC: DE18004
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6258: 122,794
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Niederhohndorf
+type: point
+events:
+    -   date: !!null
+        name: Niederhohndorf
+        category: de.Bk
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: DNHD
+        de.dstnr: !!str 066811
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Niederhohndorf
+        PLC: DE21636
+        source: src.de.DBAG.BSV.2017
+
+
+---
+key: point.de.Zwickau-Pölbitz
+type: point
+events:
+    -   date: !!null
+        name: Zwickau-Pölbitz
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: DZWP
+        de.dstnr: !!str 066399
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Zwickau-Pölb
+        PLC: DE21552
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6258: 125,828
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 
 ---
 key: point.de.Zwickau-Sachs-Hbf
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Bf
         name: Zwickau (Sachs) Hbf
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
         de.DS100: DZW
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 066407
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Zwickau (S) Hbf
+        PLC: DE21546
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6258: 128,379
+            line.de.6264:  37,970
+            line.de.6650:  -2,110
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Zwickau-Sachs-Hbf-Bk-B13
+type: point
+events:
+    -   date: !!null
+        name: Zwickau (Sachs) Hbf Bk Stw B13
+        category: de.Bk
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: DZWK
+        de.dstnr: !!str 067702
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Zwickau Bk B13
+        PLC: DE21662
+        source: src.de.DBAG.BSV.2017
 
 
 ---
 key: point.de.Lichtentanne-Sachs
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: [de.Hp, de.Abzw]
         name: Lichtentanne (Sachs)
+        category: [de.Hp, de.Abzw]
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
         de.DS100: DLI
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 066464
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Lichtentanne (S)
+        PLC: DE16361
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6258: 132,775
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Steinpleis
+type: point
+events:
+    -   date: !!null
+        name: Steinpleis
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: DSPH
+        de.dstnr: !!str 066985
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Steinpleis
+        PLC: DE19967
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6258: 134,928
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Werdau-Bogendreieck-Zwickauer-Spitze
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Abzw
         name: Werdau Bogendreieck Zwickauer Spitze
+        category: de.Abzw
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
         de.DS100: DWBZ
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 911790
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Werdau Bgdr Zwsp
+        PLC: DE21000
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6258: 135,702
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Werdau-Bogendreieck
+type: point
+events:
+    -   date: !!null
+        name: Werdau Bogendreieck
+        category: de.Abzw
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: DW
+        de.dstnr: !!str 060210
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Werdau Bgdr
+        PLC: DE20997
+        source: src.de.DBAG.BSV.2017
+    -   date: 2005-12-11?
+        status: closed
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6258: 135,978
+            line.de.6362:  75,500
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
 
 # point.de.Werdau-Bogendreieck-Neumarker-Spitze de.6362

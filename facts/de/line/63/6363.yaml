@@ -82,52 +82,84 @@ events:
     #
 
 points:
-    - point.de.Leipzig-Hbf
-    - point.de.Leipzig-Dresdener-Bf
-    - point.de.Leipzig-Hbf-B21
-    - point.de.Leipzig-Volkmarsdorf
-    - point.de.Leipzig-Sellerhausen
-    - point.de.Leipzig-Püchauer-Straße
-    - point.de.Leipzig-Paunsdorf-Hp
-    - point.de.Engelsdorf-Kurzverbindung
-    - point.de.Engelsdorf-Bahnsteig
-    - point.de.Engelsdorf-Ost
-    - point.de.Althen
-    - point.de.Borsdorf-Sachs
-    - point.de.Gerichshain
-    - point.de.Machern-Sachs
-    - point.de.Wurzen
-    - point.de.Kornhain-D
-    - point.de.Dahlen-Sachs
-    - point.de.Oschatz
-    - point.de.Riesa-Rbf
-    - point.de.Riesa
-    - point.de.Röderau-Bogendreieck
-    - point.de.Zeithain-Bogendreieck
-    - point.de.Leckwitz
-    - point.de.Priestewitz
-    - point.de.Oberau-Dresden
-    - point.de.Elbgaubad
-    - point.de.Coswig-Dresden-Stw-1
-    - point.de.Coswig-Dresden
-    - point.de.Radebeul-Nord
-    - point.de.Radebeul-West
-    - point.de.Radebeul-Weintraube
-    - point.de.Radebeul-Ost
-    - point.de.Dresden-Pieschen-Abzw
-    - point.de.Dresden-Neustadt
+    -   point.de.Leipzig-Hbf
+    -   point.de.Leipzig-Dresdener-Bf
+    -   point.de.Leipzig-Hbf-B21
+    -   point.de.Leipzig-Volkmarsdorf
+    -   point.de.Leipzig-Sellerhausen
+    -   point.de.Leipzig-Püchauer-Straße
+    -   point.de.Leipzig-Paunsdorf-Hp
+    -   point.de.Leipzig-Engelsdorf-Kurzverbindung
+    -   point.de.Leipzig-Engelsdorf
+    -   point.de.Leipzig-Engelsdorf-Bahnsteig
+    -   point.de.Leipzig-Engelsdorf-Ost
+    -   point.de.Althen
+    -   point.de.Borsdorf-Sachs
+    -   point.de.Gerichshain
+    -   point.de.Machern-Sachs
+    -   point.de.Machern-Üst
+    -   point.de.Altenbach
+    -   point.de.Bennewitz
+    -   point.de.Wurzen
+    -   point.de.Kornhain-D
+    -   point.de.Kühren
+    -   point.de.Dornreichenbach
+    -   point.de.Dahlen-Sachs
+    -   point.de.Oschatz
+    -   point.de.Schmorkau
+    -   point.de.Bornitz-Oschatz
+    -   point.de.Canitz
+    -   point.de.Riesa-Rbf
+    -   point.de.Riesa
+    -   point.de.Röderau-Bogendreieck
+    -   point.de.Zeithain-Bogendreieck
+    -   point.de.Glaubitz-Riesa
+    -   point.de.Nünchritz
+    -   point.de.Weißig-Großenhain
+    -   point.de.Leckwitz
+    -   point.de.Medessen
+    -   point.de.Priestewitz
+    -   point.de.Baßlitz
+    -   point.de.Gröbern
+    -   point.de.Oberau-Dresden
+    -   point.de.Niederau
+    -   point.de.Weinböhla-Haltepunkt
+    -   point.de.Elbgaubad
+    -   point.de.Coswig-Dresden-Stw-1
+    -   point.de.Coswig-Dresden
+    -   point.de.Radebeul-Nord
+    -   point.de.Radebeul-West
+    -   point.de.Radebeul-Weintraube
+    -   point.de.Radebeul-Ost
+    -   point.de.Dresden-Trachau
+    -   point.de.Dresden-Pieschen-Abzw
+    -   point.de.Dresden-Pieschen
+    -   point.de.Dresden-Neustadt
 
+
+#-----------------------------------------------------------------------------
 
 ---
 key: point.de.Leipzig-Hbf
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Bf
         name: Leipzig Hbf
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
         de.DS100: LL
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 231795
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Leipzig Hbf
+        PLC: DE16212
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6363: -0,137
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
@@ -147,19 +179,30 @@ events:
     -   date: !!null
         category: de.Bf
         name: Leipzig Hbf B 21
-        de.DS100: LL E
+        de.DS100: "LL  E"
 
 
 ---
 key: point.de.Leipzig-Volkmarsdorf
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Bft
         name: Leipzig-Volkmarsdorf
+        category: de.Bft
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
         de.DS100: "LL  V"
-        source: src.de.SuW.2005
+        de.dstnr: !!str 235168
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Lpz-Volkmarsdorf
+        PLC: DE16278
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6363: 1,300
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
@@ -169,72 +212,163 @@ junction: False
 progress: stub
 events:
     -   date: !!null
-        category: de.Hp
         name: Leipzig-Sellerhausen
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
         de.DS100: LSEH
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 231829
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Sellerhausen
+        PLC: DE16273
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6363: 3,250
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Leipzig-Püchauer-Straße
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Abzw
         name: Leipzig Püchauer Straße
+        category: de.Abzw
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
         de.DS100: LPSD
-        source: src.de.SuW.2011
-    -   date: c2014
+        de.dstnr: !!str 230938
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Püchauer Straße
+        PLC: DE16232
+        source: src.de.DBAG.BSV.2017
+    -   date: 2014-12-14?
         status: closed
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6363: 3,465
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Leipzig-Paunsdorf-Hp
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Hp
         name: Leipzig-Paunsdorf Hp
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
         de.DS100: LLPDH
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 910653 
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Lpz-Paunsdorf Hp
+        PLC: DE16268
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6363: 4,693
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
-key: point.de.Engelsdorf-Kurzverbindung
+key: point.de.Leipzig-Engelsdorf-Kurzverbindung
 type: point
-progress: stub
 events:
     -   date: !!null
+        name: Leipzig-Engelsdorf Kurzverbindung
         category: de.Bft
-        name: Engelsdorf (Kurzverbindung)
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
         de.DS100: "LE  K"
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 909661
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: L-Engelsdf Kurzv
+        PLC: DE12891
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6363: 5,600
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
-key: point.de.Engelsdorf-Bahnsteig
+key: point.de.Leipzig-Engelsdorf
 type: point
-progress: stub
+events:
+    -   date: !!null
+        name: Leipzig-Engelsdorf
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: LE
+        de.dstnr: !!str 234716
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Lpz-Engelsdorf
+        PLC: DE12890
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6363: 6,432
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Leipzig-Engelsdorf-Bahnsteig
+type: point
 events:
     -   date: !!null
         name: Leipzig-Engelsdorf Bstg
+        category: de.Bft
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
         de.DS100: "LE  H"
-        source: src.de.DBAG.BSV.2016
+        de.dstnr: !!str 911180
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: L-Engelsdf Bstg
+        PLC: DE12892
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6363: 7,000
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
-key: point.de.Engelsdorf-Ost
+key: point.de.Leipzig-Engelsdorf-Ost
 type: point
-progress: stub
 events:
     -   date: !!null
+        name: Leipzig-Engelsdorf Ost
         category: de.Bft
-        name: Engelsdorf Ost
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
         de.DS100: LEO
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 234724
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: L-Engelsdf Ost
+        PLC: DE12893
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6363: 7,709
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
@@ -249,49 +383,160 @@ events:
 ---
 key: point.de.Borsdorf-Sachs
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Bf
         name: Borsdorf (Sachs)
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
         de.DS100: LBOR
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 234740
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Borsdorf (Sachs)
+        PLC: DE11510
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6363: 11,452
+            line.de.6386:  0,012
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Gerichshain
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Hp
         name: Gerichshain
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
         de.DS100: LGE
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 234757
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Gerichshain
+        PLC: DE13683
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6363: 14,776
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Machern-Sachs
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Hp
         name: Machern (Sachs)
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
         de.DS100: LMAC
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 234773
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Machern (Sachs)
+        PLC: DE16640
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6363: 17,703
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Machern-Üst
+type: point
+events:
+    -   date: c2000
+        status: open
+        de.DS100: LMAU
+        name: Machern Üst
+        de.name16: Machern Üst
+        category: de.Üst
+        PLC: DE16641
+        de.dstnr: !!str 304444
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6363: 18,563
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Altenbach
+type: point
+events:
+    -   date: !!null
+        name: Altenbach
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: LALT
+        de.dstnr: !!str 234799
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Altenbach
+        PLC: DE10152
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6363: 21,431
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Bennewitz
+type: point
+events:
+    -   date: !!null
+        name: Bennewitz
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: LWZW
+        de.dstnr: !!str 234807
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Bennewitz
+        PLC: DE10769
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6363: 23,389
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Wurzen
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Bf
         name: Wurzen
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
         de.DS100: LWZ
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 234815
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Wurzen
+        PLC: DE21398
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6363: 25,706
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
@@ -305,20 +550,77 @@ events:
 
 
 ---
+key: point.de.Kühren
+type: point
+events:
+    -   date: !!null
+        name: Kühren
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: LKUH
+        de.dstnr: !!str 234823
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Kühren
+        PLC: DE15942
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6363: 32,622
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Dornreichenbach
+type: point
+events:
+    -   date: !!null
+        name: Dornreichenbach
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: LDH
+        de.dstnr: !!str 234831
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Dornreichenbach
+        PLC: DE12318
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6363: 35,763
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
 key: point.de.Dahlen-Sachs
 type: point
-progress: stub
 events:
     -   date: !!null
         name: Dahlen (Sachs)
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
         de.DS100: LDA
-        source: src.de.TPP.2015
+        de.dstnr: !!str 234849
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Dahlen (Sachs)
+        PLC: DE12045
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6363: 43,237
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Oschatz
 type: point
-progress: stub
 events:
     -   date: !!null
         name: Oschatz
@@ -328,6 +630,7 @@ events:
         note:
             deu: Ga, 06 269
         source: src.de.Bfv.1944
+
     -   date: !!null
         de.name16: Oschatz
         PLC: DE18147
@@ -336,11 +639,17 @@ events:
         de.DS100: DOT
         de.dstnr: !!str 062372
         source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         location:
             line.de.6363: 52,79
             line.de.6969:  0,01
         source: src.dd.DR.Dre.1976
+    -   date: c2000
+        location:
+            line.de.6363: 52,600
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
     -   date: !!null
         site:
             path.de.6969.1: osa
@@ -348,73 +657,329 @@ events:
 
 
 ---
-key: point.de.Riesa-Rbf
+key: point.de.Schmorkau
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Bft
+        name: Schmorkau
+        category: de.Awanst
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: DSMO
+        de.dstnr: !!str 063347
+        source: src.de.DBAG.BSV.2017
+    -   date: c2000
+        status: closed
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Schmorkau
+        PLC: DE19409
+        source: src.de.DBAG.BSV.2017
+
+
+---
+key: point.de.Bornitz-Oschatz
+type: point
+events:
+    -   date: !!null
+        name: Bornitz (b Oschatz)
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: DBT
+        de.dstnr: !!str 062364
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Bornitz (b Osch)
+        PLC: DE11507
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6363: 57,812
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Canitz
+type: point
+events:
+    -   date: !!null
+        name: Canitz
+        category: de.Bk
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: DCZ
+        de.dstnr: !!str 063578
+        source: src.de.DBAG.BSV.2017
+    -   date: c2000
+        status: closed
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Canitz
+        source: src.de.DBAG.BSV.2017
+
+
+---
+key: point.de.Riesa-Rbf
+type: point
+events:
+    -   date: !!null
         name: Riesa Rbf
-        de.DS100: DR R
-        master: point.de.Riesa
-        source: src.de.DBAG.ISR
+        category: de.Bft
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: "DR  R"
+        de.dstnr: !!str 911787
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Riesa Rbf
+        PLC: DE18889
+        source: src.de.DBAG.BSV.2017
 
 
 ---
 key: point.de.Riesa
 type: point
-progress: stub
 events:
     -   date: !!null
         name: Riesa
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
         de.DS100: DR
-        source: src.de.TPP.2015
+        de.dstnr: !!str 062331
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Riesa
+        PLC: DE18886
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6255: -0,130
+            line.de.6363: 65,870
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Röderau-Bogendreieck
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Abzw
         name: Röderau Bogendreieck
+        category: de.Abzw
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
         de.DS100: DRA
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 062778
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Röderau Bogendr
+        PLC: DE18936
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6363: 68,304
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Zeithain-Bogendreieck
 type: point
-progress: stub
 events:
     -   date: !!null
         name: Zeithain Bogendreieck
+        category: de.Abzw
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
         de.DS100: DZN
-        source: src.de.TPP.2015
+        de.dstnr: !!str 062315
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Zeithain Bogendr
+        PLC: DE21438
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6273:  0,020
+            line.de.6363: 69,551
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Glaubitz-Riesa
+type: point
+events:
+    -   date: !!null
+        name: Glaubitz (b Riesa)
+        category: [de.Hp, de.Bk]
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: DGLA
+        de.dstnr: !!str 062307
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Glaubitz (b Rie)
+        PLC: DE13783
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6363: 72,260
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Nünchritz
+type: point
+events:
+    -   date: !!null
+        name: Nünchritz
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: DNUN
+        de.dstnr: !!str 655381
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Nünchritz
+        PLC: DE17839
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6363: 74,750
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Weißig-Großenhain
+type: point
+events:
+    -   date: !!null
+        name: Weißig (b Großenhain)
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: DWIG
+        de.dstnr: !!str 062299
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Weißig (b Groß)
+        PLC: DE20937
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6363: 77,410
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Leckwitz
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Abzw
-        name: Leckwitz
         de.DS100: DLEW
-        source: src.de.DBAG.ISR
+        name: Leckwitz
+        de.name16: Leckwitz
+        category: de.Abzw
+        PLC: DE16162
+        de.dstnr: !!str 695155
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6363: 79,848
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Medessen
+type: point
+events:
+    -   date: !!null
+        name: Medessen
+        category: de.Üst
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: DMN
+        de.dstnr: !!str 063560
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Medessen
+        PLC: DE16908
+        source: src.de.DBAG.BSV.2017
+    -   date: c2000
+        status: closed
+        source: src.de.DBAG.BSV.2017
 
 
 ---
 key: point.de.Priestewitz
 type: point
-progress: stub
 events:
     -   date: !!null
         name: Priestewitz
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
         de.DS100: DPR
-        source: src.de.TPP.2015
+        de.dstnr: !!str 062281
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Priestewitz
+        PLC: DE18526
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6363: 84,700
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Baßlitz
+type: point
+events:
+    -   date: !!null
+        name: Baßlitz
+        category: de.Bk
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: DBSL
+        de.dstnr: !!str 063552
+        source: src.de.DBAG.BSV.2017
+    -   date: c2000
+        status: closed
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Baßlitz
+        source: src.de.DBAG.BSV.2017
+
+
+---
+key: point.de.Gröbern
+type: point
+events:
+    -   date: !!null
+        name: Gröbern
+        category: de.Bk
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: DGRN
+        de.dstnr: !!str 063529
+        source: src.de.DBAG.BSV.2017
+    -   date: c2000
+        status: closed
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Gröbern
+        source: src.de.DBAG.BSV.2017
+
 
 
 ---
@@ -427,74 +992,178 @@ events:
 
 
 ---
-key: point.de.Elbgaubad
+key: point.de.Niederau
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Abzw
+        name: Niederau
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: DNDR
+        de.dstnr: !!str 062273
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Niederau
+        PLC: DE17687
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6363: 95,789
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Weinböhla-Haltepunkt
+type: point
+events:
+    -   date: c2000
+        status: open
+    -   date: !!null
+        de.DS100: DWEW
+        name: Weinböhla Haltepunkt
+        de.name16: Weinböhla Hp
+        category: de.Hp
+        PLC: DE20904
+        de.dstnr: !!str 655365
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6363: 97,620
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Elbgaubad
+type: point
+events:
+    -   date: !!null
         name: Elbgaubad
+        category: de.Abzw
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: DEL
+        de.dstnr: !!str 060160
+        source: src.de.DBAG.BSV.2017
+    -   date: c2000
+        status: closed
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Elbgaubad
+        PLC: DE12814
+        source: src.de.DBAG.BSV.2017
 
 
 ---
 key: point.de.Coswig-Dresden-Stw-1
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Bft
         name: Coswig (bei Dresden) Stw 1
+        category: de.Bft
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
         de.DS100: DCW B
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 060004
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Coswig Stw 1
+        PLC: DE11991
+        source: src.de.DBAG.BSV.2017
 
 
 ---
 key: point.de.Coswig-Dresden
 type: point
-progress: stub
 events:
     -   date: !!null
         name: Coswig (bei Dresden)
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
         de.DS100: DCW
-        source: src.de.TPP.2015
+        de.dstnr: !!str 062265
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Coswig (bei Dre)
+        PLC: DE11990
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6239:  34,877
+            line.de.6363: 101,930
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Radebeul-Nord
 type: point
-progress: stub
 events:
-    -   date: !!null
-        category: de.Abzw
+    -   date: 2013-11-03?
+        status: open
         name: Radebeul Nord
+        category: de.Abzw
         de.DS100: DRBD
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 807644
+        de.name16: Radebeul Nord
+        PLC: DE18587
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6239:  31,847
+            line.de.6363: 104,894
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Radebeul-West
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Bf
         name: Radebeul West
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
         de.DS100: DRBW
-        source: src.de.SuW.2011
+        de.dstnr: !!str 062240
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Radebeul West
+        PLC: DE18590
+        source: src.de.DBAG.BSV.2017
     -   date: c2013
         status: closed
         source: src.de.DBAG.ISR
 
+
 ---
 key: point.de.Radebeul-Weintraube
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Hp
         name: Radebeul-Weintraube
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
         de.DS100: DRBT
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 062232
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Radebeul-Wein
+        PLC: DE18594
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6239: 29,055
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+    -   date: c2010
+        location:
+            line.de.6363: !!null
 
 
 ---
@@ -519,6 +1188,7 @@ events:
             line.de.6970:   0,06
         de.VBL: Rb
         source: src.dd.DR.Dre.1991
+
     -   date: !!null
         de.name16: Radebeul Ost
         PLC: DE18588
@@ -527,31 +1197,111 @@ events:
         de.DS100: DRB
         de.dstnr: !!str 062224
         source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6239:  26,354
+            line.de.6363: 109,450
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
     -   date: !!null
         site:
             path.de.6970: rao
 
 
 ---
-key: point.de.Dresden-Pieschen-Abzw
+key: point.de.Dresden-Trachau
 type: point
-progress: stub
 events:
     -   date: !!null
+        name: Dresden-Trachau
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: DTR
+        de.dstnr: !!str 062216
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Dre-Trachau
+        PLC: DE12487
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6239:  25,359
+            line.de.6363: 111,657
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Dresden-Pieschen-Abzw
+type: point
+events:
+    -   date: !!null
+        name: Dresden-Pieschen (Abzw)
         category: de.Abzw
-        name: Dresden-Pieschen Abzw
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
         de.DS100: DPSA
-        source: src.de.SuW.2011
+        de.dstnr: !!str 090753
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Dre-Pieschen Abz
+        PLC: DE12480
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6246:  -0,049
+            line.de.6363: 112,716
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Dresden-Pieschen
+type: point
+events:
+    -   date: !!null
+        name: Dresden-Pieschen
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: DPS
+        de.dstnr: !!str 623801
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Dre-Pieschen
+        PLC: DE12479
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6239:  23,622
+            line.de.6363: 112,716
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Dresden-Neustadt
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Bft
         name: Dresden-Neustadt
+        category: de.Bft
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
         de.DS100: DN
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 062166
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Dre-Neustadt
+        PLC: DE12470
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6212: 102,097
+            line.de.6239:  20,891
+            line.de.6363: 115,936
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 

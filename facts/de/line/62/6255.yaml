@@ -51,31 +51,140 @@ events:
 points:
     -   point.de.Riesa                                # line.de.6363
     -   point.de.Riesa-Stw-4
+    -   point.de.Seerhausen
+    -   point.de.Stauchitz
+    -   point.de.Ostrau
+    -   point.de.Zschaitz
     -   point.de.Döbeln-Gärtitz
     -   point.de.Döbeln-Nord
     -   point.de.Döbeln-Hbf
     -   point.de.Limmritz-Sachs
+    -   point.de.Steina
     -   point.de.Waldheim
+    -   point.de.Schweikershain
+    -   point.de.Erlau-Sachs
     -   point.de.Mittweida
+    -   point.de.Altmittweida
+    -   point.de.Ottendorf-Mittweida
+    -   point.de.Oberlichtenau
+    -   point.de.Chemnitz-Kinderwaldstätte
     -   point.de.Chemnitz-Furth
     -   point.de.Chemnitz-Hbf                         # line.de.6258
 
 
 #-----------------------------------------------------------------------------
 
-# point.de.Riesa de.6363
+#    point.de.Riesa de.6363
+
 
 ---
 key: point.de.Riesa-Stw-4
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Bft
         name: Riesa Stw 4
-        de.DS100: DR V
-        master: point.de.Riesa
-        source: src.de.DBAG.ISR
+        category: de.Bft
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: "DR  V"
+        de.dstnr: !!str 911788
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Riesa Stw 4
+        PLC: DE18890
+        source: src.de.DBAG.BSV.2017
+
+
+---
+key: point.de.Seerhausen
+type: point
+events:
+    -   date: !!null
+        name: Seerhausen
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: DSRH
+        de.dstnr: !!str 063123
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Seerhausen
+        PLC: DE19669
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6255: 5,692
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Stauchitz
+type: point
+events:
+    -   date: !!null
+        name: Stauchitz
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: DSTU
+        de.dstnr: !!str 063131
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Stauchitz
+        PLC: DE19925
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6255: 9,455
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Ostrau
+type: point
+events:
+    -   date: !!null
+        name: Ostrau
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: DOU
+        de.dstnr: !!str 063149
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Ostrau
+        PLC: DE18194
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6255: 15,180
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Zschaitz
+type: point
+events:
+    -   date: !!null
+        name: Zschaitz
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: DZSC
+        de.dstnr: !!str 063156
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Zschaitz
+        PLC: DE21522
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6255: 18,810
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
@@ -141,18 +250,26 @@ events:
     -   date: b1938
         name: Döbeln Hbf
         source: src.de.Bfv.1938
-    -   date: !!null
-        de.name16: Döbeln Hbf
-        PLC: DE12261
-        source: src.de.DBAG.BSV.2017
+
     -   date: de.ds100.dr
         de.DS100: DDE
         de.dstnr: !!str 062646
         source: src.de.DBAG.BSV.2017
     -   date: !!null
+        de.name16: Döbeln Hbf
+        PLC: DE12261
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
         location:
             line.de.6255: 25,37
         source: src.de.DRG.Dre.1934
+    -   date: c2000
+        location:
+            line.de.6255: 25,370
+            line.de.6386: 54,416
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
     -   date: !!null
         site:
             path.de.6969.2: dob
@@ -161,44 +278,262 @@ events:
 ---
 key: point.de.Limmritz-Sachs
 type: point
-progress: stub
 events:
     -   date: !!null
         name: Limmritz (Sachs)
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: DLM
+        de.dstnr: !!str 063180
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Limmritz (Sachs)
+        PLC: DE16384
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6255: 28,820
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Steina
+type: point
+events:
+    -   date: !!null
+        name: Steina
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: DSTI
+        de.dstnr: !!str 063198
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Steina
+        PLC: DE19937
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6255: 31,630
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Waldheim
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Bf
         name: Waldheim
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
         de.DS100: DWA
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 063206
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Waldheim
+        PLC: DE20705
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6255: 34,930
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Schweikershain
+type: point
+events:
+    -   date: !!null
+        name: Schweikershain
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: DSKH
+        de.dstnr: !!str 063214
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Schweikershain
+        PLC: DE19578
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6255: 41,590
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+---
+key: point.de.Erlau-Sachs
+type: point
+events:
+    -   date: !!null
+        name: Erlau (Sachs)
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: DER
+        de.dstnr: !!str 063222
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Erlau (Sachs)
+        PLC: DE12979
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6255: 45,205
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Mittweida
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Bf
         name: Mittweida
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
         de.DS100: DMW
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 063230
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Mittweida
+        PLC: DE17078
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6255: 48,007
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Altmittweida
+type: point
+events:
+    -   date: !!null
+        name: Altmittweida
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: DAMD
+        de.dstnr: !!str 063248
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Altmittweida
+        PLC: DE10203
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6255: 50,070
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Ottendorf-Mittweida
+type: point
+events:
+    -   date: !!null
+        name: Ottendorf (b Mittweida)
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: DOF
+        de.dstnr: !!str 063255
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Ottendorf
+        PLC: DE18203
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6255: 54,060
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Oberlichtenau
+type: point
+events:
+    -   date: !!null
+        name: Oberlichtenau
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: DOBL
+        de.dstnr: !!str 063263
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Oberlichtenau
+        PLC: DE17982
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6255: 57,085
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Chemnitz-Kinderwaldstätte
+type: point
+events:
+    -   date: !!null
+        name: Chemnitz Kinderwaldstätte
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: DCKI
+        de.dstnr: !!str 063271
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Chemn Kinderw
+        PLC: DE11926
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6255: 59,778
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Chemnitz-Furth
 type: point
-progress: stub
 events:
     -   date: !!null
+        name: Chemnitz-Furth (Abzw)
         category: de.Abzw
+        source: src.de.DBAG.BSV.2017
+
+    -   date: de.ds100.dr
+        de.DS100: DGAA
+        de.dstnr: !!str 063289
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Furth Abzw
+        PLC: DE11943
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        de.DS100: DGA
         name: Chemnitz-Furth
+        de.name16: Furth
+        category: de.Üst
+        PLC: DE11942
+        de.dstnr: !!str 911096
+        source: src.de.DBAG.BSV.2017
+    -   date: 2014-06-12?
+        status: closed
+        source: src.de.DBAG.BSV.2017
 
 
-# point.de.Chemnitz-Hbf de.6258
+#    point.de.Chemnitz-Hbf                  de.6258
+

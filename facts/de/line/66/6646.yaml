@@ -40,10 +40,17 @@ events:
     #
 
 points:
-    - point.de.Zwickau-Sachs-Hbf                    # line.de.6258
+    -   point.de.Zwickau-Sachs-Hbf                  # de.6258
     -   point.de.Crossen-Streckenende
-    - point.de.Crossen
-    - point.de.Mosel                                # line.de.6258
+    -   point.de.Crossen
+    -   point.de.Crossen-Wismut-101-Neuanlage
+    -   point.de.Crossen-Wismut-101-Altanlage
+    -   point.de.Mosel                              # de.6258
+
+
+#-----------------------------------------------------------------------------
+
+#    point.de.Zwickau-Sachs-Hbf                  de.6258
 
 
 ---
@@ -62,10 +69,62 @@ events:
 ---
 key: point.de.Crossen
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Anst
         name: Crossen
+        category: de.Anst
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
         de.DS100: DCRS
+        de.dstnr: !!str 066449
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Überg.bf Crossen
+        PLC: DE12019
+        source: src.de.DBAG.BSV.2017
+
+
+---
+key: point.de.Crossen-Wismut-101-Neuanlage
+type: point
+events:
+    -   date: !!null
+        name: Crossen Wismut 0bj 101 (Neuanlage)
+        category: de.Anst
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: DWIN
+        de.dstnr: !!str 909797
+        source: src.de.DBAG.BSV.2017
+    -   date: c2000
+        status: closed
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Wismut (Neuanl)
+        PLC: DE12022
+        source: src.de.DBAG.BSV.2017
+
+
+---
+key: point.de.Crossen-Wismut-101-Altanlage
+type: point
+events:
+    -   date: !!null
+        name: Crossen Wismut Obj 101 (Altanlage)
+        category: de.Anst
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: DWIA
+        de.dstnr: !!str 066423
+        source: src.de.DBAG.BSV.2017
+    -   date: c2000
+        status: closed
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Wismut (Altanl)
+        PLC: DE12023
+        source: src.de.DBAG.BSV.2017
+
+
+#    point.de.Mosel                              de.6258
 
