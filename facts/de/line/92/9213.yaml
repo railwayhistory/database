@@ -53,16 +53,18 @@ events:
 points:
     -   point.de.Neubeckum                          # de.1700
     -   point.de.Neubeckum-EGr-9213
-    - point.de.Enniger
-    - point.de.Toennishaeuschen
-    - point.de.Herkules
-    - point.de.Sendenhorst
-    - point.de.Alst
-    - point.de.Albersloh
-    - point.de.Wolbeck
-    - point.de.Angelmodde
-    - point.de.Gremmendorf
-    - point.de.Münster-Westf-Ost
+    -   point.de.Neubeckum-WLE
+    -   point.de.Enniger
+    -   point.de.Tönnishäuschen
+    -   point.de.Herkules
+    -   point.de.Sendenhorst
+    -   point.de.Alst
+    -   point.de.Albersloh
+    -   point.de.Wolbeck
+    -   point.de.Angelmodde
+    -   point.de.Gremmendorf
+    -   point.de.Münster-Westf-Ost
+    -   point.de.Münster-Westf-Hbf-WLE
     -   point.de.Münster-Westf-EGr
     -   point.de.Münster-Westf-Hbf                  # de.2200
 
@@ -79,6 +81,23 @@ subtype: border
 events:
     -   date: !!null
         name: Neubeckum DB-Grenze 9213
+
+
+---
+key: point.de.Neubeckum-WLE
+type: point
+events:
+    -   date: !!null
+        name: Neubeckum WLE
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: ENBW
+        de.dstnr: !!str 572503
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Neubeckum    WLE
+        source: src.de.DBAG.BSV.2017
 
 
 ---
@@ -99,10 +118,15 @@ events:
         source: src.de.Bfv.1933
     -   date: !!null
         de.DS100: EENR
-        source: src.de.SuW.2005
+        de.dstnr: !!str 572495
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Enniger
+        source: src.de.DBAG.BSV.2017
+
 
 ---
-key: point.de.Toennishaeuschen
+key: point.de.Tönnishäuschen
 type: point
 events:
     -   date: !!null
@@ -134,6 +158,7 @@ events:
         name: Herkules
         source: src.de.web.WLE.SbV
 
+
 ---
 key: point.de.Sendenhorst
 type: point
@@ -152,7 +177,12 @@ events:
         source: src.de.Bfv.1933
     -   date: !!null
         de.DS100: ESDH
-        source: src.de.SuW.2005
+        de.dstnr: !!str 572479
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Sendenhorst
+        source: src.de.DBAG.BSV.2017
+
 
 ---
 key: point.de.Alst
@@ -173,6 +203,7 @@ events:
     -   date: c1975
         status: closed
 
+
 ---
 key: point.de.Albersloh
 type: point
@@ -191,7 +222,12 @@ events:
         source: src.de.Bfv.1933
     -   date: !!null
         de.DS100: EABL
-        source: src.de.SuW.2005
+        de.dstnr: !!str 572453
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Albersloh
+        source: src.de.DBAG.BSV.2017
+
 
 ---
 key: point.de.Wolbeck
@@ -211,7 +247,12 @@ events:
         source: src.de.Bfv.1933
     -   date: !!null
         de.DS100: EWBC
-        source: src.de.SuW.2005
+        de.dstnr: !!str 572446
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Wolbeck
+        source: src.de.DBAG.BSV.2017
+
 
 ---
 key: point.de.Angelmodde
@@ -229,6 +270,7 @@ events:
     -   date: c1975
         status: closed
 
+
 ---
 key: point.de.Gremmendorf
 type: point
@@ -236,7 +278,6 @@ events:
     -   date: !!null
         location:
             line.de.9213: 31,500
-        category: de.Anst
         de.VBL: Gre
         source: src.de.web.WLE.SbV
     -   date: !!null
@@ -248,9 +289,17 @@ events:
         staff: none
         master: point.de.Münster-Westf-Ost
         source: src.de.Bfv.1933
+    -   date: c1975
+        category: de.Anst
+        source: src.de.DBAG.BSV.2017
     -   date: !!null
         de.DS100: EGMD
-        source: src.de.SuW.2005
+        de.dstnr: !!str 572420
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Gremmendorf
+        source: src.de.DBAG.BSV.2017
+
 
 ---
 key: point.de.Münster-Westf-Ost
@@ -273,7 +322,28 @@ events:
         source: src.de.Bfv.1944
     -   date: !!null
         de.DS100: EMSO
-        source: src.de.SuW.2005
+        de.dstnr: !!str 572966
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Münster Ost
+        source: src.de.DBAG.BSV.2017
+
+
+---
+key: point.de.Münster-Westf-Hbf-WLE
+type: point
+events:
+    -   date: !!null
+        name: Münster (Westf) Hbf WLE
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: EMSW
+        de.dstnr: !!str 572404
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Münster Hbf  WLE
+        source: src.de.DBAG.BSV.2017
 
 
 ---

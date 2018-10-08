@@ -26,6 +26,8 @@ events:
 
 points:
     -   point.de.Essen-Werden                       # de.2400
+    -   point.de.Essen-Hügel
+    -   point.de.Essen-Stadtwald
     -   point.de.Essen-Süd
     -   point.de.Essen-Hbf-Süd
     -   point.de.Essen-Hbf                          # de.2291
@@ -37,12 +39,49 @@ points:
 
 
 ---
-key: point.de.Essen-Hbf-Süd
+key: point.de.Essen-Hügel
 type: point
-subtype: reference
 events:
     -   date: !!null
-        name: Essen Hbf, W 193
+        name: Essen-Hügel
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: EEHU
+        de.dstnr: !!str 102327
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Essen-Hügel
+        PLC: DE13063
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.2161: 2,744
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Essen-Stadtwald
+type: point
+events:
+    -   date: !!null
+        name: Essen-Stadtwald
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: EESA
+        de.dstnr: !!str 102319
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Essen-Stadtwald
+        PLC: DE13074
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.2161: 5,082
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
@@ -55,7 +94,22 @@ events:
         de.name16: Essen Süd
         de.DS100: EESD
         PLC: DE13046
+        de.dstnr: !!str 102301
         source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.2161: 7,060
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Essen-Hbf-Süd
+type: point
+subtype: reference
+events:
+    -   date: !!null
+        name: Essen Hbf, W 193
 
 
 #    point.de.Essen-Hbf                          de.2291

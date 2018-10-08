@@ -49,8 +49,8 @@ events:
     #
 
 points:
-    - point.de.Hannover-Hbf                         # line.de.1710
-    - point.de.Hannover-Bismarckstraße
+    -   point.de.Hannover-Hbf                       # de.1710
+    -   point.de.Hannover-Bismarckstraße
     - point.de.Hannover-Wülfel
     - point.de.Hannover-Messe-Laatzen
     - point.de.Sorsum
@@ -77,17 +77,32 @@ points:
     - point.de.Würzburg-Hbf                         # line.de.5200
 
 
+#-----------------------------------------------------------------------------
+
+#    point.de.Hannover-Hbf                       de.1710
+
+
 ---
 key: point.de.Hannover-Bismarckstraße
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Bft
         name: Hannover Bismarckstraße
+        category: de.Bft
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
         de.DS100: HHBI
-        master: point.de.Hannover-Hbf
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 135301
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Han Bismarckstr
+        PLC: DE14546
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.1760: 1,0+2230
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---

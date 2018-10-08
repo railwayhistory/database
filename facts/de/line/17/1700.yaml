@@ -94,33 +94,54 @@ events:
     #
 
 points:
-    - point.de.Hannover-Hbf
-    - point.de.Hannover-Burg
-    - point.de.Letter-Abzw
-    - point.de.Seelze
-    - point.de.Seelze-West
-    - point.de.Dedensen-Gümmer
-    - point.de.Wunstorf
-    - point.de.Haste
-    - point.de.Lindhorst-LGr
-    - point.de.Stadthagen
-    - point.de.Bückeburg
-    - point.de.Minden-Westf-LGr
-    - point.de.Minden-Westf-Gbf
+    -   point.de.Hannover-Hbf
+    -   point.de.Hannover-Burg
+    -   point.de.Letter-Abzw
+    -   point.de.Seelze
+    -   point.de.Seelze-West
+    -   point.de.Dedensen-Gümmer
+    -   point.de.Wunstorf
+    -   point.de.Haste
+    -   point.de.Rehren
+    -   point.de.Lindhorst-Schaumb-Lippe
+    -   point.de.Lindhorst-LGr
+    -   point.de.Stadthagen
+    -   point.de.Kirchhorsten
+    -   point.de.Bückeburg
+    -   point.de.Minden-Westf-LGr
+    -   point.de.Minden-Westf-Gbf
     -   point.de.Minden-Westf
-    - point.de.Porta-Po
-    - point.de.Löhne-Westf-Pbf
-    - point.de.Löhne-Westf-Gbf
-    - point.de.Herford
-    - point.de.Bielefeld-Hbf
-    - point.de.Bielefeld-Hbf-Pbf
-    - point.de.Brackwede
-    - point.de.Gütersloh-Hbf
-    - point.de.Rheda-Wiedenbrueck
-    - point.de.Neubeckum
-    - point.de.Neubeckum-Gbf
-    - point.de.Heessen
-    - point.de.Hamm-Westf-Pbf                       # line.de.2931
+    -   point.de.Porta-Po
+    -   point.de.Porta-Westfalica
+    -   point.de.Porta-Westfalica-Hp
+    -   point.de.Vennebeck
+    -   point.de.Bad-Oeynhausen-Gbf-Abzw
+    -   point.de.Bad-Oeynhausen-Gbf
+    -   point.de.Bad-Oeynhausen
+    -   point.de.Gohfeld
+    -   point.de.Löhne-Westf-Pbf
+    -   point.de.Löhne-Westf-Gbf
+    -   point.de.Herford
+    -   point.de.Brake-Bielefeld-Hp
+    -   point.de.Brake-Bielefeld
+    -   point.de.Bielefeld-Hbf-Vorbahnhof
+    -   point.de.Bielefeld-Hbf
+    -   point.de.Bielefeld-Hbf-Pbf
+    -   point.de.Brackwede-Gbf
+    -   point.de.Brackwede
+    -   point.de.Isselhorst-Avenwedde
+    -   point.de.Gütersloh-Hbf
+    -   point.de.Rheda-Wiedenbrück
+    -   point.de.Oelde
+    -   point.de.Neubeckum-Pbf
+    -   point.de.Neubeckum
+    -   point.de.Neubeckum-Gbf
+    -   point.de.Ahlen-Westf-Gbf
+    -   point.de.Ahlen-Westf
+    -   point.de.Heessen-Hp
+    -   point.de.Heessen
+    -   point.de.Heessen-Abzw
+    -   point.de.Hamm-Westf-Pbf                     # de.2931
 
 #-----------------------------------------------------------------------------
 
@@ -128,9 +149,6 @@ points:
 key: point.de.Hannover-Hbf
 type: point
 events:
-    -   date: !!null
-        location:
-            line.de.1710: 0,0
     -   date: !!null
         name: Hannover Hbf
         source: src.de.Kb.1914
@@ -142,56 +160,100 @@ events:
         source: src.de.Bfv.1933
     -   date: !!null
         de.DS100: HH
-        source: src.de.TPP.2006
+        de.dstnr: !!str 135475
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Hannover Hbf
+        PLC: DE14549
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.1700: 0,000
+            line.de.1760: 0,000
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Hannover-Burg
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Bft
         name: Hannover Burg
+        category: de.Bft
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
         de.DS100: HBUG
-        master: point.de.Hannover-Hbf
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 139030
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Hannover Burg
+        PLC: DE14547
+        source: src.de.DBAG.BSV.2017
 
 
 ---
 key: point.de.Letter-Abzw
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Abzw
         name: Letter (Abzw)
+        category: de.Abzw
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
         de.DS100: HLTA
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 118984
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Letter Abzw
+        PLC: DE16316
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.1700: 6,955
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Seelze
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Bf
         name: Seelze
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
         de.DS100: HS
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 135608
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Seelze
+        PLC: DE19664
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.1700: 11,097
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Seelze-West
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Bft
         name: Seelze West
+        category: de.Bft
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
         de.DS100: HSR W
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 101136
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Seelze West
+        PLC: DE19668
+        source: src.de.DBAG.BSV.2017
 
 
 ---
@@ -201,21 +263,28 @@ junction: false
 progress: stub
 events:
     -   date: !!null
-        category: de.Hp
         name: Dedensen-Gümmer
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
         de.DS100: HDED
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 135632
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Dedensen-Gümmer
+        PLC: DE12101
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.1700: 16,362
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Wunstorf
 type: point
-junction: True
 events:
-    -   date: !!null
-        location:
-            line.de.1740: 21,4
-        source: src.de.SuW.2005
     -   date: !!null
         name: Wunstorf
         source: src.de.Kb.1914
@@ -224,26 +293,94 @@ events:
         de.rang: II
         de.lknr: 13 564
         source: src.de.Bfv.1933
-    -   date: !!null
-        de.DS100: HWUN
-        source: src.de.SuW.2005
-    -   date: !!null
-        connection: point.de.Wunstorf-West
     -   date: c1940
         de.rang: I
         source: src.de.Bfv.1944
+    -   date: !!null
+        de.DS100: HWUN
+        de.dstnr: !!str 135657
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Wunstorf
+        PLC: DE21368
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.1700: 21,401
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+    -   date: !!null
+        connection: point.de.Wunstorf-West
 
 
 ---
 key: point.de.Haste
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Bf
         name: Haste
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
         de.DS100: HHAS
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 135699
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Haste
+        PLC: DE14619
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.1700: 28,315
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Rehren
+type: point
+events:
+    -   date: !!null
+        name: Rehren
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: HRER
+        de.dstnr: !!str 135707
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Rehren
+        PLC: DE18731
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.1700: 31,239
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Lindhorst-Schaumb-Lippe
+type: point
+events:
+    -   date: !!null
+        name: Lindhorst (Schaumb-Lippe)
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: HLH
+        de.dstnr: !!str 135715
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Lindhorst/Sch L
+        PLC: DE16404
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.1700: 35,731
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
@@ -260,14 +397,17 @@ events:
 ---
 key: point.de.Stadthagen
 type: point
-junction: True
 events:
-    -   date: !!null
-        location:
-            line.de.1742: 27,0
     -   date: !!null
         name: Stadthagen
         source: src.de.Kb.1914
+    -   date: c1925
+        name: Stadthagen Reichsb
+        source: src.de.Bfv.1944
+    -   date: c1950
+        name: Stadthagen
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         category: de.Bf
         de.rang: II
@@ -275,27 +415,67 @@ events:
         source: src.de.Bfv.1944
     -   date: !!null
         de.DS100: HSHG
-        source: src.de.TPP.2006
-    -   date: c1925
-        name: Stadthagen Reichsb
-        source: src.de.Bfv.1944
-    -   date: c1950
-        name: Stadthagen
-        source: src.de.TPP.2006
+        de.dstnr: !!str 135723
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Stadthagen
+        PLC: DE19894
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.1700: 42,967
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
     -   date: !!null
         connection: point.de.Stadthagen-West        # line.de.9177
 
 
 ---
-key: point.de.Bückeburg
+key: point.de.Kirchhorsten
 type: point
-progress: stub
 events:
     -   date: !!null
+        name: Kirchhorsten
         category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: HKHN
+        de.dstnr: !!str 135731
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Kirchhorsten
+        PLC: DE15538
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.1700: 48,518
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Bückeburg
+type: point
+events:
+    -   date: !!null
         name: Bückeburg
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
         de.DS100: HBKB
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 135749
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Bückeburg
+        PLC: DE11792
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.1700: 55,208
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
     -   date: !!null
         connection: point.de.Bückeburg-Bf           # line.de.8145
 
@@ -304,42 +484,51 @@ events:
 key: point.de.Minden-Westf-LGr
 type: point
 subtype: border
-progress: stub
 events:
     -   date: !!null
         name: Minden (Westf) NRW/NI
+        category: de.LGr
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
         de.DS100: HQM
+        de.dstnr: !!str 103977
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Minden NI/NRW
+        PLC: DE17059
+        source: src.de.DBAG.BSV.2017
 
 
 ---
 key: point.de.Minden-Westf-Gbf
 type: point
-junction: True
 events:
     -   date: !!null
-        location:
-            line.de.1741: 51,83
-        source: src.de.SuW.2005
-    -   date: !!null
-        category: de.Bft
-        master: point.de.Minden-Westf
-    -   date: !!null
         name: Minden (Westf) Gbf
-        de.DS100: HM G
+        category: de.Bft
+        source: src.de.DBAG.BSV.2017
     -   date: !!null
         de.VBL: Mt
         source: src.de.web.Joost
+    -   date: !!null
+        de.DS100: "HM  G"
+        de.dstnr: !!str 910182
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Minden Gbf
+        PLC: DE17058
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.1700: 63,000
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Minden-Westf
 type: point
-junction: True
 events:
-    -   date: !!null
-        location:
-            line.de.1741: 53,000
-        source: src.de.SuW.2005
     -   date: !!null
         category: de.Bf
         de.rang: I
@@ -347,17 +536,27 @@ events:
         de.lknr: 13 577
         source: src.de.Bfv.1933
     -   date: !!null
-        de.DS100: HM
-        source: src.de.TPP.2006
-    -   date: !!null
         de.VBL: Ft
         source: src.de.web.Joost
+    -   date: !!null
+        de.DS100: HM
+        de.dstnr: !!str 135772
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Minden (Westf)
+        PLC: DE17057
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.1700: 64,369
+            line.de.2900: 64,359
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Porta-Po
 type: point
-junction: True
 events:
     -   date: !!null
         location:
@@ -368,153 +567,473 @@ events:
 
 
 ---
-key: point.de.Löhne-Westf-Pbf
+key: point.de.Porta-Westfalica
 type: point
-junction: True
 events:
     -   date: !!null
+        name: Porta Westfalica
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: HPTA
+        de.dstnr: !!str 135830
+        source: src.de.DBAG.BSV.2017
+    -   date: c2000
+        status: closed
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Porta Westfalica
+        PLC: DE18460
+        source: src.de.DBAG.BSV.2017
+
+
+---
+key: point.de.Porta-Westfalica-Hp
+type: point
+events:
+    -   date: !!null
+        name: Porta Westfalica Hp
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: HPTH
+        de.dstnr: !!str 313684
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Porta Westf Hp
+        PLC: DE18461
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
         location:
-            line.de.2992: 85,295
-            line.de.2993: 85,295
-        source: src.de.web.Joost
+            line.de.1700: 69,880
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Vennebeck
+type: point
+events:
+    -   date: !!null
+        name: Vennebeck
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: HVBK
+        de.dstnr: !!str 135848
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Vennebeck
+        PLC: DE20586
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.1700: !!null
+            line.de.2990: 73,938
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Bad-Oeynhausen-Gbf-Abzw
+type: point
+events:
+    -   date: !!null
+        name: Bad Oeynhausen Gbf Abzw
+        category: [de.Bft, de.Abzw]
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: HOYGA
+        de.dstnr: !!str 913202
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Oeynhausen Abzw
+        PLC: DE10505
+        source: src.de.DBAG.BSV.2017
+
+
+---
+key: point.de.Bad-Oeynhausen-Gbf
+type: point
+events:
+    -   date: !!null
+        name: Bad Oeynhausen Gbf
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: HOYG
+        de.dstnr: !!str 750521
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Bad Oeynhsn Gbf
+        PLC: DE10504
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.1700: !!null
+            line.de.2990: 78,200
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Bad-Oeynhausen
+type: point
+events:
+    -   date: !!null
+        name: Bad Oeynhausen
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: HOY
+        de.dstnr: !!str 135855
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Bad Oeynhausen
+        PLC: DE10503
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.1700: 79,510
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Gohfeld
+type: point
+events:
+    -   date: !!null
+        name: Gohfeld
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: HGOF
+        de.dstnr: !!str 135871
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Gohfeld
+        PLC: DE13809
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.1700: !!null
+            line.de.2990: 82,101
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Löhne-Westf-Pbf
+type: point
+events:
     -   date: !!null
         name: Löhne (Westf)
         source: src.de.Kb.1914
+    -   date: c2000
+        name: Löhne (Westf) Pbf
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         category: de.Bf
         de.rang: I
         de.lknr: 13 588
         source: src.de.Bfv.1933
-    -   date: !!null
-        de.VBL: Lh
-        source: src.de.web.Joost
-    -   date: !!null
-        de.DS100: HL
-        source: src.de.TPP.2006
     -   date: c1940
         de.rang: II
         source: src.de.Bfv.1944
+
+    -   date: !!null
+        de.VBL: Lh
+        source: src.de.web.Joost
     -   date: c1970
         de.VBL: Löh
         source: src.de.web.Joost
-    -   date: c1970
-        name: Löhne (Westf) Pbf
+    -   date: !!null
+        de.DS100: HL
+        de.dstnr: !!str 135897
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Löhne(Westf) Pbf
+        PLC: DE16450
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.1700: 85,275
+            line.de.2990: 85,303
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
 
 ---
 key: point.de.Löhne-Westf-Gbf
 type: point
-junction: True
 events:
     -   date: !!null
-        location:
-            line.de.2992: 86,8
-            line.de.2993: 86,8
-        category: de.Bft
-        master: point.de.Löhne-Westf-Pbf
-        source: src.de.web.Joost
-    -   date: !!null
         name: Löhne (Westf) Gbf
-        de.DS100: HL G
-        source: src.de.TPP.2006
+        category: de.Bft
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: "HL  G"
+        de.dstnr: !!str 910181
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Löhne(Westf) Gbf
+        PLC: DE16449
+        source: src.de.DBAG.BSV.2017
 
 
 ---
 key: point.de.Herford
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Bf
         name: Herford
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
         de.DS100: EHFD
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 135939
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Herford
+        PLC: DE14797
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.1700: 95,598
+            line.de.2980: -0,050
+            line.de.2990: 95,598
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
     -   date: !!null
         connection: point.de.Herford-Kleinb         # line.de.8359
+
+
+---
+key: point.de.Brake-Bielefeld-Hp
+type: point
+events:
+    -   date: !!null
+        name: Brake (b Bielefeld) Hp
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: EBRAH
+        de.dstnr: !!str 909814
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Brake Hp
+        PLC: DE11548
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.1700: 102,520
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Brake-Bielefeld
+type: point
+events:
+    -   date: !!null
+        name: Brake (b Bielefeld)
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: EBRA
+        de.dstnr: !!str 135962
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Brake (b Bielef)
+        PLC: DE11547
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.1700: !!null
+            line.de.2990: 102,600
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Bielefeld-Hbf-Vorbahnhof
+type: point
+events:
+    -   date: !!null
+        name: Bielefeld Hbf Vorbahnhof
+        category: de.Bft
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: EBILG
+        de.dstnr: !!str 908762
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Bielefeld Vorbf
+        PLC: DE11227
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.1700: !!null
+
 
 ---
 key: point.de.Bielefeld-Hbf
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Bf
         name: Bielefeld Hbf
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
         de.DS100: EBIL
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 135970
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Bielefeld Hbf
+        PLC: DE11225
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.1700: 109,450
+            line.de.2984:  21,771
+            line.de.2990: 109,450
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Bielefeld-Hbf-Pbf
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Bft
         name: Bielefeld Hbf Pbf
+        category: de.Bft
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
         de.DS100: EBILP
-        master: point.de.Bielefeld-Hbf
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 910148
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Bielefeld Hbf
+        PLC: DE11226
+        source: src.de.DBAG.BSV.2017
+
+
+---
+key: point.de.Brackwede-Gbf
+type: point
+events:
+    -   date: !!null
+        name: Brackwede Gbf
+        category: de.Bft
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: EBWEG
+        de.dstnr: !!str 908777
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Brackwede Gbf
+        PLC: DE11543
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.1700: !!null
 
 
 ---
 key: point.de.Brackwede
 type: point
-junction: True
 events:
-    -   date: !!null
-        location:
-            line.de.2950: -0,02
-        source: src.de.web.Joost
     -   date: !!null
         name: Brackwede
         source: src.de.Kb.1914
+
     -   date: !!null
         category: de.Bf
         de.rang: II
         de.lknr: 13 602
         source: src.de.Bfv.1933
-    -   date: !!null
-        de.DS100: EBWE
-        source: src.de.TPP.2006
-    -   date: !!null
-        de.VBL: Brw
-        source: src.de.web.Joost
     -   date: c1940
         de.rang: I
         source: src.de.Bfv.1944
+
+    -   date: !!null
+        de.VBL: Brw
+        source: src.de.web.Joost
+    -   date: !!null
+        de.DS100: EBWE
+        de.dstnr: !!str 136036
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Brackwede
+        PLC: DE11542
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.1700: 113,770
+            line.de.2950:  -0,020
+            line.de.2960:  40,025
+            line.de.2990: 113,770
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Isselhorst-Avenwedde
+type: point
+events:
+    -   date: !!null
+        name: Isselhorst-Avenwedde
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: EIAV
+        de.dstnr: !!str 136051
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Isselh-Avenwedde
+        PLC: DE15248
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.1700: 121,760
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Gütersloh-Hbf
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Bf
         name: Gütersloh Hbf
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
         de.DS100: EGLO
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 136069
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Gütersloh Hbf
+        PLC: DE14192
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.1700: 126,878
+            line.de.2990: 126,878
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
-key: point.de.Rheda-Wiedenbrueck
+key: point.de.Rheda-Wiedenbrück
 type: point
-junction: True
 events:
-    -   date: !!null
-        location:
-            line.de.2013: 50,103
-        source: src.de.web.Joost
-
-    -   date: !!null
-        category: de.Bf
-        de.rang: II
-        de.lknr: 13 608
-        source: src.de.Bfv.1933
-    -   date: c1940
-        de.rang: I
-        source: src.de.Bfv.1944
-
     -   date: !!null
         name: Rheda in Westf
         source: src.de.web.Joost
@@ -530,6 +1049,14 @@ events:
         name: Rheda-Wiedenbrück
         source: src.de.web.Joost
 
+    -   date: !!null
+        category: de.Bf
+        de.rang: II
+        de.lknr: 13 608
+        source: src.de.Bfv.1933
+    -   date: c1940
+        de.rang: I
+        source: src.de.Bfv.1944
     -   date: 2003-12-14
         service: passenger
         source: src.de.web.Joost
@@ -540,33 +1067,69 @@ events:
     -   date: c1970
         de.VBL: RDA
         source: src.de.web.Joost
-
     -   date: !!null
-        de.DS100: ERDA
-        source: src.de.web.Joost
-    -   date: c1990
         de.DS100: ERDW
-        source: src.de.TPP.2006
+        de.dstnr: !!str 136085
+        source: src.de.DS100.1984
+    -   date: !!null
+        de.name16: Rheda-Wiedenbr
+        PLC: DE18821
+        source: src.de.DBAG.BSV.2017
 
+    -   date: c2000
+        location:
+            line.de.1700: 135,793
+            line.de.2013:  50,103
+            line.de.2990: 135,790
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Oelde
+type: point
+events:
+    -   date: !!null
+        name: Oelde
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: EOEL
+        de.dstnr: !!str 136101
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Oelde
+        PLC: DE18055
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.1700: 146,161
+            line.de.2990: 146,161
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Neubeckum-Pbf
+type: point
+events:
+    -   date: !!null
+        name: Neubeckum Pbf
+        category: de.Bft
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: ENBMP
+        de.dstnr: !!str 910169
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Neubeckum Pbf
+        PLC: DE17481
+        source: src.de.DBAG.BSV.2017
 
 
 ---
 key: point.de.Neubeckum
 type: point
-junction: True
 events:
-    -   date: !!null
-        location:
-            line.de.9213: 0,0
-            line.de.9214: 0,0
-        source: src.de.web.WLE.SbV
-
-    -   date: !!null
-        category: de.Bf
-        de.rang: I
-        de.lknr: 13 611
-        source: src.de.Bfv.1933
-
     -   date: !!null
         name: Beckum
         source: src.de.web.Joost
@@ -578,6 +1141,12 @@ events:
         source: src.de.web.Joost
 
     -   date: !!null
+        category: de.Bf
+        de.rang: I
+        de.lknr: 13 611
+        source: src.de.Bfv.1933
+
+    -   date: !!null
         de.VBL: Nbm
         source: src.de.web.Joost
     -   date: c1970
@@ -585,32 +1154,152 @@ events:
         source: src.de.web.Joost
     -   date: !!null
         de.DS100: ENBM
-        source: src.de.TPP.2006
+        de.dstnr: !!str 136127
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Neubeckum
+        PLC: DE17479
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.9213: 0,0
+            line.de.9214: 0,0
+        source: src.de.web.WLE.SbV
+    -   date: c2000
+        location:
+            line.de.1700: 155,105
+            line.de.2990: 155,105
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Neubeckum-Gbf
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Bft
         name: Neubeckum Gbf
+        category: de.Bft
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
         de.DS100: ENBMG
-        master: point.de.Neubeckum
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 910170
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Neubeckum Gbf
+        PLC: DE17480
+        source: src.de.DBAG.BSV.2017
+
+
+---
+key: point.de.Ahlen-Westf-Gbf
+type: point
+events:
+    -   date: !!null
+        name: Ahlen (Westf) Gbf
+        category: de.Bft
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: EAHLG
+        de.dstnr: !!str 910277
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Ahlen Gbf
+        PLC: DE10055
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.1700: !!null
+
+
+---
+key: point.de.Ahlen-Westf
+type: point
+events:
+    -   date: !!null
+        name: Ahlen (Westf)
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: EAHL
+        de.dstnr: !!str 136168
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Ahlen (Westf)
+        PLC: DE10054
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.1700: 165,068
+            line.de.2990: !!null
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Heessen-Hp
+type: point
+events:
+    -   date: !!null
+        name: Heessen Hp
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: EHE P
+        de.dstnr: !!str 911542
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Heessen Hp
+        PLC: DE14667
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.1700: 172,339
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Heessen
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Bf
         name: Heessen
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
         de.DS100: EHE
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 100016
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Heessen
+        PLC: DE14665
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.2990: 173,900
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
-# point.de.Hamm-Westf-Pbf de.2931
+---
+key: point.de.Heessen-Abzw
+type: point
+events:
+    -   date: !!null
+        name: Heessen Abzw
+        category: de.Bft
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: EHE A
+        de.dstnr: !!str 911541
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Heessen Abzw
+        PLC: DE14666
+        source: src.de.DBAG.BSV.2017
+
+
+#    point.de.Hamm-Westf-Pbf                     de.2931
+
