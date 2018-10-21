@@ -62,25 +62,33 @@ points:
     -   point.de.Frankfurt-Main-Ost-Ubf
     -   point.de.Frankfurt-Main-Ost-Vorbf
     -   point.de.Frankfurt-Osthafen                 # de.3626
+    -   point.de.Frankfurt-Mainkur
+    -   point.de.Maintal-West
+    -   point.de.Maintal-Ost
+    -   point.de.Hanau-Wilhelmsbad
     -   point.de.Hanau-West
     -   point.de.Hanau-Südseite
     -   point.de.Hanau-Hbf                          # de.3600
+    -   point.de.Großauheim-Hanau
     -   point.de.Großkrotzenburg
     -   point.de.Kahl-Main-LGr
     -   point.de.Kahl-Main
+    -   point.de.Dettingen-Main
+    -   point.de.Rückersbacher-Schlucht
+    -   point.de.Kleinostheim
     -   point.de.Mainaschaff-Steinerts
+    -   point.de.Aschaffenburg-Hbf-Ausfahrt
     -   point.de.Aschaffenburg-Hbf
 
 
 #-----------------------------------------------------------------------------
 
-# point.de.Frankfurt-Main-Süd                de.3600
+#    point.de.Frankfurt-Main-Süd                de.3600
 
 
 ---
 key: point.de.Frankfurt-Main-Ost
 type: point
-progress: stub
 events:
     -   date: !!null
         category: de.Bf
@@ -90,6 +98,11 @@ events:
         PLC: DE13283
         de.dstnr: !!str 110809
         source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3660: 2,378
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
@@ -134,9 +147,101 @@ events:
         source: src.de.DBAG.BSV.2017
 
 
-# point.de.Frankfurt-Osthafen                 de.3626
+#    point.de.Frankfurt-Osthafen                 de.3626
 #
-#   An line.de.3660 nur bis 1913-04-01? [src.de.DRG.1935 # 1859/6]
+#    An line.de.3660 nur bis 1913-04-01? [src.de.DRG.1935 # 1859/6]
+
+
+---
+key: point.de.Frankfurt-Mainkur
+type: point
+events:
+    -   date: !!null
+        name: Frankfurt-Mainkur
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: FFMK
+        de.dstnr: !!str 110866
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Ff-Mainkur
+        PLC: DE13345
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3660: 7,243
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Maintal-West
+type: point
+events:
+    -   date: !!null
+        name: Maintal West
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: FBMR
+        de.dstnr: !!str 111781
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Maintal West
+        PLC: DE16688
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3660: 10,145
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Maintal-Ost
+type: point
+events:
+    -   date: !!null
+        name: Maintal Ost
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: FHD
+        de.dstnr: !!str 111799
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Maintal Ost
+        PLC: DE16685
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3660: 12,349
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Hanau-Wilhelmsbad
+type: point
+events:
+    -   date: !!null
+        name: Hanau-Wilhelmsbad
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: FHWB
+        de.dstnr: !!str 111807
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Hanau-Wi bad
+        PLC: DE14540
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3660: 15,648
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
@@ -149,7 +254,13 @@ events:
         de.name16: Hanau West
         de.DS100: FHW
         PLC: DE14538
+        de.dstnr: !!str 111823
         source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3660: 18,034
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
@@ -162,10 +273,34 @@ events:
         de.name16: Hanau Südseite
         de.DS100: "FH  S"
         PLC: DE14537
+        de.dstnr: !!str 911066
         source: src.de.DBAG.BSV.2017
 
 
-# point.de.Hanau-Hbf                          de.3600
+#    point.de.Hanau-Hbf                          de.3600
+
+
+---
+key: point.de.Großauheim-Hanau
+type: point
+events:
+    -   date: !!null
+        name: Großauheim (Kr Hanau)
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: FGAU
+        de.dstnr: !!str 111732
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Großauheim (Ha)
+        PLC: DE14031
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3660: 21,800
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
@@ -178,16 +313,31 @@ events:
         de.name16: Großkrotzenburg
         de.DS100: FGK
         PLC: DE14087
+        de.dstnr: !!str 111740
         source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3660: 25,348
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Kahl-Main-LGr
 type: point
-progress: stub
 events:
     -   date: !!null
         name: Kahl (Main) BY/HE
+        category: de.LGr
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: FQKL
+        de.dstnr: !!str 104119
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Kahl(Main)BY/HE
+        PLC: DE15324
+        source: src.de.DBAG.BSV.2017
 
 
 ---
@@ -200,7 +350,82 @@ events:
         de.name16: Kahl (Main)
         de.DS100: FKLM
         PLC: DE15323
+        de.dstnr: !!str 111757
         source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3660: 27,414
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Dettingen-Main
+type: point
+events:
+    -   date: !!null
+        name: Dettingen (Main)
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: FDET
+        de.dstnr: !!str 111765
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Dettingen (Main)
+        PLC: DE12166
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3660: 31,835
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Rückersbacher-Schlucht
+type: point
+events:
+    -   date: !!null
+        name: Rückersbacher Schlucht
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: FRS
+        de.dstnr: !!str 111815
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Rü bacher Schlu
+        PLC: DE19109
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3660: 34,698
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Kleinostheim
+type: point
+events:
+    -   date: !!null
+        name: Kleinostheim
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: FKO
+        de.dstnr: !!str 111773
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Kleinostheim
+        PLC: DE15596
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3660: 36,917
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
@@ -213,14 +438,53 @@ events:
         de.name16: Steinerts
         de.DS100: FSTE
         PLC: DE16678
+        de.dstnr: !!str 117069
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3660: 38,862
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Aschaffenburg-Hbf-Ausfahrt
+type: point
+events:
+    -   date: !!null
+        name: Aschaffenburg Hbf Ausfahrt
+        category: de.Bft
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: NAH A
+        de.dstnr: !!str 910006
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Aschaff Hbf Ausf
+        PLC: DE10297
         source: src.de.DBAG.BSV.2017
 
 
 ---
 key: point.de.Aschaffenburg-Hbf
 type: point
-progress: stub
 events:
     -   date: !!null
         name: Aschaffenburg Hbf
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: NAH
+        de.dstnr: !!str 226100
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Aschaffenbg Hbf
+        PLC: DE10296
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3557: 77,691
+            line.de.3660: 43,172
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 

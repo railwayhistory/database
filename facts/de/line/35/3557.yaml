@@ -32,18 +32,27 @@ events:
 
 points:
     -   point.de.Darmstadt-Hbf                      # de.3601
+    -   point.de.Darmstadt-Gbf                      # de.3541
     -   point.de.Darmstadt-Nord
     -   point.de.Darmstadt-Kranichstein
+    -   point.de.Messel
     -   point.de.Dieburg
+    -   point.de.Altheim-Hess
+    -   point.de.Hergershausen
     -   point.de.Babenhausen-Hess
     -   point.de.Babenhausen-Hess-LGr
+    -   point.de.Stockstadt-Main
     -   point.de.Mainaschaff-Abzw
+    -   point.de.Mainaschaff
+    -   point.de.Aschaffenburg-Hbf-Ausfahrt         # de.3660
     -   point.de.Aschaffenburg-Hbf                  # de.3660
 
 
 #-----------------------------------------------------------------------------
 
-# point.de.Darmstadt-Hbf                      de.3601
+#    point.de.Darmstadt-Hbf                      de.3601
+
+#    point.de.Darmstadt-Gbf                      de.3541
 
 
 ---
@@ -56,7 +65,14 @@ events:
         de.name16: Darmstadt Nord
         de.DS100: FDN
         PLC: DE12074
+        de.dstnr: !!str 113407
         source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3554:  3,813
+            line.de.3557: 37,850
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
@@ -69,35 +85,172 @@ events:
         de.name16: Da-Kranichstein
         de.DS100: FDK
         PLC: DE12085
+        de.dstnr: !!str 113415
         source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3557: 40,374
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Messel
+type: point
+events:
+    -   date: !!null
+        name: Messel
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: FMES
+        de.dstnr: !!str 113423
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Messel
+        PLC: DE17014
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3557: 45,594
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Dieburg
 type: point
-progress: stub
 events:
     -   date: !!null
         name: Dieburg
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: FDI
+        de.dstnr: !!str 113431
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Dieburg
+        PLC: DE12179
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3557: 53,200
+            line.de.3661: 30,350
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Altheim-Hess
+type: point
+events:
+    -   date: !!null
+        name: Altheim (Hess)
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: FAT
+        de.dstnr: !!str 113449
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Altheim (Hess)
+        PLC: DE10198
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3557: 57,647
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Hergershausen
+type: point
+events:
+    -   date: !!null
+        name: Hergershausen
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: FHER
+        de.dstnr: !!str 113456
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Hergershausen
+        PLC: DE14801
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3557: 59,876
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Babenhausen-Hess
 type: point
-progress: stub
 events:
     -   date: !!null
         name: Babenhausen (Hess)
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: FBA
+        de.dstnr: !!str 113464
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Babenhausen
+        PLC: DE10384
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3557: 63,711
+            line.de.4113: 68,226
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Babenhausen-Hess-LGr
 type: point
 subtype: border
-progress: stub
 events:
     -   date: !!null
         name: Babenhausen (Hess) HE/BY
+        category: de.LGr
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: FQBA
+        de.dstnr: !!str 104115
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Babenhausen LGr
+        PLC: DE10386
+        source: src.de.DBAG.BSV.2017
+
+
+---
+key: point.de.Stockstadt-Main
+type: point
+events:
+    -   date: !!null
+        name: Stockstadt (Main)
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: FSTK
+        de.dstnr: !!str 113472
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Stockstadt (M)
+        PLC: DE20003
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3557: 71,685
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
@@ -110,7 +263,38 @@ events:
         de.name16: Mainaschaff Abzw
         de.DS100: FMAA
         PLC: DE16667
+        de.dstnr: !!str 113480
         source: src.de.DBAG.BSV.2017
 
+    -   date: c2000
+        location:
+            line.de.3557: 73,232
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Mainaschaff
+type: point
+events:
+    -   date: !!null
+        name: Mainaschaff
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: FMAS
+        de.dstnr: !!str 726414
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Mainaschaff
+        PLC: DE16676
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3557: 73,538
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+#    point.de.Aschaffenburg-Hbf-Ausfahrt         de.3660
 
 # point.de.Aschaffenburg-Hbf                  de.3660

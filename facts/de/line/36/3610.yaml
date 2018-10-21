@@ -80,21 +80,32 @@ points:
     -   point.de.Frankfurt-Main-Hbf-tief
     -   point.de.Frankfurt-Main-Hoch-Tief           # de.3520
     -   point.de.Frankfurt-Main-Kleyerstraße
+    -   point.de.Frankfurt-Main-Abstellanlage
     -   point.de.Frankfurt-Griesheim
+    -   point.de.Frankfurt-Griesheim-Übergabebf
     -   point.de.Frankfurt-Nied
     -   point.de.Frankfurt-Höchst                   # de.3603
     -   point.de.Frankfurt-Höchst-Farbwerke
     -   point.de.Frankfurt-Höchst-S-Bahn-Fernbahn   # de.3603
     -   point.de.Frankfurt-Höchst-Farbwerke-Ültg
+    -   point.de.Frankfurt-Zeilsheim
+    -   point.de.Kriftel
+    -   point.de.Hofheim-Taunus
+    -   point.de.Lorsbach
+    -   point.de.Eppstein
+    -   point.de.Eppstein-Bremthal
+    -   point.de.Niederjosbach
     -   point.de.Niedernhausen-Taunus
     -   point.de.Idstein-Taunus
+    -   point.de.Wörsdorf
     -   point.de.Bad-Camberg
     -   point.de.Niederselters
+    -   point.de.Oberbrechen
+    -   point.de.Lindenholzhausen
     -   point.de.Eschhofen                          # de.3710
 
 
 #-----------------------------------------------------------------------------
-
 
 ---
 key: point.de.Frankfurt-Main-Hbf-tief
@@ -106,7 +117,18 @@ events:
         de.name16: Ffm Hbf (tief)
         de.DS100: FFT
         PLC: DE13277
+        de.dstnr: !!str 670166
         source: src.de.DBAG.BSV.2017
+    -   date: 2017-12-10?
+        category: de.Bft
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3610:  0,000
+            line.de.3611:  0,000
+            line.de.2681: 50,000
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 #    point.de.Frankfurt-Main-Hoch-Tief           de.3520
@@ -122,6 +144,31 @@ events:
         de.name16: Kleyerstraße
         de.DS100: FKY
         PLC: DE13317
+        de.dstnr: !!str 110841
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3610: 2,061
+            line.de.3683: 2,069
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Frankfurt-Main-Abstellanlage
+type: point
+events:
+    -   date: !!null
+        name: Frankfurt (Main) Abstellanlage
+        category: de.Bft
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: "FF  A"
+        de.dstnr: !!str 115501
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Ffm Abstellanl
+        PLC: DE13270
         source: src.de.DBAG.BSV.2017
 
 
@@ -135,6 +182,30 @@ events:
         de.name16: Ff-Griesheim
         de.DS100: FGM
         PLC: DE1333
+        de.dstnr: !!str 110973
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3610: 4,455
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Frankfurt-Griesheim-Übergabebf
+type: point
+events:
+    -   date: !!null
+        name: Frankfurt-Griesheim Übergabebf
+        category: de.Bft
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: FGM H
+        de.dstnr: !!str 908824
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Ff-Grieshm Übbf
+        PLC: DE13334
         source: src.de.DBAG.BSV.2017
 
 
@@ -151,6 +222,11 @@ events:
         de.dstnr: !!str 110999
         source: src.de.DBAG.BSV.2017
 
+    -   date: c2000
+        location:
+            line.de.3610: 7,140
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
 
 #    point.de.Frankfurt-Höchst                   de.3603
 
@@ -165,7 +241,14 @@ events:
         de.name16: Ff-Höchst Farbw
         de.DS100: FFAW
         PLC: DE13337
+        de.dstnr: !!str 111039
         source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3603: 10,390
+            line.de.3610: 10,388
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 #    point.de.Frankfurt-Höchst-S-Bahn-Fernbahn   de.3603
@@ -181,7 +264,169 @@ events:
         de.name16: Ff-Höchst Farb Ü
         de.DS100: FFAWA
         PLC: DE13338
+        de.dstnr: !!str 911581
         source: src.de.DBAG.BSV.2017
+
+
+---
+key: point.de.Frankfurt-Zeilsheim
+type: point
+events:
+    -   date: !!null
+        name: Frankfurt-Zeilsheim
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: FFZH
+        de.dstnr: !!str 698027
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Ff-Zeilsheim
+        PLC: DE13356
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3610: 12,308
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Kriftel
+type: point
+events:
+    -   date: !!null
+        name: Kriftel
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: FKRI
+        de.dstnr: !!str 111104
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Kriftel
+        PLC: DE15903
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3610: 14,596
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Hofheim-Taunus
+type: point
+events:
+    -   date: !!null
+        name: Hofheim (Taunus)
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: FHF
+        de.dstnr: !!str 111112
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Hofheim (Taunus)
+        PLC: DE14985
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3610: 17,010
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Lorsbach
+type: point
+events:
+    -   date: !!null
+        name: Lorsbach
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: FLB
+        de.dstnr: !!str 111120
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Lorsbach
+        PLC: DE16481
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3610: 21,195
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Eppstein
+type: point
+events:
+    -   date: !!null
+        name: Eppstein
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: FEP
+        de.dstnr: !!str 111146
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Eppstein
+        PLC: DE12921
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3610: 25,330
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Eppstein-Bremthal
+type: point
+events:
+    -   date: !!null
+        name: Eppstein-Bremthal
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: FEPB
+        de.dstnr: !!str 618652
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Epp-Bremthal
+        PLC: DE12922
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3610: 27,280
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Niederjosbach
+type: point
+events:
+    -   date: !!null
+        name: Niederjosbach
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: FNJ
+        de.dstnr: !!str 111153
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Niederjosbach
+        PLC: DE17717
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3610: 28,498
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
@@ -194,7 +439,14 @@ events:
         de.name16: Niedernhsn (Ts)
         de.DS100: FNSD
         PLC: DE17732
+        de.dstnr: !!str 111161
         source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3501: 19,554
+            line.de.3610: 31,897
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
@@ -210,23 +462,149 @@ events:
         de.dstnr: !!str 114884
         source: src.de.DBAG.BSV.2017
 
+    -   date: c2000
+        location:
+            line.de.3610: 39,709
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Wörsdorf
+type: point
+events:
+    -   date: !!null
+        name: Wörsdorf
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: FWOD
+        de.dstnr: !!str 114892
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Wörsdorf
+        PLC: DE21311
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3610: 43,099
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
 
 ---
 key: point.de.Bad-Camberg
 type: point
-progress: stub
 events:
     -   date: !!null
         name: Bad Camberg
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: FCA
+        de.dstnr: !!str 114868
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Bad Camberg
+        PLC: DE10421
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3610: 49,331
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Niederselters
 type: point
-progress: stub
 events:
     -   date: !!null
         name: Niederselters
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: FNS
+        de.dstnr: !!str 114850
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Niederselters
+        PLC: DE17747
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3610: 54,079
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
-# point.de.Eschhofen                          de.3710
+---
+key: point.de.Oberbrechen
+type: point
+events:
+    -   date: !!null
+        name: Oberbrechen
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: FOB
+        de.dstnr: !!str 114843
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Oberbrechen
+        PLC: DE17912
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3610: 58,150
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Niederbrechen
+type: point
+events:
+    -   date: !!null
+        name: Niederbrechen
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: FNCH
+        de.dstnr: !!str 114835
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Niederbrechen
+        PLC: DE17695
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3610: 60,278
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Lindenholzhausen
+type: point
+events:
+    -   date: !!null
+        name: Lindenholzhausen
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: FLHN
+        de.dstnr: !!str 114827
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Lindenholzhausen
+        PLC: DE16397
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3610: 63,388
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+#    point.de.Eschhofen                          de.3710
+

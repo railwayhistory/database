@@ -132,32 +132,62 @@ events:
 
 points:
     -   point.de.Kassel-Hbf                         # de.1732
+    -   point.de.Kassel-Hoch-Tief                   # de.2550
     -   point.de.Kassel-Tunnelgleis
     -   point.de.Kassel-Wilhelmshöhe
     -   point.de.Kassel-Oberzwehren-Abzw
+    -   point.de.Kassel-Oberzwehren
+    -   point.de.Baunatal-Rengershausen
     -   point.de.Baunatal-Guntershausen
     -   point.de.Edermünde-Grifte
+    -   point.de.Felsberg-Wolfershausen
+    -   point.de.Felsberg-Altenbrunslar
+    -   point.de.Gensungen-Felsberg
     -   point.de.Wabern-Kassel
     -   point.de.Uttershausen
+    -   point.de.Singlis
+    -   point.de.Borken-Hess
     -   point.de.Zimmersrode
+    -   point.de.Schlierbach-Schwalm-Eder
     -   point.de.Treysa
+    -   point.de.Schwalmstadt-Wiera
+    -   point.de.Neustadt-Marburg
     -   point.de.Stadtallendorf
     -   point.de.Kirchhain-Kassel
+    -   point.de.Anzefahr
+    -   point.de.Bürgeln
     -   point.de.Cölbe
     -   point.de.Marburg-Lahn
     -   point.de.Marburg-Süd
+    -   point.de.Niederweimar
     -   point.de.Niederwalgern
+    -   point.de.Fronhausen-Lahn
     -   point.de.Fronhausen-LGr
+    -   point.de.Friedelhausen
     -   point.de.Lollar
+    -   point.de.Gießen-Oswaldsgarten
     -   point.de.Gießen
     -   point.de.Gießen-Bergwald
+    -   point.de.Großen-Linden
     -   point.de.Lang-Göns
+    -   point.de.Kirch-Göns
     -   point.de.Butzbach
+    -   point.de.Ostheim-Butzbach
     -   point.de.Bad-Nauheim
     -   point.de.Friedberg-Hess
     -   point.de.Friedberg-Görbelheim
+    -   point.de.Bruchenbrücken
+    -   point.de.Nieder-Wöllstadt
+    -   point.de.Okarben
+    -   point.de.Groß-Karben
+    -   point.de.Dortelweil
     -   point.de.Bad-Vilbel
+    -   point.de.Bad-Vilbel-Süd
     -   point.de.Bad-Vilbel-LGr
+    -   point.de.Frankfurt-Berkersheim
+    -   point.de.Frankfurt-Frankfurter-Berg
+    -   point.de.Frankfurt-Eschersheim
+    -   point.de.Frankfurt-Ginnheim
     -   point.de.Frankfurt-Main-West-S-Bahn-Überltg
     -   point.de.Frankfurt-Main-West
     -   point.de.Frankfurt-Main-Galluswarte
@@ -166,29 +196,56 @@ points:
 
 #-----------------------------------------------------------------------------
 
-# point.de.Kassel-Hbf                         de.1732
+#    point.de.Kassel-Hbf                         de.1732
 
+#    point.de.Kassel-Hoch-Tief                   de.2550
+ 
 
 ---
 key: point.de.Kassel-Tunnelgleis
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Abzw
         name: Kassel Tunnelgleis
+        category: de.Abzw
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: FKTG
+        de.dstnr: !!str 058800
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Tunnelgleis
+        PLC: DE15428
+        source: src.de.DBAG.BSV.2017
+    -   date: 2014-12-14?
+        status: closed
+        source: src.de.DBAG.BSV.2017
 
 
 ---
 key: point.de.Kassel-Wilhelmshöhe
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Bf
         name: Kassel-Wilhelmshöhe
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
         de.DS100: FKW
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 053652
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Ksl-Wilhelmshöhe
+        PLC: DE15439
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.1733: 144,175
+            line.de.3900:   3,630
+            line.de.3901:   3,630
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
     -   date: !!null
         connection: point.de.Kassel-Wilhelmshöhe-Süd # line.de.9390
 
@@ -196,109 +253,487 @@ events:
 ---
 key: point.de.Kassel-Oberzwehren-Abzw
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Abzw
         name: Kassel-Oberzwehren (Abzw)
+        category: de.Abzw
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
         de.DS100: FKOA
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 055251
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Kassel-Oberzw A
+        PLC: DE15436
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.1733: 147,851
+            line.de.3900:   7,323
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Kassel-Oberzwehren
+type: point
+events:
+    -   date: !!null
+        name: Kassel-Oberzwehren
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: FKOZ
+        de.dstnr: !!str 053678
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Ksl-Oberzwehren
+        PLC: DE15435
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3900: 7,907
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Baunatal-Rengershausen
+type: point
+events:
+    -   date: !!null
+        name: Baunatal-Rengershausen
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: FREH
+        de.dstnr: !!str 053686
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: B-Rengershausen
+        PLC: DE10688
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3900: 10,690
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Baunatal-Guntershausen
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Bf
         name: Baunatal-Guntershausen
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
         de.DS100: FGTH
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 053694
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: B-Guntershausen
+        PLC: DE10687
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3900:  13,746
+            line.de.6340: 254,653
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Edermünde-Grifte
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Bf
         name: Edermünde-Grifte
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
         de.DS100: FGRF
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 053702
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Edermünde-Grifte
+        PLC: DE12688
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3900: 16,648
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Felsberg-Wolfershausen
+type: point
+events:
+    -   date: !!null
+        name: Felsberg-Wolfershausen
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: FWON
+        de.dstnr: !!str 053710
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: F-Wolfershausen
+        PLC: DE13173
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3900: 19,997
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Felsberg-Altenbrunslar
+type: point
+events:
+    -   date: !!null
+        name: Felsberg-Altenbrunslar
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: FABL
+        de.dstnr: !!str 053728
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: F-Altenbrunslar
+        PLC: DE13172
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3900: 23,445
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Gensungen-Felsberg
+type: point
+events:
+    -   date: !!null
+        name: Gensungen-Felsberg
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: FGEF
+        de.dstnr: !!str 053736
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Gensungen-Felsbg
+        PLC: DE13654
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3900: 27,372
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Wabern-Kassel
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Bf
         name: Wabern (Bz Kassel)
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
         de.DS100: FWAB
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 053744
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Wabern (Bz Ksl)
+        PLC: DE20663
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3900: 33,873
+            line.de.3941:  0,000
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Uttershausen
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Abzw
         name: Uttershausen
+        category: de.Abzw
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
         de.DS100: FUT
-        source: src.de.SuW.2011
+        de.dstnr: !!str 313478
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Uttershausen
+        PLC: DE20542
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3900: 37,392
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Singlis
+type: point
+events:
+    -   date: !!null
+        name: Singlis
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: FSL
+        de.dstnr: !!str 053751
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Singlis
+        PLC: DE19768
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3900: 39,374
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Borken-Hess
+type: point
+events:
+    -   date: !!null
+        name: Borken (Hess)
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: FBOK
+        de.dstnr: !!str 053769
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Borken (Hess)
+        PLC: DE11497
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3900: 42,887
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Zimmersrode
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Bf
         name: Zimmersrode
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
         de.DS100: FZM
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 053777
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Zimmersrode
+        PLC: DE21498
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3900: 49,202
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Schlierbach-Schwalm-Eder
+type: point
+events:
+    -   date: !!null
+        name: Schlierbach (Kr Schwalm-Eder)
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: FSBA
+        de.dstnr: !!str 053785
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Schlierb(S-Eder)
+        PLC: DE19372
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3900: 54,673
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Treysa
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Bf
         name: Treysa
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
         de.DS100: FTS
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 053793
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Treysa
+        PLC: DE20339
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3900: 62,230
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Schwalmstadt-Wiera
+type: point
+events:
+    -   date: !!null
+        name: Schwalmstadt-Wiera
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: FWRA
+        de.dstnr: !!str 053801
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Schwalmst-Wiera
+        PLC: DE19536
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3900: 67,144
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Neustadt-Marburg
+type: point
+events:
+    -   date: !!null
+        name: Neustadt (Kr Marburg)
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: FNSM
+        de.dstnr: !!str 053819
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Neustadt(Kr Mbg)
+        PLC: DE17634
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3900: 71,053
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Stadtallendorf
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Bf
         name: Stadtallendorf
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
         de.DS100: FSTA
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 053827
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Stadtallendorf
+        PLC: DE19893
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3900: 82,146
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Kirchhain-Kassel
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Bf
         name: Kirchhain (Bz Kassel)
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
         de.DS100: FKIH
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 053835
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Kirchh (Bz Ksl)
+        PLC: DE15527
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3900: 89,156
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Anzefahr
+type: point
+events:
+    -   date: !!null
+        name: Anzefahr
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: FAZ
+        de.dstnr: !!str 053843
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Anzefahr
+        PLC: DE10261
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3900: 94,159
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Bürgeln
+type: point
+events:
+    -   date: !!null
+        name: Bürgeln
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: FBRG
+        de.dstnr: !!str 053850
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Bürgeln
+        PLC: DE11809
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3900: 97,336
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
@@ -320,43 +755,127 @@ events:
 
     -   date: c2000
         location:
-            line.de.2870: 88,493
+            line.de.2870:  88,493
+            line.de.3900: 100,311
         source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Marburg-Lahn
 type: point
-progress: stub
 events:
     -   date: !!null
         name: Marburg (Lahn)
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: FMBG
+        de.dstnr: !!str 053876
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Marburg (Lahn)
+        PLC: DE16784
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3900: 104,251
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Marburg-Süd
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: [de.Hp, de.Anst]
         name: Marburg Süd
+        category: [de.Hp, de.Üst]
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
         de.DS100: FMBS
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 053884
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Marburg Süd
+        PLC: DE16785
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3900: 107,674
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
     -   date: !!null
         connection: point.de.Marburg-Süd-Kreisb     # line.de.8457
 
 
 ---
-key: point.de.Niederwalgern
+key: point.de.Niederweimar
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Bf
+        name: Niederweimar
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: FNDW
+        de.dstnr: !!str 053892
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Niederweimar
+        PLC: DE17759
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3900: 112,528
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Niederwalgern
+type: point
+events:
+    -   date: !!null
         name: Niederwalgern
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
         de.DS100: FNL
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 116830
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Niederwalgern
+        PLC: DE17754
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3900: 115,390
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Fronhausen-Lahn
+type: point
+events:
+    -   date: !!null
+        name: Fronhausen (Lahn)
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: FFRL
+        de.dstnr: !!str 116848
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Fronhausen (La)
+        PLC: DE13491
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3900: 118,846
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
@@ -370,15 +889,72 @@ events:
 
 
 ---
-key: point.de.Lollar
+key: point.de.Friedelhausen
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Bf
+        name: Friedelhausen
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: FFN
+        de.dstnr: !!str 116855
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Friedelhausen
+        PLC: DE13445
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3900: 122,930
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Lollar
+type: point
+events:
+    -   date: !!null
         name: Lollar
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
         de.DS100: FLOL
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 116863
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Lollar
+        PLC: DE16460
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3900: 125,880
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Gießen-Oswaldsgarten
+type: point
+events:
+    -   date: !!null
+        name: Gießen Oswaldsgarten
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: FGOG
+        de.dstnr: !!str 345108
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Gießen Oswaldsg
+        PLC: DE13749
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3900: 132,873
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
@@ -401,92 +977,382 @@ events:
     -   date: c2000
         location:
             line.de.2651: 165,960
+            line.de.3700:   0,000
+            line.de.3701:   0,000
+            line.de.3900: 133,974
         source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Gießen-Bergwald
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Bft
         name: Gießen-Bergwald
+        category: de.Bft
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
         de.DS100: FGB
-        master: point.de.Gießen
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 110361
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Gießen-Bergwald
+        PLC: DE13751
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3900: 136,530
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Großen-Linden
+type: point
+events:
+    -   date: !!null
+        name: Großen Linden
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: FGL
+        de.dstnr: !!str 114108
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Großen Linden
+        PLC: DE14056
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3900: 139,936
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Lang-Göns
 type: point
-progress: stub
 events:
     -   date: !!null
         name: Lang Göns
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: FLGS
+        de.dstnr: !!str 114090
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Lang Göns
+        PLC: DE16028
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3900: 143,400
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Kirch-Göns
+type: point
+events:
+    -   date: !!null
+        name: Kirch Göns
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: FKGS
+        de.dstnr: !!str 114082
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Kirch Göns
+        PLC: DE15515
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3900: 146,070
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Butzbach
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Bf
         name: Butzbach
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
         de.DS100: FBZ
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 114074
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Butzbach
+        PLC: DE11878
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3900: 151,870
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Ostheim-Butzbach
+type: point
+events:
+    -   date: !!null
+        name: Ostheim (b Butzbach)
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: FOM
+        de.dstnr: !!str 114033
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Osthm (b Butzb)
+        PLC: DE18189
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3900: 154,627
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Bad-Nauheim
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Bf
         name: Bad Nauheim
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
         de.DS100: FBNA
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 114025
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Bad Nauheim
+        PLC: DE10498
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3900: 161,893
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Friedberg-Hess
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Bf
         name: Friedberg (Hess)
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
         de.DS100: FFG
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 113811
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Friedberg (Hess)
+        PLC: DE13440
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3611:  40,110
+            line.de.3740:   0,000
+            line.de.3742:   0,000
+            line.de.3900: 166,067
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Friedberg-Görbelheim
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Bft
         name: Friedberg Görbelheim
-        de.DS100: FFG G
-        source: src.de.SuW.2011
+        category: de.Abzw
+        source: src.de.DBAG.BSV.2017
     -   date: !!null
-        master: point.de.Friedberg-Hess
-        source: src.de.DBAG.ISR
+        de.DS100: FFGH
+        de.dstnr: !!str 911063
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Fbg Görbelheim
+        PLC: DE13443
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3900: 168,475
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Bruchenbrücken
+type: point
+events:
+    -   date: !!null
+        name: Bruchenbrücken
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: FBB
+        de.dstnr: !!str 113845
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Bruchenbrücken
+        PLC: DE11724
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3900: 170,079
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Nieder-Wöllstadt
+type: point
+events:
+    -   date: !!null
+        name: Nieder Wöllstadt
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: FNRW
+        de.dstnr: !!str 111567
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Nieder Wöllstadt
+        PLC: DE17682
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3900: 173,011
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Okarben
+type: point
+events:
+    -   date: !!null
+        name: Okarben
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: FOK
+        de.dstnr: !!str 111559
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Okarben
+        PLC: DE18102
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3900: 176,330
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Groß-Karben
+type: point
+events:
+    -   date: !!null
+        name: Groß Karben
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: FGKA
+        de.dstnr: !!str 111542
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Groß Karben
+        PLC: DE14012
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3900: 178,422
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Dortelweil
+type: point
+events:
+    -   date: !!null
+        name: Dortelweil
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: FDW
+        de.dstnr: !!str 111534
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Dortelweil
+        PLC: DE12329
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3900: 181,378
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Bad-Vilbel
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Bf
         name: Bad Vilbel
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
         de.DS100: FVL
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 111518
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Bad Vilbel
+        PLC: DE10562
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3745:   0,000
+            line.de.3900: 183,637
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Bad-Vilbel-Süd
+type: point
+events:
+    -   date: !!null
+        name: Bad Vilbel Süd
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: FVLS
+        de.dstnr: !!str 111500
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Bad Vilbel Süd
+        PLC: DE10563
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3900: 184,850
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
@@ -500,40 +1366,170 @@ events:
 
 
 ---
-key: point.de.Frankfurt-Main-West-S-Bahn-Überltg
+key: point.de.Frankfurt-Berkersheim
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Bft
+        name: Frankfurt-Berkersheim
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: FFBK
+        de.dstnr: !!str 111492
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Ff-Berkersheim
+        PLC: DE13327
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3900: 187,490
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Frankfurt-Frankfurter-Berg
+type: point
+events:
+    -   date: !!null
+        name: Frankfurt-Frankfurter Berg
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: FFBS
+        de.dstnr: !!str 111484
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Ff-Frankf Berg
+        PLC: DE13330
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3900: 189,365
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Frankfurt-Eschersheim
+type: point
+events:
+    -   date: !!null
+        name: Frankfurt-Eschersheim
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: FFES
+        de.dstnr: !!str 111476
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Ff-Eschersheim
+        PLC: DE13329
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3900: 191,590
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Frankfurt-Ginnheim
+type: point
+events:
+    -   date: !!null
+        name: Frankfurt-Ginnheim
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: FFGI
+        de.dstnr: !!str 111526
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Ffm-Ginnheim
+        PLC: DE13332
+        source: src.de.DBAG.BSV.2017
+    -   date: 2016-12-11?
+        status: closed
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3900: 193,207
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Frankfurt-Main-West-S-Bahn-Überltg
+type: point
+events:
+    -   date: !!null
         name: Frankfurt (Main) West S-Bahn Überltg
+        category: de.Bft
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
         de.DS100: FFW A
-        master: point.de.Frankfurt-Main-West
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 910847
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Ffm W S-B Überl
+        PLC: DE13298
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3900: 196,406
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Frankfurt-Main-West
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Bf
         name: Frankfurt (Main) West
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
         de.DS100: FFW
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 106682
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Ffm West
+        PLC: DE13296
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3611:   3,329
+            line.de.3900: 196,406
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Frankfurt-Main-Galluswarte
 type: point
-progress: stub
 events:
-    -   date: !!null
-        category: de.Bf
-        name: Frankfurt (Main) Galluswarte
-        de.DS100: FFGA
-        source: src.de.DBAG.ISR
     #   ex Abzw Hellerhof
+    -   date: !!null
+        name: Frankfurt (Main) Galluswarte
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: FFGA
+        de.dstnr: !!str 117044
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Ffm Galluswarte
+        PLC: DE13273
+        source: src.de.DBAG.BSV.2017
 
-# point.de.Frankfurt-Main-Hbf                   de.3600
+    -   date: c2000
+        location:
+            line.de.3611:   1,611
+            line.de.3900: 198,118
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+#    point.de.Frankfurt-Main-Hbf                   de.3600

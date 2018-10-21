@@ -156,42 +156,76 @@ points:
     -   point.de.Frankfurt-Main-Hbf
     -   point.de.Frankfurt-Main-Neckar-Brücke
     -   point.de.Frankfurt-Main-Süd-Abstellbahnhof
+    -   point.de.Frankfurt-Main-Süd-Gbf
     -   point.de.Frankfurt-Main-Süd
     -   point.de.Offenbach-Main-LGr
     -   point.de.Offenbach-Main-Hbf
     -   point.de.Offenbach-Main-Hbf-Mitte
     -   point.de.Offenbach-Main-Gbf
+    -   point.de.Mühlheim-Ost
     -   point.de.Hanau-Mainbrücke
     -   point.de.Hanau-Nordseite
     -   point.de.Hanau-Hbf
     -   point.de.Wolfgang-Hanau
+    -   point.de.Rodenbach-Hanau
+    -   point.de.Langenselbold
+    -   point.de.Niedermittlau
+    -   point.de.Hailer-Meerholz
     -   point.de.Gelnhausen
+    -   point.de.Haitz-Höchst
+    -   point.de.Wirtheim
     -   point.de.Wächtersbach
+    -   point.de.Bad-Soden-Salmünster
     -   point.de.Steinau-Straße
     -   point.de.Schlüchtern
     -   point.de.Schlüchtern-Ziegenberg
+    -   point.de.Katzenberg
     -   point.de.Flieden
+    -   point.de.Neuhof-Süd
     -   point.de.Neuhof-Fulda
+    -   point.de.Neuhof-Nord
+    -   point.de.Kerzell
     -   point.de.Fulda-Bronnzell
+    -   point.de.Bronnzell
     -   point.de.Fulda-Gbf-W-123
     -   point.de.Fulda
     -   point.de.Fulda-SFS-Nord
     -   point.de.Götzenhof
+    -   point.de.Steinau-Fulda
+    -   point.de.Marbach-Fulda
     -   point.de.Hünfeld
+    -   point.de.Burghaun-Hünfeld
+    -   point.de.Haunetal-Neukirchen
+    -   point.de.Oberhaun
     -   point.de.Bad-Hersfeld
+    -   point.de.Ludwigsau-Friedlos
+    -   point.de.Mecklar
     -   point.de.Bebra-Blankenheim
     -   point.de.Bebra-Lämmerberg-Abzw
     -   point.de.Bebra
     -   point.de.Bebra-Pbf-Rbf-Ültg
     -   point.de.Bebra-Berg-Bk
     -   point.de.Bebra-Mitte
+    -   point.de.Bebra-Tunnel-Üst
+    -   point.de.Cornberg
     -   point.de.Sontra
+    -   point.de.Hoheneiche
+    -   point.de.Oetmannshausen
+    -   point.de.Wehretal-Reichensachsen
     -   point.de.Eschwege-Stegmühle
     -   point.de.Eschwege-West
     -   point.de.Eschwege-Wehre
+    -   point.de.Albungen
+    -   point.de.Bad-Sooden-Allendorf
+    -   point.de.Oberrieden
+    -   point.de.Werleshausen
+    -   point.de.Werleshausen-Bebenroth
     -   point.de.Eichenberg
     -   point.de.Eichenberg-Nordkopf
+    -   point.de.Friedland-Han-LGr
     -   point.de.Friedland-Han
+    -   point.de.Obernjesa
+    -   point.de.Rosdorf
     -   point.de.Grone
     -   point.de.Göttingen                          # de.1732
 
@@ -203,12 +237,26 @@ key: point.de.Frankfurt-Main-Hbf
 type: point
 events:
     -   date: !!null
-        category: de.Bf
         name: Frankfurt (Main) Hbf
-        de.name16: Frankfurt(M) Hbf
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
         de.DS100: FF
+        de.dstnr: !!str 110684
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Frankfurt(M) Hbf
         PLC: DE13276
         source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3520:  37,493
+            line.de.3600:   0,016
+            line.de.3601:   0,016
+            line.de.3603:   0,017
+            line.de.3900: 199,779
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
@@ -221,7 +269,13 @@ events:
         de.name16: Main-Neckar-Br
         de.DS100: FMST
         PLC: DE13324
+        de.dstnr: !!str 117002
         source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3600: 1,653
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
@@ -235,6 +289,28 @@ events:
         de.name16: Ffm Süd Abstbf
         de.DS100: FFS A
         PLC: DE13293
+        de.dstnr: !!str 908775
+        source: src.de.DBAG.BSV.2017
+
+
+---
+key: point.de.Frankfurt-Main-Süd-Gbf
+type: point
+events:
+    -   date: !!null
+        name: Frankfurt (Main) Süd Gbf
+        category: de.Bft
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: FFS G
+        de.dstnr: !!str 908780
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Ffm Süd Gbf
+        PLC: DE13294
+        source: src.de.DBAG.BSV.2017
+    -   date: 2004-04-08?
+        status: closed
         source: src.de.DBAG.BSV.2017
 
 
@@ -248,7 +324,17 @@ events:
         de.name16: Ffm Süd
         de.DS100: FFS
         PLC: DE13292
+        de.dstnr: !!str 110650
         source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3600:  4,407
+            line.de.3650: 37,000
+            line.de.3660:  0,000
+            line.de.3681: 54,957
+            line.de.3688: 54,988
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
@@ -273,21 +359,28 @@ events:
         de.name16: Offenbach(M) Hbf
         de.DS100: FO
         PLC: DE18071
+        de.dstnr: !!str 110593
         source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3600: 10,055
+            line.de.3661:  0,000
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Offenbach-Main-Hbf-Mitte
 type: point
 events:
-    -   date: !!null
+    -   date: 2015-12-15?
+        status: open
         category: de.Bft
         name: Offenbach (Main) Hbf Mitte
         de.name16: Offenbach Mitte
         de.DS100: "FO  M"
         PLC: DE21589
-        note:
-            deu: neu 2015-12-15?
+        de.dstnr: !!str 109139
         source: src.de.DBAG.BSV.2017
 
 
@@ -301,7 +394,31 @@ events:
         de.name16: Offenbach(M) Gbf
         de.DS100: "FO  G"
         PLC: DE18070
+        de.dstnr: !!str 911493
         source: src.de.DBAG.BSV.2017
+
+
+---
+key: point.de.Mühlheim-Ost
+type: point
+events:
+    -   date: !!null
+        name: Mühlheim Ost
+        category: de.Üst
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: FMHO
+        de.dstnr: !!str 313437
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Mühlheim Ost
+        PLC: DE17184
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3600: 16,776
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
@@ -314,6 +431,7 @@ events:
         de.name16: Hanau Mainbrücke
         de.DS100: "FH  M"
         PLC: DE14533
+        de.dstnr: !!str 911064
         source: src.de.DBAG.BSV.2017
 
 
@@ -327,6 +445,7 @@ events:
         de.name16: Hanau Nordseite
         de.DS100: "FH  N"
         PLC: DE14535
+        de.dstnr: !!str 911065
         source: src.de.DBAG.BSV.2017
 
 
@@ -340,7 +459,16 @@ events:
         de.name16: Hanau Hbf
         de.DS100: FH
         PLC: DE14532
+        de.dstnr: !!str 110510
         source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3600: 22,974
+            line.de.3660: 19,946
+            line.de.3680: 71,774
+            line.de.4113: 88,145
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
@@ -353,49 +481,267 @@ events:
         de.name16: Wolfgang
         de.DS100: FWFG
         PLC: DE21266
+        de.dstnr: !!str 111724
         source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3600: 25,284
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Rodenbach-Hanau
+type: point
+events:
+    -   date: !!null
+        name: Rodenbach bei Hanau
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: FROD
+        de.dstnr: !!str 110494
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Rodenbach /Hanau
+        PLC: DE18928
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3600: 30,145
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Langenselbold
+type: point
+events:
+    -   date: !!null
+        name: Langenselbold
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: FSLB
+        de.dstnr: !!str 110486
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Langenselbold
+        PLC: DE16073
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3600: 33,860
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Niedermittlau
+type: point
+events:
+    -   date: !!null
+        name: Niedermittlau
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: FNMI
+        de.dstnr: !!str 110742
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Niedermittlau
+        PLC: DE17727
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3600: 37,900
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Hailer-Meerholz
+type: point
+events:
+    -   date: !!null
+        name: Hailer-Meerholz
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: FHME
+        de.dstnr: !!str 110460
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Hailer-Meerholz
+        PLC: DE14288
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3600: 41,206
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Gelnhausen
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Bf
         name: Gelnhausen
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
         de.DS100: FGEL
-        source: src.de.DBAG.BSV.2016
+        de.dstnr: !!str 110445
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Gelnhausen
+        PLC: DE13614
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3600: 44,092
+            line.de.3701: 69,736
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Haitz-Höchst
+type: point
+events:
+    -   date: !!null
+        name: Haitz-Höchst
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: FHAI
+        de.dstnr: !!str 110478
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Haitz-Höchst
+        PLC: DE14294
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3600: 47,179
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Wirtheim
+type: point
+events:
+    -   date: !!null
+        name: Wirtheim
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: FWIR
+        de.dstnr: !!str 110429
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Wirtheim
+        PLC: DE21214
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3600: 50,434
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Wächtersbach
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Bf
         name: Wächtersbach
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
         de.DS100: FWAE
-        source: src.de.DBAG.BSV.2016
+        de.dstnr: !!str 110411
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Wächtersbach
+        PLC: DE20669
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3600: 54,791
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Bad-Soden-Salmünster
+type: point
+events:
+    -   date: !!null
+        name: Bad Soden-Salmünster
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: FBSS
+        de.dstnr: !!str 110387
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Bad Soden-Salm
+        PLC: DE10549
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3600: 61,352
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Steinau-Straße
 type: point
-progress: stub
 events:
     -   date: !!null
         name: Steinau (Straße)
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: FSA
+        de.dstnr: !!str 056291
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Steinau (Straße)
+        PLC: DE19945
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3600: 68,052
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Schlüchtern
 type: point
-progress: stub
 events:
     -   date: !!null
         name: Schlüchtern
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: FSUE
+        de.dstnr: !!str 056317
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Schlüchtern
+        PLC: DE19382
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3600: 74,345
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
@@ -408,25 +754,141 @@ events:
         de.name16: Ziegenberg
         de.DS100: FSUEZ
         PLC: DE19383
+        de.dstnr: !!str 109223
+        source: src.de.DBAG.BSV.2017
+
+
+---
+key: point.de.Katzenberg
+type: point
+events:
+    -   date: !!null
+        name: Katzenberg
+        category: de.Üst
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: FKA
+        de.dstnr: !!str 313130
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Katzenberg
+        PLC: DE15447
+        source: src.de.DBAG.BSV.2017
+    -   date: 2011-06-17?
+        status: closed
         source: src.de.DBAG.BSV.2017
 
 
 ---
 key: point.de.Flieden
 type: point
-progress: stub
 events:
     -   date: !!null
         name: Flieden
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: FFD
+        de.dstnr: !!str 056325
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Flieden
+        PLC: DE13222
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3600: 85,240
+            line.de.3825:  0,000
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Neuhof-Süd
+type: point
+events:
+    -   date: !!null
+        name: Neuhof Süd
+        category: de.Üst
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: FNFS
+        de.dstnr: !!str 885830
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Neuhof Süd
+        PLC: DE17549
+        source: src.de.DBAG.BSV.2017
+    -   date: 2014-07-26?
+        status: closed
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3600: 95,300
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Neuhof-Fulda
 type: point
-progress: stub
 events:
     -   date: !!null
         name: Neuhof (Kr Fulda)
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: FNF
+        de.dstnr: !!str 056341
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Neuhof(Kr Fulda)
+        PLC: DE17546
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3600: 97,152
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Neuhof-Nord
+type: point
+events:
+    -   date: !!null
+        name: Neuhof Nord
+        category: de.Bft
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: FNF N
+        de.dstnr: !!str 911278
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Neuhof Nord
+        PLC: DE17548
+        source: src.de.DBAG.BSV.2017
+
+
+---
+key: point.de.Kerzell
+type: point
+events:
+    -   date: !!null
+        name: Kerzell
+        category: de.Üst
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: FKZ
+        de.dstnr: !!str 056358
+        source: src.de.DBAG.BSV.2017
+    -   date: b2003-01-01
+        status: closed
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Kerzell
+        PLC: DE15484
+        source: src.de.DBAG.BSV.2017
 
 
 ---
@@ -439,6 +901,28 @@ events:
         de.name16: Fulda(Bronnzell)
         de.DS100: FFU B
         PLC: DE13531
+        de.dstnr: !!str 908795
+        source: src.de.DBAG.BSV.2017
+
+
+---
+key: point.de.Bronnzell
+type: point
+events:
+    -   date: !!null
+        name: Bronnzell
+        category: de.Anst
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: FBRO
+        de.dstnr: !!str 056366
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Bronnzell
+        PLC: DE11717
+        source: src.de.DBAG.BSV.2017
+    -   date: 2004-04-08?
+        status: closed
         source: src.de.DBAG.BSV.2017
 
 
@@ -452,6 +936,7 @@ events:
         de.name16: Fulda Gbf (W123)
         de.DS100: FFU W
         PLC: DE13533
+        de.dstnr: !!str 908806
         source: src.de.DBAG.BSV.2017
 
 
@@ -460,120 +945,352 @@ key: point.de.Fulda
 type: point
 events:
     -   date: !!null
-        category: de.Bf
         name: Fulda
-        de.name16: Fulda
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
         de.DS100: FFU
+        de.dstnr: !!str 056374
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Fulda
         PLC: DE13529
         source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.1733: 234,136
+            line.de.3600: 110,567
+            line.de.3700: 105,936
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Fulda-SFS-Nord
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Bft
         name: Fulda SFS Nord
+        category: de.Bft
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
         de.DS100: FFU N
-        master: point.de.Fulda
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 908798
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Fulda SFS Nord
+        PLC: DE13536
+        source: src.de.DBAG.BSV.2017
 
 
 ---
 key: point.de.Götzenhof
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Bf
         name: Götzenhof
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
         de.DS100: FGHF
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 056390
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Götzenhof
+        PLC: DE13880
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3600: 115,168
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Steinau-Fulda
+type: point
+events:
+    -   date: !!null
+        name: Steinau (Kr Fulda)
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: FSAF
+        de.dstnr: !!str 056408
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Steinau/Kr Fulda
+        PLC: DE19944
+        source: src.de.DBAG.BSV.2017
+    -   date: 2004-04-08?
+        status: closed
+        source: src.de.DBAG.BSV.2017
+
+
+---
+key: point.de.Marbach-Fulda
+type: point
+events:
+    -   date: !!null
+        name: Marbach (Kr Fulda)
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: FMR
+        de.dstnr: !!str 056416
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Marbach/Fulda
+        PLC: DE16778
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3600: 120,340
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Hünfeld
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Bf
         name: Hünfeld
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
         de.DS100: FHUE
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 056424
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Hünfeld
+        PLC: DE15149
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3600: 127,131
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Burghaun-Hünfeld
+type: point
+events:
+    -   date: !!null
+        name: Burghaun (Kr Hünfeld)
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: FBUH
+        de.dstnr: !!str 056440
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Burghaun
+        PLC: DE11847
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3600: 131,185
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Haunetal-Neukirchen
+type: point
+events:
+    -   date: !!null
+        name: Haunetal-Neukirchen
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: FNK
+        de.dstnr: !!str 056457
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Haunetal-Neukch
+        PLC: DE14635
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3600: 140,104
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Oberhaun
+type: point
+events:
+    -   date: !!null
+        name: Oberhaun
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: FOBN
+        de.dstnr: !!str 056465
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Oberhaun
+        PLC: DE17934
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3600: 148,004
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Bad-Hersfeld
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Bf
         name: Bad Hersfeld
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
         de.DS100: FBHF
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 056481
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Bad Hersfeld
+        PLC: DE10452
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3600: 153,179
+            line.de.3810:   0,000
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
     -   date: !!null
         connection: point.de.Bad-Hersfeld-Kreisb    # line.de.9380
 
 
 ---
-key: point.de.Bebra-Blankenheim
+key: point.de.Ludwigsau-Friedlos
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Bft
-        name: Bebra-Blankenheim
-        de.DS100: FBLA
-        source: src.de.DBAG.BSV.2016
+        name: Ludwigsau-Friedlos
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
     -   date: !!null
-        master: point.de.Bebra
-        source: src.de.DBAG.ISR
+        de.DS100: FFL
+        de.dstnr: !!str 056499
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Ludwigs-Friedlos
+        PLC: DE16512
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3600: 156,840
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Mecklar
+type: point
+events:
+    -   date: !!null
+        name: Mecklar
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: FME
+        de.dstnr: !!str 056507
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Mecklar
+        PLC: DE16905
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3600: 160,115
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Bebra-Blankenheim
+type: point
+events:
+    -   date: !!null
+        name: Bebra-Blankenheim
+        category: de.Bft
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: FBLA
+        de.dstnr: !!str 056515
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Bebra-Blankenhm
+        PLC: DE10712
+        source: src.de.DBAG.BSV.2017
 
 
 ---
 key: point.de.Bebra-Lämmerberg-Abzw
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: [de.Bft, de.Abzw]
         name: Bebra Lämmerberg Abzw
-        de.DS100: FLAE
-        source: src.de.DBAG.BSV.2016
+        category: [de.Bft, de.Abzw]
+        source: src.de.DBAG.BSV.2017
     -   date: !!null
-        master: point.de.Bebra
-        source: src.de.DBAG.ISR
+        de.DS100: FLAE
+        de.dstnr: !!str 117200
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Lämmerberg
+        PLC: DE10705
+        source: src.de.DBAG.BSV.2017
 
 
 ---
 key: point.de.Bebra
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Bf
         name: Bebra
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
         de.DS100: FB
-        source: src.de.DBAG.BSV.2016
+        de.dstnr: !!str 056069
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Bebra
+        PLC: DE10702
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3600: 166,552
+            line.de.6340: 210,359
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Bebra-Pbf-Rbf-Ültg
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Bft
         name: Bebra Pbf/Rbf Ültg
-        de.DS100: "FB  A"
-        source: src.de.DBAG.BSV.2016
+        category: de.Bft
+        source: src.de.DBAG.BSV.2017
     -   date: !!null
-        master: point.de.Bebra
-        source: src.de.DBAG.ISR
+        de.DS100: "FB  A"
+        de.dstnr: !!str 908983
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Bebra Pbf/Rbf Ül
+        PLC: DE10708
+        source: src.de.DBAG.BSV.2017
 
 
 ---
@@ -601,6 +1318,52 @@ events:
 
 
 ---
+key: point.de.Bebra-Tunnel-Üst
+type: point
+events:
+    -   date: !!null
+        name: Bebra Tunnel Üst
+        category: de.Üst
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: FBT
+        de.dstnr: !!str 685008
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Bebra Tunnel
+        PLC: DE10710
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3600: 177,445
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Cornberg
+type: point
+events:
+    -   date: !!null
+        name: Cornberg
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: FCG
+        de.dstnr: !!str 054528
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Cornberg
+        PLC: DE11984
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3600: 178,844
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
 key: point.de.Sontra
 type: point
 events:
@@ -610,94 +1373,403 @@ events:
         de.name16: Sontra
         de.DS100: FSON
         PLC: DE19829
+        de.dstnr: !!str 054502
         source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3600: 186,665
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Hoheneiche
+type: point
+events:
+    -   date: !!null
+        name: Hoheneiche
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: FHC
+        de.dstnr: !!str 054494
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Hoheneiche
+        PLC: DE15005
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3600: 193,744
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Oetmannshausen
+type: point
+events:
+    -   date: !!null
+        name: Oetmannshausen
+        category: de.Tp
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: FOET
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Oetmannshausen
+        source: src.de.DBAG.BSV.2017
+
+
+---
+key: point.de.Wehretal-Reichensachsen
+type: point
+events:
+    -   date: !!null
+        name: Wehretal-Reichensachsen
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: FRSA
+        de.dstnr: !!str 054486
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: W-Reichensachsen
+        PLC: DE20854
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3600: 197,070
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Eschwege-Stegmühle
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: [de.Bft, de.Abzw]
         name: Eschwege-Stegmühle
+        category: [de.Bft, de.Abzw]
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
         de.DS100: FEGWS
-        master: point.de.Eschwege-West
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 913536
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Eschw-Stegmühle
+        PLC: DE13021
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3600: 200,760
+            line.de.6710:  50,045
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Eschwege-West
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Bf
         name: Eschwege West
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
         de.DS100: FEGW
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 054478
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Eschwege West
+        PLC: DE13020
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3600: 201,563
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Eschwege-Wehre
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: [de.Bft, de.Abzw]
         name: Eschwege-Wehre
+        category: [de.Bft, de.Abzw]
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
         de.DS100: FEGWW
-        master: point.de.Eschwege-West
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 913537
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Eschw-Wehre
+        PLC: DE13022
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3600: 202,214
+            line.de.3936:   0,465
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Albungen
+type: point
+events:
+    -   date: !!null
+        name: Albungen
+        category: de.Anst
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: FALB
+        de.dstnr: !!str 054460
+        source: src.de.DBAG.BSV.2017
+    -   date: b2003-01-01
+        status: closed
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Albungen
+        PLC: DE10099
+        source: src.de.DBAG.BSV.2017
+
+
+---
+key: point.de.Bad-Sooden-Allendorf
+type: point
+events:
+    -   date: !!null
+        name: Bad Sooden-Allendorf
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: FBSD
+        de.dstnr: !!str 054452
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Bad Sooden-Alldf
+        PLC: DE10551
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3600: 212,526
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Oberrieden
+type: point
+events:
+    -   date: !!null
+        name: Oberrieden
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: FOBR
+        de.dstnr: !!str 054445
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Oberrieden
+        PLC: DE18000
+        source: src.de.DBAG.BSV.2017
+    -   date: 2010-12-12?
+        status: closed
+        source: src.de.DBAG.BSV.2017
+
+
+---
+key: point.de.Werleshausen
+type: point
+events:
+    -   date: !!null
+        name: Werleshausen
+        category: de.Tp
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: FWRH
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Werleshausen
+        source: src.de.DBAG.BSV.2017
+
+
+---
+key: point.de.Werleshausen-Bebenroth
+type: point
+events:
+    -   date: !!null
+        name: Werleshausen Bebenroth
+        category: de.Üst
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: FBRT
+        de.dstnr: !!str 913718
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Bebenroth
+        PLC: DE21012
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3600: 221,500
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Eichenberg
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Bf
         name: Eichenberg
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
         de.DS100: HEBG
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 130468
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Eichenberg
+        PLC: DE12747
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3600: 227,320
+            line.de.6343: 170,509
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Eichenberg-Nordkopf
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Bft
         name: Eichenberg Nordkopf
+        category: de.Bft
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
         de.DS100: HEBGN
-        master: point.de.Eichenberg
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 911521
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Eichenberg Nordk
+        PLC: DE12750
+        source: src.de.DBAG.BSV.2017
+
+
+---
+key: point.de.Friedland-Han-LGr
+type: point
+events:
+    -   date: !!null
+        name: Friedland (Han) NI/HE
+        category: de.LGr
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: HQFR
+        de.dstnr: !!str 104009
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Friedland NI/HE
+        PLC: DE13449
+        source: src.de.DBAG.BSV.2017
 
 
 ---
 key: point.de.Friedland-Han
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Bf
         name: Friedland (Han)
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
         de.DS100: HFRI
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 130476
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Friedland (Han)
+        PLC: DE13448
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3600: 233,441
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Obernjesa
+type: point
+events:
+    -   date: !!null
+        name: Obernjesa
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: HOBJ
+        de.dstnr: !!str 130484
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Obernjesa
+        PLC: DE17993
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3600: 238,018
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Rosdorf
+type: point
+events:
+    -   date: !!null
+        name: Rosdorf
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: HRDF
+        de.dstnr: !!str 130492
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Rosdorf
+        PLC: DE18994
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3600: 242,421
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Grone
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Abzw
         name: Grone
+        category: de.Abzw
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
         de.DS100: HGRN
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 139071
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Grone
+        PLC: DE13995
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3600: 244,868
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
-# point.de.Göttingen                          de.1732
+#    point.de.Göttingen                          de.1732
+
