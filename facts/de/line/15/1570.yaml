@@ -47,7 +47,7 @@ events:
 
     -   date: 1995-05-04
         start: point.de.Norden
-        end: point.de.Dornum
+        end: point.de.Dornum-Ostfriesl
         concession:
             by: org.de.l.ni
             for: org.de.Dornum
@@ -66,22 +66,22 @@ events:
 
     -   date: 1983-05-29
         start: point.de.Norden
-        end: point.de.Esens
+        end: point.de.Esens-Ostfriesl
         passenger: none
         source: src.de.WP.Ostfriesische-Kuestenbahn
     -   date: 1985-09-27
-        start: point.de.Dornum
-        end: point.de.Esens
+        start: point.de.Dornum-Ostfriesl
+        end: point.de.Esens-Ostfriesl
         status: closed
         source: src.de.WP.Ostfriesische-Kuestenbahn
     -   date: 1986
-        start: point.de.Dornum
-        end: point.de.Esens
+        start: point.de.Dornum-Ostfriesl
+        end: point.de.Esens-Ostfriesl
         status: removed
         source: src.de.WP.Ostfriesische-Kuestenbahn
     -   date: 1989-09-23
         start: point.de.Norden
-        end: point.de.Dornum
+        end: point.de.Dornum-Ostfriesl
         freight: none
         source: src.de.WP.Ostfriesische-Kuestenbahn
 
@@ -121,57 +121,66 @@ events:
 
 points:
     -   point.de.Emden-Rbf-Es                       # de.2931
-    -   point.de.Emden-Rbf
+    -   point.de.Emden-Rbf                          # de.2931
     -   point.de.Emden-Rbf-Ew
-    - point.de.Emden-Polder
-    - point.de.Emden-Hbf
-    - point.de.Hinte-Harsweg
-    - point.de.Suurhusen
-    - point.de.Loppersum
-    - point.de.Abelitz
-    - point.de.Engerhafe
-    - point.de.Marienhafe
-    - point.de.Osteel
-    - point.de.Nadoerst
-    - point.de.Norden
-    - point.de.Luetetsburg
-    - point.de.Hage
-    - point.de.Westerende
-    - point.de.Dornum
-    - point.de.Roggenstede
-    - point.de.Fulkum
-    - point.de.Holtgast
-    - point.de.Esens
-    - point.de.Esens-Hp
-    - point.de.Stedesdorf
-    - point.de.Burhafe
-    - point.de.Blersum
-    - point.de.Wittmund
-    - point.de.Wittmund-Rehau
-    - point.de.Asel
-    - point.de.Jever-LGr
-    - point.de.Vereinigung
+    -   point.de.Emden-Polder
+    -   point.de.Emden
+    -   point.de.Hinte-Harsweg
+    -   point.de.Suurhusen
+    -   point.de.Loppersum
+    -   point.de.Abelitz
+    -   point.de.Engerhafe
+    -   point.de.Marienhafe
+    -   point.de.Osteel
+    -   point.de.Nadörst
+    -   point.de.Norden-KOF
+    -   point.de.Norden
+    -   point.de.Norden-Gr
+    -   point.de.Lütetsburg
+    -   point.de.Hage-Ostfriesl
+    -   point.de.Westerende
+    -   point.de.Dornum-Ostfriesl
+    -   point.de.Roggenstede
+    -   point.de.Fulkum
+    -   point.de.Holtgast
+    -   point.de.Esens-Ostfriesl
+    -   point.de.Stedesdorf
+    -   point.de.Burhafe
+    -   point.de.Blersum
+    -   point.de.Wittmund
+    -   point.de.Wittmund-Rehau
+    -   point.de.Asel
+    -   point.de.Jever-LGr
+    -   point.de.Vereinigung
     -   point.de.Jever                              # de.1540
+
+
+#-----------------------------------------------------------------------------
+
+#    point.de.Emden-Rbf-Es                       de.2931
 
 
 ---
 key: point.de.Emden-Rbf
 type: point
 events:
-    -   date: c1975
-        status: open
     -   date: !!null
-        location:
-            line.de.1570: 0,9
-            line.de.1577: 0,0
-        source: src.de.SuW.2005
-    -   date: !!null
-        category: de.Bf
-        service: freight
         name: Emden Rbf
-        de.DS100: HE R
-    -   date: c2000
+        category: de.Bft
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
         de.DS100: HER
+        de.dstnr: !!str 116228
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Emden Rbf
+        PLC: DE12869
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.1570: 0,941
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
@@ -202,37 +211,49 @@ events:
     -   date: 1971
         status: closed
 
+
 ---
-key: point.de.Emden-Hbf
+key: point.de.Emden
 type: point
-junction: True
 events:
-    -   date: !!null
-        location:
-            line.de.1570: 2,05
-        source: src.de.DRG.Mst.1946
     -   date: !!null
         name: Larrelterstraße
         source: src.de.Kb.1914
     -   date: 1931-05-15
         name: Emden West
         source: src.de.web.Nosske
+    -   date: 1971-09-26
+        name: Emden Hbf
+        source: src.de.web.Feldmann
+    -   date: c2000
+        name: Emden
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         category: de.Bf
         de.rang: III
         de.lknr: 21 099
         source: src.de.Bfv.1933
-    -   date: 1971-09-26?
-        location:
-            line.de.1570:  2,2
-            line.de.1572: -1,0
-        source: src.de.SuW.2005
-    -   date: 1971-09-26
-        name: Emden Hbf
-        source: src.de.web.Feldmann
-    -   date: !!null    
+
+    -   date: !!null
         de.DS100: HE
-        source: src.de.TPP.2006
+        de.dstnr: !!str 210971
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Emden
+        PLC: DE12862
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.1570: 2,05
+        source: src.de.DRG.Mst.1946
+    -   date: c2000
+        location:
+            line.de.1570:  2,209
+            line.de.1572: -0,604
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
 
 ---
 key: point.de.Hinte-Harsweg
@@ -305,13 +326,7 @@ events:
 ---
 key: point.de.Abelitz
 type: point
-junction: True
 events:
-    -   date: !!null
-        location:
-            line.de.1570: 14,78
-            line.de.1573:  0,00
-        source: src.de.DRG.Mst.1946
     -   date: !!null
         name: Finkenkrug
         source: src.de.web.Feldmann
@@ -320,6 +335,7 @@ events:
         source:
             - src.de.Kb.1914
             - src.de.web.Feldmann
+
     -   date: !!null
         category: de.Bf
         de.rang: III
@@ -329,11 +345,29 @@ events:
     -   date: c1940
         service: full
         source: src.de.Bfv.1944
-    -   date: !!null
-        de.DS100: HABZ
-        source: src.de.TPP.2006
     -   date: c1980
         service: freight
+
+    -   date: !!null
+        de.DS100: HABZ
+        de.dstnr: !!str 211037
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Abelitz
+        PLC: DE10018
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.1570: 14,78
+            line.de.1573:  0,00
+        source: src.de.DRG.Mst.1946
+    -   date: c2000
+        location:
+            line.de.1570: 14,827
+            line.de.1573:  0,041
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
 
 ---
 key: point.de.Engerhafe
@@ -356,25 +390,39 @@ events:
     -   date: c2000
         status: closed
 
+
 ---
 key: point.de.Marienhafe
 type: point
 events:
     -   date: !!null
-        location:
-            line.de.1570: 22,18
-        source: src.de.DRG.Mst.1946
-    -   date: !!null
         name: Marienhafe
         source: src.de.Kb.1914
+
     -   date: !!null
         category: de.Bf
         de.rang: III
         de.lknr: 21 105
         source: src.de.Bfv.1933
+
     -   date: !!null
         de.DS100: HMAR
-        source: src.de.TPP.2006
+        de.dstnr: !!str 211052
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Marienhafe
+        PLC: DE16794
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.1570: 22,18
+        source: src.de.DRG.Mst.1946
+    -   date: c2000
+        location:
+            line.de.1570: 22,178
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
 
 ---
 key: point.de.Osteel
@@ -400,8 +448,9 @@ events:
         status: closed
         source: src.de.Raveling.1987
 
+
 ---
-key: point.de.Nadoerst
+key: point.de.Nadörst
 type: point
 events:
     -   date: !!null
@@ -423,57 +472,116 @@ events:
     -   date: c1975
         status: closed
 
+
+---
+key: point.de.Norden-KOF
+type: point
+events:
+    -   date: !!null
+        name: Norden KOF
+        category: de.Museum
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: HNN K
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Norden KOF
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.1570: 30,400
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
 ---
 key: point.de.Norden
 type: point
-junction: True
 events:
+    -   date: !!null
+        name: Norden
+        source: src.de.Kb.1914
+
+    -   date: !!null
+        category: de.Bf
+        de.rang: II
+        de.lknr: 21 108
+        source: src.de.Bfv.1933
+
+    -   date: !!null
+        de.DS100: HNN
+        de.dstnr: !!str 211094
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Norden
+        PLC: DE17802
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         location:
             line.de.1570: 30,41=31,58
             line.de.8128: 31,58
             line.de.1574: -1,15
         source: src.de.DRG.Mst.1946
-    -   date: c1970
+    -   date: c2000
         location:
-            line.de.1574: 30,41
-        source: src.de.SuW.2005
-    -   date: !!null
-        name: Norden
-        source: src.de.Kb.1914
-    -   date: !!null
-        category: de.Bf
-        de.rang: II
-        de.lknr: 21 108
-        source: src.de.Bfv.1933
-    -   date: !!null
-        de.DS100: HNN
-        source: src.de.TPP.2006
+            line.de.1570: 30,417
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
 
 ---
-key: point.de.Luetetsburg
+key: point.de.Norden-Gr
+type: point
+events:
+    -   date: !!null
+        name: Norden DB-Grenze
+        category: de.Gp
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: HNNG
+        de.dstnr: !!str 107044
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Norden DB-Gr
+        PLC: DE17803
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.1570: 31,045
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Lütetsburg
 type: point
 events:
     -   date: 2009-09-18
         status: open
         location:
             line.de.1570: 35,984
-        category: de.Hp
-        name: Lütetsburg
         de.VBL: Lb
         source: src.de.web.MKO
+    -   date: !!null
+        name: Lütetsburg
+        category: de.Museum
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: HLTB
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Lütetsburg
+        source: src.de.DBAG.BSV.2017
+
 
 ---
-key: point.de.Hage
+key: point.de.Hage-Ostfriesl
 type: point
 events:
     -   date: !!null
-        location:
-            line.de.1570:  37,27
-        source: src.de.DRG.Mst.1946
-    -   date: !!null
         name: Hage (Ostfriesl)
         source: src.de.Kb.1914
+
     -   date: !!null
         category: de.Bf
         de.rang: IV
@@ -482,52 +590,74 @@ events:
     -   date: c1940
         de.rang: III
         source: src.de.Bfv.1944
+    -   date: 2009-03-01?
+        category: de.Museum
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         de.VBL: Ha
         source: src.de.web.MKO
     -   date: !!null
         de.DS100: HHGE
-        source: src.de.SuW.2005
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Hage (Ostfriesl)
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.1570:  37,27
+        source: src.de.DRG.Mst.1946
     -   date: 2007
         location:
             line.de.1570: 37,486
         source: src.de.web.MKO
+
 
 ---
 key: point.de.Westerende
 type: point
 events:
     -   date: !!null
-        location:
-            line.de.1570: 43,00
-        source: src.de.DRG.Mst.1946
-    -   date: !!null
         name: Westerende (Ostfriesl)
         source: src.de.Kb.1914
+
     -   date: !!null
         category: de.Hp
         staff: agent
         de.lknr: 21 440
         source: src.de.Bfv.1933
+    -   date: 2009-03-01?
+        category: de.Museum
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null    
         de.VBL: We
         source: src.de.web.MKO
+    -   date: !!null
+        de.DS100: HWST
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Westerende
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.1570: 43,00
+        source: src.de.DRG.Mst.1946
     -   date: c2000
         location:
             line.de.1570: 43,1
         source: src.de.web.MKO
 
 ---
-key: point.de.Dornum
+key: point.de.Dornum-Ostfriesl
 type: point
 events:
     -   date: !!null
-        location:
-            line.de.1570: 48,03
-        source: src.de.DRG.Mst.1946
-    -   date: !!null
         name: Dornum (Ostfriesl)
         source: src.de.Kb.1914
+
     -   date: !!null
         category: de.Bf
         de.rang: IV
@@ -536,12 +666,25 @@ events:
     -   date: c1940
         de.rang: III
         source: src.de.Bfv.1944
+    -   date: 2010-03-01?
+        category: de.Museum
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         de.VBL: Do
         source: src.de.web.MKO
     -   date: !!null
         de.DS100: HDOR
-        source: src.de.SuW.2005
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Dornum/Ostfriesl
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.1570: 48,03
+        source: src.de.DRG.Mst.1946
+
 
 ---
 key: point.de.Roggenstede
@@ -560,6 +703,7 @@ events:
         de.lknr: 21 442
         source: src.de.Bfv.1933
 
+
 ---
 key: point.de.Fulkum
 type: point
@@ -576,6 +720,7 @@ events:
         de.rang: IV
         de.lknr: 21 443
         source: src.de.Bfv.1933
+
 
 ---
 key: point.de.Holtgast
@@ -596,18 +741,15 @@ events:
         de.lknr: 21 444
         source: src.de.Bfv.1933
 
+
 ---
-key: point.de.Esens
+key: point.de.Esens-Ostfriesl
 type: point
-junction: True
 events:
-    -   date: !!null
-        location:
-            line.de.1570: 60,28
-        source: src.de.DRG.Mst.1946
     -   date: !!null
         name: Esens (Ostfriesl)
         source: src.de.Kb.1914
+
     -   date: !!null
         category: de.Bf
         de.rang: III
@@ -617,23 +759,27 @@ events:
         de.rang: II
         source: src.de.Bfv.1944
     -   date: c2000
-        status: closed
-
----
-key: point.de.Esens-Hp
-type: point
-events:
-    -   date: c2000
-        status: open
-    -   date: !!null
-        location:
-            line.de.1570: 60,4
         category: de.Hp
-        name: Esens (Ostfriesl)
-        source: src.de.SuW.2005
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         de.DS100: HESO
-        source: src.de.TPP.2006
+        de.dstnr: !!str 214452
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Esens(Ostfriesl)
+        PLC: DE13026
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.1570: 60,28
+        source: src.de.DRG.Mst.1946
+    -   date: c2000
+        location:
+            line.de.1570: 60,665
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
 
 ---
 key: point.de.Stedesdorf
@@ -656,17 +802,15 @@ events:
     -   date: c1975
         status: closed
 
+
 ---
 key: point.de.Burhafe
 type: point
 events:
     -   date: !!null
-        location:
-            line.de.1570: 67,85
-        source: src.de.DRG.Mst.1946
-    -   date: !!null
         name: Burhafe (Ostfriesl)
         source: src.de.Kb.1914
+
     -   date: !!null
         category: de.Bf
         de.rang: IV
@@ -680,9 +824,25 @@ events:
         status: open
         category: de.Hp
         source: src.de.WP.Ostfriesische-Kuestenbahn
+
     -   date: !!null
         de.DS100: HBUR
-        source: src.de.TPP.2006
+        de.dstnr: !!str 214486
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Burhafe
+        PLC: DE11869
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.1570: 67,85
+        source: src.de.DRG.Mst.1946
+    -   date: 2005-12?
+        location:
+            line.de.1570: 67,910
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
 
 ---
 key: point.de.Blersum
@@ -703,18 +863,15 @@ events:
     -   date: c1975
         status: closed
 
+
 ---
 key: point.de.Wittmund
 type: point
-junction: True
 events:
-    -   date: !!null
-        location:
-            line.de.1570: 73,74
-        source: src.de.DRG.Mst.1946
     -   date: !!null
         name: Wittmund
         source: src.de.Kb.1914
+
     -   date: !!null
         category: de.Bf
         de.lknr: 21 450
@@ -722,12 +879,28 @@ events:
     -   date: !!null
         de.rang: II
         source: src.de.Bfv.1944
-    -   date: c1990
+    -   date: c2000
         category: de.Hp
         source: src.de.SuW.2005
+
     -   date: !!null
         de.DS100: HWTM
-        source: src.de.TPP.2006
+        de.dstnr: !!str 214502
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Wittmund
+        PLC: DE21243
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.1570: 73,74
+        source: src.de.DRG.Mst.1946
+    -   date: c2000
+        location:
+            line.de.1570: 73,730
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
 
 ---
 key: point.de.Wittmund-Rehau
@@ -740,6 +913,7 @@ events:
         name: Wittmund Rehau
         de.DS100: HRJA
         source: src.de.SuW.2005
+
 
 ---
 key: point.de.Asel
@@ -764,7 +938,6 @@ events:
 ---
 key: point.de.Jever-LGr
 type: point
-junction: True
 subtype: border
 events:
     -   date: !!null
@@ -798,4 +971,7 @@ events:
         source: src.de.Bfv.1944
     -   date: c1975
         status: closed
+
+
+#    point.de.Jever                              de.1540
 

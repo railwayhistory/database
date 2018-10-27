@@ -7,10 +7,10 @@ events:
     -   date: !!null
         region: org.de
     -   date: !!null
-        end: point.de.Stroehen-LGr
+        end: point.de.Ströhen-LGr
         region: org.de.l.nw
     -   date: !!null
-        start: point.de.Stroehen-LGr
+        start: point.de.Ströhen-LGr
         region: org.de.l.ni
 
     -   date: !!null
@@ -30,11 +30,11 @@ events:
         operator: org.de.e.mst
         source: src.de.DRG.1935
     -   date: 1899-10-01
-        end: point.de.Rahden
+        end: point.de.Rahden-Lübbecke
         status: open
         source: src.de.DRG.1935
     -   date: 1900-10-01
-        start: point.de.Rahden
+        start: point.de.Rahden-Lübbecke
         end: point.de.Sulingen
         status: open
         source: src.de.DRG.1935
@@ -44,7 +44,7 @@ events:
         source: src.de.DRG.1935
 
     -   date: 1994-05-27
-        start: point.de.Rahden
+        start: point.de.Rahden-Lübbecke
         passenger: none
         source: src.de.web.Joost
     -   date: 1994-05-29
@@ -52,12 +52,12 @@ events:
         freight: none
         source: src.de.Bundestag.14.200
     -   date: 1995-09-01
-        start: point.de.Rahden
+        start: point.de.Rahden-Lübbecke
         end: point.de.Barenburg
         source: src.de.Bundestag.14.200
 
     -   date: 1997-12-30
-        start: point.de.Rahden
+        start: point.de.Rahden-Lübbecke
         end: point.de.Barenburg
         status: closed
         source: src.de.web.EBA.Still # Nr. 192, 193
@@ -67,37 +67,44 @@ events:
         source: src.de.web.EBA.Still # Nr. 194
 
     -   date: c2000
-        start: point.de.Rahden
+        start: point.de.Rahden-Lübbecke
         end: point.de.Barenburg
         status: removed
         source: src.de.SuW.2005
 
 points:
-    - point.de.Bünde                                # line.de.2992
-    - point.de.Holsen
-    - point.de.Bieren-Roedinghausen
-    - point.de.Neue-Muehle
-    - point.de.Holzhausen-Heddinghausen
-    - point.de.Blasheim
-    - point.de.Lübbecke-Westf
-    - point.de.Lübbecke-Hafen
-    - point.de.Besta
-    - point.de.Gestringen
-    - point.de.Espelkamp-Mittwald
-    - point.de.Espelkamp
-    - point.de.Rahden
-    - point.de.Neuer-Krug
-    - point.de.Stroehen-Wagenfeld
-    - point.de.Stroehen-LGr
-    - point.de.Stroehen
-    - point.de.Varrel-Han
-    - point.de.Barenburg
-    - point.de.Sulingen
-    - point.de.Schwafoerden
-    - point.de.Scholen
-    - point.de.Neuenkirchen-Sulingen
-    - point.de.Apelstedt
-    - point.de.Bassum                               # line.de.2200
+    -   point.de.Bünde                              # de.2992
+    -   point.de.Holsen
+    -   point.de.Bieren-Rödinghausen
+    -   point.de.Mesch-Neue-Mühle
+    -   point.de.Holzhausen-Heddinghausen
+    -   point.de.Blasheim
+    -   point.de.Lübbecke-Westf
+    -   point.de.Lübbecke-Hafen
+    -   point.de.Lübbecke-Besta
+    -   point.de.Gestringen
+    -   point.de.Espelkamp
+    -   point.de.Espelkamp-alt
+    -   point.de.Rahden-Lübbecke
+    -   point.de.Neuer-Krug
+    -   point.de.Ströhen-Wagenfeld
+    -   point.de.Ströhen-LGr
+    -   point.de.Ströhen
+    -   point.de.Varrel-Han
+    -   point.de.Barenburg
+    -   point.de.Sulingen-Süd-Strw
+    -   point.de.Sulingen
+    -   point.de.Schwaförden
+    -   point.de.Scholen
+    -   point.de.Neuenkirchen-Sulingen
+    -   point.de.Apelstedt
+    -   point.de.Bassum                             # de.2200
+
+
+#-----------------------------------------------------------------------------
+
+#    point.de.Bünde                              de.2992
+
 
 ---
 key: point.de.Holsen
@@ -125,20 +132,27 @@ events:
     -   date: c1980
         status: closed
 
+
 ---
-key: point.de.Bieren-Roedinghausen
+key: point.de.Bieren-Rödinghausen
 type: point
 events:
     -   date: !!null
-        location:
-            line.de.2982: 7,065
-        source: src.de.web.Joost
-    -   date: !!null
         name: Bieren-Rödinghausen
         source: src.de.Kb.1914
+
     -   date: !!null
         category: de.Bf
         de.rang: IV
+        source: src.de.Bfv.1933
+    -   date: 1982
+        category: de.Hp
+        source: src.de.web.Joost
+    -   date: 1987-12-31
+        service: passenger
+        source: src.de.web.Joost
+
+    -   date: !!null
         de.lknr: 21 498
         source: src.de.Bfv.1933
     -   date: !!null
@@ -146,77 +160,97 @@ events:
         source: src.de.web.Joost
     -   date: !!null
         de.DS100: HROE
-        source: src.de.TPP.2006
-    -   date: 1982
-        category: de.Hp
-        source: src.de.web.Joost
-    -   date: 1987-12-31
-        service: passenger
-        source: src.de.web.Joost
-    -   date: 2007
+        de.dstnr: !!str 214981
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Bieren-Rödinghsn
+        PLC: DE11236
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
         location:
-            line.de.2982: 7,2
-        source: src.de.web.Joost
+            line.de.2982: 7,196
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
 
 ---
-key: point.de.Neue-Muehle
+key: point.de.Mesch-Neue-Mühle
 type: point
 events:
     -   date: !!null
-        location:
-            line.de.2982: 10,343
-        source: src.de.web.Joost
-    -   date: !!null
         name: Neue Mühle
         source: src.de.Kb.1914
+    -   date: c2000
+        name: Mesch Neue Mühle
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         category: de.Hp
-        de.lknr: 21 499
         staff: agent
         source: src.de.Bfv.1933
-    -   date: !!null
-        de.VBL: Nmü
-        source: src.de.web.Joost
-    -   date: !!null
-        de.DS100: HNMU
-        source: src.de.TPP.2006
     -   date: 1986-06-01
         service: freight
         source: src.de.web.Joost
     -   date: 2002-12-15
         service: full
         source: src.de.web.Joost
-    -   date: c2005
-        name: Mesch Neue Mühle
-        source: src.de.TPP.2006
+
+    -   date: !!null
+        de.lknr: 21 499
+        source: src.de.Bfv.1933
+    -   date: !!null
+        de.VBL: Nmü
+        source: src.de.web.Joost
+    -   date: !!null
+        de.DS100: HNMU
+        de.dstnr: !!str 214999
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Neue Mühle
+        PLC: DE17011
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.2982: 10,325
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
 
 ---
 key: point.de.Holzhausen-Heddinghausen
 type: point
-junction: True
 events:
-    -   date: !!null
-        location:
-            line.de.2982: 13,92
-        source: src.de.DRG.Mst.1946
-    -   date: !!null
-        location:
-            line.de.9168: 0,0
-        source: src.de.SuW.2005
     -   date: !!null
         name: Holzhausen-Heddinghausen
         source: src.de.Kb.1914
+
     -   date: !!null
         category: de.Bf
         de.rang: III
         de.lknr: 21 500
         source: src.de.Bfv.1933
+
     -   date: !!null
         de.VBL: Hz
         source: src.de.web.Joost
     -   date: !!null
         de.DS100: HHZH
-        source: src.de.TPP.2006
+        de.dstnr: !!str 215004
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Holzhsn-Heddhsn
+        PLC: DE15061
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.2982: 13,92
+        source: src.de.DRG.Mst.1946
+    -   date: c2000
+        location:
+            line.de.2982: 13,968
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
 
 ---
 key: point.de.Blasheim
@@ -241,21 +275,24 @@ events:
         status: closed
         source: src.de.web.Joost
 
+
 ---
 key: point.de.Lübbecke-Westf
 type: point
-junction: True
 events:
-    -   date: !!null
-        location:
-            line.de.2982: 18,529
-        source: src.de.web.Joost
     -   date: !!null
         name: Lübbecke (Westf)
         source: src.de.Kb.1914
+
     -   date: !!null
         category: de.Bf
         de.rang: III
+        source: src.de.Bfv.1933
+    -   date: c1940
+        de.rang: II
+        source: src.de.Bfv.1944
+
+    -   date: !!null
         de.lknr: 21 502
         source: src.de.Bfv.1933
     -   date: !!null
@@ -263,13 +300,21 @@ events:
         source: src.de.web.Joost
     -   date: !!null
         de.DS100: HLBB
-        source: src.de.TPP.2006
-    -   date: c1940
-        de.rang: II
-        source: src.de.Bfv.1944
+        de.dstnr: !!str 215129
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Lübbecke (Westf)
+        PLC: DE16551
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.2982: 18,529
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         connection: point.de.Lübbecke-Westf-Reichsbf
+
 
 ---
 key: point.de.Lübbecke-Hafen
@@ -285,22 +330,36 @@ events:
     -   date: c2000
         status: closed
 
+
 ---
-key: point.de.Besta
+key: point.de.Lübbecke-Besta
 type: point
 events:
     -   date: !!null
-        location:
-            line.de.2982: 21,551
-        category: de.Awanst
         name: Besta
         source: src.de.web.Joost
-    -   date: !!null
-        de.DS100: HBES
-        source: src.de.TPP.2006
     -   date: c2000
         name: Lübbecke Besta
-        source: src.de.TPP.2006
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        category: de.Awanst
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        de.DS100: HBES
+        de.dstnr: !!str 385898
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Besta
+        PLC: DE16552
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.2982: 21,551
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
 
 ---
 key: point.de.Gestringen
@@ -333,27 +392,43 @@ events:
     -   date: c2000
         status: closed
 
+
 ---
-key: point.de.Espelkamp-Mittwald
+key: point.de.Espelkamp
 type: point
 events:
     -   date: 1950-05-14
         status: open
-        location:
-            line.de.2982: 26,869
-        category: de.Bf
         name: Espelkamp-Mittwald
-        de.VBL: Ek
         source: src.de.web.Joost
-    -   date: !!null
-        de.DS100: HEKP
-        source: src.de.TPP.2006
     -   date: c1961
         name: Espelkamp
         source: src.de.web.Joost
 
+    -   date: !!null
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        de.VBL: Ek
+        source: src.de.web.Joost
+    -   date: !!null
+        de.DS100: HEKP
+        de.dstnr: !!str 215046
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Espelkamp
+        PLC: DE13030
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.2982: 26,923
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
 ---
-key: point.de.Espelkamp
+key: point.de.Espelkamp-alt
 type: point
 events:
     -   date: !!null
@@ -377,22 +452,24 @@ events:
         status: closed
         source: src.de.web.Joost
 
+
 ---
-key: point.de.Rahden
+key: point.de.Rahden-Lübbecke
 type: point
-junction: True
 events:
-    -   date: !!null
-        location:
-            line.de.1743: 58,79
-            line.de.2982: 33,00
-        source: src.de.DRG.Mst.1946
     -   date: !!null
         name: Rahden (Kr Lübbecke)
         source: src.de.Kb.1914
+
     -   date: !!null
         category: de.Bf
         de.rang: II
+        source: src.de.Bfv.1933
+    -   date: c1940
+        de.rang: I
+        source: src.de.Bfv.1944
+
+    -   date: !!null
         de.lknr: 21 505
         source: src.de.Bfv.1933
     -   date: !!null
@@ -400,10 +477,23 @@ events:
         source: src.de.web.Joost
     -   date: !!null
         de.DS100: HRAH
-        source: src.de.TPP.2006
-    -   date: c1940
-        de.rang: I
-        source: src.de.Bfv.1944
+        de.dstnr: !!str 215053
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Rahden/Lübbecke
+        PLC: DE18610
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.1743: 58,79
+            line.de.2982: 33,00
+        source: src.de.DRG.Mst.1946
+    -   date: c2000
+        location:
+            line.de.2982: 33,055
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
 
 ---
 key: point.de.Neuer-Krug
@@ -428,8 +518,9 @@ events:
         status: closed
         source: src.de.web.Joost
 
+
 ---
-key: point.de.Stroehen-Wagenfeld
+key: point.de.Ströhen-Wagenfeld
 type: point
 events:
     -   date: !!null
@@ -454,8 +545,9 @@ events:
         category: de.Awanst
         source: src.de.web.Joost
 
+
 ---
-key: point.de.Stroehen-LGr
+key: point.de.Ströhen-LGr
 type: point
 subtype: border
 events:
@@ -466,8 +558,9 @@ events:
             line.de.2982: 45,12
         source: src.de.web.Joost
 
+
 ---
-key: point.de.Stroehen
+key: point.de.Ströhen
 type: point
 events:
     -   date: !!null
@@ -488,6 +581,7 @@ events:
         name: Ströhen (Han)
     -   date: 1993?
         category: de.Awanst
+
 
 ---
 key: point.de.Varrel-Han
@@ -510,14 +604,11 @@ events:
     -   date: 1993?
         category: de.Awanst
 
+
 ---
 key: point.de.Barenburg
 type: point
 events:
-    -   date: !!null
-        location:
-            line.de.2982: 59,76
-        source: src.de.DRG.Mst.1946
     -   date: !!null
         name: Barenburg
         source: src.de.Kb.1914
@@ -528,18 +619,41 @@ events:
         source: src.de.Bfv.1933
     -   date: !!null
         de.DS100: HBAG
-        source: src.de.TPP.2006
+        de.dstnr: !!str 215103
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Barenburg
+        PLC: DE10627
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.2982: 59,76
+        source: src.de.DRG.Mst.1946
+    -   date: c2000
+        location:
+            line.de.2982: 59,730
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Sulingen-Süd-Strw
+type: point
+events:
+    -   date: !!null
+        de.DS100: HSLS
+        name: Sulingen Süd Streckenwechsel 2982/1630
+        de.name16: Strw 2982/1630
+        category: de.Strw
+        PLC: DE21577
+        de.dstnr: !!str 109120
+        source: src.de.DBAG.BSV.2017
+
 
 ---
 key: point.de.Sulingen
 type: point
-junction: True
 events:
-    -   date: !!null
-        location:
-            line.de.1744: 28,93
-            line.de.2982: 66,38
-        source: src.de.DRG.Mst.1946
     -   date: !!null
         name: Sulingen (Han)
         source: src.de.Kb.1914
@@ -550,10 +664,26 @@ events:
         source: src.de.Bfv.1933
     -   date: !!null
         de.DS100: HSUL
-        source: src.de.TPP.2006
+        de.dstnr: !!str 215111
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Sulingen (Han)
+        PLC: DE20144
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.1744: 28,93
+            line.de.2982: 66,38
+        source: src.de.DRG.Mst.1946
+    -   date: c2000
+        location:
+            line.de.1744: 28,901
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
 
 ---
-key: point.de.Schwafoerden
+key: point.de.Schwaförden
 type: point
 events:
     -   date: !!null
@@ -570,6 +700,7 @@ events:
         source: src.de.Bfv.1933
     -   date: !!null
         de.DS100: HSFO
+
 
 ---
 key: point.de.Scholen
@@ -589,6 +720,7 @@ events:
         source: src.de.Bfv.1933
     -   date: c1990
         status: closed
+
 
 ---
 key: point.de.Neuenkirchen-Sulingen
@@ -640,4 +772,6 @@ events:
     -   date: c1990
         status: closed
 
+
+#    point.de.Bassum                             de.2200
 

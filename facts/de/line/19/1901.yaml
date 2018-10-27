@@ -69,9 +69,11 @@ events:
     #
 
 points:
-    -   point.de.Braunschweig-Hbf                     # line.de.1730
+    -   point.de.Braunschweig-Hbf                     # de.1730
     -   point.de.Braunschweig-Gabelung-Süd
+    -   point.de.Rüningen
     -   point.de.Leiferde-Braunschw
+    -   point.de.Wolfenbüttel-Hp
     -   point.de.Wolfenbüttel
     -   point.de.Börßum
     -   point.de.Schladen-Harz
@@ -83,7 +85,7 @@ points:
 
 #-----------------------------------------------------------------------------
 
-# point.de.Braunschweig-Hbf de.1730
+#    point.de.Braunschweig-Hbf de.1730
 
 
 ---
@@ -96,48 +98,142 @@ events:
 
 
 ---
-key: point.de.Leiferde-Braunschw
+key: point.de.Rüningen
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Abzw
+        name: Rüningen
+        category: de.Awanst
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: HRUE
+        de.dstnr: !!str 133413
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Rüningen
+        PLC: DE19122
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.1901: 3,908
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Leiferde-Braunschw
+type: point
+events:
+    -   date: !!null
         name: Leiferde (Braunschw)
+        category: de.Abzw
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
         de.DS100: HLFB
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 133421
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Leiferde/Brg
+        PLC: DE16190
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.1901: 5,732
+            line.de.1920: 5,732
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Wolfenbüttel-Hp
+type: point
+events:
+    -   date: !!null
+        name: Wolfenbüttel Hp
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: HWOH
+        de.dstnr: !!str 805168
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Wolfenbüttel Hp
+        PLC: DE21258
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.1901: 11,763
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Wolfenbüttel
 type: point
-progress: stub
 events:
     -   date: !!null
         name: Wolfenbüttel
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
         de.DS100: HWOL
-        source: src.de.TPP.2015
+        de.dstnr: !!str 133447
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Wolfenbüttel
+        PLC: DE21257
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.1901: 12,300
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Börßum
 type: point
-progress: stub
 events:
     -   date: !!null
         name: Börßum
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
         de.DS100: HBSM
-        source: src.de.TPP.2015
+        de.dstnr: !!str 133025
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Börßum
+        PLC: DE11511
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.1901: 23,687
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Schladen-Harz
 type: point
-progress: stub
 events:
     -   date: !!null
         name: Schladen (Harz)
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
         de.DS100: HSCL
-        source: src.de.TPP.2015
+        de.dstnr: !!str 133496
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Schladen (Harz)
+        PLC: DE19352
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.1901: 28,139
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
@@ -155,30 +251,57 @@ type: point
 progress: stub
 events:
     -   date: !!null
-        name: Vienenburg Gbf
         de.DS100: HVBGG
+        name: Vienenburg Gbf
+        category: de.Glgr
         source: src.de.DS100.1984
+    -   date: c2000
+        status: closed
 
 
 ---
 key: point.de.Vienenburg
 type: point
-progress: stub
 events:
     -   date: !!null
         name: Vienenburg
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
         de.DS100: HVBG
-        source: src.de.TPP.2015
+        de.dstnr: !!str 133686
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Vienenburg
+        PLC: DE20594
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.1901: 39,473
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Bad-Harzburg
 type: point
-progress: stub
 events:
     -   date: !!null
         name: Bad Harzburg
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
         de.DS100: HBHA
-        source: src.de.TPP.2015
+        de.dstnr: !!str 133900
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Bad Harzburg
+        PLC: DE10451
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6425: 32,230
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 

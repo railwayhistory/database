@@ -68,18 +68,26 @@ events:
     #        -   
 
 points:
-    - point.de.Hannover-Hbf                         # line.de.1700
-    - point.de.Hannover-Burg                        # line.de.1700
-    - point.de.Hannover-Herrenhausen
-    - point.de.Hannover-Vinnhorst
-    - point.de.Langenhagen-Mitte
-    - point.de.Langenhagen-Pferdemarkt
-    - point.de.Isernhagen
-    - point.de.Grossburgwedel
-    - point.de.Moor-Burgwedel
-    - point.de.Hasenwechsel
-    - point.de.Dasselsbruch
-    - point.de.Celle                                # line.de.1720
+    -   point.de.Hannover-Hbf                       # de.1700
+    -   point.de.Hannover-Burg                      # de.1700
+    -   point.de.Hannover-Herrenhausen
+    -   point.de.Hannover-Vinnhorst
+    -   point.de.Langenhagen-Mitte
+    -   point.de.Langenhagen-Pferdemarkt
+    -   point.de.Isernhagen
+    -   point.de.Großburgwedel
+    -   point.de.Moor-Burgwedel
+    -   point.de.Hasenwechsel
+    -   point.de.Dasselsbruch
+    -   point.de.Celle-Gbf                          # de.1720
+    -   point.de.Celle                              # de.1720
+
+
+#-----------------------------------------------------------------------------
+
+#    point.de.Hannover-Hbf                       de.1700
+
+#    point.de.Hannover-Burg                      de.1700
 
 
 ---
@@ -87,25 +95,37 @@ key: point.de.Hannover-Herrenhausen
 type: point
 events:
     -   date: !!null
-        location:
-            line.de.1710: 4,59
-        source: src.de.DRG.Han.1945
-    -   date: !!null
         name: Herrenhausen
         source: src.de.Kb.1914
+    -   date: c1925
+        name: Hannover-Herrenhausen
+        source: src.de.Bfv.1933
+
     -   date: !!null
         category: de.Bf
         de.rang: III
+        source: src.de.Bfv.1933
+    -   date: c1975
+        category: de.Hp
+        staff: none
+        source: src.de.DS100.1984
+    -   date: 1997-11-09
+        status: closed
+        source: src.de.WP.Heidebahn
+
+    -   date: !!null
         de.lknr: 13 690
         source: src.de.Bfv.1933
     -   date: !!null
         de.DS100: HHE
-    -   date: c1925
-        name: Hannover-Herrenhausen
-        source: src.de.Bfv.1933
-    -   date: 1997-11-09
-        status: closed
-        source: src.de.WP.Heidebahn
+        de.dstnr: !!str 135574
+        source: src.de.DS100.1984
+
+    -   date: !!null
+        location:
+            line.de.1710: 4,59
+        source: src.de.DRG.Han.1945
+
 
 ---
 key: point.de.Hannover-Vinnhorst
@@ -114,36 +134,43 @@ events:
     -   date: !!null
         name: Vinnhorst
         source: src.de.Kb.1905
-    -   date: !!null
-        de.lknr: 13 139
-        source: src.de.Bfv.1928
+    -   date: c2000
+        name: Hannover-Vinnhorst
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         category: de.Bf
         de.rang: III
         source: src.de.Bfv.1933
-    -   date: de.lknr.30
-        de.lknr: 13 689
-        source: src.de.Bfv.1933
     -   date: c1940
         de.rang: II
         source: src.de.Bfv.1944
+
+    -   date: !!null
+        de.lknr: 13 139
+        source: src.de.Bfv.1928
+    -   date: de.lknr.30
+        de.lknr: 13 689
+        source: src.de.Bfv.1933
+    -   date: !!null
+        de.DS100: HVIN
+        de.dstnr: !!str 136895
+        source: src.de.DS100.1984
+    -   date: !!null
+        de.name16: Han-Vinnhorst
+        PLC: DE14570
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         location:
             line.de.1711: 7,95
             line.de.1710: 7,95
         source: src.de.DRG.Han.1945
-    -   date: !!null
-        de.DS100: HVIN
-        de.dstnr: !!str 136895
-        source: src.de.DS100.1984
-    -   date: c1995
-        name: Hannover-Vinnhorst
-        source: src.de.TPP.2006
     -   date: c2000
         location:
-            line.de.1711: 7,870
             line.de.1710: 7,850
-        source: src.de.DBAG.ISR
+            line.de.1711: 7,870
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -159,13 +186,23 @@ events:
         service: passenger
         staff: none
     -   date: !!null
+        name: Langenhagen Mitte
+        category: de.Bft
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: HLGM
+        de.dstnr: !!str 624551
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Langenhgn Mitte
+        PLC: DE16059
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
         location:
             line.de.1710:  9,940
             line.de.1711: 10,041
-        category: de.Bft
-        name: Langenhagen Mitte
-        de.DS100: HLGM
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -175,7 +212,6 @@ events:
 ---
 key: point.de.Langenhagen-Pferdemarkt
 type: point
-junction: True
 events:
     -   date: !!null
         name: Langenhagen
@@ -183,40 +219,47 @@ events:
     -   date: c1910
         name: Langenhagen (Han)
         source: src.de.Kb.1914
-    -   date: !!null
-        de.lknr: 13 138
-        source: src.de.Bfv.1928
+    -   date: c2000
+        name: Langenhagen Pferdemarkt
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         category: de.Bf
         de.rang: III
         source: src.de.Bfv.1933
-    -   date: de.lknr.30
-        de.lknr: 13 688
-        source: src.de.Bfv.1933
     -   date: c1940
         de.rang: II
         source: src.de.Bfv.1944
+
     -   date: !!null
-        location:
-            line.de.1710: 11,37
-            line.de.1711: 11,37
-        source: src.de.DRG.Han.1945
+        de.lknr: 13 138
+        source: src.de.Bfv.1928
+    -   date: de.lknr.30
+        de.lknr: 13 688
+        source: src.de.Bfv.1933
     -   date: !!null
         de.DS100: HLGH
         de.dstnr: !!str 136887
         source: src.de.DS100.1984
     -   date: c2000
-        name: Langenhagen Pferdemarkt
-        source: src.de.TPP.2006
+        de.dstnr: !!str 118810
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Langenhgn Pferde
+        PLC: DE16060
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         location:
-            line.de.1713: 12,026
-        source: src.de.DBAG.ISR
+            line.de.1710: 11,37
+            line.de.1711: 11,37
+        source: src.de.DRG.Han.1945
     -   date: c2000
         location:
-            line.de.1710: 12,026
+            line.de.1710: 11,350
             line.de.1711: 11,374
-        source: src.de.DBAG.ISR
+            line.de.1713: 12,026
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -228,10 +271,6 @@ key: point.de.Isernhagen
 type: point
 events:
     -   date: !!null
-        location:
-            line.de.1710: 17,50
-        source: src.de.DRG.Han.1945
-    -   date: !!null
         category: de.Bf
         de.rang: III
         name: Isernhagen
@@ -239,28 +278,58 @@ events:
         source: src.de.Bfv.1944
     -   date: !!null
         de.DS100: HIHG
-        source: src.de.SuW.2005
+        de.dstnr: !!str 136911
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Isernhagen
+        PLC: DE15245
+        source: src.de.DBAG.BSV.2017
 
----
-key: point.de.Grossburgwedel
-type: point
-events:
     -   date: !!null
         location:
-            line.de.1710: 22,00
+            line.de.1710: 17,50
         source: src.de.DRG.Han.1945
+    -   date: c2000
+        location:
+            line.de.1710: 17,448
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Großburgwedel
+type: point
+events:
     -   date: !!null
         category: de.Bf
         de.rang: III
         name: Großburgwedel
         de.lknr: 13 692
         source: src.de.Bfv.1944
-    -   date: !!null
-        de.DS100: HGBW
-        source: src.de.SuW.2005
+    -   date: c1975
+        category: de.Hst
+        staff: none
+        source: src.de.DS100.1984
     -   date: c2000
         category: de.Hp
-        source: src.de.SuW.2005
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: HGBW
+        de.dstnr: !!str 136929
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Großburgwedel
+        PLC: DE14044
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.1710: 22,00
+        source: src.de.DRG.Han.1945
+    -   date: c2000
+        location:
+            line.de.1710: 21,835
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
  
 ---
 key: point.de.Moor-Burgwedel
@@ -276,6 +345,7 @@ events:
         status: closed
         source: src.de.WP.Bahnstrecke-Hannover-Hamburg
 
+
 ---
 key: point.de.Hasenwechsel
 type: point
@@ -283,16 +353,23 @@ events:
     -   date: c1960
         status: open
     -   date: !!null
-        location:
-            line.de.1710: 31,1
-        category: de.Üst
-        de.DS100: HHSW
-        source: src.de.SuW.2005
-    -   date: !!null
-        name: Hasenwechsel
-    -   date: c2000
         name: Burgwedel Hasenwechsel
-        source: src.de.SuW.2005
+        category: de.Üst
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: HHSW
+        de.dstnr: !!str 139097
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Hasenwechsel
+        PLC: DE11864
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.1710: 31,146
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
 
 ---
 key: point.de.Dasselsbruch
@@ -311,3 +388,9 @@ events:
         source: src.de.DRG.Han.1945
     -   date: c1970
         status: closed
+
+
+#    point.de.Celle-Gbf                          de.1720
+
+#    point.de.Celle                              de.1720
+

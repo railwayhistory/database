@@ -35,16 +35,41 @@ events:
         source: src.de.DRG.1927
 
 points:
-    - point.de.Bremen-Vegesack                      # line.de.1423
-    - point.de.Bremen-Aumund
-    - point.de.Bremen-Aumund-Vulkan
-    - point.de.Bremen-Blumenthal-Klinikum
-    - point.de.Bremen-Blumenthal
-    - point.de.Bremen-Muehlenstrasse
-    - point.de.Bremen-Kreinslogger
-    - point.de.Bremen-Turnerstrasse
-    - point.de.Bremen-Farge-Ost
-    - point.de.Bremen-Farge
+    -   point.de.Bremen-Vegesack                    # de.1423
+    -   point.de.Bremen-Vegesack-Gr
+    -   point.de.Bremen-Aumund
+    -   point.de.Bremen-Aumund-Vulkan
+    -   point.de.Bremen-Klinikum-Nord-Beckedorf
+    -   point.de.Bremen-Blumenthal
+    -   point.de.Bremen-Mühlenstrasse
+    -   point.de.Bremen-Kreinslogger
+    -   point.de.Bremen-Rönnebeck
+    -   point.de.Bremen-Turnerstrasse
+    -   point.de.Bremen-Farge-Ost
+    -   point.de.Bremen-Farge
+
+
+#-----------------------------------------------------------------------------
+
+#    point.de.Bremen-Vegesack                    de.1423
+
+
+---
+key: point.de.Bremen-Vegesack-Gr
+type: point
+events:
+    -   date: !!null
+        name: Bremen-Vegesack DB-Grenze
+        category: de.Gp
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: HBVG
+        de.dstnr: !!str 874677
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Brm-Veges DB-Gr
+        PLC: DE11665
+        source: src.de.DBAG.BSV.2017
 
 
 ---
@@ -52,19 +77,8 @@ key: point.de.Bremen-Aumund
 type: point
 events:
     -   date: !!null
-        location:
-            line.de.9145: 2,6
-        source: src.de.web.FVE.NBS
-    -   date: !!null
         name: Hammersbeck
         source: src.de.Kb.1914
-    -   date: !!null
-        category: de.Bf
-        de.lknr: 40 826
-        source: src.de.Bfv.1933
-    -   date: !!null
-        de.DS100: ABRN
-        source: src.de.SuW.2005
     -   date: c1935
         name: Aumund (Bz Bremen)
         source: src.de.Kb.W1937
@@ -72,55 +86,82 @@ events:
         name: Bremen-Aukrug
         source: src.de.Bfv.1944
 
+    -   date: !!null
+        category: de.Bf
+        de.lknr: 40 826
+        source: src.de.Bfv.1933
+
+    -   date: !!null
+        de.DS100: HBRN
+        de.dstnr: !!str 449082
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Bremen-Aumund
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.9145: 2,6
+        source: src.de.web.FVE.NBS
+
+
 ---
 key: point.de.Bremen-Aumund-Vulkan
 type: point
 events:
-    -   date: !!null
-        category: de.Hp
-        name: Bremen-Aumund Vulkan
-        staff: none
-        master: point.de.Bremen-Aumund
-        de.lknr: 45 826
-        source: src.de.Bfv.1944
     -   date: c1940
         status: open
+    -   date: !!null
+        name: Bremen-Aumund Vulkan
+        source: src.de.Bfv.1944
+
+    -   date: !!null
+        category: de.Hp
+        staff: none
+        master: point.de.Bremen-Aumund
+        source: src.de.Bfv.1944
     -   date: c1970
-        status: closed
+        category: de.Anst
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        de.lknr: 45 826
+        source: src.de.Bfv.1944
+    -   date: !!null
+        de.DS100: HBRV
+        de.dstnr: !!str 449090
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Brm-Aumund Vulk
+        source: src.de.DBAG.BSV.2017
+
 
 ---
-key: point.de.Bremen-Blumenthal-Klinikum
+key: point.de.Bremen-Klinikum-Nord-Beckedorf
 type: point
 events:
     -   date: c2007
         status: open
-        name: Klinikum Bremen-Nord/Beckedorf
-        source: src.de.WP.Farge-Vegesacker-Eisenbahn
     -   date: !!null
-        location:
-            line.de.9145: 4,2
-        category: de.Bft
-        master: point.de.Bremen-Blumenthal
-        source: src.de.web.FVE.NBS
+        name: Bremen Klinikum Nord/Beckedorf
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: HBKM
+        de.dstnr: !!str 886358
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Klinik Brm-Nord
+        source: src.de.DBAG.BSV.2017
+
 
 ---
 key: point.de.Bremen-Blumenthal
 type: point
 events:
     -   date: !!null
-        location:
-            line.de.9145: 5,1
-        source: src.de.web.FVE.NBS
-    -   date: !!null
         name: Blumenthal (Han)
         source: src.de.Kb.1914
-    -   date: !!null
-        category: de.Bf
-        de.lknr: 41 826
-        source: src.de.Bfv.1933
-    -   date: !!null
-        de.DS100: HBRB
-        source: src.de.SuW.2005
     -   date: c1920
         name: Blumenthal (Unterweser)
         source: src.de.Bfv.1933
@@ -128,14 +169,28 @@ events:
         name: Bremen-Blumenthal
         source: src.de.Bfv.1944
 
----
-key: point.de.Bremen-Muehlenstrasse
-type: point
-events:
+    -   date: !!null
+        category: de.Bf
+        de.lknr: 41 826
+        source: src.de.Bfv.1933
+    -   date: !!null
+        de.DS100: HBRB
+        de.dstnr: !!str 449074
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Bremen-Blumenth
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         location:
-            line.de.9145: 5,9?
-        source: src.de.Kb.W1937
+            line.de.9145: 5,1
+        source: src.de.web.FVE.NBS
+
+
+---
+key: point.de.Bremen-Mühlenstrasse
+type: point
+events:
     -   date: !!null
         category: de.Hp
         name: Blumenthal (Mühlenstraße)
@@ -152,7 +207,13 @@ events:
     -   date: 2007?
         status: open
         name: Bremen Mühlenstraße
-        source: src.de.WP.Farge-Vegesacker-Eisenbahn
+        de.DS100: HBMU
+        de.dstnr: !!str 886366
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Brm Mühlenstr
+        source: src.de.DBAG.BSV.2017
+
 
 ---
 key: point.de.Bremen-Kreinslogger
@@ -160,55 +221,66 @@ type: point
 events:
     -   date: 2007?
         status: open
-        name: Bremen Kreinslogger
+    -   date: !!null
+        de.DS100: HBKO
+        name: Bremen Kreinsloger
+        de.name16: Brm Kreinsloger
         category: de.Hp
-        source: src.de.WP.Farge-Vegesacker-Eisenbahn
+        de.dstnr: !!str 886374
+        source: src.de.DBAG.BSV.2017
+
+
+---
+key: point.de.Bremen-Rönnebeck
+type: point
+events:
+    -   date: !!null
+        name: Bremen-Rönnebeck
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: HBRR
+        de.dstnr: !!str 449041
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Brm-Rönnebeck
+        source: src.de.DBAG.BSV.2017
+
 
 ---
 key: point.de.Bremen-Turnerstrasse
 type: point
 events:
     -   date: !!null
-        location:
-            line.de.9145: 7,4
-        source: src.de.SuW.2005
-    -   date: !!null
         name: Rönnebeck
         source: src.de.Kb.1914
+    -   date: c1940
+        name: Bremen-Rönnebeck
+        source: src.de.Bfv.1944
+    -   date: 2007?
+        name: Bremen Turnerstraße
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         category: de.Bf
         de.lknr: 42 826
         source: src.de.Bfv.1933
     -   date: !!null
-        de.DS100: HBRR
-        source: src.de.SuW.2005
-    -   date: c1940
-        name: Bremen-Rönnebeck
-        source: src.de.Bfv.1944
-    -   date: 2007?
-        name: Bremen-Turnerstraße
-        source: src.de.WP.Farge-Vegesacker-Eisenbahn
+        de.DS100: HBTU
+        de.dstnr: !!str 886382
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Brm Turnerstr
+        source: src.de.DBAG.BSV.2017
+
         
 ---
 key: point.de.Bremen-Farge-Ost
 type: point
-junction: True
 events:
-    -   date: !!null
-        location:
-            line.de.9145: 9,6
-        source: src.de.SuW.2005
     -   date: !!null
         name: Farge Kleinbf
         source: src.de.Kb.1914
-    -   date: !!null
-        staff: none
-        master: point.de.Bremen-Farge
-        de.lknr: 46 826
-        source: src.de.Bfv.1944
-    -   date: !!null
-        de.DS100: HBFO
-        source: src.de.SuW.2005
     -   date: c1935
         name: Farge Ost
         source: src.de.Kb.W1937
@@ -217,28 +289,53 @@ events:
         source: src.de.Bfv.1944
 
     -   date: !!null
+        staff: none
+        master: point.de.Bremen-Farge
+        source: src.de.Bfv.1944
+    -   date: !!null
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        de.lknr: 46 826
+        source: src.de.Bfv.1944
+    -   date: !!null
+        de.DS100: HBFO
+        de.dstnr: !!str 449025
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Bremen-Farge Ost
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
         connection: point.de.Farge-Kleinb
+
 
 ---
 key: point.de.Bremen-Farge
 type: point
-junction: True
 events:
-    -   date: !!null
-        location:
-            line.de.9145: 10,4
-        source: src.de.web.FVE.NBS
     -   date: !!null
         name: Farge
         source: src.de.Kb.1914
+    -   date: c1940
+        name: Bremen-Farge
+        source: src.de.Bfv.1944
+
     -   date: !!null
         category: de.Bf
         de.lknr: 43 826
         source: src.de.Bfv.1933
     -   date: !!null
         de.DS100: HBRF
-        source: src.de.SuW.2005
-    -   date: c1940
-        name: Bremen-Farge
-        source: src.de.Bfv.1944
+        de.dstnr: !!str 449017
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Bremen-Farge
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.9145: 10,4
+        source: src.de.web.FVE.NBS
 

@@ -42,6 +42,7 @@ events:
 points:
     -   point.de.Oldenburg-Oldb-Hbf                 # de.1500
     -   point.de.Oldenburg-Ziegelhofstrasse
+    -   point.de.Oldenburg-Wechloy
     -   point.de.Wechloy
     -   point.de.Bloh
     -   point.de.Kayhauserfeld
@@ -52,12 +53,13 @@ points:
     -   point.de.Stickhausen-Velde-Ostfriesl
     -   point.de.Filsum
     -   point.de.Nortmoor
+    -   point.de.Leer-Ostfriesl-Stadt
     -   point.de.Leer-Ostfriesl                     # de.2931
 
 
 #-----------------------------------------------------------------------------
 
-# point.de.Oldenburg-Oldb-Hbf                 # de.1500
+#    point.de.Oldenburg-Oldb-Hbf                 # de.1500
 
 
 ---
@@ -83,6 +85,27 @@ events:
     -   date: c1975
         status: closed
 
+
+---
+key: point.de.Oldenburg-Wechloy
+type: point
+events:
+    -   date: 2014-12-14?
+        status: open
+        de.DS100: HOLW
+        name: Oldenburg-Wechloy
+        de.name16: Oldenb-Wechloy
+        category: de.Hp
+        PLC: DE18122
+        de.dstnr: !!str 108726
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.1520: 3,058
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
 ---
 key: point.de.Wechloy
 type: point
@@ -95,17 +118,15 @@ events:
     -   date: c1925
         status: closed
 
+
 ---
 key: point.de.Bloh
 type: point
 events:
     -   date: !!null
-        location:
-            line.de.1520: 6,0
-        source: src.de.DRG.Mst.1946
-    -   date: !!null
         name: Bloh
         source: src.de.Kb.1914
+
     -   date: !!null
         category: de.Bf
         de.rang: III
@@ -119,50 +140,64 @@ events:
     -   date: c2000
         status: closed
 
+    -   date: !!null
+        location:
+            line.de.1520: 6,0
+        source: src.de.DRG.Mst.1946
+
+
 ---
 key: point.de.Kayhauserfeld
 type: point
 events:
     -   date: !!null
-        location:
-            line.de.1520: 10,84
-        source: src.de.DRG.Mst.1946
-    -   date: !!null
         name: Kayhauserfeld
         source: src.de.Kb.1914
+
     -   date: !!null
         category: de.Bf
         de.rang: IV
+        source: src.de.Bfv.1933
+    -   date: c1975
+        service: freight
+        source: src.de.DB.Han.1983
+
+    -   date: !!null
         de.lknr: 23 040
         source: src.de.Bfv.1933
     -   date: 1935-01-01
         de.lknr: 21 228
         source: src.de.Bfv.1944
-    -   date: c1975
-        service: freight
-        source: src.de.SuW.2005
     -   date: !!null
         de.DS100: HKHF
-        source: src.de.TPP.2006
+        de.dstnr: !!str 212282
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Kayhauserfeld
+        PLC: DE15461
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.1520: 10,84
+        source: src.de.DRG.Mst.1946
+    -   date: c2000
+        location:
+            line.de.1520: 11,237
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
 
 ---
 key: point.de.Bad-Zwischenahn
 type: point
-junction: True
 events:
-    -   date: !!null
-        location:
-            line.de.1520: 15,24
-        source: src.de.DRG.Mst.1946
-    -   date: !!null
-        location:
-            line.de.9151: 0,0
     -   date: !!null
         name: Zwischenahn
         source: src.de.Kb.1914
     -   date: c1925
         name: Bad Zwischenahn
         source: src.de.Bfv.1933
+
     -   date: !!null
         category: de.Bf
         de.rang: II
@@ -173,22 +208,34 @@ events:
         source: src.de.Bfv.1944
     -   date: !!null
         de.DS100: HZWI
-        source: src.de.TPP.2006
+        de.dstnr: !!str 212290
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Bad Zwischenahn
+        PLC: DE10577
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.1520: 15,24
+        source: src.de.DRG.Mst.1946
+    -   date: c2000
+        location:
+            line.de.1520: 15,239
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
 
 ---
 key: point.de.Westerstede-Ocholt
 type: point
-junction: True
 events:
-    -   date: !!null
-        location:
-            line.de.1521: 62,35
-            line.de.1520: 26,46
-            line.de.1534: 29,89
-        source: src.de.DRG.Mst.1946
     -   date: !!null
         name: Ocholt
         source: src.de.Kb.1914
+    -   date: c2000
+        name: Westerstede-Ocholt
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         category: de.Bf
         de.rang: II
@@ -199,10 +246,24 @@ events:
         source: src.de.Bfv.1944
     -   date: !!null
         de.DS100: HOCH
-        source: src.de.TPP.2006
-    -   date: c1995
-        name: Westerstede-Ocholt
-        source: src.de.TPP.2006
+        de.dstnr: !!str 212324
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Westerst-Ocholt
+        PLC: DE21057
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.1521: 62,35
+            line.de.1520: 26,46
+            line.de.1534: 29,89
+        source: src.de.DRG.Mst.1946
+    -   date: c2000
+        location:
+            line.de.1520: 23,464
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
 
 ---
 key: point.de.Apen
@@ -226,17 +287,15 @@ events:
     -   date: c1975
         status: closed
 
+
 ---
 key: point.de.Augustfehn
 type: point
 events:
     -   date: !!null
-        location:
-            line.de.1520: 32,20
-        source: src.de.DRG.Mst.1946
-    -   date: !!null
         name: Augustfehn
         source: src.de.Kb.1914
+
     -   date: !!null
         category: de.Bf
         de.rang: III
@@ -247,36 +306,66 @@ events:
         source: src.de.Bfv.1944
     -   date: !!null
         de.DS100: HAUG
-        source: src.de.TPP.2006
+        de.dstnr: !!str 212340
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Augustfehn
+        PLC: DE10361
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.1520: 32,20
+        source: src.de.DRG.Mst.1946
+    -   date: c2000
+        location:
+            line.de.1520: 32,149
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
 
 ---
 key: point.de.Stickhausen-Velde-Ostfriesl
 type: point
 events:
     -   date: !!null
-        location:
-            line.de.1520: 39,56
-        source: src.de.DRG.Mst.1946
-    -   date: !!null
         name: Stickhausen
         source: src.de.Kb.1914
     -   date: c1925
         name: Stickhausen-Velde (Ostfriesl)
         source: src.de.Bfv.1933
+
     -   date: !!null
         category: de.Bf
         de.rang: III
+        source: src.de.Bfv.1933
+    -   date: c1975
+        service: freight
+        source: src.de.DB.Han.1983
+
+    -   date: !!null
         de.lknr: 23 047
         source: src.de.Bfv.1933
     -   date: 1935-01-01
         de.lknr: 21 235
         source: src.de.Bfv.1944
-    -   date: c1975
-        service: freight
-        source: src.de.SuW.2005
     -   date: !!null
         de.DS100: HSVL
-        source: src.de.TPP.2006
+        de.dstnr: !!str 212357
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Stickhsn-Velde
+        PLC: DE19994
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.1520: 39,56
+        source: src.de.DRG.Mst.1946
+    -   date: c2000
+        location:
+            line.de.1520: 39,563
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
 
 ---
 key: point.de.Filsum
@@ -300,17 +389,15 @@ events:
     -   date: c1975
         status: closed
 
+
 ---
 key: point.de.Nortmoor
 type: point
 events:
     -   date: !!null
-        location:
-            line.de.1520: 47,80
-        source: src.de.DRG.Mst.1946
-    -   date: !!null
         name: Nortmoor
         source: src.de.Kb.1914
+
     -   date: !!null
         category: de.Bf
         de.rang: IV
@@ -321,7 +408,44 @@ events:
         source: src.de.Bfv.1944
     -   date: !!null
         de.DS100: HNTM
-        source: src.de.TPP.2006
+        de.dstnr: !!str 212373
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Nortmoor
+        PLC: DE17830
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.1520: 47,80
+        source: src.de.DRG.Mst.1946
+    -   date: c2000
+        location:
+            line.de.1520: 47,585
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
-# point.de.Leer-Ostfriesl                     de.2931
+---
+key: point.de.Leer-Ostfriesl-Stadt
+type: point
+events:
+    -   date: !!null
+        name: Leer (Ostfriesl) Stadt
+        category: de.Anst
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: HLRS
+        de.dstnr: !!str 911558
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Stadt Leer
+        PLC: DE16166
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.1520: 49,926
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+#    point.de.Leer-Ostfriesl                     de.2931

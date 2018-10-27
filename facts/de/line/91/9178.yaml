@@ -50,11 +50,93 @@ events:
         source: src.de.WP.Steinhuder-Meer-Bahn
         
 points:
-    - point.de.Wunstorf-West                        # line.de.8147
-    - point.de.Wunstorf-Stadt                       # line.de.8147
-    - point.de.Cronsbostel
-    - point.de.Bokeloh-Wunstorf
-    - point.de.Mesmerode
+    -   point.de.Wunstorf                           # de.1700
+    -   point.de.Wunstorf-Gr
+    -   point.de.Wunstorf-West
+    -   point.de.Wunstorf-Stadt
+    -   point.de.Cronsbostel
+    -   point.de.Bokeloh-Wunstorf
+    -   point.de.Mesmerode
+
+
+#-----------------------------------------------------------------------------
+
+#    point.de.Wunstorf                           de.1700
+
+
+---
+key: point.de.Wunstorf-Gr
+type: point
+events:
+    -   date: !!null
+        name: Wunstorf DB-Grenze
+        category: de.Gp
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: HWUG
+        de.dstnr: !!str 874925
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Wunstorf DB-Gr
+        PLC: DE21369
+        source: src.de.DBAG.BSV.2017
+
+
+---
+key: point.de.Wunstorf-West
+type: point
+events:
+    -   date: !!null
+        name: Wunstorf Bahnhof
+        source: 
+            - src.de.Kb.1914
+            - src.de.Bfv.1933
+    -   date: c1940
+        name: Wunstorf West
+        source: src.de.Bfv.1944
+
+    -   date: !!null
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+
+    -   date: de.lknr.kb
+        de.lknr: 47 348
+        source: src.de.Bfv.1944
+    -   date: !!null
+        de.DS100: HWUW
+        de.dstnr: !!str 551010
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Wunstorf West
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        connection: point.de.Wunstorf
+
+
+---
+key: point.de.Wunstorf-Stadt
+type: point
+events:
+    -   date: !!null
+        name: Wunstorf Stadt
+        source: src.de.Kb.1914
+
+    -   date: !!null
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+
+    -   date: de.lknr.kb
+        de.lknr: 47 349
+        source: src.de.Bfv.1944
+    -   date: !!null
+        de.DS100: HWUS
+        de.dstnr: !!str 551028
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Wunstorf Stadt
+        source: src.de.DBAG.BSV.2017
+
 
 ---
 key: point.de.Cronsbostel
@@ -70,41 +152,53 @@ events:
     -   date: c1950
         status: closed
 
+
 ---
 key: point.de.Bokeloh-Wunstorf
 type: point
 events:
     -   date: !!null
-        location:
-            line.de.9178: 6,0
         name: Bokeloh
         source: src.de.Kb.1914
-    -   date: !!null
-        de.DS100: HBKN
-        source: src.de.SuW.2005
-    -   date: de.lknr.kb
-        de.lknr: 47 365
-        source: src.de.Bfv.1944
     -   date: c1940
         name: Bokeloh (Kr Neustadt a Rübenbge)
         source: src.de.Bfv.1944
-    -   date: c1970
+    -   date: c2000
         name: Bokeloh (b Wunstorf)
-        source: src.de.SuW.2005
+        source: src.de.DBAG.BSV.2017
+
+    -   date: de.lknr.kb
+        de.lknr: 47 365
+        source: src.de.Bfv.1944
+    -   date: !!null
+        de.DS100: HBKN
+        de.dstnr: !!str 886358
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Bokeloh(b Wunst)
+        source: src.de.DBAG.BSV.2017
+
 
 ---
 key: point.de.Mesmerode
 type: point
 events:
     -   date: !!null
-        location:
-            line.de.9178: 6,5
         name: Mesmerode
         source: src.de.Kb.1914
+
     -   date: !!null
-        source: src.de.Bfv.1933
-    -   date: !!null
-        de.DS100: HWUM
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+
     -   date: de.lknr.kb
         de.lknr: 47 366
         source: src.de.Bfv.1944
+    -   date: !!null
+        de.DS100: HWUM
+        de.dstnr: !!str 551176
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Mesmerode
+        source: src.de.DBAG.BSV.2017
+

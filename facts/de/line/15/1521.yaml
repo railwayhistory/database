@@ -80,28 +80,63 @@ events:
             -   src.de.web.EBA.EIU # operator approved 2009-07-08
 
 points:
-    - point.de.Cloppenburg                          # line.de.1502
-    - point.de.Cloppenburg-Anst
-    - point.de.Bethen-Cloppenburg
-    - point.de.Varrelbusch
-    - point.de.Garrel
-    - point.de.Boesel
-    - point.de.Friesoythe-Leitungswerk
-    - point.de.Friesoythe-Bruns
-    - point.de.Friesoythe
-    - point.de.Friesoythe-Kan
-    - point.de.Sedelsberg
-    - point.de.Scharrel-Union
-    - point.de.Scharrel
-    - point.de.Scharrel-Ton-und-Torfwerke
-    - point.de.Ramsloh
-    - point.de.Struecklingen
-    - point.de.Elisabethfehn
-    - point.de.Barssel-Hafen
-    - point.de.Barssel
-    - point.de.Carolinenhof
-    - point.de.Godensholt
-    - point.de.Westerstede-Ocholt                   # line.de.1520
+    -   point.de.Cloppenburg                        # de.1502
+    -   point.de.Cloppenburg-Gr
+    -   point.de.Cloppenburg-Anst
+    -   point.de.Bethen-Cloppenburg
+    -   point.de.Varrelbusch
+    -   point.de.Varrelbusch-Staatsforsten
+    -   point.de.Varrelbusch-Aumann
+    -   point.de.Garrel
+    -   point.de.Garrel-Hp
+    -   point.de.Bösel
+    -   point.de.Friesoythe-Leoni
+    -   point.de.Friesoythe-Bruns
+    -   point.de.Friesoythe
+    -   point.de.Friesoythe-Kan
+    -   point.de.Sedelsberg
+    -   point.de.Scharrel-Union
+    -   point.de.Scharrel
+    -   point.de.Scharrel-Ton-und-Torfwerke
+    -   point.de.Ramsloh
+    -   point.de.Strücklingen
+    -   point.de.Elisabethfehn
+    -   point.de.Barßel-Hafen
+    -   point.de.Barßel
+    -   point.de.Carolinenhof
+    -   point.de.Godensholt-Westfalen-AG
+    -   point.de.Godensholt
+    -   point.de.Westerstede-Ocholt-Gr
+    -   point.de.Westerstede-Ocholt                 # de.1520
+
+
+#-----------------------------------------------------------------------------
+
+#    point.de.Cloppenburg                        de.1502
+
+
+---
+key: point.de.Cloppenburg-Gr
+type: point
+events:
+    -   date: !!null
+        name: Cloppenburg DB-Grenze
+        category: de.Gp
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: HCLG
+        de.dstnr: !!str 874909
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Cloppenb DB-Gr
+        PLC: DE11962
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.1521: 0,500
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
 
 ---
 key: point.de.Cloppenburg-Anst
@@ -115,35 +150,38 @@ events:
     -   date: c1975
         status: closed
 
+
 ---
 key: point.de.Bethen-Cloppenburg
 type: point
 events:
     -   date: 2008-07-05
         status: open
-        category: de.Hp
-        name: Bethen
         source:
             - src.de.web.MFC
             - src.de.web.FEG.SNB
+    -   date: !!null
+        name: Bethen
+        category: de.Hp
+        de.DS100: HBTA
+        de.dstnr: !!str 109872
+        de.name16: Bethen
+        source: src.de.DBAG.BSV.2017
+
 
 ---
 key: point.de.Varrelbusch
 type: point
 events:
     -   date: !!null
-        location:
-            line.de.1521: 6,14
-        source: src.de.DRG.Mst.1946
-    -   date: !!null
         name: Varrelbusch
+        source: src.de.Bfv.1933
+
+    -   date: !!null
         category: [ de.Hp, de.Ldst ]
         staff: agent
         de.lknr: 23 144
         source: src.de.Bfv.1933
-    -   date: 1935-01-01
-        de.lknr: 21 633
-        source: src.de.Bfv.1944
     -   date: 1938
         category: de.Bf
         de.rang: IV
@@ -156,132 +194,225 @@ events:
     -   date: 1967
         category: de.Anst
         source: src.de.web.MFC
+
+    -   date: 1935-01-01
+        de.lknr: 21 633
+        source: src.de.Bfv.1944
+    -   date: !!null
+        de.DS100: HVAB
+        de.dstnr: !!str 216333
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Varrelbusch
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.1521: 6,14
+        source: src.de.DRG.Mst.1946
+
+
+---
+key: point.de.Varrelbusch-Staatsforsten
+type: point
+events:
     -   date: 2006-10-01
-        name: Staatsforsten
-        category: de.Bf
+        status: open
         source:
             - src.de.web.MFC
             - src.de.web.FEG.SNB
-    -   date: !!null    
-        de.DS100: HVAB
-        source: src.de.SuW.2005
+    -   date: !!null
+        name: Varrelbusch-Staatsforsten
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: HVST
+        de.dstnr: !!str 109866
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Staatsforsten
+        source: src.de.DBAG.BSV.2017
+
+
+---
+key: point.de.Varrelbusch-Aumann
+type: point
+events:
+    -   date: !!null
+        name: Varrelbusch Aumann
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: HVAU
+        de.dstnr: !!str 109869
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Varrelb Aumann
+        source: src.de.DBAG.BSV.2017
+
 
 ---
 key: point.de.Garrel
 type: point
 events:
+    -   date: c2000
+        status: open
     -   date: !!null
-        location:
-            line.de.1521: 12,51
-        source: src.de.DRG.Mst.1946
+        name: Garrel
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: HGLS
+        de.dstnr: !!str 109871
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Garrel
+        source: src.de.DBAG.BSV.2017
+
+
+---
+key: point.de.Garrel-Hp
+type: point
+events:
     -   date: !!null
         name: Garrel
         source: src.de.Kb.1914
+    -   date: c2010
+        name: Garrel Hp
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         category: de.Bf
         de.rang: IV
         de.lknr: 23 145
         source: src.de.Bfv.1933
+    -   date: c2010
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+
     -   date: 1935-01-01
         de.lknr: 21 634
         source: src.de.Bfv.1944
-    -   date: c1980
-        category: de.Anst
-        source: src.de.SuW.2005
+
     -   date: !!null
         de.DS100: HGAL
-        source: src.de.SuW.2005
-    -   date: c2005
-        category: de.Bf
-        source: src.de.web.FEG.SNB
+        de.dstnr: !!str 216341
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Garrel Hp
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.1521: 12,51
+        source: src.de.DRG.Mst.1946
+
 
 ---
-key: point.de.Boesel
+key: point.de.Bösel
 type: point
 events:
     -   date: !!null
-        location:
-            line.de.1521: 19,91
-        source: src.de.DRG.Mst.1946
-    -   date: !!null
         name: Bösel
         source: src.de.Kb.1914
+
     -   date: !!null
         category: de.Hp
         staff: agent
         de.lknr: 23 146
         source: src.de.Bfv.1933
-    -   date: 1935-01-01
-        de.lknr: 21 635
-        source: src.de.Bfv.1944
     -   date: c1940
         category: de.Bf
         de.rang: IV
         source: src.de.Bfv.1944
-    -   date: c1980
-        category: de.Anst
-        source: src.de.SuW.2005
+
+    -   date: 1935-01-01
+        de.lknr: 21 635
+        source: src.de.Bfv.1944
     -   date: !!null
         de.DS100: HBSL
-        source: src.de.SuW.2005
-    -   date: c2005
-        category: de.Bf
-        source: src.de.web.FEG.SNB
+        de.dstnr: !!str 216358
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Bösel
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.1521: 19,91
+        source: src.de.DRG.Mst.1946
+
 
 ---
-key: point.de.Friesoythe-Leitungswerk
+key: point.de.Friesoythe-Leoni
 type: point
 events:
     -   date: !!null
-        location:
-            line.de.1521: 24,8
+        name: Friesoythe Leoni
         category: de.Anst
-        name: Friesoythe Leitungswerk
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
         de.DS100: HLWF
-        source: src.de.SuW.2005
+        de.dstnr: !!str 385914
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Leoni Friesoythe
+        source: src.de.DBAG.BSV.2017
+
 
 ---
 key: point.de.Friesoythe-Bruns
 type: point
 events:
     -   date: !!null
-        location:
-            line.de.1521: 26,0
-        category: de.Anst
         name: Friesoythe Bruns
+        category: de.Anst
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
         de.DS100: HBRU
-        source: src.de.SuW.2005
+        de.dstnr: !!str 385906
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Bruns Friesoythe
+        source: src.de.DBAG.BSV.2017
+
 
 # src.de.DRG.Mst.1946: Anst in km 26,1
+
 
 ---
 key: point.de.Friesoythe
 type: point
 events:
     -   date: !!null
-        location:
-            line.de.1521: 26,33
-        source: src.de.DRG.Mst.1946
-    -   date: !!null
         name: Friesoythe
         source: src.de.Kb.1914
+
     -   date: !!null
         category: de.Bf
         de.rang: II
         de.lknr: 23 147
         source: src.de.Bfv.1933
+    -   date: c2000
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+
     -   date: 1935-01-01
         de.lknr: 21 636
         source: src.de.Bfv.1944
-    -   date: c1980
-        category: de.Anst
-        source: src.de.SuW.2005
     -   date: !!null
         de.DS100: HFRY
-        source: src.de.SuW.2005
-    -   date: c2005
-        category: de.Bf
-        source: src.de.web.FEG.SNB
+        de.dstnr: !!str 216366
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Friesoythe
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.1521: 26,33
+        source: src.de.DRG.Mst.1946
+
 
 ---
 key: point.de.Friesoythe-Kan
@@ -295,46 +426,57 @@ events:
         name: Friesoythe Kan
         source: src.de.DRG.Mst.1946
 
+
 ---
 key: point.de.Sedelsberg
 type: point
 events:
     -   date: !!null
-        location:
-            line.de.1521: 34,49
-        source: src.de.DRG.Mst.1946
-    -   date: !!null
         name: Sedelsberg
         source: src.de.Kb.1914
+
     -   date: !!null
         category: de.Bf
         de.rang: IV
         de.lknr: 23 149
         source: src.de.Bfv.1933
+    -   date: c2000
+        category: de.Anst
+        source: src.de.DBAG.BSV.2017
+
     -   date: 1935-01-01
         de.lknr: 21 638
         source: src.de.Bfv.1944
-    -   date: c1980
-        category: de.Anst
-        source: src.de.SuW.2005
     -   date: !!null
         de.DS100: HSEB
-        source: src.de.SuW.2005
-    -   date: c2005
-        category: de.Bf
-        source: src.de.web.EEB.SNB
+        de.dstnr: !!str 216382
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Sedelsberg
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.1521: 34,49
+        source: src.de.DRG.Mst.1946
+
 
 ---
 key: point.de.Scharrel-Union
 type: point
 events:
     -   date: !!null
-        location:
-            line.de.1521: 36,8
-        category: de.Anst
         name: Scharrel Union
+        category: de.Anst
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
         de.DS100: HUA
-        source: src.de.SuW.2005
+        de.dstnr: !!str 339705
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Union
+        source: src.de.DBAG.BSV.2017
+
 
 ---
 key: point.de.Scharrel
@@ -358,27 +500,30 @@ events:
         source: src.de.Bfv.1944
     -   date: !!null
         de.DS100: HSRL
+    -   date: c2000
+        status: closed
 
 ---
 key: point.de.Scharrel-Ton-und-Torfwerke
 type: point
 events:
     -   date: !!null
-        location:
-            line.de.1521: 39,0
-        category: de.Anst
         name: Scharrel Ton- und Torfwerke
+        category: de.Anst
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
         de.DS100: HTBR
-        source: src.de.SuW.2005
+        de.dstnr: !!str 339697
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Ton- u Torfwerke
+        source: src.de.DBAG.BSV.2017
+
 
 ---
 key: point.de.Ramsloh
 type: point
 events:
-    -   date: !!null
-        location:
-            line.de.1521: 42,38
-        source: src.de.DRG.Mst.1946
     -   date: !!null
         name: Ramsloh
         source: src.de.Kb.1914
@@ -387,26 +532,34 @@ events:
         staff: agent
         de.lknr: 23 151
         source: src.de.Bfv.1933
-    -   date: 1935-01-01
-        de.lknr: 21 640
-        source: src.de.Bfv.1944
     -   date: c1940
         category: de.Bf
         de.rang: IV
         staff: full
         source: src.de.Bfv.1944
-    -   date: c1980
+    -   date: c2000
         category: de.Anst
-        source: src.de.SuW.2005
+        source: src.de.DBAG.BSV.2017
+
+    -   date: 1935-01-01
+        de.lknr: 21 640
+        source: src.de.Bfv.1944
     -   date: !!null
         de.DS100: HRAM
-        source: src.de.SuW.2005
-    -   date: c2005
-        category: de.Bf
-        source: src.de.web.EEB.SNB
+        de.dstnr: !!str 216408
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Ramsloh
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.1521: 42,38
+        source: src.de.DRG.Mst.1946
+
 
 ---
-key: point.de.Struecklingen
+key: point.de.Strücklingen
 type: point
 events:
     -   date: !!null
@@ -430,14 +583,11 @@ events:
         status: open
         source: src.de.web.EEB.SNB
 
+
 ---
 key: point.de.Elisabethfehn
 type: point
 events:
-    -   date: !!null
-        location:
-            line.de.1521: 49,35
-        source: src.de.DRG.Mst.1946
     -   date: !!null
         name: Elisabethfehn
         source: src.de.Kb.1914
@@ -446,21 +596,33 @@ events:
         de.rang: III
         de.lknr: 23 153
         source: src.de.Bfv.1933
+
+    -   date: c2000
+        category: de.Anst
+        source: src.de.DBAG.BSV.2017
+
     -   date: 1935-01-01
         de.lknr: 21 642
         source: src.de.Bfv.1944
+    -   date: !!null
+        de.DS100: HELN
+        de.dstnr: !!str 216424
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Elisabethfehn
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.1521: 49,35
+        source: src.de.DRG.Mst.1946
     -   date: c1980
         category: de.Anst
         source: src.de.SuW.2005
-    -   date: !!null
-        de.DS100: HELN
-        source: src.de.SuW.2005
-    -   date: c2005
-        category: de.Bf
-        source: src.de.web.EEB.SNB
+
 
 ---
-key: point.de.Barssel-Hafen
+key: point.de.Barßel-Hafen
 type: point
 events:
     -   date: c2005
@@ -471,8 +633,9 @@ events:
         name: Barßel Hafen
         source: src.de.web.EEB.SNB
 
+
 ---
-key: point.de.Barssel
+key: point.de.Barßel
 type: point
 events:
     -   date: !!null
@@ -492,7 +655,11 @@ events:
         source: src.de.Bfv.1944
     -   date: !!null
         de.DS100: HBRL
-        source: src.de.SuW.2005
+        de.dstnr: !!str 216432
+        source: src.de.DS100.1984
+    -   date: c2000
+        status: closed
+
 
 ---
 key: point.de.Carolinenhof
@@ -520,9 +687,23 @@ events:
         source: src.de.DRG.Mst.1946
     -   date: c1980
         status: closed
-    -   date: c2005
-        status: open
-        source: src.de.web.EEB.SNB
+
+
+---
+key: point.de.Godensholt-Westfalen-AG
+type: point
+events:
+    -   date: !!null
+        name: Godensholt Westfalen AG
+        category: de.Anst
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: HGDW
+        de.dstnr: !!str 628602
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Westf AG
+        source: src.de.DBAG.BSV.2017
     
 
 ---
@@ -532,21 +713,47 @@ events:
     -   date: c1940
         status: open
         source: src.de.Bfv.1944
-    -   date: !!null
-        location:
-            line.de.1521: 57,45
-        source: src.de.DRG.Mst.1946
+
     -   date: !!null
         name: Godensholt
         category: de.Hp
         de.lknr: 21 646
         source: src.de.Bfv.1944
-    -   date: c1980
+    -   date: c2000
         category: de.Anst
-        source: src.de.SuW.2005
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         de.DS100: HGDH
-        source: src.de.SuW.2005
-    -   date: c2005
-        category: de.Bf
-        source: src.de.web.EEB.SNB
+        de.dstnr: !!str 216465
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Godensholt
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.1521: 57,45
+        source: src.de.DRG.Mst.1946
+
+
+---
+key: point.de.Westerstede-Ocholt-Gr
+type: point
+events:
+    -   date: !!null
+        name: Westerstede-Ocholt DB-Grenze
+        category: de.Gp
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: HOCG
+        de.dstnr: !!str 108560
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Ocholt DB-Gr
+        PLC: DE21058
+        source: src.de.DBAG.BSV.2017
+
+
+#    point.de.Westerstede-Ocholt                 de.1520
+

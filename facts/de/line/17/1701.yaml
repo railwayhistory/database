@@ -41,12 +41,17 @@ events:
     #
 
 points:
-    - point.de.Hannover-Hbf                         # line.de.1710
-    - point.de.Hannover-Hgbf
-    - point.de.Hannover-Hainholz                    # line.de.1705
-    - point.de.Hannover-Kurve
-    - point.de.Letter-Abzw                          # line.de.1700
-    - point.de.Seelze-Ost                           # line.de.1705
+    -   point.de.Hannover-Hbf                       # de.1700
+    -   point.de.Hannover-Hgbf
+    -   point.de.Hannover-Hainholz                  # de.1705
+    -   point.de.Hannover-Kurve
+    -   point.de.Letter-Abzw                        # de.1700
+    -   point.de.Seelze-Ost                         # de.1705
+
+
+#-----------------------------------------------------------------------------
+
+#    point.de.Hannover-Hbf                       de.1700
 
 
 ---
@@ -58,14 +63,34 @@ events:
         name: Hannover Hgbf
 
 
+#    point.de.Hannover-Hainholz                  de.1705
+
+
 ---
 key: point.de.Hannover-Kurve
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Abzw
         name: Hannover Kurve
+        category: de.Abzw
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
         de.DS100: HKUR
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 139139
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Kurve
+        PLC: DE14552
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.1701: 6,228
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+#    point.de.Letter-Abzw                        de.1700
+
+
+#    point.de.Seelze-Ost                         de.1705
 

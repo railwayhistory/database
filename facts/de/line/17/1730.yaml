@@ -101,45 +101,77 @@ events:
     #
 
 points:
-    - point.de.Hannover-Hbf                         # line.de.1700
-    - point.de.Hannover-Hbf-Pferdeturm
-    - point.de.Hannover-Karl-Wiechert-Allee
-    - point.de.Hannover-Tiergarten
-    - point.de.Lehrte-West
-    - point.de.Lehrte
-    - point.de.Hämelerwald
-    - point.de.Peine
-    - point.de.Peine-Gbf
-    - point.de.Peine-LGr
-    - point.de.Groß-Gleidingen
-    - point.de.Groß-Gleidingen-Ostkopf
-    - point.de.Braunschweig-Gabelung
-    - point.de.Braunschweig-Hbf
+    -   point.de.Hannover-Hbf                       # de.1700
+    -   point.de.Hannover-Hbf-Pferdeturm
+    -   point.de.Hannover-Karl-Wiechert-Allee
+    -   point.de.Hannover-Tiergarten
+    -   point.de.Lehrte-West
+    -   point.de.Lehrte
+    -   point.de.Ramhorst
+    -   point.de.Hämelerwald
+    -   point.de.Vöhrum
+    -   point.de.Peine
+    -   point.de.Peine-Gbf
+    -   point.de.Peine-LGr
+    -   point.de.Woltorf
+    -   point.de.Vechelde
+    -   point.de.Wierthe
+    -   point.de.Groß-Gleidingen
+    -   point.de.Groß-Gleidingen-Ostkopf
+    -   point.de.Braunschweig-Gabelung
+    -   point.de.Braunschweig-Hbf
+
+
+#-----------------------------------------------------------------------------
+
+#    point.de.Hannover-Hbf                       de.1700
 
 
 ---
 key: point.de.Hannover-Hbf-Pferdeturm
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Bft
         name: Hannover Hbf Pferdeturm
-        de.DS100: HH P
-        master: point.de.Hannover-Hbf
-        source: src.de.DBAG.ISR
+        category: de.Bft
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: "HH  P"
+        de.dstnr: !!str 909013
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Han Hbf Pferdet
+        PLC: DE14550
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.1730: 2,000
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Hannover-Karl-Wiechert-Allee
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Bf
         name: Hannover Karl-Wiechert-Allee
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
         de.DS100: HKWA
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 238881
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Han K-Wiechert-A
+        PLC: DE14551
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.1730: 4,721
+            line.de.1734: 4,721
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
@@ -155,48 +187,60 @@ events:
 ---
 key: point.de.Lehrte-West
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Bft
         name: Lehrte West
+        category: de.Bft
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
         de.DS100: HLERW
-        master: point.de.Lehrte
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 909025
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Lehrte West
+        PLC: DE16186
+        source: src.de.DBAG.BSV.2017
 
 
 ---
 key: point.de.Lehrte
 type: point
-junction: True
 events:
     -   date: !!null
         name: Lehrte
         source: src.de.Kb.1905
+
+    -   date: !!null
+        category: de.Bf
+        de.rang: I
+        source: src.de.Bfv.1933
+
+    -   date: de.lknr.30
+        de.lknr: 13 539
+        source: src.de.Bfv.1933
     -   date: !!null
         de.lknr: 13 289
         source: src.de.Bfv.1928
+    -   date: !!null
+        de.DS100: HLER
+        de.dstnr: !!str 135400
+        source: src.de.DS100.1984
+    -   date: !!null
+        de.name16: Lehrte
+        PLC: DE16181
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         location:
             line.de.1720:  16,36
             line.de.6107: 239,27
         source: src.de.DRG.Han.1931
-    -   date: !!null
-        category: de.Bf
-        de.rang: I
-        source: src.de.Bfv.1933
-    -   date: de.lknr.30
-        de.lknr: 13 539
-        source: src.de.Bfv.1933
-    -   date: !!null
-        de.DS100: HLER
-        de.dstnr: !!str 135400
-        source: src.de.DS100.1984
     -   date: c2000
         location:
-            line.de.1720:  16,214
-            line.de.6107: 238,534
-        source: src.de.DBAG.ISR
+           #line.de.1720:
+            line.de.1730:  16,349
+           #line.de.6107: 
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -204,43 +248,119 @@ events:
 
 
 ---
-key: point.de.Hämelerwald
+key: point.de.Ramhorst
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Bf
-        name: Hämelerwald
-        de.DS100: HHAE
-        source: src.de.DBAG.ISR
+        name: Ramhorst
+        category: de.Üst
+        source: src.de.DBAG.BSV.2017
     -   date: !!null
-        connection: point.de.Hämelerwald-Ost        # line.de.8163
+        de.DS100: HRAT
+        de.dstnr: !!str 329391
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Ramhorst
+        PLC: DE18623
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.1730: 20,8+208
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Hämelerwald
+type: point
+events:
+    -   date: !!null
+        name: Hämelerwald
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: HHAE
+        de.dstnr: !!str 132571
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Hämelerwald
+        PLC: DE14502
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.1730: 25,848
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+    -   date: !!null
+        connection: point.de.Hämelerwald-Ost        # de.8163
+
+
+---
+key: point.de.Vöhrum
+type: point
+events:
+    -   date: !!null
+        name: Vöhrum
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: HVOE
+        de.dstnr: !!str 132563
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Vöhrum
+        PLC: DE20636
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.1730: 30,340
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Peine
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Bf
         name: Peine
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
         de.DS100: HP
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 132530
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Peine
+        PLC: DE18294
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.1730: 35,212
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
     -   date: !!null
         connection: point.de.Peine-Ost              # line.de.9198
 
 ---
 key: point.de.Peine-Gbf
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Bft
         name: Peine Gbf
-        de.DS100: HP G
-        master: point.de.Peine
-        source: src.de.DBAG.ISR
+        category: de.Bft
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: "HP  G"
+        de.dstnr: !!str 908998
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Peine Gbf
+        PLC: DE18296
+        source: src.de.DBAG.BSV.2017
+
 
 ---
 key: point.de.Peine-LGr
@@ -251,49 +371,164 @@ events:
         name: Peine Landesgrenze Hannover/Braunschweig
         # etwa bei km 42,0
 
+
+---
+key: point.de.Woltorf
+type: point
+events:
+    -   date: !!null
+        name: Woltorf
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: HWOT
+        de.dstnr: !!str 132514
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Woltorf
+        PLC: DE21294
+        source: src.de.DBAG.BSV.2017
+    -   date: b2006-02-01
+        status: closed
+        source: src.de.DBAG.BSV.2017
+
+
+---
+key: point.de.Vechelde
+type: point
+events:
+    -   date: !!null
+        name: Vechelde
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: HVEC
+        de.dstnr: !!str 132506
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Vechelde
+        PLC: DE20562
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.1730: 46,497
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Wierthe
+type: point
+events:
+    -   date: !!null
+        name: Wierthe
+        category: de.Awanst
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: HWIR
+        de.dstnr: !!str 339739
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Wierthe
+        PLC: DE21093
+        source: src.de.DBAG.BSV.2017
+    -   date: 2009-12-13?
+        status: closed
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.1730: 49,937
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
 ---
 key: point.de.Groß-Gleidingen
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Bf
         name: Groß Gleidingen
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
         de.DS100: HGGL
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 117788
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Groß Gleidingen
+        PLC: DE14009
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.1730: 52,787
+            line.de.1910: 52,800
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Groß-Gleidingen-Ostkopf
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Bft
         name: Groß Gleidingen Ostkopf
+        category: [de.Bft, de.Abzw]
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
         de.DS100: HGGLO
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 132472
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Gr Gleid Ostkopf
+        PLC: DE14010
+        source: src.de.DBAG.BSV.2017
 
 
 ---
 key: point.de.Braunschweig-Gabelung
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Abzw
         name: Braunschweig Gabelung
+        category: de.Abzw
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
         de.DS100: HGAA
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 139055
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Gabelung (Brg)
+        PLC: DE11575
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.1730: 57,712
+            line.de.1910: 57,712
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Braunschweig-Hbf
 type: point
-progress: stub
 events:
     -   date: !!null
         name: Braunschweig Hbf
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
         de.DS100: HBS
-        source: src.de.TPP.2015
+        de.dstnr: !!str 132415
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Braunschweig Hbf
+        PLC: DE11577
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.1730: 60,986
+            line.de.1900:  3,361
+            line.de.1901:  0,000
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 

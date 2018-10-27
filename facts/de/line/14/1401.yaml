@@ -31,21 +31,28 @@ points:
     -   point.de.Bremen-Vahr                        # de.1740
     -   point.de.Bremen-Hbf                         # de.1740
     -   point.de.Bremen-Hbf-Bgw                     # de.1740
-    - point.de.Bremen-Rbf-Baf
-    - point.de.Bremen-Rbf-Bvp
-    - point.de.Bremen-Rbf
+    -   point.de.Bremen-Rbf-Baf
+    -   point.de.Bremen-Rbf-Bvw
+    -   point.de.Bremen-Rbf-Bvm
+    -   point.de.Bremen-Rbf-Bvp
+    -   point.de.Bremen-Rbf
     -   point.de.Bremen-Rbf-Bvl
-    - point.de.Bremen-Rbf-Bve
-    - point.de.Bremen-Rbf-Abzw-Bve                  # line.de.1740
+    -   point.de.Bremen-Rbf-Bvf
+    -   point.de.Bremen-Rbf-Bve
+    -   point.de.Bremen-Rbf-Abzw-Bve                # de.1740
 
 
 #-----------------------------------------------------------------------------
 
-# point.de.Bremen-Sebaldsbrück                de.1740
-# point.de.Bremen-Hastedt                     de.2200
-# point.de.Bremen-Vahr                        de.1740
-# point.de.Bremen-Hbf                         de.1740
-# point.de.Bremen-Hbf-Bgw                     de.1740
+#   point.de.Bremen-Sebaldsbrück                de.1740
+
+#   point.de.Bremen-Hastedt                     de.2200
+
+#   point.de.Bremen-Vahr                        de.1740
+
+#   point.de.Bremen-Hbf                         de.1740
+
+#   point.de.Bremen-Hbf-Bgw                     de.1740
 
 
 ---
@@ -53,59 +60,144 @@ key: point.de.Bremen-Rbf-Baf
 type: point
 events:
     -   date: !!null
-        location:
-            line.de.1401: 9,0
-        category: de.Bft
-        master: point.de.Bremen-Rbf
-        source: src.de.SuW.2005
-    -   date: !!null
         name: Bremen Rbf Baf
-        de.DS100: HBR A
         source: src.de.TPP.2006
+    -   date: 2014-12-14?
+        name: Bremen Rbf Ausfahrt
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        category: de.Bft
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: HBR A
+        de.dstnr: !!str 115121
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Bremen Rbf Ausf
+        PLC: DE11635
+        source: src.de.DBAG.BSV.2017
+
+
+---
+key: point.de.Bremen-Rbf-Bvw
+type: point
+events:
+    -   date: !!null
+        name: Bremen Rbf Bvw
+        category: de.Bft
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: HBR W
+        de.dstnr: !!str DE11641
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Bremen Rbf Bvw
+        PLC: DE11641
+        source: src.de.DBAG.BSV.2017
+
+
+---
+key: point.de.Bremen-Rbf-Bvm
+type: point
+events:
+    -   date: !!null
+        name: Bremen Rbf Bvm
+        category: de.Bft
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: HBR M
+        de.dstnr: !!str 908924
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Bremen Rbf Bvm
+        PLC: DE11639
+        source: src.de.DBAG.BSV.2017
+
 
 ---
 key: point.de.Bremen-Rbf-Bvp
 type: point
 events:
     -   date: !!null
-        category: de.Bft
         name: Bremen Rbf Bvp
-        master: point.de.Bremen-Rbf
+        category: de.Bft
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
         de.DS100: HBR P
-    -   date: c2005
-        status: closed
+        de.dstnr: !!str 911810
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Bremen Rbf Bvp
+        PLC: DE11640
+        source: src.de.DBAG.BSV.2017
+
 
 ---
 key: point.de.Bremen-Rbf
 type: point
 events:
     -   date: !!null
-        location:
-            line.de.1401: 12,5
-        source: src.de.SuW.2005
+        name: Bremen Vbf
+        source: src.de.Bfv.1933
+    -   date: c1970
+        name: Bremen Rbf
+        source: src.de.TPP.2006
+
     -   date: !!null
         category: de.Bf
         de.rang: I
-        name: Bremen Vbf
         service: none
         de.lknr: 13 760
         source: src.de.Bfv.1933
     -   date: !!null
         de.DS100: HBR
-        source: src.de.TPP.2006
-    -   date: c1970
-        name: Bremen Rbf
-        source: src.de.TPP.2006
+        de.dstnr: !!str 137604
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Bremen Rbf
+        PLC: DE11633
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.1401: 8,913
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
 
 ---
 key: point.de.Bremen-Rbf-Bvl
 type: point
 events:
     -   date: !!null
-        category: de.Bft
         name: Bremen Rbf Bvl
-        master: point.de.Bremen-Rbf
-        de.DS100: "HBR  L"
+        category: de.Bft
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: HBR L
+        de.dstnr: !!str 908911
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Bremen Rbf Bvl
+        PLC: DE11638
+        source: src.de.DBAG.BSV.2017
+
+
+---
+key: point.de.Bremen-Rbf-Bvf
+type: point
+events:
+    -   date: !!null
+        name: Bremen Rbf Bvf
+        category: de.Bft
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: HBR F
+        de.dstnr: !!str 911809
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Bremen Rbf Bvf
+        PLC: DE11637
         source: src.de.DBAG.BSV.2017
 
 
@@ -114,11 +206,24 @@ key: point.de.Bremen-Rbf-Bve
 type: point
 events:
     -   date: !!null
-        category: de.Bft
         name: Bremen Rbf Bve
-        master: point.de.Bremen-Rbf
-        de.DS100: HBR E
-    -   date: c2005
-        status: closed
+    -   date: 2014-12-14?
+        name: Bremen Rbf Einfahrt
+        source: src.de.DBAG.BSV.2017
 
+    -   date: !!null
+        category: de.Bft
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        de.DS100: HBR E
+        de.dstnr: !!str 115170
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Bremen Rbf Einf
+        PLC: DE11636
+        source: src.de.DBAG.BSV.2017
+
+
+#    point.de.Bremen-Rbf-Abzw-Bve                de.1740
 
