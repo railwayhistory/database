@@ -33,22 +33,34 @@ events:
     #
 
 points:
-    - point.de.Köln-Hbf                             # line.de.2600
-    - point.de.Köln-Bbf
+    -   point.de.Köln-Hbf                           # de.2600
+    -   point.de.Köln-Bbf
+
+
+#-----------------------------------------------------------------------------
+
+#    point.de.Köln-Hbf                           de.2600
 
 
 ---
 key: point.de.Köln-Bbf
 type: point
-progress: stub
 events:
     -   date: !!null
-        location:
-            line.de.2616: 0,900
-            line.de.2617: 0,000
-        category: de.Bft
         name: Köln Bbf
+        category: de.Bft
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
         de.DS100: KKB
-        master: point.de.Köln-Hbf
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 154617
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Köln Bbf
+        PLC: DE15680
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.2617: 0,000
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 

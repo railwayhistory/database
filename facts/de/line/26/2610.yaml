@@ -109,8 +109,17 @@ points:
     -   point.de.Köln-Nippes
     -   point.de.Köln-Nippes-Strw
     -   point.de.Köln-Nippes-Etzelstraße-Abzw
+    -   point.de.Köln-Geldernstr-Parkgürtel
     -   point.de.Köln-Longerich
     -   point.de.Köln-Worringen
+    -   point.de.Dormagen-Chempark-Südbahnsteig
+    -   point.de.Dormagen-Chempark-Nordbahnsteig
+    -   point.de.Dormagen
+    -   point.de.Nievenheim
+    -   point.de.Neuss-Allerheiligen
+    -   point.de.Norf
+    -   point.de.Neuss-Süd
+    -   point.de.Neuss-Nordkanal-Bksig
     -   point.de.Neuss-Nordkanal
     -   point.de.Neuss-Hbf                          # de.2550
     -   point.de.Neuss-Pbf-Ostseite
@@ -119,10 +128,18 @@ points:
     -   point.de.Krefeld-Lohbruch
     -   point.de.Krefeld-Oppum
     -   point.de.Krefeld-Hbf
+    -   point.de.Benrad-St-Tönis
     -   point.de.Kempen-Niederrhein
+    -   point.de.St-Hubert-Vösch
+    -   point.de.Aldekerk
+    -   point.de.Nieukerk
+    -   point.de.Vernum
     -   point.de.Geldern-Venum
     -   point.de.Geldern
+    -   point.de.Kevelaer
+    -   point.de.Weeze
     -   point.de.Goch
+    -   point.de.Bedburg-Hau
     -   point.de.Kleve
     -   point.de.Kranenburg
     -   point.int.Groesbeek-Kranenburg
@@ -130,134 +147,448 @@ points:
 
 #-----------------------------------------------------------------------------
 
-# point.de.Köln-Hbf                           de.2600
+#    point.de.Köln-Hbf                           de.2600
 
 
 ---
 key: point.de.Köln-Nippes
 type: point
-progress: stub
 events:
     -   date: !!null
-        location:
-            line.de.2615: 4,748
-            line.de.2620: 2,235
-        category: de.Bf
         name: Köln-Nippes
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
         de.DS100: KKN
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 153130
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Köln-Nippes
+        PLC: DE15758
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.2610: !!null
+            line.de.2615: 4,748
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Köln-Nippes-Strw
 type: point
 subtype: reference
-progress: stub
 events:
     -   date: !!null
-        location:
-            line.de.2618: 2,400
-        category: de.Strw
         name: Köln-Nippes Streckenwechsel 2618/2610
+        category: de.Strw
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
         de.DS100: YKKEZ
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 911853
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Köln-Nippes Strw
+        PLC: DE15765
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.2610: 2,323
+            line.de.2618: 2,400
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Köln-Nippes-Etzelstraße-Abzw
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: [de.Bft, de.Abzw]
-        name: Köln-Nippes Etzelstraße Abzw
+        name: Köln Etzelstraße
+        category: de.Abzw
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: KKEZ
+        de.dstnr: !!str 157412
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Etzelstraße
+        PLC: DE15696
+        source: src.de.DBAG.BSV.2017
+    -   date: 2013-09-05?
         de.DS100: KKN E
-        master: point.de.Köln-Nippes
-        source: src.de.DBAG.ISR
+        name: Köln-Nippes Etzelstraße Abzw
+        de.name16: K-Nippes Etzelst
+        category: [de.Bft, de.Abzw]
+        PLC: DE15762
+        de.dstnr: !!str 108041
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.2610: 3,085
+            line.de.2620: 3,015
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Köln-Geldernstr-Parkgürtel
+type: point
+events:
+    -   date: !!null
+        name: Köln Geldernstr/Parkgürtel
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: KKP
+        de.dstnr: !!str 156463
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: K Geldernstr/Pa
+        PLC: DE15701
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.2610: 3,458
+            line.de.2620: 3,460
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Köln-Longerich
 type: point
-progress: stub
 events:
     -   date: !!null
+        name: Köln-Longerich
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: KKL
+        de.dstnr: !!str 153122
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Köln-Longerich
+        PLC: DE15749
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
         location:
+            line.de.2610: 7,792 
             line.de.2615: 6,780
             line.de.2620: 7,792
-        category: de.Bf
-        name: Köln-Longerich
-        de.DS100: KKL
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Köln-Worringen
 type: point
-progress: stub
 events:
     -   date: !!null
-        location:
-            line.de.2620: 14,820
-        category: de.Bf
         name: Köln-Worringen
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
         de.DS100: KKWO
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 153114
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Köln-Worringen
+        PLC: DE15771
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.2610: 14,820
+            line.de.2620: 14,820
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Dormagen-Chempark-Südbahnsteig
+type: point
+events:
+    -   date: !!null
+        name: Dormagen Chempark (Südbahnsteig)
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: KDBW
+        de.dstnr: !!str 153106
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Dormagen Chemp S
+        PLC: DE12313
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.2610: 17,731
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Dormagen-Chempark-Nordbahnsteig
+type: point
+events:
+    -   date: !!null
+        name: Dormagen Chempark (Nordbahnsteig)
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: KDBWN
+        de.dstnr: !!str 912255
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Dormagen Chemp N
+        PLC: DE12314
+        source: src.de.DBAG.BSV.2017
+
+
+---
+key: point.de.Dormagen
+type: point
+events:
+    -   date: !!null
+        name: Dormagen
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: KDO
+        de.dstnr: !!str 153080
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Dormagen
+        PLC: DE12312
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.2610: 20,803
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Nievenheim
+type: point
+events:
+    -   date: !!null
+        name: Nievenheim
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: KNIV
+        de.dstnr: !!str 153072
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Nievenheim
+        PLC: DE17782
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.2610: 24,284
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Neuss-Allerheiligen
+type: point
+events:
+    -   date: !!null
+        name: Neuss Allerheiligen
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: KNAL
+        de.dstnr: !!str 174805
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Neuss Allerheil
+        PLC: DE17608
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.2610: 27,064
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Norf
+type: point
+events:
+    -   date: !!null
+        name: Norf
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: KNO
+        de.dstnr: !!str 153064
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Norf
+        PLC: DE17824
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.2610: 29,816
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Neuss-Süd
+type: point
+events:
+    -   date: !!null
+        name: Neuss Süd
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: KNSD
+        de.dstnr: !!str 155408
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Neuss Süd
+        PLC: DE17621
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.2610: 33,736
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Neuss-Nordkanal-Bksig
+type: point
+events:
+    -   date: !!null
+        name: Neuss Nordkanal Bksig
+        category: de.Abzw
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: KNOKA
+        de.dstnr: !!str 911564
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Nordkanal Bksig
+        PLC: DE17614
+        source: src.de.DBAG.BSV.2017
 
 
 ---
 key: point.de.Neuss-Nordkanal
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Abzw
         name: Neuss Nordkanal
+        category: de.Abzw
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
         de.DS100: KNOK
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 157065
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Nordkanal
+        PLC: DE17613
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.2580: 46,946
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
-# point.de.Neuss-Hbf                          de.2550
+#    point.de.Neuss-Hbf                          de.2550
 
 
 ---
 key: point.de.Neuss-Pbf-Ostseite
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Bft
         name: Neuss Pbf Ostseite
-        de.DS100: KN O
-        master: point.de.Neuss-Hbf
-        source: src.de.DBAG.ISR
+        category: de.Bft
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: "KN  O"
+        de.dstnr: !!str 909624
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Neuss Ostseite
+        PLC: DE17617
+        source: src.de.DBAG.BSV.2017
 
 
 ---
 key: point.de.Weißenberg
 type: point
-progress: stub
 events:
     -   date: !!null
         name: Weißenberg
+        category: de.Abzw
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: KWEB
+        de.dstnr: !!str 157073
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Weißenberg
+        PLC: DE20924
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.2610: 37,0+1605
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Meerbusch-Osterath
 type: point
-progress: stub
 events:
     -   date: !!null
         name: Meerbusch-Osterath
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: KMBO
+        de.dstnr: !!str 150573
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: M'busch-Osterath
+        PLC: DE16917
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.2610: 43,153
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Krefeld-Lohbruch
 type: point
-progress: stub
 events:
     -   date: !!null
         name: Krefeld Lohbruch
+        category: de.Abzw
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: KLOC
+        de.dstnr: !!str 157081
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Lohbruch
+        PLC: DE15872
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.2610: 49,179
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
@@ -279,26 +610,171 @@ events:
 
     -   date: c2000
         location:
-            line.de.2505: 0,044
+            line.de.2505:  0,044
+            line.de.2520: 90,451
+            line.de.2610: 50,503
         source: src.de.DBAG.Geo-Betriebsstelle.2017
+
 
 
 ---
 key: point.de.Krefeld-Hbf
 type: point
-progress: stub
 events:
     -   date: !!null
         name: Krefeld Hbf
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: KKR
+        de.dstnr: !!str 150359
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Krefeld Hbf
+        PLC: DE15870
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.2500:  0,000
+            line.de.2520: 87,357
+            line.de.2610: 53,557
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Benrad-St-Tönis
+type: point
+events:
+    -   date: !!null
+        name: Benrad-St Tönis
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: KBET
+        de.dstnr: !!str 150342
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Benrad-St Tönis
+        PLC: DE10775
+        source: src.de.DBAG.BSV.2017
+    -   date: b2006-02-01
+        status: closed
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.2610: 58,973
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Kempen-Niederrhein
 type: point
-progress: stub
 events:
     -   date: !!null
         name: Kempen (Niederrhein)
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: KKEM
+        de.dstnr: !!str 150300
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Kempen (Ndrh)
+        PLC: DE15472
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.2610: 64,955
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.St-Hubert-Vösch
+type: point
+events:
+    -   date: !!null
+        name: St Hubert-Vösch
+        category: de.Bk
+        source: src.de.DBAG.BSV.2017
+    -   date: 2009
+        status: closed
+        source: src.de.web.Joost
+
+    -   date: !!null
+        de.DS100: KSHV
+        de.dstnr: !!str 910643
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: St Hubert-Vösch
+        PLC: DE21651
+        source: src.de.DBAG.BSV.2017
+
+
+---
+key: point.de.Aldekerk
+type: point
+events:
+    -   date: !!null
+        name: Aldekerk
+        category: [de.Hp, de.Bk]
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: KALK
+        de.dstnr: !!str 150284
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Aldekerk
+        PLC: DE10101
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.2610: 72,678
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Nieukerk
+type: point
+events:
+    -   date: !!null
+        name: Nieukerk
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: KNIK
+        de.dstnr: !!str 150276
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Nieukerk
+        PLC: DE17781
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.2610: 76,297
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Vernum
+type: point
+events:
+    -   date: !!null
+        name: Vernum
+        category: de.Bk
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: KVER
+        de.dstnr: !!str 177824
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Vernum
+        PLC: DE21656
+        source: src.de.DBAG.BSV.2017
 
 
 ---
@@ -313,46 +789,196 @@ events:
 ---
 key: point.de.Geldern
 type: point
-progress: stub
 events:
     -   date: !!null
         name: Geldern
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: KGE
+        de.dstnr: !!str 150250
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Geldern
+        PLC: DE13613
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.2610: 83,588
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Kevelaer
+type: point
+events:
+    -   date: !!null
+        name: Kevelaer
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: KKEV
+        de.dstnr: !!str 150219
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Kevelaer
+        PLC: DE15491
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.2610: 92,453
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Weeze
+type: point
+events:
+    -   date: !!null
+        name: Weeze
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: KWEE
+        de.dstnr: !!str 150201
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Weeze
+        PLC: DE20835
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.2610: 98,570
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Goch
 type: point
-progress: stub
 events:
     -   date: !!null
         name: Goch
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: KGO
+        de.dstnr: !!str 150169
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Goch
+        PLC: DE13803
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.2610: 105,511
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Pfalzdorf
+type: point
+events:
+    -   date: !!null
+        name: Pfalzdorf
+        category: de.Bk
+        source: src.de.DBAG.BSV.2017
+    -   date: 2004-11-12?
+        status: closed
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        de.DS100: KPFZ
+        de.dstnr: !!str 150151
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Pfalzdorf
+        source: src.de.DBAG.BSV.2017
+
+
+---
+key: point.de.Bedburg-Hau
+type: point
+events:
+    -   date: !!null
+        name: Bedburg-Hau
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: KBH
+        de.dstnr: !!str 150144
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Bedburg-Hau
+        PLC: DE10719
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.2610: 114,080
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Kleve
 type: point
-progress: stub
 events:
     -   date: !!null
         name: Kleve
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: KKLV
+        de.dstnr: !!str DE15606
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Kleve
+        PLC: DE15606
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.2610: 118,377
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Kranenburg
 type: point
-progress: stub
 events:
     -   date: !!null
         name: Kranenburg
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: KKRA
+        de.dstnr: !!str 150094
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Kranenburg
+        PLC: DE15857
+        source: src.de.DBAG.BSV.2017
 
 
 ---
 key: point.int.Groesbeek-Kranenburg
 type: point
 subtype: border
-progress: stub
 events:
     -   date: !!null
         name:
             de: Kranenburg Grenze
+        category: de.Gp
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: KXKU
+        de.dstnr: !!str 150128
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Kranenburg Gr
+        PLC: DE15858
+        source: src.de.DBAG.BSV.2017
 
