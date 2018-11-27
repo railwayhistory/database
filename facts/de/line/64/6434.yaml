@@ -33,20 +33,38 @@ events:
     #
 
 points:
-    - point.de.Magdeburg-Hbf                        # line.de.6110
-    - point.de.Magdeburg-Hasselbachplatz
-    - point.de.Magdeburg-Südseite                   # line.de.6403
+    -   point.de.Magdeburg-Hbf                      # de.6110
+    -   point.de.Magdeburg-Hasselbachplatz
+    -   point.de.Magdeburg-Südseite                 # de.6403
+
+
+#-----------------------------------------------------------------------------
+
+#    point.de.Magdeburg-Hbf                      de.6110
 
 
 ---
 key: point.de.Magdeburg-Hasselbachplatz
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Bft
         name: Magdeburg-Hasselbachplatz
+        category: de.Bft
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
         de.DS100: LMGH
-        master: point.de.Magdeburg-Hbf
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 241224
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Mg-Hasselbachpl
+        PLC: DE16657
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6434: 0,907
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+#    point.de.Magdeburg-Südseite                 de.6403
 

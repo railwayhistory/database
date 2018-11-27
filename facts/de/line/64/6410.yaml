@@ -40,7 +40,11 @@ events:
 
 points:
     -   point.de.Biederitz                          # de.6110
+    -   point.de.Königsborn
+    -   point.de.Wahlitz
     -   point.de.Gommern
+    -   point.de.Prödel
+    -   point.de.Lübs-Magdeburg
     -   point.de.Güterglück-Gkn
     -   point.de.Güterglück                         # de.6118
     -   point.de.Güterglück-Gks
@@ -49,7 +53,53 @@ points:
 
 #-----------------------------------------------------------------------------
 
-# point.de.Biederitz                          de.6110
+#    point.de.Biederitz                          de.6110
+
+
+---
+key: point.de.Königsborn
+type: point
+events:
+    -   date: !!null
+        name: Königsborn
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: LKB
+        de.dstnr: !!str 241190
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Königsborn
+        PLC: DE15779
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6410: 4,448
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Wahlitz
+type: point
+events:
+    -   date: !!null
+        name: Wahlitz
+        category: [de.Bk, de.Bk]
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: LWH
+        de.dstnr: !!str 241117
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Wahlitz
+        PLC: DE20682
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6410: 8,012
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
@@ -58,10 +108,23 @@ type: point
 progress: stub
 events:
     -   date: !!null
-        category: de.Bf
         name: Gommern
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
         de.DS100: LGO
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 241125
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Gommern
+        PLC: DE13834
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6410: 13,213
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
     -   date: !!null
         connection:
             - point.de.Gommern-Kleinb               # line.de.8948
@@ -69,19 +132,70 @@ events:
 
 
 ---
-key: point.de.Güterglück-Gkn
+key: point.de.Prödel
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Bft
+        name: Prödel
+        category: [de.Hp, de.Bk]
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: LPRL
+        de.dstnr: !!str 241133
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Prödel
+        PLC: DE18539
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6410: 19,750
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Lübs-Magdeburg
+type: point
+events:
+    -   date: !!null
+        name: Lübs (b Magdeburg)
+        category: [de.Hp, de.Bk]
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: LLBS
+        de.dstnr: !!str 241141
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Lübs (b Magdeb)
+        PLC: DE16584
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6410: 22,250
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Güterglück-Gkn
+type: point
+events:
+    -   date: !!null
         name: Güterglück Stw Gkn
+        category: de.Bft
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
         de.DS100: LGK N
-        master: point.de.Güterglück
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 149799
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Güterglück Gkn
+        PLC: DE14190
+        source: src.de.DBAG.BSV.2017
 
 
-# point.de.Güterglück                         de.6118
+#    point.de.Güterglück                         de.6118
 
 
 ---
@@ -96,20 +210,31 @@ events:
         master: point.de.Güterglück
     -   date: c2005
         status: closed
-        source: src.de.DBAG.ISR
 
 
 ---
 key: point.de.Trebnitz-Strw
 type: point
 subtype: reference
-progress: stub
 events:
     -   date: !!null
-        category: de.Strw
         name: Trebnitz Streckenwechsel 6410/6411
+        category: de.Strw
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
         de.DS100: LTNZ
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 240960
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Trebnitz Strw
+        PLC: DE20325
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6410: 30,324
+            line.de.6411:  0,000
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 

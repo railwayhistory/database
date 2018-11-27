@@ -34,71 +34,119 @@ events:
     #
 
 points:
-    - point.de.Leipzig-Bayer-Bf                     # line.de.6377
-    - point.de.Leipzig-Wilhelm-Leuschner-Platz
-    - point.de.Leipzig-Markt
-    - point.de.Leipzig-Hbf-Tiefgleise
-    - point.de.Leipzig-Nord
-    - point.de.Leipzig-Nordkopf                     # line.de.6411
+    -   point.de.Leipzig-Bayer-Bf                   # de.6377
+    -   point.de.Leipzig-Wilhelm-Leuschner-Platz
+    -   point.de.Leipzig-Markt
+    -   point.de.Leipzig-Hbf-Tiefgleise
+    -   point.de.Leipzig-Berliner-Straße            # de.6411
+    -   point.de.Leipzig-Nord
+    -   point.de.Leipzig-Nordkopf                   # de.6411
+
+
+#-----------------------------------------------------------------------------
+
+#    point.de.Leipzig-Bayer-Bf                   de.6377
 
 
 ---
 key: point.de.Leipzig-Wilhelm-Leuschner-Platz
 type: point
-progress: stub
 events:
     -   date: !!null
+        name: Leipzig Wilhelm-Leuschner-Platz
+        category: de.Bft
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: LLWP
+        de.dstnr: !!str 730812
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: W-Leuschner-Pl
+        PLC: DE16242
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
         location:
             line.de.6396: 2,438
-        category: de.Bft
-        name: Leipzig Wilhelm-Leuschner-Platz
-        de.DS100: LLWP
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Leipzig-Markt
 type: point
-progress: stub
 events:
     -   date: !!null
+        name: Leipzig Markt
+        category: de.Bft
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: LLMK
+        de.dstnr: !!str 730804
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Markt
+        PLC: DE16217
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
         location:
             line.de.6396: 3,000
-        category: de.Bft
-        name: Leipzig Markt
-        de.DS100: LLMK
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Leipzig-Hbf-Tiefgleise
 type: point
-progress: stub
 events:
     -   date: !!null
+        name: Leipzig Hbf (Tiefgleise)
+        category: de.Bft
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: "LL  T"
+        de.dstnr: !!str 912320
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Lpz Hbf (tief)
+        PLC: DE16213
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
         location:
             line.de.6382: 9,299
             line.de.6396: 3,649
-        category: de.Bft
-        name: Leipzig Hbf (Tiefgleise)
-        de.DS100: LL T
-        master: point.de.Leipzig-Hbf
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+#    point.de.Leipzig-Berliner-Straße            de.6411
 
 
 ---
 key: point.de.Leipzig-Nord
 type: point
-progress: stub
 events:
+    -   date: 2013-10-24?
+        status: open
+        source: src.de.DBAG.BSV.2017
     -   date: !!null
-        location:
-            line.de.6396: 6,401
-        category: de.Bft
         name: Leipzig Nord
+        category: de.Bft
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
         de.DS100: LLN
-        master: point.de.Leipzig-Hbf
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 844043
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Leipzig Nord
+        PLC: DE16227
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6360: 1,686
+            line.de.6396: 6,401
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
+#    point.de.Leipzig-Nordkopf                   de.6411
 

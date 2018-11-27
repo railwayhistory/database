@@ -38,78 +38,179 @@ events:
     #
 
 points:
-    - point.de.Leipzig-Wahren                       # line.de.6403
-    - point.de.Wiederitzsch-Strw
-    - point.de.Wiederitzsch                         # line.de.6403
+    -   point.de.Leipzig-Wahren                     # de.6403
+    -   point.de.Wiederitzsch-Strw
+    -   point.de.Wiederitzsch                       # de.6403
     -   point.de.Leipzig-Mockau
-    - point.de.Leipzig-Thekla
-    - point.de.Leipzig-Schönefeld
-    - point.de.Engelsdorf-Stw-B1
-    - point.de.Leipzig-Engelsdorf-Kurzverbindung            # line.de.6363
+    -   point.de.Leipzig-Thekla-Westkopf
+    -   point.de.Leipzig-Thekla
+    -   point.de.Leipzig-Schönefeld
+    -   point.de.Leipzig-Engelsdorf-West
+    -   point.de.Leipzig-Engelsdorf-Kurzverbindung  # de.6363
     -   point.de.Leipzig-Engelsdorf                 # de.6363
     -   point.de.Leipzig-Engelsdorf-Ost             # de.6363
+
+
+#-----------------------------------------------------------------------------
+
+#    point.de.Leipzig-Wahren                     de.6403
 
 
 ---
 key: point.de.Wiederitzsch-Strw
 type: point
 subtype: reference
-progress: stub
 events:
     -   date: !!null
-        category: de.Strw
         name: Wiederitzsch Streckenwechsel 6381/6369
+        category: de.Strw
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
         de.DS100: YLLWI
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 912395
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Wiederitzs Strw
+        PLC: DE21087
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6369: 2,742
+            line.de.6381: 1,219
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+#    point.de.Wiederitzsch                       de.6403
 
 
 ---
 key: point.de.Leipzig-Mockau
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Bf
         name: Leipzig-Mockau
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
         de.DS100: LLMO
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 231779
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Leipzig-Mockau
+        PLC: DE16262
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.5919: 307,116
+            line.de.6369:   7,441
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Leipzig-Thekla-Westkopf
+type: point
+junction: false
+events:
+    -   date: !!null
+        name: Leipzig-Thekla Westkopf
+        category: de.Abzw
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: LLTW
+        de.dstnr: !!str 108566
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Lpz-Thekla West
+        PLC: DE16277
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6360: 3,083
+            line.de.6369: 9,100
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Leipzig-Thekla
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Bf
         name: Leipzig-Thekla
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
         de.DS100: LLT
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 234419
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Leipzig-Thekla
+        PLC: DE16276
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6360:  4,687
+            line.de.6369: 10,699
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Leipzig-Schönefeld
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Bf
         name: Leipzig-Schönefeld
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
         de.DS100: LLS
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 234674
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Lpz-Schönefeld
+        PLC: DE16272
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6369: 13,395
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
-key: point.de.Engelsdorf-Stw-B1
+key: point.de.Leipzig-Engelsdorf-West
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Bft
         name: Engelsdorf Stw B 1
-        de.DS100: LE V
+        de.name16: Engelsdorf B 1
         source: src.de.DBAG.ISR
+    -   date: 2016-12-11?
+        name: Leipzig-Engelsdorf West
+        de.name16: L-Engelsdf West
+        source: src.de.DBAG.BSV.2017
 
+    -   date: !!null
+        category: de.Bft
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: "LE  V"
+        de.dstnr: !!str 909663
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        PLC: DE12894
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6369: 14,500
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+#    point.de.Leipzig-Engelsdorf-Kurzverbindung  de.6363
 
 #    point.de.Leipzig-Engelsdorf                 de.6363
 

@@ -52,19 +52,72 @@ events:
     #
 
 points:
-    - point.de.Köthen                               # line.de.6403
-    - point.de.Aken-Elbe
+    -   point.de.Köthen                             # de.6403
+    -   point.de.Köthen-Gr
+    -   point.de.Trebbichau
+    -   point.de.Aken-Elbe
+
+
+#-----------------------------------------------------------------------------
+
+#    point.de.Köthen                             de.6403
+
+
+---
+key: point.de.Köthen-Gr
+type: point
+events:
+    -   date: !!null
+        de.DS100: LKTG
+        name: Köthen DB-Grenze
+        de.name16: Köthen DB-Grenze
+        category: de.Gp
+        PLC: DE15839
+        de.dstnr: !!str 107566
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6855: 0,820
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Trebbichau
+type: point
+events:
+    -   date: !!null
+        name: Trebbichau
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: 2016-02-09?
+        status: closed
+        source: src.de.DBAG.BSV.2017
+
+    -   date: de.ds100.dr
+        de.DS100: LTU
+        de.dstnr: !!str 243964
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Trebbichau
+        PLC: DE20318
+        source: src.de.DBAG.BSV.2017
 
 
 ---
 key: point.de.Aken-Elbe
 type: point
-progress: stub
 events:
     -   date: !!null
-        category: de.Bf
         name: Aken (Elbe)
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
         de.DS100: LAK
-        source: src.de.DBAG.ISR
-
+        de.dstnr: !!str 243972
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Aken (Elbe)
+        PLC: DE10085
+        source: src.de.DBAG.BSV.2017
 

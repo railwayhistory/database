@@ -50,56 +50,177 @@ events:
     #
 
 points:
-    - point.de.Leipzig-Bayer-Bf
-    - point.de.Leipzig-MDR
-    - point.de.Leipzig-Bayer-Bf-Stw-3
-    - point.de.Leipzig-Connewitz                    # line.de.6362
-    - point.de.Markkleeberg-Gaschwitz               # line.de.6362
+    -   point.de.Leipzig-Bayer-Bf
+    -   point.de.Leipzig-Schlachthof
+    -   point.de.Leipzig-MDR
+    -   point.de.Leipzig-Bayer-Bf-Stw-3
+    -   point.de.Leipzig-Connewitz                  # de.6362
+    -   point.de.Markkleeberg-Nord
+    -   point.de.Markkleeberg
+    -   point.de.Markkleeberg-Großstädteln
+    -   point.de.Markkleeberg-Gaschwitz             # de.6362
 
+
+#-----------------------------------------------------------------------------
 
 ---
 key: point.de.Leipzig-Bayer-Bf
 type: point
-progress: stub
 events:
     -   date: !!null
-        location:
-            line.de.6377: 0,195
-            line.de.6396: 1,700
-        category: de.Bft
         name: Leipzig Bayerischer Bahnhof
+        category: de.Bft
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
         de.DS100: LLB
-        master: point.de.Leipzig-Hbf
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 235465
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Leipzig Bayer Bf
+        PLC: DE16204
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6377: 0,000
+            line.de.6396: 1,700
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Leipzig-Schlachthof
+type: point
+events:
+    -   date: !!null
+        name: Leipzig Schlachthof
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: c2000
+        status: closed
+        source: src.de.DBAG.BSV.2017
+
+    -   date: de.ds100.dr
+        de.DS100: LLSF
+        de.dstnr: !!str 235473
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: L Schlachthof
+        PLC: DE16234
+        source: src.de.DBAG.BSV.2017
 
 
 ---
 key: point.de.Leipzig-MDR
 type: point
-progress: stub
 events:
     -   date: !!null
-        location:
-            line.de.6376: 0,986
-            line.de.6377: 1,202
-        category: de.Bft
         name: Leipzig MDR
+        category: de.Bft
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
         de.DS100: LMDR
-        master: point.de.Leipzig-Hbf
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 730820
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Leipzig MDR
+        PLC: DE16218
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6377: 1,600
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Leipzig-Bayer-Bf-Stw-3
 type: point
-progress: stub
 events:
     -   date: !!null
+        name: Leipzig Bayer Bf Stw B3
         category: de.Bft
-        name: Leipzig Bayer Bf Stw 3
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
         de.DS100: LLB D
-        master: point.de.Leipzig-Bayer-Bf
-    -   date: c2005
-        status: closed
+        de.dstnr: !!str 909650
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Lpz Bayer Bf B3
+        PLC: DE16205
+        source: src.de.DBAG.BSV.2017
 
+
+#    point.de.Leipzig-Connewitz                  de.6362
+
+
+---
+key: point.de.Markkleeberg-Nord
+type: point
+events:
+    -   date: !!null
+        name: Markkleeberg Nord
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: LMAN
+        de.dstnr: !!str 910786
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Markkleeberg N
+        PLC: DE16811
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6377: 5,200
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Markkleeberg
+type: point
+events:
+    -   date: !!null
+        name: Markkleeberg
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: LMA
+        de.dstnr: !!str 235507
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Markkleeberg
+        PLC: DE16809
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6377: 6,180
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Markkleeberg-Großstädteln
+type: point
+events:
+    -   date: !!null
+        name: Markkleeberg-Großstädteln
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: LMAG
+        de.dstnr: !!str 235515
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Markkleebg-Grst
+        PLC: DE16813
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6377: 8,080
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+#    point.de.Markkleeberg-Gaschwitz             de.6362
 
