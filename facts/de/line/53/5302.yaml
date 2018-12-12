@@ -33,7 +33,7 @@ events:
         source: src.de.DRG.1935 # 1853/18
     -   date: 1854-05-01
         start: point.de.Neu-Ulm
-        end: point.de.Ulm-Hbf-LGr
+        end: point.de.Ulm-Hbf-LGr-Fernbahn
         status: open
         source: src.de.DRG.1935 # 1854/1
     -   date: 1854-05-01
@@ -43,30 +43,41 @@ events:
         source: src.de.DRG.1935 # 1854/2
 
 points:
-    -   point.de.Augsburg-Hbf                       # de.5300
+    -   point.de.Augsburg-Hbf                       # de.5503
     -   point.de.Augsburg-Oberhausen                # de.5300
     -   point.de.Augsburg-Hirblinger-Straße
+    -   point.de.Neusäß
     -   point.de.Westheim-Schwab
+    -   point.de.Diedorf-Schwab
     -   point.de.Gessertshausen
+    -   point.de.Kutzenhausen
     -   point.de.Dinkelscherben
+    -   point.de.Freihalden
+    -   point.de.Freihalden-Üst
+    -   point.de.Jettingen
     -   point.de.Burgau-Schwab
+    -   point.de.Mindelaltheim
+    -   point.de.Offingen
     -   point.de.Neuoffingen
     -   point.de.Günzburg
+    -   point.de.Leipheim
+    -   point.de.Unterfahlheim
     -   point.de.Neu-Ulm
-    -   point.de.Ulm-Hbf-LGr                        # de.4700
+    -   point.de.Ulm-Hbf-LGr-Fernbahn
     -   point.de.Ulm-Hbf                            # de.4700
 
 
 #-----------------------------------------------------------------------------
 
-# point.de.Augsburg-Hbf                       de.5300
+#    point.de.Augsburg-Hbf                       de.5503
 
-# point.de.Augsburg-Oberhausen                de.5300
+#    point.de.Augsburg-Oberhausen                de.5300
 
 
 ---
 key: point.de.Augsburg-Hirblinger-Straße
 type: point
+junction: false
 events:
     -   date: !!null
         category: de.Bft
@@ -74,7 +85,37 @@ events:
         de.name16: Augsb Hirbl Str
         de.DS100: MAHI
         PLC: DE10350
+        de.dstnr: !!str 020545
         source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.5302: 4,438
+            line.de.5305: 4,418
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Neusäß
+type: point
+events:
+    -   date: !!null
+        name: Neusäß
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: MNES
+        de.dstnr: !!str 021188
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Neusäß
+        PLC: DE17604
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.5302: 6,320
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
@@ -87,62 +128,404 @@ events:
         de.name16: Westheim/Schwab
         de.DS100: MWHS
         PLC: DE21065
+        de.dstnr: !!str 021162
         source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.5302: 7,849
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Diedorf-Schwab
+type: point
+events:
+    -   date: !!null
+        name: Diedorf (Schwab)
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: MDID
+        de.dstnr: !!str 021147
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Diedorf (Schwab)
+        PLC: DE12182
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.5302: 12,313
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Gessertshausen
 type: point
-progress: stub
 events:
     -   date: !!null
         name: Gessertshausen
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: MGHN
+        de.dstnr: !!str 021139
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Gessertshausen
+        PLC: DE13727
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.5302: 16,576
+            line.de.5340:  0,096
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Kutzenhausen
+type: point
+events:
+    -   date: !!null
+        name: Kutzenhausen
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: MKUN
+        de.dstnr: !!str 021121
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Kutzenhausen
+        PLC: DE15977
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.5302: 19,383
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Dinkelscherben
 type: point
-progress: stub
 events:
     -   date: !!null
         name: Dinkelscherben
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: MDKS
+        de.dstnr: !!str 021063
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Dinkelscherben
+        PLC: DE12243
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.5302: 27,789
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Freihalden
+type: point
+events:
+    -   date: !!null
+        name: Freihalden
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: MFHD
+        de.dstnr: !!str 021048
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Freihalden
+        PLC: DE13395
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.5302: 37,691
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Freihalden-Üst
+type: point
+events:
+    -   date: !!null
+        name: Freihalden Üst
+        category: de.Üst
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: MFHU
+        de.dstnr: !!str 881995
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Freihalden Üst
+        PLC: DE13396
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.5302: 38,243
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Jettingen
+type: point
+events:
+    -   date: !!null
+        name: Jettingen
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: MJET
+        de.dstnr: !!str 021030
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Jettingen
+        PLC: DE15292
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.5302: 42,375
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Burgau-Schwab
 type: point
-progress: stub
 events:
     -   date: !!null
         name: Burgau (Schwab)
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: MBGU
+        de.dstnr: !!str 021022
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Burgau (Schwab)
+        PLC: DE11840
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.5302: 45,672
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Mindelaltheim
+type: point
+events:
+    -   date: !!null
+        name: Mindelaltheim
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: MMAH
+        de.dstnr: !!str 021014
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Mindelaltheim
+        PLC: DE17054
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.5302: 49,424
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Offingen
+type: point
+events:
+    -   date: !!null
+        name: Offingen
+        category: [de.Hp, de.Awanst]
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: MOFF
+        de.dstnr: !!str 021006
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Offingen
+        PLC: DE18090
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.5302: 53,161
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Neuoffingen
 type: point
-progress: stub
 events:
     -   date: !!null
         name: Neuoffingen
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: MNFG
+        de.dstnr: !!str 020834
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Neuoffingen
+        PLC: DE17593
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.5302: 55,877
+            line.de.5381: 96,810
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Günzburg
 type: point
-progress: stub
 events:
     -   date: !!null
         name: Günzburg
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: MGZB
+        de.dstnr: !!str 020842
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Günzburg
+        PLC: DE14175
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.5302: 61,420
+            line.de.5351:  0,000
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Leipheim
+type: point
+events:
+    -   date: !!null
+        name: Leipheim
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: MLEH
+        de.dstnr: !!str 020859
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Leipheim
+        PLC: DE16202
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.5302: 66,514
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Unterfahlheim
+type: point
+events:
+    -   date: !!null
+        name: Unterfahlheim
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: MUFH
+        de.dstnr: !!str 020867
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Unterfahlheim
+        PLC: DE20494
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.5302: 70,955
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Nersingen
+type: point
+events:
+    -   date: !!null
+        name: Nersingen
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: MNSG
+        de.dstnr: !!str 020875
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Nersingen
+        PLC: DE17461
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.5302: 74,173
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Neu-Ulm
 type: point
-progress: stub
 events:
     -   date: !!null
         name: Neu Ulm
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: MNM
+        de.dstnr: !!str 020891
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Neu-Ulm
+        PLC: DE17658
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.5302: 83,643
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
-# point.de.Ulm-Hbf-LGr                        de.4700
-# point.de.Ulm-Hbf                            de.4700
+---
+key: point.de.Ulm-Hbf-LGr-Fernbahn
+type: point
+subtype: border
+events:
+    -   date: !!null
+        name: Ulm Hbf BW/BY Fernbahn
+        category: de.LGr
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: TQUF
+        de.dstnr: !!str 105786
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Ulm Hbf BW/BY FB
+        PLC: DE20451
+        source: src.de.DBAG.BSV.2017
+
+
+#    point.de.Ulm-Hbf                            de.4700
+

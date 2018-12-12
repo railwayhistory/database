@@ -53,22 +53,21 @@ events:
     #
 
 points:
-    -   point.de.München-Hbf                          # de.5500
+    -   point.de.München-Hbf                        # de.5500
     -   point.de.München-Landsberger-Straße
     -   point.de.München-Pasing
     -   point.de.München-Pasing-Weiche-352
     -   point.de.München-Lochhausen
     -   point.de.Olching
-    -   point.de.Maisach
-    -   point.de.Mammendorf
-    -   point.de.Mering
-    -   point.de.Augsburg-Hochzoll
+    -   point.de.Mering-Üst
+    -   point.de.Augsburg-Hochzoll-Abzweig
+    -   point.de.Augsburg-Haunstetterstraße
     -   point.de.Augsburg-Hbf
 
 
 #-----------------------------------------------------------------------------
 
-# point.de.München-Hbf de.5500
+#    point.de.München-Hbf                          de.5500
 
 
 ---
@@ -81,18 +80,40 @@ events:
         de.name16: Mü Landsbger Str
         de.DS100: MALS
         PLC: DE17230
+        de.dstnr: !!str 206052
         source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.5503: 4,140
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.München-Pasing
 type: point
-progress: stub
 events:
     -   date: !!null
         name: München-Pasing
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
         de.DS100: MP
-        source: src.de.TPP.2015
+        de.dstnr: !!str 203323
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: München-Pasing
+        PLC: DE17305
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.5503: 7,385
+            line.de.5504: 7,385
+            line.de.5522: 3,087
+            line.de.5540: 7,385
+            line.de.5543: 7,385
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
@@ -105,85 +126,152 @@ events:
         de.name16: Mü-Pasing W 352
         de.DS100: "MP  R"
         PLC: DE17312
+        de.dstnr: !!str 909464
         source: src.de.DBAG.BSV.2017
 
 
 ---
 key: point.de.München-Lochhausen
 type: point
-progress: stub
 events:
     -   date: !!null
         name: München-Lochhausen
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
         de.DS100: MLO
-        source: src.de.TPP.2015
+        de.dstnr: !!str 203679
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Mü-Lochhausen
+        PLC: DE17292
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.5503: 12,274
+            line.de.5543: 12,315
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Olching
 type: point
-progress: stub
 events:
     -   date: !!null
         name: Olching
-        de.DS100: MOL
-        source: src.de.TPP.2015
-
-
----
-key: point.de.Maisach
-type: point
-progress: stub
-events:
-    -   date: !!null
-        name: Maisach
-        de.DS100: MMA
-        source: src.de.TPP.2015
-
-
----
-key: point.de.Mammendorf
-type: point
-events:
-    -   date: !!null
         category: de.Bf
-        name: Mammendorf
-        de.name16: Mammendorf
-        de.DS100: MMAM
-        PLC: DE16735
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: MOL
+        de.dstnr: !!str 203653
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Olching
+        PLC: DE18111
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.5503: 19,079
+            line.de.5543: 19,100
+            line.de.5581: 19,070
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Mering-Üst
+type: point
+events:
+    -   date: 2013-10-24?
+        status: open
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        name: Mering Üst
+        category: de.Üst
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: MMRU
+        de.dstnr: !!str 849208
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Mering Üst
+        PLC: DE16989
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.5503: 45,267
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Augsburg-Hochzoll-Abzweig
+type: point
+events:
+    -   date: !!null
+        name: Augsburg-Hochzoll Abzweig
+        category: de.Abzw
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: MAHZF
+        de.dstnr: !!str 911629
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Augsb-Hochz Abzw
+        PLC: DE10357
         source: src.de.DBAG.BSV.2017
 
 
 ---
-key: point.de.Mering
+key: point.de.Augsburg-Haunstetterstraße
 type: point
-progress: stub
 events:
     -   date: !!null
-        name: Mering
-        de.DS100: MMR
-        source: src.de.TPP.2015
-
-
----
-key: point.de.Augsburg-Hochzoll
-type: point
-progress: stub
-events:
+        name: Augsburg Haunstetterstraße
+        category: de.Bft
+        source: src.de.DBAG.BSV.2017
     -   date: !!null
-        name: Augsburg-Hochzoll
-        de.DS100: MAHZ
-        source: src.de.TPP.2015
+        de.DS100: MAHA
+        de.dstnr: !!str 021428
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Augsb Haunst str
+        PLC: DE10347
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.5503: 60,282
+            line.de.5581: 60,266
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Augsburg-Hbf
 type: point
-progress: stub
 events:
     -   date: !!null
         name: Augsburg Hbf
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
         de.DS100: MA
-        source: src.de.TPP.2015
+        de.dstnr: !!str 021402
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Augsburg Hbf
+        PLC: DE10348
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.5300:  0,000
+            line.de.5302:  0,000
+            line.de.5304:  0,000
+            line.de.5305:  0,000
+            line.de.5503: 61,885
+            line.de.5581: 61,891
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 

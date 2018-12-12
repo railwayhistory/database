@@ -32,6 +32,7 @@ events:
 
 points:
     -   point.de.Regensburg-Hbf                     # de.5850
+    -   point.de.Regensburg-Bbf
     -   point.de.Regensburg-Prüfening
     -   point.de.Seubersdorf
     -   point.de.Deining-Oberpf
@@ -46,16 +47,49 @@ points:
 
 #-----------------------------------------------------------------------------
 
-# point.de.Regensburg-Hbf                     de.5850
+#    point.de.Regensburg-Hbf                     de.5850
+
+
+---
+key: point.de.Regensburg-Bbf
+type: point
+events:
+    -   date: !!null
+        name: Regensburg Bbf
+        category: de.Bft
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: NRH B
+        de.dstnr: !!str 909171
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Regensburg Bbf
+        PLC: DE18709
+        source: src.de.DBAG.BSV.2017
 
 
 ---
 key: point.de.Regensburg-Prüfening
 type: point
-progress: stub
+junction: false
 events:
     -   date: !!null
         name: Regensburg-Prüfening
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: NRPH
+        de.dstnr: !!str 263095
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Regensbg Prüfe
+        PLC: DE18717
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.5851: 3,693
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
@@ -113,7 +147,13 @@ events:
         de.name16: Reichswald
         de.DS100: NRWD
         PLC: DE17861
+        de.dstnr: !!str 363549
         source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.5934: 9,440
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
