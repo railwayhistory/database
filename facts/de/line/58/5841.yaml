@@ -26,8 +26,15 @@ events:
 
 points:
     -   point.de.Deggendorf-Hbf                     # de.5634
+    -   point.de.Deggendorf-Werft-2
+    -   point.de.Deggendorf-Werft-1-und-3
     -   point.de.Deggendorf-Hafen
+    -   point.de.Deggendorf-Hafen-Gr
+    -   point.de.Deggendorf-Textilwerke
     -   point.de.Hengersberg
+    -   point.de.Hengersberg-PA-Schwaiger
+    -   point.de.Schwanenkirchen
+    -   point.de.Schöllnach
     -   point.de.Eging
     -   point.de.Kalteneck                          # de.5840
 
@@ -35,6 +42,45 @@ points:
 #-----------------------------------------------------------------------------
 
 # point.de.Deggendorf-Hbf                     de.5634
+
+
+---
+key: point.de.Deggendorf-Werft-2
+type: point
+events:
+    -   date: !!null
+        name: Deggendorf Werft 2
+        category: de.Anst
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: NWTZ
+        de.dstnr: !!str 265090
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Deggend Werft 2
+        PLC: DE12109
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.5841: 1,613
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Deggendorf-Werft-1-und-3
+type: point
+events:
+    -   date: !!null
+        name: Deggendorf Werft 1 und 3
+        category: de.Anst
+        de.DS100: NWTE
+        location:
+            line.de.5841: 1,874
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+    -   date: c2000
+        status: closed
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
@@ -47,6 +93,53 @@ events:
         de.name16: Deggendorf Hafen
         de.DS100: NDH
         PLC: DE12104
+        de.dstnr: !!str 264515
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.5841: 2,656
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Deggendorf-Hafen-Gr
+type: point
+subtype: reference
+events:
+    -   date: !!null
+        name: Deggendorf Hafen DB-Grenze
+        category: de.Gp
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: NDHG
+        de.dstnr: !!str 107419
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Deggend Ha DB-Gr
+        PLC: DE12105
+        source: src.de.DBAG.BSV.2017
+
+
+---
+key: point.de.Deggendorf-Textilwerke
+type: point
+events:
+    -   date: !!null
+        name: Deggendorf Textilwerke
+        category: de.Anst
+        source: src.de.DBAG.BSV.2017
+    -   date: 2009-01-27?
+        status: closed
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        de.DS100: NTWD
+        de.dstnr: !!str 261669
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Degg Textilwerke
+        PLC: DE12107
         source: src.de.DBAG.BSV.2017
 
 
@@ -60,19 +153,80 @@ events:
         de.name16: Hengersberg
         de.DS100: NHBG
         PLC: DE14763
+        de.dstnr: !!str 264549
         source: src.de.DBAG.BSV.2017
-    -   date: 2009-01-27?
-        status: closed
+
+
+---
+key: point.de.Hengersberg-PA-Schwaiger
+type: point
+events:
+    -   date: !!null
+        name: Hengersberg PA Schwaiger
+        category: de.Anst
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: NDS
+        de.dstnr: !!str 913562
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: PA Schwaiger
+        PLC: DE14764
+        source: src.de.DBAG.BSV.2017
+
+
+---
+key: point.de.Schwanenkirchen
+type: point
+events:
+    -   date: !!null
+        name: Schwanenkirchen
+        category: de.Anst
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: NSWK
+        de.dstnr: !!str 342378
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Schwanenkirchen
+        PLC: DE19542
+        source: src.de.DBAG.BSV.2017
+
+
+---
+key: point.de.Schöllnach
+type: point
+events:
+    -   date: !!null
+        name: Schöllnach
+        category: de.Anst
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: NSNA
+        de.dstnr: !!str 264572
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Schöllnach
+        PLC: DE19430
         source: src.de.DBAG.BSV.2017
 
 
 ---
 key: point.de.Eging
 type: point
-progress: stub
 events:
     -   date: !!null
-        name: Eging
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: NENG
+        de.dstnr: !!str 265538
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Eging
+        PLC: DE12717
+        source: src.de.DBAG.BSV.2017
 
 
-# point.de.Kalteneck                          de.5840
+#    point.de.Kalteneck                          de.5840
+
