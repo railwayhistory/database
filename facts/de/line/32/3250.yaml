@@ -67,13 +67,18 @@ events:
 points:
     -   point.de.Saarbrücken-Hbf                    # de.3511
     -   point.de.Saarbrücken-Hbf-So
-    -   point.de.Saarbrücken-Ost
     -   point.de.Saarbrücken-Ost-EGr
+    -   point.de.Saarbrücken-Ost
     -   point.de.Saarbrücken-Halberg
+    -   point.de.Schafbrücke
+    -   point.de.Scheidt-Saar
+    -   point.de.Rentrisch
     -   point.de.Rentrisch-LGr
     -   point.de.St-Ingbert
     -   point.de.St-Ingbert-Gabelung
     -   point.de.Rohrbach-Saar
+    -   point.de.Kirkel
+    -   point.de.Limbach-Homburg-Saar
     -   point.de.Homburg-Saar-Hbf
 
 
@@ -93,20 +98,7 @@ events:
         de.name16: Saarbr. Hbf So
         de.DS100: SSH O
         PLC: DE19154
-        source: src.de.DBAG.BSV.2017
-
-
----
-key: point.de.Saarbrücken-Ost
-type: point
-junction: False
-events:
-    -   date: !!null
-        category: de.Hp
-        name: Saarbrücken Ost
-        de.name16: Saarbrücken Ost
-        de.DS100: SSO
-        PLC: DE19160
+        de.dstnr: !!str 911832
         source: src.de.DBAG.BSV.2017
 
 
@@ -126,12 +118,102 @@ events:
 
 
 ---
+key: point.de.Saarbrücken-Ost
+type: point
+junction: False
+events:
+    -   date: !!null
+        category: de.Hp
+        name: Saarbrücken Ost
+        de.name16: Saarbrücken Ost
+        de.DS100: SSO
+        PLC: DE19160
+        de.dstnr: !!str 254680
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3250: 2,705
+            line.de.3251: 2,702
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
 key: point.de.Saarbrücken-Halberg
 type: point
 progress: stub
 events:
     -   date: !!null
         name: Halberg
+
+
+---
+key: point.de.Schafbrücke
+type: point
+events:
+    -   date: !!null
+        name: Schafbrücke
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: SSU
+        de.dstnr: !!str 254672
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Schafbrücke
+        PLC: DE19282
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3250: 5,110
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Scheidt-Saar
+type: point
+events:
+    -   date: !!null
+        name: Scheidt (Saar)
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: SSD
+        de.dstnr: !!str 254664
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Scheidt (Saar)
+        PLC: DE19318
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3250: 7,053
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Rentrisch
+type: point
+events:
+    -   date: !!null
+        name: Rentrisch
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: SRE
+        de.dstnr: !!str 254656
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Rentrisch
+        PLC: DE18800
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3250: 9,561
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
@@ -153,7 +235,13 @@ events:
         de.name16: St Ingbert
         de.DS100: SSI
         PLC: DE19878
+        de.dstnr: !!str 254649
         source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3250: 12,537
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
@@ -181,7 +269,54 @@ events:
 
     -   date: c2000
         location:
+            line.de.3250:  16,039
             line.de.3450: 116,060
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Kirkel
+type: point
+events:
+    -   date: !!null
+        name: Kirkel
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: SKI
+        de.dstnr: !!str 254623
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Kirkel
+        PLC: DE15550
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3250: 21,495
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Limbach-Homburg-Saar
+type: point
+events:
+    -   date: !!null
+        name: Limbach (b Homburg/Saar)
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: SLB
+        de.dstnr: !!str 254615
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Limbach/Hombg Sa
+        PLC: DE16374
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.3250: 26,262
         source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
@@ -200,6 +335,8 @@ events:
 
     -   date: c2000
         location:
-            line.de.3280: 8,376
+            line.de.3250: 31,098
+            line.de.3280:  8,376
+            line.de.3282:  0,000
         source: src.de.DBAG.Geo-Betriebsstelle.2017
 
