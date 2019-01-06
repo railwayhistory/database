@@ -62,102 +62,306 @@ events:
     #
 
 points:
-    - point.int.Grambow-Szczecin
-    - point.de.Löcknitz
-    - point.de.Krugsdorf
-    - point.de.Pasewalk-Ost
-    - point.de.Pasewalk                             # line.de.6081
-    - point.de.Charlottenhof-Pasewalk
-    - point.de.Strasburg-Uckerm
+    -   point.int.Grambow-Szczecin
+    -   point.de.Grambow
+    -   point.de.Löcknitz
+    -   point.de.Rossow-Pasewalk
+    -   point.de.Zerrenthin
+    -   point.de.Krugsdorf-B1
+    -   point.de.Pasewalk-Ost-Umspannwerk
+    -   point.de.Pasewalk-Ost
+    -   point.de.Pasewalk                           # de.6081
+    -   point.de.Charlottenhof-Pasewalk
+    -   point.de.Blumenhagen
+    -   point.de.Strasburg-Uckerm
     -   point.de.Strasburg-Uckerm-Strw
 
+
+#-----------------------------------------------------------------------------
 
 ---
 key: point.int.Grambow-Szczecin
 type: point
 subtype: border
-progress: stub
 events:
     -   date: !!null
-        name: Grambow Grenze
+        name:
+            de: Grambow Grenze
+        category: de.Gp
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
         de.DS100: WXG
-        source: src.de.TPP.2015
+        de.dstnr: !!str 098509
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Grambow Gr
+        PLC: DE13912
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6327: 13,194
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Grambow
+type: point
+events:
+    -   date: !!null
+        name: Grambow
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: WGR
+        de.dstnr: !!str 284109
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Grambow
+        PLC: DE13911
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6327: 14,910
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Löcknitz
 type: point
-progress: stub
 events:
     -   date: !!null
         name: Löcknitz
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
         de.DS100: WLK
-        source: src.de.TPP.2015
+        de.dstnr: !!str 284083
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Löcknitz
+        PLC: DE16435
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6327: 24,830
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
-key: point.de.Krugsdorf
+key: point.de.Rossow-Pasewalk
 type: point
-progress: stub
 events:
     -   date: !!null
-        name: Krugsdorf
-        source: src.de.SuW.2011
+        name: Rossow (Kr Pasewalk)
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: c2005
+        status: closed
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: WRSO
+        de.dstnr: !!str 284075
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Rossow (Kr Pw)
+        PLC: DE19028
+        source: src.de.DBAG.BSV.2017
+
+
+---
+key: point.de.Zerrenthin
+type: point
+events:
+    -   date: !!null
+        name: Zerrenthin
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: WZIN
+        de.dstnr: !!str 284067
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Zerrenthin
+        PLC: DE21467
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6327: 34,071
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Krugsdorf-B1
+type: point
+events:
+    -   date: !!null
+        name: Krugsdorf B1
+        category: de.Abzw
+        source: src.de.DBAG.BSV.2017
+    -   date: c2005
+        status: closed
+        source: src.de.DBAG.BSV.2017
+
+    -   date: de.ds100.dr
+        de.DS100: WKDB
+        de.dstnr: !!str 284042
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Krugsdorf B1
+        PLC: DE15927
+        source: src.de.DBAG.BSV.2017
+
+
+---
+key: point.de.Pasewalk-Ost-Umspannwerk
+type: point
+events:
+    -   date: !!null
+        name: Pasewalk Ost Umspannwerk
+        category: de.Anst
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: WPOU
+        de.dstnr: !!str 107472
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Pasew O Umsp
+        PLC: DE18270
+        source: src.de.DBAG.BSV.2017
+
 
 ---
 key: point.de.Pasewalk-Ost
 type: point
-progress: stub
 events:
     -   date: !!null
         name: Pasewalk Ost
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
         de.DS100: WPO
-        source: src.de.TPP.2015
+        de.dstnr: !!str 284059
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Pasewalk Ost
+        PLC: DE18269
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6327: 40,348
+            line.de.6784: 19,430
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
     -   date: !!null
         connection: point.de.Pasewalk-Kleinb
+
+
+#    point.de.Pasewalk                           de.6081
 
 
 ---
 key: point.de.Charlottenhof-Pasewalk
 type: point
-progress: stub
 events:
     -   date: !!null
         name: Charlottenhof (Kr Pasewalk)
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: c2005
+        status: closed
+        source: src.de.DBAG.BSV.2017
+
+    -   date: de.ds100.dr
+        de.DS100: WCLH
+        de.dstnr: !!str 280891
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Charlottenhof
+        PLC: DE11917
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6327: 45,955
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Blumenhagen
+type: point
+events:
+    -   date: !!null
+        name: Blumenhagen
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: WBLK
+        de.dstnr: !!str 284406
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Blumenhagen
+        PLC: DE11357
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6327: 51,500
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Strasburg-Uckerm
 type: point
-junction: True
 events:
     -   date: !!null
         name: Strasburg (Uckerm)
         source: src.de.Kb.1905
-    -   date: !!null
-        de.lknr: 23 119
-        source: src.de.Bfv.1928
+    -   date: c1960
+        name: Strasburg (Meckl)
+        source: src.dd.DR.1976
+    -   date: c2000
+        name: Strasburg (Uckerm)
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         category: de.Bf
         de.rang: II
         source: src.de.Bfv.1933
+    -   date: dd.rkl.65
+        de.rang: IV
+        source: src.dd.DR.1976
+
+    -   date: !!null
+        de.lknr: 23 119
+        source: src.de.Bfv.1928
     -   date: de.lknr.30
         de.lknr: 28 149
         source: src.de.Bfv.1933
     -   date: !!null
-        location:
-            line.de.1122: 235,19
         de.VBL: Sbg
-        source: src.dd.DR.1976
-    -   date: c1960
-        name: Strasburg (Meckl)
-        source: src.dd.DR.1976
-    -   date: dd.rkl.65
-        de.rang: IV
         source: src.dd.DR.1976
     -   date: de.ds100.dr
         de.DS100: WSB
-        source: src.de.TPP.2006
+        de.dstnr: !!str 284125
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Strasburg
+        PLC: DE20027
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.1122: 235,19
+        source: src.dd.DR.1976
+    -   date: c2000
+        location:
+            line.de.6327: 60,197
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:

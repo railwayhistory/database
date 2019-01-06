@@ -108,25 +108,50 @@ events:
             -   path.de.6945  a    suc
 
 points:
-    - point.de.Pritzwalk-Kleinb
-    - point.de.Pritzwalk-West
-    - point.de.Kuhbier
-    - point.de.Gross-Langerwisch
-    - point.de.Jakobsdorf-Prign
-    - point.de.Laaske
-    - point.de.Putlitz
-    - point.de.Nettelbeck
-    - point.de.Porep
-    - point.de.Porep-LGr
-    - point.de.Drenkow
-    - point.de.Suckow-Parchim-Hp
-    - point.de.Suckow-Parchim
+    -   point.de.Pritzwalk                          # de.6938
+    -   point.de.Pritzwalk-Gr
+    -   point.de.Pritzwalk-Kleinb
+    -   point.de.Pritzwalk-West
+    -   point.de.Kuhbier
+    -   point.de.Groß-Langerwisch
+    -   point.de.Jakobsdorf-Prign
+    -   point.de.Laaske
+    -   point.de.Putlitz
+    -   point.de.Nettelbeck
+    -   point.de.Porep
+    -   point.de.Porep-LGr
+    -   point.de.Drenkow
+    -   point.de.Suckow-Parchim-Hp
+    -   point.de.Suckow-Parchim
+
+
+#-----------------------------------------------------------------------------
+
+#    point.de.Pritzwalk                          de.6938
+
+
+---
+key: point.de.Pritzwalk-Gr
+type: point
+subtype: reference
+events:
+    -   date: !!null
+        name: Pritzwalk DB-Grenze
+        category: de.Gp
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: WPRG
+        de.dstnr: !!str 843052
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Pritzwalk DB-Gr
+        PLC: DE18535
+        source: src.de.DBAG.BSV.2017
 
 
 ---
 key: point.de.Pritzwalk-Kleinb
 type: point
-junction: True
 events:
     -   date: !!null
         name: Pritzwalk
@@ -140,6 +165,9 @@ events:
     -   date: c1930
         name: Pritzwalk Kleinb
         source: src.de.Bfv.1933
+    -   date: c1950
+        status: closed
+
     -   date: de.lknr.kb
         de.lknr: 45 674
         source: src.de.Bfv.1938
@@ -158,12 +186,16 @@ events:
         status: open
         source: src.de.WP.Bahnstrecke-Pritzwalk-Suckow
     -   date: !!null
-        location:
-            line.de.6945: 1,35
-        category: de.Hp
         name: Pritzwalk West
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
         de.DS100: WPRW
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 892646
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Pritzwalk West
+        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
@@ -177,21 +209,32 @@ events:
     -   date: !!null
         name: Kuhbier
         source: src.de.Kb.1905
+
+    -   date: !!null
+        category: [de.Hp, de.Anst]
+        source: src.dd.DR.1976
+    -   date: c2000
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+
     -   date: de.lknr.kb
         de.lknr: 45 675
         source: src.de.Bfv.1938
     -   date: !!null
-        location:
-            line.de.6945: 5,74
-        category: [de.Hp, de.Anst]
         de.VBL: Kbr
         source: src.dd.DR.1976
     -   date: de.ds100.dr
         de.DS100: WKBR
-        source: src.de.TPP.2006
-    -   date: c2000
-        category: de.Hp
-        source: src.de.DBAG.ISR
+        de.dstnr: !!str 275545
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Kuhbier
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6945: 5,74
+        source: src.dd.DR.1976
 
     -   date: !!null
         site:
@@ -199,35 +242,41 @@ events:
 
 
 ---
-key: point.de.Gross-Langerwisch
+key: point.de.Groß-Langerwisch
 type: point
 events:
-    -   date: c1920
-        status: open
-        source:
-            - src.de.Kb.1914
-            - src.de.Bfv.1928
     -   date: !!null
         name: Groß Langerwisch
         source: src.de.Bfv.1928
-    -   date: de.lknr.kb
-        de.lknr: 45 676
-        source: src.de.Bfv.1938
+
     -   date: !!null
-        location:
-            line.de.6945: 8,25
         category: [de.Hp, de.Anst]
-        de.VBL: Glg
         source: src.dd.DR.1976
     -   date: c1960
         staff: none
         source: src.dd.DR.1976
-    -   date: de.ds100.dr
-        de.DS100: WGLG
-        source: src.de.TPP.2006
     -   date: c2000
         category: de.Hp
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.BSV.2017
+
+    -   date: de.lknr.kb
+        de.lknr: 45 676
+        source: src.de.Bfv.1938
+    -   date: !!null
+        de.VBL: Glg
+        source: src.dd.DR.1976
+    -   date: de.ds100.dr
+        de.DS100: WGLG
+        de.dstnr: !!str 275552
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Groß Langerw
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6945: 8,25
+        source: src.dd.DR.1976
 
     -   date: !!null
         site:
@@ -238,35 +287,41 @@ events:
 key: point.de.Jakobsdorf-Prign
 type: point
 events:
-    -   date: c1920
-        status: open
-        source:
-            - src.de.Kb.1914
-            - src.de.Bfv.1928
     -   date: !!null
         name: Jakobsdorf (Prignitz)
         source: src.de.Bfv.1928
     -   date: c1930
         name: Jakobsdorf (Prign)
         source: src.de.Bfv.1933
-    -   date: de.lknr.kb
-        de.lknr: 45 677
-        source: src.de.Bfv.1938
+
     -   date: !!null
-        location:
-            line.de.6945: 10,22
         category: [de.Hp, de.Anst]
-        de.VBL: Jad
         source: src.dd.DR.1976
     -   date: c1960
         staff: none
         source: src.dd.DR.1976
-    -   date: de.ds100.dr
-        de.DS100: WJAD
-        source: src.de.TPP.2006
     -   date: c2000
         category: de.Hp
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.BSV.2017
+
+    -   date: de.lknr.kb
+        de.lknr: 45 677
+        source: src.de.Bfv.1938
+    -   date: !!null
+        de.VBL: Jad
+        source: src.dd.DR.1976
+    -   date: de.ds100.dr
+        de.DS100: WJAD
+        de.dstnr: !!str 275560
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Jakobsdorf (Pr)
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6945: 10,22
+        source: src.dd.DR.1976
 
     -   date: !!null
         site:
@@ -280,24 +335,35 @@ events:
     -   date: !!null
         name: Laaske
         source: src.de.Kb.1905
-    -   date: de.lknr.kb
-        de.lknr: 45 678
-        source: src.de.Bfv.1938
+
     -   date: !!null
-        location:
-            line.de.6945: 12,45
         category: [de.Hp, de.Anst]
-        de.VBL: Lsk
         source: src.dd.DR.1976
     -   date: c1960
         staff: none
         source: src.dd.DR.1976
-    -   date: de.ds100.dr
-        de.DS100: WLSK
-        source: src.de.TPP.2006
     -   date: c2000
         category: de.Hp
-        source: src.de.DBAG.ISR
+        source: src.de.DBAG.BSV.2017
+
+    -   date: de.lknr.kb
+        de.lknr: 45 678
+        source: src.de.Bfv.1938
+    -   date: !!null
+        de.VBL: Lsk
+        source: src.dd.DR.1976
+    -   date: de.ds100.dr
+        de.DS100: WLSK
+        de.dstnr: !!str 275578
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Laaske
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6945: 12,45
+        source: src.dd.DR.1976
 
     -   date: !!null
         site:
@@ -307,36 +373,38 @@ events:
 ---
 key: point.de.Putlitz
 type: point
-junction: True
 events:
     -   date: !!null
         name: Putlitz
         source: src.de.Kb.1905
+
+    -   date: !!null
+        category: de.Bf
+        de.rang: IV
+        source: src.dd.DR.1976
+
     -   date: de.lknr.kb
         de.lknr: 45 679
         source: src.de.Bfv.1938
     -   date: !!null
+        de.VBL: Pu
+        source: src.dd.DR.1976
+    -   date: de.ds100.dr
+        de.DS100: WPUZ
+        de.dstnr: !!str 275586
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Putlitz
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
         location:
             line.de.6945: 17,05
-        category: de.Bf
-        de.rang: IV
-        de.VBL: Pu
         source: src.dd.DR.1976
     -   date: c1985
         location:
             line.de.6956: 17,03
         source: src.dd.DR.1989
-    -   date: de.ds100.dr
-        de.DS100: WPUZ
-        source: src.de.TPP.2006
-    -   date: c1995
-        location:
-            line.de.6945: 17,00
-        source: src.de.DBAG.ISR
-    -   date: !!null
-        location:
-            line.de.8986: 14,5
-        source: src.de.WP.Bahnstrecke-Berge-Putlitz
 
     -   date: !!null
         site:
