@@ -5,6 +5,6 @@ statement. See [Numbering of lines according to Network Statement](http://provoz
 a map of these. Like the map, we are using the first three digits only.
 
 However, unlike official Czech lines we follow stationing, so we nee do
-make adjustments. We also means that line numbers used currently are
+make adjustments. Which also means that line numbers used currently are
 preliminary and may change later.
 
