@@ -2,7 +2,7 @@
 
 Line numbers are given only temporarily for now. They are derived from the
 VzG numbers used by ÖBB Infrastruktur. We use the first three digits of the
-line number, ignoring sectioning. Connection tracks are not yet considered.
+line number, ignoring sectioning.
 
 This scheme will be revised once data collection for Austria starts in
 ernest.
