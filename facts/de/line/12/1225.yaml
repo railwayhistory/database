@@ -59,16 +59,17 @@ points:
     -   point.de.Hamburg-Holstenstraße-D            # de.1240
     -   point.de.Hamburg-Holstenstraße-H            # de.1240
     -   point.de.Hamburg-Diebsteich
-    - point.de.Hamburg-Langenfelde-S-Bahn
-    - point.de.Hamburg-Stellingen-S-Bahn
-    - point.de.Hamburg-Eidelstedt-S-Bahn
-    - point.de.Hamburg-Elbgaustrasse
-    - point.de.Hamburg-Elbgaustrasse-LGr
-    - point.de.Krupunder
+    -   point.de.Hamburg-Langenfelde-S-Bahn
+    -   point.de.Hamburg-Stellingen-S-Bahn
+    -   point.de.Hamburg-Stellingen-Fehlstelle
+    -   point.de.Hamburg-Eidelstedt-S-Bahn
+    -   point.de.Hamburg-Elbgaustrasse
+    -   point.de.Hamburg-Elbgaustrasse-LGr
+    -   point.de.Krupunder
     -   point.de.Bickbargen
-    - point.de.Halstenbek
-    - point.de.Thesdorf
-    - point.de.Pinneberg-S-Bahn
+    -   point.de.Halstenbek
+    -   point.de.Thesdorf
+    -   point.de.Pinneberg-S-Bahn
 
 
 #-----------------------------------------------------------------------------
@@ -112,19 +113,22 @@ events:
         PLC: DE14385
         source: src.de.DBAG.BSV.2017
 
-    -   date: !!null
-        location:
-            line.de.1270: 7,83
-        source: src.de.DB.Hmb.Karte.1984
-    -   date: !!null
-        location:
-            line.de.1225: 1,420
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
             path.de.1225: die
             path.de.1270: die
+records:
+    -   date: 1984-11
+        name: Diebsteich
+        location:
+            line.de.1225: 1,42
+            line.de.1270: 7,83
+        document: src.de.DB.Hmb.Karte.1984
+    -   date: 2017-01
+        location:
+            line.de.1225: 1,420
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
@@ -147,13 +151,20 @@ events:
         source: src.de.DBAG.BSV.2017
 
     -   date: !!null
-        location:
-            line.de.1225: 2,630
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
-
-    -   date: !!null
         site:
             path.de.1225: lan
+records:
+    -   date: 1984-11
+        name: Langefelde
+        category: de.Hp
+        location:
+            line.de.1225: 2,63
+        document: src.de.DB.Hmb.Karte.1984
+
+    -   date: 2017-01
+        location:
+            line.de.1225: 2,630 # centre
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
@@ -175,13 +186,34 @@ events:
         source: src.de.DBAG.BSV.2017
 
     -   date: !!null
-        location:
-            line.de.1225: 4,050
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
-
-    -   date: !!null
         site:
             path.de.1225: ste
+records:
+    -   date: 1984-11
+        name: Hamburg-Stellingen (Volksparkstadion)
+        category: de.Hp
+        location:
+            line.de.1225: 4,05 # centre
+        document: src.de.DB.Hmb.Karte.1984
+
+    -   date: 2017-01
+        location:
+            line.de.1225: 4,050
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Hamburg-Stellingen-Fehlstelle
+type: point
+subtype: reference
+records:
+    -   date: !!null
+        designation:
+            Hamburg-Stellingen Fehlstelle
+    -   date: 1984-11
+        location:
+            line.de.1224: 4,23=5,30
+        document: src.de.DB.Hmb.Karte.1984
 
 
 ---
@@ -231,10 +263,6 @@ events:
     -   date: c1995
         location:
             line.de.9121: !!null
-    -   date: !!null
-        location:
-            line.de.1225: 6,215
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -242,6 +270,18 @@ events:
             path.de.1225: eis
             path.de.1232: eis
             path.de.9121: eis
+records:
+    -   date: 1984-11
+        name: Eidelstedt
+        category: de.Bf
+        location:
+            line.de.1225: 6,10 # centre
+        document: src.de.DB.Hmb.Karte.1984
+
+    -   date: 2017-01
+        location:
+            line.de.1225: 6,215
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
@@ -280,15 +320,23 @@ events:
     -   date: 1970
         location:
             line.de.1220: !!null
-    -   date: !!null
-        location:
-            line.de.1225: 7,360
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
             path.de.1220: elb
             path.de.1225: elb
+records:
+    -   date: 1984-11
+        name: Elbgaustraße
+        category: de.Bf
+        location:
+            line.de.1225: 7,23 # centre
+        document: src.de.DB.Hmb.Karte.1984
+
+    -   date: 2017-01
+        location:
+            line.de.1225: 7,360
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
@@ -329,32 +377,46 @@ events:
         source: src.de.DBAG.BSV.2017
 
     -   date: !!null
-        location:
-            line.de.1225: 9,590
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
-
-    -   date: !!null
         site:
             path.de.1225: kru
+records:
+    -   date: 1984-11
+        name: Krupunder
+        category: de.Hp
+        location:
+            line.de.1225: 9,49 # centre
+        document: src.de.DB.Hmb.Karte.1984
+
+    -   date: 2017-01
+        location:
+            line.de.1225: 9,590
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Bickbargen
 type: point
-events:
-    -   date: !!null
+records:
+    -   date: 1984-11
+        name: Bickbargen
+        category: de.Bk
+        location:
+            line.de.1225: 10,98 # right
+        document: src.de.DB.Hmb.Karte.1984
+
+    -   date: 2017-01
         category: de.Üst
         name: Bickbargen
         de.name16: Bickbargen
         de.DS100: ABB
         PLC: DE11215
         de.dstnr: !!str 102038
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
+        document: src.de.DBAG.BSV.2017
+    -   date: 2017-01
         location:
             line.de.1225: 10,780
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
-
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
+events:
     -   date: !!null
         site:
             path.de.1225: bic
@@ -399,15 +461,23 @@ events:
     -   date: 1970
         location:
             line.de.1220: !!null
-    -   date: !!null
-        location:
-            line.de.1225: 11,980
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
             path.de.1225: hal
             path.de.1220: hal
+records:
+    -   date: 1984-11
+        name: Halstenbek
+        category: de.Hp
+        location:
+            line.de.1225: 11,98 # centre
+        document: src.de.DB.Hmb.Karte.1984
+
+    -   date: 2017-01
+        location:
+            line.de.1225: 11,980
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
@@ -426,13 +496,20 @@ events:
         source: src.de.DBAG.BSV.2017
 
     -   date: !!null
-        location:
-            line.de.1225: 14,340
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
-
-    -   date: !!null
         site:
             path.de.1225: the
+records:
+    -   date: 1984-11
+        name: Thesdorf
+        category: de.Hp
+        location:
+            line.de.1225: 14,34 # centre
+        document: src.de.DB.Hmb.Karte.1984
+
+    -   date: 2017-01
+        location:
+            line.de.1225: 14,340
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
@@ -457,4 +534,9 @@ events:
         connection: point.de.Pinneberg
         site:
             path.de.1220: pin
+records:
+    -   date: 1984-11
+        location:
+            line.de.1225: 15,90
+        document: src.de.DB.Hmb.Karte.1984
 

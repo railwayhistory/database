@@ -9,10 +9,6 @@ events:
             - org.de
             - org.de.l.sh
 
-    -   date: !!null
-        de.VzG: !!str 9104
-        source: src.de.DBAG.Geo-Strecke.2017
-
     #   Genehmigungen
     #
 
@@ -56,7 +52,19 @@ events:
         course:
             -   path.de.1020  nwi  asus
             -   path.de.9104  a    f
-
+records:
+    -   date: 1984-11
+        category: de.Nebenbahn
+        passenger: none
+        freight: full
+        gauge: 1435mm
+        tracks: 1
+        de.VzG: !!str 9104
+        document: src.de.DB.Hmb.Karte.1984
+        
+    -   date: 2017-01
+        de.VzG: !!str 9104
+        document: src.de.DBAG.Geo-Strecke.2017
 points:
     -   point.de.Neuwittenbek                       # de.1020
     -   point.de.Neuwittenbek-Gr
@@ -73,15 +81,15 @@ points:
 ---
 key: point.de.Neuwittenbek-Gr
 type: point
-events:
-    -   date: !!null
+records:
+    -   date: 2017-01
         de.DS100: ANWG
         name: Neuwittenbek DB-Grenze
         de.name16: Neuwittenb DB-Gr
         category: de.Gp
         PLC: DE21677
         de.dstnr: !!str 109481
-        source: src.de.DBAG.BSV.2017
+        document: src.de.DBAG.BSV.2017
 
 
 ---
@@ -89,26 +97,28 @@ key: point.de.Rathmannsdorf
 type: point
 events:
     -   date: !!null
+        site:
+            path.de.9104: rat
+records:
+    -   date: 1984-06-03
         name: Rathmannsdorf
         de.DS100: ARMD
         de.dstnr: !!str 591073
-        source: src.de.DS100.1984
-    -   date: !!null
+        document: src.de.DS100.1984
+    -   date: 1984-11
+        name: Rathmannsdorf
+        location:
+            line.de.9104: 3,4 # left
+        document: src.de.DB.Hmb.Karte.1984
+
+    -   date: 2017-01
+        name: Rathmannsdorf
         category: de.Anst
         de.name16: Rathmannsdorf
-        source: src.de.DBAG.BSV.2017
-    -   date: 2009-04-01
+        de.DS100: ARMD
+        de.dstnr: !!str 591073
         status: closed
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.9104: 3,4
-        source: src.de.DB.Hmb.Karte.1984
-
-    -   date: !!null
-        site:
-            path.de.9104: rat
+        document: src.de.DBAG.BSV.2017
 
 
 ---
@@ -116,25 +126,28 @@ key: point.de.Altenholz
 type: point
 events:
     -   date: !!null
+        site:
+            path.de.9104: alt
+records:
+    -   date: 1984-06-03
         name: Altenholz
         de.DS100: AAHZ
         de.dstnr: !!str 591057
-        source: src.de.DS100.1984
-    -   date: !!null
+        document: src.de.DS100.1984
+    -   date: 1984-11
+        name: Altenholz
         location:
-            line.de.9104: 8,0
-        source: src.de.DB.Hmb.Karte.1984
-    -   date: !!null
+            line.de.9104: 8,0 # left
+        document: src.de.DB.Hmb.Karte.1984
+
+    -   date: 2017-01
+        name: Altenholz
+        de.DS100: AAHZ
+        de.dstnr: !!str 591057
         category: de.Bf
         de.name16: Altenholz
-        source: src.de.DBAG.BSV.2017
-    -   date: 2009-04-01
         status: closed
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        site:
-            path.de.9104: alt
+        document: src.de.DBAG.BSV.2017
 
 
 ---
@@ -142,26 +155,24 @@ key: point.de.Kiel-Schusterkrug
 type: point
 events:
     -   date: !!null
-        name: Schusterkrug
-        de.DS100: ASCG
-        source: src.de.DS100.1984
-    -   date: !!null
-        category: de.Bf
-        de.name16: Schusterkrug
-        source: src.de.DBAG.BSV.2017
-    -   date: c1990
-        name: Kiel-Schusterkrug
-        source: src.de.DBAG.BSV.2017
-    -   date: c2000
-        de.dstnr: !!str 482018
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.9104: 11,0
-        source: src.de.DB.Hmb.Karte.1984
-
-    -   date: !!null
         site:
             path.de.9104: sus
+records:
+    -   date: 1984-06-03
+        name: Schusterkrug
+        de.DS100: ASCG
+        document: src.de.DS100.1984
+    -   date: 1984-11
+        name: Schusterkrug
+        location:
+            line.de.9104: 11,0 # right
+        document: src.de.DB.Hmb.Karte.1984
+
+    -   date: 2017-01
+        category: de.Bf
+        de.name16: Schusterkrug
+        name: Kiel-Schusterkrug
+        de.dstnr: !!str 482018
+        de.DS100: ASCG
+        document: src.de.DBAG.BSV.2017
 

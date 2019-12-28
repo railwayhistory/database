@@ -99,8 +99,11 @@ events:
 
 points:
     -   point.de.Hannover-Hbf
+    -   point.de.Hannover-Hainholz
     -   point.de.Hannover-Burg
+    -   point.de.Hannover-Leinhausen
     -   point.de.Letter-Abzw
+    -   point.de.Letter
     -   point.de.Seelze
     -   point.de.Seelze-West
     -   point.de.Dedensen-Gümmer
@@ -125,6 +128,7 @@ points:
     -   point.de.Gohfeld
     -   point.de.Löhne-Westf-Pbf
     -   point.de.Löhne-Westf-Gbf
+    -   point.de.Löhne-Westf-Gr
     -   point.de.Herford
     -   point.de.Brake-Bielefeld-Hp
     -   point.de.Brake-Bielefeld
@@ -140,6 +144,7 @@ points:
     -   point.de.Neubeckum-Pbf
     -   point.de.Neubeckum
     -   point.de.Neubeckum-Gbf
+    -   point.de.Vorhelm
     -   point.de.Ahlen-Westf-Gbf
     -   point.de.Ahlen-Westf
     -   point.de.Heessen-Hp
@@ -184,6 +189,54 @@ events:
 
 
 ---
+key: point.de.Hannover-Hainholz
+type: point
+events:
+    -   date: !!null
+        name: Hannover-Hainholz
+        source: src.de.Kb.1914
+
+    -   date: !!null
+        category: de.Hp
+        source: src.de.Bfv.1933
+    -   date: c2000
+        category: de.Bft
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        de.lknr: 13 553
+        source: src.de.Bfv.1933
+    -   date: !!null
+        de.DS100: HHZ
+        de.dstnr: !!str 135533
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Han-Hainholz
+        PLC: DE14559
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.1710: 2,67
+        source: src.de.DRG.Han.1945
+records:
+    -   date: 1983-11
+        name: Hannover-Hainholz
+        category: de.Hp
+        location:
+            line.de.1700: 2,64?
+            line.de.1710: 2,63?
+        document: src.de.DB.Han.1983
+    -   date: 2017-01
+        name: Hannover-Hainholz
+        category: de.Bft
+        de.DS100: HHZ
+        location:
+            line.de.1705: 3,7+58
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
 key: point.de.Hannover-Burg
 type: point
 events:
@@ -199,6 +252,51 @@ events:
         de.name16: Hannover Burg
         PLC: DE14547
         source: src.de.DBAG.BSV.2017
+records:
+    -   date: 1983-11
+        name: Burg
+        category: de.Abzw
+        location:
+            line.de.1700: 3,06 # right
+            line.de.1710: ??
+            line.de.1701: ??
+            line.de.1702: ??
+            line.de.1703: ??
+        document: src.de.DB.Han.1983
+
+
+---
+key: point.de.Hannover-Leinhausen
+type: point
+events:
+    -   date: !!null
+        name: Hannover-Leinhausen
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: HLEI
+        de.dstnr: !!str 135582
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Han-Leinhausen
+        PLC: DE14564
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.1705: 5,465
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+records:
+    -   date: 1983-11
+        name: Hannover-Leinhausen
+        category: de.Hp
+        location:
+            line.de.1700: 5,44?
+            line.de.1701: 5,43?
+        document: src.de.DB.Han.1983
+
+
+# 6,00 Baubezirksgrenze src.de.DB.Han.1983
 
 
 ---
@@ -220,9 +318,39 @@ events:
 
     -   date: c2000
         location:
-            line.de.1700: 6,955
+            line.de.1700: 6,955 # left
             line.de.1701: 6,967
         source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Letter
+type: point
+events:
+    -   date: !!null
+        name: Letter
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.DS100: HLT
+        de.dstnr: !!str 135590
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Letter
+        PLC: DE16315
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.1705: 7,983
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+records:
+    -   date: 1983-11
+        name: Hannover-Leinhausen
+        category: de.Hp
+        location:
+            line.de.1700: 8,22 # right
+        document: src.de.DB.Han.1983
 
 
 ---
@@ -247,6 +375,13 @@ events:
             line.de.1700: 11,097
             line.de.1705: 11,097
         source: src.de.DBAG.Geo-Betriebsstelle.2017
+records:
+    -   date: 1983-11
+        name: Seelze
+        category: de.Bf
+        location:
+            line.de.1700: 11,79 # right
+        document: src.de.DB.Han.1983
 
 
 ---
@@ -265,6 +400,9 @@ events:
         de.name16: Seelze West
         PLC: DE19668
         source: src.de.DBAG.BSV.2017
+
+
+# 13,70 Baubezirksgrenze src.de.DB.Han.1983
 
 
 ---
@@ -291,6 +429,14 @@ events:
             line.de.1700: 16,362
             line.de.1750:  4,950
         source: src.de.DBAG.Geo-Betriebsstelle.2017
+records:
+    -   date: 1983-11
+        name: Dedensen
+        category: de.Hp
+        location:
+            line.de.1700: 16,36 # right
+            line.de.1750:  5,05
+        document: src.de.DB.Han.1983
 
 
 ---
@@ -326,6 +472,19 @@ events:
 
     -   date: !!null
         connection: point.de.Wunstorf-West
+records:
+    -   date: 1983-11
+        name: Wunstorf
+        category: de.Bf
+        location:
+            line.de.1700: 21,40 # right/centre
+            line.de.1740: 21,40 # left/centre
+            line.de.1750:  0,00
+            line.de.9178:  0,0
+        document: src.de.DB.Han.1983
+
+
+# 22,50 Baubezirksgrenze src.de.DB.Han.1983
 
 
 ---
@@ -350,6 +509,14 @@ events:
             line.de.1700: 28,315
             line.de.1761: 25,493
         source: src.de.DBAG.Geo-Betriebsstelle.2017
+records:
+    -   date: 1983-11
+        name: Haste (Han)
+        category: de.Bf
+        location:
+            line.de.1700: 28,32 # left
+            line.de.1761: 25,49
+        document: src.de.DB.Han.1983
 
 
 ---
@@ -373,6 +540,18 @@ events:
         location:
             line.de.1700: 31,239
         source: src.de.DBAG.Geo-Betriebsstelle.2017
+records:
+    -   date: 1983-11
+        name: Rehren
+        category: de.Bf
+        staff: none
+        service: none
+        location:
+            line.de.1700: 31,24 # right
+        document: src.de.DB.Han.1983
+
+
+# 32,15 Ba-Grenze src.de.DB.Han.1983
 
 
 ---
@@ -396,6 +575,13 @@ events:
         location:
             line.de.1700: 35,731
         source: src.de.DBAG.Geo-Betriebsstelle.2017
+records:
+    -   date: 1983-11
+        name: Lindhorst (Schaumb-Lippe)
+        category: de.Bf
+        location:
+            line.de.1700: 35,89 # right
+        document: src.de.DB.Han.1983
 
 
 ---
@@ -444,6 +630,13 @@ events:
 
     -   date: !!null
         connection: point.de.Stadthagen-West        # line.de.9177
+records:
+    -   date: 1983-11
+        name: Stadthagen
+        category: de.Bf
+        location:
+            line.de.1700: 42,97 # left
+        document: src.de.DB.Han.1983
 
 
 ---
@@ -467,6 +660,13 @@ events:
         location:
             line.de.1700: 48,518
         source: src.de.DBAG.Geo-Betriebsstelle.2017
+records:
+    -   date: 1983-11
+        name: Kirchhorsten
+        category: de.Bf
+        location:
+            line.de.1700: 48,39 # left
+        document: src.de.DB.Han.1983
 
 
 ---
@@ -493,6 +693,16 @@ events:
 
     -   date: !!null
         connection: point.de.Bückeburg-Bf           # line.de.8145
+records:
+    -   date: 1983-11
+        name: Bückeburg
+        category: de.Bf
+        location:
+            line.de.1700: 55,21 # left
+        document: src.de.DB.Han.1983
+
+
+# 57,40 Baubezirksgrenze src.de.DB.Han.1983
 
 
 ---
@@ -567,6 +777,18 @@ events:
             line.de.1700: 64,369
             line.de.2900: 64,359
         source: src.de.DBAG.Geo-Betriebsstelle.2017
+records:
+    -   date: 1983-11
+        name: Minden (Westf)
+        category: de.Bf
+        location:
+            line.de.1700: 64,37 # centre
+            line.de.1741: 52,95
+            line.de.2900: 64,36
+        document: src.de.DB.Han.1983
+
+
+# 67,00 Baubezirksgrenze src.de.DB.Han.1983
 
 
 ---
@@ -600,6 +822,14 @@ events:
         de.name16: Porta Westfalica
         PLC: DE18460
         source: src.de.DBAG.BSV.2017
+records:
+    -   date: 1983-11
+        name: Porta
+        category: de.Bf
+        location:
+            line.de.1700: 69,75 # left
+            line.de.2990: 69,75
+        document: src.de.DB.Han.1983
 
 
 ---
@@ -647,6 +877,14 @@ events:
             line.de.1700: !!null
             line.de.2990: 73,938
         source: src.de.DBAG.Geo-Betriebsstelle.2017
+records:
+    -   date: 1983-11
+        name: Vennebeck
+        category: de.Bf
+        location:
+            line.de.1700: 73,94 # left
+            line.de.2990: 73,94
+        document: src.de.DB.Han.1983
 
 
 ---
@@ -712,6 +950,17 @@ events:
         location:
             line.de.1700: 79,510
         source: src.de.DBAG.Geo-Betriebsstelle.2017
+records:
+    -   date: 1983-11
+        name: Bad Oeynhausen
+        category: de.Bf
+        location:
+            line.de.1700: 79,51 # left
+            line.de.2990: 79,51
+        document: src.de.DB.Han.1983
+
+
+# 80,40 Baubezirksgrenze src.de.DB.Han.1983
 
 
 ---
@@ -736,6 +985,14 @@ events:
             line.de.1700: !!null
             line.de.2990: 82,101
         source: src.de.DBAG.Geo-Betriebsstelle.2017
+records:
+    -   date: 1983-11
+        name: Gohfeld
+        category: de.Bf
+        location:
+            line.de.1700: 82,15 # left
+            line.de.2990: 82,15
+        document: src.de.DB.Han.1983
 
 
 ---
@@ -780,6 +1037,15 @@ events:
             line.de.2990: 85,303
             line.de.2992: 85,295
         source: src.de.DBAG.Geo-Betriebsstelle.2017
+records:
+    -   date: 1983-11
+        name: Löhne (Westf)
+        category: de.Bf
+        location:
+            line.de.1700: 85,30 # right
+            line.de.1820: 81,97
+            line.de.2990: 85,30
+        document: src.de.DB.Han.1983
 
 
 ---
@@ -798,6 +1064,21 @@ events:
         de.name16: Löhne(Westf) Gbf
         PLC: DE16449
         source: src.de.DBAG.BSV.2017
+
+
+---
+key: point.de.Löhne-Westf-Gr
+type: point
+subtype: reference
+events:
+    -   date: !!null
+        designation: Löhne (Westf) Han/Esn
+records:
+    -   date: 1983-11
+        location:
+            line.de.1700: 89,900
+            line.de.2990: 89,900
+        document: src.de.DB.Han.1983
 
 
 ---
@@ -827,6 +1108,16 @@ events:
 
     -   date: !!null
         connection: point.de.Herford-Kleinb         # line.de.8359
+records:
+    -   date: 1981-10
+        name: Herford
+        category: de.Bf
+        location:
+            line.de.1700: 95,60 # left
+            line.de.2980:  0,00
+            line.de.2980:  0,01
+            line.de.2990: 95,60
+        document: src.de.DB.Esn.1981
 
 
 ---
@@ -874,6 +1165,17 @@ events:
             line.de.1700: !!null
             line.de.2990: 102,600
         source: src.de.DBAG.Geo-Betriebsstelle.2017
+records:
+    -   date: 1981-10
+        name: Brake (b Bielefeld)
+        category: de.Bf
+        location:
+            line.de.1700: 102,52 # left
+            line.de.2990: 102,52
+        document: src.de.DB.Esn.1981
+
+
+# 104,45 Baubezirksgrenze src.de.DB.Esn.1981
 
 
 ---
@@ -921,6 +1223,15 @@ events:
             line.de.2984:  21,771
             line.de.2990: 109,450
         source: src.de.DBAG.Geo-Betriebsstelle.2017
+records:
+    -   date: 1981-10
+        name: Bielelfeld Hbf
+        category: de.Bf
+        location:
+            line.de.1700: 109,45 # left
+            line.de.2984:  21,77
+            line.de.2990: 109,45
+        document: src.de.DB.Esn.1981
 
 
 ---
@@ -939,6 +1250,9 @@ events:
         de.name16: Bielefeld Hbf
         PLC: DE11226
         source: src.de.DBAG.BSV.2017
+
+
+# 112,00 Baubezirksgrenze src.de.DB.Esn.1981
 
 
 ---
@@ -999,6 +1313,16 @@ events:
             line.de.2960:  40,025
             line.de.2990: 113,770
         source: src.de.DBAG.Geo-Betriebsstelle.2017
+records:
+    -   date: 1981-10
+        name: Brackwede
+        category: de.Bf
+        location:
+            line.de.1700: 113,77 # left
+            line.de.2950:   0,00
+            line.de.2960:  40,03
+            line.de.2990: 113,77
+        document: src.de.DB.Esn.1981
 
 
 ---
@@ -1022,6 +1346,17 @@ events:
         location:
             line.de.1700: 121,760
         source: src.de.DBAG.Geo-Betriebsstelle.2017
+records:
+    -   date: 1981-10
+        name: Isselhorst-Avenwedde
+        category: de.Bf
+        location:
+            line.de.1700: 121,51 # left
+            line.de.2990: 121,51
+        document: src.de.DB.Esn.1981
+
+
+# 121,80 Baubezirksgrenze src.de.DB.Esn.1981
 
 
 ---
@@ -1046,6 +1381,14 @@ events:
             line.de.1700: 126,878
             line.de.2990: 126,878
         source: src.de.DBAG.Geo-Betriebsstelle.2017
+records:
+    -   date: 1981-10
+        name: Gütersloh Hbf
+        category: de.Bf
+        location:
+            line.de.1700: 126,88 # right
+            line.de.2990: 126,88
+        document: src.de.DB.Esn.1981
 
 
 ---
@@ -1100,6 +1443,16 @@ events:
             line.de.2013:  50,103
             line.de.2990: 135,790
         source: src.de.DBAG.Geo-Betriebsstelle.2017
+records:
+    -   date: 1981-10
+        name: Rheda-Wiedenbrück
+        category: de.Bf
+        location:
+            line.de.1700: 135,79 # right
+            line.de.2013:  49,90
+            line.de.2951:  24,03
+            line.de.2990: 135,79
+        document: src.de.DB.Esn.1981
 
 
 ---
@@ -1124,6 +1477,17 @@ events:
             line.de.1700: 146,161
             line.de.2990: 146,161
         source: src.de.DBAG.Geo-Betriebsstelle.2017
+records:
+    -   date: 1981-10
+        name: Oelde
+        category: de.Bf
+        location:
+            line.de.1700: 146,16 # left
+            line.de.2990: 146,16
+        document: src.de.DB.Esn.1981
+
+
+# 152,35 Baubezirksgrenze src.de.DB.Esn.1981
 
 
 ---
@@ -1189,6 +1553,17 @@ events:
             line.de.1700: 155,105
             line.de.2990: 155,105
         source: src.de.DBAG.Geo-Betriebsstelle.2017
+records:
+    -   date: 1981-10
+        name: Neubeckum
+        category: de.Bf
+        location:
+            line.de.1700: 155,10 # left
+            line.de.2940:   0,00
+            line.de.2990: 155,10
+            line.de.9213:   0,0
+            line.de.9214:   0,0
+        document: src.de.DB.Esn.1981
 
 
 ---
@@ -1207,6 +1582,19 @@ events:
         de.name16: Neubeckum Gbf
         PLC: DE17480
         source: src.de.DBAG.BSV.2017
+
+
+---
+key: point.de.Vorhelm
+type: point
+records:
+    -   date: 1981-10
+        name: Vorhelm
+        category: de.Bf
+        location:
+            line.de.1700: 159,37 # right
+            line.de.2990: 159,37
+        document: src.de.DB.Esn.1981
 
 
 ---
@@ -1253,6 +1641,17 @@ events:
             line.de.1700: 165,068
             line.de.2990: !!null
         source: src.de.DBAG.Geo-Betriebsstelle.2017
+records:
+    -   date: 1981-10
+        name: Ahlen (Westf)
+        category: de.Bf
+        location:
+            line.de.1700: 165,07 # right
+            line.de.2990: 165,07
+        document: src.de.DB.Esn.1981
+
+
+# 171,00 Baubezirksgrenze src.de.DB.Esn.1981
 
 
 ---
@@ -1299,6 +1698,14 @@ events:
         location:
             line.de.2990: 173,900
         source: src.de.DBAG.Geo-Betriebsstelle.2017
+records:
+    -   date: 1981-10
+        name: Heessen
+        category: de.Bf
+        location:
+            line.de.1700: 172,34 # left
+            line.de.2990: 172,34
+        document: src.de.DB.Esn.1981
 
 
 ---

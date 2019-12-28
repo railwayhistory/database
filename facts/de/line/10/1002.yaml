@@ -9,14 +9,6 @@ events:
             - org.de
             - org.de.l.sh
 
-    -   date: !!null
-        de.VzG: !!str 1002
-        note:
-            deu: >
-                bis DB-Grenze km 178,5+31; ursprünglich wohl nur bis
-                Alter Bahnhof, km 177,3+5, dann weiter als Strecke 1004?
-        source: src.de.DBAG.Geo-Strecke.2017
-
     #   Genehmigungen
     #
     -   date: 1852-09-08
@@ -67,16 +59,25 @@ events:
 
     #   Eigenschaften
     #
-    -   date: !!null
-        category: de.Nebenbahn
-        tracks: 1
-        gauge: 1435mm
-        source: src.de.DRG.1927
 
     #   Verlauf
     #
     -   date: !!null
         course: path.de.1002 flw fho
+records:
+    -   date: 1927-03
+        category: de.Nebenbahn
+        tracks: 1
+        gauge: 1435mm
+        document: src.de.DRG.1927
+
+    -   date: 2017-01
+        de.VzG: !!str 1002
+        note:
+            deu: >
+                bis DB-Grenze km 178,5+31; ursprünglich wohl nur bis
+                Alter Bahnhof, km 177,3+5, dann weiter als Strecke 1004?
+        document: src.de.DBAG.Geo-Strecke.2017
 
 points:
     -   point.de.Flensburg-Weiche                   # de.1040
@@ -96,48 +97,58 @@ points:
 ---
 key: point.de.Flensburg-Alter-Bf
 type: point
-junction: True
 events:
-    -   date: !!null
-        category: de.Bf
-        name: Flensburg
-    -   date: !!null
-        de.lknr: 01 431
-        source: src.de.Bfv.1938
-    -   date: 1927-12-01?
-        category: de.Ldst
-        name: Flensburg Alter Bf
-        source: src.de.Bfv.1938
-    -   date: !!null
-        de.DS100: AFHF
-        de.dstnr: !!str 014316
-        source: src.de.DS100.1984
-    -   date: c1960
-        category: de.Bf
-        staff: none
-        source: src.de.DS100.1984
-    -   date: !!null
-        de.name16: Flensbg Alter Bf
-        PLC: DE13215
-        source: src.de.DBAG.BSV.2017
-    -   date: c1995
-        category: de.Bft
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.1002: 171,79
-            line.de.1003: 171,79
-        source: src.de.DRG.Alt.Karte.1931
-    -   date: 1981
-        location: 
-            line.de.1002: 177,305
-            line.de.1003: 177,305
-        source: src.de.DB.Hmb.Karte.1984
 
     -   date: !!null
         site:
             path.de.1002: fla
+records:
+    -   date: 1905-07
+        name: Flensburg
+        document: src.de.Kb.1905
+
+    -   date: 1931-04-01
+        location:
+            line.de.1002: 171,79
+            line.de.1003: 171,79
+        document: src.de.DRG.Alt.Karte.1931
+    -   date: 1938-10-01
+        name: Flensburg Alter Bf
+        de.lknr: 01 431
+        category: de.Ldst
+        document: src.de.Bfv.1938
+
+    -   date: 1956-09
+        name: Flensburg Alter Bf
+        category: de.Bf
+        de.rang: I
+        service: goods
+        location:
+            line.de.1002: 171,79
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-06-03
+        de.dstnr: !!str 014316
+        name: Flensburg Alter Bf
+        de.DS100: AFHF
+        category: de.Bf
+        staff: none
+        document: src.de.DS100.1984
+    -   date: 1984-11
+        name: Flensburg Alter Bf
+        category: de.Bf
+        staff: none
+        location: 
+            line.de.1002: 177,305 # left
+        source: src.de.DB.Hmb.Karte.1984
+
+    -   date: 2017-01
+        de.DS100: AFHF
+        name: Flensburg Alter Bf
+        de.name16: Flensbg Alter Bf
+        category: de.Bft
+        PLC: DE13215
+        de.dstnr: !!str 014316
+        document: src.de.DBAG.BSV.2017
 
 
 ---
@@ -150,3 +161,4 @@ events:
         name: Flensburg, östliches Hafengleis
         site:
             path.de.1002: fho
+

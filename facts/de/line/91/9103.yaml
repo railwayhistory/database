@@ -9,11 +9,6 @@ events:
             - org.de
             - org.de.l.sh
 
-    -   date: !!null
-        end: point.de.Kropp
-        de.VzG: !!str 9103
-        source: src.de.DBAG.Geo-Strecke.2017
-
     #   Genehmigungen
     #
     -   date: 1905-04-10
@@ -87,9 +82,37 @@ events:
     #
     -   date: !!null
         course: path.de.9103 sle fri
+records:
+    -   date: 1931-04-01
+        category: de.Kleinbahn
+        tracks: 1
+        gauge: 1435mm
+        document: src.de.DRG.Alt.Karte.1931
+    -   date: 1935-01-01
+        category: de.Kleinbahn
+        tracks: 1
+        gauge: 1435mm
+        document: src.de.DRG.Alt.Karte.1935
 
+    -   date: 1956-09
+        end: point.de.Hollingstedt-Dörpstedt
+        category: de.Nebenbahn
+        gauge: 1435mm
+        tracks: 1
+        passenger: none
+        freight: full
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1956-09
+        start: point.de.Hollingstedt-Dörpstedt
+        status: closed
+        document: src.de.DB.Hmb.Karte.1956
+
+    -   date: 2017-01
+        end: point.de.Kropp
+        de.VzG: !!str 9103
+        document: src.de.DBAG.Geo-Strecke.2017
 points:
-    -   point.de.Schleswig-Friedrichsberg-Kreisb
+    -   point.de.Schleswig-Friedrichsberg
     -   point.de.Jagel
     -   point.de.Mielberg
     -   point.de.Kropp
@@ -108,15 +131,29 @@ points:
 #-----------------------------------------------------------------------------
 
 ---
-key: point.de.Schleswig-Friedrichsberg-Kreisb
+key: point.de.Schleswig-Friedrichsberg
 type: point
-progress: stub
 events:
+    -   date: c1930
+        status: open
+        split_from: point.de.Schleswig
+    -   date: c1940
+        status: closed
+        merged: point.de.Schleswig
+        source: src.de.Bfv.1944
+
     -   date: !!null
-        name: Schleswig-Friedrichsberg Kreisb
         connection: point.de.Schleswig              # de.1040
         site:
             path.de.9103: sle
+records:
+    -   date: 1933-03-01
+        name: Schleswig-Friedrichsberg
+        document: src.de.Bfv.1933
+    -   date: 1938-10-01
+        name: Schleswig-Friedrichsberg
+        de.lknr: 47 189
+        document: src.de.Bfv.1938
 
 
 ---
@@ -124,20 +161,22 @@ key: point.de.Jagel
 type: point
 events:
     -   date: !!null
-        location:
-            line.de.9103: 8,2
-        name: Jagel
-        source: src.de.Kb.1914
-    -   date: de.lknr.kb
-        de.lknr: 47 190
-        source: src.de.Bfv.1938
-    -   date: !!null
-        category: de.Bf
-        source: src.de.DRG.Alt.Karte.1949
-
-    -   date: !!null
         site:
             path.de.9103: jag
+records:
+    -   date: 1914-07
+        name: Jagel
+        document: src.de.Kb.1914
+
+    -   date: 1938-10-01
+        name: Jagel
+        de.lknr: 47 190
+        document: src.de.Bfv.1938
+
+    -   date: 1956-09
+        name: Jagel
+        category: de.Bf # left
+        document: src.de.DB.Hmb.Karte.1956
 
 
 ---
@@ -145,9 +184,6 @@ key: point.de.Mielberg
 type: point
 events:
     -   date: !!null
-        category: de.Hp
-        location:
-            line.de.9103: 10,3
         name: Mielberg
 
     -   date: !!null
@@ -160,20 +196,22 @@ key: point.de.Kropp
 type: point
 events:
     -   date: !!null
-        location:
-            line.de.9103: 13,1
-        name: Kropp
-        source: src.de.Kb.1914
-    -   date: de.lknr.kb
-        de.lknr: 47 192
-        source: src.de.Bfv.1938
-    -   date: !!null
-        category: de.Bf
-        source: src.de.DRG.Alt.Karte.1949
-
-    -   date: !!null
         site:
             path.de.9103: kro
+records:
+    -   date: 1914-07
+        name: Kropp
+        document: src.de.Kb.1914
+
+    -   date: 1938-10-01
+        name: Kropp
+        de.lknr: 47 192
+        document: src.de.Bfv.1938
+
+    -   date: 1956-09
+        name: Kropp
+        category: de.Bf # left
+        document: src.de.DB.Hmb.Karte.1956
 
 
 ---
@@ -181,20 +219,22 @@ key: point.de.Groß-Rheide
 type: point
 events:
     -   date: !!null
-        location:
-            line.de.9103: 18,5
-        name: Groß Rheide
-        source: src.de.Kb.1914
-    -   date: de.lknr.kb
-        de.lknr: 47 193
-        source: src.de.Bfv.1938
-    -   date: !!null
-        category: de.Bf
-        source: src.de.DRG.Alt.Karte.1949
-
-    -   date: !!null
         site:
             path.de.9103: grh
+records:
+    -   date: 1914-07
+        name: Groß Rheide
+        document: src.de.Kb.1914
+
+    -   date: 1938-10-01
+        name: Groß Rheide
+        de.lknr: 47 193
+        document: src.de.Bfv.1938
+
+    -   date: 1956-09
+        name: Groß Rheide
+        category: de.Bf # right
+        document: src.de.DB.Hmb.Karte.1956
 
 
 ---
@@ -202,20 +242,22 @@ key: point.de.Hollingstedt-Dörpstedt
 type: point
 events:
     -   date: !!null
-        location:
-            line.de.9103: 24,1
-        name: Hollingstedt-Dörpstedt
-        source: src.de.Kb.1914
-    -   date: de.lknr.kb
-        de.lknr: 47 194
-        source: src.de.Bfv.1938
-    -   date: !!null
-        category: de.Bf
-        source: src.de.DRG.Alt.Karte.1949
-
-    -   date: !!null
         site:
             path.de.9103: hol
+records:
+    -   date: 1914-07
+        name: Hollingstedt-Dörpstedt
+        document: src.de.Kb.1914
+
+    -   date: 1938-10-01
+        name: Hollingstedt-Dörpstedt
+        de.lknr: 47 194
+        document: src.de.Bfv.1938
+
+    -   date: 1956-09
+        name: Hollingstedt-Dörpstedt
+        category: de.Bf # right
+        document: src.de.DB.Hmb.Karte.1956
 
 
 ---
@@ -223,14 +265,12 @@ key: point.de.Thiesburg
 type: point
 events:
     -   date: !!null
-        location:
-            line.de.9103: 26,6
-        name: Thiesburg
-        source: src.de.Kb.1914
-
-    -   date: !!null
         site:
             path.de.9103: thi
+records:
+    -   date: 1914-07
+        name: Thiesburg
+        document: src.de.Kb.1914
 
 
 ---
@@ -238,20 +278,17 @@ key: point.de.Wohlde-Schlesw
 type: point
 events:
     -   date: !!null
-        location:
-            line.de.9103: 29,9
-        name: Wohlde
-        source: src.de.Kb.1914
-    -   date: de.lknr.kb
-        de.lknr: 47 196
-        source: src.de.Bfv.1938
-    -   date: !!null
-        category: de.Bf
-        source: src.de.DRG.Alt.Karte.1949
-
-    -   date: !!null
         site:
             path.de.9103: woh
+records:
+    -   date: 1914-07
+        name: Wohlde
+        document: src.de.Kb.1914
+
+    -   date: 1938-10-01
+        name: Wohlde
+        de.lknr: 47 196
+        document: src.de.Bfv.1938
 
 
 ---
@@ -259,20 +296,17 @@ key: point.de.Bergenhusen
 type: point
 events:
     -   date: !!null
-        location:
-            line.de.9103: 32,4
-        name: Bergenhusen
-        source: src.de.Kb.1905
-    -   date: !!null
-        category: de.Bf
-        source: src.de.mtbl.1621.1910
-    -   date: de.lknr.kb
-        de.lknr: 47 197
-        source: src.de.Bfv.1938
-
-    -   date: !!null
         site:
             path.de.9103: ber
+records:
+    -   date: 1905-07
+        name: Bergenhusen
+        document: src.de.Kb.1905
+
+    -   date: 1938-10-01
+        name: Bergenhusen
+        de.lknr: 47 197
+        document: src.de.Bfv.1938
 
 
 ---
@@ -300,20 +334,17 @@ type: point
 junction: True
 events:
     -   date: !!null
-        location:
-            line.de.9103: 37,1
-        name: Süderstapel-Norderstapel
-        source: src.de.Kb.1905
-    -   date: c1935
-        name: Norderstapel Kreisb
-        source: src.de.Bfv.1938
-    -   date: de.lknr.kb
-        de.lknr: 47 199
-        source: src.de.Bfv.1938
-
-    -   date: !!null
         site:
             path.de.9103: nor
+records:
+    -   date: 1905-07
+        name: Süderstapel-Norderstapel
+        document: src.de.Kb.1905
+
+    -   date: 1938-10-01
+        name: Norderstapel Kreisb
+        de.lknr: 47 199
+        document: src.de.Bfv.1938
 
 
 ---
@@ -340,20 +371,18 @@ key: point.de.Seeth-Drage
 type: point
 events:
     -   date: !!null
-        location:
-            line.de.9103: 42,2
-        name: Seeth-Drage
-        source: src.de.Kb.1905
-    -   date: !!null
-        category: de.Bf
-        source: src.de.mtbl.1620.1928
-    -   date: de.lknr.kb
-        de.lknr: 47 201
-        source: src.de.Bfv.1938
-
-    -   date: !!null
         site:
             path.de.9103: see
+records:
+    -   date: 1905-07
+        name: Seeth-Drage
+        document: src.de.Kb.1905
+
+    -   date: 1938-10-01
+        name: Seeth-Drage
+        de.lknr: 47 201
+        document: src.de.Bfv.1938
+
 
 ---
 key: point.de.Friedrichstadt-Kreisb
@@ -361,21 +390,21 @@ type: point
 junction: True
 events:
     -   date: !!null
-        name: Friedrichstadt
-        location:
-            line.de.9103: 47,3
-        source: src.de.Kb.1905
-    -   date: c1920
-        name: Friedrichstadt (Schleswiger Bf)
-        source: src.de.Bfv.1928
-    -   date: c1930
-        name: Friedrichstadt Kreisb
-        source: src.de.Bfv.1933
-    -   date: de.lknr.kb
-        de.lknr: 47 202
-        source: src.de.Bfv.1938
-
-    -   date: !!null
         site:
             path.de.9103: fri
+records:
+    -   date: 1905-07
+        name: Friedrichstadt
+        document: src.de.Kb.1905
+
+    -   date: 1927-12-09
+        name: Friedrichstadt (Schleswiger Bf)
+        document: src.de.Bfv.1928
+    -   date: 1933-03-01
+        name: Friedrichstadt Kreisb
+        document: src.de.Bfv.1933
+    -   date: 1938-10-01
+        name: Friedrichstadt Kreisb
+        de.lknr: 47 202
+        document: src.de.Bfv.1938
 

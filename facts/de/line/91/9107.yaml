@@ -9,10 +9,6 @@ events:
             - org.de
             - org.de.l.sh
 
-    -   date: !!null
-        de.VzG: !!str 9107
-        source: src.de.DBAG.Geo-Strecke.2017
-
     #   Genehmigungen, Eigentümer, Betreiber
     #   
     -   date: 1912-02-26
@@ -77,7 +73,29 @@ events:
     #
     -   date: !!null
         course: path.de.9107 kis son
+records:
+    -   date: 1931-04-01
+        category: de.Kleinbahn
+        gauge: 1435mm
+        tracks: 1
+        document: src.de.DRG.Alt.Karte.1931
 
+    -   date: 1956-09
+        category: de.Nebenbahn
+        gauge: 1435mm
+        tracks: 1
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-11
+        category: de.Nebenbahn
+        gauge: 1435mm
+        tracks: 1
+        passenger: none
+        de.VzG: !!str 9107
+        document: src.de.DB.Hmb.Karte.1984
+
+    -   date: 2017-01
+        de.VzG: !!str 9107
+        document: src.de.DBAG.Geo-Strecke.2017
 points:
     -   point.de.Kiel-Süd
     -   point.de.Kiel-Süd-Ss
@@ -104,33 +122,42 @@ key: point.de.Kiel-Süd
 type: point
 events:
     -   date: !!null
+        site:
+            path.de.9107: kie
+            path.de.91080: kie
+records:
+    -   date: 1914-07
         name: Kiel Klbf
-        source: src.de.Kb.1914
-    -   date: c1920
+        document: src.de.Kb.1914
+
+    -   date: 1927-12-09
         name: Kiel Kleinbf
-        source: src.de.Bfv.1928
-    -   date: de.lknr.kb
+        document: src.de.Bfv.1928
+    -   date: 1938-10-01
+        name: Kiel Kleinbf
         de.lknr: 43 427
-        source: src.de.Bfv.1938
-    -   date: c1950
+        document: src.de.Bfv.1938
+
+    -   date: 1956-09
         name: Kiel Süd
-    -   date: !!null
+        category: de.Bf # left
+        document: src.de.DB.Hmb.Karte.1956
+
+    -   date: 1984-11
+        name: Kiel Süd
+        location:
+            line.de.9107: 0,0
+            line.de.91080: 0,0
+        document: src.de.DB.Hmb.Karte.1984
+
+    -   date: 2017-01
+        name: Kiel Süd
         de.DS100: AKSU
         de.name16: Kiel Süd
         category: de.Bf
         de.dstnr: !!str 489013
-        source: src.de.DBAG.BSV.2017
+        document: src.de.DBAG.BSV.2017
 
-    -   date: !!null
-        location:
-            line.de.8017: 0,0
-            line.de.9107: 0,0
-        source: src.de.DB.Hmb.Karte.1984
-
-    -   date: !!null
-        site:
-            path.de.9107: kie
-            path.de.8017: kie
 
 
 ---
@@ -138,91 +165,99 @@ key: point.de.Kiel-Süd-Ss
 type: point
 events:
     -   date: !!null
+        connection: point.de.Kiel-Hbf-Ss
+        site:
+            path.de.9107: kss
+            path.de.91080: kss
+records:
+    -   date: 2017-01
         de.DS100: AKSA
         name: Kiel Süd (Ss)
         de.name16: Kiel Süd (Ss)
         category: de.Abzw
         de.dstnr: !!str 108647
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        connection: point.de.Kiel-Hbf-Ss
-        site:
-            path.de.9107: kss
-            path.de.8017: kss
+        document: src.de.DBAG.BSV.2017
 
 
 ---
 key: point.de.Kiel-Gaarden
 type: point
 events:
-    -   date: 1954
+    -   date: c1960
         status: open
-        source: src.de.WP.Kiel-Schoeneberger-Eisenbahn
+
     -   date: !!null
+        site:
+            path.de.9107: gaa
+records:
+    -   date: 1984-11
+        name: Kiel-Gaarden
+        location:
+            line.de.9107: 1,0 # right
+        document: src.de.DB.Hmb.Karte.1984
+    -   date: 2017-01
         de.DS100: AKGA
         name: Kiel-Gaarden
         de.name16: Kiel-Gaarden
         category: de.Hp
         de.dstnr: !!str 489468
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.9107: 1,0
-        source: src.de.DB.Hmb.Karte.1984
-
-    -   date: !!null
-        site:
-            path.de.9107: gaa
+        document: src.de.DBAG.BSV.2017
 
 
 ---
 key: point.de.Kiel-Schulen-am-Langsee
 type: point
 events:
-    -   date: 2013-09-04
+    -   date: 2013-09-04?
         status: open
-        de.DS100: AKSL
-        name: Kiel Schulen am Langsee
-        de.name16: Kiel S a Langsee
-        category: de.Hp
-        de.dstnr: !!str 108227
         source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
             path.de.9107: sul
+records:
+    -   date: 2017-01
+        de.DS100: AKSL
+        name: Kiel Schulen am Langsee
+        de.name16: Kiel S a Langsee
+        category: de.Hp
+        de.dstnr: !!str 108227
+        document: src.de.DBAG.BSV.2017
 
 
 ---
 key: point.de.Kiel-Ellerbek
 type: point
 events:
-    -   date: !!null
-        name: Ellerbek
-        source: src.de.Kb.1905
-    -   date: !!null
-        category: de.Hp
-        source: src.de.DRG.Alt.Karte.1949
     -   date: c1980
         status: closed
-    -   date: 2016-12-11
+    -   date: 2016-12-11?
         status: open
-        de.DS100: AKEL
-        name: Kiel-Ellerbek
-        de.name16: Kiel-Ellerbek
-        de.dstnr: !!str 106930
         source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.9107: 3,6
-        source: src.de.DB.Hmb.Karte.1984
 
     -   date: !!null
         site:
             path.de.9107: ell
+records:
+    -   date: 1905-07
+        name: Ellerbek
+        document: src.de.Kb.1905
+
+    -   date: 1956-09
+        category: de.Hp
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-11
+        name: Kiel-Ellerbek
+        location:
+            line.de.9107: 3,6 # left
+        document: src.de.DB.Hmb.Karte.1984
+
+    -   date: 2017-01
+        de.DS100: AKEL
+        name: Kiel-Ellerbek
+        de.name16: Kiel-Ellerbek
+        de.dstnr: !!str 106930
+        document: src.de.DBAG.BSV.2017
 
 
 ---
@@ -231,39 +266,49 @@ type: point
 events:
     -   date: c1910
         status: open
-        name: Wellingdorf
-        source: src.de.Kb.1914
-    -   date: de.lknr.kb
-        de.lknr: 43 412
-        source: src.de.Bfv.1938
-    -   date: c1940
-        name: Kiel-Wellingdorf
-        source: src.de.Bfv.1944
-    -   date: !!null
-        category: de.Bf
-        source: src.de.DB.Hmb.Karte.1956
-    -   date: !!null
-        de.DS100: AKWD
-        de.dstnr: !!str 489047
-        source: src.de.DS100.1984
-    -   date: !!null
-        de.name16: Kiel-Wellingdorf
-        source: src.de.DBAG.BSV.2017
-    -   date: c2000
-        category: de.Anst
-        source: src.de.DBAG.BSV.2017
-    -   date: 2016-05-19
+    -   date: 2016-05-19?
         status: closed
         source: src.de.DBAG.BSV.2017
 
     -   date: !!null
-        location:
-            line.de.9107: 5,3
-        source: src.de.DB.Hmb.Karte.1984
-
-    -   date: !!null
         site:
             path.de.9107: wel
+records:
+    -   date: 1914-07
+        name: Wellingdorf
+        document: src.de.Kb.1914
+    -   date: 1938-10-01
+        name: Wellingdorf
+        de.lknr: 43 412
+        document: src.de.Bfv.1938
+    -   date: 1944-06-01
+        name: Kiel-Wellingdorf
+        de.lknr: 43 412
+        document: src.de.Bfv.1944
+
+    -   date: 1956-09
+        name: Kiel-Wellingdorf
+        category: de.Bf
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-06-03
+        de.DS100: AKWD
+        name: Kiel-Wellingdorf
+        de.dstnr: !!str 489047
+        document: src.de.DS100.1984
+    -   date: 1984-11
+        name: Kiel-Wellingdorf
+        location:
+            line.de.9107: 5,3 # left
+        document: src.de.DB.Hmb.Karte.1984
+
+    -   date: 2017-01
+        de.DS100: AKWD
+        name: Kiel-Wellingdorf
+        de.name16: Kiel-Wellingdorf
+        category: de.Anst
+        status: closed
+        de.dstnr: !!str 489047
+        document: src.de.DBAG.BSV.2017
 
 
 ---
@@ -271,32 +316,39 @@ key: point.de.Oppendorf
 type: point
 events:
     -   date: !!null
-        name: Oppendorfer Weiche
-        source: src.de.Bfv.1933
-    -   date: de.lknr.30
-        de.lknr: 43 413
-        source: src.de.Bfv.1938
-    -   date: c1950
-        name: Oppendorf
-        source: src.de.SuW.2005
-    -   date: !!null
-        de.DS100: AOPD
-        de.dstnr: !!str 489054
-        source: src.de.DS100.1984
-    -   date: !!null
-        category: de.Bf
-        de.name16: Oppendorf
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.9107: 6,8
-        source: src.de.DB.Hmb.Karte.1984
-
-    -   date: !!null
         site:
             path.de.9107: opp
-            path.de.8020: opp
+            path.de.91070: opp
+records:
+    -   date: 1933-03-01
+        name: Oppendorfer Weiche
+        document: src.de.Bfv.1933
+    -   date: 1938-10-01
+        name: Oppendorfer Weiche
+        de.lknr: 43 413
+        document: src.de.Bfv.1938
+
+    -   date: 1956-09
+        name: Oppendorf
+        category: de.Ldst # left
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-06-01
+        name: Oppendorf
+        de.DS100: AOPD
+        de.dstnr: !!str 489054
+        document: src.de.DS100.1984
+    -   date: 1984-11
+        location:
+            line.de.9107: 6,8 # right
+        document: src.de.DB.Hmb.Karte.1984
+
+    -   date: 2017-01
+        name: Oppendorf
+        de.DS100: AOPD
+        de.dstnr: !!str 489054
+        category: de.Bf
+        de.name16: Oppendorf
+        document: src.de.DBAG.BSV.2017
 
 
 ---
@@ -321,28 +373,40 @@ key: point.de.Schönkirchen
 type: point
 events:
     -   date: !!null
-        name: Schönkirchen
-        source: src.de.Kb.1905
-    -   date: de.lknr.kb
-        de.lknr: 43 413
-        source: src.de.Bfv.1938
-    -   date: !!null
-        de.DS100: ASCK
-        de.dstnr: !!str 489062
-        source: src.de.DS100.1984
-    -   date: !!null
-        category: de.Bf
-        de.name16: Schönkirchen
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.9107: 8,4
-        source: src.de.DB.Hmb.Karte.1984
-
-    -   date: !!null
         site:
             path.de.9107: sok
+records:
+    -   date: 1905-07
+        name: Schönkirchen
+        document: src.de.Kb.1905
+
+    -   date: 1938-10-01
+        name: Schönkirchen
+        de.lknr: 43 413
+        document: src.de.Bfv.1938
+
+    -   date: 1956-09
+        name: Schönkirchen
+        category: de.Bf # right
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-06-03
+        name: Schönkirchen
+        de.DS100: ASCK
+        de.dstnr: !!str 489062
+        document: src.de.DS100.1984
+    -   date: 1984-11
+        name: Schönkirchen
+        location:
+            line.de.9107: 8,4 # right
+        document: src.de.DB.Hmb.Karte.1984
+
+    -   date: 2017-01
+        name: Schönkirchen
+        de.DS100: ASCK
+        de.dstnr: !!str 489062
+        category: de.Bf
+        de.name16: Schönkirchen
+        document: src.de.DBAG.BSV.2017
 
 
 ---
@@ -351,34 +415,42 @@ type: point
 events:
     -   date: c1920
         status: open
-        name: Landgraben
-        source: src.de.Bfv.1933
-    -   date: de.lknr.kb
-        de.lknr: 43 415
-        source: src.de.Bfv.1938
-    -   date: !!null
-        de.DS100: ALGB
-        de.dstnr: !!str 489070
-        source: src.de.DS100.1984
-    -   date: c2000
-        name: Schönkirchen Landgraben
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        category: de.Bf
-        de.name16: Landgraben
-        source: src.de.DBAG.BSV.2017
-    -   date: 2009-01-24
-        status: closed
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.9107: 9,9
-        source: src.de.DB.Hmb.Karte.1984
 
     -   date: !!null
         site:
             path.de.9107: lan
+records:
+    -   date: 1933-03-01
+        name: Landgraben
+        document: src.de.Bfv.1933
+    -   date: 1938-10-01
+        name: Landgraben
+        de.lknr: 43 415
+        document: src.de.Bfv.1938
+
+    -   date: 1956-09
+        name: Landgraben
+        category: de.Bf # left
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-06-03
+        name: Landgraben
+        de.DS100: ALGB
+        de.dstnr: !!str 489070
+        document: src.de.DS100.1984
+    -   date: 1984-11
+        name: Landgraben
+        location:
+            line.de.9107: 9,9 # left
+        document: src.de.DB.Hmb.Karte.1984
+
+    -   date: 2017-01
+        name: Schönkirchen Landgraben
+        category: de.Bf
+        de.name16: Landgraben
+        de.DS100: ALGB
+        de.dstnr: !!str 489070
+        status: closed
+        document: src.de.DBAG.BSV.2017
 
 
 ---
@@ -387,30 +459,33 @@ type: point
 events:
     -   date: c1950
         status: open
-    -   date: !!null
-        name: Trensahl
-        de.DS100: ATRL
-        de.dstnr: !!str 489088
-        source: src.de.DBAG.ISR
-    -   date: !!null
-        category: de.Hp
-        de.name16: Trensahl
-        source: src.de.DBAG.BSV.2017
-    -   date: c2000
-        name: Probsteierhagen Trensahl
-        source: src.de.DBAG.BSV.2017
-    -   date: 2009-01-24
-        status: closed
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.9107: 12,4
-        source: src.de.DB.Hmb.Karte.1984
 
     -   date: !!null
         site:
             path.de.9107: tre
+records:
+    -   date: 1956-09
+        name: Trensahl
+        category: de.Hp # left
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-06-03
+        name: Trensahl
+        de.DS100: ATRL
+        de.dstnr: !!str 489088
+        document: src.de.DS100.1984
+    -   date: 1984-11
+        location:
+            line.de.9107: 12,4 # left
+        document: src.de.DB.Hmb.Karte.1984
+
+    -   date: 2017-01
+        category: de.Hp
+        de.name16: Trensahl
+        name: Probsteierhagen Trensahl
+        de.DS100: ATRL
+        de.dstnr: !!str 489088
+        status: closed
+        document: src.de.DBAG.BSV.2017
 
 
 ---
@@ -419,31 +494,42 @@ type: point
 events:
     -   date: c1920
         status: open
-        name: Hagen (Holst)
-        source: src.de.Bfv.1933
-    -   date: de.lknr.kb
-        de.lknr: 43 416
-        source: src.de.Bfv.1938
-    -   date: !!null
-        de.DS100: AHGH
-        de.dstnr: !!str 489096
-        source: src.de.DS100.1984
-    -   date: !!null
-        category: de.Bf
-        de.name16: Hagen (Holst)
-        source: src.de.DBAG.BSV.2017
-    -   date: 2009-01-24
-        status: closed
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.9107: 13,4
-        source: src.de.DB.Hmb.Karte.1984
 
     -   date: !!null
         site:
             path.de.9107: hag
+records:
+    -   date: 1933-03-01
+        name: Hagen (Holst)
+        document: src.de.Bfv.1933
+    -   date: 1938-10-01
+        name: Hagen (Holst)
+        de.lknr: 43 416
+        document: src.de.Bfv.1938
+
+    -   date: 1956-09
+        name: Hagen (Holst)
+        category: de.Bf # right
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-06-03
+        name: Hagen (Holst)
+        de.DS100: AHGH
+        de.dstnr: !!str 489096
+        document: src.de.DS100.1984
+    -   date: !!null
+        name: Hagen (Holst)
+        location:
+            line.de.9107: 13,4 # right
+        document: src.de.DB.Hmb.Karte.1984
+
+    -   date: 2017-01
+        category: de.Bf
+        de.name16: Hagen (Holst)
+        name: Hagen (Holst)
+        de.DS100: AHGH
+        de.dstnr: !!str 489096
+        status: closed
+        document: src.de.DBAG.BSV.2017
 
 
 ---
@@ -451,33 +537,40 @@ key: point.de.Probsteierhagen
 type: point
 events:
     -   date: !!null
-        name: Probsteierhagen
-        source: src.de.Kb.1905
-    -   date: de.lknr.kb
-        de.lknr: 43 417
-        source: src.de.Bfv.1938
-    -   date: !!null
-        category: de.Bf
-        location:
-            line.de.9107: 14,1
-        source: src.de.SuW.2005
-    -   date: !!null
-        de.DS100: APSH
-        de.dstnr: !!str 489104
-        source: src.de.DS100.1984
-    -   date: !!null
-        category: de.Bf
-        de.name16: Probsteierhagen
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.9107: 14,1
-        source: src.de.DB.Hmb.Karte.1984
-
-    -   date: !!null
         site:
             path.de.9107: pro
+records:
+    -   date: 1905-07
+        name: Probsteierhagen
+        document: src.de.Kb.1905
+
+    -   date: 1938-10-01
+        name: Probsteierhagen
+        de.lknr: 43 417
+        document: src.de.Bfv.1938
+
+    -   date: 1956-09
+        name: Probsteierhagen
+        category: de.Bf # right
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-06-03
+        name: Probsteierhagen
+        de.DS100: APSH
+        de.dstnr: !!str 489104
+        document: src.de.DS100.1984
+    -   date: 1984-11
+        name: Probsteierhagen
+        location:
+            line.de.9107: 14,1 # right
+        document: src.de.DB.Hmb.Karte.1984
+
+    -   date: 2017-01
+        category: de.Bf
+        de.name16: Probsteierhagen
+        name: Probsteierhagen
+        de.DS100: APSH
+        de.dstnr: !!str 489104
+        document: src.de.DBAG.BSV.2017
 
 
 ---
@@ -485,30 +578,36 @@ key: point.de.Passade
 type: point
 events:
     -   date: !!null
-        name: Passade
-        source: src.de.Kb.W1937
-    -   date: !!null
-        source: src.de.DRG.Alt.Karte.1949
-    -   date: !!null
-        de.DS100: APSS
-        de.dstnr: !!str 489112
-        source: src.de.DS100.1984
-    -   date: !!null
-        category: de.Hp
-        de.name16: Passade
-        source: src.de.DBAG.BSV.2017
-    -   date: 2009-01-24
-        status: closed
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.9107: 16,0
-        source: src.de.DB.Hmb.Karte.1984
-
-    -   date: !!null
         site:
             path.de.9107: pas
+records:
+    -   date: 1937-10-03
+        name: Passade
+        document: src.de.Kb.W1937
+
+    -   date: 1956-09
+        name: Passade
+        category: de.Hp # right
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-06-03
+        name: Passade
+        de.DS100: APSS
+        de.dstnr: !!str 489112
+        document: src.de.DS100.1984
+    -   date: 1984-11
+        name: Passade
+        location:
+            line.de.9107: 16,0 # right
+        document: src.de.DB.Hmb.Karte.1984
+
+    -   date: 2017-01
+        name: Passade
+        de.DS100: APSS
+        de.dstnr: !!str 489112
+        category: de.Hp
+        de.name16: Passade
+        status: closed
+        document: src.de.DBAG.BSV.2017
 
 
 ---
@@ -517,28 +616,41 @@ type: point
 events:
     -   date: c1920
         status: open
-        name: Fiefbergen
-        source: src.de.Bfv.1933
-    -   date: de.lknr.kb
-        de.lknr: 43 419
-        source: src.de.Bfv.1938
-    -   date: !!null
-        de.DS100: AFFB
-        de.dstnr: !!str 489120
-        source: src.de.DS100.1984
-    -   date: !!null
-        category: de.Bf
-        de.name16: Fiefbergen
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.9107: 18,0
-        source: src.de.DB.Hmb.Karte.1984
 
     -   date: !!null
         site:
             path.de.9107: fie
+records:
+    -   date: 1933-03-01
+        name: Fiefbergen
+        document: src.de.Bfv.1933
+    -   date: 1938-10-01
+        name: Fiefbergen
+        de.lknr: 43 419
+        document: src.de.Bfv.1938
+
+    -   date: 1956-09
+        name: Fiefbergen
+        category: de.Bf # right
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-06-03
+        name: Fiefbergen
+        de.DS100: AFFB
+        de.dstnr: !!str 489120
+        document: src.de.DS100.1984
+    -   date: 1984-11
+        name: Fiefbergen
+        location:
+            line.de.9107: 18,0 # right
+        document: src.de.DB.Hmb.Karte.1984
+
+    -   date: 2017-01
+        category: de.Bf
+        de.name16: Fiefbergen
+        name: Fiefbergen
+        de.DS100: AFFB
+        de.dstnr: !!str 489120
+        document: src.de.DBAG.BSV.2017
 
 
 ---
@@ -546,31 +658,43 @@ key: point.de.Schönberg-Holst
 type: point
 events:
     -   date: !!null
-        name: Schönberg Holst
-        source: src.de.Kb.1905
-    -   date: c1920
-        name: Schönberg (Holst)
-        source: src.de.Bfv.1928
-    -   date: de.lknr.kb
-        de.lknr: 43 420
-        source: src.de.Bfv.1938
-    -   date: !!null
-        de.DS100: ASCB
-        de.dstnr: !!str 489138
-        source: src.de.DS100.1984
-    -   date: !!null
-        category: de.Bf
-        de.name16: Schönberg (Holst)
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.9107: 20,2
-            line.de.9108: 20,2
-        source: src.de.DB.Hmb.Karte.1984
-
-    -   date: !!null
         site:
             path.de.9107: son
             path.de.9108: son
+records:
+    -   date: 1905-07
+        name: Schönberg Holst
+        document: src.de.Kb.1905
+
+    -   date: 1927-12-09
+        name: Schönberg (Holst)
+        document: src.de.Bfv.1928
+    -   date: 1938-10-01
+        name: Schönberg (Holst)
+        de.lknr: 43 420
+        document: src.de.Bfv.1938
+
+    -   date: 1956-09
+        name: Schönberg (Holst)
+        category: de.Bf # left
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-06-03
+        name: Schönberg (Holst)
+        de.DS100: ASCB
+        de.dstnr: !!str 489138
+        document: src.de.DS100.1984
+    -   date: 1984-11
+        name: Schönberg (Holst)
+        location:
+            line.de.9107: 20,2 # left
+            line.de.9108: 20,2
+        document: src.de.DB.Hmb.Karte.1984
+
+    -   date: 2017-01
+        category: de.Bf
+        de.name16: Schönberg (Holst)
+        name: Schönberg (Holst)
+        de.DS100: ASCB
+        de.dstnr: !!str 489138
+        document: src.de.DBAG.BSV.2017
 

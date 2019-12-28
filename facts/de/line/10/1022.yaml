@@ -9,10 +9,6 @@ events:
             - org.de
             - org.de.l.sh
 
-    -   date: !!null
-        de.VzG: !!str 1022
-        source: src.de.DBAG.Geo-Strecke.2017
-
     #   Genehmigungen
     #
     -   date: 1878-08-19
@@ -53,27 +49,28 @@ events:
 
     #   Eigenschaften
     #
-    -   date: !!null
-        end: point.de.Kiel-Hassee
-        category: de.Nebenbahn
-        tracks: 1
-        gauge: 1435mm
-    -   date: !!null
-        start: point.de.Kiel-Hassee
-        category: de.Hauptbahn
-        tracks: 1
-        gauge: 1435mm
-        source: src.de.DRG.1927
-    -   date: 1904-10-15
-        end: point.de.Kiel-Hassee
-        category: de.Hauptbahn
-        source: src.de.DRG.1927
 
     #   Verlauf
     #
     -   date: !!null
         course: path.de.1022 kie oro
+records:
+    -   date: 1927-03
+        end: point.de.Kiel-Hassee
+        category: de.Hauptbahn
+        tracks: 1
+        gauge: 1435mm
+        document: src.de.DRG.1927
+    -   date: 1927-03
+        start: point.de.Kiel-Hassee
+        category: de.Nebenbahn
+        tracks: 1
+        gauge: 1435mm
+        document: src.de.DRG.1927
 
+    -   date: 2017-01
+        de.VzG: !!str 1022
+        document: src.de.DBAG.Geo-Strecke.2017
 points:
     -   point.de.Kiel-Hbf                           # de.1220
     -   point.de.Kiel-Hg
@@ -101,12 +98,6 @@ points:
 key: point.de.Kiel-Hg
 type: point
 events:
-    -   date: !!null
-        location:
-            line.de.1031: 1,53
-        category: de.Abzw
-        name: Hg
-        source: src.de.DRG.Alt.Karte.1931
     -   date: 1981?
         status: closed
 
@@ -114,54 +105,21 @@ events:
         site:
             path.de.1022: khg
             path.de.1031: khg
+records:
+    -   date: 1931-04-01
+        location:
+            line.de.1031: 1,53
+        category: de.Abzw
+        name: Hg
+        document: src.de.DRG.Alt.Karte.1931
 
 
 ---
 key: point.de.Kiel-Hassee
 type: point
-junction: True
 events:
-    -   date: !!null
-        name: Hassee
-        source: src.de.Kb.1905
-    -   date: !!null
-        category: de.Bf
-        de.rang: IV
-        de.lknr: 01 376
-        source: src.de.Bfv.1933
-    -   date: c1920
-        name: Kiel-Hassee
-        source: src.de.Bfv.1933
-    -   date: c1940
-        de.rang: III
-        source: src.de.Bfv.1944
     -   date: 1981-05-31
         service: freight
-    -   date: !!null
-        de.DS100: AHAS
-        de.dstnr: !!str 013763
-        source: src.de.DS100.1984
-    -   date: !!null
-        de.name16: K-Hassee Cittip
-        PLC: DE15503
-    -   date: c1990
-        de.DS100: AKH
-        source: src.de.DBAG.BSV.2017
-    -   date: 2007-12-09
-        service: full
-        name: Kiel-Hassee Cittipark
-
-    -   date: !!null
-        location:
-            line.de.1022: 2,900
-            line.de.1020: 2,900
-        source:
-            -   src.de.DRG.Alt.Karte.1931
-            -   src.de.DBAG.Geo-Betriebsstelle.2017
-    -   date: !!null
-        location:
-            line.de.1021: 0,00
-        source: src.de.DB.Hmb.Karte.1984
 
     -   date: !!null
         site:
@@ -169,48 +127,108 @@ events:
             path.de.1020: has
             path.de.1021: has
             path.de.1031: has
+records:
+    -   date: 1905-07
+        name: Hassee
+        document: src.de.Kb.1905
+
+    -   date: 1933-03-01
+        name: Kiel-Hassee
+        category: de.Bf
+        de.rang: IV
+        de.lknr: 01 376
+        document: src.de.Bfv.1933
+    -   date: 1944-06-01
+        name: Kiel-Hassee
+        category: de.Bf
+        de.rang: III
+        de.lknr: 01 376
+        document: src.de.Bfv.1944
+
+    -   date: 1984-06-03
+        name: Kiel-Hassee
+        category: de.Bf
+        de.DS100: AHAS
+        de.dstnr: !!str 013763
+        document: src.de.DS100.1984
+    -   date: 1984-11
+        name: Kiel-Hassee
+        category: de.Bf
+        location:
+            line.de.1020: 2,90
+            line.de.1021: 0,00
+            line.de.1022: 2,90 # left
+        document: src.de.DB.Hmb.Karte.1984
+
+    -   date: 2017-01
+        name: Kiel-Hassee Cittipark
+        de.name16: K-Hassee Cittip
+        PLC: DE15503
+        de.DS100: AKH
+        service: full
+        category: de.Bf
+        document: src.de.DBAG.BSV.2017
+    -   date: 2017-01
+        location:
+            line.de.1022: 2,900
+            line.de.1020: 2,900
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Russee
 type: point
 events:
-    -   date: !!null
-        name: Russee
-        source: src.de.Kb.1905
-    -   date: !!null
-        service: passenger
-        de.lknr: 01 366
-        source: src.de.Bfv.1928
-    -   date: !!null
-        category: de.Hp
-        source: src.de.Bfv.1933
-    -   date: de.lknr.30
-        de.lknr: 01 377
-        source: src.de.Bfv.1933
     -   date: c1980
         status: closed
     -   date: 2014-12-14?
         status: open
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        site:
+            path.de.1022: rus
+records:
+    -   date: 1905-07
+        name: Russee
+        document: src.de.Kb.1905
+
+    -   date: 1927-12-09
+        name: Russee
+        service: passenger
+        de.lknr: 01 366
+        document: src.de.Bfv.1928
+    -   date: 1931-04-01
+        name: Russee
+        category: de.Hp
+        location:
+            line.de.1022: 5,36 # right
+        document: src.de.DRG.Alt.Karte.1931
+    -   date: 1933-03-01
+        name: Russee
+        category: de.Hp
+        service: passenger
+        de.lknr: 01 377
+        document: src.de.Bfv.1933
+    -   date: 1935-01-01
+        name: Russee
+        category: de.Hst
+        staff: full
+        location:
+            line.de.1022: 5,36 # right
+        document: src.de.DRG.Alt.Karte.1935
+
+    -   date: 2017-01
         name: Kiel-Russee
         de.name16: Kiel-Russee
         de.DS100: AKRU
         PLC: DE15504
         de.dstnr: !!str 106928
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.1022: 5,36
-        source: src.de.DRG.Alt.Karte.1931
-    -   date: 2014-12-14?
+        document: src.de.DBAG.BSV.2017
+    -   date: 2017-01
         location:
             line.de.1022: 5,337
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
-
-    -   date: !!null
-        site:
-            path.de.1022: rus
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
@@ -234,85 +252,129 @@ events:
 key: point.de.Melsdorf
 type: point
 events:
-    -   date: !!null
-        name: Melsdorf
-        source: src.de.Kb.1905
-    -   date: !!null
-        de.lknr: 01 173
-        source: src.de.Bfv.1928
-    -   date: !!null
-        category: de.Bf
-        de.rang: IV
-        source: src.de.Bfv.1933
-    -   date: de.lknr.30
-        de.lknr: 01 378
-        source: src.de.Bfv.1933
-    -   date: !!null
-        de.DS100: AME
-        de.dstnr: !!str 013789
-        source: src.de.DS100.1984
     -   date: 1984-06-02
         service: freight
     -   date: c1990
         status: closed
-    -   date: 2014-12-14
+    -   date: 2014-12-14?
         status: open
-        category: de.Hp
-        de.name16: Melsdorf
-        PLC: DE16958
-        de.dstnr: !!str 106927
         source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.1022: 8,07
-        source: src.de.DRG.Alt.Karte.1949
-    -   date: 2014-12-14
-        location:
-            line.de.1022: 7,955
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
             path.de.1022: mel
+records:
+    -   date: 1905-07
+        name: Melsdorf
+        document: src.de.Kb.1905
+
+    -   date: 1927-12-09
+        name: Melsdorf
+        de.lknr: 01 173
+        document: src.de.Bfv.1928
+    -   date: 1931-04-01
+        name: Melsdorf
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.1022: 8,07 # right
+        document: src.de.DRG.Alt.Karte.1931
+    -   date: 1933-03-01
+        name: Melsdorf
+        category: de.Bf
+        de.rang: IV
+        de.lknr: 01 378
+        document: src.de.Bfv.1933
+
+    -   date: 1956-09
+        name: Melsdorf
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.1022: 8,07
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-06-03
+        name: Melsdorf
+        category: de.Bf
+        de.DS100: AME
+        de.dstnr: !!str 013789
+        document: src.de.DS100.1984
+    -   date: 1984-11
+        name: Melsdorf
+        category: de.Bf
+        service: goods
+        location:
+            line.de.1022: 8,07 # right
+        document: src.de.DB.Hmb.Karte.1984
+
+    -   date: 2017-01
+        de.DS100: AME
+        name: Melsdorf
+        de.name16: Melsdorf
+        category: de.Hp
+        PLC: DE16958
+        de.dstnr: !!str 106927
+        document: src.de.DBAG.BSV.2017
+    -   date: 2017-01
+        location:
+            line.de.1022: 7,955
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Flemhude
 type: point
 events:
-    -   date: !!null
-        name: Flemhude
-        source: src.de.Kb.1905
-    -   date: !!null
-        de.lknr: 01 172
-        source: src.de.Bfv.1928
-    -   date: !!null
-        category: de.Bf
-        de.rang: IV
-        source: src.de.Bfv.1933
-    -   date: de.lknr.30
-        de.lknr: 01 379
-        source: src.de.Bfv.1933
-    -   date: !!null
-        de.DS100: AFM
-        de.dstnr: !!str 013797
-        source: src.de.DS100.1984
-    -   date: c1970
-        category: de.Hp
-        staff: none
-        source: src.de.DS100.1984
-    -   date: c1990
+    -   date: 1984?
         status: closed
-
-    -   date: !!null
-        location:
-            line.de.1022: 11,59
-        source: src.de.DRG.Alt.Karte.1931
 
     -   date: !!null
         site:
             path.de.1022: fle
+records:
+    -   date: 1905-07
+        name: Flemhude
+        document: src.de.Kb.1905
+
+    -   date: 1927-12-09
+        name: Flemhude
+        de.lknr: 01 172
+        document: src.de.Bfv.1928
+    -   date: 1931-04-01
+        name: Flemhude
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.1022: 11,59 # right
+        document: src.de.DRG.Alt.Karte.1931
+    -   date: 1933-03-01
+        name: Flemhude
+        category: de.Bf
+        de.rang: IV
+        de.lknr: 01 379
+        document: src.de.Bfv.1933
+    -   date: 1935-01-01
+        name: Flemhude
+        category: de.Hst
+        staff: full
+        location:
+            line.de.1022: 11,59 # right
+        document: src.de.DRG.Alt.Karte.1931
+
+    -   date: 1956-09
+        name: Flemhude
+        category: de.Hst
+        staff: agent
+        location:
+            line.de.1022: 11,59
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-06-03
+        name: Flemhude
+        de.DS100: AFM
+        de.dstnr: !!str 013797
+        category: de.Hp
+        staff: none
+        document: src.de.DS100.1984
 
 
 ---
@@ -321,88 +383,107 @@ type: point
 events:
     -   date: c1950
         status: open
-        service: passenger
-        category: de.Hp
-        name: Achterwehr
-        staff: none
-        location:
-            line.de.1022: 12,60
-        source: src.de.DB.Hmb.Karte.1956
-    -   date: !!null
-        de.DS100: AAC
-        de.dstnr: !!str 013847
-        source: src.de.DS100.1984
     -   date: 1984-06-02
         service: none
     -   date: c1990
         status: closed
-    -   date: 2014-12-14
+    -   date: 2014-12-14?
         status: open
-        de.name16: Achterwehr
-        de.DS100: AACW
-        PLC: DE10031
-        de.dstnr: !!str 106933
         source: src.de.DBAG.BSV.2017
-    -   date: 2014-12-14
-        location:
-            line.de.1022: 12,577
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
             path.de.1022: ach
+records:
+    -   date: 1956-09
+        name: Achterwehr
+        category: de.Hp
+        staff: none
+        location:
+            line.de.1022: 12,60 # left
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-06-03
+        name: Achterwehr
+        category: de.Hp
+        staff: none
+        de.DS100: AAC
+        de.dstnr: !!str 013847
+        document: src.de.DS100.1984
+
+    -   date: 2017-01
+        de.name16: Achterwehr
+        de.DS100: AACW
+        PLC: DE10031
+        de.dstnr: !!str 106933
+        document: src.de.DBAG.BSV.2017
+    -   date: 2017-01
+        location:
+            line.de.1022: 12,577
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Felde-Brandsbek
 type: point
 events:
-    -   date: !!null
-        name: Brandsbek
-        source: src.de.Kb.1905
-    -   date: !!null
-        de.lknr: 01 171
-        source: src.de.Bfv.1928
-    -   date: !!null
-        category: de.Bf
-        de.rang: IV
-        source: src.de.Bfv.1933
-    -   date: de.lknr.30
-        de.lknr: 01 380
-        source: src.de.Bfv.1933
-    -   date: !!null
-        de.DS100: ABRA
-        de.dstnr: !!str 013805
-        source: src.de.DS100.1984
-    -   date: c1970
-        category: de.Hp
-        source: src.de.DS100.1984
-    -   date: c1990
+    -   date: 1984?
         status: closed
     -   date: 2000-11-05
         status: open
         service: passenger
         staff: none
-    -   date: 2000-11-05
+
+    -   date: !!null
+        site:
+            path.de.1022: fel
+records:
+    -   date: 1905-07
+        name: Brandsbek
+        document: src.de.Kb.1905
+
+    -   date: 1927-12-09
+        name: Brandsbek
+        de.lknr: 01 171
+        document: src.de.Bfv.1928
+    -   date: 1931-04-01
+        name: Brandsbek
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.1022: 13,85 # left
+        document: src.de.DRG.Alt.Karte.1931
+    -   date: 1933-03-01
+        name: Brandsbek
+        category: de.Bf
+        de.rang: IV
+        de.lknr: 01 380
+        document: src.de.Bfv.1933
+
+    -   date: 1956-09
+        name: Brandsbek
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.1022: 13,85
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-06-03
+        name: Brandsbek
+        de.DS100: ABRA
+        de.dstnr: !!str 013805
+        category: de.Hp
+        document: src.de.DS100.1984
+
+    -   date: 2017-01
         name: Felde-Brandsbek
         de.name16: Felde-Brandsbek
         de.DS100: AFEB
         PLC: DE13166
         de.dstnr: !!str 331025
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.1022: 13,85
-        source: src.de.DRG.Alt.Karte.1931
-    -   date: 2000-11-05
+        document: src.de.DBAG.BSV.2017
+    -   date: 2017-01
         location:
             line.de.1022: 13,884
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
-
-    -   date: !!null
-        site:
-            path.de.1022: fel
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
@@ -411,22 +492,24 @@ type: point
 events:
     -   date: 2014-12-14?
         status: open
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        site:
+            path.de.1022: bre
+records:
+    -   date: 2017-01
         category: de.Hp
         name: Bredenbek
         de.name16: Bredenbek
         de.DS100: ABRB
         PLC: DE11607
         de.dstnr: !!str 106923
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
+        document: src.de.DBAG.BSV.2017
+    -   date: 2017-01
         location:
             line.de.1022: 19,157
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
-
-    -   date: !!null
-        site:
-            path.de.1022: bre
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 #   BA-Grenze  19,50 [src.de.DB.Hmb.Karte.1984]
@@ -436,71 +519,111 @@ events:
 key: point.de.Kronsburg
 type: point
 events:
-    -   date: !!null
-        name: Kronsburg
-        source: src.de.Kb.1905
-    -   date: !!null
-        de.lknr: 01 170
-        source: src.de.Bfv.1928
-    -   date: !!null
-        category: de.Bf
-        de.rang: IV
-        source: src.de.Bfv.1933
-    -   date: de.lknr.30
-        de.lknr: 01 381
-        source: src.de.Bfv.1933
-    -   date: !!null
-        de.DS100: AKU
-        de.dstnr: !!str 013813
-        source: src.de.DS100.1984
     -   date: 1984-06-02
         service: freight
     -   date: c2000
         status: closed
 
     -   date: !!null
-        location:
-            line.de.1022: 20,42
-        source: src.de.DRG.Alt.Karte.1931
-
-    -   date: !!null
         site:
             path.de.1022: kro
+records:
+    -   date: 1905-07
+        name: Kronsburg
+        document: src.de.Kb.1905
+
+    -   date: 1927-12-09
+        name: Kronsburg
+        de.lknr: 01 170
+        document: src.de.Bfv.1928
+    -   date: 1931-04-01
+        name: Kronsburg
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.1022: 20,42 # right
+        document: src.de.DRG.Alt.Karte.1931
+    -   date: 1933-03-01
+        name: Kronsburg
+        category: de.Bf
+        de.rang: IV
+        de.lknr: 01 381
+        document: src.de.Bfv.1933
+
+    -   date: 1956-09
+        name: Kronsburg
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.1022: 20,42
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-06-03
+        name: Kronsburg
+        category: de.Bf
+        de.DS100: AKU
+        de.dstnr: !!str 013813
+        document: src.de.DS100.1984
+    -   date: 1984-11
+        name: Kronsburg
+        category: de.Bf
+        service: goods
+        location:
+            line.de.1022: 20,42 # right
+        document: src.de.DB.Hmb.Karte.1984
 
 
 ---
 key: point.de.Ostenfeld-Rendsburg
 type: point
 events:
-    -   date: !!null
-        name: Ostenfeld
-        source: src.de.Kb.1905
-    -   date: !!null
-        de.lknr: 01 169
-        source: src.de.Bfv.1928
-    -   date: !!null
-        category: de.Bf
-        de.rang: IV
-        source: src.de.Bfv.1933
-    -   date: de.lknr.30
-        de.lknr: 01 382
-        source: src.de.Bfv.1933
-    -   date: c1938
-        name: Ostenfeld (Kr Rendsburg)
-        source: src.de.Bfv.1938
     -   date: 1981-05-30
         service: freight
     -   date: c1982
         status: closed
 
     -   date: !!null
-        location:
-            line.de.1022: 24,35
-        source: src.de.DRG.Alt.Karte.1931
-
-    -   date: !!null
         site:
             path.de.1022: ost
+records:
+    -   date: 1905-07
+        name: Ostenfeld
+        document: src.de.Kb.1905
+
+    -   date: 1927-12-09
+        name: Ostenfeld
+        de.lknr: 01 169
+        document: src.de.Bfv.1928
+    -   date: 1931-04-01
+        name: Ostenfeld
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.1022: 24,35 # right
+        document: src.de.DRG.Alt.Karte.1931
+    -   date: 1933-03-01
+        name: Ostenfeld
+        category: de.Bf
+        de.rang: IV
+        de.lknr: 01 382
+        document: src.de.Bfv.1933
+    -   date: 1935-01-01
+        name: Ostenfeld
+        category: de.Hst
+        staff: full
+        location:
+            line.de.1022: 24,35 # right
+        document: src.de.DRG.Alt.Karte.1931
+    -   date: 1938-10
+        name: Ostenfeld (Kr Rendsburg)
+        document: src.de.Bfv.1938
+
+    -   date: 1956-09
+        name: Ostenfeld (Kr Rendsburg)
+        category: de.Hst
+        staff: full
+        location:
+            line.de.1022: 24,35
+        document: src.de.DB.Hmb.Karte.1956
 
 
 ---
@@ -508,50 +631,80 @@ key: point.de.Schülldorf
 type: point
 junction: True
 events:
-    -   date: !!null
-        name: Schülldorf
-        source: src.de.Kb.1905
-    -   date: !!null
-        de.lknr: 01 168
-        source: src.de.Bfv.1928
-    -   date: !!null
-        category: de.Bf
-        de.rang: IV
-        source: src.de.Bfv.1933
-    -   date: de.lknr.30
-        de.lknr: 01 383
-        source: src.de.Bfv.1933
     -   date: 1981-05-30
         service: freight
-    -   date: !!null
-        de.DS100: ASC
-        de.dstnr: !!str 013839
-        source: src.de.DS100.1984
-    -   date: c1982
-        category: de.Anst
-        source: src.de.DS100.1984
     -   date: c1990
         status: closed
     -   date: 2014-12-14?
         status: open
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        site:
+            path.de.1022: sul
+    -   date: 2014-12-14?
+        site:
+            path.de.1022: suh
+records:
+    -   date: 1905-07
+        name: Schülldorf
+        document: src.de.Kb.1905
+
+    -   date: 1927-12-09
+        name: Schülldorf
+        de.lknr: 01 168
+        document: src.de.Bfv.1928
+    -   date: 1931-04-01
+        name: Schülldorf
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.1022: 27,16 # right
+        document: src.de.DRG.Alt.Karte.1931
+    -   date: 1933-03-01
+        name: Schülldorf
+        category: de.Bf
+        de.rang: IV
+        de.lknr: 01 383
+        document: src.de.Bfv.1933
+
+    -   date: 1956-09
+        name: Schülldorf
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.1022: 27,16
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-06-03
+        name: Schülldorf
+        de.DS100: ASC
+        de.dstnr: !!str 013839
+        category: de.Anst
+        document: src.de.DS100.1984
+    -   date: 1984-11
+        name: Schülldorf
+        category: de.Tp
+        service: goods
+        location:
+            line.de.1022: 27,16 # right
+        document: src.de.DB.Hmb.Karte.1984
+
+    -   date: 2017-01
+        de.DS100: ASC
+        name: Schülldorf
         category: de.Hp
         de.name16: Schülldorf
         PLC: DE19510
         de.dstnr: !!str 106929
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.1022: 27,16
-        site:
-            path.de.1022: sul
-        source: src.de.DRG.Alt.Karte.1931
-    -   date: 2014-12-14?
+        document: src.de.DBAG.BSV.2017
+    -   date: 2017-01
         location:
             line.de.1022: 27,378
-        site:
-            path.de.1022: suh
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+# 28,00 BA-Grenze src.de.DRG.Alt.Karte.1931, src.de.DRG.Alt.Karte.1935,
+#                 src.de.DB.Hmb.Karte.1956
 
 
 ---
@@ -560,22 +713,24 @@ type: point
 events:
     -   date: c2000
         status: open
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        site:
+            path.de.1040: ora
+records:
+    -   date: 2017-01
         category: de.Awanst
         name: Osterrönfeld Awanst
         de.name16: Osterrönf Awanst
         de.DS100: AONA
         PLC: DE18181
         de.dstnr: !!str 337329
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
+        document: src.de.DBAG.BSV.2017
+    -   date: 2017-01
         location:
             line.de.1022: 30,588
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
-
-    -   date: !!null
-        site:
-            path.de.1040: ora
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 #    point.de.Osterrönfeld                       de.1040

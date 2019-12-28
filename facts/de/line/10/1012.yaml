@@ -9,10 +9,6 @@ events:
             - org.de
             - org.de.l.sh
 
-    -   date: !!null
-        de.VzG: !!str 1012
-        source: src.de.DBAG.Geo-Strecke.2017
-
     #   Genehmigungen
     #
     -   date: 1904-06-25
@@ -95,17 +91,58 @@ events:
 
     #   Eigenschaften
     #
-    -   date: !!null
-        category: de.Nebenbahn
-        tracks: 1
-        gauge: 1435mm
-        source: src.de.DRG.1927
 
     #   Verlauf
     #
     -   date: !!null
         course: path.de.1012 buf hus
+records:
+    -   date: 1927-03
+        status: open
+        category: de.Nebenbahn
+        tracks: 1
+        gauge: 1435mm
+        document: src.de.DRG.1927
+    -   date: 1931-04-01
+        status: open
+        category: de.Nebenbahn
+        tracks: 1
+        gauge: 1435mm
+        document: src.de.DRG.Alt.Karte.1931
 
+    -   date: 1956-09
+        status: open
+        category: de.Nebenbahn
+        tracks: 1
+        gauge: 1435mm
+        document: src.de.DB.Hmb.Karte.1956
+
+    -   date: 1984-11
+        end: point.de.Hohn
+        status: open
+        category: de.Nebenbahn
+        tracks: 1
+        gauge: 1435mm
+        passenger: none
+        document: src.de.DB.Hmb.Karte.1984
+    -   date: 1984-11
+        start: point.de.Hohn
+        end: point.de.Erfde
+        status: closed
+        document: src.de.DB.Hmb.Karte.1984
+    -   date: 1984-11
+        start: point.de.Erfde
+        status: open
+        category: de.Nebenbahn
+        tracks: 1
+        gauge: 1435mm
+        passenger: none
+        freight: none
+        document: src.de.DB.Hmb.Karte.1984
+
+    -   date: 2017-01
+        de.VzG: !!str 1012
+        document: src.de.DBAG.Geo-Strecke.2017
 points:
     -   point.de.Büdelsdorf                         # de.1040
     -   point.de.Rendsburg-Gr
@@ -126,8 +163,8 @@ points:
 
 #    point.de.Büdelsdorf                         de.1040
 
-#    BA-Grenze  0,80 [src.de.DRG.Alt.Karte.1931]
-#               2,10 [src.de.DRG.Alt.Karte.1935][src.de.DRG.Alt.Karte.1949]
+# 0,80 BA-Grenze src.de.DRG.Alt.Karte.1931
+# 2,10 BA-Grenze src.de.DRG.Alt.Karte.1935, src.de.DB.Hmb.Karte.1956
 
 
 ---
@@ -135,16 +172,17 @@ key: point.de.Rendsburg-Gr
 type: point
 events:
     -   date: !!null
+        site:
+            path.de.1012: reg
+records:
+    -   date: 2017-01
         de.DS100: ARG
         name: Rendsburg DB-Grenze
         de.name16: Rendsburg DB-Gr
         category: de.Gp
         PLC: DE18790
         de.dstnr: !!str 108847
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        site:
-            path.de.1012: reg
+        document: src.de.DBAG.BSV.2017
 
 
 ---
@@ -153,7 +191,7 @@ type: point
 subtype: reference
 events:
     -   date: !!null
-        name: Rendsburg Gewerbegebiet Nord
+        designation: Rendsburg Gewerbegebiet Nord
     -   date: !!null
         location:
             line.de.1012: 3,072
@@ -169,74 +207,111 @@ key: point.de.Fockbek
 type: point
 events:
     -   date: !!null
-        name: Fockbek
-        source: src.de.Kb.1914
-    -   date: !!null
-        de.lknr: 01 166
-        source: src.de.Bfv.1928
-    -   date: !!null
-        category: de.Bf
-        de.rang: IV
-        source: src.de.Bfv.1933
-    -   date: de.lknr.30
-        de.lknr: 01 453
-        source: src.de.Bfv.1933
-    -   date: !!null
-        de.DS100: AFC
-        de.dstnr: !!str 014530
-        source: src.de.DS100.1984
-    -   date: c1975
-        staff: none
-        source: src.de.DS100.1984
-    -   date: !!null
-        de.name16: Fockbek
-        PLC: DE13235
-        source: src.de.DBAG.BSV.2017
-    -   date: c1990
-        category: de.Anst
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.1012: 4,26
-        source: src.de.DRG.Alt.Karte.1931
-
-    -   date: !!null
         site:
             path.de.1012: foc
+records:
+    -   date: 1914-07
+        name: Fockbek
+        document: src.de.Kb.1914
+
+    -   date: 1927-12-09
+        name: Fockbek
+        de.lknr: 01 166
+        designation: src.de.Bfv.1928
+    -   date: 1931-04-01
+        name: Fockbek
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.1012: 4,26 # left
+        document: src.de.DRG.Alt.Karte.1931
+    -   date: 1933-03-01
+        name: Fockbek
+        category: de.Bf
+        de.rang: IV
+        de.lknr: 01 453
+        document: src.de.Bfv.1933
+
+    -   date: 1956-09
+        name: Fockbek
+        category: de.Bf
+        de.rang: IV
+        staff: agent
+        location:
+            line.de.1012: 4,26
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-06-03
+        name: Fockbek
+        de.DS100: AFC
+        de.dstnr: !!str 014530
+        category: de.Bf
+        staff: none
+        document: src.de.DS100.1984
+    -   date: 1984-11
+        name: Fockbek
+        category: de.Bf
+        staff: none
+        location:
+            line.de.1012: 4,26 # left
+        document: src.de.DB.Hmb.Karte.1984
+
+    -   date: 2017-01
+        name: Fockbek
+        de.name16: Fockbek
+        category: de.Anst
+        PLC: DE13235
+        de.DS100: AFC
+        de.dstnr: !!str 014530
+        document: src.de.DBAG.BSV.2017
 
 
 ---
 key: point.de.Garlbek
 type: point
 events:
-    -   date: !!null
-        name: Garlbek
-        source: src.de.Kb.1914
-    -   date: !!null
-        service: passenger
-        staff: none
-        master: point.de.Husum
-        de.lknr: 01 365
-        source: src.de.Bfv.1928
-    -   date: !!null
-        category: de.Hp
-        source: src.de.Bfv.1933
-    -   date: de.lknr.30
-        de.lknr: 01 454
-        source: src.de.Bfv.1933
     -   date: c1975
         status: closed
         source: src.de.DS100.1984
 
     -   date: !!null
-        location:
-            line.de.1012: 7,38
-        source: src.de.DRG.Alt.Karte.1931
-
-    -   date: !!null
         site:
             path.de.1012: gar
+records:
+    -   date: 1914-07
+        name: Garlbek
+        document: src.de.Kb.1914
+
+    -   date: 1927-12-09
+        name: Garlbek
+        service: full
+        goods: none
+        staff: none
+        master: point.de.Husum
+        de.lknr: 01 365
+        document: src.de.Bfv.1928
+    -   date: 1931-04-01
+        name: Garlbek
+        category: de.Hp
+        location:
+            line.de.1012: 7,38 # right
+        document: src.de.DRG.Alt.Karte.1931
+    -   date: 1933-03-01
+        name: Garlbek
+        category: de.Hp
+        service: full
+        goods: none
+        staff: none
+        master: point.de.Husum
+        de.lknr: 01 454
+        document: src.de.Bfv.1933
+
+    -   date: 1956-09
+        name: Garlbek
+        category: de.Hp
+        staff: full
+        location:
+            line.de.1012: 7,38
+        document: src.de.DB.Hmb.Karte.1956
 
 
 ---
@@ -244,34 +319,52 @@ key: point.de.Hohn
 type: point
 events:
     -   date: !!null
-        name: Hohn
-        source: src.de.Kb.1914
-    -   date: !!null
-        de.lknr: 01 165
-        source: src.de.Bfv.1928
-    -   date: !!null
-        category: de.Bf
-        de.rang: IV
-        source: src.de.Bfv.1933
-    -   date: de.lknr.30
-        de.lknr: 01 455
-        source: src.de.Bfv.1933
-    -   date: !!null
-        de.DS100: AHON
-        de.dstnr: !!str 014455
-        source: src.de.DS100.1984
-    -   date: c1975
-        staff: none
-        source: src.de.DS100.1984
-
-    -   date: !!null
-        location:
-            line.de.1012: 10,75
-        source: src.de.DRG.Alt.Karte.1931
-
-    -   date: !!null
         site:
             path.de.1012: hoh
+records:
+    -   date: 1914-07
+        name: Hohn
+        document: src.de.Kb.1914
+
+    -   date: 1927-12-09
+        name: Hohn
+        de.lknr: 01 165
+        document: src.de.Bfv.1928
+    -   date: 1931-04-01
+        name: Hohn
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.1012: 10,75 # left
+        document: src.de.DRG.Alt.Karte.1931
+    -   date: 1933-03-01
+        name: Hohn
+        category: de.Bf
+        de.rang: IV
+        de.lknr: 01 455
+        document: src.de.Bfv.1933
+
+    -   date: 1956-09
+        name: Hohn
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.1012: 10,75
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-06-03
+        name: Hohn
+        de.DS100: AHON
+        de.dstnr: !!str 014455
+        category: de.Bf
+        staff: none
+        document: src.de.DS100.1984
+    -   date: 1984-11
+        name: Hohn
+        category: de.Bf
+        staff: none
+        location:
+            line.de.1012: 10,75 # left
+        document: src.de.DB.Hmb.Karte.1984
 
 
 ---
@@ -279,27 +372,38 @@ key: point.de.Christiansholm
 type: point
 events:
     -   date: !!null
-        name: Christiansholm
-        source: src.de.Kb.1914
-    -   date: !!null
-        de.lknr: 01 164
-        source: src.de.Bfv.1928
-    -   date: !!null
-        category: de.Bf
-        de.rang: IV
-        source: src.de.Bfv.1933
-    -   date: de.lknr.30
-        de.lknr: 01 456
-        source: src.de.Bfv.1933
-
-    -   date: !!null
-        location:
-            line.de.1012: 17,42
-        source: src.de.DRG.Alt.Karte.1931
-
-    -   date: !!null
         site:
             path.de.1012: chr
+records:
+    -   date: 1914-07
+        name: Christiansholm
+        document: src.de.Kb.1914
+
+    -   date: 1927-12-09
+        name: Christiansholm
+        de.lknr: 01 164
+        document: src.de.Bfv.1928
+    -   date: 1931-04-01
+        name: Christiansholm
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.1012: 17,42 # left
+        document: src.de.DRG.Alt.Karte.1931
+    -   date: 1933-03-01
+        name: Christiansholm
+        category: de.Bf
+        de.rang: IV
+        de.lknr: 01 456
+        document: src.de.Bfv.1933
+
+    -   date: 1956-09
+        name: Christiansholm
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.1012: 17,42
+        document: src.de.DB.Hmb.Karte.1956
 
 
 ---
@@ -307,111 +411,168 @@ key: point.de.Erfde
 type: point
 events:
     -   date: !!null
-        name: Erfde
-        source: src.de.Kb.1914
-    -   date: !!null
-        de.lknr: 01 163
-        source: src.de.Bfv.1928
-    -   date: !!null
-        category: de.Bf
-        de.rang: IV
-        source: src.de.Bfv.1933
-    -   date: de.lknr.30
-        de.lknr: 01 457
-        source: src.de.Bfv.1933
-    -   date: !!null
-        de.DS100: AER
-        de.dstnr: !!str 014571
-        source: src.de.DS100.1984
-    -   date: c1975
-        staff: none
-        source: src.de.DS100.1984
-
-    -   date: !!null
-        location:
-            line.de.1012: 23,03
-        source: src.de.DRG.Alt.Karte.1931
-    -   date: c1980
-        location:
-            line.de.1012: 23,02
-        source: src.de.DB.Hmb.Karte.1984
-
-    -   date: !!null
         site:
             path.de.1012: erf
+records:
+    -   date: 1914-07
+        name: Erfde
+        document: src.de.Kb.1914
+
+    -   date: 1927-12-09
+        name: Erfde
+        de.lknr: 01 163
+        document: src.de.Bfv.1928
+    -   date: 1931-04-01
+        name: Erfde
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.1012: 23,03 # left
+        document: src.de.DRG.Alt.Karte.1931
+    -   date: 1933-03-01
+        name: Erfde
+        category: de.Bf
+        de.rang: IV
+        de.lknr: 01 457
+        document: src.de.Bfv.1933
+
+    -   date: 1956-09
+        name: Erfde
+        category: de.Bf
+        de.rang: III
+        location:
+            line.de.1012: 23,03
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-06-03
+        name: Erfde
+        de.DS100: AER
+        de.dstnr: !!str 014571
+        category: de.Bf
+        staff: none
+        document: src.de.DS100.1984
+    -   date: 1984-11
+        name: Erfde
+        category: de.Bf
+        staff: none
+        location:
+            line.de.1012: 23,02 # left
+        document: src.de.DB.Hmb.Karte.1984
 
 
 ---
 key: point.de.Norderstapel
 type: point
 events:
-    -   date: !!null
-        name: Norderstapel
-        source: src.de.Kb.1914
-    -   date: !!null
-        de.lknr: 01 162
-        source: src.de.Bfv.1928
-    -   date: !!null
-        category: de.Bf
-        de.rang: III
-        source: src.de.Bfv.1933
-    -   date: de.lknr.30
-        de.lknr: 01 458
-        source: src.de.Bfv.1933
-    -   date: !!null
-        de.DS100: ANO
-        de.dstnr: !!str 014589
-        source: src.de.DS100.1984
-    -   date: c1975
-        category: de.Anst
-        source: src.de.DS100.1984
-
-    -   date: !!null
-        location:
-            line.de.1012: 31,04
-        source: src.de.DRG.Alt.Karte.1931
 
     -   date: !!null
         site:
             path.de.1012: nor
+records:
+    -   date: 1914-07
+        name: Norderstapel
+        document: src.de.Kb.1914
+
+    -   date: 1927-12-09
+        de.lknr: 01 162
+        name: Norderstapel
+        document: src.de.Bfv.1928
+    -   date: 1931-04-01
+        name: Norderstapel
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.1012: 31,04 # right
+        document: src.de.DRG.Alt.Karte.1931
+    -   date: 1933-03-01
+        name: Norderstapel
+        category: de.Bf
+        de.rang: III
+        de.lknr: 01 458
+        document: src.de.Bfv.1933
+    -   date: 1935-01-01
+        name: Norderstapel
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.1012: 31,04
+        document: src.de.DRG.Alt.Karte.1935
+
+    -   date: 1956-09
+        name: Norderstapel
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.1012: 31,04
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-06-03
+        name: Norderstapel
+        de.DS100: ANO
+        de.dstnr: !!str 014589
+        category: de.Anst
+        document: src.de.DS100.1984
+    -   date: 1984-11
+        name: Norderstapel
+        category: de.Tp
+        location:
+            line.de.1012: 31,04 # right
+        document: src.de.DB.Hmb.Karte.1984
 
 
 ---
 key: point.de.Schwabstedt
 type: point
 events:
-    -   date: !!null
-        name: Schwabstedt
-        source: src.de.Kb.1914
-    -   date: !!null
-        de.lknr: 01 161
-        source: src.de.Bfv.1928
-    -   date: !!null
-        category: de.Bf
-        de.rang: IV
-        source: src.de.Bfv.1933
-    -   date: de.lknr.30
-        de.lknr: 01 459
-        source: src.de.Bfv.1933
-    -   date: c1935
-        category: de.Hst
-        source: src.de.Bfv.1938
-    -   date: !!null
-        de.DS100: ASWS
-        de.dstnr: !!str 014597
-        source: src.de.DS100.1984
-    -   date: c1975
-        category: de.Anst
-        source: src.de.DS100.1984
-
-    -   date: !!null
-        location:
-            line.de.1012: 36,44
-        source: src.de.DRG.Alt.Karte.1931
 
     -   date: !!null
         site:
             path.de.1012: swa
+records:
+    -   date: 1914-07
+        name: Schwabstedt
+        document: src.de.Kb.1914
+
+    -   date: 1927-12-09
+        name: Schwabstedt
+        de.lknr: 01 161
+        document: src.de.Bfv.1928
+    -   date: 1931-04-01
+        name: Schwabstedt
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.1012: 36,44 # left
+        document: src.de.DRG.Alt.Karte.1931
+    -   date: 1933-03-01
+        name: Schwabstedt
+        category: de.Bf
+        de.rang: IV
+        de.lknr: 01 459
+        document: src.de.Bfv.1933
+    -   date: 1938-10
+        category: de.Hst
+        name: Schwabstedt
+        de.lknr: 01 459
+        document: src.de.Bfv.1938
+
+    -   date: 1956-09
+        name: Schwabstedt
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.1012: 36,44
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-06-03
+        name: Schwabstedt
+        de.DS100: ASWS
+        de.dstnr: !!str 014597
+        category: de.Anst
+        document: src.de.DS100.1984
+    -   date: 1984-11
+        name: Schwabstedt
+        category: de.Tp
+        location:
+            line.de.1012: 36,44 # left
+        document: src.de.DB.Hmb.Karte.1984
 
 
 ---
@@ -419,34 +580,52 @@ key: point.de.Rantrum
 type: point
 events:
     -   date: !!null
-        name: Rantrum
-        source: src.de.Kb.1914
-    -   date: !!null
-        de.lknr: 01 160
-        source: src.de.Bfv.1928
-    -   date: !!null
-        category: de.Bf
-        de.rang: IV
-        source: src.de.Bfv.1933
-    -   date: de.lknr.30
-        de.lknr: 01 460
-        source: src.de.Bfv.1933
-    -   date: !!null
-        de.DS100: ART
-        de.dstnr: !!str 014605
-        source: src.de.DS100.1984
-    -   date: c1975
-        staff: none
-        source: src.de.DS100.1984
-
-    -   date: !!null
-        location:
-            line.de.1012: 42,29
-        source: src.de.DRG.Alt.Karte.1931
-
-    -   date: !!null
         site:
             path.de.1012: ran
+records:
+    -   date: 1914-07
+        name: Rantrum
+        document: src.de.Kb.1914
+
+    -   date: 1927-12-09
+        name: Rantrum
+        de.lknr: 01 160
+        document: src.de.Bfv.1928
+    -   date: 1931-04-01
+        name: Rantrum
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.1012: 42,29 # left
+        document: src.de.DRG.Alt.Karte.1931
+    -   date: 1933-03-01
+        name: Rantrum
+        category: de.Bf
+        de.rang: IV
+        de.lknr: 01 460
+        document: src.de.Bfv.1933
+
+    -   date: 1956-09
+        name: Rantrum
+        category: de.Bf
+        de.rang: IV
+        staff: agent
+        location:
+            line.de.1012: 36,44
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-06-03
+        name: Rantrum
+        de.DS100: ART
+        de.dstnr: !!str 014605
+        category: de.Bf
+        staff: none
+        document: src.de.DS100.1984
+    -   date: 1984-11
+        name: Rantrum
+        category: de.Tp
+        location:
+            line.de.1012: 42,29 # left
+        document: src.de.DB.Hmb.Karte.1984
 
 
 ---
@@ -454,37 +633,55 @@ key: point.de.Mildstedt
 type: point
 events:
     -   date: !!null
-        name: Mildstedt
-        source: src.de.Kb.1914
-    -   date: !!null
-        de.lknr: 01 159
-        source: src.de.Bfv.1928
-    -   date: !!null
-        category: de.Bf
-        de.rang: IV
-        source: src.de.Bfv.1933
-    -   date: de.lknr.30
-        de.lknr: 01 461
-        source: src.de.Bfv.1933
-    -   date: c1935
-        category: de.Hst
-        source: src.de.Bfv.1938
-    -   date: !!null
-        de.DS100: AMI
-        de.dstnr: !!str 014613
-        source: src.de.DS100.1984
-    -   date: c1975
-        category: de.Anst
-        source: src.de.DS100.1984
-
-    -   date: !!null
-        location:
-            line.de.1012: 45,95
-        source: src.de.DRG.Alt.Karte.1931
-
-    -   date: !!null
         site:
             path.de.1012: mil
+records:
+    -   date: 1914-07
+        name: Mildstedt
+        document: src.de.Kb.1914
+
+    -   date: 1927-12-09
+        name: Mildstedt
+        de.lknr: 01 159
+        document: src.de.Bfv.1928
+    -   date: 1931-04-01
+        name: Mildstedt
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.1012: 45,95 # left
+        document: src.de.DRG.Alt.Karte.1931
+    -   date: 1933-03-01
+        name: Mildstedt
+        category: de.Bf
+        de.rang: IV
+        de.lknr: 01 461
+        document: src.de.Bfv.1933
+    -   date: 1938-10
+        name: Mildstedt
+        category: de.Hst
+        de.lknr: 01 461
+        document: src.de.Bfv.1938
+
+    -   date: 1956-09
+        name: Mildstedt
+        category: de.Hst
+        staff: none
+        location:
+            line.de.1012: 45,95
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-06-03
+        name: Mildstedt
+        de.DS100: AMI
+        de.dstnr: !!str 014613
+        category: de.Anst
+        document: src.de.DS100.1984
+    -   date: 1984-11
+        name: Mildstedt
+        category: de.Tp
+        location:
+            line.de.1012: 45,95 # left
+        document: src.de.DB.Hmb.Karte.1984
 
 
 #    point.de.Husum                              de.1210

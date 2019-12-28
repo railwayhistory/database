@@ -9,11 +9,6 @@ events:
             - org.de
             - org.de.l.sh
 
-    -   date: !!null
-        end: point.de.Berend-Schlesw
-        de.VzG: !!str 9101
-        source: src.de.DBAG.Geo-Strecke.2017
-
     #   Genehmigungen
     #
     -   date: 1902-12-08
@@ -67,10 +62,41 @@ events:
     #
     -   date: !!null
         course: path.de.9101 klo sat
+records:
+    -   date: 1931-04-01
+        category: de.Kleinbahn
+        gauge: 1435mm
+        tracks: 1
+        document: src.de.DRG.Alt.Karte.1931
+    -   date: 1956-09
+        category: de.Nebenbahn
+        gauge: 1435mm
+        tracks: 1
+        passenger: full
+        freight: full
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-11
+        end: point.de.Ehlers
+        category: de.Nebenbahn
+        gauge: 1435mm
+        tracks: 1
+        passenger: none
+        freight: full
+        de.VzG: !!str 9101
+        document: src.de.DB.Hmb.Karte.1984
+    -   date: 1984-11
+        start: point.de.Ehlers
+        status: closed
+        document: src.de.DB.Hmb.Karte.1984
 
+    -   date: 2017-01
+        end: point.de.Berend-Schlesw
+        de.VzG: !!str 9101
+        document: src.de.DBAG.Geo-Strecke.2017
 points:
     -   point.de.Schleswig-Klosterfeld              # de.9102
     -   point.de.St-Jürgen
+    -   point.de.Ehlers
     -   point.de.Berend-Schlesw
     -   point.de.Nübel
     -   point.de.Brekling
@@ -100,12 +126,23 @@ key: point.de.St-Jürgen
 type: point
 events:
     -   date: !!null
-        name: St Jürgen
-        source: src.de.Kb.W1937
-
-    -   date: !!null
         site:
             path.de.9101: jur
+records:
+    -   date: 1937-10-03
+        name: St Jürgen
+        document: src.de.Kb.W1937
+
+
+---
+key: point.de.Ehlers
+type: point
+records:
+    -   date: 1984-11
+        name: Ehlers
+        location:
+            line.de.9101: 4,0 # right
+        document: src.de.DB.Hmb.Karte.1984
 
 
 ---
@@ -113,22 +150,30 @@ key: point.de.Berend-Schlesw
 type: point
 events:
     -   date: !!null
-        name: Berend
-        source: src.de.Kb.1905
-    -   date: c1935
-        name: Berend (Schlesw)
-        source: src.de.Kb.W1937
-    -   date: de.lknr.kb
-        de.lknr: 47 170
-        source: src.de.Bfv.1938
-    -   date: !!null
-        de.DS100: ABER
-        de.dstnr: !!str 542209
-        source: src.de.DS100.1984
-
-    -   date: !!null
         site:
             path.de.9101: ber
+records:
+    -   date: 1905-07
+        name: Berend
+        document: src.de.Kb.1905
+
+    -   date: 1937-10-03
+        name: Berend (Schlesw)
+        document: src.de.Kb.W1937
+    -   date: 1938-10-01
+        name: Berend (Schlesw)
+        de.lknr: 47 170
+        document: src.de.Bfv.1938
+
+    -   date: 1956-09
+        name: Berend (Schlesw)
+        category: de.Bf # right
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-06-03
+        name: Berend (Schlesw)
+        de.DS100: ABER
+        de.dstnr: !!str 542209
+        document: src.de.DS100.1984
 
 
 ---
@@ -136,15 +181,22 @@ key: point.de.Nübel
 type: point
 events:
     -   date: !!null
-        name: Jübel
-        source: src.de.Kb.1905
-    -   date: de.lknr.kb
-        de.lknr: 47 171
-        source: src.de.Bfv.1938
-
-    -   date: !!null
         site:
             path.de.9101: nub
+records:
+    -   date: 1905-07
+        name: Nübel
+        document: src.de.Kb.1905
+
+    -   date: 1938-10-01
+        name: Nübel
+        de.lknr: 47 171
+        document: src.de.Bfv.1938
+
+    -   date: 1956-09
+        name: Nübel
+        category: de.Bf # right
+        document: src.de.DB.Hmb.Karte.1956
 
 
 ---
@@ -152,15 +204,23 @@ key: point.de.Brekling
 type: point
 events:
     -   date: !!null
-        name: Brekling
-        source: src.de.Kb.1905
-    -   date: de.lknr.kb
-        de.lknr: 47 172
-        source: src.de.Bfv.1938
-
-    -   date: !!null
         site:
             path.de.9101: bre
+records:
+    -   date: 1905-07
+        name: Brekling
+        document: src.de.Kb.1905
+
+    -   date: 1938-10-01
+        name: Brekling
+        de.lknr: 47 172
+        document: src.de.Bfv.1938
+
+    -   date: 1956-09
+        name: Breckling
+        category: de.Bf # left
+        document: src.de.DB.Hmb.Karte.1956
+
 
 
 ---
@@ -168,15 +228,22 @@ key: point.de.Tolk
 type: point
 events:
     -   date: !!null
-        name: Tolk
-        source: src.de.Kb.1905
-    -   date: de.lknr.kb
-        de.lknr: 47 173
-        source: src.de.Bfv.1938
-
-    -   date: !!null
         site:
             path.de.9101: tol
+records:
+    -   date: 1905-07
+        name: Tolk
+        document: src.de.Kb.1905
+
+    -   date: 1938-10-01
+        name: Tolk
+        de.lknr: 47 173
+        document: src.de.Bfv.1938
+
+    -   date: 1956-09
+        name: Tolk
+        category: de.Bf # right
+        document: src.de.DB.Hmb.Karte.1956
 
 
 ---
@@ -184,15 +251,22 @@ key: point.de.Wellspang
 type: point
 events:
     -   date: !!null
-        name: Wellspang
-        source: src.de.Kb.1905
-    -   date: de.lknr.kb
-        de.lknr: 47 174
-        source: src.de.Bfv.1938
-
-    -   date: !!null
         site:
             path.de.9101: wel
+records:
+    -   date: 1905-07
+        name: Wellspang
+        document: src.de.Kb.1905
+
+    -   date: 1938-10-01
+        name: Wellspang
+        de.lknr: 47 174
+        document: src.de.Bfv.1938
+
+    -   date: 1956-09
+        name: Wellspang
+        category: de.Bf # left
+        document: src.de.DB.Hmb.Karte.1956
 
 
 ---
@@ -200,15 +274,22 @@ key: point.de.Böklund
 type: point
 events:
     -   date: !!null
-        name: Böklund
-        source: src.de.Kb.1905
-    -   date: de.lknr.kb
-        de.lknr: 47 175
-        source: src.de.Bfv.1938
-
-    -   date: !!null
         site:
             path.de.9101: bok
+records:
+    -   date: 1905-07
+        name: Böklund
+        document: src.de.Kb.1905
+
+    -   date: 1938-10-01
+        name: Böklund
+        de.lknr: 47 175
+        document: src.de.Bfv.1938
+
+    -   date: 1956-09
+        name: Böklund
+        category: de.Bf # left
+        document: src.de.DB.Hmb.Karte.1956
 
 
 ---
@@ -216,14 +297,17 @@ key: point.de.Bellig
 type: point
 events:
     -   date: !!null
-        name: Bellig
-        source: src.de.Kb.W1937
-    -   date: !!null
-        service: passenger
-
-    -   date: !!null
         site:
             path.de.9101: bel
+records:
+    -   date: 1905-07
+        name: Bellig
+        document: src.de.Kb.W1937
+
+    -   date: 1956-09
+        name: Bellig
+        category: de.Bf # right
+        document: src.de.DB.Hmb.Karte.1956
 
 
 ---
@@ -231,15 +315,22 @@ key: point.de.Hollmühle
 type: point
 events:
     -   date: !!null
-        name: Hollmühle
-        source: src.de.Kb.1914
-    -   date: de.lknr.kb
-        de.lknr: 47 177
-        source: src.de.Bfv.1938
-
-    -   date: !!null
         site:
             path.de.9101: hol
+records:
+    -   date: 1914-07
+        name: Hollmühle
+        document: src.de.Kb.1914
+
+    -   date: 1938-10-01
+        name: Hollmühle
+        de.lknr: 47 177
+        document: src.de.Bfv.1938
+
+    -   date: 1956-09
+        name: Hollmühle
+        category: de.Bf # right
+        document: src.de.DB.Hmb.Karte.1956
 
 
 ---
@@ -247,24 +338,28 @@ key: point.de.Ekebergkrug
 type: point
 events:
     -   date: !!null
-        name: Ekeberg Krug
-        source: src.de.Kb.1905
-    -   date: c1920
-        name: Ekebergkrug
-        source: src.de.Bfv.1928
-    -   date: c1925
-        name: Ekebergkrug (Uelsby)
-        source: src.de.Bfv.1933
-    -   date: de.lknr.kb
-        de.lknr: 47 178
-        source: src.de.Bfv.1938
-    -   date: c1935
-        name: Ekebergkrug
-        source: src.de.Bfv.1938
-
-    -   date: !!null
         site:
             path.de.9101: ekk
+records:
+    -   date: 1905-07
+        name: Ekeberg Krug
+        document: src.de.Kb.1905
+
+    -   date: 1927-12-09
+        name: Ekebergkrug
+        document: src.de.Bfv.1928
+    -   date: 1933-03-01
+        name: Ekebergkrug (Uelsby)
+        document: src.de.Bfv.1933
+    -   date: 1938-10-01
+        name: Ekebergkrug
+        de.lknr: 47 178
+        document: src.de.Bfv.1938
+
+    -   date: 1956-09
+        name: Ekebergkrug
+        category: de.Bf # left
+        document: src.de.DB.Hmb.Karte.1956
 
 
 ---
@@ -272,14 +367,17 @@ key: point.de.Ekebergdorf
 type: point
 events:
     -   date: !!null
-        name: Ekebergdorf
-        source: src.de.Kb.W1937
-    -   date: !!null
-        service: passenger
-
-    -   date: !!null
         site:
             path.de.9101: ekd
+records:
+    -   date: 1937-10-03
+        name: Ekebergdorf
+        document: src.de.Kb.W1937
+
+    -   date: 1956-09
+        name: Ekebergdorf
+        category: de.Hp # right
+        document: src.de.DB.Hmb.Karte.1956
 
 
 ---
@@ -287,18 +385,23 @@ key: point.de.Weißes-Roß-Schlesw
 type: point
 events:
     -   date: !!null
-        name: Weißes Roß
-        source: src.de.Kb.1905
-    -   date: de.lknr.kb
-        de.lknr: 47 180
-        source: src.de.Bfv.1938
-    -   date: c1938
-        name: Weißes Roß (Schlesw)
-        source: src.de.Bfv.1938
-
-    -   date: !!null
         site:
             path.de.9101: wei
+records:
+    -   date: 1905-07
+        name: Weißes Roß
+        document: src.de.Kb.1905
+
+    -   date: 1938-10-01
+        de.lknr: 47 180
+        name: Weißes Roß (Schlesw)
+        document: src.de.Bfv.1938
+
+    -   date: 1956-09
+        name: Weißes Roß
+        category: de.Bf # right
+        document: src.de.DB.Hmb.Karte.1956
+
 
 
 ---
@@ -306,15 +409,22 @@ key: point.de.Dammholm
 type: point
 events:
     -   date: !!null
-        name: Dammholm
-        source: src.de.Kb.W1937
-    -   date: de.lknr.kb
-        de.lknr: 47 181
-        source: src.de.Bfv.1938
-
-    -   date: !!null
         site:
             path.de.9101: dam
+records:
+    -   date: 1937-10-03
+        name: Dammholm
+        document: src.de.Kb.W1937
+
+    -   date: 1938-10-01
+        name: Dammholm
+        de.lknr: 47 181
+        document: src.de.Bfv.1938
+
+    -   date: 1956-09
+        name: Dammholm
+        category: de.Bf # left
+        document: src.de.DB.Hmb.Karte.1956
 
 
 ---
@@ -322,15 +432,22 @@ key: point.de.Havetoftloit
 type: point
 events:
     -   date: !!null
-        name: Havetoftloit
-        source: src.de.Kb.1905
-    -   date: de.lknr.kb
-        de.lknr: 47 182
-        source: src.de.Bfv.1938
-
-    -   date: !!null
         site:
             path.de.9101: hav
+records:
+    -   date: 1905-07
+        name: Havetoftloit
+        document: src.de.Kb.1905
+
+    -   date: 1938-10-01
+        name: Havetoftloit
+        de.lknr: 47 182
+        document: src.de.Bfv.1938
+
+    -   date: 1956-09
+        name: Havetoftloit
+        category: de.Bf # left
+        document: src.de.DB.Hmb.Karte.1956
 
 
 ---
@@ -338,15 +455,22 @@ key: point.de.Torsballig
 type: point
 events:
     -   date: !!null
-        name: Torsballig
-        source: src.de.Kb.1914
-    -   date: de.lknr.kb
-        de.lknr: 47 183
-        source: src.de.Bfv.1938
-
-    -   date: !!null
         site:
             path.de.9101: tor
+records:
+    -   date: 1914-07
+        name: Torsballig
+        document: src.de.Kb.1914
+
+    -   date: 1938-10-01
+        name: Torsballig
+        de.lknr: 47 183
+        document: src.de.Bfv.1938
+
+    -   date: 1956-09
+        name: Torsballig
+        category: de.Bf # right
+        document: src.de.DB.Hmb.Karte.1956
 
 
 ---
@@ -354,14 +478,12 @@ key: point.de.Satrup-Kirchenholz
 type: point
 events:
     -   date: !!null
-        name: Satrup-Kirchenholz
-        source: src.de.Kb.W1937
-    -   date: !!null    
-        service: passenger
-
-    -   date: !!null
         site:
             path.de.9101: kir
+records:
+    -   date: 1937-10-03
+        name: Satrup-Kirchenholz
+        document: src.de.Kb.W1937
 
 
 ---
@@ -369,34 +491,47 @@ key: point.de.Esmark
 type: point
 events:
     -   date: !!null
-        name: Esmark
-        source: src.de.Kb.W1937
-    -   date: de.lknr.kb
-        de.lknr: 47 185
-        source: src.de.Bfv.1938
-
-    -   date: !!null
         site:
             path.de.9101: esm
+records:
+    -   date: 1937-10-03
+        name: Esmark
+        document: src.de.Kb.W1937
+
+    -   date: 1938-10-01
+        name: Esmark
+        de.lknr: 47 185
+        document: src.de.Bfv.1938
+
+    -   date: 1956-09
+        name: Esmark
+        category: de.Bf # right
+        document: src.de.DB.Hmb.Karte.1956
 
 
 ---
 key: point.de.Satrup-Angeln-Schlesw
 type: point
-junction: True
 events:
-    -   date: !!null
-        name: Satrup
-        source: src.de.Kb.1905
-    -   date: c1930
-        name: Satrup (Angeln)
-        source: src.de.Bfv.1933
-    -   date: de.lknr.kb
-        de.lknr: 47 186
-        source: src.de.Bfv.1938
-
     -   date: !!null
         site:
             path.de.9101: sat
         connection: point.de.Satrup-Angeln-Flensb
+records:
+    -   date: 1905-07
+        name: Satrup
+        document: src.de.Kb.1905
+
+    -   date: 1933-03-01
+        name: Satrup (Angeln)
+        document: src.de.Bfv.1933
+    -   date: 1938-10-01
+        name: Satrup (Angeln)
+        de.lknr: 47 186
+        document: src.de.Bfv.1938
+
+    -   date: 1956-09
+        name: Satrup (Angeln)
+        category: de.Bf # left
+        document: src.de.DB.Hmb.Karte.1956
 
