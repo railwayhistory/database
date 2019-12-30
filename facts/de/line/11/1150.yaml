@@ -13,10 +13,6 @@ events:
         start: point.de.Lauenburg-Elbe-LGr
         region: org.de.l.sh
 
-    -   date: !!null
-        de.VzG: !!str 1150
-        source: src.de.DBAG.Geo-Strecke.2017
-
     #   Genehmigungen
     #
     -   date: 1845-02-28
@@ -61,11 +57,6 @@ events:
 
     #   Eigenschaften
     #
-    -   date: !!null
-        category: de.Hauptbahn
-        tracks: 1
-        gauge: 1435mm
-        source: src.de.DRG.1927
 
     #   Eigentümer etc.
     #
@@ -87,7 +78,16 @@ events:
         course:
             -   path.de.1720 lun abuc
             -   path.de.1150 a buc
+records:
+    -   date: 1927-03
+        category: de.Hauptbahn
+        tracks: 1
+        gauge: 1435mm
+        document: src.de.DRG.1927
 
+    -   date: 2017-01
+        de.VzG: !!str 1150
+        document: src.de.DBAG.Geo-Strecke.2017
 points:
     -   point.de.Lüneburg                           # de.1720
     -   point.de.Jäger
@@ -116,27 +116,33 @@ events:
         source:
             - src.de.Bfv.1944
             - src.de.DRG.Alt.Karte.1949
-    -   date: !!null
-        category: de.Bf
-        de.rang: IV
-        location:
-            line.de.1150: 134,10
-        name: Jäger
-        source: src.de.DRG.Alt.Karte.1949
-    -   date: !!null
-        service: goods
-    -   date: !!null
-        de.DS100: AJAE
-        source: src.de.DS100.1984
-    -   date: c1970
-        category: de.Anst
-        source: src.de.DS100.1984
     -   date: c1995
         status: closed
 
     -   date: !!null
         site:
             path.de.1150: jag
+records:
+    -   date: 1949
+        name: Jäger
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.1150: 134,10
+        source: src.de.DRG.Alt.Karte.1949
+    
+    -   date: 1956-09
+        name: Jäger
+        category: de.Hp
+        staff: full
+        location:
+            line.de.1150: 134,44 # left
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-06-03
+        name: Jäger
+        de.DS100: AJAE
+        category: de.Anst
+        document: src.de.DS100.1984
 
 
 ---
@@ -144,27 +150,24 @@ key: point.de.Adendorf
 type: point
 events:
     -   date: !!null
+        site:
+            path.de.1150: ade
+records:
+    -   date: 1905-07
         name: Adendorf
-        source: src.de.Kb.1905
-    -   date: !!null
+        document: src.de.Kb.1905
+
+    -   date: 1927-12-09
+        name: Adendorf
         de.lknr: 01 258
-        source: src.de.Bfv.1928
-    -   date: !!null
+        document: src.de.Bfv.1928
+    -   date: 1931-04-01
+        name: Adendorf
         category: de.Bf
         de.rang: IV
-        source: src.de.DRG.Alt.Karte.1931
-    -   date: de.lknr.30
-        de.lknr: 01 160
-        source: src.de.Bfv.1933
-    -   date: !!null
-        de.DS100: AADF
-        de.dstnr: !!str 011601
-        source: src.de.DS100.1984
-    -   date: c1970
-        service: none
-        source: src.de.DB.Hmb.Karte.1984
-
-records:
+        location:
+            line.de.1150: 135,93 # left
+        document: src.de.DRG.Alt.Karte.1931
     -   date: 1933-03-01
         name: Adendorf
         de.lknr: 01 160
@@ -174,6 +177,19 @@ records:
         goods: limited
         document: src.de.Bfv.1933
 
+    -   date: 1956-09
+        name: Adendorf
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.1150: 135,93 # left
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-06-03
+        name: Adendorf
+        category: de.Bf
+        de.DS100: AADF
+        de.dstnr: !!str 011601
+        document: src.de.DS100.1984
     -   date: 1984-11
         name: Adendorf
         category: de.Bf
@@ -196,47 +212,57 @@ records:
             line.de.1150: 135,926
         document: src.de.DBAG.Geo-Betriebsstelle.2017
 
-    -   date: !!null
-        site:
-            path.de.1150: ade
-
 
 ---
 key: point.de.Echem
 type: point
 events:
     -   date: !!null
-        name: Echem
-        source: src.de.Kb.1905
-    -   date: !!null
-        de.lknr: 01 257
-        source: src.de.Bfv.1928
-    -   date: c1930
-        de.rang: IV
-        source: src.de.Bfv.1933
-    -   date: de.lknr.30
-        de.lknr: 01 159
-        source: src.de.Bfv.1933
-    -   date: c1940
-        de.rang: III
-        source: src.de.Bfv.1944
-    -   date: !!null
-        de.DS100: AECH
-        de.dstnr: !!str 011593
-        source: src.de.DS100.1984
-    -   date: !!null
-        de.name16: Echem
-        PLC: DE12671
-        source: src.de.DBAG.BSV.2017
-    -   date: c2000
-        category: de.Hp
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
         connection: point.de.Echem-Kreisb
         site:
             path.de.1150: ech
 records:
+    -   date: 1905-07
+        name: Echem
+        document: src.de.Kb.1905
+
+    -   date: 1927-12-09
+        name: Echem
+        de.lknr: 01 257
+        document: src.de.Bfv.1928
+    -   date: 1931-04-01
+        name: Echem
+        category: de.Bf
+        de.rang: III
+        location:
+            line.de.1150: 144,14 # left
+        document: src.de.DRG.Alt.Karte.1931
+    -   date: 1933-03-01
+        name: Echem
+        category: de.Bf
+        de.rang: IV
+        de.lknr: 01 159
+        document: src.de.Bfv.1933
+    -   date: 1944-06-01
+        name: Echem
+        category: de.Bf
+        de.rang: III
+        de.lknr: 01 159
+        document: src.de.Bfv.1944
+
+    -   date: 1956-09
+        name: Echem
+        category: de.Bf
+        de.rang: III
+        location:
+            line.de.1150: 144,14 # left
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-06-03
+        name: Echem
+        category: de.Bf
+        de.DS100: AECH
+        de.dstnr: !!str 011593
+        document: src.de.DS100.1984
     -   date: 1984-11
         name: Echem
         category: de.Bf
@@ -244,6 +270,14 @@ records:
             line.de.1150: 144,14 # left
         document: src.de.DB.Hmb.Karte.1984
 
+    -   date: 2017-01
+        name: Echem
+        de.DS100: AECH
+        de.dstnr: !!str 011593
+        de.name16: Echem
+        PLC: DE12671
+        category: de.Hp
+        document: src.de.DBAG.BSV.2017
     -   date: 2017-01
         location:
             line.de.1150: 144,140
@@ -254,42 +288,63 @@ records:
 key: point.de.Hohnstorf
 type: point
 events:
-    -   date: !!null
-        name: Hohnstorf
-        source: src.de.Kb.1905
-    -   date: !!null
-        de.lknr: 01 256
-        source: src.de.Bfv.1928
-    -   date: !!null
-        location:
-            line.de.1150: 147,85
-        category: de.Hp
-        source: src.de.DRG.Alt.Karte.1931
-    -   date: c1930
-        category: de.Bf
-        de.rang: IV
-        source: src.de.Bfv.1933
-    -   date: de.lknr.30
-        de.lknr: 01 158
-        source: src.de.Bfv.1933
-    -   date: c1935
-        category: de.Hst
-        source: src.de.Bfv.1938
-    -   date: !!null
-        de.DS100: AHF
-        de.dstnr: !!str 011585
-        source: src.de.DS100.1984
-    -   date: c1970
-        category: de.Hp
-        staff: none
-        source: src.de.DS100.1984
     -   date: 1984?
         status: closed
-        source: src.de.DB.Hmb.Karte.1984
+        source:
+            -   src.de.DS100.1984
+            -   src.de.DB.Hmb.Karte.1984
 
     -   date: !!null
         site:
             path.de.1150: hoh
+records:
+    -   date: 1905-07
+        name: Hohnstorf
+        document: src.de.Kb.1905
+
+    -   date: 1927-12-09
+        name: Hohnstorf
+        de.lknr: 01 256
+        document: src.de.Bfv.1928
+    -   date: 1931-04-01
+        name: Hohnstorf
+        category: de.Hp
+        location:
+            line.de.1150: 147,85 # left
+        document: src.de.DRG.Alt.Karte.1931
+    -   date: 1933-03-01
+        name: Hohnstorf
+        category: de.Bf
+        de.rang: IV
+        de.lknr: 01 158
+        document: src.de.Bfv.1933
+    -   date: 1935-01-01
+        name: Hohnstorf
+        category: de.Hp
+        staff: full
+        location:
+            line.de.1150: 147,85 # left
+        document: src.de.DRG.Alt.Karte.1935
+    -   date: 1938-10-01
+        name: Hohnstorf
+        category: de.Hst
+        de.lknr: 01 158
+        document: src.de.Bfv.1938
+
+    -   date: 1956-09
+        name: Hohnstorf
+        category: de.Hp
+        staff: full
+        location:
+            line.de.1150: 147,85 # left
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-06-03
+        name: Hohnstorf
+        de.DS100: AHF
+        de.dstnr: !!str 011585
+        category: de.Hp
+        staff: none
+        document: src.de.DS100.1984
 
 
 # 147,85 Baubezirksgrenze src.de.DB.Hmb.Karte.1984
@@ -301,17 +356,17 @@ type: point
 subtype: border
 events:
     -   date: !!null
+        site:
+            path.de.1150: lag
+records:
+    -   date: 2017-01
         de.DS100: AQLA
         name: Lauenburg (Elbe) SH/NI
         de.name16: Lauenburg NI/SH
         category: de.LGr
         PLC: DE16116
         de.dstnr: !!str 103965
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        site:
-            path.de.1150: lag
+        document: src.de.DBAG.BSV.2017
 
 
 ---
@@ -319,34 +374,44 @@ key: point.de.Lauenburg-Elbe
 type: point
 events:
     -   date: !!null
-        name: Lauenburg (Elbe)
-        source: src.de.Kb.1905
-    -   date: !!null
-        de.lknr: 01 255
-        source: src.de.Bfv.1928
-    -   date: de.lknr.30
-        category: de.Bf
-        de.rang: III
-        de.lknr: 01 157
-        source: src.de.Bfv.1933
-    -   date: !!null
-        de.DS100: ALAU
-        de.dstnr: !!str 011577
-        source: src.de.DS100.1984
-    -   date: !!null
-        de.name16: Lauenburg (Elbe)
-        PLC: DE16115
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.1150: 149,01
-        source: src.de.DRG.Alt.Karte.1931
-
-    -   date: !!null
         site:
             path.de.1150: lau
 records:
+    -   date: 1905-07
+        name: Lauenburg (Elbe)
+        document: src.de.Kb.1905
+
+    -   date: 1927-12-09
+        name: Lauenburg (Elbe)
+        de.lknr: 01 255
+        document: src.de.Bfv.1928
+    -   date: 1931-04-01
+        name: Lauenburg (Elbe)
+        category: de.Bf
+        de.rang: III
+        location:
+            line.de.1150: 149,01 # left
+        document: src.de.DRG.Alt.Karte.1931
+    -   date: 1933-03-01
+        name: Lauenburg (Elbe)
+        category: de.Bf
+        de.rang: III
+        de.lknr: 01 157
+        document: src.de.Bfv.1933
+
+    -   date: 1956-09
+        name: Lauenburg (Elbe)
+        category: de.Bf
+        de.rang: II
+        location:
+            line.de.1150: 148,54 # left
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-06-03
+        name: Lauenburg (Elbe)
+        category: de.Bf
+        de.DS100: ALAU
+        de.dstnr: !!str 011577
+        document: src.de.DS100.1984
     -   date: 1984-11
         name: Lauenburg (Elbe)
         category: de.Bf
@@ -354,6 +419,14 @@ records:
             line.de.1150: 148,54 # left
         document: src.de.DB.Hmb.Karte.1984
 
+    -   date: 2017-01
+        name: Lauenburg (Elbe)
+        category: de.Bf
+        de.DS100: ALAU
+        de.dstnr: !!str 011577
+        de.name16: Lauenburg (Elbe)
+        PLC: DE16115
+        document: src.de.DBAG.BSV.2017
     -   date: 2017-01
         location:
             line.de.1150: 148,540
@@ -364,22 +437,26 @@ records:
 key: point.de.Dalldorf-Kreuz
 type: point
 events:
-    -   date: !!null
-        category: de.Bk
-        location:
-            line.de.1150: 155,9
-        name: Dalldorf Kreuz
-        source: src.de.DRG.Alt.Karte.1931
-    -   date: c1940
-        location:
-            line.de.1150: 155,19
-        source: src.de.DRG.Alt.Karte.1949
     -   date: c1970
         status: closed
 
     -   date: !!null
         site:
             path.de.1150: dak
+records:
+    -   date: 1931-04-01
+        name: Dalldorf Kreuz
+        category: de.Bk
+        location:
+            line.de.1150: 155,9 # left
+        document: src.de.DRG.Alt.Karte.1931
+
+    -   date: 1956-09
+        name: Dalldorf Kreuz
+        category: de.Bk
+        location:
+            line.de.1150: 155,19 # left
+        document: src.de.DB.Hmb.Karte.1956
 
 
 ---
@@ -387,47 +464,51 @@ key: point.de.Dalldorf
 type: point
 events:
     -   date: !!null
-        name: Dalldorf
-        source: src.de.Kb.1905
-    -   date: !!null
-        de.lknr: 01 376
-        service: passenger
-        source: src.de.Bfv.1928
-    -   date: !!null
-        category: de.Hp
-        source: src.de.Bfv.1933
-    -   date: de.lknr.30
-        de.lknr: 01 156
-        source: src.de.Bfv.1933
-    -   date: c1935
-        category: de.Bf
-        de.rang: IV
-        source: src.de.Bfv.1938
-    -   date: !!null
-        de.DS100: ADA
-        de.dstnr: !!str 011569
-        source: src.de.DS100.1984
-    -   date: !!null
-        de.name16: Dalldorf
-        PLC: DE12053
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.1150: 156,66
-        source: src.de.DRG.Alt.Karte.1931
-    -   date: c1970
-        location:
-            line.de.1150: 155,898
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
-
-    -   date: !!null
         site:
             path.de.1150: dal
     -   date: c1970
         site:
             path.de.1150: dan
 records:
+    -   date: 1905-07
+        name: Dalldorf
+        document: src.de.Kb.1905
+
+    -   date: 1927-12-09
+        name: Dalldorf
+        de.lknr: 01 376
+        service: passenger
+        document: src.de.Bfv.1928
+    -   date: 1931-04-01
+        name: Dalldorf
+        category: de.Hp
+        location:
+            line.de.1150: 156,66 # right
+        document: src.de.DRG.Alt.Karte.1931
+    -   date: 1933-03-01
+        name: Dalldorf
+        category: de.Hp
+        de.lknr: 01 156
+        document: src.de.Bfv.1933
+    -   date: 1938-10-01
+        name: Dalldorf
+        category: de.Bf
+        de.rang: IV
+        document: src.de.Bfv.1938
+
+    -   date: 1956-09
+        name: Dalldorf
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.1150: 156,66 # right
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-06-03
+        name: Dalldorf
+        category: de.Bf
+        de.DS100: ADA
+        de.dstnr: !!str 011569
+        document: src.de.DS100.1984
     -   date: 1984-11
         name: Dalldorf
         category: de.Bf
@@ -436,40 +517,75 @@ records:
             line.de.1150: 155,90 # right
         document: src.de.DB.Hmb.Karte.1984
 
+    -   date: 2017-01
+        de.name16: Dalldorf
+        PLC: DE12053
+        name: Dalldorf
+        category: de.Bf
+        de.DS100: ADA
+        de.dstnr: !!str 011569
+        document: src.de.DBAG.BSV.2017
+    -   date: 2017-01
+        location:
+            line.de.1150: 155,898
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+# 158,50 BA-Grenze src.de.DRG.Alt.Karte.1931, src.de.DRG.Alt.Karte.1935
+
 
 ---
 key: point.de.Witzeeze
 type: point
 events:
-    -   date: !!null
-        name: Witzeeze
-        source: src.de.Kb.1905
-    -   date: !!null
-        de.lknr: 01 375
-        service: passenger
-        source: src.de.Bfv.1928
-    -   date: !!null
-        location:
-            line.de.1150: 158,75
-        category: de.Hp
-        source: src.de.DRG.Alt.Karte.1931
-    -   date: de.lknr.30
-        de.lknr: 01 155
-        source: src.de.Bfv.1933
-    -   date: !!null
-        de.DS100: AWTZ
-        de.dstnr: !!str 011551
-        source: src.de.DS100.1984
-    -   date: c1970
-        staff: none
-        source: src.de.DS100.1984
     -   date: 1984?
         status: closed
-        source: src.de.DB.Hmb.Karte.1984
+        source:
+            -   src.de.DS100.1984
+            -   src.de.DB.Hmb.Karte.1984
 
     -   date: !!null
         site:
             path.de.1150: wit
+records:
+    -   date: 1905-07
+        name: Witzeeze
+        document: src.de.Kb.1905
+
+    -   date: 1927-12-09
+        name: Witzeeze
+        de.lknr: 01 375
+        service: passenger
+        document: src.de.Bfv.1928
+    -   date: 1931-04-01
+        name: Witzeeze
+        category: de.Hp
+        location:
+            line.de.1150: 158,75 # right
+        document: src.de.DRG.Alt.Karte.1931
+    -   date: 1933-03-01
+        name: Witzeeze
+        category: de.Hp
+        de.lknr: 01 155
+        document: src.de.Bfv.1933
+
+    -   date: 1956-09
+        name: Witzeeze
+        category: de.Hp
+        staff: full
+        location:
+            line.de.1150: 158,75 # right
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-06-03
+        name: Witzeeze
+        category: de.Hp
+        de.DS100: AWTZ
+        de.dstnr: !!str 011551
+        staff: none
+        document: src.de.DS100.1984
+
+
+# 160,20 BA-Grenze src.de.DB.Hmb.Karte.1956
 
 
 #    point.de.Büchen                             de.6100

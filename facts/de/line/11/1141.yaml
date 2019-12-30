@@ -9,10 +9,6 @@ events:
             - org.de
             - org.de.l.sh
 
-    -   date: !!null
-        de.VzG: !!str 1141
-        source: src.de.DBAG.Geo-Strecke.2017
-
     #   Genehmigung
     #
     -   date: 1883-05-21
@@ -74,17 +70,25 @@ events:
 
     #   Eigenschaften
     #
-    -   date: !!null
-        category: de.Nebenbahn
-        tracks: 1
-        gauge: 1435mm
-        source: src.de.DRG.1927
 
     #   Verlauf
     #
     -   date: !!null
         course: path.de.1141 swa old
+records:
+    -   date: 1927-03
+        category: de.Nebenbahn
+        tracks: 1
+        gauge: 1435mm
+        document: src.de.DRG.1927
 
+    -   date: 1984-11
+        status: closed
+        document: src.de.DB.Hmb.Karte.1984
+
+    -   date: 2017-01
+        de.VzG: !!str 1141
+        source: src.de.DBAG.Geo-Strecke.2017
 points:
     -   point.de.Schwarzenbek                       # de.6100
     -   point.de.Havekost
@@ -108,24 +112,29 @@ points:
 #    point.de.Schwarzenbek                       de.6100
 
 
+# 250,1 BA-Grenze src.de.DRG.Alt.Karte.1931, src.de.DRG.Alt.Karte.1935
+
+
 ---
 key: point.de.Havekost
 type: point
 events:
     -   date: c1950
         status: open
-        name: Havekost
-        category: de.Hp
-        staff: none
-        location:
-            line.de.1141: 253,04
-        source: src.de.DB.Hmb.Karte.1956
     -   date: 1976-05-30?
         status: closed
 
     -   date: !!null
         site:
             path.de.1141: hav
+records:
+    -   date: 1956-09
+        name: Havekost
+        category: de.Hp
+        staff: none
+        location:
+            line.de.1141: 253,04 # left
+        document: src.de.DB.Hmb.Karte.1956
 
 
 ---
@@ -133,35 +142,45 @@ key: point.de.Möhnsen
 type: point
 events:
     -   date: !!null
-        name: Möhnsen
-        source: src.de.Kb.1905
-    -   date: !!null
-        de.lknr: 01 252
-        source: src.de.Bfv.1928
-    -   date: !!null
-        category: de.Bf
-        de.rang: IV
-        source: src.de.Bfv.1933
-    -   date: de.lknr.30
-        de.lknr: 01 335
-        source: src.de.Bfv.1933
-    -   date: c1950
-        category: de.Hst
-        staff: none
-        source: src.de.DB.Hmb.Karte.1956
-    -   date: !!null
-        de.DS100: AMOE
-        de.dstnr: !!str 013359
-        source: src.de.DS100.1984
-
-    -   date: !!null
-        location:
-            line.de.1141: 255,54
-        source: src.de.DRG.Alt.Karte.1949
-
-    -   date: !!null
         site:
             path.de.1141: moh
+records:
+    -   date: 1905-07
+        name: Möhnsen
+        document: src.de.Kb.1905
+
+    -   date: 1927-12-09
+        name: Möhnsen
+        de.lknr: 01 252
+        document: src.de.Bfv.1928
+    -   date: 1931-04-01
+        name: Möhnsen
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.1141: 255,54 # right
+        document: src.de.DRG.Alt.Karte.1931
+    -   date: 1933-03-01
+        name: Möhnsen
+        category: de.Bf
+        de.rang: IV
+        de.lknr: 01 335
+        document: src.de.Bfv.1933
+
+    -   date: c1950
+        name: Möhnsen
+        category: de.Hst
+        staff: none
+        location:
+            line.de.1141: 255,54 # right
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: !!null
+        name: Möhnsen
+        category: de.Hst
+        staff: none
+        de.DS100: AMOE
+        de.dstnr: !!str 013359
+        document: src.de.DS100.1984
 
 
 ---
@@ -170,18 +189,20 @@ type: point
 events:
     -   date: c1950
         status: open
-        name: Dahmker
-        category: de.Hp
-        staff: none
-        location:
-            line.de.1141: 259,28
-        source: src.de.DB.Hmb.Karte.1956
     -   date: 1976-05-30?
         status: closed
 
     -   date: !!null
         site:
             path.de.1141: dah
+records:
+    -   date: 1956-09
+        name: Dahmker
+        category: de.Hp
+        staff: none
+        location:
+            line.de.1141: 259,28 # left
+        document: src.de.DB.Hmb.Karte.1956
 
 
 ---
@@ -190,18 +211,20 @@ type: point
 events:
     -   date: c1950
         status: open
-        name: Hamfelde
-        category: de.Hp
-        staff: none
-        location:
-            line.de.1141: 260,62
-        source: src.de.DB.Hmb.Karte.1956
     -   date: 1976-05-30?
         status: closed
 
     -   date: !!null
         site:
             path.de.1141: ham
+records:
+    -   date: 1956-09
+        name: Hamfelde
+        category: de.Hp
+        staff: none
+        location:
+            line.de.1141: 260,62 # left
+        document: src.de.DB.Hmb.Karte.1956
 
 
 ---
@@ -209,30 +232,46 @@ key: point.de.Vorburg-Trittau
 type: point
 events:
     -   date: !!null
-        name: Vorburg-Trittau
-        source: src.de.Kb.1905
-    -   date: !!null
-        de.lknr: 01 343
-        service: passenger
-        source: src.de.Bfv.1928
-    -   date: !!null
-        category: de.Hp
-        source: src.de.Bfv.1933
-    -   date: de.lknr.30
-        de.lknr: 01 334
-        source: src.de.Bfv.1933
-    -   date: c1930
-        staff: agent
-        source: src.de.Bfv.1933
-
-    -   date: !!null
-        location:
-            line.de.1141: 261,91
-        source: src.de.DRG.Alt.Karte.1949
-
-    -   date: !!null
         site:
             path.de.1141: vor
+records:
+    -   date: 1905-07
+        name: Vorburg-Trittau
+        document: src.de.Kb.1905
+
+    -   date: 1927-12-09
+        name: Vorburg-Trittau
+        de.lknr: 01 343
+        service: passenger
+        document: src.de.Bfv.1928
+    -   date: 1931-04-01
+        name: Vorburg-Trittau
+        category: de.Hp
+        location:
+            line.de.1141: 261,91 # left
+        document: src.de.DRG.Alt.Karte.1931
+    -   date: 1933-03-01
+        name: Vorburg-Trittau
+        category: de.Hp
+        service: passenger
+        staff: agent
+        de.lknr: 01 334
+        document: src.de.Bfv.1933
+    -   date: 1935-01-01
+        name: Vorburg-Trittau
+        category: de.Hp
+        staff: full
+        location:
+            line.de.1141: 261,91 # left
+        document: src.de.DRG.Alt.Karte.1935
+
+    -   date: 1956-09
+        name: Vorburg-Trittau
+        category: de.Hp
+        staff: full
+        location:
+            line.de.1141: 261,91 # left
+        document: src.de.DB.Hmb.Karte.1956
 
 
 ---
@@ -240,28 +279,39 @@ key: point.de.Trittau
 type: point
 events:
     -   date: !!null
-        name: Trittau
-        source: src.de.Kb.1905
-    -   date: !!null
-        de.lknr: 01 251
-        source: src.de.Bfv.1928
-    -   date: !!null
-        category: de.Bf
-        de.rang: III
-        source: src.de.Bfv.1933
-    -   date: de.lknr.30
-        de.lknr: 01 333
-        source: src.de.Bfv.1933
-
-    -   date: !!null
-        location:
-            line.de.1141: 263,69
-        source: src.de.DRG.Alt.Karte.1945
-
-    -   date: !!null
         connection: point.de.Trittau-Kreisb
         site:
             path.de.1141: tri
+records:
+    -   date: 1905-07
+        name: Trittau
+        document: src.de.Kb.1905
+
+    -   date: 1927-12-09
+        name: Trittau
+        de.lknr: 01 251
+        document: src.de.Bfv.1928
+    -   date: 1931-04-01
+        name: Trittau
+        category: de.Bf
+        de.rang: III
+        location:
+            line.de.1141: 263,69 # left
+        document: src.de.DRG.Alt.Karte.1931
+    -   date: 1933-03-01
+        name: Trittau
+        category: de.Bf
+        de.rang: III
+        de.lknr: 01 333
+        document: src.de.Bfv.1933
+
+    -   date: 1956-09
+        name: Trittau
+        category: de.Bf
+        de.rang: III
+        location:
+            line.de.1141: 263,69 # left
+        document: src.de.DB.Hmb.Karte.1956
 
 
 ---
@@ -270,18 +320,20 @@ type: point
 events:
     -   date: c1950
         status: open
-        name: Grönwohld
-        category: de.Hp
-        staff: none
-        location:
-            line.de.1141: 266,02
-        source: src.de.DB.Hmb.Karte.1956
     -   date: 1976-05-30?
         status: closed
 
     -   date: !!null
         site:
             path.de.1141: gro
+records:
+    -   date: 1956-09
+        name: Grönwohld
+        category: de.Hp
+        staff: none
+        location:
+            line.de.1141: 266,02 # left
+        document: src.de.DB.Hmb.Karte.1956
 
 
 ---
@@ -289,36 +341,53 @@ key: point.de.Dwerkathen
 type: point
 events:
     -   date: !!null
-        name: Lütjensee
-        source: src.de.Kb.1905
-    -   date: !!null
-        de.lknr: 01 250
-        source: src.de.Bfv.1928
-    -   date: c1920
-        name: Dwerkathen
-        source: src.de.Bfv.1928
-    -   date: !!null
-        category: de.Bf
-        de.rang: IV
-        source: src.de.Bfv.1933
-    -   date: de.lknr.30
-        de.lknr: 01 332
-        source: src.de.Bfv.1933
-    -   date: c1930
-        staff: agent
-        source: src.de.Bfv.1933
-    -   date: c1935
-        staff: full
-        source: src.de.Bfv.1938
-
-    -   date: !!null
-        location:
-            line.de.1141: 268,76
-        source: src.de.DRG.Alt.Karte.1945
-
-    -   date: !!null
         site:
             path.de.1141: dwe
+records:
+    -   date: 1905-07
+        name: Lütjensee
+        document: src.de.Kb.1905
+
+    -   date: 1927-12-09
+        name: Dwerkathen
+        de.lknr: 01 250
+        document: src.de.Bfv.1928
+    -   date: 1931-04-01
+        name: Dwerkathen
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.1141: 268,76 # left
+        document: src.de.DRG.Alt.Karte.1931
+    -   date: 1933-03-01
+        name: Dwerkathen
+        category: de.Bf
+        de.rang: IV
+        de.lknr: 01 332
+        staff: agent
+        document: src.de.Bfv.1933
+    -   date: 1935-01-01
+        name: Dwerkathen
+        category: de.Hst
+        staff: full
+        location:
+            line.de.1141: 268,76 # left
+        document: src.de.DRG.Alt.Karte.1935
+    -   date: 1938-10-01
+        name: Dwerkathen
+        category: de.Bf
+        de.rang: IV
+        de.lknr: 01 332
+        staff: full
+        document: src.de.Bfv.1938
+
+    -   date: 1956-09
+        name: Dwerkathen
+        category: de.Hst
+        staff: agent
+        location:
+            line.de.1141: 268,76 # right
+        document: src.de.DB.Hmb.Karte.1956
 
 
 ---
@@ -326,30 +395,47 @@ key: point.de.Sprenge
 type: point
 events:
     -   date: !!null
-        name: Sprenge
-        source: src.de.Kb.1905
-    -   date: !!null
-        de.lknr: 01 372
-        service: passenger
-        source: src.de.Bfv.1928
-    -   date: !!null
-        category: de.Hp
-        source: src.de.Bfv.1933
-    -   date: de.lknr.30
-        de.lknr: 01 331
-        source: src.de.Bfv.1933
-    -   date: c1930
-        staff: agent
-        source: src.de.Bfv.1933
-
-    -   date: !!null
-        location:
-            line.de.1141: 271,98
-        source: src.de.DRG.Alt.Karte.1945
-
-    -   date: !!null
         site:
             path.de.1141: spr
+records:
+    -   date: 1905-07
+        name: Sprenge
+        document: src.de.Kb.1905
+
+    -   date: 1927-12-09
+        name: Sprenge
+        de.lknr: 01 372
+        service: passenger
+        document: src.de.Bfv.1928
+    -   date: 1931-04-01
+        name: Sprenge
+        category: de.Hp
+        location:
+            line.de.1141: 271,98 # left
+        document: src.de.DRG.Alt.Karte.1931
+    -   date: 1933-03-01
+        name: Sprenge
+        de.lknr: 01 372
+        service: passenger
+        category: de.Hp
+        de.lknr: 01 331
+        staff: agent
+        document: src.de.Bfv.1933
+    -   date: 1935-01-01
+        name: Sprenge
+        category: de.Hp
+        staff: full
+        location:
+            line.de.1141: 271,98 # left
+        document: src.de.DRG.Alt.Karte.1935
+
+    -   date: 1956-09
+        name: Sprenge
+        category: de.Hp
+        staff: none
+        location:
+            line.de.1141: 271,98 # left
+        document: src.de.DB.Hmb.Karte.1956
 
 
 ---
@@ -357,34 +443,45 @@ key: point.de.Mollhagen
 type: point
 events:
     -   date: !!null
-        name: Mollhagen
-        source: src.de.Kb.1905
-    -   date: !!null
-        de.lknr: 01 249
-        source: src.de.Bfv.1928
-    -   date: !!null
-        category: de.Bf
-        de.rang: IV
-        source: src.de.Bfv.1933
-    -   date: de.lknr.30
-        de.lknr: 01 330
-        source: src.de.Bfv.1933
-    -   date: !!null
-        de.DS100: AMH
-        de.dstnr: !!str 013300
-        source: src.de.DS100.1984
-    -   date: c1970
-        staff: none
-        source: src.de.DS100.1984
-
-    -   date: !!null
-        location:
-            line.de.1141: 273,69
-        source: src.de.DRG.Alt.Karte.1945
-
-    -   date: !!null
         site:
             path.de.1141: mol
+records:
+    -   date: 1905-07
+        name: Mollhagen
+        document: src.de.Kb.1905
+
+    -   date: 1927-12-09
+        name: Mollhagen
+        de.lknr: 01 249
+        document: src.de.Bfv.1928
+    -   date: 1931-04-01
+        name: Mollhagen
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.1141: 273,69 # left
+        document: src.de.DRG.Alt.Karte.1931
+    -   date: 1933-03-01
+        name: Mollhagen
+        category: de.Bf
+        de.rang: IV
+        de.lknr: 01 330
+        document: src.de.Bfv.1933
+
+    -   date: 1956-09
+        name: Mollhagen
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.1141: 273,69 # left
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-06-03
+        name: Mollhagen
+        category: de.Bf
+        de.DS100: AMH
+        de.dstnr: !!str 013300
+        staff: none
+        document: src.de.DS100.1984
 
 
 ---
@@ -392,35 +489,52 @@ key: point.de.Barkhorst
 type: point
 events:
     -   date: !!null
-        name: Barkhorst
-        source: src.de.Kb.1905
-    -   date: !!null
-        de.lknr: 01 248
-        source: src.de.Bfv.1928
-    -   date: !!null
-        category: de.Bf
-        de.rang: IV
-        source: src.de.Bfv.1933
-    -   date: de.lknr.30
-        de.lknr: 01 329
-        source: src.de.Bfv.1933
-    -   date: !!null
-        de.DS100: ABAR
-        de.dstnr: !!str 013292
-        source: src.de.DS100.1984
-    -   date: c1970
-        category: de.Hst
-        staff: none
-        source: src.de.DS100.1984
-
-    -   date: !!null
-        location:
-            line.de.1141: 277,62
-        source: src.de.DRG.Alt.Karte.1945
-
-    -   date: !!null
         site:
             path.de.1141: bar
+records:
+    -   date: 1905-07
+        name: Barkhorst
+        document: src.de.Kb.1905
+
+    -   date: 1927-12-09
+        name: Barkhorst
+        de.lknr: 01 248
+        document: src.de.Bfv.1928
+    -   date: 1931-04-01
+        name: Barkhorst
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.1141: 277,62 # left
+        document: src.de.DRG.Alt.Karte.1931
+    -   date: 1933-03-01
+        name: Barkhorst
+        category: de.Bf
+        de.rang: IV
+        de.lknr: 01 329
+        document: src.de.Bfv.1933
+    -   date: 1935-01-01
+        name: Barkhorst
+        category: de.Hst
+        staff: full
+        location:
+            line.de.1141: 277,62 # left
+        document: src.de.DRG.Alt.Karte.1931
+
+    -   date: 1956-09
+        name: Barkhorst
+        category: de.Hst
+        staff: agent
+        location:
+            line.de.1141: 277,62 # left
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-06-03
+        name: Barkhorst
+        de.DS100: ABAR
+        de.dstnr: !!str 013292
+        category: de.Hst
+        staff: none
+        document: src.de.DS100.1984
 
 
 ---
@@ -428,40 +542,60 @@ key: point.de.Rohlfshagen
 type: point
 events:
     -   date: !!null
-        name: Rohlfshagen
-        source: src.de.Kb.1905
-    -   date: !!null
-        de.lknr: 01 247
-        source: src.de.Bfv.1928
-    -   date: !!null
-        category: de.Bf
-        de.rang: IV
-        source: src.de.Bfv.1933
-    -   date: de.lknr.30
-        de.lknr: 01 328
-        source: src.de.Bfv.1933
-    -   date: c1930
-        staff: agent
-        source: src.de.Bfv.1933
-    -   date: c1935
-        staff: full
-        source: src.de.Bfv.1938
-    -   date: !!null
-        de.DS100: ARG
-        de.dstnr: !!str 013284
-        source: src.de.DS100.1984
-    -   date: c1970
-        staff: none
-        source: src.de.DS100.1984
-
-    -   date: !!null
-        location:
-            line.de.1141: 280,32
-        source: src.de.DRG.Alt.Karte.1945
-
-    -   date: !!null
         site:
             path.de.1141: roh
+records:
+    -   date: 1905-07
+        name: Rohlfshagen
+        document: src.de.Kb.1905
+
+    -   date: 1927-12-09
+        name: Rohlfshagen
+        de.lknr: 01 247
+        document: src.de.Bfv.1928
+    -   date: 1931-04-01
+        name: Rohlfshagen
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.1141: 280,32 # left
+        document: src.de.DRG.Alt.Karte.1931
+    -   date: 1933-03-01
+        name: Rohlfshagen
+        category: de.Bf
+        de.rang: IV
+        de.lknr: 01 328
+        staff: agent
+        document: src.de.Bfv.1933
+    -   date: 1935-01-01
+        name: Rohlfshagen
+        category: de.Hst
+        staff: full
+        location:
+            line.de.1141: 280,32 # left
+        document: src.de.DRG.Alt.Karte.1931
+    -   date: 1938-10-01
+        name: Rohlfshagen
+        category: de.Bf
+        de.rang: IV
+        de.lknr: 01 328
+        staff: full
+        document: src.de.Bfv.1938
+
+    -   date: 1956-09
+        name: Rohlfshagen
+        category: de.Hst
+        staff: agent
+        location:
+            line.de.1141: 280,32 # left
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-06-03
+        name: Rohlfshagen
+        category: de.Hst
+        de.DS100: ARG
+        de.dstnr: !!str 013284
+        staff: none
+        document: src.de.DS100.1984
 
 
 ---
@@ -470,18 +604,20 @@ type: point
 events:
     -   date: c1950
         status: open
-        name: Rümpel
-        category: de.Hp
-        staff: none
-        location:
-            line.de.1141: 282,14
-        source: src.de.DB.Hmb.Karte.1956
     -   date: 1976-05-30?
         status: closed
 
     -   date: !!null
         site:
             path.de.1141: rum
+records:
+    -   date: 1956-09
+        name: Rümpel
+        category: de.Hp
+        staff: none
+        location:
+            line.de.1141: 282,14 # left
+        document: src.de.DB.Hmb.Karte.1956
 
 
 #    point.de.Bad-Oldesloe                       de.1120

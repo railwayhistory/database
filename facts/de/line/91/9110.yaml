@@ -9,10 +9,6 @@ events:
             - org.de
             - org.de.l.ni
 
-    -   date: !!null
-        de.VzG: !!str 9110
-        source: src.de.DBAG.Geo-Strecke.2017
-
     #   Genehmigungen
     #
 
@@ -41,13 +37,6 @@ events:
 
     #   Eigenschaften
     #
-    -   date: !!null
-        category: de.Kleinbahn
-        tracks: 1
-        gauge: 1435mm
-        source: src.de.WP.Bahnstrecke-Lueneburg-Bleckede
-    -   date: c1950
-        category: de.Nebenbahn
 
     #   Eigentümer etc.
     #
@@ -66,7 +55,28 @@ events:
     #
     -   date: !!null
         course: path.de.9110 lun ble
+records:
+    -   date: 1931-04-01
+        category: de.Kleinbahn
+        gauge: 1435mm
+        tracks: 1
+        document: src.de.DRG.Alt.Karte.1931
 
+    -   date: 1956-09
+        category: de.Nebenbahn
+        gauge: 1435mm
+        tracks: 1
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-11
+        category: de.Nebenbahn
+        gauge: 1435mm
+        tracks: 1
+        passenger: none
+        document: src.de.DB.Hmb.Karte.1984
+
+    -   date: 2017-01
+        de.VzG: !!str 9110
+        document: src.de.DBAG.Geo-Strecke.2017
 points:
     -   point.de.Lüneburg-Nord
     -   point.de.Lüneburg-Nord-Gr
@@ -88,40 +98,51 @@ key: point.de.Lüneburg-Nord
 type: point
 events:
     -   date: !!null
-        name: Lüneburg
-        source: src.de.Kb.1905
-    -   date: de.lknr.kb
-        de.lknr: 40 314
-        source: src.de.Bfv.1938
-    -   date: c1938
-        name: Lüneburg Kleinb
-        source: src.de.Bfv.1938
-    -   date: c1940
-        name: Lüneburg Nord
-        source: src.de.Bfv.1944
-    -   date: !!null
-        de.DS100: HLBN
-        de.dstnr: !!str 520015
-        source: src.de.DS100.1984
-    -   date: !!null
-        category: de.Bf
-        de.name16: Lüneburg Nord
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.9110: 0,0
-        source: src.de.DB.Hmb.Karte.1984
-
-    -   date: !!null
         connection: point.de.Lüneburg
         site:
             path.de.9110: lun
+records:
+    -   date: 1905-07
+        name: Lüneburg
+        document: src.de.Kb.1905
+
+    -   date: 1938-10-01
+        de.lknr: 40 314
+        name: Lüneburg Kleinb
+        document: src.de.Bfv.1938
+    -   date: 1944-06-01
+        name: Lüneburg Nord
+        de.lknr: 40 314
+        document: src.de.Bfv.1944
+
+    -   date: 1956-09
+        name: Lüneburg Nord
+        category: de.Bf
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-06-03
+        name: Lüneburg Nord
+        de.DS100: HLBN
+        de.dstnr: !!str 520015
+        document: src.de.DS100.1984
+    -   date: 1984-11
+        name: Lüneburg Nord
+        location:
+            line.de.9110: 0,0 # left
+        document: src.de.DB.Hmb.Karte.1984
+
+    -   date: 2017-01
+        name: Lüneburg Nord
+        de.DS100: HLBN
+        de.dstnr: !!str 520015
+        category: de.Bf
+        de.name16: Lüneburg Nord
+        document: src.de.DBAG.BSV.2017
 
 
 ---
 key: point.de.Lüneburg-Nord-Gr
 type: point
+subtype: reference
 events:
     -   date: !!null
         location:
@@ -136,26 +157,35 @@ key: point.de.Erbstorf-Ziegelei
 type: point
 events:
     -   date: !!null
+        site:
+            path.de.9110: erz
+records:
+    -   date: 1914-07
         name: Erbstorf Ziegelei
-        source: src.de.Kb.1914
-    -   date: de.lknr.kb
+        document: src.de.Kb.1914
+
+    -   date: 1938-10-01
+        name: Erbstorf Ziegelei
         de.lknr: 40 315
-        source: src.de.Bfv.1938
-    -   date: !!null
+        document: src.de.Bfv.1938
+
+    -   date: 1956-09
+        name: Erbstorf Ziegelei
+        category: de.Bf
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-11
+        name: Erbstorf Ziegelei
+        location:
+            line.de.9110: 3,4 # left
+        document: src.de.DB.Hmb.Karte.1984
+
+    -   date: 2017-01
         de.DS100: HERZ
+        name: Erbstorf Ziegelei
         de.name16: Erbstorf Ziegelei
         category: de.Bf
         de.dstnr: !!str 520023
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.9110: 3,4
-        source: src.de.DB.Hmb.Karte.1984
-
-    -   date: !!null
-        site:
-            path.de.9110: erz
+        document: src.de.DBAG.BSV.2017
 
 
 ---
@@ -163,26 +193,35 @@ key: point.de.Erbstorf
 type: point
 events:
     -   date: !!null
+        site:
+            path.de.9110: erb
+records:
+    -   date: 1905-07
         name: Erbstorf
-        source: src.de.Kb.1905
-    -   date: de.lknr.kb
+        document: src.de.Kb.1905
+
+    -   date: 1938-10-01
+        name: Erbstorf
         de.lknr: 40 313
-        source: src.de.Bfv.1938
-    -   date: !!null
+        document: src.de.Bfv.1938
+
+    -   date: 1956-09
+        name: Erbstorf
+        category: de.Bf
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-11
+        name: Erbstorf
+        location:
+            line.de.9110: 4,7 # left
+        document: src.de.DB.Hmb.Karte.1984
+
+    -   date: 2017-01
         de.DS100: HERT
+        name: Erbstorf
         de.name16: Erbstorf
         category: de.Bf
         de.dstnr: !!str 521005
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.9110: 4,7
-        source: src.de.DB.Hmb.Karte.1984
-
-    -   date: !!null
-        site:
-            path.de.9110: erb
+        document: src.de.DBAG.BSV.2017
 
 
 ---
@@ -190,28 +229,40 @@ key: point.de.Scharnebeck
 type: point
 events:
     -   date: !!null
-        name: Scharnebeck
-        source: src.de.Kb.1905
-    -   date: de.lknr.kb
-        de.lknr: 40 312
-        source: src.de.Bfv.1944
-    -   date: !!null
-        de.DS100: HSNB
-        de.dstnr: !!str 520049
-        source: src.de.DS100.1984
-    -   date: !!null
-        category: de.Hp
-        de.name16: Scharnebeck
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.9110: 7,3
-        source: src.de.DB.Hmb.Karte.1984
-
-    -   date: !!null
         site:
             path.de.9110: sar
+records:
+    -   date: 1905-07
+        name: Scharnebeck
+        document: src.de.Kb.1905
+
+    -   date: 1938-10-01
+        name: Scharnebeck
+        de.lknr: 40 312
+        document: src.de.Bfv.1944
+
+    -   date: 1956-09
+        name: Scharnebeck
+        category: de.Bf
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-06-03
+        name: Scharnebeck
+        de.DS100: HSNB
+        de.dstnr: !!str 520049
+        document: src.de.DS100.1984
+    -   date: 1984-11
+        name: Scharnebeck
+        location:
+            line.de.9110: 7,3 # left
+        document: src.de.DB.Hmb.Karte.1984
+
+    -   date: 2017-01
+        de.DS100: HSNB
+        name: Scharnebeck
+        de.name16: Scharnebeck
+        category: de.Hp
+        de.dstnr: !!str 520049
+        document: src.de.DBAG.BSV.2017
 
 
 ---
@@ -219,28 +270,40 @@ key: point.de.Rullstorf
 type: point
 events:
     -   date: !!null
-        name: Rullstorf
-        source: src.de.Kb.1914
-    -   date: de.lknr.kb
-        de.lknr: 40 311
-        source: src.de.Bfv.1938
-    -   date: !!null
-        de.DS100: HRUT
-        de.dstnr: !!str 520056
-        source: src.de.DS100.1984
-    -   date: !!null
-        category: de.Hp
-        de.name16: Rullstorf
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.9110: 8,9
-        source: src.de.DB.Hmb.Karte.1984
-
-    -   date: !!null
         site:
             path.de.9110: rul
+records:
+    -   date: 1914-07
+        name: Rullstorf
+        document: src.de.Kb.1914
+
+    -   date: 1938-10-01
+        name: Rullstorf
+        de.lknr: 40 311
+        document: src.de.Bfv.1938
+
+    -   date: 1956-09
+        name: Rullstorf
+        category: de.Bf
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-06-03
+        name: Rullstorf
+        de.DS100: HRUT
+        de.dstnr: !!str 520056
+        document: src.de.DS100.1984
+    -   date: 1984-11
+        name: Rullstorf
+        location:
+            line.de.9110: 8,9 # right
+        document: src.de.DB.Hmb.Karte.1984
+
+    -   date: 2017-01
+        name: Rullstorf
+        de.DS100: HRUT
+        de.dstnr: !!str 520056
+        category: de.Hp
+        de.name16: Rullstorf
+        document: src.de.DBAG.BSV.2017
 
 
 ---
@@ -248,31 +311,39 @@ key: point.de.Boltersen
 type: point
 events:
     -   date: !!null
+        site:
+            path.de.9110: bol
+records:
+    -   date: 1905-07
         name: Boltersen
-        source: src.de.Kb.1905
-    -   date: de.lknr.kb
+        document: src.de.Kb.1905
+
+    -   date: 1938-10-01
+        name: Boltersen
         de.lknr: 40 310
-        source: src.de.Bfv.1938
-    -   date: !!null
+        document: src.de.Bfv.1938
+
+    -   date: 1956-09
+        name: Boltersen
+        category: de.Bf
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-06-03
+        name: Boltersen
         de.DS100: ABTS
-        source: src.de.DS100.1984
-    -   date: c1990
+        document: src.de.DS100.1984
+    -   date: 1984-11
+        name: Boltersen
+        location:
+            line.de.9110: 11,7 # right
+        document: src.de.DB.Hmb.Karte.1984
+
+    -   date: 2017-01
         de.DS100: HBT
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
+        name: Boltersen
         de.name16: Boltersen
         category: de.Bf
         de.dstnr: !!str 520841
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.9110: 11,7
-        source: src.de.DB.Hmb.Karte.1984
-
-    -   date: !!null
-        site:
-            path.de.9110: bol
+        document: src.de.DBAG.BSV.2017
 
 
 ---
@@ -280,31 +351,39 @@ key: point.de.Neetze
 type: point
 events:
     -   date: !!null
+        site:
+            path.de.9110: nee
+records:
+    -   date: 1905-07
         name: Neetze
-        source: src.de.Kb.1905
-    -   date: de.lknr.kb
+        document: src.de.Kb.1905
+
+    -   date: 1938-10-01
+        name: Neetze
         de.lknr: 40 309
-        source: src.de.Bfv.1938
-    -   date: !!null
+        document: src.de.Bfv.1938
+
+    -   date: 1956-09
+        name: Neetze
+        category: de.Bf
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-06-03
+        name: Neetze
         de.DS100: ANET
-        source: src.de.DS100.1984
-    -   date: c1990
+        document: src.de.DS100.1984
+    -   date: 1984-11
+        name: Neetze
+        location:
+            line.de.9110: 16,0 # right
+        document: src.de.DB.Hmb.Karte.1984
+
+    -   date: 2017-01
         de.DS100: HNET
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
+        name: Neetze
         de.name16: Neetze
         category: de.Hp
         de.dstnr: !!str 520072
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.9110: 16,0
-        source: src.de.DB.Hmb.Karte.1984
-
-    -   date: !!null
-        site:
-            path.de.9110: nee
+        document: src.de.DBAG.BSV.2017
 
 
 ---
@@ -316,7 +395,7 @@ events:
         designation: Neetze Gabelung
         site:
             path.de.9110: neg
-            path.de.8048: neg
+            path.de.91102: neg
 
 
 ---
@@ -324,19 +403,25 @@ key: point.de.Neu-Neetze
 type: point
 events:
     -   date: !!null
+        site:
+            path.de.9110: nne
+records:
+    -   date: 1937-10-03
         name: Neu Neetze
-        source: src.de.Kb.W1937
-    -   date: !!null
+        document: src.de.Kb.W1937
+
+    -   date: 1956-09
+        name: Neu Neetze
+        category: de.Bf # left
+        document: src.de.DB.Hmb.Karte.1956
+
+    -   date: 2017-01
         de.DS100: HNNT
         name: Neu Neetze
         de.name16: Neu Neetze
         category: de.Hp
         de.dstnr: !!str 520080
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        site:
-            path.de.9110: nne
+        document: src.de.DBAG.BSV.2017
 
 
 ---
@@ -344,26 +429,38 @@ key: point.de.Bleckede
 type: point
 events:
     -   date: !!null
-        name: Bleckede
-        source: src.de.Bfv.1928
-    -   date: de.lknr.kb
-        de.lknr: 40 307
-        source: src.de.Bfv.1938
-    -   date: !!null
-        de.DS100: HBEK
-        de.dstnr: !!str 520148
-        source: src.de.DS100.1984
-    -   date: !!null
-        de.name16: Bleckede
-        category: de.Bf
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.9110: 23,8
-        source: src.de.DB.Hmb.Karte.1984
-
-    -   date: !!null
         site:
             path.de.9110: ble
+records:
+    -   date: 1927-12-09
+        name: Bleckede
+        document: src.de.Bfv.1928
+
+    -   date: 1938-10-01
+        name: Bleckede
+        de.lknr: 40 307
+        document: src.de.Bfv.1938
+
+    -   date: 1956-09
+        name: Bleckede
+        category: de.Bf # left
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-06-03
+        name: Bleckede
+        de.DS100: HBEK
+        de.dstnr: !!str 520148
+        document: src.de.DS100.1984
+    -   date: 1984-11
+        name: Bleckede
+        location:
+            line.de.9110: 23,8
+        document: src.de.DB.Hmb.Karte.1984
+
+    -   date: 2017-01
+        de.DS100: HBEK
+        name: Bleckede
+        de.name16: Bleckede
+        category: de.Bf
+        de.dstnr: !!str 520148
+        document: src.de.DBAG.BSV.2017
 

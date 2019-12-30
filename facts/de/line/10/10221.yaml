@@ -1,11 +1,11 @@
-# DE 10221.  Schülldorf - Osterrönfeld RNE
+# DE 10221.  Osterrönfeld Heidkrug - Rendsburg
 #
 ---
 key: line.de.10221
 type: line
 note:
-    eng: old route line [line.de.1022]
-    deu: alter Verlauf Strecke [line.de.1022]
+    eng: old route line [line.de.1040]
+    deu: alter Verlauf Strecke [line.de.1040]
 events:
     -   date: !!null
         region:
@@ -14,20 +14,36 @@ events:
 
     #   Genehmigungen
     #
-    -   date: 1900-05-25
+    -   date: 1845-04-04
+        end: point.de.Rendsburg-Glacis
+        concession:
+            by: org.dk
+            for: org.de.Rendsburg-Neumünstersche-Eisenbahn
+        source: src.de.DRG.1935 # 1845/6
+    -   date: 1877-09-09
+        end: point.de.Rendsburg-Glacis
         concession:
             by: org.de.l.pre
-        document: src.de.l.pre.1900.19.129
-        source: src.de.DRG.1935 # 1904/52 ref 1904/17
-    -   date: 1900-06-06
-        operator: org.de.e.hmb
-        document: src.de.l.pre.1900.22.151
+            for: org.de.Altona-Kieler-Eisenbahn
+        document: src.de.l.pre.sle.1877.51.285
+        source: src.de.DRG.1935 # 1845/6
 
     #   Eröffnung und Einstellung
     #
-    -   date: 1904-10-15
+    -   date: 1845-09-18
+        end: point.de.Rendsburg-Glacis
         status: open
-        source: src.de.DRG.1935 # 1904/52
+        source: src.de.DRG.1935 # 1845/6
+
+    -   date: 1856-01-22
+        start: point.de.Rendsburg-Glacis
+        status: open
+        passenger: none
+        source: src.de.DB.Hmb.1984
+    -   date: 1856-05-17
+        start: point.de.Rendsburg-Glacis
+        passenger: full
+        source: src.de.DB.Hmb.1984
 
     -   date: c1913
         status: removed
@@ -36,21 +52,60 @@ events:
     #
     -   date: !!null
         category: de.Hauptbahn
-        tracks: 1
+        tracks: 2
         gauge: 1435mm
 
     #   Eigentümer etc.
     #
-    -   date: !!null
-        owner: org.de.l.pre
-        operator: org.de.e.hmb
-        source: src.de.DRG.1935
 
     #   Verlauf
     #
     -   date: !!null
-        course: path.de.10221 suh oro
+        course: path.de.10221 osh ren
 
 points:
-    -   point.de.Schülldorf                         # de.1022
-    -   point.de.Osterrönfeld-RNE                   # de.10220
+    -   point.de.Osterrönfeld-Heidkrug            # de.1040
+    -   point.de.Osterrönfeld-RNE
+    -   point.de.Rendsburg-Glacis
+    -   point.de.Rendsburg                        # de.1040
+
+
+#-----------------------------------------------------------------------------
+
+# point.de.Osterrönfeld-Heidkrug            de.1040
+
+
+---
+key: point.de.Osterrönfeld-RNE
+type: point
+junction: True
+events:
+    -   date: !!null
+        category: de.Bf
+        name: Osterrönfeld
+    -   date: c1913
+        status: closed
+        name: Osterrönfeld RN
+
+    -   date: !!null
+        site:
+            path.de.10221: oro
+
+
+---
+key: point.de.Rendsburg-Glacis
+type: point
+events:
+    -   date: !!null
+        category: de.Bf
+        name: Rendsburg Glacis
+    -   date: 1860
+        status: closed
+
+    -   date: !!null
+        site:
+            path.de.10221: reg
+
+
+# point.de.Rendsburg                        de.1040
+

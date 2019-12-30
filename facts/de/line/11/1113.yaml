@@ -9,10 +9,6 @@ events:
             - org.de
             - org.de.l.sh
 
-    -   date: !!null
-        de.VzG: !!str 1113
-        source: src.de.DBAG.Geo-Strecke.2017
-
     #   Genehmigungen
     #
     -   date: 1880-09-08
@@ -51,11 +47,6 @@ events:
 
     #   Eigenschaften
     #
-    -   date: !!null
-        category: de.Hauptbahn
-        tracks: 1
-        gauge: 1435mm
-        source: src.de.DRG.1927
     -   date: 2008-12-13
         electrified: de
     -   date: c2005
@@ -71,12 +62,38 @@ events:
     #
     -   date: !!null
         course: path.de.1113 wal trs
+records:
+    -   date: 1927-03
+        category: de.Hauptbahn
+        tracks: 1
+        gauge: 1435mm
+        document: src.de.DRG.1927
+    -   date: 1935-01-01
+        category: de.Hauptbahn
+        tracks: 1
+        gauge: 1435mm
+        document: src.de.DRG.Alt.Karte.1935
 
+    -   date: 1956-09
+        category: de.Hauptbahn
+        tracks: 1
+        gauge: 1435mm
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-11
+        category: de.Hauptbahn
+        tracks: 1
+        gauge: 1435mm
+        document: src.de.DB.Hmb.Karte.1984
+
+    -   date: 2017-01
+        de.VzG: !!str 1113
+        document: src.de.DBAG.Geo-Strecke.2017
 points:
     -   point.de.Schwartau-Waldhalle-Wr             # de.1100
     -   point.de.Schwartau-Waldhalle
-    -   point.de.Lübeck-Dänischburg
     -   point.de.Lübeck-Dänischburg-Pbf
+    -   point.de.Lübeck-Dänischburg
+    -   point.de.Lübeck-IKEA-Abzw
     -   point.de.Lübeck-Kücknitz
     -   point.de.Lübeck-Kücknitz-Roter-Hahn
     -   point.de.Lübeck-Pöppendorf
@@ -94,45 +111,48 @@ points:
 key: point.de.Schwartau-Waldhalle
 type: point
 events:
-    -   date: !!null
-        name: Waldhalle (Schwartau)
-        source: src.de.Kb.1905
-    -   date: c1910
-        name: Schwartau Waldhalle
-        source: src.de.Kb.1914
-    -   date: !!null
-        de.lknr: 56 869
-        service: passenger
-        source: src.de.Bfv.1928
-    -   date: !!null
-        category: de.Bf
-        source: src.de.Bfv.1944
-    -   date: 1938-01-01
-        de.rang: IV
-        de.lknr: 27 282
-        source: src.de.Bfv.1944
-    -   date: !!null
-        de.DS100: ASWL
-        de.dstnr: !!str 016725
-        source: src.de.DS100.1984
     -   date: 1986-05-31
         service: none
         source: src.de.Hecht.2001
-    -   date: c2005
-        category: de.Üst
-        source: src.de.SuW.2005
     -   date: 2011-07?
         status: closed
-
-    -   date: !!null
-        location:
-            line.de.1113: 5,60
-        source: src.de.DRG.Alt.Karte.1949
 
     -   date: !!null
         site:
             path.de.1113: wab
 records:
+    -   date: 1905-07
+        name: Waldhalle (Schwartau)
+        document: src.de.Kb.1905
+    -   date: 1914-07
+        name: Schwartau Waldhalle
+        document: src.de.Kb.1914
+
+    -   date: 1927-12-09
+        name: Schwartau Waldhalle
+        de.lknr: 56 869
+        service: passenger
+        document: src.de.Bfv.1928
+    -   date: !!null
+        name: Schwartau Waldhalle
+        category: de.Bf
+        de.rang: IV
+        de.lknr: 27 282
+        document: src.de.Bfv.1944
+
+    -   date: 1956-09
+        name: Schwartau Waldhalle
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.1113: 5,60 # left
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-06-03
+        name: Schwartau Waldhalle
+        category: de.Bf
+        de.DS100: ASWL
+        de.dstnr: !!str 016725
+        document: src.de.DS100.1984
     -   date: 1984-11
         name: Schwartau-Waldhalle
         category: de.Bf
@@ -142,86 +162,61 @@ records:
 
 
 ---
+key: point.de.Lübeck-Dänischburg-Pbf
+type: point
+records:
+    -   date: 1984-06-03
+        category: de.Glgr
+        name: Lübeck-Dänischburg Pbf
+        master: point.de.Lübeck-Dänischburg
+        de.DS100: ADN P
+        document: src.de.DS100.1984
+
+
+---
 key: point.de.Lübeck-Dänischburg
 type: point
 events:
-    -   date: !!null
-        name: Dänischburg
-        source: src.de.Kb.1905
-    -   date: !!null
-        de.lknr: 57 869
-        source: src.de.Bfv.1928
-    -   date: c1935
-        name: Lübeck-Dänischburg
-        source: src.de.Kb.W1937
-    -   date: !!null
-        category: de.Bf
-        source: src.de.Bfv.1944
-    -   date: 1938-01-01
-        de.rang: II
-        de.lknr: 27 283
-        source: src.de.Bfv.1944
-    -   date: !!null
-        de.DS100: ADN
-        de.dstnr: !!str 016733
-        source: src.de.DS100.1984
     -   date: 1986-05-31
         service: none
         source: src.de.Hecht.2001
-    -   date: c1995
-        de.DS100: ALD
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Lübeck-Dänischbg
-        PLC: DE16570
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.1113:  8,204
-            line.de.1115: -0,073
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
             path.de.1113: dan
             path.de.1115: dan
 records:
-    -   date: 1984-11
-        name: Lübeck-Dänischburg Gbf
+    -   date: 1905-07
+        name: Dänischburg
+        document: src.de.Kb.1905
+
+    -   date: 1927-12-09
+        name: Dänischburg
+        de.lknr: 57 869
+        document: src.de.Bfv.1928
+    -   date: 1937-10-03
+        name: Lübeck-Dänischburg
+        document: src.de.Kb.W1937
+    -   date: 1944-06-01
+        name: Lübeck-Dänischburg
         category: de.Bf
+        de.rang: II
+        de.lknr: 27 283
+        document: src.de.Bfv.1944
+
+    -   date: 1956-09
+        name: Lübeck-Dänischburg
+        category: de.Bf
+        de.rang: II
         location:
-            line.de.1113: 8,17 # right
-        document: src.de.DB.Hmb.Karte.1984
-
-
----
-key: point.de.Lübeck-Dänischburg-Pbf
-type: point
-events:
-    -   date: !!null
-        category: de.Glgr
-        name: Lübeck-Dänischburg Pbf
-        master: point.de.Lübeck-Dänischburg
-        de.DS100: ADN P
-        source: src.de.DS100.1984
-    -   date: c1995
-        category: de.Bft
-        de.DS100: ALD P
-    -   date: c2005
-        de.DS100: ALD A
-        name: Lübeck-Dänischburg IKEA Abzw
-        de.name16: Lübeck IKEA Abzw
-        category: [de.Bft, de.Abzw]
-        PLC: DE16571
-        de.dstnr: !!str 107390
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        site:
-            path.de.1113: dap
-            path.de.1115: dap
-records:
+            line.de.1113: 8,20 # left
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-06-03
+        name: Lübeck-Dänischburg
+        category: de.Bf
+        de.DS100: ADN
+        de.dstnr: !!str 016733
+        document: src.de.DS100.1984
     -   date: 1984-11
         name: Lübeck-Dänischburg
         category: de.Bf
@@ -229,55 +224,38 @@ records:
             line.de.1113: 8,23 # left
         document: src.de.DB.Hmb.Karte.1984
 
+    -   date: 2017-01
+        name: Lübeck-Dänischburg
+        category: de.Bf
+        de.DS100: ALD
+        de.name16: Lübeck-Dänischbg
+        PLC: DE16570
+        document: src.de.DBAG.BSV.2017
+    -   date: 2017-01
+        location:
+            line.de.1113:  8,204
+            line.de.1115: -0,073
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Lübeck-IKEA-Abzw
+type: point
+records:
+    -   date: 2017-01
+        de.DS100: ALD A
+        name: Lübeck-Dänischburg IKEA Abzw
+        de.name16: Lübeck IKEA Abzw
+        category: [de.Bft, de.Abzw]
+        PLC: DE16571
+        de.dstnr: !!str 107390
+        document: src.de.DBAG.BSV.2017
+
 
 ---
 key: point.de.Lübeck-Kücknitz
 type: point
 events:
-    -   date: !!null
-        name: Waldhusen
-        source: src.de.Kb.1905
-    -   date: !!null
-        de.lknr: 68 869
-        source: src.de.Bfv.1928
-    -   date: c1920
-        name: Kücknitz
-        source: src.de.Bfv.1928
-    -   date: c1935
-        name: Lübeck-Kücknitz
-        source: src.de.Bfv.1938
-    -   date: !!null
-        category: de.Bf
-        source: src.de.Bfv.1944
-    -   date: 1938-01-01
-        de.rang: IV
-        de.lknr: 27 284
-        source: src.de.Bfv.1944
-    -   date: !!null
-        de.DS100: AKUE
-        de.dstnr: !!str 016741
-        source: src.de.DS100.1984
-    -   date: c1980
-        service: goods
-    -   date: c1995
-        de.DS100: ALKN
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Lübeck-Kücknitz
-        PLC: DE16575
-        source: src.de.DBAG.BSV.2017
-    -   date: c2010
-        category: de.Abzw
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.1113: 11,84
-        source: src.de.DRG.Alt.Karte.1949
-    -   date: !!null
-        location:
-            line.de.1117: 0,0
-
     -   date: !!null
         site:
             path.de.1113: kuc
@@ -287,6 +265,38 @@ events:
             path.de.1113: kua
             path.de.1117: kua
 records:
+    -   date: 1905-07
+        name: Waldhusen
+        document: src.de.Kb.1905
+
+    -   date: 1927-12-09
+        name: Kücknitz
+        de.lknr: 68 869
+        document: src.de.Bfv.1928
+    -   date: 1938-10-01
+        name: Lübeck-Kücknitz
+        de.lknr: 68 869
+        document: src.de.Bfv.1938
+    -   date: 1944-06-01
+        name: Lübeck-Kücknitz
+        category: de.Bf
+        de.rang: IV
+        de.lknr: 27 284
+        document: src.de.Bfv.1944
+
+    -   date: 1956-09
+        name: Lübeck-Kücknitz
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.1113: 11,84 # left
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-06-03
+        name: Lübeck-Kücknitz
+        category: de.Bf
+        de.DS100: AKUE
+        de.dstnr: !!str 016741
+        document: src.de.DS100.1984
     -   date: 1984-11
         name: Lübeck-Kücknitz
         category: de.Bf
@@ -294,6 +304,13 @@ records:
             line.de.1113: 11,84 # left
         document: src.de.DB.Hmb.Karte.1984
 
+    -   date: 2017-01
+        name: Lübeck-Kücknitz
+        de.DS100: ALKN
+        de.name16: Lübeck-Kücknitz
+        PLC: DE16575
+        category: de.Abzw
+        document: src.de.DBAG.BSV.2017
     -   date: 2017-01
         location:
             line.de.1113: 12,548
@@ -306,56 +323,65 @@ type: point
 events:
     -   date: c1990
         status: open
+
     -   date: !!null
+        site:
+            path.de.1113: kur
+records:
+    -   date: 2017-01
         de.DS100: ALKR
         name: Lübeck-Kücknitz Roter Hahn
         de.name16: L-Kückn Roter H
         category: de.Hp
         PLC: DE16576
         de.dstnr: !!str 718734
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
+        document: src.de.DBAG.BSV.2017
+    -   date: 2017-01
         location:
             line.de.1113: 13,901
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
-
-    -   date: !!null
-        site:
-            path.de.1113: kur
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Lübeck-Pöppendorf
 type: point
 events:
-    -   date: !!null
-        name: Pöppendorf
-        source: src.de.Kb.1905
-    -   date: !!null
-        de.lknr: 59 869
-        source: src.de.Bfv.1928
-    -   date: c1935
-        name: Lübeck-Pöppendorf
-        source: src.de.Kb.W1937
-    -   date: !!null
-        category: de.Bf
-        source: src.de.Bfv.1938
-    -   date: 1938-01-01
-        de.rang: IV
-        de.lknr: 27 285
-        source: src.de.Bfv.1944
     -   date: c1980
         status: closed
 
     -   date: !!null
-        location:
-            line.de.1113: 15,70
-        source: src.de.DRG.Alt.Karte.1949
-
-    -   date: !!null
         site:
             path.de.1113: pop
+records:
+    -   date: 1905-07
+        name: Pöppendorf
+        document: src.de.Kb.1905
+
+    -   date: 1927-12-09
+        name: Pöppendorf
+        de.lknr: 59 869
+        document: src.de.Bfv.1928
+    -   date: 1937-10-03
+        name: Lübeck-Pöppendorf
+        document: src.de.Kb.W1937
+    -   date: 1938-10-01
+        name: Lübeck-Pöppendorf
+        category: de.Bf
+        document: src.de.Bfv.1938
+    -   date: 1944-06-01
+        name: Lübeck-Pöppendorf
+        category: de.Bf
+        de.rang: IV
+        de.lknr: 27 285
+        document: src.de.Bfv.1944
+
+    -   date: 1956-09
+        name: Lübeck-Pöppendorf
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.1113: 15,70 # left
+        document: src.de.DB.Hmb.Karte.1956
 
 
 ---
@@ -366,25 +392,17 @@ events:
     -   date: 1980-05-31
         status: open
         source: src.de.Hecht.2001
-    -   date: !!null
-        category: de.Hp
-        staff: none
-        name: Lübeck-Travemünde Skandinavienkai
-        de.DS100: ASKK
-        source: src.de.DS100.1984
-    -   date: c1995
-        de.DS100: ALTK
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Lüb-Trav Skankai
-        PLC: DE16580
-        de.dstnr: !!str 016972
-        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
             path.de.1113: ska
 records:
+    -   date: 1984-06-03
+        name: Lübeck-Travemünde Skandinavienkai
+        de.DS100: ASKK
+        category: de.Hp
+        staff: none
+        document: src.de.DS100.1984
     -   date: 1984-11
         name: Lübeck-Travemünde Skandinavienkai
         category: de.Hp
@@ -392,6 +410,14 @@ records:
             line.de.1113: 17,85 # right
         document: src.de.DB.Hmb.Karte.1984
 
+    -   date: 2017-01
+        de.DS100: ALTK
+        name: Lübeck-Travemünde Skandinavienkai
+        de.name16: Lüb-Trav Skankai
+        category: de.Hp
+        PLC: DE16580
+        de.dstnr: !!str 016972
+        document: src.de.DBAG.BSV.2017
     -   date: 2017-01
         location:
             line.de.1113: 17,905
@@ -403,46 +429,41 @@ key: point.de.Lübeck-Travemünde-Hafen
 type: point
 events:
     -   date: !!null
-        name: Travemünde Stadt
-        source: src.de.Kb.1905
-    -   date: !!null
-        de.lknr: 60 869
-        source: src.de.Bfv.1928
-    -   date: c1935
-        name: Lübeck-Travemünde Hafen
-        source: src.de.Kb.W1937
-    -   date: !!null
-        category: de.Bf
-        source: src.de.Bfv.1938
-    -   date: 1938-01-01
-        de.rang: II
-        de.lknr: 27 286
-        source: src.de.Bfv.1944
-    -   date: !!null
-        de.DS100: ATR
-        de.dstnr: !!str 016766
-        source: src.de.DS100.1984
-    -   date: c1995
-        de.DS100: ALTH
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Lüb-Trav Hafen
-        PLC: DE16579
-        source: src.de.DBAG.BSV.2017
-    -   date: 2008-12-14?
-        category: de.Hp
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null    
-        location:
-            line.de.1113: 19,64
-            line.de.1114:  0,00
-        source: src.de.DRG.Alt.Karte.1949
-
-    -   date: !!null
         site:
             path.de.1113: trh
 records:
+    -   date: 1905-07
+        name: Travemünde Stadt
+        document: src.de.Kb.1905
+
+    -   date: 1927-12-09
+        name: Travemünde Stadt
+        de.lknr: 60 869
+        document: src.de.Bfv.1928
+    -   date: 1937-10-03
+        name: Lübeck-Travemünde Hafen
+        document: src.de.Kb.W1937
+    -   date: 1944-06-01
+        name: Lübeck-Travemünde Hafen
+        category: de.Bf
+        de.rang: II
+        de.lknr: 27 286
+        document: src.de.Bfv.1944
+
+    -   date: 1956-09
+        name: Lübeck-Travemünde Hafen
+        category: de.Bf
+        de.rang: II
+        location:
+            line.de.1113: 19,64 # right
+            line.de.1114:  0,00
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-06-03
+        name: Lübeck-Travemünde Hafen
+        category: de.Bf
+        de.DS100: ATR
+        de.dstnr: !!str 016766
+        document: src.de.DS100.1984
     -   date: 1984-11
         name: Lübeck-Travemünde
         category: de.Bf
@@ -450,6 +471,14 @@ records:
             line.de.1113: 19,63 # right
         document: src.de.DB.Hmb.Karte.1984
 
+    -   date: 2017-01
+        de.DS100: ALTH
+        name: Lübeck-Travemünde Hafen
+        de.name16: Lüb-Trav Hafen
+        category: de.Hp
+        PLC: DE16579
+        de.dstnr: !!str 016766
+        document: src.de.DBAG.BSV.2017
     -   date: 2017-01
         location:
             line.de.1113: 19,634
@@ -461,46 +490,41 @@ key: point.de.Lübeck-Travemünde-Strand
 type: point
 events:
     -   date: !!null
-        name: Travemünde Strand
-        source: src.de.Kb.1905
-    -   date: !!null
-        de.lknr: 61 869
-        service: passenger
-        source: src.de.Bfv.1928
-    -   date: c1935
-        name: Lübeck-Travemünde Strand
-        source: src.de.Kb.W1937
-    -   date: !!null
-        category: de.Bf
-        source: src.de.Bfv.1938
-    -   date: 1938-01-01
-        de.rang: II
-        de.lknr: 27 287
-        source: src.de.Bfv.1944
-    -   date: !!null
-        de.DS100: ATRS
-        de.dstnr: !!str 016774
-        source: src.de.DS100.1984
-    -   date: c1995
-        de.DS100: ALTS
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Lüb-Trav Strand
-        PLC: DE16582
-        source: src.de.DBAG.BSV.2017
-    -   date: c2005
-        category: de.Hp
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.1113: 20,65
-        source: src.de.DRG.Alt.Karte.1949
-
-    -   date: !!null
         site:
             path.de.1113: trs
 records:
+    -   date: 1905-07
+        name: Travemünde Strand
+        document: src.de.Kb.1905
+
+    -   date: 1927-12-09
+        name: Travemünde Strand
+        de.lknr: 61 869
+        service: passenger
+        document: src.de.Bfv.1928
+    -   date: 1937-10-03
+        name: Lübeck-Travemünde Strand
+        document: src.de.Kb.W1937
+    -   date: 1944-06-01
+        name: Lübeck-Travemünde Strand
+        category: de.Bf
+        de.rang: II
+        de.lknr: 27 287
+        document: src.de.Bfv.1944
+
+    -   date: 1956-09
+        name: Lübeck-Travemünde Strand
+        category: de.Bf
+        de.rang: II
+        location:
+            line.de.1113: 20,65 # top
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-06-03
+        name: Lübeck-Travemünde Strand
+        category: de.Bf
+        de.DS100: ATRS
+        de.dstnr: !!str 016774
+        document: src.de.DS100.1984
     -   date: 1984-11
         name: Lübeck-Travemünde Strand
         category: de.Bf
@@ -508,6 +532,14 @@ records:
             line.de.1113: 20,62 # top
         document: src.de.DB.Hmb.Karte.1984
 
+    -   date: 2017-01
+        de.DS100: ALTS
+        name: Lübeck-Travemünde Strand
+        de.name16: Lüb-Trav Strand
+        category: de.Hp
+        PLC: DE16582
+        de.dstnr: !!str 016774
+        document: src.de.DBAG.BSV.2017
     -   date: 2017-01
         location:
             line.de.1113: 20,619
