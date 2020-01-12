@@ -9,15 +9,6 @@ events:
             - org.de
             - org.de.l.sh
 
-    -   date: !!null
-        end: point.de.Ulzburg
-        de.VzG: !!str 9120
-        source: src.de.DBAG.Geo-Strecke.2017
-    -   date: !!null
-        start: point.de.Blumendorf
-        de.VzG: !!str 1123
-        source: src.de.DBAG.Geo-Strecke.2017
-
     #   Genehmigung
     #
     -   date: 1895-07-31
@@ -39,7 +30,7 @@ events:
         document: src.de.l.pre.sle.1905.8.69
 
     -   date: 2009-11-16
-        end: point.de.Ulzburg
+        end: point.de.Henstedt-Ulzburg
         concession:
             by: org.de.l.sh
             for: org.de.AKN-Eisenbahn
@@ -64,7 +55,7 @@ events:
         goods: none
         source: src.de.WP.Bahnstrecke-Elmshorn-Bad-Oldesloe
     -   date: c1980
-        start: point.de.Ulzburg
+        start: point.de.Henstedt-Ulzburg
         end: point.de.Blumendorf
         status: removed
 
@@ -72,7 +63,7 @@ events:
     #
     -   date: 1992
         start: point.de.Barmstedt
-        end: point.de.Ulzburg
+        end: point.de.Henstedt-Ulzburg
         passenger: full
         source: src.de.WP.Bahnstrecke-Elmshorn-Bad-Oldesloe
 
@@ -110,7 +101,7 @@ events:
         owner: org.de.Bad-Oldesloe
         operator: org.de.DB
     -   date: 1981
-        end: point.de.Ulzburg
+        end: point.de.Henstedt-Ulzburg
         owner: org.de.AKN-Eisenbahn
         operator: org.de.AKN-Eisenbahn
 
@@ -118,7 +109,49 @@ events:
     #
     -   date: !!null
         course: path.de.9120 elm old
+records:
+    -   date: 1931-04-01
+        category: de.Nebenbahn
+        tracks: 1
+        gauge: 1435mm
+        document: src.de.DRG.Alt.Karte.1931
 
+    -   date: 1956-09
+        category: de.Nebenbahn
+        tracks: 1
+        gauge: 1435mm
+        document: src.de.DB.Hmb.Karte.1956
+
+    -   date: 1984-11
+        end: point.de.Barmstedt
+        category: de.Nebenbahn
+        tracks: 1
+        gauge: 1435mm
+        document: src.de.DB.Hmb.Karte.1984
+    -   date: 1984-11
+        start: point.de.Barmstedt
+        end: point.de.Henstedt-Ulzburg
+        category: de.Nebenbahn
+        tracks: 1
+        gauge: 1435mm
+        passenger: none
+        goods: none
+        document: src.de.DB.Hmb.Karte.1984
+    -   date: 1984-11
+        start: point.de.Henstedt-Ulzburg
+        status: closed
+        document: src.de.DB.Hmb.Karte.1984
+
+    -   date: 2017-01
+        end: point.de.Henstedt-Ulzburg
+        de.VzG: !!str 9120
+        note: km 0,0+0 – 24,6 + 40
+        document: src.de.DBAG.Geo-Strecke.2017
+    -   date: !!null
+        start: point.de.Blumendorf
+        de.VzG: !!str 1123
+        note: km 0,0−55 – 4,0+0
+        document: src.de.DBAG.Geo-Strecke.2017
 points:
     -   point.de.Elmshorn                           # de.1220
     -   point.de.Elmshorn-Gr
@@ -132,7 +165,7 @@ points:
     -   point.de.Langeln-Holst
     -   point.de.Hoffnung
     -   point.de.Alveslohe
-    -   point.de.Ulzburg                            # de.9121
+    -   point.de.Henstedt-Ulzburg                            # de.9121
     -   point.de.Henstedt-Kisdorf
     -   point.de.Henstedt-Wohld
     -   point.de.Wakendorf-Götzberg
@@ -153,20 +186,20 @@ points:
 ---
 key: point.de.Elmshorn-Gr
 type: point
-subtype: border
+subtype: reference
 events:
     -   date: !!null
+        site:
+            path.de.9120: elg
+records:
+    -   date: 2017-01
         de.DS100: AELG
         name: Elmshorn DB-Grenze
         de.name16: Elmshorn DB-Gr
         category: de.Gp
         PLC: DE21669
         de.dstnr: !!str 109473
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        site:
-            path.de.9120: elg
+        document: src.de.DBAG.BSV.2017
 
 
 ---
@@ -175,52 +208,64 @@ type: point
 events:
     -   date: c1935
         status: open
-    -   date: !!null
-        name: Langenmoor
-        source: src.de.Kb.W1937
-    -   date: !!null
-        de.lknr: 59 823
-        service: passenger
-        staff: none
-        master: point.de.Elmshorn
-        source: src.de.Bfv.1938
-    -   date: !!null
-        de.DS100: ALGM
-        de.dstnr: !!str 438028
-        source: src.de.DS100.1984
-    -   date: !!null
-        category: de.Hp
-        de.name16: Langenmoor
-        source: src.de.DBAG.BSV.2017
-    -   date: c2000
-        name: Elmshorn Langenmoor
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.9120: 2,0
-        source: src.de.DRG.Alt.Karte.1949
 
     -   date: !!null
         site:
             path.de.9120: lam
+records:
+    -   date: 1937-10-03
+        name: Langenmoor
+        document: src.de.Kb.W1937
+    -   date: 1938-10-10
+        name: Langenmoor
+        de.lknr: 59 823
+        service: passenger
+        staff: none
+        master: point.de.Elmshorn
+        document: src.de.Bfv.1938
+
+    -   date: 1956-09
+        name: Langenmoor
+        category: de.Hp
+        location:
+            line.de.9120: 2,0 # right
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-06-03
+        name: Langenmoor
+        de.DS100: ALGM
+        de.dstnr: !!str 438028
+        document: src.de.DS100.1984
+    -   date: 1984-11
+        name: Langenmoor
+        location:
+            line.de.9120: 2,0 # right
+        document: src.de.DB.Hmb.Karte.1984
+
+    -   date: 2017-01
+        de.DS100: ALGM
+        name: Elmshorn Langenmoor
+        de.name16: Langenmoor
+        category: de.Hp
+        de.dstnr: !!str 438028
+        document: src.de.DBAG.BSV.2017
 
 
 ---
 key: point.de.Sibirien
 type: point
 events:
-    -   date: !!null
-        location:
-            line.de.9120: 2,5
-        name: Sibirien
-        source: src.de.Kb.1914
     -   date: c1920
         status: closed
 
     -   date: !!null
         site:
             path.de.9120: sib
+records:
+    -   date: 1914-07
+        location:
+            line.de.9120: 2,5
+        name: Sibirien
+        document: src.de.Kb.1914
 
 
 ---
@@ -228,66 +273,95 @@ key: point.de.Sparrieshoop
 type: point
 events:
     -   date: !!null
-        name: Sparrieshoop
-        source: src.de.Kb.1905
-    -   date: !!null
-        de.lknr: 41 823
-        source: src.de.Bfv.1928
-    -   date: !!null
-        de.DS100: ASPS
-        de.dstnr: !!str 438036
-        source: src.de.DS100.1984
-    -   date: !!null
-        category: de.Bf
-        de.name16: Sparrieshoop
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.9120: 3,8
-        source: src.de.DRG.Alt.Karte.1949
-
-    -   date: !!null
         site:
             path.de.9120: spa
+records:
+    -   date: 1905-07
+        name: Sparrieshoop
+        document: src.de.Kb.1905
+    -   date: 1927-12-09
+        name: Sparrieshoop
+        de.lknr: 41 823
+        document: src.de.Bfv.1928
+
+    -   date: 1956-09
+        name: Sparrieshoop
+        category: de.Bf
+        location:
+            line.de.9120: 3,8 # left
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-06-03
+        name: Sparrieshoop
+        de.DS100: ASPS
+        de.dstnr: !!str 438036
+        document: src.de.DS100.1984
+    -   date: 1984-11
+        name: Sparrieshoop
+        location:
+            line.de.9120: 3,8 # left
+        document: src.de.DB.Hmb.Karte.1984
+
+    -   date: 2017-01
+        category: de.Bf
+        de.name16: Sparrieshoop
+        name: Sparrieshoop
+        de.DS100: ASPS
+        de.dstnr: !!str 438036
+        document: src.de.DBAG.BSV.2017
 
 
 ---
 key: point.de.Bokholt
 type: point
 events:
-    -   date: !!null
-        name: Bockholt
-        source: src.de.Kb.1905
     -   date: c1910
         status: closed
         source: src.de.Kb.1914
     -   date: c1935
         status: open
-        name: Bokholt
         source: src.de.Kb.W1937
-    -   date: !!null
-        de.lknr: 57 823
-        service: passenger
-        staff: none
-        source: src.de.Bfv.1938
-    -   date: !!null
-        de.DS100: ABHT
-        de.dstnr: !!str 438044
-        source: src.de.DS100.1984
-    -   date: !!null
-        category: de.Hp
-        de.name16: Bokholt
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.9120: 6,0
-        source: src.de.DRG.Alt.Karte.1949
 
     -   date: !!null
         site:
             path.de.9120: bok
+records:
+    -   date: 1905-07
+        name: Bockholt
+        document: src.de.Kb.1905
+    -   date: 1937-10-03
+        name: Bokholt
+        document: src.de.Kb.W1937
+    -   date: 1938-10-01
+        name: Bokholt
+        de.lknr: 57 823
+        service: passenger
+        staff: none
+        document: src.de.Bfv.1938
+
+    -   date: 1956-09
+        name: Bokholt
+        category: de.Hp
+        location:
+            line.de.9120: 6,0 # left
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-06-03
+        name: Bokholt
+        de.DS100: ABHT
+        de.dstnr: !!str 438044
+        document: src.de.DS100.1984
+    -   date: 1984-11
+        name: Bokholt
+        location:
+            line.de.9120: 6,0 # left
+        document: src.de.DB.Hmb.Karte.1984
+
+    -   date: 2017-01
+        name: Bokholt
+        de.DS100: ABHT
+        de.dstnr: !!str 438044
+        category: de.Hp
+        de.name16: Bokholt
+        document: src.de.DBAG.BSV.2017
 
 
 ---
@@ -295,36 +369,46 @@ key: point.de.Voßloch
 type: point
 events:
     -   date: !!null
-        name: Voßloch
-        source: src.de.Kb.1905
-    -   date: !!null
-        de.lknr: 42 823
-        source: src.de.Bfv.1928
-    -   date: !!null
-        service: passenger
-        source: src.de.Bfv.1944
-    -   date: !!null
-        category: de.Bf
-        source: src.de.DB.Hmb.Karte.1956
-    -   date: !!null
-        de.DS100: AVSL
-        de.dstnr: !!str 438051
-        source: src.de.DS100.1984
-    -   date: c1970
-        category: de.Hp
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Voßloch
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.9120: 7,4
-        source: src.de.DRG.Alt.Karte.1949
-
-    -   date: !!null
         site:
             path.de.9120: vos
+records:
+    -   date: 1905-07
+        name: Voßloch
+        document: src.de.Kb.1905
+    -   date: 1927-12-09
+        name: Voßloch
+        de.lknr: 42 823
+        document: src.de.Bfv.1928
+    -   date: 1944-06-01
+        name: Voßloch
+        de.lknr: 42 823
+        service: passenger
+        document: src.de.Bfv.1944
+
+    -   date: 1956-09
+        name: Voßloch
+        category: de.Bf
+        location:
+            line.de.9120: 7,4 # right
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-06-03
+        name: Voßloch
+        de.DS100: AVSL
+        de.dstnr: !!str 438051
+        document: src.de.DS100.1984
+    -   date: 1984-11
+        name: Voßloch
+        location:
+            line.de.9120: 7,4 # right
+        document: src.de.DB.Hmb.Karte.1984
+
+    -   date: 2017-01
+        category: de.Hp
+        de.name16: Voßloch
+        name: Voßloch
+        de.DS100: AVSL
+        de.dstnr: !!str 438051
+        document: src.de.DBAG.BSV.2017
 
 
 ---
@@ -334,26 +418,36 @@ events:
     -   date: c1935
         status: open
         source: src.de.Kb.W1937
-    -   date: !!null
-        name: Barmstedt Brunnenstraße
-        de.lknr: 56 823
-        service: passenger
-        source: src.de.Bfv.1938
-    -   date: !!null
-        de.DS100: ABMB
-        de.name16: Barm Brunnenstr
-        category: de.Hp
-        de.dstnr: !!str 438069
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.9120: 9,1
-        source: src.de.DRG.Alt.Karte.1949
 
     -   date: !!null
         site:
             path.de.9120: bab
+records:
+    -   date: 1938-10-01
+        name: Barmstedt Brunnenstraße
+        de.lknr: 56 823
+        service: passenger
+        document: src.de.Bfv.1938
+
+    -   date: 1956-09
+        name: Barmstedt Brunnenstraße
+        category: de.Hp
+        location:
+            line.de.9120: 9,1 # left
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-11
+        name: Barmstedt Brunnenstraße
+        location:
+            line.de.9120: 9,1 # left
+        document: src.de.DB.Hmb.Karte.1984
+
+    -   date: 2017-01
+        de.DS100: ABMB
+        name: Barmstedt Brunnenstraße
+        de.name16: Barm Brunnenstr
+        category: de.Hp
+        de.dstnr: !!str 438069
+        document: src.de.DBAG.BSV.2017
 
 
 ---
@@ -361,63 +455,78 @@ key: point.de.Barmstedt
 type: point
 events:
     -   date: !!null
-        name: Barmstedt
-        source: src.de.Kb.1905
-    -   date: !!null
-        de.lknr: 43 823
-        source: src.de.Bfv.1928
-    -   date: !!null
-        de.DS100: ABMS
-        de.dstnr: !!str 438077
-        source: src.de.DS100.1984
-    -   date: !!null
-        de.name16: Barmstedt
-        category: de.Bf
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.9120: 10,0
-        source: src.de.DRG.Alt.Karte.1949
-
-    -   date: !!null
         site:
             path.de.9120: bar
+records:
+    -   date: 1905-07
+        name: Barmstedt
+        document: src.de.Kb.1905
+    -   date: 1927-12-09
+        name: Barmstedt
+        de.lknr: 43 823
+        document: src.de.Bfv.1928
+
+    -   date: 1956-09
+        name: Barmstedt
+        category: de.Bf
+        location:
+            line.de.9120: 10,0 # right
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-06-03
+        name: Barmstedt
+        de.DS100: ABMS
+        de.dstnr: !!str 438077
+        document: src.de.DS100.1984
+    -   date: 1984-11
+        name: Barmstedt
+        location:
+            line.de.9120: 10,0 # right
+        document: src.de.DB.Hmb.Karte.1984
+
+    -   date: 2017-01
+        de.name16: Barmstedt
+        category: de.Bf
+        name: Barmstedt
+        de.DS100: ABMS
+        de.dstnr: !!str 438077
+        document: src.de.DBAG.BSV.2017
 
 
 ---
 key: point.de.Langeln-Holst
 type: point
 events:
-    -   date: !!null
-        name: Langeln
-        source: src.de.Kb.1914
-    -   date: !!null
-        de.lknr: 44 823
-        source: src.de.Bfv.1928
-    -   date: !!null
-        category: de.Bf
-        source: src.de.DB.Hmb.Karte.1956
     -   date: 1973-09-29?
         status: closed
     -   date: 2000-05-28
         status: open
-    -   date: 2000-05-28
+
+    -   date: !!null
+        site:
+            path.de.9120: lal
+records:
+    -   date: 1914-07
+        name: Langeln
+        document: src.de.Kb.1914
+    -   date: 1927-12-09
+        name: Langeln
+        de.lknr: 44 823
+        document: src.de.Bfv.1928
+
+    -   date: 1956-09
+        name: Langeln
+        category: de.Bf
+        location:
+            line.de.9120: 15,4 # left
+        document: src.de.DB.Hmb.Karte.1956
+
+    -   date: 2017-01
         de.DS100: ALAL
         name: Langeln (Holst)
         de.name16: Langeln(Holst)
         category: de.Hp
         de.dstnr: !!str 438325
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.9120: 15,4
-        source: src.de.DRG.Alt.Karte.1949
-
-    -   date: !!null
-        site:
-            path.de.9120: lal
+        document: src.de.DBAG.BSV.2017
 
 
 ---
@@ -429,27 +538,27 @@ events:
         source:
             -   src.de.Bfv.1933
             -   src.de.Kb.W1937
+    -   date: c1975
+        status: closed
+
     -   date: !!null
+        site:
+            path.de.9120: hof
+records:
+    -   date: 1938-10-01
         name: Hoffnung
         service: passenger
         staff: none
         de.lknr: 58 823
         master: point.de.Langeln-Holst
-        source: src.de.Bfv.1938
-    -   date: !!null
+        document: src.de.Bfv.1938
+
+    -   date: 1956-09
+        name: Hoffnung
         category: de.Hp
-        source: src.de.DB.Hmb.Karte.1956
-    -   date: c1975
-        status: closed
-
-    -   date: !!null
         location:
-            line.de.9120: 16,7
-        source: src.de.DRG.Alt.Karte.1949
-
-    -   date: !!null
-        site:
-            path.de.9120: hof
+            line.de.9120: 16,7 # right
+        document: src.de.DB.Hmb.Karte.1956
 
 
 ---
@@ -457,32 +566,34 @@ key: point.de.Alveslohe
 type: point
 events:
     -   date: !!null
-        name: Alveslohe
-        source: src.de.Kb.1914
-    -   date: !!null
-        de.lknr: 45 823
-        source: src.de.Bfv.1928
-    -   date: !!null
-        category: de.Bf
-        source: src.de.DB.Hmb.Karte.1956
-    -   date: 1992?
-        category: de.Hp
-        de.name16: Alvesloe
-        de.DS100: AAV
-        de.dstnr: !!str 404095
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.9120: 19,4
-        source: src.de.DRG.Alt.Karte.1949
-
-    -   date: !!null
         site:
             path.de.9120: alv
+records:
+    -   date: 1914-07
+        name: Alveslohe
+        document: src.de.Kb.1914
+    -   date: 1927-12-09
+        name: Alveslohe
+        de.lknr: 45 823
+        document: src.de.Bfv.1928
+
+    -   date: 1956-09
+        name: Alveslohe
+        category: de.Bf
+        location:
+            line.de.9120: 19,4 # right
+        document: src.de.DB.Hmb.Karte.1956
+
+    -   date: 2017-01
+        de.DS100: AAV
+        name: Alveslohe
+        de.name16: Alvesloe
+        category: de.Hp
+        de.dstnr: !!str 404095
+        document: src.de.DBAG.BSV.2017
 
 
-#    point.de.Ulzburg                            de.9121
+#    point.de.Henstedt-Ulzburg                            de.9121
 
 
 ---
@@ -490,20 +601,23 @@ key: point.de.Henstedt-Kisdorf
 type: point
 events:
     -   date: !!null
-        name: Henstedt-Kisdorf
-        source: src.de.Kb.1914
-    -   date: !!null
-        de.lknr: 47 823
-        source: src.de.Bfv.1928
-    -   date: !!null
-        category: de.Hp
-        location:
-            line.de.9120: 26,6
-        source: src.de.DRG.Alt.Karte.1949
-
-    -   date: !!null
         site:
             path.de.9120: kis
+records:
+    -   date: 1914-07
+        name: Henstedt-Kisdorf
+        document: src.de.Kb.1914
+    -   date: 1927-12-09
+        name: Henstedt-Kisdorf
+        de.lknr: 47 823
+        document: src.de.Bfv.1928
+
+    -   date: 1956-09
+        name: Henstedt-Kisdorf
+        category: de.Hp
+        location:
+            line.de.9120: 26,6 # left
+        document: src.de.DB.Hmb.Karte.1956
 
 
 ---
@@ -514,20 +628,22 @@ events:
         status: open
         source: src.de.Kb.W1937
     -   date: !!null
+        site:
+            path.de.9120: woh
+records:
+    -   date: 1944-06-01
         name: Henstedt-Wohld
         de.lknr: 55 823
         service: passenger
         staff: none
-        source: src.de.Bfv.1944
-    -   date: !!null
+        document: src.de.Bfv.1944
+
+    -   date: 1956-09
+        name: Henstedt-Wohld
         category: de.Bf
         location:
-            line.de.9120: 29,1
-        source: src.de.DRG.Alt.Karte.1949
-
-    -   date: !!null
-        site:
-            path.de.9120: woh
+            line.de.9120: 29,1 # right
+        document: src.de.DB.Hmb.Karte.1956
 
 
 ---
@@ -535,20 +651,23 @@ key: point.de.Wakendorf-Götzberg
 type: point
 events:
     -   date: !!null
-        name: Wakendorf-Götzberg
-        source: src.de.Kb.1914
-    -   date: !!null
-        de.lknr: 48 823
-        source: src.de.Bfv.1933
-    -   date: !!null
-        category: de.Bf
-        location:
-            line.de.9120: 31,4
-        source: src.de.DB.Hmb.Karte.1956
-
-    -   date: !!null
         site:
             path.de.9120: wak
+records:
+    -   date: 1914-07
+        name: Wakendorf-Götzberg
+        document: src.de.Kb.1914
+    -   date: 1933-03-01
+        name: Wakendorf-Götzberg
+        de.lknr: 48 823
+        document: src.de.Bfv.1933
+
+    -   date: 1956-09
+        name: Wakendorf-Götzberg
+        category: de.Bf
+        location:
+            line.de.9120: 31,4 # right
+        document: src.de.DB.Hmb.Karte.1956
 
 
 ---
@@ -556,20 +675,23 @@ key: point.de.Nahe
 type: point
 events:
     -   date: !!null
-        name: Nahe
-        source: src.de.Kb.1914
-    -   date: !!null
-        de.lknr: 49 823
-        source: src.de.Bfv.1933
-    -   date: !!null
-        category: de.Bf
-        location:
-            line.de.9120: 36,4
-        source: src.de.DRG.Alt.Karte.1949
-
-    -   date: !!null
         site:
             path.de.9120: nah
+records:
+    -   date: 1914-07
+        name: Nahe
+        document: src.de.Kb.1914
+    -   date: 1933-03-01
+        name: Nahe
+        de.lknr: 49 823
+        document: src.de.Bfv.1933
+
+    -   date: 1956-09
+        name: Nahe
+        category: de.Bf
+        location:
+            line.de.9120: 36,4 # right
+        document: src.de.DB.Hmb.Karte.1956
 
 
 ---
@@ -577,13 +699,13 @@ key: point.de.Nahe-Torfverladestelle
 type: point
 events:
     -   date: !!null
-        name: Nahe (Torfverladestelle)
-        de.lknr: 54 823
-        source: src.de.Bfv.1933
-
-    -   date: !!null
         site:
             path.de.9120: nat
+records:
+    -   date: 1933-03-01
+        name: Nahe (Torfverladestelle)
+        de.lknr: 54 823
+        document: src.de.Bfv.1933
 
 
 ---
@@ -591,20 +713,22 @@ key: point.de.Sülfeld-Oldesloe
 type: point
 events:
     -   date: !!null
-        name: Sülfeld
-        source: src.de.Kb.1914
-    -   date: !!null
-        de.lknr: 50 823
-        source: src.de.Bfv.1933
-    -   date: !!null
-        category: de.Bf
-        location:
-            line.de.9120: 42,5
-        source: src.de.DRG.Alt.Karte.1949
-
-    -   date: !!null
         site:
             path.de.9120: sul
+records:
+    -   date: 1914-07
+        name: Sülfeld
+        document: src.de.Kb.1914
+    -   date: 1933-03-01
+        de.lknr: 50 823
+        document: src.de.Bfv.1933
+
+    -   date: 1956-09
+        name: Sülfeld
+        category: de.Bf
+        location:
+            line.de.9120: 42,5 # left
+        document: src.de.DB.Hmb.Karte.1956
 
 
 ---
@@ -612,47 +736,57 @@ key: point.de.Grabau
 type: point
 events:
     -   date: !!null
-        name: Grabau
-        source: src.de.Kb.1914
-    -   date: !!null
-        de.lknr: 51 823
-        source: src.de.Bfv.1933
-    -   date: !!null
-        category: de.Bf
-        location:
-            line.de.9120: 44,8
-        source: src.de.DRG.Alt.Karte.1949
-
-    -   date: !!null
         site:
             path.de.9120: gra
+records:
+    -   date: 1914-07
+        name: Grabau
+        document: src.de.Kb.1914
+    -   date: 1933-03-01
+        name: Grabau
+        de.lknr: 51 823
+        document: src.de.Bfv.1933
+
+    -   date: 1956-09
+        name: Grabau
+        category: de.Bf
+        location:
+            line.de.9120: 44,8 # left
+        document: src.de.DB.Hmb.Karte.1956
 
 
 ---
 key: point.de.Blumendorf
 type: point
 events:
-    -   date: !!null
-        name: Blumendorf
-        source: src.de.Kb.1914
-    -   date: !!null
-        de.lknr: 52 823
-        source: src.de.Bfv.1933
-    -   date: !!null
-        category: de.Bf
-        location:
-            line.de.9120: 48,4
-        source: src.de.DRG.Alt.Karte.1945
-    -   date: !!null
-        de.DS100: ABMD
-        de.dstnr: !!str 013276
-        source: src.de.DS100.1984
     -   date: 1995
         status: closed
 
     -   date: !!null
         site:
             path.de.9120: blu
+records:
+    -   date: 1914-07
+        name: Blumendorf
+        document: src.de.Kb.1914
+    -   date: 1933-03-01
+        name: Blumendorf
+        de.lknr: 52 823
+        document: src.de.Bfv.1933
+
+    -   date: 1956-09
+        name: Blumendorf
+        category: de.Bf
+        location:
+            line.de.9120: 48,4 # right
+        document: src.de.DB.Hmb.Karte.1956
+
+    -   date: 1984-06-03
+        name: Blumendorf
+        category: de.Bf
+        de.DS100: ABMD
+        de.dstnr: !!str 013276
+        document: src.de.DS100.1984
 
 
 ---

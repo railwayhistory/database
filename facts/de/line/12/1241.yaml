@@ -9,10 +9,6 @@ events:
             - org.de
             - org.de.l.hh
 
-    -   date: !!null
-        de.VzG: !!str 1241
-        source: src.de.DBAG.Geo-Strecke.2017
-
     #   Staatsverträge
     #
     -   date: 1904-12-10
@@ -76,18 +72,6 @@ events:
     #
     -   date: !!null
         gauge: 1435mm
-    -   date: !!null
-        end: point.de.Hamburg-Ohlsdorf-S-Bahn
-        category: de.Hauptbahn
-        tracks: 2
-        source: src.de.DRG.1927
-    -   date: !!null
-        start: point.de.Hamburg-Ohlsdorf-S-Bahn
-        category: de.Nebenbahn
-        source: src.de.DRG.1927
-    -   date: !!null
-        start: point.de.Hamburg-Ohlsdorf-S-Bahn
-        tracks: 1
 
     -   date: 1907-10-01
         end: point.de.Hamburg-Ohlsdorf-S-Bahn
@@ -112,7 +96,41 @@ events:
     #
     -   date: !!null
         course: path.de.1241 ham pop
+records:
+    -   date: 1927-03
+        end: point.de.Hamburg-Ohlsdorf-S-Bahn
+        category: de.Hauptbahn
+        tracks: 2
+        gauge: 1435mm
+        document: src.de.DRG.1927
+    -   date: !!null
+        start: point.de.Hamburg-Ohlsdorf-S-Bahn
+        category: de.Nebenbahn
+        tracks: 2
+        gauge: 1435mm
+        document: src.de.DRG.1927
 
+    -   date: 1931-04-01
+        category: de.Hauptbahn
+        tracks: 2
+        gauge: 1435mm
+        document: src.de.DRG.Alt.Karte.1931
+
+    -   date: 1956-09
+        category: de.Hauptbahn
+        tracks: 2
+        gauge: 1435mm
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-11
+        category: de.Hauptbahn
+        tracks: 2
+        gauge: 1435mm
+        document: src.de.DB.Hmb.Karte.1956
+
+    -   date: 2017-01
+        de.VzG: !!str 1241
+        note: km 0,0+20 – 17,4+57
+        document: src.de.DBAG.Geo-Strecke.2017
 points:
     -   point.de.Hamburg-Hbf-S-Bahn                 # de.1270
     -   point.de.Hamburg-Berliner-Tor-Landwehr
@@ -142,34 +160,31 @@ key: point.de.Hamburg-Berliner-Tor-S-Bahn
 type: point
 events:
     -   date: !!null
+        site:
+            path.de.1241: bts
+            path.de.1244: bts
+records:
+    -   date: 1984-06-03
         de.dstnr: !!str 010702
         de.DS100: ABTR
         name: Berliner Tor (S-Bahn)
         category: de.Bf
-        source: src.de.DS100.1984
-    -   date: c1995
+        document: src.de.DS100.1984
+
+    -   date: 2017-01
         de.DS100: ABTS
         name: Hamburg Berliner Tor
         category: de.Bft
         de.dstnr: !!str 010264
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.name16: Berliner Tor
         PLC: DE14379
-        source: src.de.DBAG.BSV.2017
-    -   date: 2017-12-10
         status: closed
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
+        document: src.de.DBAG.BSV.2017
+    -   date: 2017-01
         location:
             line.de.1244: 1,094
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
 
-    -   date: !!null
-        site:
-            path.de.1241: bts
-            path.de.1244: bts
 
 ---
 key: point.de.Hamburg-Berliner-Tor-Landwehr
@@ -178,29 +193,30 @@ events:
     -   date: c1970
         status: open
         split_from: point.de.Hamburg-Berliner-Tor
+
     -   date: !!null
+        site:
+            path.de.1241: ber
+records:
+    -   date: 1984-06-03
         category: de.Bf
         name: Berliner Tor (S-Bahn)
         de.dstnr: !!str 010702
         de.DS100: ABTR
-        source: src.de.DS100.1984
-    -   date: c1995
+        document: src.de.DS100.1984
+
+    -   date: 2017-01
         category: de.Bft
         name: Hamburg Berliner Tor (Landwehr)
         de.name16: Berliner Tor L
         de.DS100: ABTSL
         PLC: DE14381
         de.dstnr: !!str 910022
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
+        document: src.de.DBAG.BSV.2017
+    -   date: 2017-01
         location:
             line.de.1241: 1,530
-        source: src.de.DBAG.Geo-Strecke.2017
-
-    -   date: !!null
-        site:
-            path.de.1241: ber
+        document: src.de.DBAG.Geo-Strecke.2017
 
 
 ---
@@ -208,39 +224,41 @@ key: point.de.Hamburg-Landwehr
 type: point
 events:
     -   date: !!null
-        name: Landwehr
-        source: src.de.Kb.1914
-    -   date: !!null
-        de.lknr: 01 388
-        service: passenger
-        source: src.de.Bfv.1928
-    -   date: !!null
-        category: de.Hp
-        source: src.de.Bfv.1933
-    -   date: de.lknr.30
-        de.lknr: 01 125
-        source: src.de.Bfv.1933
-    -   date: !!null
-        de.DS100: ALAN
-        de.dstnr: !!str 011254
-        source: src.de.DS100.1984
-    -   date: c2000
-        name: Hamburg Landwehr
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Landwehr
-        PLC: DE14405
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.1241: 2,86
-        source: src.de.DRG.Alt.Karte.1931
-
-    -   date: !!null
         site:
             path.de.1241: lan
 records:
+    -   date: 1914-07
+        name: Landwehr
+        document: src.de.Kb.1914
+    -   date: 1927-12-09
+        name: Landwehr
+        de.lknr: 01 388
+        service: passenger
+        document: src.de.Bfv.1928
+    -   date: 1931-04-01
+        name: Landwehr
+        category: de.Hp
+        location:
+            line.de.1241: 2,86 # left
+        document: src.de.DRG.Alt.Karte.1931
+    -   date: 1933-03-01
+        name: Landwehr
+        category: de.Hp
+        de.lknr: 01 125
+        document: src.de.Bfv.1933
+
+    -   date: 1956-09
+        name: Landwehr
+        category: de.Hp
+        location:
+            line.de.1241: 2,86 # left
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-06-03
+        name: Landwehr
+        category: de.Hp
+        de.DS100: ALAN
+        de.dstnr: !!str 011254
+        document: src.de.DS100.1984
     -   date: 1984-11
         name: Landwehr
         category: de.Hp
@@ -248,6 +266,14 @@ records:
             line.de.1241: 2,80
         document: src.de.DB.Hmb.Karte.1984
 
+    -   date: 2017-01
+        name: Hamburg Landwehr
+        de.name16: Landwehr
+        PLC: DE14405
+        category: de.Hp
+        de.DS100: ALAN
+        de.dstnr: !!str 011254
+        document: src.de.DBAG.BSV.2017
     -   date: 2017-01
         location:
             line.de.1241: 2,793
@@ -259,48 +285,62 @@ key: point.de.Hamburg-Hasselbrook-S-Bahn
 type: point
 events:
     -   date: !!null
-        name: Hasselbrook
-        source: src.de.Kb.1914
-    -   date: !!null
-        service: passenger
-        de.lknr: 01 389
-        source: src.de.Bfv.1928
-    -   date: !!null
-        category: de.Bf
-        de.rang: III
-        source: src.de.Bfv.1933
-    -   date: de.lknr.30
-        de.lknr: 01 124
-        source: src.de.Bfv.1933
-    -   date: !!null
-        de.DS100: AHSB
-        de.dstnr: !!str 011247
-        source: src.de.DS100.1984
-    -   date: c1970
-        name: Hasselbrook (S-Bahn)
-        source: src.de.DS100.1984
-    -   date: c2000
-        name: Hamburg Hasselbrook (S-Bahn)
-        de.dstnr: !!str 011270
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Hasselbr S-Bahn
-        PLC: DE14392
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
         site:
             path.de.1241: has
             path.de.1120: has
 records:
-    -   date: 1984-11
+    -   date: 1914-07
         name: Hasselbrook
+        document: src.de.Kb.1914
+    -   date: !!null
+        name: Hasselbrook
+        service: passenger
+        de.lknr: 01 389
+        document: src.de.Bfv.1928
+    -   date: 1931-04-01
+        name: Hasselbrook
+        category: de.Bf
+        de.rang: III
+        location:
+            line.de.1241:  4,23 # left
+        document: src.de.DRG.Alt.Karte.1931
+    -   date: 1933-03-01
+        name: Hasselbrook
+        category: de.Bf
+        de.rang: III
+        de.lknr: 01 124
+        document: src.de.Bfv.1933
+
+    -   date: 1956-09
+        name: Hasselbrook
+        category: de.Bf
+        de.rang: II
+        location:
+            line.de.1120: 59,69
+            line.de.1241:  4,17 # left
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-06-03
+        name: Hasselbrook (S-Bahn)
+        category: de.Bf
+        de.DS100: AHSB
+        de.dstnr: !!str 011247
+        document: src.de.DS100.1984
+    -   date: 1984-11
+        name: Hasselbrook 
         category: de.Bf
         location:
             line.de.1120: 59,69
             line.de.1241:  4,17 # left
         document: src.de.DB.Hmb.Karte.1984
 
+    -   date: 2017-01
+        name: Hamburg Hasselbrook (S-Bahn)
+        de.dstnr: !!str 011270
+        de.name16: Hasselbr S-Bahn
+        category: de.Bf
+        de.DS100: AHSB
+        PLC: DE14392
+        document: src.de.DBAG.BSV.2017
     -   date: 2017-01
         location:
             line.de.1120: 59,689
@@ -313,46 +353,44 @@ key: point.de.Hamburg-Wandsbeker-Chaussee
 type: point
 events:
     -   date: !!null
-        name: Wandsbeker Chaussee
-        source: src.de.Kb.1914
-    -   date: !!null
-        service: passenger
-        de.lknr: 01 390
-        source: src.de.Bfv.1928
-    -   date: !!null
-        category: de.Hp
-        source: src.de.Bfv.1933
-    -   date: c1925
-        name: Wandsbekerchaussee
-        source: src.de.Bfv.1933
-    -   date: de.lknr.30
-        de.lknr: 01 123
-        source: src.de.Bfv.1933
-    -   date: !!null
-        de.DS100: AWCH
-        de.dstnr: !!str 011239
-        source: src.de.DS100.1984
-    -   date: c1970
-        name: Wandsbeker Chaussee
-        source: src.de.DS100.1984
-    -   date: c2000
-        name: Hamburg Wandsbeker Chausee
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Wandsb Chaussee
-        PLC: DE14418
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.1241: 5,01
-        source: src.de.DRG.Alt.Karte.1931
-
-    -   date: !!null
         site:
             path.de.1241: wan
             path.de.1234: wan
 records:
+    -   date: 1914-07
+        name: Wandsbeker Chaussee
+        document: src.de.Kb.1914
+    -   date: 1927-12-09
+        name: Wandsbeker Chaussee
+        service: passenger
+        de.lknr: 01 390
+        document: src.de.Bfv.1928
+    -   date: 1931-04-01
+        name: Wandsbekerchaussee
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.1241: 5,01 # left
+        document: src.de.DRG.Alt.Karte.1931
+    -   date: 1927-12-09
+        name: Wandsbekerchaussee
+        category: de.Hp
+        de.lknr: 01 123
+        document: src.de.Bfv.1933
+
+    -   date: 1956-09
+        name: Wandsbekerchaussee
+        category: de.Hp
+        staff: full
+        location:
+            line.de.1241: 4,92 # left
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-06-03
+        name: Wandsbeker Chaussee
+        category: de.Hp
+        de.DS100: AWCH
+        de.dstnr: !!str 011239
+        document: src.de.DS100.1984
     -   date: 1984-11
         name: Wandsbeker Chaussee
         category: de.Hp
@@ -360,6 +398,14 @@ records:
             line.de.1241: 4,92 # left
         document: src.de.DB.Hmb.Karte.1984
 
+    -   date: 2017-01
+        name: Hamburg Wandsbeker Chausee
+        de.name16: Wandsb Chaussee
+        PLC: DE14418
+        category: de.Hp
+        de.DS100: AWCH
+        de.dstnr: !!str 011239
+        document: src.de.DBAG.BSV.2017
     -   date: 2017-01
         location:
             line.de.1241: 4,920
@@ -371,42 +417,42 @@ key: point.de.Hamburg-Friedrichsberg
 type: point
 events:
     -   date: !!null
-        name: Friedrichsberg
-        source: src.de.Kb.1914
-    -   date: !!null
-        service: passenger
-        de.lknr: 01 391
-        source: src.de.Bfv.1928
-    -   date: !!null
-        category: de.Hp
-        source: src.de.Bfv.1933
-    -   date: de.lknr.30
-        de.lknr: 01 122
-        source: src.de.Bfv.1933
-    -   date: !!null
-        de.DS100: AF
-        de.dstnr: !!str 011221
-        source: src.de.DS100.1984
-    -   date: c1990
-        de.DS100: AFBG
-        source: src.de.DBAG.BSV.2017
-    -   date: c2000
-        name: Hamburg Friedrichsberg
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Friedrichsbg
-        PLC: DE14390
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.1241: 5,61
-        source: src.de.DRG.Alt.Karte.1949
-
-    -   date: !!null
         site:
             path.de.1241: fri
 records:
+    -   date: 1914-07
+        name: Friedrichsberg
+        document: src.de.Kb.1914
+    -   date: 1927-12-09
+        name: Friedrichsberg
+        service: passenger
+        de.lknr: 01 391
+        document: src.de.Bfv.1928
+    -   date: 1931-04-01
+        name: Friedrichsberg
+        category: de.Hp
+        location:
+            line.de.1241: 5,61 # right
+        document: src.de.DRG.Alt.Karte.1931
+    -   date: 1933-03-01
+        name: Friedrichsberg
+        category: de.Hp
+        de.lknr: 01 122
+        document: src.de.Bfv.1933
+
+    -   date: 1956-09
+        name: Friedrichsberg
+        category: de.Hp
+        staff: full
+        location:
+            line.de.1241: 5,61 # right
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-06-03
+        name: Friedrichsberg
+        category: de.Hp
+        de.DS100: AF
+        de.dstnr: !!str 011221
+        document: src.de.DS100.1984
     -   date: 1984-11
         name: Friedrichsberg
         category: de.Hp
@@ -414,6 +460,14 @@ records:
             line.de.1241: 5,62 # right
         document: src.de.DB.Hmb.Karte.1984
 
+    -   date: 2017-01
+        de.DS100: AFBG
+        name: Hamburg Friedrichsberg
+        de.name16: Friedrichsbg
+        category: de.Hp
+        de.dstnr: !!str 011221
+        PLC: DE14390
+        document: src.de.DBAG.BSV.2017
     -   date: 2017-01
         location:
             line.de.1241: 5,617
@@ -425,45 +479,50 @@ key: point.de.Hamburg-Barmbek-S-Bahn
 type: point
 events:
     -   date: !!null
-        name: Barmbeck
-        source: src.de.Kb.1914
-    -   date: !!null
-        de.lknr: 01 037
-        source: src.de.Bfv.1928
-    -   date: !!null
-        category: de.Bf
-        de.rang: III
-        source: src.de.Bfv.1933
-    -   date: de.lknr.30
-        de.lknr: 10 120
-        source: src.de.Bfv.1933
-    -   date: c1930
-        service: passenger
-        source: src.de.Bfv.1933
-    -   date: !!null
-        de.DS100: ABAP
-        de.dstnr: !!str 010231
-        source: src.de.DS100.1984
-    -   date: c1970
-        name: Barmbek (S-Bahn)
-        source: src.de.DS100.1984
-    -   date: !!null
-        de.name16: Barmbek (S-Bahn)
-        PLC: DE14427
-        source: src.de.DBAG.BSV.2017
-    -   date: c2000
-        name: Hamburg-Barmbek (S-Bahn)
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.1241: 7,13
-        source: src.de.DRG.Alt.Karte.1945
-
-    -   date: !!null
         site:
             path.de.1241: bar
 records:
+    -   date: 1914-07
+        name: Barmbeck
+        document: src.de.Kb.1914
+    -   date: 1927-12-09
+        name: Barmbeck
+        de.lknr: 01 037
+        document: src.de.Bfv.1928
+    -   date: 1931-04-01
+        name: Barmbeck
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.1241: 7,13 # left
+        document: src.de.DRG.Alt.Karte.1931
+    -   date: 1933-03-01
+        category: de.Bf
+        de.rang: III
+        de.lknr: 10 120
+        service: passenger
+        document: src.de.Bfv.1933
+    -   date: 1935-01-01
+        name: Barmbeck
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.1241: 7,13 # left
+        document: src.de.DRG.Alt.Karte.1935
+
+    -   date: 1956-09
+        name: Barmbek
+        category: de.Bf
+        de.rang: III
+        location:
+            line.de.1241: 7,13 # left
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-06-03
+        de.dstnr: !!str 010231
+        name: Barmbek (S-Bahn)
+        de.DS100: ABAP
+        category: de.Bf
+        document: src.de.DS100.1984
     -   date: 1984-11
         name: Barmbek
         category: de.Bf
@@ -471,6 +530,19 @@ records:
             line.de.1241:  7,13 # left
             line.de.1234: 12,90
         document: src.de.DB.Hmb.Karte.1984
+
+    -   date: 2017-01
+        de.name16: Barmbek (S-Bahn)
+        PLC: DE14427
+        name: Hamburg-Barmbek (S-Bahn)
+        de.dstnr: !!str 010231
+        de.DS100: ABAP
+        category: de.Bf
+        document: src.de.DBAG.BSV.2017
+    -   date: 2017-01
+        location:
+            line.de.1241: 7,0+130
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
 
     
 ---
@@ -480,39 +552,43 @@ events:
     -   date: 1931-04-29
         status: open
         source: src.de.WP.Hamburg-Altonaer-Verbindungsbahn
-    -   date: !!null
-        category: de.Hp
-        name: Alte Wöhr Stadtpark
-        de.lknr: 01 119
-        service: passenger
-        source: src.de.Bfv.1933
-    -   date: c1940
-        name: Stadtpark
-        source: src.de.Bfv.1944
-    -   date: c1970
-        name: Alte Wöhr
-        source: src.de.web.Matthaei
-    -   date: !!null
-        de.DS100: AAW
-        de.dstnr: !!str 011197
-        source: src.de.DS100.1984
-    -   date: c2000
-        name: Hamburg Alte Wöhr
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Alte Wöhr
-        PLC: DE14377
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.1241: 8,64
-        source: src.de.DRG.Alt.Karte.1945
 
     -   date: !!null
         site:
             path.de.1241: awo
 records:
+    -   date: 1931-04-01
+        name: Alte Wöhr-Stadtpark
+        category: de.Hp
+        location:
+            line.de.1241: 8,64 # right
+        document: src.de.DRG.Alt.Karte.1931
+    -   date: 1933-03-01
+        name: Alte Wöhr Stadtpark
+        category: de.Hp
+        de.lknr: 01 119
+        service: passenger
+        document: src.de.Bfv.1933
+    -   date: 1944-06-01
+        name: Stadtpark
+        category: de.Hp
+        de.lknr: 01 119
+        service: passenger
+        document: src.de.Bfv.1944
+
+    -   date: 1956-09
+        name: Stadtpark
+        category: de.Hp
+        staff: full
+        location:
+            line.de.1241: 8,64 # right
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-06-03
+        de.dstnr: !!str 011197
+        name: Alte Wöhr
+        de.DS100: AAW
+        category: de.Hp
+        document: src.de.DS100.1984
     -   date: 1984-11
         name: Alte Wöhr
         category: de.Hp
@@ -520,6 +596,14 @@ records:
             line.de.1241: 8,63 # right
         document: src.de.DB.Hmb.Karte.1984
 
+    -   date: 2017-01
+        name: Hamburg Alte Wöhr
+        de.name16: Alte Wöhr
+        PLC: DE14377
+        de.dstnr: !!str 011197
+        de.DS100: AAW
+        category: de.Hp
+        document: src.de.DBAG.BSV.2017
     -   date: 2017-01
         location:
             line.de.1241: 8,631
@@ -533,40 +617,44 @@ events:
     -   date: 1913-10-01
         status: open
         source: src.de.WP.Hamburg-Altonaer-Verbindungsbahn
-    -   date: !!null
-        name: Rübenkamp
-        source: src.de.Kb.1914
-    -   date: !!null
-        de.lknr: 01 393
-        service: passenger
-        source: src.de.Bfv.1928
-    -   date: !!null
-        category: de.Hp
-        source: src.de.Bfv.1933
-    -   date: de.lknr.30
-        de.lknr: 01 118
-        source: src.de.Bfv.1933
-    -   date: !!null
-        de.DS100: ARP
-        de.dstnr: !!str 011189
-        source: src.de.DS100.1984
-    -   date: c2000
-        name: Hamburg-Rübenkamp
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Rübenkamp
-        PLC: DE14484
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.1241: 9,67
-        source: src.de.DRG.Alt.Karte.1931
 
     -   date: !!null
         site:
             path.de.1241: rub
 records:
+    -   date: 1914-07
+        name: Rübenkamp
+        document: src.de.Kb.1914
+    -   date: 1927-12-09
+        name: Rübenkamp
+        de.lknr: 01 393
+        service: passenger
+        document: src.de.Bfv.1928
+    -   date: 1931-04-01
+        name: Rübenkamp
+        category: de.Hp
+        location:
+            line.de.1241: 9,67 # right
+        document: src.de.DRG.Alt.Karte.1931
+    -   date: 1933-03-01
+        name: Rübenkamp
+        category: de.Hp
+        de.lknr: 01 118
+        document: src.de.Bfv.1933
+
+    -   date: 1956-09
+        name: Rübenkamp
+        category: de.Hp
+        staff: full
+        location:
+            line.de.1241: 9,67 # right
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-06-03
+        name: Rübenkamp
+        category: de.Hp
+        de.DS100: ARP
+        de.dstnr: !!str 011189
+        document: src.de.DS100.1984
     -   date: 1984-11
         name: Rübenkamp
         category: de.Hp
@@ -574,6 +662,14 @@ records:
             line.de.1241: 9,65 # right
         document: src.de.DB.Hmb.Karte.1984
 
+    -   date: 2017-01
+        name: Hamburg-Rübenkamp
+        de.name16: Rübenkamp
+        PLC: DE14484
+        category: de.Hp
+        de.DS100: ARP
+        de.dstnr: !!str 011189
+        document: src.de.DBAG.BSV.2017
     -   date: 2017-01
         location:
             line.de.1241: 9,664
@@ -585,16 +681,23 @@ key: point.de.Hamburg-Ohlsdorf-Og
 type: point
 events:
     -   date: !!null
-        category: de.Abzw
-        name: Og
-        location:
-            line.de.1241: 10,46
-        source: src.de.DRG.Alt.Karte.1931
-
-    -   date: !!null
         site:
             path.de.1241: oog
             path.de.1243: oog
+records:
+    -   date: 1931-04-01
+        category: de.Bk
+        name: „Og“
+        location:
+            line.de.1241: 10,46 # right
+        document: src.de.DRG.Alt.Karte.1931
+
+    -   date: 1956-09
+        category: de.Bk
+        name: „Og“
+        location:
+            line.de.1241: 10,46
+        document: src.de.DB.Hmb.Karte.1956
 
 
 ---
@@ -602,40 +705,47 @@ key: point.de.Hamburg-Ohlsdorf
 type: point
 events:
     -   date: !!null
-        name: Ohlsdorf Gbf
-        category: de.Glgr
-    -   date: c1930
-        name: Hamburg-Ohlsdorf
-        source: src.de.Bfv.1933
-
-    -   date: c1990
-        de.DS100: AOP
-        category: de.Bf
-        de.dstnr: !!str 303339
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Ohlsdorf
-        PLC: DE14468
-        source: src.de.DBAG.BSV.2017
-    -   date: c2005
-        status: closed
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.1241: 10,52
-            line.de.1243: 10,52
-            line.de.1247:  0,00
-        source: src.de.DRG.Alt.Karte.1949
-    -   date: 1941?
-        location:
-            line.de.1241: !!null
-
-    -   date: !!null
         site:
             path.de.1241: ohg
             path.de.1243: ohg
             path.de.1247: ohg
+records:
+    -   date: 1931-04-01
+        name: Güterbhf Ohlsdorf
+        category: de.Bf
+        de.rang: I
+        service: goods
+        location:
+            line.de.1241: 10,52 # left
+        document: src.de.DRG.Alt.Karte.1931
+    -   date: 1935-01-01
+        name: Güterbhf Ohlsdorf
+        category: de.Bf
+        de.rang: IV
+        service: goods
+        location:
+            line.de.1241: 10,52 # left
+        document: src.de.DRG.Alt.Karte.1931
+
+    -   date: 1956-09
+        name: Hamburg-Ohlsdorf
+        category: de.Bf
+        de.rang: IV
+        service: goods
+        location:
+            line.de.1241: 10,46
+            line.de.1243: 10,46
+            line.de.1247:  0,0
+        document: src.de.DB.Hmb.Karte.1956
+
+    -   date: 2017-01
+        de.DS100: AOP
+        category: de.Bf
+        de.dstnr: !!str 303339
+        de.name16: Ohlsdorf
+        PLC: DE14468
+        status: closed
+        document: src.de.DBAG.BSV.2017
 
 
 ---
@@ -643,37 +753,44 @@ key: point.de.Hamburg-Ohlsdorf-S-Bahn
 type: point
 events:
     -   date: !!null
-        name: Ohlsdorf
-        source: src.de.Kb.1914
-    -   date: !!null
-        de.lknr: 01 038
-        source: src.de.Bfv.1928
-    -   date: !!null
-        category: de.Bf
-        de.rang: II
-        source: src.de.Bfv.1933
-    -   date: de.lknr.30
-        de.lknr: 01 117
-        source: src.de.Bfv.1933
-    -   date: !!null
-        de.DS100: AOP
-        de.dstnr: !!str 011262
-        source: src.de.DS100.1984
-
-    -   date: c1990
-        de.DS100: AOPS
-        name: Hamburg-Ohlsdorf (S-Bahn)
-        de.name16: Ohlsdorf(S-Bahn)
-        de.dstnr: !!str 010314
-    -   date: !!null
-        PLC: DE14469
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
         site:
             path.de.1241: ohl
             path.de.1239: ohl
 records:
+    -   date: 1914-07
+        name: Ohlsdorf
+        document: src.de.Kb.1914
+    -   date: 1927-12-09
+        name: Ohlsdorf
+        de.lknr: 01 038
+        document: src.de.Bfv.1928
+    -   date: 1931-04-01
+        name: Ohlsdorf
+        category: de.Bf
+        de.rang: II
+        location:
+            line.de.1241: 11,28 # right
+        document: src.de.DRG.Alt.Karte.1931
+    -   date: 1933-03-01
+        name: Ohlsdorf
+        category: de.Bf
+        de.rang: II
+        de.lknr: 01 117
+        document: src.de.Bfv.1933
+
+    -   date: 1956-09
+        name: Ohlsdorf
+        category: de.Bf
+        de.rang: I
+        location:
+            line.de.1241: 11,28 # right
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-06-03
+        name: Ohlsdorf
+        category: de.Bf
+        de.DS100: AOP
+        de.dstnr: !!str 011262
+        document: src.de.DS100.1984
     -   date: 1984-11
         name: Ohlsdorf
         category: de.Bf
@@ -682,6 +799,14 @@ records:
             line.de.1247:  0,0
         document: src.de.DB.Hmb.Karte.1984
 
+    -   date: 2017-01
+        de.DS100: AOPS
+        name: Hamburg-Ohlsdorf (S-Bahn)
+        de.name16: Ohlsdorf(S-Bahn)
+        category: de.Bf
+        de.dstnr: !!str 010314
+        PLC: DE14469
+        document: src.de.DBAG.BSV.2017
     -   date: 2017-01
         location:
             line.de.1239: 11,283
@@ -694,40 +819,45 @@ key: point.de.Hamburg-Kornweg-Klein-Borstel
 type: point
 events:
     -   date: !!null
-        name: Kornweg
-        de.lknr: 01 350
-        service: passenger
-        source: src.de.Bfv.1928
-    -   date: !!null
-        category: de.Hp
-        source: src.de.Bfv.1933
-    -   date: c1930
-        name: Kornweg (Klein Borstel)
-        source: src.de.Bfv.1933
-    -   date: de.lknr.30
-        de.lknr: 01 116
-        source: src.de.Bfv.1933
-    -   date: !!null
-        de.DS100: AKWS
-        de.dstnr: !!str 011163
-        source: src.de.DS100.1984
-    -   date: c2000
-        name: Hamburg Kornweg (Klein Borstel)
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Kornweg
-        PLC: DE14403
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.1241: 13,45
-        source: src.de.DRG.Alt.Karte.1949
-
-    -   date: !!null
         site:
             path.de.1241: kor
 records:
+    -   date: 1927-12-09
+        name: Kornweg
+        de.lknr: 01 350
+        service: passenger
+        document: src.de.Bfv.1928
+    -   date: 1931-04-01
+        name: Kornweg
+        category: de.Hp
+        location:
+            line.de.1241: 13,47 # centre
+        document: src.de.DRG.Alt.Karte.1931
+    -   date: 1933-03-01
+        name: Kornweg (Klein Borstel)
+        category: de.Hp
+        de.lknr: 01 116
+        document: src.de.Bfv.1933
+    -   date: 1935-01-01
+        name: Kornweg
+        category: de.Hp
+        location:
+            line.de.1241: 13,47 # centre
+        document: src.de.DRG.Alt.Karte.1935
+
+    -   date: 1956-09
+        name: Kornweg (Klein Borstel)
+        category: de.Hp
+        staff: full
+        location:
+            line.de.1241: 13,45 # left
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-06-03
+        name: Kornweg (Klein Borstel)
+        category: de.Hp
+        de.DS100: AKWS
+        de.dstnr: !!str 011163
+        document: src.de.DS100.1984
     -   date: 1984-11
         name: Kornweg (Klein Borstel)
         category: de.Hp
@@ -736,9 +866,20 @@ records:
         document: src.de.DB.Hmb.Karte.1984
 
     -   date: 2017-01
+        name: Hamburg Kornweg (Klein Borstel)
+        de.name16: Kornweg
+        PLC: DE14403
+        category: de.Hp
+        de.DS100: AKWS
+        de.dstnr: !!str 011163
+        document: src.de.DBAG.BSV.2017
+    -   date: 2017-01
         location:
             line.de.1241: 13,406
         document: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+# Landesgrenze src.de.DRG.Alt.Karte.1931, src.de.DRG.Alt.Karte.1935
 
 
 ---
@@ -746,37 +887,39 @@ key: point.de.Hamburg-Hoheneichen
 type: point
 events:
     -   date: !!null
-        name: Hoheneichen
-        de.lknr: 01 351
-        service: passenger
-        source: src.de.Bfv.1928
-    -   date: !!null
-        category: de.Hp
-        source: src.de.Bfv.1933
-    -   date: de.lknr.30
-        de.lknr: 01 115
-        source: src.de.Bfv.1933
-    -   date: !!null
-        de.DS100: AHCH
-        de.dstnr: !!str 011155
-        source: src.de.DS100.1984
-    -   date: c2000
-        name: Hamburg Hoheneichen
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Hoheneichen
-        PLC: DE14396
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.1241: 14,42
-        source: src.de.DRG.Alt.Karte.1949
-
-    -   date: !!null
         site:
             path.de.1241: hoh
 records:
+    -   date: 1927-12-09
+        name: Hoheneichen
+        de.lknr: 01 351
+        service: passenger
+        document: src.de.Bfv.1928
+    -   date: 1931-04-01
+        name: Hoheneichen
+        category: de.Hp
+        location:
+            line.de.1241: 14,42 # centre
+        document: src.de.DRG.Alt.Karte.1931
+    -   date: 1933-03-01
+        name: Hoheneichen
+        category: de.Hp
+        de.lknr: 01 115
+        document: src.de.Bfv.1933
+
+    -   date: 1956-09
+        name: Hoheneichen
+        category: de.Hp
+        staff: full
+        location:
+            line.de.1241: 14,42 # left
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-06-03
+        name: Hoheneichen
+        category: de.Hp
+        de.DS100: AHCH
+        de.dstnr: !!str 011155
+        document: src.de.DS100.1984
     -   date: 1984-11
         name: Hoheneichen
         category: de.Hp
@@ -784,6 +927,14 @@ records:
             line.de.1241: 14,37 # left
         document: src.de.DB.Hmb.Karte.1984
 
+    -   date: 2017-01
+        name: Hamburg Hoheneichen
+        de.name16: Hoheneichen
+        PLC: DE14396
+        category: de.Hp
+        de.DS100: AHCH
+        de.dstnr: !!str 011155
+        document: src.de.DBAG.BSV.2017
     -   date: 2017-01
         location:
             line.de.1241: 14,371
@@ -795,37 +946,39 @@ key: point.de.Hamburg-Wellingsbüttel
 type: point
 events:
     -   date: !!null
-        name: Wellingsbüttel
-        de.lknr: 01 352
-        service: passenger
-        source: src.de.Bfv.1928
-    -   date: !!null
-        category: de.Hp
-        source: src.de.Bfv.1933
-    -   date: de.lknr.30
-        de.lknr: 01 114
-        source: src.de.Bfv.1933
-    -   date: !!null
-        de.DS100: AWBS
-        de.dstnr: !!str 011148
-        source: src.de.DS100.1984
-    -   date: c2000
-        name: Hamburg-Wellingsbüttel
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Wellingsbüttel
-        PLC: DE14496
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.1241: 15,56
-        source: src.de.DRG.Alt.Karte.1949
-
-    -   date: !!null
         site:
             path.de.1241: wel
 records:
+    -   date: 1927-12-09
+        name: Wellingsbüttel
+        de.lknr: 01 352
+        service: passenger
+        document: src.de.Bfv.1928
+    -   date: 1931-04-01
+        name: Wellingsbüttel
+        category: de.Hp
+        location:
+            line.de.1241: 15,56 # centre
+        document: src.de.DRG.Alt.Karte.1931
+    -   date: 1933-03-01
+        name: Wellingsbüttel
+        category: de.Hp
+        de.lknr: 01 114
+        document: src.de.Bfv.1933
+
+    -   date: 1956-09
+        name: Wellingsbüttel
+        category: de.Hp
+        staff: full
+        location:
+            line.de.1241: 15,56 # right
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-06-03
+        name: Wellingsbüttel
+        category: de.Hp
+        de.DS100: AWBS
+        de.dstnr: !!str 011148
+        document: src.de.DS100.1984
     -   date: 1984-11
         name: Wellingsbüttel
         category: de.Hp
@@ -833,6 +986,14 @@ records:
             line.de.1241: 15,66 # right
         document: src.de.DB.Hmb.Karte.1984
 
+    -   date: 2017-01
+        name: Hamburg-Wellingsbüttel
+        de.name16: Wellingsbüttel
+        PLC: DE14496
+        category: de.Hp
+        de.DS100: AWBS
+        de.dstnr: !!str 011148
+        document: src.de.DBAG.BSV.2017
     -   date: 2017-01
         location:
             line.de.1241: 15,657
@@ -844,40 +1005,51 @@ key: point.de.Hamburg-Poppenbüttel
 type: point
 events:
     -   date: !!null
-        name: Poppenbüttel
-        de.lknr: 01 039
-        source: src.de.Bfv.1928
-    -   date: !!null
-        category: de.Bf
-        de.rang: IV
-        source: src.de.Bfv.1933
-    -   date: de.lknr.30
-        de.lknr: 01 113
-        source: src.de.Bfv.1933
-    -   date: c1935
-        de.rang: III
-        source: src.de.Bfv.1938
-    -   date: !!null
-        de.DS100: APB
-        de.dstnr: !!str 011130
-        source: src.de.DS100.1984
-    -   date: c2000
-        name: Hamburg-Poppenbüttel
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Poppenbüttel
-        PLC: DE14471
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.1241: 17,01
-        source: src.de.DRG.Alt.Karte.1949
-
-    -   date: !!null
         site:
             path.de.1241: pop
 records:
+    -   date: 1927-12-09
+        name: Poppenbüttel
+        de.lknr: 01 039
+        document: src.de.Bfv.1928
+    -   date: 1931-04-01
+        name: Poppenbüttel
+        category: de.Hp
+        location:
+            line.de.1241: 17,01 # centre
+        document: src.de.DRG.Alt.Karte.1931
+    -   date: 1933-03-01
+        name: Poppenbüttel
+        category: de.Bf
+        de.rang: IV
+        de.lknr: 01 113
+        document: src.de.Bfv.1933
+    -   date: 1935-01-01
+        name: Poppenbüttel
+        category: de.Hp
+        location:
+            line.de.1241: 17,01 # centre
+        document: src.de.DRG.Alt.Karte.1935
+    -   date: 1938-10-01
+        name: Poppenbüttel
+        category: de.Bf
+        de.rang: III
+        de.lknr: 01 113
+        document: src.de.Bfv.1938
+
+    -   date: 1956-09
+        name: Poppenbüttel
+        category: de.Bf
+        de.rang: II
+        location:
+            line.de.1241: 17,01 # right
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-06-03
+        name: Poppenbüttel
+        category: de.Bf
+        de.DS100: APB
+        de.dstnr: !!str 011130
+        document: src.de.DS100.1984
     -   date: 1984-11
         name: Poppenbüttel
         category: de.Bf
@@ -885,6 +1057,14 @@ records:
             line.de.1241: 17,02 # right
         document: src.de.DB.Hmb.Karte.1984
 
+    -   date: 2017-01
+        name: Hamburg-Poppenbüttel
+        de.name16: Poppenbüttel
+        PLC: DE14471
+        category: de.Bf
+        de.DS100: APB
+        de.dstnr: !!str 011130
+        document: src.de.DBAG.BSV.2017
     -   date: 2017-01
         location:
             line.de.1241: 17,022

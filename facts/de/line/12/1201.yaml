@@ -9,10 +9,6 @@ events:
             - org.de
             - org.de.l.sh
 
-    -   date: !!null
-        de.VzG: !!str 1201
-        source: src.de.DBAG.Geo-Strecke.2017
-
     #   Genehmigungen
     #
     -   date: 1884-07-25
@@ -70,7 +66,52 @@ events:
     #
     -   date: !!null
         course: path.de.1201 nie sug
+records:
+    -   date: 1927-03
+        category: de.Hauptbahn
+        tracks: 2
+        gauge: 1435mm
+        document: src.de.DRG.1927
 
+    -   date: 1931-04-01
+        end: point.de.Süderlügum
+        category: de.Hauptbahn
+        tracks: 2
+        gauge: 1435mm
+        document: src.de.DRG.Alt.Karte.1931
+    -   date: 1931-04-01
+        start: point.de.Süderlügum
+        category: de.Nebenbahn
+        tracks: 1
+        gauge: 1435mm
+        document: src.de.DRG.Alt.Karte.1931
+
+    -   date: 1956-09
+        category: de.Nebenbahn
+        tracks: 1
+        gauge: 1435mm
+        document: src.de.DB.Hmb.Karte.1956
+
+    -   date: 1984-01
+        end: point.de.Süderlügum
+        category: de.Nebenbahn
+        tracks: 1
+        gauge: 1435mm
+        passenger: none
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-01
+        start: point.de.Süderlügum
+        category: de.Nebenbahn
+        tracks: 1
+        gauge: 1435mm
+        passenger: none
+        goods: none
+        document: src.de.DB.Hmb.Karte.1956
+
+    -   date: 2017-01
+        de.VzG: !!str 1201
+        note: km 161,5+5 – 175,2+90
+        document: src.de.DBAG.Geo-Strecke.2017
 points:
     -   point.de.Niebüll                            # de.1210
     -   point.de.Niebüll-Gr
@@ -89,74 +130,93 @@ points:
 ---
 key: point.de.Niebüll-Gr
 type: point
+subtype: reference
 events:
     -   date: !!null
+        site:
+            path.de.1201: nig
+records:
+    -   date: 2017-01
         de.DS100: ANBG
         name: Niebüll DB-Grenze
         de.name16: Niebüll DB-Gr
         category: de.Gp
         PLC: DE17676
         de.dstnr: !!str 885400
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
+        document: src.de.DBAG.BSV.2017
+    -   date: 2017-01
         location:
             line.de.1201: 162,319
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
-
-    -   date: !!null
-        site:
-            path.de.1201: nig
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Uphusum
 type: point
 events:
-    -   date: !!null
-        name: Holm
-        source: src.de.Kb.1905
-    -   date: c1910
-        name: Uphusum
-        source: src.de.Kb.1914
-    -   date: !!null
-        de.lknr: 01 147
-        source: src.de.Bfv.1928
-    -   date: !!null
-        category: de.Bf
-        de.rang: IV
-        source: src.de.Bfv.1933
-    -   date: de.lknr.30
-        de.lknr: 01 576
-        source: src.de.Bfv.1933
-    -   date: c1935
-        category: de.Hst
-        source: src.de.Bfv.1938
-    -   date: !!null
-        de.DS100: ANBU
-        de.dstnr: !!str 015768
-        source: src.de.DS100.1984
     -   date: 1984-05-27
         category: de.Anst
     -   date: 1984-09-30
         status: closed
     -   date: 2007-05-17
         status: open
-    -   date: 2007-05-17
-        de.DS100: AUP
-        de.name16: Uphusum
-        category: de.Hp
-        de.dstnr: !!str 887612
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.1201: 167,77
-        source: src.de.DRG.Alt.Karte.1949
 
     -   date: !!null
         site:
             path.de.1201: uph
+records:
+    -   date: 1905-07
+        name: Holm
+        document: src.de.Kb.1905
+    -   date: 1914-07
+        name: Uphusum
+        document: src.de.Kb.1914
+
+    -   date: 1927-12-09
+        name: Uphusum
+        de.lknr: 01 147
+        document: src.de.Bfv.1928
+    -   date: 1931-04-01
+        name: Uphusum
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.1201: 167,77 # right
+        document: src.de.DRG.Alt.Karte.1931
+    -   date: 1933-03-01
+        name: Uphusum
+        category: de.Bf
+        de.rang: IV
+        de.lknr: 01 576
+        document: src.de.Bfv.1933
+    -   date: 1938-10-01
+        name: Uphusum
+        category: de.Hst
+        de.rang: IV
+        de.lknr: 01 576
+        document: src.de.Bfv.1938
+
+    -   date: 1956-09
+        name: Uphusum
+        category: de.Hst
+        staff: agent
+        location:
+            line.de.1201: 167,77 # right
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-06-03
+        name: Uphusum
+        category: de.Anst
+        de.DS100: ANBU
+        de.dstnr: !!str 015768
+        document: src.de.DS100.1984
+
+    -   date: 2017-01
+        de.DS100: AUP
+        name: Uphusum
+        de.name16: Uphusum
+        category: de.Hp
+        de.dstnr: !!str 887612
+        document: src.de.DBAG.BSV.2017
 
 
 ---
@@ -166,57 +226,67 @@ events:
     -   date: 2001-06-24
         status: open
         split_from: point.de.Süderlügum
+
+    -   date: !!null
+        site:
+            path.de.1201: sua
+records:
+    -   date: 2017-01
         de.DS100: ANBA
         name: Süderlügum Awanst
         de.name16: Süderlügum Awans
         category: de.Awanst
         de.dstnr: !!str 107396
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        site:
-            path.de.1201: sua
+        document: src.de.DBAG.BSV.2017
 
 
 ---
 key: point.de.Süderlügum
 type: point
 events:
-    -   date: !!null
-        name: Süderlügum
-        source: src.de.Kb.1905
-    -   date: !!null
-        de.lknr: 01 148
-        source: src.de.Bfv.1928
-    -   date: !!null
-        category: de.Bf
-        de.rang: III
-        source: src.de.Bfv.1933
-    -   date: de.lknr.30
-        de.lknr: 01 577
-        source: src.de.Bfv.1933
-    -   date: !!null
-        de.DS100: ANBS
-        de.dstnr: !!str 015776
-        source: src.de.DS100.1984
     -   date: 1980
         category: de.Anst
         source: src.de.Bock.1989
-    -   date: 2001-06-17
-        category: de.Hp
-    -   date: !!null
-        de.name16: Süderlügum
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.1201: 171,64
-        source: src.de.DRG.Alt.Karte.1949
 
     -   date: !!null
         site:
             path.de.1201: sud
 records:
+    -   date: 1905-07
+        name: Süderlügum
+        document: src.de.Kb.1905
+
+    -   date: 1927-12-09
+        name: Süderlügum
+        de.lknr: 01 148
+        document: src.de.Bfv.1928
+    -   date: 1931-04-01
+        name: Süderlügum
+        category: de.Bf
+        de.rang: III
+        location:
+            line.de.1201: 171,64 # right
+        document: src.de.DRG.Alt.Karte.1931
+    -   date: 1933-03-01
+        name: Süderlügum
+        category: de.Bf
+        de.rang: III
+        de.lknr: 01 577
+        document: src.de.Bfv.1933
+
+    -   date: 1956-09
+        name: Süderlügum
+        category: de.Bf
+        de.rang: III
+        location:
+            line.de.1201: 171,64 # right
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: !!null
+        de.dstnr: !!str 015776
+        name: Süderlügum
+        de.DS100: ANBS
+        category: de.Anst
+        document: src.de.DS100.1984
     -   date: 1984-11
         name: Süderlügum
         category: de.Bf
@@ -224,6 +294,14 @@ records:
         location:
             line.de.1201: 171,56 # right
         document: src.de.DB.Hmb.Karte.1984
+
+    -   date: 2017-01
+        de.DS100: ANBS
+        name: Süderlügum
+        de.name16: Süderlügum
+        category: de.Hp
+        de.dstnr: !!str 015776
+        document: src.de.DBAG.BSV.2017
 
 
 ---
@@ -249,36 +327,50 @@ events:
     -   date: 1920-06-15
         status: open
     -   date: !!null
-        category: de.Gp
-        name:
-            de: Süderlügum Grenze
-        de.lknr: 01 327
-        source: src.de.Bfv.1928
-    -   date: de.lknr.30
-        de.lknr: 01 578
-        source: src.de.Bfv.1933
-    -   date: !!null
-        de.DS100: AGRT
-        de.dstnr: !!str 015784
-        source: src.de.DS100.1984
-    -   date: c1990
-        de.DS100: AXS
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Süderlügum Gr
-        PLC: DE20127
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         name:
             da: Tønder Grænse
-
-    -   date: !!null
-        location:
-            line.de.1201: 175,290
-        source: src.de.DRG.Alt.Karte.1949
 
     -   date: !!null
         site:
             path.de.1201: sug
             path.dk.30: tog
+records:
+    -   date: 1927-12-09
+        name:
+            de: Süderlügum Grenze
+        category: de.Gp
+        de.lknr: 01 327
+        document: src.de.Bfv.1928
+    -   date: 1931-04-01
+        location:
+            line.de.1201: 175,28 # right
+        document: src.de.DRG.Alt.Karte.1931
+    -   date: 1933-03-01
+        name:
+            de: Süderlügum Grenze
+        category: de.Gp
+        de.lknr: 01 578
+        document: src.de.Bfv.1933
+
+    -   date: 1956-09
+        location:
+            line.de.1201: 175,29
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-06-03
+        name:
+            de: Süderlügum Grenze
+        category: de.Gp
+        de.DS100: AGRT
+        de.dstnr: !!str 015784
+        document: src.de.DS100.1984
+
+    -   date: 2017-01
+        de.DS100: AXS
+        name:
+            de: Süderlügum Grenze
+        category: de.Gp
+        de.name16: Süderlügum Gr
+        PLC: DE20127
+        de.dstnr: !!str 015784
+        document: src.de.DBAG.BSV.2017
 

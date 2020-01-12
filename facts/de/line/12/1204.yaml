@@ -9,10 +9,6 @@ events:
             - org.de
             - org.de.l.sh
 
-    -   date: !!null
-        de.VzG: !!str 1204
-        source: src.de.DBAG.Geo-Strecke.2017
-
     #   Genehmigungen
     #
     -   date: 1852-09-08
@@ -62,11 +58,6 @@ events:
 
     #   Eigenschaften
     #
-    -   date: !!null
-        category: de.Nebenbahn
-        tracks: 1
-        gauge: 1435mm
-        source: src.de.DRG.1927
     -   date: c1920
         start: point.de.Tönning
         category: de.Bfgleis
@@ -79,7 +70,35 @@ events:
     #
     -   date: !!null
         course: path.de.1204 hor toh
+records:
+    -   date: 1927-03
+        category: de.Nebenbahn
+        tracks: 1
+        gauge: 1435mm
+        document: src.de.DRG.1927
+    -   date: 1931-04-01
+        category: de.Nebenbahn
+        tracks: 1
+        gauge: 1435mm
+        document: src.de.DRG.Alt.Karte.1931
 
+    -   date: 1956-09
+        end: point.de.Tönning
+        category: de.Nebenbahn
+        tracks: 1
+        gauge: 1435mm
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-11
+        end: point.de.Tönning
+        category: de.Nebenbahn
+        tracks: 1
+        gauge: 1435mm
+        document: src.de.DB.Hmb.Karte.1984
+
+    -   date: 2017-01
+        de.VzG: !!str 1204
+        note: km 4,6+34 – 21,8+0
+        document: src.de.DBAG.Geo-Strecke.2017
 points:
     -   point.de.Hörn                               # de.1210
     -   point.de.Platenhörn
@@ -100,38 +119,46 @@ points:
 key: point.de.Platenhörn
 type: point
 events:
-    -   date: !!null
-        name: Platenhörn
-        source: src.de.Kb.1905
-    -   date: !!null
-        service: passenger
-        staff: none
-        master: point.de.Husum
-        de.lknr: 01 360
-        source: src.de.Bfv.1928
-    -   date: !!null
-        category: de.Hp
-        source: src.de.Bfv.1933
-    -   date: de.lknr.30
-        de.lknr: 01 555
-        source: src.de.Bfv.1933
-    -   date: 1981-05-30?
+    -   date: 1981?
         status: closed
-        note:
-            deu: Einstellung Personenzug-Halte
-
-    -   date: !!null
-        location:
-            line.de.1204: 176,02
-        source: src.de.DRG.Alt.Karte.1931
-    -   date: c1940
-        location:
-            line.de.1204: 5,62
-        source: src.de.DRG.Alt.Karte.1949
 
     -   date: !!null
         site:
             path.de.1204: pla
+records:
+    -   date: 1905-07
+        name: Platenhörn
+        document: src.de.Kb.1905
+
+    -   date: 1927-12-09
+        name: Platenhörn
+        service: passenger
+        staff: none
+        master: point.de.Husum
+        de.lknr: 01 360
+        document: src.de.Bfv.1928
+    -   date: 1931-04-01
+        name: Platenhörn
+        category: de.Hp
+        location:
+            line.de.1204: 176,02 # left
+        document: src.de.DRG.Alt.Karte.1931
+    -   date: 1933-03-01
+        name: Platenhörn
+        category: de.Hp
+        service: passenger
+        staff: none
+        master: point.de.Husum
+        de.lknr: 01 555
+        document: src.de.Bfv.1933
+
+    -   date: 1956-09
+        name: Platenhörn
+        category: de.Hp
+        staff: none
+        location:
+            line.de.1204: 5,62 # left
+        document: src.de.DB.Hmb.Karte.1956
 
 
 ---
@@ -140,10 +167,10 @@ type: point
 subtype: reference
 events:
     -   date: !!null
-        name: Platenhörn Süd
+        designation: Platenhörn Süd
         site:
             path.de.1204: pls
-            path.de.8067: pls
+            path.de.12041: pls
 
 
 ---
@@ -152,35 +179,38 @@ type: point
 events:
     -   date: !!null
         name: Friedrichstadt-Chaussee
-    -   date: 1887
-        name: Büttel
-    -   date: !!null
-        de.lknr: 01 130
-        source: src.de.Bfv.1928
-    -   date: !!null
-        category: de.Bf
-        de.rang: IV
-        source: src.de.Bfv.1933
-    -   date: de.lknr.30
-        de.lknr: 01 556
-        source: src.de.Bfv.1933
-    -   date: 1981-05-30
-        service: goods
     -   date: c1982
         status: closed
 
     -   date: !!null
-        location:
-            line.de.1204: 180,25
-        source: src.de.DRG.Alt.Karte.1931
-    -   date: c1940
-        location:
-            line.de.1204: 9,86
-        source: src.de.DRG.Alt.Karte.1949
-
-    -   date: !!null
         site:
             path.de.1204: but
+records:
+    -   date: 1927-12-09
+        name: Büttel
+        de.lknr: 01 130
+        document: src.de.Bfv.1928
+    -   date: 1931-04-01
+        name: Büttel
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.1204: 180,25 # left
+        document: src.de.DRG.Alt.Karte.1931
+    -   date: 1933-03-01
+        name: Büttel
+        category: de.Bf
+        de.rang: IV
+        de.lknr: 01 556
+        document: src.de.Bfv.1933
+
+    -   date: 1956-09
+        name: Büttel (b Husum)
+        category: de.Hst
+        staff: none
+        location:
+            line.de.1204: 9,86 # left
+        document: src.de.DB.Hmb.Karte.1956
 
 
 ---
@@ -188,46 +218,46 @@ key: point.de.Witzwort
 type: point
 events:
     -   date: !!null
-        name: Witzwort
-        source: src.de.Kb.1905
-    -   date: !!null
-        service: passenger
-        de.lknr: 01 368
-        source: src.de.Bfv.1928
-    -   date: !!null
-        category: de.Hp
-        source: src.de.Bfv.1933
-    -   date: de.lknr.30
-        de.lknr: 01 557
-        source: src.de.Bfv.1933
-    -   date: c1930
-        staff: agent
-        source: src.de.Bfv.1933
-    -   date: !!null
-        de.DS100: AWRT
-        de.dstnr: !!str 015578
-        source: src.de.DS100.1984
-    -   date: c1980
-        staff: none
-        source: src.de.DS100.1984
-    -   date: !!null
-        de.name16: Witzwort
-        PLC: DE21249
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.1204: 182,15
-        source: src.de.DRG.Alt.Karte.1931
-    -   date: c1940
-        location:
-            line.de.1204: 11,77
-        source: src.de.DRG.Alt.Karte.1949
-
-    -   date: !!null
         site:
             path.de.1204: wit
 records:
+    -   date: 1905-07
+        name: Witzwort
+        document: src.de.Kb.1905
+
+    -   date: 1927-12-09
+        name: Witzwort
+        service: passenger
+        de.lknr: 01 368
+        document: src.de.Bfv.1928
+    -   date: 1931-04-01
+        name: Witzwort
+        category: de.Hp
+        location:
+            line.de.1204: 182,16 # left
+        document: src.de.DRG.Alt.Karte.1931
+    -   date: 1933-03-01
+        name: Witzwort
+        category: de.Hp
+        staff: agent
+        service: passenger
+        de.lknr: 01 557
+        document: src.de.Bfv.1933
+
+    -   date: 1956-09
+        name: Witzwort
+        category: de.Hp
+        staff: none
+        location:
+            line.de.1204: 11,77 # left
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-06-03
+        name: Witzwort
+        category: de.Hp
+        staff: none
+        de.DS100: AWRT
+        de.dstnr: !!str 015578
+        document: src.de.DS100.1984
     -   date: 1984-11
         name: Witzwort
         category: de.Hp
@@ -235,6 +265,14 @@ records:
             line.de.1204: 11,83 # left
         document: src.de.DB.Hmb.Karte.1984
 
+    -   date: 2017-01
+        name: Witzwort
+        category: de.Hp
+        de.DS100: AWRT
+        de.dstnr: !!str 015578
+        de.name16: Witzwort
+        PLC: DE21249
+        document: src.de.DBAG.BSV.2017
     -   date: 2017-01
         location:
             line.de.1204: 11,831
@@ -246,47 +284,61 @@ key: point.de.Harblek
 type: point
 events:
     -   date: !!null
-        name: Harblek
-        source: src.de.Kb.1905
-    -   date: !!null
-        de.lknr: 01 131
-        source: src.de.Bfv.1928
-    -   date: !!null
-        category: de.Bf
-        de.rang: IV
-        source: src.de.Bfv.1933
-    -   date: de.lknr.30
-        de.lknr: 01 558
-        source: src.de.Bfv.1933
-    -   date: !!null
-        de.DS100: AHA
-        de.dstnr: !!str 015586
-        source: src.de.DS100.1984
-    -   date: c1980
-        category: de.Hp
-        staff: none
-        source: src.de.DS100.1984
-    -   date: !!null
-        de.name16: Harblek
-        PLC: DE14580
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.1204: 185,73
-        source: src.de.DRG.Alt.Karte.1931
-
-    -   date: !!null
         site:
             path.de.1204: har
 records:
+    -   date: 1905-07-01
+        name: Harblek
+        document: src.de.Kb.1905
+
+    -   date: 1927-12-09
+        name: Harblek
+        document: src.de.Kb.1905
+        de.lknr: 01 131
+        document: src.de.Bfv.1928
+    -   date: 1931-04-01
+        name: Harblek
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.1204: 185,73 # right
+        document: src.de.DRG.Alt.Karte.1931
+    -   date: 1933-03-01
+        name: Harblek
+        category: de.Bf
+        de.rang: IV
+        de.lknr: 01 558
+        document: src.de.Bfv.1933
+
+    -   date: 1956-09
+        name: Harblek
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.1204: 15,35 # right
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-06-03
+        name: Harblek
+        de.DS100: AHA
+        de.dstnr: !!str 015586
+        category: de.Hp
+        staff: none
+        document: src.de.DS100.1984
     -   date: 1984-11
         name: Harblek
         category: de.Hp
         location:
-            line.de.1204: 14,35 # right
+            line.de.1204: 15,35 # right
         document: src.de.DB.Hmb.Karte.1984
 
+    -   date: !!null
+        name: Harblek
+        de.DS100: AHA
+        de.dstnr: !!str 015586
+        category: de.Hp
+        de.name16: Harblek
+        PLC: DE14580
+        document: src.de.DBAG.BSV.2017
     -   date: 2017-01
         location:
             line.de.1204: 15,354
@@ -295,47 +347,54 @@ records:
 
 # 16,00 Baubezirksgrenze src.de.DB.Hmb.Karte.1984
 
+
 ---
 key: point.de.Tönning
 type: point
 events:
     -   date: !!null
-        name: Tönning
-        source: src.de.Kb.1905
-    -   date: !!null
-        de.lknr: 01 132
-        source: src.de.Bfv.1928
-    -   date: !!null
-        category: de.Bf
-        de.rang: III
-        source: src.de.Bfv.1933
-    -   date: de.lknr.30
-        de.lknr: 01 559
-        source: src.de.Bfv.1933
-    -   date: !!null
-        de.DS100: ATG
-        de.dstnr: !!str 015545
-        source: src.de.DS100.1984
-    -   date: !!null
-        de.name16: Tönning
-        PLC: DE20287
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.1204: 191,56
-            line.de.1205:   0,00
-        source: src.de.DRG.Alt.Karte.1931
-    -   date: c1940
-        location:
-            line.de.1204: 21,19
-        source: src.de.DRG.Alt.Karte.1949
-
-    -   date: !!null
         site:
             path.de.1204: ton
             path.de.1205: ton
 records:
+    -   date: 1905-07
+        name: Tönning
+        document: src.de.Kb.1905
+
+    -   date: 1927-12-09
+        name: Tönning
+        de.lknr: 01 132
+        document: src.de.Bfv.1928
+    -   date: 1931-04-01
+        name: Tönning
+        category: de.Bf
+        de.rang: III
+        location:
+            line.de.1204: 191,56 # left
+            line.de.1205:   0,00
+            line.de.1207:  16,93
+        document: src.de.DRG.Alt.Karte.1931
+    -   date: 1933-03-01
+        name: Tönning
+        category: de.Bf
+        de.rang: III
+        de.lknr: 01 559
+        document: src.de.Bfv.1933
+
+    -   date: 1956-09
+        name: Tönning
+        category: de.Bf
+        de.rang: III
+        location:
+            line.de.1204: 21,19 # left
+            line.de.1205:  0,00
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-06-03
+        name: Tönning
+        category: de.Bf
+        de.DS100: ATG
+        de.dstnr: !!str 015545
+        document: src.de.DS100.1984
     -   date: 1984-11
         name: Tönning
         category: de.Bf
@@ -344,6 +403,14 @@ records:
             line.de.1205:  0,03
         document: src.de.DB.Hmb.Karte.1984
 
+    -   date: 2017-01
+        name: Tönning
+        category: de.Bf
+        de.DS100: ATG
+        de.dstnr: !!str 015545
+        de.name16: Tönning
+        PLC: DE20287
+        document: src.de.DBAG.BSV.2017
     -   date: 2017-01
         location:
             line.de.1204: 21,156

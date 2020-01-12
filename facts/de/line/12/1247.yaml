@@ -10,10 +10,6 @@ events:
             - org.de
             - org.de.l.hh
 
-    -   date: !!null
-        de.VzG: !!str 1247
-        source: src.de.DBAG.Geo-Strecke.2017
-
     #   Genehmigung und Eröffnung
     #
     -   date: 1918-01-05
@@ -57,7 +53,25 @@ events:
     #
     -   date: !!null
         course: path.de.1247 ohg och
+records:
+    -   date: 1956-09
+        category: de.Nebenbahn
+        tracks: 1
+        gauge: 1435mm
+        passenger: none
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-11
+        category: de.Nebenbahn
+        tracks: 1
+        gauge: 1435mm
+        passenger: none
+        goods: none
+        document: src.de.DB.Hmb.Karte.1984
 
+    -   date: 2017-01
+        de.VzG: !!str 1247
+        note: km 0,3+42 – 7,7+19
+        document: src.de.DBAG.Geo-Strecke.2017
 points:
     -   point.de.Hamburg-Ohlsdorf                   # de.1243
     -   point.de.Hamburg-Langenhorn
@@ -73,18 +87,19 @@ points:
 key: point.de.Hamburg-Langenhorn
 type: point
 events:
-    -   date: !!null
-        name: Langenhorn
-        category: de.Ldst
-        location:
-            line.de.1247: 3,85
-        source: src.de.DRG.Alt.Karte.1949
     -   date: c1970
         status: closed
 
     -   date: !!null
         site:
             path.de.1247: lan
+records:
+    -   date: 1959-06
+        name: Langenhorn
+        category: de.Ldst
+        location:
+            line.de.1247: 3,85 # right
+        document: src.de.DB.Hmb.Karte.1956
 
 
 ---
@@ -92,42 +107,36 @@ key: point.de.Hamburg-Ochsenzoll
 type: point
 events:
     -   date: !!null
-        name: Ochsenzoll
-        source: src.de.Bfv.1933
-    -   date: !!null
-        category: de.Hp
-        service: goods
-        staff: agent
-        source: src.de.Bfv.1944
-    -   date: 1938-05-01
-        de.lknr: 01 102
-        source: src.de.Bfv.1944
-    -   date: !!null
-        de.DS100: AOZ
-        de.dstnr: !!str 011023
-        source: src.de.DS100.1984
-    -   date: c1970
-        name: Hamburg-Ochsenzoll
-        staff: none
-        source: src.de.DS100.1984
-    -   date: !!null
-        de.name16: Hmb-Ochsenzoll
-        PLC: DE14467
-        source: src.de.DBAG.BSV.2017
-    -   date: 2003-01-01?
-        status: closed
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.1247: 7,68
-        source: src.de.DRG.Alt.Karte.1949
-
-    -   date: !!null
         connection: point.de.Ochsenzoll
         site:
             path.de.1247: och
 records:
+    -   date: 1933-03-01
+        name: Ochsenzoll
+        document: src.de.Bfv.1933
+    -   date: 1944-06-01
+        name: Ochsenzoll
+        category: de.Hp
+        service: goods
+        staff: agent
+        de.lknr: 01 102
+        document: src.de.Bfv.1944
+
+    -   date: 1959-06
+        name: Hamburg-Ochsenzoll
+        category: de.Bf
+        de.rang: IV
+        service: goods
+        location:
+            line.de.1247: 7,68 # right
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-06-03
+        name: Hamburg-Ochsenzoll
+        category: de.Bf
+        de.DS100: AOZ
+        de.dstnr: !!str 011023
+        staff: none
+        document: src.de.DS100.1984
     -   date: 1984-11
         name: Hamburg-Ochsenzoll
         category: de.Bf
@@ -135,4 +144,14 @@ records:
         location:
             line.de.1247: 7,68
         document: src.de.DB.Hmb.Karte.1984
+
+    -   date: 2017-01
+        de.name16: Hmb-Ochsenzoll
+        PLC: DE14467
+        name: Hamburg-Ochsenzoll
+        category: de.Bf
+        de.DS100: AOZ
+        de.dstnr: !!str 011023
+        status: closed
+        document: src.de.DBAG.BSV.2017
 

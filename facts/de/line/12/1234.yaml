@@ -10,14 +10,6 @@ events:
             - org.de
             - org.de.l.hh
 
-    -   date: !!null
-        end: point.de.Hamburg-Rothenburgsort-Ro
-        de.VzG: !!str 1234
-        source: src.de.DBAG.Geo-Strecke.2017
-
-    -   date: !!null
-        category: de.Hauptbahn
-
     #   Konzessionen
     #
     -   date: 1893
@@ -92,11 +84,6 @@ events:
 
     #   Eigenschaften
     #
-    -   date: !!null
-        category: de.Hauptbahn
-        tracks: 1
-        gauge: 1435mm
-        source: src.de.DRG.Alt.Karte.1945
     -   date: 1973-08-01
         electrified: de
         source: src.ch.Schwach.1989
@@ -108,7 +95,42 @@ events:
     #
     -   date: !!null
         course: path.de.1234 eid rot
+records:
+    -   date: 1931-04-01
+        start: point.de.Hamburg-Horn
+        end: point.de.Hamburg-Rothenburgsort
+        tracks: 1
+        gauge: 1435mm
+        passenger: none
+        document: src.de.DRG.Alt.Karte.1931
+    -   date: 1956-09
+        end: point.de.Hamburg-Rothenburgsort
+        category: de.Hauptbahn
+        tracks: 1
+        gauge: 1435mm
+        passenger: none
+        document: src.de.DB.Hmb.Karte.1956
 
+    -   date: 1984-11
+        end: point.de.Hamburg-Horn
+        category: de.Hauptbahn
+        tracks: 1
+        gauge: 1435mm
+        passenger: none
+        document: src.de.DB.Hmb.Karte.1984
+    -   date: 1984-11
+        start: point.de.Hamburg-Horn
+        end: point.de.Hamburg-Rothenburgsort
+        category: de.Hauptbahn
+        tracks: 1
+        gauge: 1435mm
+        document: src.de.DB.Hmb.Karte.1984
+
+    -   date: 2017-01
+        end: point.de.Hamburg-Rothenburgsort-Ro
+        de.VzG: !!str 1234
+        note: km 0,5+28 – 21,1+60
+        document: src.de.DBAG.Geo-Strecke.2017
 points:
     -   point.de.Hamburg-Eidelstedt-Ef              # de.1220
     -   point.de.Hamburg-Lokstedt
@@ -119,7 +141,7 @@ points:
     -   point.de.Hamburg-Rothenburgsort-SStK
     -   point.de.Hamburg-Rothenburgsort-Ro          # de.1280
     -   point.de.Hamburg-Rothenburgsort             # de.1280
-    -   point.de.Hamburg-Lübecker-Gbf               # de.8080
+    -   point.de.Hamburg-Lübecker-Gbf               # de.12341
 
 
 #-----------------------------------------------------------------------------
@@ -132,32 +154,30 @@ key: point.de.Hamburg-Lokstedt
 type: point
 events:
     -   date: !!null
+        site:
+            path.de.1234: lok
+records:
+    -   date: 1944-06-01
         category: de.Hp
         name: Hamburg-Lokstedt
         de.lknr: 01 100
         service: goods
-        source: src.de.Bfv.1944
+        document: src.de.Bfv.1944
+
+    -   date: 1956-09
+        name: Hamburg-Lokstedt
+        category: de.Bf
+        de.rang: III
+        service: goods
+        location:
+            line.de.1234: 5,74 # left
+        document: src.de.DB.Hmb.Karte.1956
     -   date: !!null
+        name: Hamburg-Lokstedt
+        category: de.Bf
         de.DS100: ALOF
         de.dstnr: !!str 011007
-        source: src.de.DS100.1984
-    -   date: c1970
-        category: de.Bf
-        source: src.de.DS100.1984
-    -   date: !!null
-        de.name16: Hamburg-Lokstedt
-        PLC: DE14462
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.1234: 5,74
-        source: src.de.DRG.Alt.Karte.1949
-
-    -   date: !!null
-        site:
-            path.de.1234: lok
-records:
+        document: src.de.DS100.1984
     -   date: 1984-11
         name: Hamburg-Lokstedt
         category: de.Bf
@@ -166,12 +186,22 @@ records:
         document: src.de.DB.Hmb.Karte.1984
 
     -   date: 2017-01
+        name: Hamburg-Lokstedt
+        category: de.Bf
+        de.DS100: ALOF
+        de.dstnr: !!str 011007
+        de.name16: Hamburg-Lokstedt
+        PLC: DE14462
+        document: src.de.DBAG.BSV.2017
+    -   date: 2017-01
         location:
             line.de.1234: 5,950
         document: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 # 6,65 Ba-Grenze src.de.DB.Hmb.Karte.1984
+
+# 9,50 BA-Gremze src.de.DB.Hmb.Karte.1956
 
 
 ---
@@ -184,38 +214,32 @@ events:
             deu: ab c1930 selbständige Ga [src.de.Bfv.1928]
 
     -   date: !!null
+        site:
+            path.de.1234: bar
+            path.de.1243: bar
+records:
+    -   date: 1944-06-01
         category: de.Bf
         de.rang: I
         name: Barmbeck Gbf
         service: goods
         de.lknr: 01 121
-        source: src.de.Bfv.1944
-    -   date: !!null
+        document: src.de.Bfv.1944
+
+    -   date: 1956-09
+        name: Hamburg-Barmbek
+        category: de.Bf
+        de.rang: I
+        service: goods
+        location:
+            line.de.1234: 11,72 # right
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-06-03
+        name: Hamburg-Barmbek
+        category: de.Bf
         de.DS100: ABAG
         de.dstnr: !!str 011205
-        source: src.de.DS100.1984
-    -   date: c1970
-        name: Hamburg-Barmbek
-        source: src.de.DS100.1984
-    -   date: !!null
-        de.name16: Hamburg-Barmbek
-        PLC: DE14426
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.1243: 8,33
-        source: src.de.DRG.Alt.Karte.1949
-    -   date: !!null
-        location:
-            line.de.1234: 11,72
-        source: src.de.DB.Hmb.Karte.1956
-
-    -   date: !!null
-        site:
-            path.de.1234: bar
-            path.de.1243: bar
-records:
+        document: src.de.DS100.1984
     -   date: 1984-11
         name: Hamburg-Barmbek
         category: de.Bf
@@ -223,6 +247,14 @@ records:
             line.de.1234: 11,60 # right
         document: src.de.DB.Hmb.Karte.1984
 
+    -   date: 2017-01
+        name: Hamburg-Barmbek
+        category: de.Bf
+        de.DS100: ABAG
+        de.dstnr: !!str 011205
+        de.name16: Hamburg-Barmbek
+        PLC: DE14426
+        document: src.de.DBAG.BSV.2017
     -   date: 2017-01
         location:
             line.de.1234: 11,100
@@ -236,16 +268,13 @@ records:
 key: point.de.Hamburg-Barmbek-Gleichrichterwerk
 type: point
 events:
-    -   date: !!null
+    -   date: 2017-01
         de.DS100: ABGL
         name: Hamburg-Barmbek Gleichrichterwerk
         category: de.Anst
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
-
-    -   date: !!null
         location:
             line.de.1234: 15,348
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -257,36 +286,6 @@ key: point.de.Hamburg-Horn
 type: point
 events:
     -   date: !!null
-        category: de.Abzw
-        name: Gw
-        note: km 4,09
-        source: src.de.DRG.Alt.Karte.1931
-    -   date: 1941?
-        category: de.Bf
-        de.rang: III
-        service: none
-        name: Horn
-        source: src.de.DRG.Alt.Karte.1949
-    -   date: !!null
-        de.DS100: AHOR
-        de.dstnr: !!str 010850
-        source: src.de.DS100.1984
-    -   date: c2000
-        category: de.Abzw
-        name: Hamburg-Horn
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Horn
-        PLC: DE14456
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.1234: 15,94
-            line.de.1242: 59,54
-        source: src.de.DRG.Alt.Karte.1949
-
-    -   date: !!null
         site:
             path.de.1234: hob
             path.de.1242: hob
@@ -295,6 +294,27 @@ events:
             path.de.1234: hoa
             path.de.1242: hoa
 records:
+    -   date: !!null
+        category: de.Bk
+        name: „Gw“
+        note: km 4,09
+        document: src.de.DRG.Alt.Karte.1931
+
+    -   date: 1956-09
+        name: Horn
+        category: de.Bf
+        de.rang: III
+        service: none
+        location:
+            line.de.1234: 15,96 # left
+            line.de.1242: 59,54
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-06-03
+        name: Horn
+        category: de.Bf
+        de.DS100: AHOR
+        de.dstnr: !!str 010850
+        document: src.de.DS100.1984
     -   date: 1984-11
         name: Horn
         category: de.Bf
@@ -304,6 +324,14 @@ records:
             line.de.1242: 59,50
         document: src.de.DB.Hmb.Karte.1984
 
+    -   date: 2017-01
+        category: de.Abzw
+        name: Hamburg-Horn
+        de.name16: Horn
+        PLC: DE14456
+        de.DS100: AHOR
+        de.dstnr: !!str 010850
+        document: src.de.DBAG.BSV.2017
     -   date: 2017-01
         location:
             line.de.1234: 16,097
@@ -332,5 +360,5 @@ events:
 #    point.de.Hamburg-Rothenburgsort             de.1280
 
 
-#    point.de.Hamburg-Lübecker-Gbf               de.8080
+#    point.de.Hamburg-Lübecker-Gbf               de.12341
 

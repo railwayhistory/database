@@ -8,10 +8,6 @@ events:
         region:
             - org.de
             - org.de.l.hh
-
-    -   date: !!null
-        de.VzG: !!str 1250
-        source: src.de.VzG
     
     #   Genehmigungen, Eigentümer und Betreiber
     #
@@ -91,7 +87,12 @@ events:
     -   date: !!null
         start: point.de.Hamburg-Oberhafen
         course: path.de.1250 oha ham
-
+records:
+    -   date: !!null
+        start: point.de.Hamburg-Oberhafen
+        de.VzG: !!str 1250
+        note: km 352,4+56 – 355,5+64
+        source: src.de.VzG
 points:
     -   point.de.Hamburg-Harburg-Nordkopf           # de.2200
     -   point.de.Hamburg-Neuland                    # de.2200
@@ -129,23 +130,32 @@ points:
 key: point.de.Hamburg-Wilhelmsburg-Ws
 type: point
 events:
-    -   date: !!null
-        category: de.Glgr
-        name: Hamburg-Wilhelmsburg (Ws)
-        de.DS100: AWLBS
-        source: src.de.DS100.1984
     -   date: c1995
         status: closed
-
-    -   date: !!null
-        location:
-            line.de.1250: 347,81
-        source: src.de.DRG.Alt.Karte.1949
 
     -   date: !!null
         site:
             path.de.2200: wis
             path.de.1250: wis
+records:
+    -   date: 1931-04-01
+        name: „Ws“
+        category: de.Bk
+        location:
+            line.de.1250: 347,81 # right
+        document: src.de.DRG.Alt.Karte.1931
+
+    -   date: 1956-09
+        name: „Ws“
+        category: de.Bk
+        location:
+            line.de.1250: 347,81 # right
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-06-03
+        category: de.Glgr
+        name: Hamburg-Wilhelmsburg (Ws)
+        de.DS100: AWLBS
+        document: src.de.DS100.1984
 
 
 ---
@@ -153,51 +163,72 @@ key: point.de.Hamburg-Wilhelmsburg
 type: point
 events:
     -   date: !!null
-        category: de.Bf
-        de.rang: I
-        name: Wilhelmsburg Vbf
-        de.lknr: 01 130
-        service: none
-        source: src.de.Bfv.1933
-    -   date: 1938
-        name: Hamburg-Wilhelmsburg Vbf
-        source: src.de.Bfv.1944
-    -   date: !!null
-        de.DS100: AWLB
-        de.dstnr: !!str 011304
-        source: src.de.DS100.1984
-    -   date: c1970
-        name: Hamburg-Wilhelmsburg
-        source: src.de.DS100.1984
-    -   date: !!null
-        de.name16: Hmb-Wilhelmsbg
-        PLC: DE14497
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.1250: 348,53
-        source: src.de.DRG.Alt.Karte.1949
-    -   date: !!null
-        location:
-            line.de.1255: 9,631
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
-
-    -   date: !!null
         site:
             path.de.2200: wil
             path.de.1255: wil
+records:
+    -   date: 1931-04-01
+        name: Wilhelmsburg Vbf
+        category: de.Bf
+        service: none
+        location:
+            line.de.1250: 348,53 # left
+        document: src.de.DRG.Alt.Karte.1931
+    -   date: 1933-03-01
+        name: Wilhelmsburg Vbf
+        category: de.Bf
+        de.rang: I
+        de.lknr: 01 130
+        service: none
+        document: src.de.Bfv.1933
+    -   date: 1938-10-01
+        name: Hamburg-Wilhelmsburg Vbf
+        category: de.Bf
+        de.rang: I
+        de.lknr: 01 130
+        service: none
+        document: src.de.Bfv.1944
+
+    -   date: 1956-09
+        name: Hamburg-Wilhelmsburg Vbf
+        category: de.Bf
+        de.rang: I
+        service: none
+        location:
+            line.de.1250: 348,53 # left
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-06-03
+        de.DS100: AWLB
+        name: Hamburg-Wilhelmsburg
+        de.dstnr: !!str 011304
+        category: de.Bf
+        document: src.de.DS100.1984
+    -   date: 1984-11
+        name: Hamburg-Wilhelmsburg
+        category: de.Bf
+        location:
+            line.de.1250: 348,58
+            line.de.1254:  −2,03
+        document: src.de.DB.Hmb.Karte.1984
+
+    -   date: 2017-01
+        de.DS100: AWLB
+        name: Hamburg-Wilhelmsburg
+        de.dstnr: !!str 011304
+        category: de.Bf
+        de.name16: Hmb-Wilhelmsbg
+        PLC: DE14497
+        document: src.de.DBAG.BSV.2017
+    -   date: 2017-01
+        location:
+            line.de.1255: 9,631
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Hamburg-Wilhelmsburg-Wp
 type: point
 events:
-    -   date: !!null
-        location:
-            line.de.1250: 348,88
-        name: Hamburg-Wilhelmsburg Wp
-        source: src.de.DRG.Alt.Karte.1949
     -   date: c1970
         status: closed
 
@@ -205,24 +236,28 @@ events:
         site:
             path.de.2200: wip
             path.de.1280: wip
+records:
+    -   date: 1935-01-01
+        name: „Wp“
+        category: de.Bk
+        location:
+            line.de.1250: 348,75 # right
+        document: src.de.DRG.Alt.Karte.1935
+
+    -   date: 1956-09
+        name: „Wp“
+        category: de.Bk
+        location:
+            line.de.1250: 348,88 # right
+        document: src.de.DB.Hmb.Karte.1956
 
 
 ---
 key: point.de.Hamburg-Wilhelmsburg-Wa
 type: point
 events:
-    -   date: !!null
-        category: de.Glgr
-        name: Hamburg-Wilhelmsburg (Wa)
-        de.DS100: AWLBA
-        source: src.de.DS100.1984
     -   date: c1995
         status: closed
-
-    -   date: !!null
-        location:
-            line.de.1250: 349,91
-        source: src.de.DRG.Alt.Karte.1949
 
     -   date: !!null
         site:
@@ -230,29 +265,64 @@ events:
             path.de.1280: wia
             path.de.1255: wia
             path.de.1290: wia
+records:
+    -   date: 1931-04-01
+        name: „Wa”
+        category: de.Bk
+        location:
+            line.de.1250: 349,60 # left
+        document: src.de.DRG.Alt.Karte.1931
+    -   date: 1935-01-01
+        name: „Wa”
+        category: de.Bk
+        location:
+            line.de.1250: 349,60 # right
+        document: src.de.DRG.Alt.Karte.1935
+
+    -   date: 1956-09
+        name: „Wa“
+        category: de.Bk
+        location:
+            line.de.1250: 349,61 # right
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-06-03
+        category: de.Glgr
+        name: Hamburg-Wilhelmsburg (Wa)
+        de.DS100: AWLBA
+        document: src.de.DS100.1984
 
 
 ---
 key: point.de.Hamburg-Wilhelmsburg-Wk
 type: point
 events:
-    -   date: !!null
-        category: de.Glgr
-        name: Hamburg-Wilhelmsburg (Wk)
-        de.DS100: AWLBK
-        source: src.de.DS100.1984
     -   date: c1995
         status: closed
-
-    -   date: !!null
-        location:
-            line.de.1250: 350,43
-        source: src.de.DRG.Alt.Karte.1949
 
     -   date: !!null
         site:
             path.de.2200: wik
             path.de.1280: wik
+records:
+    -   date: 1931-04-01
+        name: „Wk”
+        category: de.Bk
+        location:
+            line.de.1250: 350,43 # right
+        document: src.de.DRG.Alt.Karte.1931
+
+    -   date: 1956-09
+        name: „Wk“
+        category: de.Bk
+        location:
+            line.de.1250: 350,48 # right
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-06-03
+        category: de.Glgr
+        name: Hamburg-Wilhelmsburg (Wk)
+        de.DS100: AWLBK
+        document: src.de.DS100.1984
+
 
 
 #    point.de.Hamburg-Wilhelmsburg-LGr           de.2200
@@ -267,25 +337,25 @@ type: point
 events:
     -   date: c1995
         status: open
+
     -   date: !!null
+        site:
+            path.de.1250: oha
+            path.de.1280: oha
+records:
+    -   date: 2017-01
         de.DS100: AOHA
         name: Hamburg Oberhafen
         de.name16: Oberhafen
         category: de.Abzw
         PLC: DE14408
         de.dstnr: !!str 319442
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
+        document: src.de.DBAG.BSV.2017
+    -   date: 2017-01
         location:
             line.de.1250: 352,456
             line.de.1280:  38,514  
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
-
-    -   date: !!null
-        site:
-            path.de.1250: oha
-            path.de.1280: oha
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 #    point.de.Hamburg-Elbbrücke                  de.2200
@@ -295,44 +365,57 @@ events:
 key: point.de.Hamburg-Hgbf
 type: point
 events:
-    -   date: !!null
-        name: Hamburg Hgbf (Han)
-        service: goods
-        category: de.Bf
-        de.lknr: 01 033
-        source: src.de.Bfv.1928
-    -   date: !!null
-        de.rang: I
-        source: src.de.Bfv.1933
-    -   date: de.lknr.30
-        de.lknr: 01 075
-        source: src.de.Bfv.1933
-    -   date: c1930
-        name: Hamburg Hgbf Han
-        source: src.de.Bfv.1933
-    -   date: c1935
-        name: Hamburg Han
-        source: src.de.Bfv.1938
-    -   date: !!null
-        de.DS100: AHBN
-        de.dstnr: !!str 010744
-        source: src.de.DS100.1984
-    -   date: c1960
-        name: Hamburg Hgbf
-        source: src.de.DS100.1984
     -   date: c1995
         status: closed
-
-    -   date: !!null
-        location:
-            line.de.1250: 353,5
-        source: src.de.DRG.Alt.Karte.1949
 
     -   date: !!null
         site:
             path.de.1250: hag
             path.de.1291: hag
-            path.de.8078: hag
+            path.de.12465: hag
+records:
+    -   date: 1927-12-09
+        name: Hamburg Hgbf (Han)
+        service: goods
+        category: de.Bf
+        de.lknr: 01 033
+        document: src.de.Bfv.1928
+    -   date: 1933-03-01
+        name: Hamburg Hgbf Han
+        category: de.Bf
+        de.rang: I
+        service: goods
+        de.lknr: 01 075
+        document: src.de.Bfv.1933
+    -   date: 1937-10-01
+        name: Hamburg Han
+        category: de.Bf
+        de.rang: I
+        service: goods
+        de.lknr: 01 075
+        document: src.de.Bfv.1938
+
+    -   date: 1956-09
+        name: Hamburg Han
+        category: de.Bf
+        de.rang: I
+        service: goods
+        location:
+            line.de.1250: 353,5
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-06-03
+        de.dstnr: !!str 010744
+        name: Hamburg Hgbf
+        de.DS100: AHBN
+        category: de.Bf
+        document: src.de.DS100.1984
+    -   date: 1984-11
+        name: Hamburg Hgbf
+        category: de.Bf
+        location:
+            line.de.1246:  13,23
+            line.de.1250: 353,07 # right/centre
+        document: src.de.DB.Hmb.Karte.1984
 
 
 ---
@@ -341,26 +424,26 @@ type: point
 events:
     -   date: c2000
         status: open
-    -   date: !!null
-        de.DS100: AERI
-        name: Hamburg Ericus
-        de.name16: Ericus
-        category: de.Abzw
-        PLC: DE14388
-        de.dstnr: !!str 070219
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.1250: 353,921
-            line.de.1292: 353,894
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
             path.de.1250: eri
             path.de.1291: eri
             path.de.1292: eri
+records:
+    -   date: 2017-01
+        de.DS100: AERI
+        name: Hamburg Ericus
+        de.name16: Ericus
+        category: de.Abzw
+        PLC: DE14388
+        de.dstnr: !!str 070219
+        document: src.de.DBAG.BSV.2017
+    -   date: 2017-01
+        location:
+            line.de.1250: 353,921
+            line.de.1292: 353,894
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 # point.de.Hamburg-Hbf                        de.6100

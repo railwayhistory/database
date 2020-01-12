@@ -1,6 +1,5 @@
 # DE 9121.  Hamburg-Altona AKN - Neumünster Süd
 #
-#           XXX VzG-Strecke ab Hamburg-Langenfelde Gbf.
 ---
 key: line.de.9121
 type: line
@@ -13,10 +12,6 @@ events:
     -   date: !!null
         start: point.de.Hamburg-Burgwedel-LGr
         region: org.de.l.sh
-
-    -   date: !!null
-        de.VzG: !!str 9121
-        source: src.de.DBAG.Geo-Strecke.2017
 
     #   Genehmigung
     #
@@ -46,7 +41,7 @@ events:
 
     -   date: 2009-11-16
         start: point.de.Hamburg-Eidelstedt-AKN
-        end: point.de.Ulzburg
+        end: point.de.Henstedt-Ulzburg
         concession:
             by: org.de.l.hh
             for: org.de.AKN-Eisenbahn
@@ -95,11 +90,6 @@ events:
 
     #   Eigenschaften
     #
-    -   date: !!null
-        category: de.Nebenbahn
-        tracks: 1
-        gauge: 1435mm
-        source: src.de.DRG.1927
     -   date: c1970
         start: point.de.Quickborn-Süd
         end: point.de.Quickborn
@@ -138,19 +128,42 @@ events:
         tracks: 2
         source: src.de.WP.Bahnstrecke-Hamburg-Altona-Neumünster
 
-
-    #   Eigentümer etc.
-    #
-    -   date: !!null
-        owner: org.de.AKN-Eisenbahn
-        operator: org.de.AKN-Eisenbahn
-        source: src.de.DRG.1935
-
     #   Verlauf
     #
     -   date: !!null
         course: path.de.9121 alt nes
+records:
+    -   date: 1927-03
+        category: de.Nebenbahn
+        tracks: 1
+        gauge: 1435mm
+        document: src.de.DRG.1927
+    -   date: 1931-04-01
+        category: de.Nebenbahn
+        tracks: 1
+        gauge: 1435mm
+        document: src.de.DRG.Alt.Karte.1931
+    -   date: 1935
+        owner: org.de.AKN-Eisenbahn
+        operator: org.de.AKN-Eisenbahn
+        document: src.de.DRG.1935
 
+    -   date: 1956-09
+        category: de.Nebenbahn
+        tracks: 1
+        gauge: 1435mm
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-11
+        category: de.Nebenbahn
+        tracks: 1
+        gauge: 1435mm
+        document: src.de.DB.Hmb.Karte.1984
+
+    -   date: 2017-01
+        start: point.de.Hamburg-Langenfelde-Gbf
+        de.VzG: !!str 9121
+        note: km 0,4+74 – 67,2+25
+        document: src.de.DBAG.Geo-Strecke.2017
 points:
     -   point.de.Hamburg-Altona-AKN
     -   point.de.Hamburg-Langenfelde-Gbf
@@ -175,7 +188,7 @@ points:
     -   point.de.Tanneneck
     -   point.de.Tanneneck-Abzw
     -   point.de.Ulzburg-Süd
-    -   point.de.Ulzburg
+    -   point.de.Henstedt-Ulzburg
     -   point.de.Kaltenkirchen-Süd
     -   point.de.Kaltenkirchen-Holst
     -   point.de.Kaltenkirchen-Holstentherme
@@ -201,18 +214,6 @@ type: point
 events:
     -   date: 1912
         status: open
-    -   date: !!null
-        name: Altona (A-K-N)
-        de.lknr: 40 803
-        source: src.de.Bfv.1928
-    -   date: c1930
-        name: Altona AKN
-    -   date: 1938
-        name: Hamburg-Altona AKN
-        source: src.de.Bfv.1938
-    -   date: !!null
-        category: de.Bf
-        source: src.de.DB.Hmb.Karte.1956
     -   date: 1962
         status: closed
         source: src.de.Riechers.2002
@@ -220,6 +221,24 @@ events:
     -   date: !!null
         site:
             path.de.9121: alt
+records:
+    -   date: 1927-12-09
+        name: Altona (A-K-N)
+        de.lknr: 40 803
+        document: src.de.Bfv.1928
+    -   date: 1933-03-01
+        name: Altona AKN
+        de.lknr: 40 803
+        document: src.de.Bfv.1933
+    -   date: 1938-10-01
+        name: Hamburg-Altona AKN
+        de.lknr: 40 803
+        document: src.de.Bfv.1938
+
+    -   date: 1956-09
+        name: Hamburg-Altona AKN
+        category: de.Bf
+        document: src.de.DB.Hmb.Karte.1956
 
 
 ---
@@ -227,24 +246,23 @@ key: point.de.Hamburg-Langenfelde-Gbf
 type: point
 events:
     -   date: !!null
+        site:
+            path.de.9121: lag
+records:
+    -   date: 1984-11
+        name: Hamburg-Langenfelde Gbf
+        location:
+            line.de.9121: 0,5 # left
+        document: src.de.DB.Hmb.Karte.1984
+
+    -   date: 2017-01
         de.DS100: ALAG
         name: Hamburg-Langenfelde Gbf
         de.name16: Hmb-Langenf Gbf
         category: de.Bf
         de.dstnr: !!str 404012
-        source: src.de.DBAG.BSV.2017
-    -   date: 2009-01-24
         status: closed
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.9121: 0,5
-        source: src.de.DB.Hmb.Karte.1984
-
-    -   date: !!null
-        site:
-            path.de.9121: lag
+        document: src.de.DBAG.BSV.2017
 
 
 ---
@@ -252,53 +270,59 @@ key: point.de.Hamburg-Stellingen
 type: point
 events:
     -   date: !!null
+        site:
+            path.de.9121: ste
+records:
+    -   date: 1914-07
         name: Stellingen
-        source: src.de.Kb.1914
-    -   date: !!null
+        document: src.de.Kb.1914
+    -   date: 1927-12-09
+        name: Stellingen
         de.lknr: 41 803
-        source: src.de.Bfv.1928
-    -   date: 1938
+        document: src.de.Bfv.1928
+    -   date: 1938-10-01
         name: Hamburg-Stellingen
-        source: src.de.Bfv.1938
-    -   date: !!null
+        de.lknr: 41 803
+        document: src.de.Bfv.1938
+
+    -   date: 1956-09
+        name: Hamburg-Stellingen
+        category: de.Bf
+        location:
+            line.de.9121: 2,75 # right
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-11
+        name: Hamburg-Stellingen
+        location:
+            line.de.9121: 2,7 # right
+        document: src.de.DB.Hmb.Karte.1984
+
+    -   date: 2017-01
         de.DS100: ASTL
         de.name16: Hmb-Stellingen
         category: de.Bf
         de.dstnr: !!str 404020
-        source: src.de.DBAG.BSV.2017
-    -   date: 1962
-        service: goods
-    -   date: 2014-06-12
         status: closed
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.9121: 2,75
-        source: src.de.DB.Hmb.Karte.1956
-
-    -   date: !!null
-        site:
-            path.de.9121: ste
+        document: src.de.DBAG.BSV.2017
 
 
 ---
 key: point.de.Hamburg-Stellingen-Gr
 type: point
-subtype: border
+subtype: reference
 events:
     -   date: !!null
+        site:
+            path.de.9121: stg
+records:
+    -   date: 2017-01
         de.DS100: AESG
         name: Hamburg-Eidelstedt/Stellingen DB-Gr
         de.name16: Hmb-Eidelst Gr
         category: de.Gp
         PLC: DE14445
         de.dstnr: !!str 913375
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        site:
-            path.de.9121: stg
+        document: src.de.DBAG.BSV.2017
 
 
 #    point.de.Hamburg-Eidelstedt-S-Bahn          de.1225
@@ -307,43 +331,46 @@ events:
 ---
 key: point.de.Hamburg-Eidelstedt-Zentrum-Gr
 type: point
+subtype: reference
 events:
     -   date: !!null
+        site:
+            path.de.9121: zeg
+records:
+    -   date: 2017-01
         de.DS100: AENG
         name: Hamburg-Eidelstedt Zentrum DB-Gr
         de.name16: Eidelst Zentr Gr
         category: de.Gp
         PLC: DE14444
         de.dstnr: !!str 913374
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        site:
-            path.de.9121: zeg
+        document: src.de.DBAG.BSV.2017
 
 
 ---
 key: point.de.Hamburg-Eidelstedt-AKN
 type: point
 events:
-    -   date: c1995
+    -   date: c1975
         status: open
+
     -   date: !!null
+        site:
+            path.de.9121: eia
+records:
+    -   date: 1984-11
+        name: Hamburg-Eidelstedt
+        location:
+            line.de.9121: 4,2
+        document: src.de.DB.Hmb.Karte.1984
+
+    -   date: 2017-01
         de.DS100: AEN
         name: Hamburg-Eidelstedt (AKN)
         de.name16: Hmb-Eidelstedt
         category: de.Bf
         de.dstnr: !!str 404046
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.9121: 4,2
-        source: src.de.DB.Hmb.Karte.1984
-
-    -   date: !!null
-        site:
-            path.de.9121: eia
+        document: src.de.DBAG.BSV.2017
 
 
 ---
@@ -352,48 +379,54 @@ type: point
 events:
     -   date: 2003-11-24
         status: open
+
     -   date: !!null
+        site:
+            path.de.9121: zen
+records:
+    -   date: 2017-01
         de.DS100: AENZ
         name: Hamburg-Eidelstedt Zentrum
         de.name16: Hmb-Eidelst Zent
         category: de.Bf
         de.dstnr: !!str 404947
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        site:
-            path.de.9121: zen
+        document: src.de.DBAG.BSV.2017
 
 
 ---
 key: point.de.Hamburg-Eidelstedt-Ost
 type: point
 events:
-    -   date: !!null
-        name: Eidelstedt Ost
-        source: src.de.Kb.1914
-    -   date: !!null
-        de.lknr: 42 803
-        source: src.de.Bfv.1928
-    -   date: 1938
-        name: Hamburg-Eidelstedt Ost
-        source: src.de.Bfv.1938
-    -   date: !!null
-        category: de.Bf
-        source: src.de.DB.Hmb.Karte.1956
-    -   date: !!null
-        de.DS100: AENO
     -   date: 2003-11-22
         status: closed
 
     -   date: !!null
-        location:
-            line.de.9121: 6,5
-        source: src.de.DB.Hmb.Karte.1956
-
-    -   date: !!null
         site:
             path.de.9121: eio
+records:
+    -   date: 1914-07
+        name: Eidelstedt Ost
+        document: src.de.Kb.1914
+    -   date: 1927-12-09
+        name: Eidelstedt Ost
+        de.lknr: 42 803
+        document: src.de.Bfv.1928
+    -   date: 1938-10-01
+        name: Hamburg-Eidelstedt Ost
+        de.lknr: 42 803
+        document: src.de.Bfv.1938
+
+    -   date: 1956-09
+        name: Eidelstedt Ost
+        category: de.Bf
+        location:
+            line.de.9121: 6,5 # right
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-11
+        name: Hamburg-Eidelstedt Ost
+        location:
+            line.de.9121: 6,5 # right
+        document: src.de.DB.Hmb.Karte.1984
 
 
 ---
@@ -402,32 +435,31 @@ type: point
 events:
     -   date: 2001-05
         status: open
+
     -   date: !!null
+        site:
+            path.de.9121: hor
+records:
+    -   date: 2017-01
         de.DS100: AHOW
         name: Hamburg Hörgensweg
         de.name16: Hörgensweg
         category: de.Bft
         de.dstnr: !!str 438721
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        site:
-            path.de.9121: hor
+        document: src.de.DBAG.BSV.2017
 
 
 ---
 key: point.de.Hamburg-Schnelsen-Süd
 type: point
-events:
-    -   date: 2013-09-04
+records:
+    -   date: 2017-01
         de.DS100: ASLD
         name: Hamburg-Schnelsen Süd
         de.name16: Hmb-SchnelsenSüd
         category: de.Hp
         de.dstnr: !!str 108425
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        service: none
+        document: src.de.DBAG.BSV.2017
 
 
 ---
@@ -435,36 +467,45 @@ key: point.de.Hamburg-Schnelsen
 type: point
 events:
     -   date: !!null
-        name: Schnelsen
-        source: src.de.Kb.1905
-    -   date: !!null
-        de.lknr: 43 803
-        source: src.de.Bfv.1928
-    -   date: 1938
-        name: Hamburg-Schnelsen
-        source: src.de.Bfv.1938
-    -   date: !!null
-        category: de.Bf
-        source: src.de.DB.Hmb.Karte.1956
-    -   date: !!null
-        de.DS100: ASLS
-        de.dstnr: !!str 404053
-        source: src.de.DS100.1984
-    -   date: !!null
-        de.name16: Hmb-Schnelsen
-        source: src.de.DBAG.BSV.2017
-    -   date: 2012-07-01
-        category: de.Bft
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.9121: 8,9
-        source: src.de.DB.Hmb.Karte.1956
-
-    -   date: !!null
         site:
             path.de.9121: sne
+records:
+    -   date: 1905-07
+        name: Schnelsen
+        document: src.de.Kb.1905
+    -   date: 1927-12-09
+        name: Schnelsen
+        de.lknr: 43 803
+        document: src.de.Bfv.1928
+    -   date: 1938-10-01
+        name: Hamburg-Schnelsen
+        de.lknr: 43 803
+        document: src.de.Bfv.1938
+
+    -   date: 1956-09
+        name: Schnelsen
+        category: de.Bf
+        location:
+            line.de.9121: 8,9 # right
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-06-03
+        name: Hamburg-Schnelsen
+        de.DS100: ASLS
+        de.dstnr: !!str 404053
+        document: src.de.DS100.1984
+    -   date: 1984-11
+        name: Hamburg-Schnelsen
+        location:
+            line.de.9121: 8,9 # right
+        document: src.de.DB.Hmb.Karte.1984
+
+    -   date: 2017-01
+        name: Hamburg-Schnelsen
+        de.DS100: ASLS
+        de.dstnr: !!str 404053
+        de.name16: Hmb-Schnelsen
+        category: de.Bft
+        document: src.de.DBAG.BSV.2017
 
 
 ---
@@ -472,33 +513,41 @@ key: point.de.Hamburg-Burgwedel
 type: point
 events:
     -   date: !!null
-        name: Burgwedel
-        source: src.de.Kb.1905
-    -   date: !!null
-        de.lknr: 44 803
-        source: src.de.Bfv.1928
-    -   date: !!null
-        de.DS100: ABWD
-        de.dstnr: !!str 404061
-        source: src.de.DS100.1984
-    -   date: !!null
-        category: de.Hp
-        source: src.de.DBAG.BSV.2017
-    -   date: c2010
-        name: Hamburg-Burgwedel
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Burgwedel
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.9121: 10,5
-        source: src.de.DB.Hmb.Karte.1956
-
-    -   date: !!null
         site:
             path.de.9121: bur
+records:
+    -   date: 1905-07
+        name: Burgwedel
+        document: src.de.Kb.1905
+    -   date: 1927-12-09
+        name: Burgwedel
+        de.lknr: 44 803
+        document: src.de.Bfv.1928
+
+    -   date: 1956-09
+        name: Burgwedel
+        category: de.Hp
+        location:
+            line.de.9121: 10,5 # right
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-06-03
+        name: Burgwedel
+        de.DS100: ABWD
+        de.dstnr: !!str 404061
+        document: src.de.DS100.1984
+    -   date: 1984-11
+        name: Burgwedel
+        location:
+            line.de.9121: 10,5 # right
+        document: src.de.DB.Hmb.Karte.1984
+
+    -   date: 2017-01
+        category: de.Hp
+        name: Hamburg-Burgwedel
+        de.name16: Burgwedel
+        de.DS100: ABWD
+        de.dstnr: !!str 404061
+        document: src.de.DBAG.BSV.2017
 
 
 ---
@@ -508,7 +557,7 @@ subtype: border
 events:
     -   date: !!null
         category: de.LGr
-        name: Hamburg-Burgwedel HH/SH
+        designation: Hamburg-Burgwedel HH/SH
 
     -   date: !!null
         site:
@@ -520,33 +569,41 @@ key: point.de.Bönningstedt
 type: point
 events:
     -   date: !!null
-        name: Bönningstedt
-        source: src.de.Kb.1905
-    -   date: !!null
-        de.lknr: 45 803
-        source: src.de.Bfv.1928
-    -   date: !!null
-        category: de.Bf
-        source: src.de.DB.Hmb.Karte.1956
-    -   date: !!null
-        de.DS100: ABNS
-        de.dstnr: !!str 404079
-        source: src.de.DS100.1984
-    -   date: !!null
-        de.name16: Bönningstedt
-        source: src.de.DBAG.BSV.2017
-    -   date: c2010
-        category: de.Bft
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.9121: 12,4
-        source: src.de.DB.Hmb.Karte.1956
-
-    -   date: !!null
         site:
             path.de.9121: bon
+records:
+    -   date: 1905-07
+        name: Bönningstedt
+        document: src.de.Kb.1905
+    -   date: 1927-12-09
+        name: Bönningstedt
+        de.lknr: 45 803
+        document: src.de.Bfv.1928
+
+    -   date: 1956-09
+        name: Bönningstedt
+        category: de.Bf
+        location:
+            line.de.9121: 12,4 # left
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-06-03
+        name: Bönningstedt
+        de.DS100: ABNS
+        de.dstnr: !!str 404079
+        document: src.de.DS100.1984
+    -   date: 1984-11
+        name: Bönningstedt
+        location:
+            line.de.9121: 12,4 # left
+        document: src.de.DB.Hmb.Karte.1984
+
+    -   date: 2017-01
+        name: Bönningstedt
+        de.DS100: ABNS
+        de.dstnr: !!str 404079
+        de.name16: Bönningstedt
+        category: de.Bft
+        document: src.de.DBAG.BSV.2017
 
 
 ---
@@ -554,68 +611,77 @@ key: point.de.Hasloh
 type: point
 events:
     -   date: !!null
-        name: Hasloh
-        source: src.de.Kb.1905
-    -   date: !!null
-        de.lknr: 46 803
-        source: src.de.Bfv.1928
-    -   date: !!null
-        de.DS100: AHLH
-        de.dstnr: !!str 404087
-        source: src.de.DS100.1984
-    -   date: !!null
-        category: de.Bf
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Hasloh
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.9121: 15,8
-        source: src.de.DB.Hmb.Karte.1956
-
-    -   date: !!null
         site:
             path.de.9121: has
+records:
+    -   date: 1905-07
+        name: Hasloh
+        document: src.de.Kb.1905
+    -   date: 1927-12-09
+        name: Hasloh
+        de.lknr: 46 803
+        document: src.de.Bfv.1928
+
+    -   date: 1956-09
+        name: Hasloh
+        category: de.Bf
+        location:
+            line.de.9121: 15,8 # left
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-06-03
+        name: Hasloh
+        de.DS100: AHLH
+        de.dstnr: !!str 404087
+        document: src.de.DS100.1984
+    -   date: 1984-11
+        name: Hasloh
+        location:
+            line.de.9121: 15,8 # left
+        document: src.de.DB.Hmb.Karte.1984
+
+    -   date: 2017-01
+        category: de.Bf
+        de.name16: Hasloh
+        name: Hasloh
+        de.DS100: AHLH
+        de.dstnr: !!str 404087
+        document: src.de.DBAG.BSV.2017
 
 
 ---
 key: point.de.Elsensee
 type: point
 events:
-    -   date: c1910
-        status: open
-        source:
-            - src.de.Kb.1905
-            - src.de.Kb.1914
-    -   date: !!null
-        name: Elsensee
-        source: src.de.Kb.1914
-    -   date: !!null
-        de.lknr: 47 803
-        service: goods
-        staff: none
-        source: src.de.Bfv.1928
-    -   date: c1935
-        service: passenger
-        staff: full
-        source: src.de.Bfv.1938
-    -   date: !!null
-        category: de.Hp
-        source: src.de.DB.Hmb.Karte.1956
     -   date: 1974
         status: closed
         source: src.de.WP.Bahnstrecke-Hamburg-Altona-Neumünster
 
     -   date: !!null
-        location:
-            line.de.9121: 18,2
-        source: src.de.DB.Hmb.Karte.1956
-
-    -   date: !!null
         site:
             path.de.9121: els
+records:
+    -   date: 1914-07
+        name: Elsensee
+        document: src.de.Kb.1914
+    -   date: 1927-12-09
+        name: Elsensee
+        de.lknr: 47 803
+        service: goods
+        staff: none
+        document: src.de.Bfv.1928
+    -   date: 1938-10-01
+        name: Elsensee
+        de.lknr: 47 803
+        service: passenger
+        staff: full
+        document: src.de.Bfv.1938
+
+    -   date: 1956-09
+        name: Elsensee
+        category: de.Hp
+        location:
+            line.de.9121: 18,2 # right
+        document: src.de.DB.Hmb.Karte.1956
 
 
 ---
@@ -624,28 +690,29 @@ type: point
 events:
     -   date: c1970
         status: open
-    -   date: !!null
-        de.dstnr: !!str 404269
-        name: Quickborn Süd
-        de.DS100: AQBD
-        source: src.de.DS100.1984
-    -   date: !!null
-        category: de.Hp
-    -   date: c2010
-        category: de.Bft
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Quickborn Süd
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.9121: 19,2
-        source: src.de.DB.Hmb.Karte.1984
 
     -   date: !!null
         site:
             path.de.9121: qus
+records:
+    -   date: 1984-06-03
+        de.dstnr: !!str 404269
+        name: Quickborn Süd
+        de.DS100: AQBD
+        document: src.de.DS100.1984
+    -   date: 1984-11
+        name: Quickborn Süd
+        location:
+            line.de.9121: 19,2 # left
+        document: src.de.DB.Hmb.Karte.1984
+
+    -   date: 2017-01
+        category: de.Bft
+        de.name16: Quickborn Süd
+        de.dstnr: !!str 404269
+        name: Quickborn Süd
+        de.DS100: AQBD
+        document: src.de.DBAG.BSV.2017
 
 
 ---
@@ -653,30 +720,41 @@ key: point.de.Quickborn
 type: point
 events:
     -   date: !!null
-        name: Quickborn
-        source: src.de.Kb.1914
-    -   date: !!null
-        de.lknr: 48 803
-        source: src.de.Bfv.1928
-    -   date: !!null
-        category: de.Bf
-        source: src.de.DB.Hmb.Karte.1956
-    -   date: !!null
-        de.DS100: AQB
-        de.dstnr: !!str 404103
-        source: src.de.DS100.1984
-    -   date: !!null
-        de.name16: Quickborn
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.9121: 20,2
-        source: src.de.DB.Hmb.Karte.1956
-
-    -   date: !!null
         site:
             path.de.9121: qui
+records:
+    -   date: 1914-07
+        name: Quickborn
+        document: src.de.Kb.1914
+    -   date: 1927-12-09
+        name: Quickborn
+        de.lknr: 48 803
+        document: src.de.Bfv.1928
+
+    -   date: 1956-09
+        name: Quickborn
+        category: de.Bf
+        location:
+            line.de.9121: 20,2 # left
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-06-03
+        name: Quickborn
+        de.DS100: AQB
+        de.dstnr: !!str 404103
+        document: src.de.DS100.1984
+    -   date: 1984-11
+        name: Quickborn
+        location:
+            line.de.9121: 20,2 # left
+        document: src.de.DB.Hmb.Karte.1984
+
+    -   date: 2017-01
+        de.DS100: AQB
+        de.name16: Quickborn
+        name: Quickborn
+        category: de.Bf
+        de.dstnr: !!str 404103
+        document: src.de.DBAG.BSV.2017
 
 
 ---
@@ -684,28 +762,41 @@ key: point.de.Ellerau
 type: point
 events:
     -   date: !!null
-        name: Ellerau
-        source: src.de.Kb.1905
-    -   date: !!null
-        de.lknr: 49 803
-        source: src.de.Bfv.1928
-    -   date: !!null
-        de.DS100: AELA
-        de.dstnr: !!str 404111
-        source: src.de.DS100.1984
-    -   date: !!null
-        de.name16: Ellerau
-        category: de.Bf
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.9121: 22,7
-        source: src.de.DB.Hmb.Karte.1956
-
-    -   date: !!null
         site:
             path.de.9121: ell
+records:
+    -   date: 1905-07
+        name: Ellerau
+        document: src.de.Kb.1905
+    -   date: 1927-12-09
+        name: Ellerau
+        de.lknr: 49 803
+        document: src.de.Bfv.1928
+
+    -   date: 1956-09
+        name: Ellerau
+        category: de.Bf
+        location:
+            line.de.9121: 22,7 # left
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-06-01
+        name: Ellerau
+        de.DS100: AELA
+        de.dstnr: !!str 404111
+        document: src.de.DS100.1984
+    -   date: 1984-11
+        name: Ellerau
+        location:
+            line.de.9121: 22,7 # left
+        document: src.de.DB.Hmb.Karte.1984
+
+    -   date: 2017-01
+        de.name16: Ellerau
+        category: de.Bf
+        name: Ellerau
+        de.DS100: AELA
+        de.dstnr: !!str 404111
+        document: src.de.DBAG.BSV.2017
 
 
 ---
@@ -714,36 +805,43 @@ type: point
 events:
     -   date: c1925
         status: open
+
     -   date: !!null
+        site:
+            path.de.9121: tan
+records:
+    -   date: 1927-12-09
         name: Tanneneck
         de.lknr: 60 803
         service: passenger
         staff: none
         master: point.de.Ellerau
-        source: src.de.Bfv.1928
-    -   date: !!null
-        category: de.Hp
-    -   date: 1953?
+        document: src.de.Bfv.1928
+
+    -   date: 1956-09
+        name: Tanneneck
         category: de.Bf
-    -   date: !!null
+        location:
+            line.de.9121: 25,0 # right
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-06-03
+        name: Tanneneck
         de.DS100: ATAK
         de.dstnr: !!str 404129
-        source: src.de.DS100.1984
-    -   date: !!null
-        de.name16: Tanneneck
-        source: src.de.DBAG.BSV.2017
-    -   date: c2010
-        category: de.Bft
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
+        document: src.de.DS100.1984
+    -   date: 1984-11
+        name: Tanneneck
         location:
-            line.de.9121: 25,0
-        source: src.de.DB.Hmb.Karte.1956
+            line.de.9121: 25,0 # right
+        document: src.de.DB.Hmb.Karte.1984
 
-    -   date: !!null
-        site:
-            path.de.9121: tan
+    -   date: 2017-01
+        de.name16: Tanneneck
+        category: de.Bft
+        name: Tanneneck
+        de.DS100: ATAK
+        de.dstnr: !!str 404129
+        document: src.de.DBAG.BSV.2017
 
 
 ---
@@ -757,72 +855,91 @@ events:
     -   date: !!null
         site:
             path.de.9121: taa
-            path.de.8074: taa
+            path.de.91221: taa
 
 
 ---
 key: point.de.Ulzburg-Süd
 type: point
 events:
-    -   date: 1953
-        name: Beckershof
+    -   date: c1950
         status: open
-        source: src.de.WP.Alsternordbahn
-    -   date: 1960
-        name: Ulzburg Süd
-        source: src.de.WP.Alsternordbahn
-    -   date: !!null
-        de.DS100: AUBS
-        de.dstnr: !!str 404137
-        source: src.de.DS100.1984
-    -   date: !!null
-        de.name16: Ulzburg Süd
-        category: de.Bf
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.9121: 27,1
-            line.de.9122: 11,8
-        source: src.de.DB.Hmb.Karte.1984
 
     -   date: !!null
         site:
             path.de.9121: uls
+records:
+    -   date: 1956-09
+        name: Ulzburg Süd
+        category: de.Bf
+        location:
+            line.de.9122: 11,8 # left
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-06-03
+        name: Ulzburg Süd
+        de.DS100: AUBS
+        de.dstnr: !!str 404137
+        document: src.de.DS100.1984
+    -   date: 1984-11
+        name: Ulzburg Süd
+        location:
+            line.de.9121: 27,1 # left
+            line.de.9122: 11,8
+        document: src.de.DB.Hmb.Karte.1984
+
+    -   date: 2017-01
+        de.name16: Ulzburg Süd
+        category: de.Bf
+        name: Ulzburg Süd
+        de.DS100: AUBS
+        de.dstnr: !!str 404137
+        document: src.de.DBAG.BSV.2017
 
 
 ---
-key: point.de.Ulzburg
+key: point.de.Henstedt-Ulzburg
 type: point
 events:
-    -   date: !!null
-        name: Ulzburg
-        source: src.de.Kb.1905
-    -   date: !!null
-        de.lknr: 50 803
-        source: src.de.Bfv.1928
-    -   date: !!null
-        de.DS100: AUB
-        de.dstnr: !!str 404145
-        source: src.de.DS100.1984
-    -   date: !!null
-        category: de.Bf
-        source: src.de.DBAG.BSV.2017
-    -   date: c2000
-        name: Henstedt-Ulzburg
-        de.name16: Henstedt-Ulzburg
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.9121: 29,6
-            line.de.9120: 24,6
-        source: src.de.DRG.Alt.Karte.1949
-
     -   date: !!null
         site:
             path.de.9121: ulz
             path.de.9120: ulz
+records:
+    -   date: 1905-07
+        name: Ulzburg
+        document: src.de.Kb.1905
+    -   date: 1927-12-09
+        name: Ulzburg
+        de.lknr: 50 803
+        document: src.de.Bfv.1928
+
+    -   date: 1956-09
+        name: Ulzburg
+        category: de.Bf
+        location:
+            line.de.9120: 24,6
+            line.de.9121: 29,6 # left
+            line.de.9122: 14,3
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-07
+        name: Ulzburg
+        de.DS100: AUB
+        de.dstnr: !!str 404145
+        document: src.de.DS100.1984
+    -   date: 1984-11
+        name: Ulzburg
+        location:
+            line.de.9120: 24,8
+            line.de.9121: 29,6 # left
+        document: src.de.DB.Hmb.Karte.1984
+
+    -   date: 2017-01
+        category: de.Bf
+        name: Henstedt-Ulzburg
+        de.name16: Henstedt-Ulzburg
+        de.DS100: AUB
+        de.dstnr: !!str 404145
+        document: src.de.DBAG.BSV.2017
 
 
 ---
@@ -831,17 +948,18 @@ type: point
 events:
     -   date: c1990
         status: open
+
     -   date: !!null
+        site:
+            path.de.9121: kas
+records:
+    -   date: 2017-01
         de.DS100: AKTKS
         name: Kaltenkirchen Süd
         de.name16: Kaltenk Süd
         category: de.Bft
         de.dstnr: !!str 404285
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        site:
-            path.de.9121: kas
+        document: src.de.DBAG.BSV.2017
 
 
 ---
@@ -849,28 +967,41 @@ key: point.de.Kaltenkirchen-Holst
 type: point
 events:
     -   date: !!null
-        name: Kaltenkirchen (Holst)
-        source: src.de.Kb.1905
-    -   date: !!null
-        de.lknr: 51 803
-        source: src.de.Bfv.1928
-    -   date: !!null
-        de.DS100: AKTK
-        de.dstnr: !!str 404152
-        source: src.de.DS100.1984
-    -   date: !!null
-        category: de.Bf
-        de.name16: Kaltenk. (Holst)
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.9121: 34,4
-        source: src.de.DB.Hmb.Karte.1956
-
-    -   date: !!null
         site:
             path.de.9121: kal
+records:
+    -   date: 1905-07
+        name: Kaltenkirchen (Holst)
+        document: src.de.Kb.1905
+    -   date: 1927-12-09
+        name: Kaltenkirchen (Holst)
+        de.lknr: 51 803
+        document: src.de.Bfv.1928
+
+    -   date: 1956-09
+        name: Kaltenkirchen (Holst)
+        category: de.Bf
+        location:
+            line.de.9121: 34,4 # right
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-06-03
+        name: Kaltenkirchen (Holst)
+        de.DS100: AKTK
+        de.dstnr: !!str 404152
+        document: src.de.DS100.1984
+    -   date: 1984-11
+        name: Kaltenkirchen (Holst)
+        location:
+            line.de.9121: 34,4 # right
+        document: src.de.DB.Hmb.Karte.1984
+
+    -   date: 2017-01
+        category: de.Bf
+        de.name16: Kaltenk. (Holst)
+        name: Kaltenkirchen (Holst)
+        de.DS100: AKTK
+        de.dstnr: !!str 404152
+        document: src.de.DBAG.BSV.2017
 
 
 ---
@@ -884,16 +1015,18 @@ events:
         name: Holstentherme/dodenhof
     -   date: 2006-06-09
         name: Kaltenkirchen Holstentherme
-    -   date: !!null
-        de.DS100: AKTKH
-        de.name16: Holstentherme
-        category: de.Hp
-        de.dstnr: !!str 404251
-        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
             path.de.9121: kah
+records:
+    -   date: 2017-01
+        de.DS100: AKTKH
+        name: Kaltenkirchen Holstentherme
+        de.name16: Holstentherme
+        category: de.Hp
+        de.dstnr: !!str 404251
+        document: src.de.DBAG.BSV.2017
 
 
 ---
@@ -902,17 +1035,18 @@ type: point
 events:
     -   date: 2006-06-09
         status: open
+
     -   date: !!null
+        site:
+            path.de.9121: dod
+records:
+    -   date: 2017-01
         de.DS100: AKTKD
         name: Kaltenkirchen dodenhof
         de.name16: dodenhof
         category: de.Bft
         de.dstnr: !!str 862219
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        site:
-            path.de.9121: dod
+        document: src.de.DBAG.BSV.2017
 
 
 ---
@@ -920,28 +1054,42 @@ key: point.de.Nützen
 type: point
 events:
     -   date: !!null
-        name: Nützen
-        source: src.de.Kb.1905
-    -   date: !!null
-        de.lknr: 52 803
-        source: src.de.Bfv.1928
-    -   date: !!null
-        de.DS100: ANTZ
-        de.dstnr: !!str 404160
-        source: src.de.DS100.1984
-    -   date: !!null
-        category: de.Hp
-        de.name16: Nützen
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.9121: 39,5
-        source: src.de.DB.Hmb.Karte.1956
-
-    -   date: !!null
         site:
             path.de.9121: nut
+records:
+    -   date: 1905-07
+        name: Nützen
+        document: src.de.Kb.1905
+    -   date: 1927-12-09
+        name: Nützen
+        document: src.de.Kb.1905
+        de.lknr: 52 803
+        document: src.de.Bfv.1928
+
+    -   date: 1956-09
+        name: Nützen
+        category: de.Bf
+        location:
+            line.de.9121: 39,5 # right
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-06-03
+        name: Nützen
+        de.DS100: ANTZ
+        de.dstnr: !!str 404160
+        document: src.de.DS100.1984
+    -   date: 1984-11
+        name: Nützen
+        location:
+            line.de.9121: 39,5 # right
+        document: src.de.DB.Hmb.Karte.1984
+
+    -   date: 2017-01
+        name: Nützen
+        de.DS100: ANTZ
+        de.dstnr: !!str 404160
+        category: de.Hp
+        de.name16: Nützen
+        document: src.de.DBAG.BSV.2017
 
 
 ---
@@ -949,28 +1097,41 @@ key: point.de.Lentföhrden
 type: point
 events:
     -   date: !!null
-        name: Lentföhrden
-        source: src.de.Kb.1905
-    -   date: !!null
-        de.lknr: 53 803
-        source: src.de.Bfv.1928
-    -   date: !!null
-        de.DS100: ALFD
-        de.dstnr: !!str 404178
-        source: src.de.DS100.1984
-    -   date: !!null
-        category: de.Bf
-        de.name16: Lentföhrden
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.9121: 41,9
-        source: src.de.DB.Hmb.Karte.1956
-
-    -   date: !!null
         site:
             path.de.9121: len
+records:
+    -   date: 1905-07
+        name: Lentföhrden
+        document: src.de.Kb.1905
+    -   date: 1927-12-09
+        name: Lentföhrden
+        de.lknr: 53 803
+        document: src.de.Bfv.1928
+
+    -   date: 1956-09
+        name: Lentföhrden
+        category: de.Bf
+        location:
+            line.de.9121: 41,9 # left
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-06-03
+        name: Lentföhrden
+        de.DS100: ALFD
+        de.dstnr: !!str 404178
+        document: src.de.DS100.1984
+    -   date: 1984-11
+        name: Lenföhrden
+        location:
+            line.de.9121: 41,9 # left
+        document: src.de.DB.Hmb.Karte.1984
+
+    -   date: 2017-01
+        name: Lentföhrden
+        de.DS100: ALFD
+        de.dstnr: !!str 404178
+        category: de.Bf
+        de.name16: Lentföhrden
+        document: src.de.DBAG.BSV.2017
 
 
 ---
@@ -979,64 +1140,91 @@ type: point
 events:
     -   date: c1920
         status: open
-    -   date: !!null
-        name: Rheuma-Heilstätte
-        source: src.de.Kb.W1932
-    -   date: c1935
-        name: Neues Kurhaus
-        source: src.de.Kb.W1937
     -   date: 1952
         name: Bad Bramstedt Kurhaus
         source: src.de.Kielmann.1984
-    -   date: !!null
-        de.DS100: ABSK
-        de.dstnr: !!str 404186
-        source: src.de.DS100.1984
-    -   date: !!null
-        category: de.Hp
-        de.name16: Bad Bramst Kurh
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.9121: 44,9
-        source: src.de.DB.Hmb.Karte.1956
 
     -   date: !!null
         site:
             path.de.9121: brk
+records:
+    -   date: 1932-10-02
+        name: Rheuma-Heilstätte
+        document: src.de.Kb.W1932
+    -   date: 1937-10-03
+        name: Neues Kurhaus
+        document: src.de.Kb.W1937
+
+    -   date: 1956-09
+        name: Bad Bramstedt Kurhaus
+        category: de.Hp
+        location:
+            line.de.9121: 44,9 # left
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-06-03
+        name: Bad Bramstedt Kurhaus
+        de.DS100: ABSK
+        de.dstnr: !!str 404186
+        document: src.de.DS100.1984
+    -   date: 1984-11
+        name: Bad Bramstedt Kurhaus
+        location:
+            line.de.9121: 44,9 # left
+        document: src.de.DB.Hmb.Karte.1984
+
+    -   date: 2017-01
+        name: Bad Bramstedt Kurhaus
+        de.DS100: ABSK
+        de.dstnr: !!str 404186
+        category: de.Hp
+        de.name16: Bad Bramst Kurh
+        document: src.de.DBAG.BSV.2017
 
 
 ---
 key: point.de.Bad-Bramstedt
 type: point
 events:
-    -   date: !!null
-        name: Bramstedt
-        source: src.de.Kb.1905
     -   date: 1911-03-01
         name: Bad Bramstedt
         source: src.de.Kielmann.1984
-    -   date: !!null
-        de.lknr: 54 803
-        source: src.de.Bfv.1933
-    -   date: !!null
-        de.DS100: ABSD
-        de.dstnr: !!str 404194
-        source: src.de.DS100.1984
-    -   date: !!null
-        category: de.Bf
-        de.name16: Bad Bramstedt
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.9121: 47,0
-        source: src.de.DB.Hmb.Karte.1956
 
     -   date: !!null
         site:
             path.de.9121: bra
+records:
+    -   date: 1905-07
+        name: Bramstedt
+        document: src.de.Kb.1905
+    -   date: 1933-03-01
+        name: Bad Bramstedt
+        de.lknr: 54 803
+        document: src.de.Bfv.1933
+
+    -   date: 1956-09
+        name: Bad Bramstedt
+        category: de.Bf
+        location:
+            line.de.9121: 47,0 # left
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-06-03
+        name: Bad Bramstedt
+        de.DS100: ABSD
+        de.dstnr: !!str 404194
+        document: src.de.DS100.1984
+    -   date: 1984-11
+        name: Bad Bramstedt
+        location:
+            line.de.9121: 47,0 # left
+        document: src.de.DB.Hmb.Karte.1984
+
+    -   date: 2017-01
+        name: Bad Bramstedt
+        de.DS100: ABSD
+        de.dstnr: !!str 404194
+        category: de.Bf
+        de.name16: Bad Bramstedt
+        document: src.de.DBAG.BSV.2017
 
 
 ---
@@ -1065,26 +1253,38 @@ key: point.de.Wiemersdorf
 type: point
 events:
     -   date: !!null
-        name: Wiemersdorf
-        de.lknr: 55 803
-        source: src.de.Bfv.1928
-    -   date: !!null
-        de.DS100: AWMD
-        de.dstnr: !!str 404202
-        source: src.de.DS100.1984
-    -   date: !!null
-        category: de.Bf
-        de.name16: Wiemersdorf
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.9121: 51,8
-        source: src.de.DB.Hmb.Karte.1956
-
-    -   date: !!null
         site:
             path.de.9121: wie
+records:
+    -   date: 1927-12-09
+        name: Wiemersdorf
+        de.lknr: 55 803
+        document: src.de.Bfv.1928
+
+    -   date: 1956-09
+        name: Wiemersdorf
+        category: de.Bf
+        location:
+            line.de.9121: 51,8 # left
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-06-03
+        name: Wiemersdorf
+        de.DS100: AWMD
+        de.dstnr: !!str 404202
+        document: src.de.DS100.1984
+    -   date: 1984-11
+        name: Wiemersdorf
+        location:
+            line.de.9121: 51,8 # left
+        document: src.de.DB.Hmb.Karte.1984
+
+    -   date: 2017-01
+        name: Wiemersdorf
+        de.DS100: AWMD
+        de.dstnr: !!str 404202
+        category: de.Bf
+        de.name16: Wiemersdorf
+        document: src.de.DBAG.BSV.2017
 
 
 ---
@@ -1092,25 +1292,37 @@ key: point.de.Großenaspe
 type: point
 events:
     -   date: !!null
-        name: Großenaspe
-        de.lknr: 56 803
-        source: src.de.Bfv.1928
-    -   date: !!null
-        de.DS100: AGSA
-        de.dstnr: !!str 404210
-        source: src.de.DS100.1984
-    -   date: !!null
-        de.name16: Großenaspe
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.9121: 56,4
-        source: src.de.DB.Hmb.Karte.1956
-
-    -   date: !!null
         site:
             path.de.9121: gas
+records:
+    -   date: 1927-12-09
+        name: Großenaspe
+        de.lknr: 56 803
+        document: src.de.Bfv.1928
+
+    -   date: 1956-09
+        name: Großenaspe
+        category: de.Bf
+        location:
+            line.de.9121: 56,4 # right
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-06-03
+        name: Großenaspe
+        de.DS100: AGSA
+        de.dstnr: !!str 404210
+        document: src.de.DS100.1984
+    -   date: 1984-11
+        name: Großenaspe
+        location:
+            line.de.9121: 56,4 # right
+        document: src.de.DB.Hmb.Karte.1984
+
+    -   date: 2017-01
+        name: Großenaspe
+        de.DS100: AGSA
+        de.dstnr: !!str 404210
+        de.name16: Großenaspe
+        document: src.de.DBAG.BSV.2017
 
 
 ---
@@ -1137,26 +1349,38 @@ key: point.de.Boostedt
 type: point
 events:
     -   date: !!null
-        name: Boostedt
-        de.lknr: 57 803
-        source: src.de.Bfv.1928
-    -   date: !!null
-        de.DS100: ABOS
-        de.dstnr: !!str 404228
-        source: src.de.DS100.1984
-    -   date: !!null
-        category: de.Bf
-        de.name16: Boostedt
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.9121: 61,3
-        source: src.de.DB.Hmb.Karte.1956
-
-    -   date: !!null
         site:
             path.de.9121: boo
+records:
+    -   date: 1927-12-09
+        name: Boostedt
+        de.lknr: 57 803
+        document: src.de.Bfv.1928
+
+    -   date: 1956-09
+        name: Boostedt
+        category: de.Bf
+        location:
+            line.de.9121: 61,5 # right
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-06-03
+        name: Boostedt
+        de.DS100: ABOS
+        de.dstnr: !!str 404228
+        document: src.de.DS100.1984
+    -   date: 1984-11
+        name: Boostedt
+        location:
+            line.de.9121: 61,5 # right
+        document: src.de.DB.Hmb.Karte.1984
+
+    -   date: 2017-01
+        name: Boostedt
+        de.DS100: ABOS
+        de.dstnr: !!str 404228
+        category: de.Bf
+        de.name16: Boostedt
+        document: src.de.DBAG.BSV.2017
 
 
 ---
@@ -1181,26 +1405,31 @@ key: point.de.Neumünster-Süd-AKN
 type: point
 events:
     -   date: !!null
-        name: Neumünster Süd
-        de.lknr: 58 803
-        source: src.de.Bfv.1928
-    -   date: c1970
-        name: Neumünster Süd AKN
-    -   date: !!null
-        de.DS100: ANM
-        de.name16: Neumünster Süd
-        category: de.Bf
-        de.dstnr: !!str 404236
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.9121: 66,87
-        source: src.de.DB.Hmb.Karte.1956
-
-    -   date: !!null
         connection: point.de.Neumünster-Süd
         site:
             path.de.9121: nes
+records:
+    -   date: 1927-12-09
+        name: Neumünster Süd
+        de.lknr: 58 803
+        document: src.de.Bfv.1928
 
+    -   date: 1956-09
+        category: de.Bf
+        location:
+            line.de.9121: 66,87 # left
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-11
+        name: Neumünster Süd
+        location:
+            line.de.9121: 66,9 # top
+        document: src.de.DB.Hmb.Karte.1984
+
+    -   date: 2017-01
+        de.DS100: ANM
+        name: Neumünster Süd AKN
+        de.name16: Neumünster Süd
+        category: de.Bf
+        de.dstnr: !!str 404236
+        document: src.de.DBAG.BSV.2017
 

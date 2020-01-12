@@ -9,10 +9,6 @@ events:
             - org.de.l.ni
 
     -   date: !!null
-        de.VzG: !!str 9128
-        source: src.de.DBAG.Geo-Strecke.2017
-
-    -   date: !!null
         category: de.Kleinbahn
         owner: org.de.Buxtehude-Harsefelder-Eisenbahn
         operator: org.de.Buxtehude-Harsefelder-Eisenbahn
@@ -43,17 +39,40 @@ events:
         start: point.de.Harsefeld-Abzw
         status: closed
         source: src.de.WP.Bahnstrecke-Bremerhaven-Buxtehude
+records:
+    -   date: 1931-04-01
+        category: de.Kleinbahn
+        tracks: 1
+        gauge: 1435mm
+        document: src.de.DRG.Alt.Karte.1931
 
+    -   date: 1956-09
+        category: de.Nebenbahn
+        tracks: 1
+        gauge: 1435mm
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-11
+        category: de.Nebenbahn
+        tracks: 1
+        gauge: 1435mm
+        passenger: none
+        de.VzG: !!str 9128
+        document: src.de.DB.Hmb.Karte.1984
+
+    -   date: 2017-01
+        de.VzG: !!str 9128
+        note: km 0,4+25 – 14,8+0
+        document: src.de.DBAG.Geo-Strecke.2017
 points:
     -   point.de.Buxtehude-Süd
     -   point.de.Buxtehude-Abzw
-    - point.de.Gruenerwald
+    -   point.de.Grünerwald
     -   point.de.Ottensen-Stade
     -   point.de.Apensen
     -   point.de.Ruschwedel
-    - point.de.Weissenfelde
-    - point.de.Harsefeld-Abzw                       # line.de.1300
-    - point.de.Harsefeld-Süd
+    -   point.de.Weißenfelde
+    -   point.de.Harsefeld-Abzw                     # de.1300
+    -   point.de.Harsefeld-Süd
 
 
 #-----------------------------------------------------------------------------
@@ -63,27 +82,27 @@ key: point.de.Buxtehude-Süd
 type: point
 events:
     -   date: !!null
-        location:
-            line.de.9128: 0,0
-        source: src.de.web.EVB.SNB
-    -   date: !!null
-        name: Buxtehude Kleinb
-        source: src.de.Bfv.1933
-    -   date: !!null
-        category: de.Bf
-        de.DS100: ABXS
-        source: src.de.SuW.2005
-    -   date: de.lknr.kb
-        de.lknr: 40 534
-        source: src.de.Bfv.1944
-    -   date: c1950
-        name: Buxtehude Süd
-        source: src.de.SuW.2005
-
-    -   date: !!null
         connection: point.de.Buxtehude
         site:
             path.de.9128: bux
+records:
+    -   date: 1933-03-01
+        name: Buxtehude Kleinb
+        document: src.de.Bfv.1933
+    -   date: 1944-06-01
+        name: Buxtehude Kleinb
+        de.lknr: 40 534
+        document: src.de.Bfv.1944
+
+    -   date: 1956-09
+        name: Buxtehude Kleinb
+        category: de.Bf # left
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-11
+        name: Buxtehude Süd
+        location:
+            line.de.9128: 0,1 # left
+        document: src.de.DB.Hmb.Karte.1984
 
 
 ---
@@ -92,139 +111,174 @@ type: point
 subtype: reference
 events:
     -   date: !!null
+        site:
+            path.de.9128: bua
+            path.de.1269: bua
+records:
+    -   date: 2017-01
         de.DS100: ABXA
         name: Buxtehude Abzw
         de.name16: Buxtehude Abzw
         category: [de.Bft, de.Abzw]
         PLC: DE21663
         de.dstnr: !!str 109398
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        site:
-            path.de.9128: bua
-            path.de.1269: bua
+        document: src.de.DBAG.BSV.2017
 
 
 ---
-key: point.de.Gruenerwald
+key: point.de.Grünerwald
 type: point
 events:
-    -   date: !!null
-        location:
-            line.de.9128: 1,7
-        name: Grünerwald
-        source: src.de.Kb.W1937
-    -   date: de.lknr.kb
-        de.lknr: 40 535
-    -   date: !!null
-        service: passenger
-    -   date: c1970
+    -   date: c1950
         status: closed
+records:
+    -   date: 1937-10-03
+        name: Grünerwald
+        document: src.de.Kb.W1937
+
 
 ---
 key: point.de.Ottensen-Stade
 type: point
-events:
-    -   date: !!null
-        location:
-            line.de.9128: 4,4
-        source: src.de.web.EVB.SNB
-    -   date: !!null
+records:
+    -   date: 1933-03-01
         name: Ottensen (Kr Stade)
-        source: src.de.Bfv.1933
-    -   date: de.lknr.kb
+        document: src.de.Bfv.1933
+    -   date: 1944-06-01
+        name: Ottensen (Kr Stade)
         de.lknr: 40 536
-        source: src.de.Bfv.1944
-    -   date: !!null
+        document: src.de.Bfv.1944
+
+    -   date: 1956-09
+        name: Ottensen (Kr Stade)
+        category: de.Bf # left
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-11
+        name: Ottensen (Kr Stade)
+        location:
+            line.de.9128: 4,4 # left
+        document: src.de.DB.Hmb.Karte.1984
+
+    -   date: 2017-01
         de.DS100: AOTS
+        name: Ottensen (Kr Stade)
         de.name16: Ottensen (Kr St)
         category: de.Hp
         de.dstnr: !!str 103578
-        source: src.de.DBAG.BSV.2017
-    -   date: 2009-04-01
         status: closed
-        source: src.de.DBAG.BSV.2017
+        document: src.de.DBAG.BSV.2017
 
 
 ---
 key: point.de.Apensen
 type: point
-events:
-    -   date: !!null
-        location:
-            line.de.9128: 6,85
-        source: src.de.web.EVB.SNB
-    -   date: !!null
+records:
+    -   date: 1933-03-01
         name: Apensen
-        source: src.de.Bfv.1933
-    -   date: de.lknr.kb
+        document: src.de.Bfv.1933
+    -   date: 1944-06-01
+        name: Apensen
         de.lknr: 40 537
-        source: src.de.Bfv.1944
-    -   date: !!null
+        document: src.de.Bfv.1944
+
+    -   date: 1956-09
+        name: Apensen
+        category: de.Bf # left
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-06-03
+        name: Apensen
         de.DS100: AAPS
         de.dstnr: !!str 426031
-        source: src.de.DS100.1984
-    -   date: !!null
+        document: src.de.DS100.1984
+    -   date: 1984-11
+        name: Apensen
+        location:
+            line.de.9128: 6,7 # left
+        document: src.de.DB.Hmb.Karte.1984
+
+    -   date: 2017-01
+        name: Apensen
+        de.DS100: AAPS
+        de.dstnr: !!str 426031
         category: de.Bf
         de.name16: Apensen
-        source: src.de.DBAG.BSV.2017
+        document: src.de.DBAG.BSV.2017
+
 
 ---
 key: point.de.Ruschwedel
 type: point
-events:
-    -   date: !!null
+records:
+    -   date: 1933-03-01
         name: Ruschwedel
-        source: src.de.Bfv.1933
-    -   date: de.lknr.kb
+        document: src.de.Bfv.1933
+    -   date: 1944-06-01
+        name: Ruschwedel
         de.lknr: 40 538
-        source: src.de.Bfv.1944
-    -   date: !!null
+        document: src.de.Bfv.1944
+
+    -   date: 1956-09
+        name: Ruschwedel
+        category: de.Bf # right
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-11
+        name: Ruschwedel
+        location:
+            line.de.9128: 10,4 # right
+        document: src.de.DB.Hmb.Karte.1984
+
+    -   date: 2017-01
         de.DS100: ARWD
+        name: Ruschwedel
         de.name16: Ruschwedel
         category: de.Hp
         de.dstnr: !!str 586040
-        source: src.de.DBAG.BSV.2017
+        document: src.de.DBAG.BSV.2017
 
 
 ---
-key: point.de.Weissenfelde
+key: point.de.Weißenfelde
 type: point
 events:
-    -   date: !!null
-        location:
-            line.de.9128: 11,3
-        name: Weißenfelde
-        source: src.de.Kb.W1937
-    -   date: de.lknr.kb
-        de.lknr: 40 539
-    -   date: !!null
-        service: passenger
-    -   date: c1970
+    -   date: c1950
         status: closed
+records:
+    -   date: 1937-10-03
+        name: Weißenfelde
+        document: src.de.Kb.W1937
+
 
 ---
 key: point.de.Harsefeld-Süd
 type: point
 events:
     -   date: !!null
+        connection: point.de.Harsefeld
+records:
+    -   date: 1933-03-01
         name: Harsefeld Kleinb
-        source: src.de.Bfv.1933
-    -   date: de.lknr.kb
+        document: src.de.Bfv.1933
+    -   date: 1944-06-01
+        name: Harsefeld Kleinb
         de.lknr: 40 540
-        source: src.de.Bfv.1944
+        document: src.de.Bfv.1944
+
+    -   date: 1956-09
+        name: Harsefeld Kleinb
+        category: de.Bf # left
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-11
+        name: Harsefeld Süd
+        location:
+            line.de.9128: 14,7 # left
+        document: src.de.DB.Hmb.Karte.1984
+
     -   date: !!null
         de.DS100: AHSD
         category: de.Bf
         de.dstnr: !!str 586024
-        source: src.de.DBAG.BSV.2017
-    -   date: c1950
         name: Harsefeld Süd
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.name16: Harsefeld Süd
-        source: src.de.DBAG.BSV.2017
+        document: src.de.DBAG.BSV.2017
 
-    -   date: !!null
-        connection: point.de.Harsefeld
+
