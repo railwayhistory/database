@@ -3,12 +3,7 @@
 ---
 key: line.de.9130
 type: line
-progress: stub
 events:
-    -   date: !!null
-        de.VzG: !!str 9130
-        source: src.de.DBAG.Geo-Strecke.2017
-
     #   Genehmigungen, Eigentümer, Betreiber
     #
     -   date: 1909-07-28
@@ -23,7 +18,26 @@ events:
     -   date: 1914-07-01
         status: open
         source: src.de.DRG.1935 # 1914/42
+records:
+    -   date: 1983-11
+        end: point.de.Bremerhaven-Kaiserhafen
+        category: de.Hauptbahn
+        tracks: 2
+        gauge: 1435mm
+        electrified: de
+        document: src.de.DB.Han.1983
+    -   date: 1983-11
+        start: point.de.Bremerhaven-Kaiserhafen
+        category: de.Nebenbahn
+        tracks: 1
+        gauge: 1435mm
+        de.VzG: !!str 9130
+        document: src.de.DB.Han.1983
 
+    -   date: 2017-01
+        de.VzG: !!str 9130
+        note: km 194,1+50 – 198,9+70
+        document: src.de.DBAG.Geo-Strecke.2017
 points:
     -   point.de.Bremerhaven-Seehafen-EGr           # de.1740
     -   point.de.Bremerhaven-Nordhafen
@@ -40,38 +54,35 @@ points:
 ---
 key: point.de.Bremerhaven-Nordhafen
 type: point
-events:
+records:
     -   date: !!null
         name: Bremerhaven Nordhafen
         category: de.Bft
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.DS100: HBHNH
         de.dstnr: !!str 107795
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.name16: Brh Nordhafen
-        source: src.de.DBAG.BSV.2017
+        document: src.de.DBAG.BSV.2017
 
 
 ---
 key: point.de.Bremerhaven-Kaiserhafen
 type: point
-events:
-    -   date: !!null
-        category: de.Bf
-        name: Bremerhaven Kaiserhafen
-        de.name16: Brh Kaiserhafen
-        de.DS100: HBHSK
-        source: src.de.DBAG.BSV.2017
 records:
     -   date: 1983-11
         name: Bremerhaven Seehafen Kaiserhafen
         category: de.Bf
         location:
-            line.de.9130: 196,48
+            line.de.9130: 196,48 # left
             line.de.9131: 196,48
         document: src.de.DB.Han.1983
+
+    -   date: 2017-01
+        category: de.Bf
+        name: Bremerhaven Kaiserhafen
+        de.name16: Brh Kaiserhafen
+        de.DS100: HBHSK
+        de.dstnr: !!str 908989
+        document: src.de.DBAG.BSV.2017
 
 
 ---
@@ -91,11 +102,19 @@ records:
 ---
 key: point.de.Bremerhaven-Seehafen-Columbusbf
 type: point
-events:
-    -   date: !!null
+records:
+    -   date: 1983-11
+        name: Bremerhaven Seehafen Columbusbahnhof
+        category: de.Bf
+        location:
+            line.de.9130: 198,97 # right
+        document: src.de.DB.Han.1983
+
+    -   date: 2017-01
         category: de.Bf
         name: Bremerhaven Seehafen Columbusbahnhof
         de.name16: Brh Columbusbf
         de.DS100: HBHC
-        source: src.de.DBAG.BSV.2017
+        de.dstnr: !!str 137976
+        document: src.de.DBAG.BSV.2017
 

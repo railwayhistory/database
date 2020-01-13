@@ -13,10 +13,6 @@ events:
         start: point.de.Sellstedt-LGr
         region: org.de.l.ni
 
-    -   date: !!null
-        de.VzG: !!str 1300
-        source: src.de.DBAG.Geo-Strecke.2017
-
     #   Staatsverträge
     #
 
@@ -117,20 +113,55 @@ events:
 
     #   Eigenschaften
     #
-    -   date: !!null
-        category: de.Nebenbahn
-        source: src.de.DRG.1927
-
 
     #   Verlauf
     #
+records:
+    -   date: 1927-03
+        category: de.Nebenbahn
+        tracks: 1
+        gauge: 1435mm
+        document: src.de.DRG.1927
+    -   date: 1931-04-01
+        category: de.Nebenbahn
+        tracks: 1
+        gauge: 1435mm
+        document: src.de.DRG.Alt.Karte.1931
 
+    -   date: 1956-09
+        category: de.Nebenbahn
+        tracks: 1
+        gauge: 1435mm
+        document: src.de.DB.Hmb.Karte.1956
 
+    -   date: 1984-11
+        end: point.de.Hesedorf
+        category: de.Nebenbahn
+        tracks: 1
+        gauge: 1435mm
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-11
+        start: point.de.Hesedorf
+        end: point.de.Hollenstedt
+        category: de.Nebenbahn
+        tracks: 1
+        gauge: 1435mm
+        passenger: none
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-11
+        start: point.de.Hollenstedt
+        status: closed
+        document: src.de.DB.Hmb.Karte.1956
+
+    -   date: 2017-01
+        de.VzG: !!str 1300
+        note: km 0,1+68 – 92,9+40
+        document: src.de.DBAG.Geo-Strecke.2017
 points:
     -   point.de.Bremerhaven-Wulsdorf               # de.1740
     -   point.de.Bremerhaven-Wulsdorf-BGr
-    - point.de.Sellstedt-LGr
-    - point.de.Sellstedt-DGr
+    -   point.de.Sellstedt-LGr
+    -   point.de.Sellstedt-DGr
     -   point.de.Apeler
     -   point.de.Sellstedt
     -   point.de.Heidekultur
@@ -144,14 +175,15 @@ points:
     -   point.de.Kutenholz
     -   point.de.Brest-Aspe
     -   point.de.Bargstedt
-    - point.de.Harsefeld
-    - point.de.Harsefeld-Abzw
+    -   point.de.Harsefeld
+    -   point.de.Harsefeld-Abzw
     -   point.de.Beckdorf
-    - point.de.Staersbeck-Moisburg
-    - point.de.Hollenstedt
-    - point.de.Drestedt
-    - point.de.Trelde
-    - point.de.Buchholz-Nordheide                   # line.de.2200
+    -   point.de.Rahmsdorf
+    -   point.de.Staersbeck-Moisburg
+    -   point.de.Hollenstedt
+    -   point.de.Drestedt
+    -   point.de.Trelde
+    -   point.de.Buchholz-Nordheide                 # de.2200
 
 
 #-----------------------------------------------------------------------------
@@ -163,15 +195,15 @@ points:
 key: point.de.Bremerhaven-Wulsdorf-BGr
 type: point
 subtype: reference
-events:
-    -   date: !!null
+records:
+    -   date: 2017-01
         de.DS100: HBWG
         name: Bremerhaven-Wulsdorf DB-Grenze
         de.name16: Brh-Wulsdf DB-Gr
         category: de.Gp
         PLC: DE11679
         de.dstnr: !!str 719773
-        source: src.de.DBAG.BSV.2017
+        document: src.de.DBAG.BSV.2017
 
 
 ---
@@ -185,15 +217,20 @@ events:
 ---
 key: point.de.Sellstedt-DGr
 type: point
-subtype: border
+subtype: reference
 events:
     -   date: !!null
-        name: Sellstedt Han/Hmb
-    -   date: !!null
+        designation: Sellstedt Han/Hmb
+records:
+    -   date: 1931-05-01
         location:
             line.de.1300: 1,05
-        source: src.de.DRG.Alt.Karte.1949
-records:
+        document: src.de.DRG.Alt.Karte.1931
+
+    -   date: 1956-09
+        location:
+            line.de.1300: 1,05
+        document: src.de.DB.Hmb.Karte.1956
     -   date: 1984-11
         location:
             line.de.1300: 1,050
@@ -204,44 +241,46 @@ records:
 key: point.de.Apeler
 type: point
 events:
-    -   date: 2013-09-04
+    -   date: c2015
         status: open
+records:
+    -   date: 2017-01
         category: de.Bf
         name: Apeler
         de.name16: Apeler
         de.DS100: AAPL
         de.dstnr: !!str 108062
-        source: src.de.DBAG.BSV.2017
+        document: src.de.DBAG.BSV.2017
+
 
 ---
 key: point.de.Sellstedt
 type: point
-events:
-    -   date: !!null
+records:
+    -   date: 1914-07
         name: Sellstedt
-        source: src.de.Kb.1914
-    -   date: !!null
+        document: src.de.Kb.1914
+    -   date: 1931-04-01
+        name: Sellstedt
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.1300: 7,52 # left
+        document: src.de.DRG.Alt.Karte.1931
+    -   date: 1933-03-01
+        name: Sellstedt
         category: de.Bf
         de.rang: IV
         de.lknr: 01 261
-        source: src.de.Bfv.1933
-    -   date: c1940
-        service: full
-        source: src.de.Bfv.1944
-    -   date: !!null
-        de.DS100: ASLL
-        de.name16: Sellstedt
-        de.dstnr: !!str 585836
-        source: src.de.DBAG.BSV.2017
-    -   date: c2000
-        category: de.Hp
-        source: src.de.DBAG.BSV.2017
+        document: src.de.Bfv.1933
 
-    -   date: !!null
+    -   date: 1956-09
+        name: Sellstedt
+        category: de.Bf
+        de.rang: IV
         location:
-            line.de.1300: 7,52
-        source: src.de.DRG.Alt.Karte.1949
-records:
+            line.de.1300: 7,52 # left
+        document: src.de.DB.Hmb.Karte.1956
     -   date: 1984-11
         name: Sellstedt
         category: de.Bf
@@ -249,51 +288,73 @@ records:
             line.de.1300: 7,51 # left
         document: src.de.DB.Hmb.Karte.1984
 
+    -   date: 2017-01
+        de.DS100: ASLL
+        name: Sellstedt
+        de.name16: Sellstedt
+        category: de.Hp
+        de.dstnr: !!str 585836
+        document: src.de.DBAG.BSV.2017
+
 
 ---
 key: point.de.Heidekultur
 type: point
 events:
-    -   date: 2013-10-23
+    -   date: c2015
         status: open
+records:
+    -   date: 2017-01
         de.DS100: AHKU
         name: Heidekultur
         de.name16: Heidekultur
         category: de.Bk
         de.dstnr: !!str 108063
-        source: src.de.DBAG.BSV.2017
+        document: src.de.DBAG.BSV.2017
 
 
 ---
 key: point.de.Wehdel
 type: point
-events:
-    -   date: !!null
+records:
+    -   date: 1914-07
         name: Wehdel
-        source: src.de.Kb.1914
-    -   date: !!null
+        document: src.de.Kb.1914
+    -   date: 1931-04-01
+        name: Wehdel
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.1300: 13,16 # right
+        document: src.de.DRG.Alt.Karte.1931
+    -   date: 1933-03-01
+        name: Wehdel
         category: de.Bf
         de.rang: IV
         de.lknr: 01 260
-        source: src.de.Bfv.1933
-    -   date: c1940
+        document: src.de.Bfv.1933
+    -   date: 1935-01-01
+        name: Wehdel
+        category: de.Hst
+        staff: full
+        location:
+            line.de.1300: 13,16 # right
+        document: src.de.DRG.Alt.Karte.1931
+    -   date: 1944-06-01
+        name: Wehdel
+        category: de.Hst
         category: de.Hst
         service: full
-        source: src.de.Bfv.1944
-    -   date: !!null
-        de.DS100: AWHD
-        de.name16: Wehdel
-        de.dstnr: !!str 585828
-        source: src.de.DBAG.BSV.2017
-    -   date: c2000
-        category: de.Hp
-        source: src.de.DBAG.BSV.2017
+        de.lknr: 01 260
+        document: src.de.Bfv.1944
 
-    -   date: !!null
+    -   date: 1956-09
+        name: Wehdel
+        category: de.Hst
+        staff: full
         location:
-            line.de.1300: 13,16
-        source: src.de.DRG.Alt.Karte.1949
-records:
+            line.de.1300: 13,16 # right
+        document: src.de.DB.Hmb.Karte.1956
     -   date: 1984-11
         name: Wehdel
         category: de.Hp
@@ -301,29 +362,43 @@ records:
             line.de.1300: 13,15 # right
         document: src.de.DB.Hmb.Karte.1984
 
+    -   date: 2017-01
+        de.DS100: AWHD
+        name: Wehdel
+        de.name16: Wehdel
+        category: de.Hp
+        de.dstnr: !!str 585828
+        document: src.de.DBAG.BSV.2017
+
 
 ---
 key: point.de.Geestenseth
 type: point
-events:
-    -   date: !!null
-        location:
-            line.de.1300: 16,80
-        source: src.de.DRG.Alt.Karte.1949
-    -   date: !!null
+records:
+    -   date: 1914-07
         name: Geestenseth
-        source: src.de.Kb.1914
-    -   date: !!null
+        document: src.de.Kb.1914
+    -   date: 1931-04-01
+        name: Geestenseth
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.1300: 16,80 # left
+        document: src.de.DRG.Alt.Karte.1931
+    -   date: 1933-03-01
+        name: Geestenseth
         category: de.Bf
         de.rang: IV
         de.lknr: 01 259
-        source: src.de.Bfv.1933
-    -   date: !!null
-        de.DS100: AGTH
-        de.name16: Geestenseth
-        de.dstnr: !!str 585810
-        source: src.de.DBAG.BSV.2017
-records:
+        document: src.de.Bfv.1933
+
+    -   date: 1956-09
+        name: Geestenseth
+        category: de.Bf
+        de.rang: III
+        location:
+            line.de.1300: 16,80 # left
+        document: src.de.DB.Hmb.Karte.1956
     -   date: 1984-11
         name: Geestenseth
         category: de.Bf
@@ -331,36 +406,54 @@ records:
             line.de.1300: 16,80 # left
         document: src.de.DB.Hmb.Karte.1984
 
+    -   date: 2017-01
+        de.DS100: AGTH
+        de.name16: Geestenseth
+        de.dstnr: !!str 585810
+        name: Geestenseth
+        category: de.Bf
+        document: src.de.DBAG.BSV.2017
+
 
 ---
 key: point.de.Frelsdorf
 type: point
-events:
-    -   date: !!null
+records:
+    -   date: 1914-07
         name: Frelsdorf
-        source: src.de.Kb.1914
-    -   date: !!null
+        document: src.de.Kb.1914
+    -   date: 1931-04-01
+        name: Frelsdorf
+        category: de.Hp
+        location:
+            line.de.1300: 19,65 # right
+        document: src.de.DRG.Alt.Karte.1931
+    -   date: 1933-03-01
+        name: Frelsdorf
         category: de.Bf
         de.rang: IV
         de.lknr: 01 258
-        source: src.de.Bfv.1933
-    -   date: c1940
+        document: src.de.Bfv.1933
+    -   date: 1935-01-01
+        name: Frelsdorf
         category: de.Hst
-        source: src.de.Bfv.1944
-    -   date: c2000
-        category: de.Hp
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.DS100: AFF
-        de.name16: Frelsdorf
-        de.dstnr: !!str 585802
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
+        staff: full
         location:
-            line.de.1300: 19,65
-        source: src.de.DRG.Alt.Karte.1949
-records:
+            line.de.1300: 19,65 # right
+        document: src.de.DRG.Alt.Karte.1935
+    -   date: 1944-06-01
+        name: Frelsdorf
+        category: de.Hst
+        de.lknr: 01 258
+        document: src.de.Bfv.1944
+
+    -   date: 1956-09
+        name: Frelsdorf
+        category: de.Hst
+        staff: full
+        location:
+            line.de.1300: 19,65 # right
+        document: src.de.DB.Hmb.Karte.1956
     -   date: 1984-11
         name: Frelsdorf
         category: de.Hp
@@ -368,38 +461,56 @@ records:
             line.de.1300: 19,68 # right
         document: src.de.DB.Hmb.Karte.1984
 
+    -   date: 2017-01
+        de.DS100: AFF
+        name: Frelsdorf
+        de.name16: Frelsdorf
+        category: de.Hp
+        de.dstnr: !!str 585802
+        document: src.de.DBAG.BSV.2017
+
 
 ---
 key: point.de.Heinschenwalde
 type: point
-events:
-    -   date: !!null
+records:
+    -   date: 1914-07
         name: Heinschenwalde
-        source: src.de.Kb.1914
-    -   date: !!null
+        document: src.de.Kb.1914
+
+    -   date: 1931-04-01
+        name: Heinschenwalde
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.1300: 24,46 # right
+        document: src.de.DRG.Alt.Karte.1931
+    -   date: 1933-03-01
+        name: Heinschenwalde
         category: de.Bf
         de.rang: IV
         de.lknr: 01 257
-        source: src.de.Bfv.1933
-    -   date: c1940
+        document: src.de.Bfv.1933
+    -   date: 1935-01-01
+        name: Heinschenwalde
         category: de.Hst
-        source: src.de.Bfv.1944
-    -   date: c1970
-        category: de.Bf
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.DS100: AHWA
-        de.dstnr: !!str 585794
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Heinschenwalde
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
+        staff: full
         location:
-            line.de.1300: 24,46
-        source: src.de.DRG.Alt.Karte.1949
-records:
+            line.de.1300: 24,46 # right
+        document: src.de.DRG.Alt.Karte.1931
+    -   date: 1944-06-01
+        name: Heinschenwalde
+        category: de.Hst
+        de.lknr: 01 257
+        document: src.de.Bfv.1944
+
+    -   date: 1956-09
+        name: Heinschenwalde
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.1300: 24,46 # right
+        document: src.de.DB.Hmb.Karte.1956
     -   date: 1984-11
         name: Heinschenwalde
         category: de.Bf
@@ -407,33 +518,44 @@ records:
             line.de.1300: 24,46 # right
         document: src.de.DB.Hmb.Karte.1984
 
+    -   date: 2017-01
+        de.DS100: AHWA
+        name: Heinschenwalde
+        de.name16: Heinschenwalde
+        category: de.Bf
+        de.dstnr: !!str 585794
+        document: src.de.DBAG.BSV.2017
+
 
 ---
 key: point.de.Oerel
 type: point
-events:
-    -   date: !!null
+records:
+    -   date: 1914-07
         name: Örel
-        source: src.de.Kb.1914
-    -   date: !!null
+        document: src.de.Kb.1914
+
+    -   date: 1931-04-01
+        name: Oerel
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.1300: 28,35 # right
+        document: src.de.DRG.Alt.Karte.1931
+    -   date: 1933-03-01
         category: de.Bf
         de.rang: IV
         de.lknr: 01 256
-        source: src.de.Bfv.1933
-    -   date: c1920
         name: Oerel
-        source: src.de.Bfv.1933
-    -   date: !!null
-        de.DS100: AOE
-        de.name16: Oerel
-        de.dstnr: !!str 585786
-        source: src.de.DBAG.BSV.2017
+        document: src.de.Bfv.1933
 
-    -   date: !!null
+    -   date: 1956-09
+        name: Oerel
+        category: de.Bf
+        de.rang: IV
         location:
-            line.de.1300: 28,35
-        source: src.de.DRG.Alt.Karte.1949
-records:
+            line.de.1300: 28,35 # right
+        document: src.de.DB.Hmb.Karte.1956
     -   date: 1984-11
         name: Oerel
         category: de.Hp
@@ -441,54 +563,78 @@ records:
             line.de.1300: 28,35 # right
         document: src.de.DB.Hmb.Karte.1984
 
+    -   date: 2017-01
+        name: Oerel
+        category: de.Hp
+        de.DS100: AOE
+        de.name16: Oerel
+        de.dstnr: !!str 585786
+        document: src.de.DBAG.BSV.2017
+
 
 ---
 key: point.de.Bremervörde
 type: point
 events:
     -   date: !!null
-        name: Bremervörde
-        source: src.de.Kb.1905
-    -   date: !!null
-        de.lknr: 13 087
-        source: src.de.Bfv.1928
-    -   date: !!null
-        location:
-            line.de.1300:  36,11
-            line.de.1711: 157,44
-        category: de.Bf
-        de.rang: II
-        source: src.de.DRG.Alt.Karte.1931
-    -   date: de.lknr.30
-        de.lknr: 01 255
-        source: src.de.Bfv.1933
-    -   date: !!null
-        de.DS100: ABV
-        de.dstnr: !!str 012559
-        source: src.de.DS100.1984
-    -   date: 1991?
-        de.dstnr: !!str 585778
-        source: src.de.DBAG.BSV.2017
-        
-    -   date: !!null
-        de.name16: Bremervörde
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
         connection: point.de.Bremervörde-Süd
-
-    -   date: !!null
         site:
             path.de.1300: brv
 records:
+    -   date: 1905-07
+        name: Bremervörde
+        document: src.de.Kb.1905
+
+    -   date: 1927-12-09
+        name: Bremervörde
+        de.lknr: 13 087
+        document: src.de.Bfv.1928
+    -   date: 1931-04-01
+        name: Bremervörde
+        category: de.Bf
+        de.rang: II
+        location:
+            line.de.1300:  36,11 # left
+            line.de.1711: 157,44
+        document: src.de.DRG.Alt.Karte.1931
+    -   date: 1933-03-01
+        name: Bremervörde
+        category: de.Bf
+        de.rang: II
+        de.lknr: 01 255
+        document: src.de.Bfv.1933
+
+    -   date: 1956-09
+        name: Bremervörde
+        category: de.Bf
+        de.rang: I
+        location:
+            line.de.1300:  36,11 # left
+            line.de.1304:   0,00
+            line.de.1711: 151,44
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-06-03
+        de.dstnr: !!str 012559
+        name: Bremervörde
+        de.DS100: ABV
+        category: de.Bf
+        document: src.de.DS100.1984
     -   date: 1984-11
         name: Bremervörde
         category: de.Bf
         location:
             line.de.1300:  35,11 # left
+            line.de.1304:   0,00
             line.de.1711: 150,53
-            #        ???:   0,00 
         document: src.de.DB.Hmb.Karte.1984
+
+    -   date: 2017-01
+        name: Bremervörde
+        de.DS100: ABV
+        category: de.Bf
+        de.dstnr: !!str 585778
+        de.name16: Bremervörde
+        document: src.de.DBAG.BSV.2017
 
 
 ---
@@ -496,35 +642,42 @@ key: point.de.Hesedorf
 type: point
 events:
     -   date: !!null
-        name: Hesedorf
-        source: src.de.Kb.1914
-    -   date: !!null
-        category: de.Bf
-        de.rang: IV
-        de.lknr: 01 254
-        source: src.de.Bfv.1933
-    -   date: !!null
-        de.DS100: AHOF
-        de.dstnr: !!str 012542
-        source: src.de.DS100.1984
-    -   date: c2000
-        de.dstnr: !!str 585844
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Hesedorf
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.1260: 0,00
-            line.de.1300: 40,01
-        source: src.de.DRG.Alt.Karte.1949
-
-    -   date: !!null
         site:
             path.de.1300: hes
             path.de.1260: hes
 records:
+    -   date: 1914-07
+        name: Hesedorf
+        document: src.de.Kb.1914
+
+    -   date: 1931-04-01
+        name: Hesedorf
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.1260:   0,0
+            line.de.1300:  40,01 # right
+        document: src.de.DRG.Alt.Karte.1931
+    -   date: 1933-03-01
+        name: Hesedorf
+        category: de.Bf
+        de.rang: IV
+        de.lknr: 01 254
+        document: src.de.Bfv.1933
+
+    -   date: 1956-09
+        name: Hesedorf
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.1300: 40,01 # right
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-06-03
+        name: Hesedorf
+        category: de.Bf
+        de.DS100: AHOF
+        de.dstnr: !!str 012542
+        document: src.de.DS100.1984
     -   date: 1984-11
         name: Hesedorf
         category: de.Bf
@@ -533,122 +686,181 @@ records:
             line.de.1300: 40,01 # right
         document: src.de.DB.Hmb.Karte.1984
 
+    -   date: 2017-01
+        name: Hesedorf
+        category: de.Bf
+        de.DS100: AHOF
+        de.dstnr: !!str 585844
+        de.name16: Hesedorf
+        document: src.de.DBAG.BSV.2017
+
 
 ---
 key: point.de.Kutenholz
 type: point
-events:
-    -   date: !!null
+records:
+    -   date: 1914-07
         name: Kutenholz
-        source: src.de.Kb.1914
-    -   date: !!null
+        document: src.de.Kb.1914
+
+    -   date: 1931-04-01
+        name: Kutenholz
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.1300: 47,77 # left
+        document: src.de.DRG.Alt.Karte.1931
+    -   date: 1933-03-01
+        name: Kutenholz
         category: de.Bf
         de.rang: IV
         de.lknr: 01 253
-        source: src.de.Bfv.1933
-    -   date: !!null
-        de.DS100: AKTH
-        de.name16: Kutenholz
-        de.dstnr: !!str 585851
-        source: src.de.DBAG.BSV.2017
+        document: src.de.Bfv.1933
 
-    -   date: !!null
+    -   date: 1956-09
+        name: Kutenholz
+        category: de.Bf
+        de.rang: IV
+        staff: agent
         location:
-            line.de.1300: 47,77
-        source: src.de.DRG.Alt.Karte.1949
-records:
+            line.de.1300: 47,77 # left
+        document: src.de.DB.Hmb.Karte.1956
     -   date: 1984-11
         name: Kutenholz
-        category: de.Tp
         location:
             line.de.1300: 47,77 # left
         document: src.de.DB.Hmb.Karte.1984
+
+    -   date: 2017-01
+        name: Kutenholz
+        category: de.Bf
+        de.DS100: AKTH
+        de.name16: Kutenholz
+        de.dstnr: !!str 585851
+        document: src.de.DBAG.BSV.2017
 
 
 ---
 key: point.de.Brest-Aspe
 type: point
-events:
-    -   date: !!null
-        location:
-            line.de.1300: 52,58
-        source: src.de.DRG.Alt.Karte.1949
-    -   date: !!null
+records:
+    -   date: 1914-07
         name: Brest-Aspe
-        source: src.de.Kb.1914
-    -   date: !!null
+        document: src.de.Kb.1914
+
+    -   date: 1931-04-01
+        name: Brest-Aspe
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.1300: 52,58 # left
+        document: src.de.DRG.Alt.Karte.1931
+    -   date: 1933-03-01
+        name: Brest-Aspe
         category: de.Bf
         de.rang: IV
         de.lknr: 01 252
-        source: src.de.Bfv.1933
-    -   date: c1940
+        document: src.de.Bfv.1933
+    -   date: 1935-01-01
+        name: Brest-Aspe
         category: de.Hst
-        source: src.de.Bfv.1944
-    -   date: !!null
+        staff: full
+        location:
+            line.de.1300: 52,58 # left
+        document: src.de.DRG.Alt.Karte.1935
+    -   date: 1944-06-01
+        name: Brest-Aspe
+        category: de.Hst
+        de.lknr: 01 252
+        document: src.de.Bfv.1944
+
+    -   date: 1956-09
+        name: Brest-Aspe
+        category: de.Hst
+        staff: agent
+        location:
+            line.de.1300: 52,58 # left
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-06-03
+        name: Brest-Aspe
         de.DS100: AAE
-        source: src.de.DS100.1984
-    -   date: c1970
         category: de.Anst
-        source: src.de.DS100.1984
-    -   date: c2000
-        category: de.Hp
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Brest-Aspe
-        de.dstnr: !!str 585869
-        source: src.de.DBAG.BSV.2017
-records:
+        document: src.de.DS100.1984
     -   date: 1984-11
         name: Brest-Aspe
-        category: de.Tp
         location:
             line.de.1300: 52,58 # left
         document: src.de.DB.Hmb.Karte.1984
+
+    -   date: 2017-01
+        name: Brest-Aspe
+        de.DS100: AAE
+        category: de.Hp
+        de.name16: Brest-Aspe
+        de.dstnr: !!str 585869
+        document: src.de.DBAG.BSV.2017
 
 
 ---
 key: point.de.Bargstedt
 type: point
-events:
-    -   date: !!null
-        location:
-            line.de.1300: 52,58
-        source: src.de.DRG.Alt.Karte.1949
-    -   date: !!null
+records:
+    -   date: 1914-07
         name: Bargstedt
-        source: src.de.Kb.1914
-    -   date: !!null
+        document: src.de.Kb.1914
+
+    -   date: 1931-04-01
+        name: Bargstedt
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.1300: 56,03 # left
+        document: src.de.DRG.Alt.Karte.1931
+    -   date: 1933-03-01
+        name: Bargstedt
         category: de.Bf
         de.rang: IV
         de.lknr: 01 251
-        source: src.de.Bfv.1933
-    -   date: c1940
+        document: src.de.Bfv.1933
+    -   date: 1935-01-01
+        name: Bargstedt
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.1300: 56,03 # left
+        document: src.de.DRG.Alt.Karte.1935
+    -   date: 1944-06-01
+        name: Bargstedt
         category: de.Hst
-        source: src.de.Bfv.1944
-    -   date: !!null
+        de.lknr: 01 251
+        document: src.de.Bfv.1944
+
+    -   date: 1956-09
+        name: Bargstedt
+        category: de.Hst
+        staff: agent
+        location:
+            line.de.1300: 56,03 # left
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-06-01
+        name: Bargstedt
         de.DS100: ABAT
         de.dstnr: !!str 012518
-        source: src.de.DS100.1984
-    -   date: c1970
-        location:
-            line.de.1300: 56,03
         category: de.Anst
-        source: src.de.DS100.1984
-    -   date: c2000
-        location:
-            line.de.1300: 56,85
-        source: src.de.web.EVB.SNB
-    -   date: c2000
-        category: [ de.Hp, de.Anst ]
-        de.dstnr: !!str 585877
-        source: src.de.DBAG.BSV.2017
-records:
+        document: src.de.DS100.1984
     -   date: 1984-11
         name: Bargstedt
-        category: de.Tp
         location:
             line.de.1300: 56,03 # left
         document: src.de.DB.Hmb.Karte.1984
+
+    -   date: 2017-01
+        name: Bargstedt
+        de.name16: Bargstedt
+        de.DS100: ABAT
+        category: [ de.Hp, de.Anst ]
+        de.dstnr: !!str 585877
+        document: src.de.DBAG.BSV.2017
 
 
 ---
@@ -656,35 +868,46 @@ key: point.de.Harsefeld
 type: point
 events:
     -   date: !!null
+        connection: point.de.Harsefeld-Süd
+records:
+    -   date: 1914-07
         name: Harsefeld
-        source: src.de.Kb.1914
-    -   date: !!null
+        document: src.de.Kb.1914
+
+    -   date: 1931-04-01
+        name: Harsefeld
+        category: de.Bf
+        de.rang: III
+        location:
+            line.de.1300: 60,54 # left
+        document: src.de.DRG.Alt.Karte.1931
+    -   date: 1933-03-01
         category: de.Bf
         de.rang: III
         de.lknr: 01 250
-        source: src.de.Bfv.1933
-    -   date: !!null
-        de.DS100: AHFD
-        de.dstnr: !!str 585885
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Harsefeld
-        source: src.de.DBAG.BSV.2017
+        document: src.de.Bfv.1933
 
-    -   date: !!null
+    -   date: 1956-09
+        name: Harsefeld
+        category: de.Bf
+        de.rang: III
         location:
-            line.de.1300: 60,54
-        source: src.de.DRG.Alt.Karte.1949
-
-    -   date: !!null
-        connection: point.de.Harsefeld-Süd
-records:
+            line.de.1300: 60,54 # left
+        document: src.de.DB.Hmb.Karte.1956
     -   date: 1984-11
         name: Harsefeld
-        category: de.Tp
         location:
             line.de.1300: 60,54 # left
         document: src.de.DB.Hmb.Karte.1984
+
+    -   date: 2017-01
+        de.name16: Harsefeld
+        name: Harsefeld
+        category: de.Bf
+        de.DS100: AHFD
+        de.dstnr: !!str 585885
+        document: src.de.DBAG.BSV.2017
+
 
 ---
 key: point.de.Harsefeld-Abzw
@@ -700,43 +923,54 @@ events:
             line.de.9128: 12,8+39,075
         source: src.de.web.EVB.SNB
 
+
 ---
 key: point.de.Beckdorf
 type: point
-events:
-    -   date: !!null
-        location:
-            line.de.1300: 69,76
-        source: src.de.DRG.Alt.Karte.1949
-    -   date: !!null
+records:
+    -   date: 1914-07
         name: Beckdorf
-        source: src.de.Kb.1914
-    -   date: !!null
+        document: src.de.Kb.1914
+
+    -   date: 1931-04-01
+        name: Beckdorf
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.1300: 69,79 # left
+        document: src.de.DRG.Alt.Karte.1931
+    -   date: 1933-03-01
+        name: Beckdorf
         category: de.Bf
         de.rang: IV
         de.lknr: 01 248
-        source: src.de.Bfv.1933
-    -   date: c1940
+        document: src.de.Bfv.1933
+    -   date: 1935-01-01
+        name: Beckdorf
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.1300: 69,79 # left
+        document: src.de.DRG.Alt.Karte.1935
+    -   date: 1944-06-01
+        name: Beckdorf
         category: de.Hst
-        source: src.de.Bfv.1944
-    -   date: !!null
+        de.lknr: 01 248
+        document: src.de.Bfv.1944
+
+    -   date: 1956-09
+        name: Beckdorf
+        category: de.Hst
+        staff: agent
+        location:
+            line.de.1300: 69,76 # left
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-06-03
+        name: Beckdorf
         de.DS100: ABEF
         de.dstnr: !!str 012484
-        source: src.de.DS100.1984
-    -   date: c1970
         category: de.Anst
-        source: src.de.DS100.1984
-    -   date: c1990
-        category: de.Bf
-        de.dstnr: !!str 585893
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Beckdorf
-        source: src.de.DBAG.BSV.2017
-    -   date: 2009-01-24?
-        status: closed
-        source: src.de.DBAG.BSV.2017
-records:
+        document: src.de.DS100.1984
     -   date: 1984-11
         name: Beckdorf
         category: de.Tp
@@ -744,97 +978,200 @@ records:
             line.de.1300: 69,76 # left
         document: src.de.DB.Hmb.Karte.1984
 
+    -   date: 2017-01
+        de.DS100: ABEF
+        name: Beckdorf
+        de.name16: Beckdorf
+        category: de.Bf
+        status: closed
+        de.dstnr: !!str 585893
+        document: src.de.DBAG.BSV.2017
+
+
+---
+key: point.de.Rahmsdorf
+type: point
+events:
+    -   date: c1950
+        status: open
+    -   date: c1980
+        status: closed
+records:
+    -   date: 1956-09
+        name: Rahmsdorf
+        category: de.Hp
+        staff: none
+        location:
+            line.de.1300: 73,30 # left
+        document: src.de.DB.Hmb.Karte.1956
+
 
 ---
 key: point.de.Staersbeck-Moisburg
 type: point
 events:
-    -   date: !!null
-        location:
-            line.de.1300: 74,65
-        source: src.de.DRG.Alt.Karte.1949
-    -   date: !!null
+    -   date: c1980
+        status: closed
+records:
+    -   date: 1914-07
         name: Staersbeck-Moisburg
-        source: src.de.Kb.1914
-    -   date: !!null
+        document: src.de.Kb.1914
+
+    -   date: 1931-04-01
+        name: Staersbeck-Moisburg
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.1300: 74,65 # left
+        document: src.de.DRG.Alt.Karte.1931
+    -   date: 1933-03-01
+        name: Staersbeck-Moisburg
         category: de.Bf
         de.rang: IV
         de.lknr: 01 247
-        source: src.de.Bfv.1933
-    -   date: c1940
+        document: src.de.Bfv.1933
+    -   date: 1935-01-01
+        name: Staersbeck-Moisburg
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.1300: 74,65 # left
+        document: src.de.DRG.Alt.Karte.1935
+    -   date: 1944-06-01
+        name: Staersbeck-Moisburg
         category: de.Hst
-        source: src.de.Bfv.1944
+        de.lknr: 01 247
+        document: src.de.Bfv.1944
+
+    -   date: 1956-09
+        name: Staersbeck-Moisburg
+        category: de.Hst
+        staff: agent
+        location:
+            line.de.1300: 74,65 # left
+        document: src.de.DB.Hmb.Karte.1956
+
 
 ---
 key: point.de.Hollenstedt
 type: point
-events:
-    -   date: !!null
+records:
+    -   date: 1914-07
         name: Hollenstedt
-        source: src.de.Kb.1914
-    -   date: !!null
+        document: src.de.Kb.1914
+
+    -   date: 1931-04-01
+        name: Hollenstedt
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.1300: 77,95 # left
+        document: src.de.DRG.Alt.Karte.1931
+    -   date: 1933-03-01
+        name: Hollenstedt
         category: de.Bf
         de.rang: IV
         de.lknr: 01 246
-        source: src.de.Bfv.1933
-    -   date: !!null
-        de.DS100: AHOL
-        de.dstnr: !!str 585919
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Hollenstedt
-        source: src.de.DBAG.BSV.2017
-    -   date: 2009-01-24
-        status: closed
-        source: src.de.DBAG.BSV.2017
+        document: src.de.Bfv.1933
 
-    -   date: !!null
+    -   date: 1956-09
+        name: Hollenstedt
+        category: de.Bf
+        de.rang: IV
         location:
-            line.de.1300: 77,85
-        source: src.de.DRG.Alt.Karte.1949
-records:
+            line.de.1300: 77,95 # left
+        document: src.de.DB.Hmb.Karte.1956
     -   date: 1984-11
         name: Hollenstedt
-        category: de.Tp
         location:
             line.de.1300: 77,84 # left
         document: src.de.DB.Hmb.Karte.1984
+
+    -   date: 2017-01
+        de.DS100: AHOL
+        name: Hollenstedt
+        de.name16: Hollenstedt
+        category: de.Bf
+        de.dstnr: !!str 585919
+        status: closed
+        document: src.de.DBAG.BSV.2017
 
 
 ---
 key: point.de.Drestedt
 type: point
-events:
-    -   date: !!null
-        location:
-            line.de.1300: 83,05
-        source: src.de.DRG.Alt.Karte.1949
-    -   date: !!null
+records:
+    -   date: 1914-07
         name: Drestedt
-        source: src.de.Kb.1914
-    -   date: !!null
+        document: src.de.Kb.1914
+
+    -   date: 1931-04-01
+        name: Drestedt
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.1300: 83,05 # left
+        document: src.de.DRG.Alt.Karte.1931
+    -   date: 1933-03-01
+        name: Drestedt
         category: de.Bf
         de.rang: IV
         de.lknr: 01 245
-        source: src.de.Bfv.1933
+        document: src.de.Bfv.1933
+
+    -   date: 1956-09
+        name: Drestedt
+        category: de.Bf
+        de.rang: IV
+        staff: agent
+        location:
+            line.de.1300: 83,05 # left
+        document: src.de.DB.Hmb.Karte.1956
+
 
 ---
 key: point.de.Trelde
 type: point
-events:
-    -   date: !!null
-        location:
-            line.de.1300: 86,79
-        source: src.de.DRG.Alt.Karte.1949
-    -   date: !!null
+records:
+    -   date: 1914-07
         name: Trelde
-        source: src.de.Kb.1914
-    -   date: !!null
+        document: src.de.Kb.1914
+
+    -   date: 1931-04-01
+        name: Trelde
         category: de.Hp
+        service: passenger
+        location:
+            line.de.1300: 86,79 # right
+        document: src.de.DRG.Alt.Karte.1931
+    -   date: 1933-03-01
+        name: Trelde
+        category: de.Hp
+        service: passenger
         de.lknr: 01 244
-        source: src.de.Bfv.1933
-    -   date: c1940
+        document: src.de.Bfv.1933
+    -   date: 1944-06-01
+        name: Trelde
+        category: de.Hp
         service: passenger
         staff: agent
-        source: src.de.Bfv.1944
+        de.lknr: 01 244
+        document: src.de.Bfv.1944
+
+    -   date: 1956-09
+        name: Trelde
+        category: de.Hp
+        staff: none
+        location:
+            line.de.1300: 86,79 # right
+        document: src.de.DB.Hmb.Karte.1956
+
+
+# 87,00 BA-Grenze src.de.DB.Hmb.Karte.1956
+
+# 88,70 BA-Grenze src.de.DRG.Alt.Karte.1935
+
+# 89,3 BA-Grenze src.de.DRG.Alt.Karte.1931
+
+#    point.de.Buchholz-Nordheide                 de.2200
 
