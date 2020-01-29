@@ -1,44 +1,80 @@
-# DE 9147.  Bremen Zollausschluß EGr - Bremen Zollausschluß
+# DE 9147.  Bremen Hbf Bwn - Bremen Zollausschluß
 #
 ---
 key: line.de.9147
 type: line
-progress: stub
-events:
-    -   date: !!null
-        de.VzG: !!str 9147
-        source: src.de.DBAG.Geo-Strecke.2017
+records:
+    -   date: 1983-11
+        category: de.Nebenbahn
+        tracks: 1
+        gauge: 1435mm
+        electrified: de
+        passenger: none
+        document: src.de.DB.Han.1983
 
+    -   date: 2017-01
+        de.VzG: !!str 1413
+        note: km 0,0+96 – 0,2+59
+        document: src.de.DBAG.Geo-Strecke.2017
+    -   date: !!null
+        start: point.de.Bremen-Zollausschluß-EGr
+        de.VzG: !!str 9147
+        note: km 0,2+59 – 1,2+60
+        document: src.de.DBAG.Geo-Strecke.2017
 points:
+    -   point.de.Bremen-Hbf-Bwn                     # de.1500
     -   point.de.Bremen-Zollausschluß-EGr           # de.1413
     -   point.de.Bremen-Zollausschluß
 
 
 #-----------------------------------------------------------------------------
 
-#    point.de.Bremen-Zollausschluß-EGr           de.1413
+#    point.de.Bremen-Hbf-Bwn                     de.1500
+
+
+---
+key: point.de.Bremen-Zollausschluß-EGr
+type: point
+subtype: border
+events:
+    -   date: !!null
+        name: Bremen Zollausschluß EGr
+    -   date: !!null
+        location:
+            line.de.9147: 0,259
+        source: src.de.DBAG.Geo-Strecke.2017
+records:
+    -   date: 1983-11
+        location:
+            line.de.9147: 0,259
+        document: src.de.DB.Han.1983
 
 
 ---
 key: point.de.Bremen-Zollausschluß
 type: point
-events:
-    -   date: !!null
+records:
+    -   date: 1933-03-01
         name: Bremen Zollausschluß
         category: de.Bf
         de.rang: I
         service: goods
         de.lknr: 13 758
         source: src.de.Bfv.1933
-    -   date: !!null
+
+    -   date: 1983-11
+        name: Bremen Zollausschluß
+        location:
+            line.de.9147: 1,3 # right
+        document: src.de.DB.Han.1983
+
+    -   date: 2017-01
         de.DS100: HBZ
-        de.dstnr: !!str 137588
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
+        name: Bremen Zollausschluß
         de.name16: Bremen Zoll
-        PLC: DE11646
-        source: src.de.DBAG.BSV.2017
-    -   date: b2003-01-01
+        category: de.Bf
         status: closed
-        source: src.de.DBAG.BSV.2017
+        PLC: DE11646
+        de.dstnr: !!str 137588
+        document: src.de.DBAG.BSV.2017
 

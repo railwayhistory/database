@@ -1,7 +1,7 @@
-# DE 8105.  Hoya - Eystrup
+# DE 91421.  Hoya - Eystrup
 #
 ---
-key: line.de.8105
+key: line.de.91421
 type: line
 events:
     -   date: !!null
@@ -9,13 +9,8 @@ events:
             - org.de
             - org.de.l.ni
 
-    -   date: !!null
-        de.VzG: !!str 9142
-        source: src.de.DBAG.Geo-Strecke.2017
-
-    -   date: !!null
-        category: de.Nebenbahn
-
+    #   Genehmigungen, Eigentümer, Betriebsführer
+    #
     -   date: 1880-04-24
         start: point.de.Hoya-alter-Bf
         concession:
@@ -37,7 +32,8 @@ events:
             for: org.de.Verkehrsbetriebe-Grafschaft-Hoya
         source: src.de.web.EBA.EIU
 
-
+    #   Eröffnung und Einstellung
+    #
     -   date: 1881-11-23
         start: point.de.Hoya-alter-Bf
         status: open
@@ -53,16 +49,38 @@ events:
         status: open
         source: src.de.DRG.1935 # 1912/50
 
-    -   date: !!null
-        owner: org.de.Hoyaer-Eisenbahn
-        operator: org.de.Hoyaer-Eisenbahn
+records:
+    -   date: 1983-11
+        category: de.Nebenbahn
+        tracks: 1
+        gauge: 1435mm
+        passenger: none
+        document: src.de.DB.Han.1983
 
+    -   date: 2017-01
+        de.VzG: !!str 9142
+        note:
+            deu: >
+                VzG-Strecke in diesem Abschnitt umgekehrt und mit negativer
+                Kilometierung, weiter nach Syke Ost; Streckenbeginn in
+                Eystrup km −7,7−94
+            eng: >
+                this segment of the VzG line reverse and with negative
+                kilometres, continues to Syke Ost; starts in Eystrup in
+                km −7,7−94
+        document: src.de.DBAG.Geo-Strecke.2017
+    -   date: 2017-08-17
+        category: de.Nebenbahn
+        tracks: 1
+        gauge: 1435mm
+        passenger: none
+        document: src.de.VGH.SNB-BT.2017
 points:
     -   point.de.Hoya                               # de.9142
     -   point.de.Hoya-alter-Bf
-    -   point.de.Europa-Carton
     -   point.de.Hassel-Hoya-Ida
     -   point.de.Hassel-Hoya
+    -   point.de.Eystrup                            # de.2200
     -   point.de.Eystrup-NE
 
 
@@ -76,66 +94,51 @@ key: point.de.Hoya-alter-Bf
 type: point
 events:
     -   date: !!null
-        name: Hoya (alter Bf)
-
-
----
-key: point.de.Europa-Carton
-type: point
-events:
-    -   date: !!null
-        location:
-            line.de.8105: 1,7
-        category: de.Awanst
-        name: Europa-Carton
-        source: src.de.web.VGH
+        designation: Hoya (alter Bf)
 
 
 ---
 key: point.de.Hassel-Hoya-Ida
 type: point
-events:
-    -   date: !!null
+records:
+    -   date: 2017-01
         name: Hassel Ida
         category: de.Hp
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.DS100: HHSI
         de.dstnr: !!str 107533
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.name16: Hassel Ida
-        source: src.de.DBAG.BSV.2017
+        document: src.de.DBAG.BSV.2017
 
 
 ---
 key: point.de.Hassel-Hoya
 type: point
-events:
-    -   date: !!null
+records:
+    -   date: 1914-07
         name: Hassel
-        source: src.de.Kb.1914
-    -   date: c1920
+        document: src.de.Kb.1914
+
+    -   date: 1933-03-01
         name: Hassel (Kr Hoya)
-        source: src.de.Bfv.1933
-    -   date: c1940
-        name: Hassel (Kr Grafsch Hoya)
-        source: src.de.Bfv.1944
-
-    -   date: !!null
-        category: de.Bf
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
         de.lknr: 41 842
-        source: src.de.Bfv.1933
-    -   date: !!null
+        document: src.de.Bfv.1933
+    -   date: 1944-06-01
+        name: Hassel (Kr Grafsch Hoya)
+        document: src.de.Bfv.1944
+
+    -   date: 1983-11
+        name: Hassel (Kr Grafsch Hoya)
+        location:
+            line.de.91421: 5,1 # right
+        document: src.de.DB.Han.1983
+
+    -   date: 2017-01
+        name: Hassel (Kr Grafsch Hoya)
+        category: de.Bf
         de.DS100: HHSG
         de.dstnr: !!str 468231
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.name16: Hassel (Kr Hoya)
-        source: src.de.DBAG.BSV.2017
+        document: src.de.DBAG.BSV.2017
 
 
 ---
@@ -143,22 +146,13 @@ key: point.de.Eystrup-NE
 type: point
 events:
     -   date: !!null
+        connection: point.de.Eystrup
+records:
+    -   date: 2017-01
         name: Eystrup NE
         category: de.Bf
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.DS100: HETRN
         de.dstnr: !!str 468132
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.name16: Eystrup
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.8105: 7,9
-        source: src.de.web.VGH
-
-    -   date: !!null
-        connection: point.de.Eystrup
+        document: src.de.DBAG.BSV.2017
 

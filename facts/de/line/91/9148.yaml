@@ -6,39 +6,90 @@ type: line
 progress: stub
 events:
     -   date: !!null
-        de.VzG: !!str 9146
-        source: src.de.DBAG.Geo-Strecke.2017
+        region:
+            - org.de
+            - org.de.l.hb
+
+    -   date: 1850-10-01
+        concession:
+            by: org.de.l.hb
+        owner: org.de.l.hb
+        source: src.de.DRG.1935
+
+    -   date: 1860-02-01
+        status: open
+        passenger: none
+        source: src.de.DRG.1935 # 1860/1
+
+records:
+    -   date: 1983-11
+        category: de.Nebenbahn
+        tracks: 1
+        gauge: 1435mm
+        electrified: de
+        passenger: none
+        document: src.de.DB.Han.1983
+
+    -   date: 2017-01
+        end: point.de.Bremen-Weserbf-EGr
+        de.VzG: !!str 1414
+        note: km −0,2−10 – 0,0+67
+        document: src.de.DBAG.Geo-Strecke.2017
+    -   date: 2017-01
+        start: point.de.Bremen-Weserbf-EGr
+        de.VzG: !!str 9148
+        note: km −0,1+56 – 0,9+33
+        document: src.de.DBAG.Geo-Strecke.2017
 
 points:
+    -   point.de.Bremen-Hbf-Bwn                     # de.1500
     -   point.de.Bremen-Weserbf-EGr                 # de.1414
     -   point.de.Bremen-Weserbf
 
 
 #-----------------------------------------------------------------------------
 
-#   point.de.Bremen-Weserbf-EGr                 # de.1414
+#    point.de.Bremen-Hbf-Bwn                     # de.1500
+
+
+---
+key: point.de.Bremen-Weserbf-EGr
+type: point
+subtype: reference
+events:
+    -   date: !!null
+        designation: Bremen Weserbf DB-Grenze
+records:
+    -   date: 1983-11
+        location:
+            line.de.9148: 0,067
+        document: src.de.DB.Han.1983
 
 
 ---
 key: point.de.Bremen-Weserbf
 type: point
-events:
-    -   date: !!null
+records:
+    -   date: 1933-03-01
         name: Bremen Weserbf
         category: de.Bf
         de.rang: I
         service: goods
         de.lknr: 13 755
-        source: src.de.Bfv.1933
-    -   date: !!null
+        document: src.de.Bfv.1933
+
+    -   date: 1983-11
+        name: Bremen Weserbahnhof
+        location:
+            line.de.9148: 0,9 # right
+
+    -   date: 2017-01
         de.DS100: HBW
-        de.dstnr: !!str 137653
-        source: src.de.DBAG.BSV.2017
-    -   date: b2003-01-01
-        status: closed
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
+        name: Bremen Weserbf
         de.name16: Bremen Weserbf
+        category: de.Bf
+        status: closed
+        de.dstnr: !!str 137653
         PLC: DE11645
-        source: src.de.DBAG.BSV.2017
+        document: src.de.DBAG.BSV.2017
 
