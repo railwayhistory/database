@@ -10,10 +10,6 @@ events:
             - org.de.l.ni
 
     -   date: !!null
-        de.VzG: !!str 1522
-        source: src.de.DBAG.Geo-Strecke.2017
-
-    -   date: !!null
         category: de.Hauptbahn
         source: src.de.DRG.1927
 
@@ -76,7 +72,41 @@ events:
         start: point.de.Jaderberg
         end: point.de.Varel-Oldb
         tracks: 1
+records:
+    -   date: 1946-02
+        category: de.Hauptbahn
+        tracks: 2
+        gauge: 1435mm
+        operator: org.de.e.mst
+        document: src.de.DRG.Mst.1946
 
+    -   date: 1983-11
+        sections:
+            -   end: point.de.Rastede
+            -   start: point.de.Hahn-Oldb
+                end: point.de.Jaderberg
+            -   start: point.de.Varel-Oldb
+        category: de.Hauptbahn
+        tracks: 2
+        gauge: 1435mm
+        operator: org.de.e.han
+        document: src.de.DB.Han.1983
+    -   date: 1983-11
+        sections:
+            -   start: point.de.Rastede
+                end: point.de.Hahn-Oldb
+            -   start: point.de.Jaderberg
+                end: point.de.Varel-Oldb
+        category: de.Hauptbahn
+        tracks: 1
+        gauge: 1435mm
+        operator: org.de.e.han
+        document: src.de.DB.Han.1983
+
+    -   date: 2017-01
+        de.VzG: !!str 1522
+        note: km 0,0+0 – 52,3+59
+        source: src.de.DBAG.Geo-Strecke.2017
 points:
     -   point.de.Oldenburg-Oldb-Hbf                 # de.1502
     -   point.de.Bürgerfeld
@@ -101,27 +131,38 @@ points:
 #    point.de.Oldenburg-Oldb-Hbf                 de.1500
 
 
+# 2,3 Anst right src.de.DRG.Mst.1946
+
+
 ---
 key: point.de.Bürgerfeld
 type: point
 events:
-    -   date: !!null
-        name: Bürgerfeld
-        source: src.de.Kb.1914
     -   date: c1925
         status: closed
     -   date: c1940
         status: open
-        category: de.Hp
-        de.lknr: 21 225
-        source: src.de.Bfv.1944
     -   date: c1975
         status: closed
+records:
+    -   date: 1914-07
+        name: Bürgerfeld
+        document: src.de.Kb.1914
 
-    -   date: !!null
+    -   date: 1944-06-01
+        name: Bürgerfeld
+        category: de.Hp
+        de.lknr: 21 225
+        document: src.de.Bfv.1944
+    -   date: 1946-02
+        name: Bürgerfeld
+        category: de.Hp
         location:
-            line.de.1522: 3,3
-        source: src.de.DRG.Mst.1946
+            line.de.1522: 3,3 # right
+        document: src.de.DRG.Mst.1946
+
+
+# 3,9 Anst right src.de.DRG.Mst.1946
 
 
 ---
@@ -130,44 +171,44 @@ type: point
 events:
     -   date: c1925
         status: open
+records:
+    -   date: 1933-03-01
         name: Ofenerdieck
         category: de.Hp
-        source: src.de.Bfv.1933
-    -   date: c1940
+        de.lknr: 23 023
+        document: src.de.Bfv.1933
+    -   date: 1944-06-01
+        name: Ofenerdieck
         category: de.Bf
         de.rang: III
-        source: src.de.Bfv.1944
-
-    -   date: !!null
-        de.lknr: 23 023
-        source: src.de.Bfv.1933
-    -   date: 1935-01-01
         de.lknr: 21 211
-        source: src.de.Bfv.1944
-    -   date: !!null
-        de.DS100: HOFD
-        de.dstnr: !!str 212118
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Ofenerdiek
-        PLC: DE18067
-        source: src.de.DBAG.BSV.2017
+        document: src.de.Bfv.1944
+    -   date: 1946-02
+        name: Ofenerdieck
+        category: de.Bf
+        de.rang: III
+        location:
+            line.de.1522: 5,6 # right
+        document: src.de.DRG.Mst.1946
 
-    -   date: !!null
-        location:
-            line.de.1522: 5,6
-        source: src.de.DRG.Mst.1946
-    -   date: c2000
-        location:
-            line.de.1522: 5,607
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
-records:
     -   date: 1983-11
         name: Ofenerdiek
         category: de.Bf
         location:
             line.de.1522: 5,61 # left
         document: src.de.DB.Han.1983
+
+    -   date: 2017-01
+        de.DS100: HOFD
+        name: Ofenerdiek
+        de.name16: Ofenerdiek
+        de.dstnr: !!str 212118
+        PLC: DE18067
+        document: src.de.DBAG.BSV.2017
+    -   date: 2017-01
+        location:
+            line.de.1522: 5,607
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 # 7,23 Baubezirksgrenze src.de.DB.Han.1983
@@ -177,62 +218,61 @@ records:
 key: point.de.Neusüdende
 type: point
 events:
-    -   date: !!null
-        name: Neusüdende
-        source: src.de.Kb.1914
     -   date: c1925
         status: closed
     -   date: c1940
         status: open
-        category: de.Hp
-        de.lknr: 21 212
-        source: src.de.Bfv.1944
     -   date: c1975
         status: closed
+records:
+    -   date: 1914-07
+        name: Neusüdende
+        document: src.de.Kb.1914
 
-    -   date: !!null
+    -   date: 1944-06-01
+        name: Neusüdende
+        category: de.Hp
+        de.lknr: 21 212
+        document: src.de.Bfv.1944
+    -   date: 1946-02
+        name: Neusüdende
+        category: de.Hp
         location:
-            line.de.1522: 8,6
-        source: src.de.DRG.Mst.1946
+            line.de.1522: 8,6 # right
+        document: src.de.DRG.Mst.1946
+
+
+# 10,45 Anst right src.de.DRG.Mst.1946
 
 
 ---
 key: point.de.Rastede
 type: point
-events:
-    -   date: !!null
+records:
+    -   date: 1914-07
         name: Rastede
-        source: src.de.Kb.1914
+        document: src.de.Kb.1914
 
-    -   date: !!null
+    -   date: 1933-03-01
+        name: Rastede
         category: de.Bf
         de.rang: III
-        source: src.de.Bfv.1933
-
-    -   date: !!null
         de.lknr: 23 025
-        source: src.de.Bfv.1933
-    -   date: 1935-01-01
+        document: src.de.Bfv.1933
+    -   date: 1944-06-01
+        name: Rastede
+        category: de.Bf
+        de.rang: III
         de.lknr: 21 213
-        source: src.de.Bfv.1944
-    -   date: !!null
-        de.DS100: HRST
-        de.dstnr: !!str 212134
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Rastede
-        PLC: DE18653
-        source: src.de.DBAG.BSV.2017
+        document: src.de.Bfv.1944
+    -   date: 1946-02
+        name: Rastede
+        category: de.Bf
+        de.rang: III
+        location:
+            line.de.1522: 12,21 # right
+        document: src.de.DRG.Mst.1946
 
-    -   date: !!null
-        location:
-            line.de.1522: 12,21
-        source: src.de.DRG.Mst.1946
-    -   date: c2000
-        location:
-            line.de.1522: 12,202
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
-records:
     -   date: 1983-11
         name: Rastede
         category: de.Bf
@@ -240,41 +280,53 @@ records:
             line.de.1522: 12,20 # right
         document: src.de.DB.Han.1983
 
+    -   date: 2017-01
+        name: Rastede
+        category: de.Bf
+        de.DS100: HRST
+        de.dstnr: !!str 212134
+        de.name16: Rastede
+        PLC: DE18653
+        document: src.de.DBAG.BSV.2017
+    -   date: 2017-01
+        location:
+            line.de.1522: 12,202
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
+
 
 ---
 key: point.de.Hahn-Oldb
 type: point
 events:
-    -   date: !!null
-        name: Hahn (Oldbg)
-        source: src.de.Kb.1914
-    -   date: c1935
-        name: Hahn (Oldb)
-        source: src.de.Kb.W1937
-
-    -   date: !!null
-        category: de.Bf
-        de.rang: III
-        source: src.de.Bfv.1933
     -   date: c2010
         status: closed
-
-    -   date: !!null
-        de.lknr: 23 026
-        source: src.de.Bfv.1933
-    -   date: 1935-01-01
-        de.lknr: 21 214
-        source: src.de.Bfv.1944
-    -   date: !!null
-        de.DS100: HHAH
-        de.dstnr: !!str 212142
-        source: src.de.DS100.1984
-
-    -   date: !!null
-        location:
-            line.de.1522: 17,6
-        source: src.de.DRG.Mst.1946
 records:
+    -   date: 1914-07
+        name: Hahn (Oldbg)
+        document: src.de.Kb.1914
+    -   date: 1933-03-01
+        name: Hahn (Oldbg)
+        category: de.Bf
+        de.rang: III
+        de.lknr: 23 026
+        document: src.de.Bfv.1933
+    -   date: 1937-10-03
+        name: Hahn (Oldb)
+        document: src.de.Kb.W1937
+    -   date: 1944-06-01
+        name: Hahn (Oldb)
+        category: de.Bf
+        de.rang: III
+        de.lknr: 21 214
+        document: src.de.Bfv.1944
+    -   date: 1946-02
+        name: Hahn (Oldb)
+        category: de.Bf
+        de.rang: III
+        location:
+            line.de.1522: 17,6 # left
+        document: src.de.DRG.Mst.1946
+
     -   date: 1983-11
         name: Hahn (Oldb)
         category: de.Bf
@@ -282,48 +334,42 @@ records:
         location:
             line.de.1522: 17,56 # left
         document: src.de.DB.Han.1983
+    -   date: 1984-06-03
+        name: Hahn (Oldb)
+        category: de.Bf
+        de.DS100: HHAH
+        de.dstnr: !!str 212142
+        document: src.de.DS100.1984
 
 
 ---
 key: point.de.Jaderberg
 type: point
-events:
-    -   date: !!null
+records:
+    -   date: 1914-07
         name: Jaderberg
-        source: src.de.Kb.1914
+        document: src.de.Kb.1914
 
-    -   date: !!null
+    -   date: 1933-03-01
+        name: Jaderberg
         category: de.Bf
         de.rang: III
-        source: src.de.Bfv.1933
-    -   date: c2000
-        category: de.Üst
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
         de.lknr: 23 027
-        source: src.de.Bfv.1933
-    -   date: 1935-01-01
+        document: src.de.Bfv.1933
+    -   date: 1944-06-01
+        name: Jaderberg
+        category: de.Bf
+        de.rang: III
         de.lknr: 21 215
-        source: src.de.Bfv.1944
-    -   date: !!null
-        de.DS100: HJAD
-        de.dstnr: !!str 212159
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Jaderberg
-        PLC: DE15260
-        source: src.de.DBAG.BSV.2017
+        document: src.de.Bfv.1944
+    -   date: 1946-02
+        name: Jaderberg
+        category: de.Bf
+        de.rang: III
+        location:
+            line.de.1522: 23,43 # right
+        document: src.de.DRG.Mst.1946
 
-    -   date: !!null
-        location:
-            line.de.1522: 23,42
-        source: src.de.DRG.Mst.1946
-    -   date: c2000
-        location:
-            line.de.1522: 23,017
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
-records:
     -   date: 1983-11
         name: Jaderberg
         category: de.Bf
@@ -332,43 +378,49 @@ records:
             line.de.1522: 23,22 # right
         document: src.de.DB.Han.1983
 
+    -   date: 2017-01
+        category: de.Üst
+        de.DS100: HJAD
+        de.dstnr: !!str 212159
+        de.name16: Jaderberg
+        PLC: DE15260
+        document: src.de.DBAG.BSV.2017
+    -   date: 2017-01
+        location:
+            line.de.1522: 23,017
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
+
 
 ---
 key: point.de.Varel-Oldb
 type: point
-events:
-    -   date: !!null
+records:
+    -   date: 2017-01
         name: Varel (Oldbg)
-        source: src.de.Kb.1914
-    -   date: c1935
-        name: Varel (Oldb)
-        source: src.de.Kb.W1937
+        document: src.de.Kb.1914
 
-    -   date: !!null
+    -   date: 1933-03-01
+        name: Varel (Oldbg)
         category: de.Bf
         de.rang: I
-        source: src.de.Bfv.1933
-
-    -   date: !!null
         de.lknr: 23 028
-        source: src.de.Bfv.1933
-    -   date: 1935-01-01
+        document: src.de.Bfv.1933
+    -   date: 1937-01-03
+        name: Varel (Oldb)
+        document: src.de.Kb.W1937
+    -   date: 1944-06-01
+        name: Varel (Oldb)
+        category: de.Bf
+        de.rang: I
         de.lknr: 21 216
-        source: src.de.Bfv.1944
-    -   date: !!null
-        de.DS100: HVA
-        de.dstnr: !!str 212167
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Varel (Oldb)
-        PLC: DE20555
-        source: src.de.DBAG.BSV.2017
+        document: src.de.Bfv.1944
+    -   date: 1946-02
+        name: Varel (Oldb)
+        category: de.Bf
+        de.rang: I
+        # location fehlt
+        document: src.de.DRG.Mst.1946
 
-    -   date: c2000
-        location:
-            line.de.1522: 30,754
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
-records:
     -   date: 1983-11
         name: Varel (Oldb)
         category: de.Bf
@@ -377,78 +429,100 @@ records:
             line.de.1532:  0,00
         document: src.de.DB.Han.1983
 
+    -   date: 2017-01
+        name: Varel (Oldb)
+        category: de.Bf
+        de.DS100: HVA
+        de.dstnr: !!str 212167
+        de.name16: Varel (Oldb)
+        PLC: DE20555
+        document: src.de.DBAG.BSV.2017
+    -   date: 2017-01
+        location:
+            line.de.1522: 30,754
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
+
 
 ---
 key: point.de.Dangast
 type: point
 events:
-    -   date: !!null
-        name: Dangastermoor
-        source: src.de.Kb.1914
-    -   date: c1925
-        name: Dangast
-        source: src.de.Bfv.1933
-    -   date: !!null
-        category: de.Hp
-        de.lknr: 23 029
-        source: src.de.Bfv.1933
-    -   date: 1935-01-01
-        de.lknr: 21 217
-        source: src.de.Bfv.1944
     -   date: c1975
         status: closed
+records:
+    -   date: 1914-07
+        name: Dangastermoor
+        document: src.de.Kb.1914
 
-    -   date: !!null
+    -   date: 1933-03-01
+        name: Dangast
+        category: de.Hp
+        de.lknr: 23 029
+        document: src.de.Bfv.1933
+    -   date: 1944-06-01
+        name: Dangast
+        category: de.Hp
+        de.lknr: 21 217
+        document: src.de.Bfv.1944
+    -   date: 1946-02
+        name: Dangast
+        category: de.Hp
         location:
-            line.de.1522: 33,77
-        source: src.de.DRG.Mst.1946
+            line.de.1522: 33,77 # left
+        document: src.de.DRG.Mst.1946
 
 
 ---
 key: point.de.Schwarzer-Rabe
 type: point
 events:
-    -   date: !!null
+    -   date: c2000
+        status: open
+records:
+    -   date: 2017-01
         name: Schwarzer Rabe
         category: de.Üst
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.DS100: HSRA
         de.dstnr: !!str 107854
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.name16: Schwarzer Rabe
         PLC: DE19566
-        source: src.de.DBAG.BSV.2017
-
-    -   date: c2000
+        document: src.de.DBAG.BSV.2017
+    -   date: 2017-01
         location:
             line.de.1522: 37,565
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Ellenserdamm
 type: point
 events:
-    -   date: !!null
+    -   date: c1975
+        status: closed
+records:
+    -   date: 1914-07
         name: Ellenserdamm
-        source: src.de.Kb.1914
-    -   date: !!null
+        document: src.de.Kb.1914
+
+    -   date: 1933-03-01
+        name: Ellenserdamm
         category: de.Bf
         de.rang: III
         de.lknr: 23 030
-        source: src.de.Bfv.1933
-    -   date: 1935-01-01
+        document: src.de.Bfv.1933
+    -   date: 1944-06-01
+        name: Ellenserdamm
+        category: de.Bf
+        de.rang: III
         de.lknr: 21 218
-        source: src.de.Bfv.1944
-    -   date: c1975
-        status: closed
-
-    -   date: !!null
+        document: src.de.Bfv.1944
+    -   date: 1946-02
+        name: Ellenserdamm
+        category: de.Bf
+        de.rang: III
         location:
-            line.de.1522: 38,92
-        source: src.de.DRG.Mst.1946
+            line.de.1522: 38,92 # left
+        document: src.de.DRG.Mst.1946
 
 
 # 42,10 Baubezirksgrenze src.de.DB.Han.1983
@@ -457,43 +531,31 @@ events:
 ---
 key: point.de.Sande
 type: point
-events:
-    -   date: !!null
+records:
+    -   date: 1914-07
         name: Sande
-        source: src.de.Kb.1914
+        document: src.de.Kb.1914
 
-    -   date: !!null
+    -   date: 1933-03-01
+        name: Sande
         category: de.Bf
         de.rang: II
-        source: src.de.Bfv.1933
-    -   date: c1940
-        de.rang: I
-        source: src.de.Bfv.1944
-
-    -   date: !!null
         de.lknr: 23 031
-        source: src.de.Bfv.1933
-    -   date: 1935-01-01
+        document: src.de.Bfv.1933
+    -   date: 1944-06-01
+        name: Sande
+        category: de.Bf
+        de.rang: I
         de.lknr: 21 219
-        source: src.de.Bfv.1944
-    -   date: !!null
-        de.DS100: HSAN
-        de.dstnr: !!str 212191
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Sande
-        PLC: DE19239
-        source: src.de.DBAG.BSV.2017
+        document: src.de.Bfv.1944
+    -   date: 1946-02
+        name: Sande
+        category: de.Bf
+        de.rang: I
+        location:
+            line.de.1522: 45,0 # left
+        document: src.de.DRG.Mst.1946
 
-    -   date: !!null
-        location:
-            line.de.1522: 45,0
-        source: src.de.DRG.Mst.1946
-    -   date: c2000
-        location:
-            line.de.1522: 45,056
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
-records:
     -   date: 1983-11
         name: Sande
         category: de.Bf
@@ -502,74 +564,81 @@ records:
             line.de.1540:  0,00
         document: src.de.DB.Han.1983
 
+    -   date: 2017-01
+        name: Sande
+        category: de.Bf
+        de.DS100: HSAN
+        de.dstnr: !!str 212191
+        de.name16: Sande
+        PLC: DE19239
+        document: src.de.DBAG.BSV.2017
+    -   date: 2017-01
+        location:
+            line.de.1522: 45,056
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
+
 
 ---
 key: point.de.Mariensiel
 type: point
-events:
-    -   date: !!null
+records:
+    -   date: 1914-07
         name: Mariensiel
-        source: src.de.Kb.1914
+        document: src.de.Kb.1914
 
-    -   date: !!null
+    -   date: 1933-03-01
+        name: Mariensiel
         category: de.Hp
-        source: src.de.Bfv.1933
-    -   date: c1940
+        de.lknr: 23 032
+        document: src.de.Bfv.1933
+    -   date: 1944-06-01
+        name: Mariensiel
         category: de.Bf
         de.rang: IV
-        source: src.de.Bfv.1944
-    -   date: c1975
-        category: de.Bk
-        source: src.de.DS100.1984
-    -   date: c2000
-        category: de.Dkst
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        de.lknr: 23 032
-        source: src.de.Bfv.1933
-    -   date: 1935-01-01
         de.lknr: 21 220
-        source: src.de.Bfv.1944
-    -   date: !!null
-        de.DS100: HMAS
-        de.dstnr: !!str 103446
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Mariensiel
-        PLC: DE21634
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
+        document: src.de.Bfv.1944
+    -   date: 1946-02
+        name: Mariensiel
+        category: de.Bf
+        de.rang: IV
         location:
-            line.de.1522: 47,4
-        source: src.de.DRG.Mst.1946
+            line.de.1522: 47,4 # centre
+        document: src.de.DRG.Mst.1946
+
+    -   date: c1975
+        de.dstnr: !!str 212209
+        name: Mariensiel
+        de.DS100: HMAS
+        category: de.Bk
+        document: src.de.DS100.1984
+
+    -   date: 2017-01
+        de.DS100: HMAS
+        name: Mariensiel
+        de.name16: Mariensiel
+        category: de.Dkst
+        de.dstnr: !!str 103446
+        PLC: DE21634
+        document: src.de.DBAG.BSV.2017
 
 
 ---
 key: point.de.Wilhelmshaven-Stadt-Wilhelmshaven
 type: point
-events:
-    -   date: !!null
+records:
+    -   date: 2017-01
         name: Wilhelmshaven Stadt Wilhelmshaven
         category: de.Awanst
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.DS100: HWHS
         de.dstnr: !!str 339721
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.name16: St Wilhelmshaven
         PLC: DE21153
-        source: src.de.DBAG.BSV.2017
-    -   date: 2015-12-15?
         status: closed
-        source: src.de.DBAG.BSV.2017
-
-    -   date: c2000
+        document: src.de.DBAG.BSV.2017
+    -   date: 2017-01
         location:
             line.de.1522: 49,397
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
@@ -578,43 +647,42 @@ type: point
 events:
     -   date: !!null
         name: Bant
-    -   date: c1910
+records:
+    -   date: 1914-07
         name: Rüstringen
-        source: src.de.Kb.1914
-    -   date: 1937
-        name: Wilhelmshaven West
-        source: src.de.Kb.W1937
+        document: src.de.Kb.1914
 
-    -   date: !!null
+    -   date: 1933-03-01
+        name: Rüstringen
         category: de.Hp
-        source: src.de.Bfv.1933
-    -   date: c1975
-        category: de.Awanst
-        source: src.de.DS100.1984
-
-    -   date: !!null
         de.lknr: 23 033
-        source: src.de.Bfv.1933
-    -   date: 1935-01-01
+        document: src.de.Bfv.1933
+    -   date: 1937-10-03
+        name: Wilhelmshaven West
+        document: src.de.Kb.W1937
+    -   date: 1944-06-01
+        name: Wilhelmshaven West
+        category: de.Hp
         de.lknr: 21 221
-        source: src.de.Bfv.1944
-    -   date: !!null
+        document: src.de.Bfv.1944
+    -   date: 1946-02
+        name: Wilhelmshaven West
+        category: de.Hp
+        location:
+            line.de.1522: 50,50 # left
+        document: src.de.DRG.Mst.1946
+
+    -   date: 2017-01
+        category: de.Awanst
         de.DS100: HWW
         de.dstnr: !!str 139287
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.name16: Wilhelmshaven W
         PLC: DE21154
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.1522: 50,50
-        source: src.de.DRG.Mst.1946
-    -   date: c2000
+        document: src.de.DBAG.BSV.2017
+    -   date: 2017-01
         location:
             line.de.1522: 50,314
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
@@ -625,43 +693,48 @@ events:
         name: Heppens
     -   date: 1869-06-19
         name: Wilhelmshaven Hbf
-    -   date: c1900
+records:
+    -   date: 1914-07
         name: Wilhelmshaven
-        source: src.de.Kb.1914
+        document: src.de.Kb.1914
 
-    -   date: !!null
+    -   date: 1933-03-01
+        name: Wilhelmshaven
         category: de.Bf
         de.rang: I
-        source: src.de.Bfv.1933
-
-    -   date: !!null
         de.lknr: 23 034
-        source: src.de.Bfv.1933
-    -   date: 1935-01-01
+        document: src.de.Bfv.1933
+    -   date: 1944-06-01
+        name: Wilhelmshaven
+        category: de.Bf
+        de.rang: I
         de.lknr: 21 222
-        source: src.de.Bfv.1944
-    -   date: !!null
-        de.DS100: HW
-        de.dstnr: !!str 212233
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Wilhelmshaven
-        PLC: DE21146
-        source: src.de.DBAG.BSV.2017
+        document: src.de.Bfv.1944
+    -   date: 1946-02
+        name: Wilhelmshaven
+        category: de.Bf
+        de.rang: I
+        location:
+            line.de.1522: 52,38 # right
+        document: src.de.DRG.Mst.1946
 
-    -   date: !!null
-        location:
-            line.de.1522: 52,38
-        source: src.de.DRG.Mst.1946
-    -   date: c2000
-        location:
-            line.de.1522: 52,350
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
-records:
     -   date: 1983-11
         name: Wilhelmshaven Hbf
         category: de.Bf
         location:
             line.de.1522: 52,39 # right
         document: src.de.DB.Han.1983
+
+    -   date: 2017-01
+        name: Wilhelmshaven Hbf
+        category: de.Bf
+        de.DS100: HW
+        de.dstnr: !!str 212233
+        de.name16: Wilhelmshaven
+        PLC: DE21146
+        document: src.de.DBAG.BSV.2017
+    -   date: 2017-01
+        location:
+            line.de.1522: 52,350
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
 

@@ -9,15 +9,10 @@ events:
             - org.de
             - org.de.l.ni
 
-    -   date: !!null
-        de.VzG: !!str 1572
-        note:
-            deu: Streckenende DB-Grenze zur Hafenbahn, km 3,5+45
-        source: src.de.DBAG.Geo-Strecke.2017
-
     #   Genehmigungen, Eigentümer, Betreiber
     #
     -   date: 1899
+        start: point.de.Emden-Polder
         concession:
             by: org.de.l.pre
             for: org.de.l.pre
@@ -26,19 +21,44 @@ events:
     #   Eröffnung und Einstellung
     #
     -   date: 1901-07-01
+        start: point.de.Emden-Polder
         status: open
         source: src.de.DRG.1935 # 1901/26
 
     #   Eigenschaften
     #
-    -   date: !!null
-        category: de.Nebenbahn
-        source: src.de.DRG.1927
-
     -   date: 2006-06-23
         electrified: de
         source: src.de.web.Feldmann
+records:
+    -   date: 1927-03
+        start: point.de.Emden-Polder
+        category: de.Nebenbahn
+        tracks: 1
+        gauge: 1435mm
+        operator: org.de.e.mst
+        document: src.de.DRG.1927
 
+    -   date: 1946-02
+        category: de.Nebenbahn
+        tracks: 1
+        gauge: 1435mm
+        operator: org.de.e.mst
+        document: src.de.DRG.Mst.1946
+
+    -   date: 1983-11
+        category: de.Nebenbahn
+        tracks: 1
+        gauge: 1435mm
+        operator: org.de.e.han
+        document: src.de.DB.Han.1983
+
+    -   date: 2017-01
+        de.VzG: !!str 1572
+        note: >
+            Emden, W 55 – Emden Außenhafen (DB-Grenze);
+            km −1,0−15 – 3,5+45
+        document: src.de.DBAG.Geo-Strecke.2017
 points:
     -   point.de.Emden                              # de.1570
     -   point.de.Emden-Polder                       # de.1570
@@ -56,54 +76,56 @@ points:
 ---
 key: point.de.Emden-EVAG
 type: point
-events:
-    -   date: !!null
+records:
+    -   date: 2017-01
         name: Emden EVAG
         category: de.Anst
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.DS100: HEVA
         de.dstnr: !!str 388207
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.name16: Emden EVAG
         PLC: DE12866
-        source: src.de.DBAG.BSV.2017
-
-    -   date: c2000
+        document: src.de.DBAG.BSV.2017
+    -   date: 2017-01
         location:
             line.de.1572: 0,585
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Emden-Außenhafen
 type: point
-events:
-    -   date: !!null
+records:
+    -   date: 1933-03-01
         name: Emden Außenhafen
         category: de.Bf
         de.rang: II
         de.lknr: 21 456
-        source: src.de.Bfv.1933
-    -   date: !!null
-        de.DS100: HEA
-        de.dstnr: !!str 214569
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Emden Außenhafen
-        PLC: DE12864
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
+        document: src.de.Bfv.1933
+    -   date: 1946-02
+        name: Emden Außenhafen
+        category: de.Bf
+        de.rang: II
         location:
-            line.de.1572: 2,45
-        source: src.de.DRG.Mst.1946
-records:
+            line.de.1572: 2,45 # links
+        document: src.de.DRG.Mst.1946
+
     -   date: 1983-11
         name: Emden Aupenhafen
         category: de.Bf
         location:
             line.de.1572: 2,50 # left
         document: src.de.DB.Han.1983
+
+    -   date: 2017-01
+        name: Emden Aupenhafen
+        category: de.Bf
+        de.DS100: HEA
+        de.dstnr: !!str 214569
+        de.name16: Emden Außenhafen
+        PLC: DE12864
+        document: src.de.DBAG.BSV.2017
+
+# 3,44 Streckenende src.de.DRG.Mst.1946
+
+# 3,5+45 Streckenende src.de.DBAG.Geo-Strecke.2017
 

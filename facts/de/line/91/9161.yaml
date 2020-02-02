@@ -9,10 +9,6 @@ events:
             - org.de
             - org.de.l.ni
 
-    -   date: !!null
-        de.VzG: !!str 9161
-        source: src.de.DBAG.Geo-Strecke.2017
-
 
     -   date: 1858-01-30
         concession:
@@ -53,10 +49,39 @@ events:
         owner: org.de.Georgsmarienhütte-Ges
         operator: org.de.GET-Eisenbahn-und-Transport
         source: src.de.web.Lokomotive
+records:
+    -   date: 1946-02
+        category: de.Nebenbahn
+        tracks: 1
+        gauge: 1435mm
+        document: src.de.DRG.Mst.1946
+    
+    -   date: 1983-11
+        category: de.Nebenbahn
+        tracks: 1
+        gauge: 1435mm
+        passenger: none
+        de.VzG: !!str 1961
+        document: src.de.DB.Han.1983
 
+    -   date: 2017-01
+        de.VzG: !!str 9161
+        note: >
+            Georgsmarienhütte – Hasbergen (Kr Osnabrück), W 32;
+            km 0,0+0 – 7,2+58
+        document: src.de.DBAG.Geo-Strecke.2017
+note:
+    deu: >
+        Kilometierung laut [src.de.DB.Han.1983] ausgehend von Hasbergen,
+        laut [src.de.DBAG.Geo-Strecke.2017] ausgehend von Georgsmarienhütte.
+    eng: >
+        Kilometerage starting at Hasbergen according to [src.de.DB.Han.1983],
+        but starting at Georgsmarienhütte in [src.de.DBAG.Geo-Strecke.2017].
 points:
     -   point.de.Georgsmarienhütte
     -   point.de.Patkenhof
+    -   point.de.Augustaschacht
+    -   point.de.Wulfskotten
     -   point.de.Hasbergen-Gr
     -   point.de.Hasbergen-Georgsm
 
@@ -66,93 +91,118 @@ points:
 ---
 key: point.de.Georgsmarienhütte
 type: point
-events:
-    -   date: !!null
+records:
+    -   date: 1914-07
         name: Georgsmarienhütte
-        source: src.de.Kb.1914
+        document: src.de.Kb.1914
 
-    -   date: !!null
-        category: de.Bf
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
+    -   date: 1933-03-01
+        name: Georgsmarienhütte
         de.lknr: 40 828
-        source: src.de.Bfv.1933
-    -   date: !!null
+        document: src.de.Bfv.1933
+
+    -   date: 1983-11
+        name: Georgsmarienhütte
+        location:
+            line.de.9161: 7,8 # südlich
+        document: src.de.DB.Han.1983
+
+    -   date: 2017-01
+        name: Georgsmarienhütte
+        category: de.Bf
         de.DS100: HGMH
         de.dstnr: !!str 453019
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.name16: Georgsmarienhtte
-        source: src.de.DBAG.BSV.2017
+        document: src.de.DBAG.BSV.2017
 
 
 ---
 key: point.de.Patkenhof
 type: point
-events:
-    -   date: !!null
-        location:
-            line.de.9161: 4,5
-        name: Patkenhof
-        source: src.de.Kb.1914
-    -   date: !!null
-        de.lknr: 41 828
-        source: src.de.Bfv.1933
-    -   date: !!null
-        de.DS100: HPKH
-    -   date: c1980
-        category: de.Anst
+records:
     -   date: c2010
         status: closed
+records:
+    -   date: 1914-07
+        name: Patkenhof
+        document: src.de.Kb.1914
+
+    -   date: 1933-03-01
+        name: Patkenhof
+        de.lknr: 41 828
+        document: src.de.Bfv.1933
+
+    -   date: 1983-11
+        name: Patkenhof
+        location:
+            line.de.9161: 4,5 # südlich
+        document: src.de.DB.Han.1983
+
+
+---
+key: point.de.Augustaschacht
+type: point
+records:
+    -   date: 1983-11
+        name: Augustaschacht
+        location:
+            line.de.9161: 3,6 # nördlich
+        document: src.de.DB.Han.1983
+
+
+---
+key: point.de.Wulfskotten
+type: point
+records:
+    -   date: 1983-11
+        name: Wulfskotten
+        location:
+            line.de.9161: 1,0 # nördlich
+        document: src.de.DB.Han.1983
 
 
 ---
 key: point.de.Hasbergen-Gr
 type: point
 subtype: reference
-events:
-    -   date: !!null
+records:
+    -   date: 2017-01
         name: Hasbergen DB-Grenze
         category: de.Gp
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.DS100: HHBG
         de.dstnr: !!str 109476
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.name16: Hasbergen DB-Gr
         PLC: DE21672
-        source: src.de.DBAG.BSV.2017
+        document: src.de.DBAG.BSV.2017
 
 
 ---
 key: point.de.Hasbergen-Georgsm
 type: point
 events:
-    -   date: !!null
-        location:
-            line.de.9161: 0,0
-        name: Hasbergen
-        source: src.de.Kb.1914
-    -   date: !!null
-        de.lknr: 42 828
-        source: src.de.Bfv.1933
-    -   date: !!null
-        de.DS100: HHGG
-        source: src.de.SuW.2005
-    -   date: !!null
-        connection: point.de.Hasbergen-Osnabrück
-    -   date: c1925
-        name: Hasbergen G M E
-        source: src.de.Bfv.1933
-    -   date: c1940
-        name: Hasbergen (Georgsm)
-        source: src.de.Bfv.1944
-    -   date: c1970
-        name: Hasbergen Georgsmarienhütten EB
-        source: src.de.SuW.2005
+    -   date: c2000
+        status: closed
+        merged: point.de.Hasbergen-Osnabrück
 
     -   date: !!null
         connection: point.de.Hasbergen-Osnabrück
+records:
+    -   date: 1914-07
+        name: Hasbergen
+        document: src.de.Kb.1914
+
+    -   date: 1933-03-01
+        name: Hasbergen G M E
+        de.lknr: 42 828
+        document: src.de.Bfv.1933
+    -   date: 1944-06-01
+        name: Hasbergen (Georgsm)
+        de.lknr: 42 828
+        document: src.de.Bfv.1944
+
+    -   date: 1984-06-03
+        de.dstnr: !!str 453035
+        name: Hasbergen Georgsm
+        de.DS100: HHGG
+        document: src.de.DS100.1984
 

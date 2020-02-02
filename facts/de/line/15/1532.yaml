@@ -9,14 +9,6 @@ events:
             - org.de
             - org.de.l.ni
 
-    -   date: !!null
-        de.VzG: !!str 1532
-        source: src.de.DBAG.Geo-Strecke.2017
-
-    -   date: !!null
-        category: de.Nebenbahn
-        source: src.de.DRG.1927
-
     -   date: 1891-03-13
         concession:
             by: org.de.l.old
@@ -81,7 +73,33 @@ events:
         end: point.de.Varel-West
         status: removed
         source: src.de.WP.Vareler-Nebenbahnen
+records:
+    -   date: 1927-03
+        category: de.Nebenbahn
+        tracks: 1
+        gauge: 1435mm
+        operator: org.de.e.old
+        document: src.de.DRG.1927
 
+    -   date: 1946-02
+        category: de.Nebenbahn
+        tracks: 1
+        gauge: 1435mm
+        operator: org.de.e.mst
+        document: src.de.DRG.Mst.1946
+
+    -   date: 1983-11
+        category: de.Nebenbahn
+        tracks: 1
+        gauge: 1435mm
+        passenger: none
+        operator: org.de.e.han
+        document: src.de.DB.Han.1983
+
+    -   date: 2017-01
+        de.VzG: !!str 1532
+        note: km 0,7+11 – 19,2+74
+        document: src.de.DBAG.Geo-Strecke.2017
 points:
     -   point.de.Varel-Oldb                         # de.1522
     -   point.de.Varel-Halbzellstoff
@@ -104,89 +122,91 @@ points:
 ---
 key: point.de.Varel-Halbzellstoff
 type: point
-events:
-    -   date: !!null
+records:
+    -   date: 2017-01
         category: de.Anst
         name: Varel Halbzellstoff 1/2
         de.name16: Halbzellstoff1/2
         de.DS100: HZSA
         PLC: DE20556
         de.dstnr: !!str 339762
-        source: src.de.DBAG.BSV.2017
+        document: src.de.DBAG.BSV.2017
 
 
 ---
 key: point.de.Langendamm-Oldb
 type: point
 events:
-    -   date: !!null
-        location:
-            line.de.1532: 2,06
-        source: src.de.DRG.Mst.1946
-    -   date: !!null
-        name: Langendamm
-        source: src.de.Kb.1914
-    -   date: !!null
-        category: de.Hp
-        de.lknr: 23 166
-        source: src.de.Bfv.1933
-    -   date: 1935-01-01
-        de.lknr: 21 655
-        source: src.de.Bfv.1944
-    -   date: c1940
-        category: de.Bf
-        de.rang: IV
-        source: src.de.Bfv.1944
     -   date: c1960
         status: closed
+records:
+    -   date: 1914-07
+        name: Langendamm
+        document: src.de.Kb.1914
+
+    -   date: 1933-03-01
+        name: Langendamm
+        category: de.Hp
+        de.lknr: 23 166
+        document: src.de.Bfv.1933
+    -   date: 1944-06-01
+        name: Langendamm
+        category: de.Bf
+        de.rang: IV
+        de.lknr: 21 655
+        document: src.de.Bfv.1944
+    -   date: 1946-02
+        name: Langendamm
+        category: de.Hp
+        service: passenger
+        location:
+            line.de.1532: 2,07 # left
+        document: src.de.DRG.Mst.1946
 
 
 ---
 key: point.de.Varel-West
 type: point
-events:
-    -   date: !!null
+records:
+    -   date: 2017-01
         category: de.Anst
         name: Varel West
         de.name16: Varel West
         de.DS100: HVAW
         PLC: DE20557
         de.dstnr: !!str 138990
-        source: src.de.DBAG.BSV.2017
+        document: src.de.DBAG.BSV.2017
 
 
 ---
 key: point.de.Borgstede
 type: point
-events:
-    -   date: !!null
+records:
+    -   date: 1914-07
         name: Borgstede
-        source: src.de.Kb.1914
+        document: src.de.Kb.1914
 
-    -   date: !!null
+    -   date: 1933-03-01
+        name: Borgstede
         category: de.Bf
         de.rang: IV
         de.lknr: 23 167
-        source: src.de.Bfv.1933
-
-    -   date: 1935-01-01
+        document: src.de.Bfv.1933
+    -   date: 1944-06-01
+        name: Borgstede
+        category: de.Bf
+        de.rang: IV
         de.lknr: 21 656
-        source: src.de.Bfv.1944
-    -   date: !!null
-        de.DS100: HBGS
-        de.dstnr: !!str 216564
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Borgstede
-        PLC: DE11494
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
+        document: src.de.Bfv.1944
+    -   date: 1946-02
+        name: Borgstede
+        category: de.Bf
+        de.rang: IV
         location:
-            line.de.1532: 4,01
-            line.de.1532: 4,01
-        source: src.de.DRG.Mst.1946
-records:
+            line.de.1532: 4,01 # left
+            line.de.1533: 4,01
+        document: src.de.DRG.Mst.1946
+
     -   date: 1983-11
         name: Borgstede
         category: de.Bf
@@ -195,44 +215,49 @@ records:
             line.de.1532: 4,01 # right
         document: src.de.DB.Han.1983
 
+    -   date: 2017-01
+        name: Borgstede
+        category: de.Bf
+        de.DS100: HBGS
+        de.dstnr: !!str 216564
+        de.name16: Borgstede
+        PLC: DE11494
+        document: src.de.DBAG.BSV.2017
+
+
+# 5,4 Anst right src.de.DRG.Mst.1946
+
 
 ---
 key: point.de.Rahling
 type: point
-events:
-    -   date: !!null
+records:
+    -   date: 1914-07
         name: Rahling
-        source: src.de.Kb.1914
+        document: src.de.Kb.1914
 
-    -   date: !!null
+    -   date: 1933-03-01
+        name: Rahling
         category: de.Hp
         staff: none
         master: point.de.Bockhorn
-        source: src.de.Bfv.1933
-    -   date: c1960
-        category: de.Bf
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
         de.lknr: 23 169
-        source: src.de.Bfv.1933
-    -   date: 1935-01-01
+        document: src.de.Bfv.1933
+    -   date: 1944-06-01
+        name: Rahling
+        category: de.Hp
+        staff: none
+        master: point.de.Bockhorn
         de.lknr: 21 658
-        source: src.de.Bfv.1944
-    -   date: !!null
-        de.DS100: HRLG
-        de.dstnr: !!str 911561
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Rahling
-        PLC: DE18612
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
+        document: src.de.Bfv.1944
+    -   date: 1946-02
+        name: Rahling
+        category: de.Bf
+        de.rang: IV
         location:
-            line.de.1532: 6,42
-        source: src.de.DRG.Mst.1946
-records:
+            line.de.1532: 6,42 # right
+        document: src.de.DRG.Mst.1946
+
     -   date: 1983-11
         name: Raling
         category: de.Bf
@@ -241,58 +266,76 @@ records:
             line.de.1532: 6,38 # right
         document: src.de.DB.Han.1983
 
+    -   date: 2017-01
+        name: Rahling
+        category: de.Bf
+        de.DS100: HRLG
+        de.dstnr: !!str 911561
+        de.name16: Rahling
+        PLC: DE18612
+        document: src.de.DBAG.BSV.2017
+
 
 ---
 key: point.de.Kranenkamp
 type: point
 events:
-    -   date: !!null
-        location:
-            line.de.1532: 8,26
-        source: src.de.DRG.Mst.1946
-    -   date: !!null
+    -   date: c1960
+        status: closed
+records:
+    -   date: 1914-07
         name: Kranenkamp
-        source: src.de.Kb.1914
-    -   date: !!null
+        document: src.de.Kb.1914
+
+    -   date: 1933-03-01
+        name: Kranenkamp
         category: de.Hp
         staff: none
         master: point.de.Bockhorn
         de.lknr: 23 170
-        source: src.de.Bfv.1933
-    -   date: 1935-01-01
-        de.lknr: 21 659
-        source: src.de.Bfv.1944
-    -   date: c1940
+        document: src.de.Bfv.1933
+    -   date: 1944-06-01
+        name: Kranenkamp
+        category: de.Hp
         staff: full
-        source: src.de.Bfv.1944
-    -   date: c1960
-        status: closed
+        de.lknr: 21 659
+        document: src.de.Bfv.1944
+    -   date: 1946-02
+        name: Kranenkamp
+        category: de.Hp
+        location:
+            line.de.1532: 8,26 # right
+        document: src.de.DRG.Mst.1946
 
 
 ---
 key: point.de.Bockhorn
 type: point
-junction: True
-events:
-    -   date: !!null
-        location:
-            line.de.1532: 11,0
-            line.de.1534:  5,4
-        source: src.de.SuW.2005
-    -   date: !!null
+records:
+    -   date: 1914-07
         name: Bockhorn
-        source: src.de.Kb.1914
-    -   date: !!null
+        document: src.de.Kb.1914
+
+    -   date: 1933-03-01
+        name: Bockhorn
         category: de.Bf
         de.rang: III
         de.lknr: 23 171
-        source: src.de.Bfv.1933
-    -   date: 1935-01-01
+        document: src.de.Bfv.1933
+    -   date: 1944-06-01
+        name: Bockhorn
+        category: de.Bf
+        de.rang: III
         de.lknr: 21 660
-        source: src.de.Bfv.1944
-    -   date: !!null
-        de.DS100: HBCK
-records:
+        document: src.de.Bfv.1944
+    -   date: 1946-02
+        name: Bockhorn
+        category: de.Bf
+        de.rang: III
+        location:
+            line.de.1534: 5,42 # left
+        document: src.de.DRG.Mst.1946
+
     -   date: 1983-11
         name: Bockhorn
         category: de.Bf
@@ -305,25 +348,31 @@ records:
 ---
 key: point.de.Zetel
 type: point
-events:
-    -   date: !!null
-        location:
-            line.de.1532: 14,66
-        source: src.de.DRG.Mst.1946
-    -   date: !!null
+records:
+    -   date: 1914-07
         name: Zetel
-        source: src.de.Kb.1914
-    -   date: !!null
+        document: src.de.Kb.1914
+
+    -   date: 1933-03-01
+        name: Zetel
         category: de.Bf
         de.rang: III
         de.lknr: 23 172
-        source: src.de.Bfv.1933
-    -   date: 1935-01-01
+        document: src.de.Bfv.1933
+    -   date: 1944-06-01
+        name: Zetel
+        category: de.Bf
+        de.rang: III
         de.lknr: 21 661
-        source: src.de.Bfv.1944
-    -   date: !!null
-        de.DS100: HZTL
-records:
+        document: src.de.Bfv.1944
+    -   date: 1946-02
+        name: Zetel
+        category: de.Bf
+        de.rang: III
+        location:
+            line.de.1532: 14,66 # right
+        document: src.de.DRG.Mst.1946
+
     -   date: 1983-11
         name: Zetel
         category: de.Bf
@@ -336,28 +385,30 @@ records:
 ---
 key: point.de.Schweinebrück
 type: point
-events:
-    -   date: !!null
-        location:
-            line.de.1532: 16,97
-        source: src.de.DRG.Mst.1946
-    -   date: !!null
+records:
+    -   date: 1914-07
         name: Schweinebrück
-        source: src.de.Kb.1914
-    -   date: !!null
+        document: src.de.Kb.1914
+
+    -   date: 1933-03-01
+        name: Schweinebrück
         category: de.Hp
         de.lknr: 23 173
-        source: src.de.Bfv.1933
-    -   date: 1935-01-01
-        de.lknr: 21 662
-        source: src.de.Bfv.1944
-    -   date: c1940
+        document: src.de.Bfv.1933
+    -   date: 1944-06-01
+        name: Schweinebrück
         category: de.Bf
         de.rang: III
-        source: src.de.Bfv.1944
-    -   date: !!null
-        de.DS100: HSBR
-records:
+        de.lknr: 21 662
+        document: src.de.Bfv.1944
+    -   date: 1946-02
+        name: Schweinebrück
+        category: de.Bf
+        de.rang: III
+        location:
+            line.de.1532: 16,97 # right
+        document: src.de.DRG.Mst.1946
+
     -   date: 1983-11
         name: Schweinebrück
         category: de.Bf
@@ -370,39 +421,34 @@ records:
 ---
 key: point.de.Neuenburg-Oldb
 type: point
-events:
-    -   date: !!null
+records:
+    -   date: 1914-07
         name: Neuenburg (Oldbg)
-        source: src.de.Kb.1914
-    -   date: c1935
-        name: Neuenburg (Oldb)
-        source: src.de.Kb.W1937
+        document: src.de.Kb.1914
 
-    -   date: !!null
+    -   date: 1933-03-01
+        name: Neuenburg (Oldbg)
         category: de.Bf
         de.rang: III
-        source: src.de.Bfv.1933
-
-    -   date: !!null
         de.lknr: 23 174
-        source: src.de.Bfv.1933
-    -   date: 1935-01-01
+        document: src.de.Bfv.1933
+    -   date: 1937-10-03
+        name: Neuenburg (Oldb)
+        document: src.de.Kb.W1937
+    -   date: 1944-06-01
+        name: Neuenburg (Oldb)
+        category: de.Bf
+        de.rang: III
         de.lknr: 21 663
-        source: src.de.Bfv.1944
-    -   date: !!null
-        de.DS100: HNEB
-        de.dstnr: !!str 216630
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Neuenburg/Old
-        PLC: DE17511
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
+        document: src.de.Bfv.1944
+    -   date: 1946-02
+        name: Neuenburg (Oldb)
+        category: de.Bf
+        de.rang: III
         location:
-            line.de.1532: 19,03
-        source: src.de.DRG.Mst.1946
-records:
+            line.de.1532: 19,03 # left
+        document: src.de.DRG.Mst.1946
+
     -   date: 1983-11
         name: Neuenburg (Oldb)
         category: de.Bf
@@ -411,3 +457,13 @@ records:
             line.de.1532: 19,03 # left
         document: src.de.DB.Han.1983
 
+    -   date: 2017-01
+        name: Neuenburg (Oldb)
+        category: de.Bf
+        de.DS100: HNEB
+        de.dstnr: !!str 216630
+        de.name16: Neuenburg/Old
+        PLC: DE17511
+        document: src.de.DBAG.BSV.2017
+
+# 19,28 Streckenende src.de.DRG.Mst.1946

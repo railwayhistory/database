@@ -9,10 +9,6 @@ events:
             - org.de
             - org.de.l.ni
 
-    -   date: !!null
-        de.VzG: !!str 1560
-        source: src.de.DBAG.Geo-Strecke.2017
-
     #   Staatsverträge
     #
     -   date: 1896-05-04
@@ -79,11 +75,35 @@ events:
         start: point.de.Neuenkirchen-Oldb
         status: open
         source: src.de.DRG.1935 # 1900/20
-
-    -   date: !!null    
+records:
+    -   date: 1927-03
         category: de.Nebenbahn
-        source: src.de.DRG.1927
+        tracks: 1
+        gauge: 1435mm
+        operator: org.de.e.old
+        document: src.de.DRG.1927
 
+    -   date: 1946-02
+        start: point.de.Dwoberg-DGr
+        category: de.Nebenbahn
+        tracks: 1
+        gauge: 1435mm
+        operator: org.de.e.mst
+        document: src.de.DRG.Mst.1946
+
+    -   date: 1983-11
+        category: de.Nebenbahn
+        tracks: 1
+        gauge: 1435mm
+        operator: org.de.e.han
+        document: src.de.DB.Han.1983
+
+    -   date: 2017-01
+        de.VzG: !!str 1560
+        note: >
+            Delmenhorst, W 24 – Hesepe, W 101;
+            km −0,4−76 – 87,9+24
+        document: src.de.DBAG.Geo-Strecke.2017
 points:
     -   point.de.Delmenhorst                        # de.1500
     -   point.de.Delmenhorst-Schlüssel
@@ -110,6 +130,7 @@ points:
     -   point.de.Holdorf-Oldb
     -   point.de.Nellinghof
     -   point.de.Neuenkirchen-Oldb
+    -   point.de.Neuenkirchen-Oldb-LGr
     -   point.de.Rieste-Bersenbrück
     -   point.de.Hesepe                             # de.1502
 
@@ -123,99 +144,89 @@ points:
 key: point.de.Delmenhorst-Schlüssel
 type: point
 events:
+    -   date: c2010
+        status: closed
+records:
     -   date: !!null
         de.DS100: HDLW
         name: DLW Schlüssel
         category: de.Awanst
-        source: src.de.DS100.1984
-    -   date: c2000
-        name: Delmenhorst Schlüssel
-        source: src.de.TPP.2006
-    -   date: c2010
-        status: closed
+        document: src.de.DS100.1984
 
 
 ---
 key: point.de.Dwoberg
 type: point
 events:
-    -   date: !!null
-        location:
-            line.de.1560: 2,56
-        source: src.de.DRG.Mst.1946
-    -   date: !!null
-        name: Dwoberg
-        source: src.de.Kb.1914
-    -   date: !!null
-        category: de.Hp
-        de.lknr: 23 111
-        source: src.de.Bfv.1933
-    -   date: 1935-01-01
-        de.lknr: 13 865
-        source: src.de.Bfv.1944
-    -   date: c1940
-        category: de.Bf
-        de.rang: IV
-        source: src.de.Bfv.1944
     -   date: c1970
         status: closed
+records:
+    -   date: 1914-07
+        name: Dwoberg
+        document: src.de.Kb.1914
+
+    -   date: 1933-03-01
+        name: Dwoberg
+        category: de.Hp
+        de.lknr: 23 111
+        document: src.de.Bfv.1933
+    -   date: 1944-06-01
+        name: Dwoberg
+        category: de.Bf
+        de.rang: IV
+        de.lknr: 13 865
+        document: src.de.Bfv.1944
+    -   date: 1946-02
+        name: Dwoberg
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.1560: 2,56 # rechts
+        document: src.de.DRG.Mst.1946
 
 
 ---
 key: point.de.Dwoberg-DGr
 type: point
-subtype: border
+subtype: reference
 events:
     -   date: !!null
-        name: Dwoberg Han/Mst
-    -   date: !!null
+        designation: Dwoberg Han/Mst
+records:
+    -   date: 1946-02
         location:
-            line.de.1560: 2,800
-        source: src.de.DRG.Mst.1946
-    -   date: 1935-01-01
-        status: open
-    -   date: 1974-12-31
-        status: closed
+            line.de.1560: 2,8
+        document: src.de.DRG.Mst.1946
 
 
 ---
 key: point.de.Ganderkesee
 type: point
-events:
-    -   date: !!null
+records:
+    -   date: 1914-07
         name: Ganderkesee
-        source: src.de.Kb.1914
+        document: src.de.Kb.1914
 
-    -   date: !!null
+    -   date: 1933-03-01
+        name: Ganderkesee
         category: de.Bf
         de.rang: III
         de.lknr: 23 112
-        source: src.de.Bfv.1933
-    -   date: c2000
-        category: de.Hp
-        source: src.de.DBAG.BSV.2017
-
-    -   date: 1935-01-01
+        document: src.de.Bfv.1933
+    -   date: 1944-06-01
+        name: Ganderkesee
+        category: de.Bf
+        de.rang: III
         de.lknr: 21 601
-        source: src.de.Bfv.1944
-    -   date: !!null
-        de.DS100: HGKE
-        de.dstnr: !!str 216010
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Ganderkesee
-        PLC: DE13553
-        source: src.de.DBAG.BSV.2017
+        document: src.de.Bfv.1944
+    -   date: 1946-02
+        name: Ganderkesee
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.1560: 6,46 # links
+        document: src.de.DRG.Mst.1946
 
-    -   date: !!null
-        location:
-            line.de.1560: 6,46
-        source: src.de.DRG.Mst.1946
-    -   date: c2000
-        location:
-            line.de.1560: 6,465
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
-records:
     -   date: 1983-11
         name: Ganderkesee
         category: de.Bf
@@ -223,31 +234,51 @@ records:
             line.de.1560: 6,46 # left
         document: src.de.DB.Han.1983
 
+    -   date: 2017-01
+        category: de.Hp
+        de.DS100: HGKE
+        de.dstnr: !!str 216010
+        name: Ganderkesee
+        de.name16: Ganderkesee
+        PLC: DE13553
+        document: src.de.DBAG.BSV.2017
+    -   date: 2017-01
+        location:
+            line.de.1560: 6,465
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
+
 
 ---
 key: point.de.Immer
 type: point
 events:
-    -   date: !!null
-        location:
-            line.de.1560: 9,9
-        source: src.de.DRG.Mst.1946
-    -   date: !!null
-        name: Immer
-        source: src.de.Kb.1914
-    -   date: !!null
-        category: de.Bf
-        de.rang: IV
-        de.lknr: 23 113
-        source: src.de.Bfv.1933
-    -   date: 1935-01-01
-        de.lknr: 21 602
-        source: src.de.Bfv.1944
-    -   date: !!null
-        de.DS100: HIMM
     -   date: c2000
         status: closed
 records:
+    -   date: 1914-07
+        name: Immer
+        document: src.de.Kb.1914
+
+    -   date: 1933-03-01
+        name: Immer
+        category: de.Bf
+        de.rang: IV
+        de.lknr: 23 113
+        document: src.de.Bfv.1933
+    -   date: 1944-06-01
+        name: Immer
+        category: de.Bf
+        de.rang: IV
+        de.lknr: 21 602
+        document: src.de.Bfv.1944
+    -   date: 1946-02
+        name: Immer
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.1560: 9,9 # rechts
+        document: src.de.DRG.Mst.1946
+
     -   date: 1983-11
         name: Immer
         category: de.Bf
@@ -259,41 +290,31 @@ records:
 ---
 key: point.de.Brettorf
 type: point
-events:
-    -   date: !!null
+records:
+    -   date: 1914-07
         name: Brettorf
-        source: src.de.Kb.1914
+        document: src.de.Kb.1914
 
-    -   date: !!null
+    -   date: 1933-03-01
+        name: Brettorf
         category: de.Bf
         de.rang: IV
         de.lknr: 23 114
-        source: src.de.Bfv.1933
-    -   date: c2000
-        category: de.Hp
-        source: src.de.DBAG.BSV.2017
-
-    -   date: 1935-01-01
+        document: src.de.Bfv.1933
+    -   date: 1944-06-01
+        name: Brettorf
+        category: de.Bf
+        de.rang: IV
         de.lknr: 21 603
-        source: src.de.Bfv.1944
-    -   date: !!null
-        de.DS100: HBRT
-        de.dstnr: !!str 216036
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Brettorf
-        PLC: DE11694
-        source: src.de.DBAG.BSV.2017
+        document: src.de.Bfv.1944
+    -   date: 1946-02
+        name: Brettorf
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.1560: 16,39 # links
+        document: src.de.DRG.Mst.1946
 
-    -   date: !!null
-        location:
-            line.de.1560: 16,39
-        source: src.de.DRG.Mst.1946
-    -   date: c2000
-        location:
-            line.de.1560: 16,419
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
-records:
     -   date: 1983-11
         name: Brettorf
         category: de.Bf
@@ -301,36 +322,53 @@ records:
             line.de.1560: 16,39 # left
         document: src.de.DB.Han.1983
 
+    -   date: 2017-01
+        name: Brettorf
+        category: de.Hp
+        de.DS100: HBRT
+        de.dstnr: !!str 216036
+        de.name16: Brettorf
+        PLC: DE11694
+        document: src.de.DBAG.BSV.2017
+    -   date: 2017-01
+        location:
+            line.de.1560: 16,419
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
+
 
 ---
 key: point.de.Dötlingen
 type: point
 events:
-    -   date: !!null
-        location:
-            line.de.1560: 19,97
-        source: src.de.DRG.Mst.1946
-    -   date: !!null
-        name: Dötlingen
-        source: src.de.Kb.1914
-    -   date: !!null
-        category: de.Bf
-        de.rang: IV
-        de.lknr: 23 115
-        source: src.de.Bfv.1933
-    -   date: 1935-01-01
-        de.lknr: 21 604
-        source: src.de.Bfv.1944
-    -   date: !!null
-        de.DS100: HDLG
-    -   date: c1970
-        category: de.Anst
     -   date: c2000
         status: closed
 records:
+    -   date: 1914-07
+        name: Dötlingen
+        document: src.de.Kb.1914
+
+    -   date: 1933-03-01
+        name: Dötlingen
+        category: de.Bf
+        de.rang: IV
+        de.lknr: 23 115
+        document: src.de.Bfv.1933
+    -   date: 1944-06-01
+        name: Dötlingen
+        category: de.Bf
+        de.rang: IV
+        de.lknr: 21 604
+        document: src.de.Bfv.1944
+    -   date: 1946-02
+        name: Dötlingen
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.1560: 19,97 # rechts
+        document: src.de.DRG.Mst.1946
+
     -   date: 1983-11
         name: Dötlingen
-        category: de.Tp
         location:
             line.de.1560: 19,97 # right
         document: src.de.DB.Han.1983
@@ -339,38 +377,31 @@ records:
 ---
 key: point.de.Wildeshausen
 type: point
-events:
-    -   date: !!null
-        location:
-            line.de.1560: 24,52
-        source: src.de.DRG.Mst.1946
-    -   date: !!null
+records:
+    -   date: 1914-07
         name: Wildeshausen
-        source: src.de.Kb.1914
+        document: src.de.Kb.1914
 
-    -   date: !!null
+    -   date: 1933-03-01
+        name: Wildeshausen
         category: de.Bf
         de.rang: III
         de.lknr: 23 116
-        source: src.de.Bfv.1933
-
-    -   date: 1935-01-01
+        document: src.de.Bfv.1933
+    -   date: 1944-06-01
+        name: Wildeshausen
+        category: de.Bf
+        de.rang: III
         de.lknr: 21 605
-        source: src.de.Bfv.1944
-    -   date: !!null
-        de.DS100: HWIH
-        de.dstnr: !!str 216051
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Wildeshausen
-        PLC: DE21140
-        source: src.de.DBAG.BSV.2017
-
-    -   date: c2000
+        document: src.de.Bfv.1944
+    -   date: 1946-02
+        name: Wildeshausen
+        category: de.Bf
+        de.rang: III
         location:
-            line.de.1560: 24,522
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
-records:
+            line.de.1560: 24,52 # links
+        document: src.de.DRG.Mst.1946
+
     -   date: 1983-11
         name: Wildeshausen
         category: de.Bf
@@ -378,39 +409,51 @@ records:
             line.de.1560: 24,52 # left
         document: src.de.DB.Han.1983
 
+    -   date: 2017-01
+        name: Wildeshausen
+        category: de.Bf
+        de.DS100: HWIH
+        de.dstnr: !!str 216051
+        de.name16: Wildeshausen
+        PLC: DE21140
+        document: src.de.DBAG.BSV.2017
+    -   date: 2017-01
+        location:
+            line.de.1560: 24,522
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
+
 
 ---
 key: point.de.Düngstrup
 type: point
 events:
-    -   date: !!null
-        location:
-            line.de.1560: 29,22
-        source: src.de.DRG.Mst.1946
-    -   date: !!null
-        name: Düngstrup
-        source: src.de.Kb.1914
-    -   date: !!null
-        category: de.Hp
-        de.lknr: 23 117
-        staff: agent
-        source: src.de.Bfv.1933
-    -   date: 1935-01-01
-        de.lknr: 21 606
-        source: src.de.Bfv.1944
-    -   date: c1940
-        category: de.Hst
-        source: src.de.Bfv.1944
-    -   date: !!null
-        de.DS100: HDGT
-    -   date: c1970
-        category: de.Anst
     -   date: c2000
         status: closed
 records:
+    -   date: 1914-07
+        name: Düngstrup
+        document: src.de.Kb.1914
+
+    -   date: 1933-03-01
+        name: Düngstrup
+        category: de.Hp
+        de.lknr: 23 117
+        staff: agent
+        document: src.de.Bfv.1933
+    -   date: 1944-06-01
+        name: Düngstrup
+        category: de.Hst
+        staff: agent
+        de.lknr: 21 606
+        document: src.de.Bfv.1944
+    -   date: 1946-02
+        name: Düngstrup
+        location:
+            line.de.1560: 29,22 # rechts
+        document: src.de.DRG.Mst.1946
+
     -   date: 1983-11
         name: Düngstrup
-        category: de.Tp
         location:
             line.de.1560: 29,22 # right
         document: src.de.DB.Han.1983
@@ -419,51 +462,57 @@ records:
 ---
 key: point.de.Rechterfeld
 type: point
-events:
-    -   date: !!null
+records:
+    -   date: 1914-07
         name: Rechterfeld
-        source: src.de.Kb.1914
+        document: src.de.Kb.1914
 
-    -   date: !!null
+    -   date: 1933-03-01
+        name: Rechterfeld
         category: de.Bf
         de.rang: IV
         de.lknr: 23 118
-        source: src.de.Bfv.1933
-    -   date: c1975
-        category: de.Hst
-        staff: none
-        source: src.de.DS100.1984
-    -   date: c2000
-        category: [ de.Hp, de.Anst ]
-        source: src.de.DBAG.BSV.2017
-
-    -   date: 1935-01-01
+        document: src.de.Bfv.1933
+    -   date: 1944-06-01
+        name: Rechterfeld
+        category: de.Bf
+        de.rang: IV
         de.lknr: 21 607
-        source: src.de.Bfv.1944
-    -   date: !!null
-        de.DS100: HRFD
-        de.dstnr: !!str 216077
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Rechterfeld
-        PLC: DE18692
-        source: src.de.DBAG.BSV.2017
+        document: src.de.Bfv.1944
+    -   date: 1946-02
+        name: Rechterfeld
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.1560: 31,77 # rechts
+        document: src.de.DRG.Mst.1946
 
-    -   date: !!null
-        location:
-            line.de.1560: 31,77
-        source: src.de.DRG.Mst.1946
-    -   date: c2000
-        location:
-            line.de.1560: 31,693
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
-records:
     -   date: 1983-11
         name: Rechterfeld
         category: de.Hst
         location:
             line.de.1560: 31,77 # right
         document: src.de.DB.Han.1983
+    -   date: 1984-06-03
+        de.dstnr: !!str 216077
+        name: Rechterfeld
+        de.DS100: HRFD
+        category: de.Hst
+        staff: none
+        document: src.de.DS100.1984
+
+    -   date: 2017-01
+        name: Rechterfeld
+        category: [ de.Hp, de.Anst ]
+        de.DS100: HRFD
+        de.dstnr: !!str 216077
+        de.name16: Rechterfeld
+        PLC: DE18692
+        document: src.de.DBAG.BSV.2017
+    -   date: 2017-01
+        location:
+            line.de.1560: 31,693
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 # 34,50 Ba-Grenze src.de.DB.Han.1983
@@ -472,44 +521,31 @@ records:
 ---
 key: point.de.Goldenstedt-Oldb
 type: point
-events:
-    -   date: !!null
+records:
+    -   date: 1914-07
         name: Goldenstedt (Oldbg)
-        source: src.de.Kb.1914
-    -   date: c1940
-        name: Goldenstedt (Oldb)
-        source: src.de.Bfv.1944
+        document: src.de.Kb.1914
 
-    -   date: !!null
+    -   date: 1933-03-01
+        name: Goldenstedt (Oldbg)
         category: de.Bf
         de.rang: III 
         de.lknr: 23 119
-        source: src.de.Bfv.1933
-    -   date: c2000
-        category: de.Hp
-        source: src.de.DBAG.BSV.2017
-
-    -   date: 1935-01-01
+        document: src.de.Bfv.1933
+    -   date: 1944-06-01
+        name: Goldenstedt (Oldb)
+        category: de.Bf
+        de.rang: III 
         de.lknr: 21 608
-        source: src.de.Bfv.1944
-    -   date: !!null
-        de.DS100: HGOL
-        de.dstnr: !!str 216085
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Goldenstedt/Oldb
-        PLC: DE13816
-        source: src.de.DBAG.BSV.2017
+        document: src.de.Bfv.1944
+    -   date: 1956-02
+        name: Goldenstedt (Oldb)
+        category: de.Bf
+        de.rang: III 
+        location:
+            line.de.1560: 35,91 # links
+        document: src.de.DRG.Mst.1946
 
-    -   date: !!null
-        location:
-            line.de.1560: 35,91
-        source: src.de.DRG.Mst.1946
-    -   date: c2000
-        location:
-            line.de.1560: 35,914
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
-records:
     -   date: 1983-11
         name: Goldenstedt (Oldb)
         category: de.Bf
@@ -517,45 +553,48 @@ records:
             line.de.1560: 35,91 # left
         document: src.de.DB.Han.1983
 
+    -   date: 2017-01
+        name: Goldenstedt (Oldb)
+        category: de.Hp
+        de.DS100: HGOL
+        de.dstnr: !!str 216085
+        de.name16: Goldenstedt/Oldb
+        PLC: DE13816
+        document: src.de.DBAG.BSV.2017
+    -   date: 2017-01
+        location:
+            line.de.1560: 35,914
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
+
 
 ---
 key: point.de.Lutten
 type: point
-events:
-    -   date: !!null
+records:
+    -   date: 1914-07
         name: Lutten
-        source: src.de.Kb.1914
+        document: src.de.Kb.1914
 
-    -   date: !!null
+    -   date: 1933-03-01
+        name: Lutten
         category: de.Bf
         de.rang: IV
         de.lknr: 23 120
-        source: src.de.Bfv.1933
-    -   date: c2000
-        category: de.Hp
-        source: src.de.DBAG.BSV.2017
-
-    -   date: 1935-01-01
+        document: src.de.Bfv.1933
+    -   date: 1944-06-01
+        name: Lutten
+        category: de.Bf
+        de.rang: IV
         de.lknr: 21 609
-        source: src.de.Bfv.1944
-    -   date: !!null
-        de.DS100: HLTT
-        de.dstnr: !!str 216093
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Lutten
-        PLC: DE16634
-        source: src.de.DBAG.BSV.2017
+        document: src.de.Bfv.1944
+    -   date: 1946-02
+        name: Lutten
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.1560: 41,12 # links
+        document: src.de.DRG.Mst.1946
 
-    -   date: !!null
-        location:
-            line.de.1560: 41,12
-        source: src.de.DRG.Mst.1946
-    -   date: c2000
-        location:
-            line.de.1560: 41,120
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
-records:
     -   date: 1983-11
         name: Lutten
         category: de.Bf
@@ -563,35 +602,55 @@ records:
             line.de.1560: 41,12 # left
         document: src.de.DB.Han.1983
 
+    -   date: 2017-01
+        name: Lutten
+        category: de.Hp
+        de.DS100: HLTT
+        de.dstnr: !!str 216093
+        de.name16: Lutten
+        PLC: DE16634
+        document: src.de.DBAG.BSV.2017
+    -   date: 2017-01
+        location:
+            line.de.1560: 41,120
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
+
 
 ---
 key: point.de.Holzhausen-Vechta
 type: point
 events:
-    -   date: !!null
-        location:
-            line.de.1560: 43,57
-        source: src.de.DRG.Mst.1946
-    -   date: !!null
-        name: Holzhausen b Vechta
-        source: src.de.Kb.1914
-    -   date: !!null
-        category: de.Hp
-        de.lknr: 23 121
-        staff: agent
-        source: src.de.Bfv.1933
-    -   date: 1935-01-01
-        de.lknr: 21 610
-        source: src.de.Bfv.1944
-    -   date: c1940
-        name: Holzhausen (b Vechta)
-        source: src.de.Bfv.1944
-    -   date: !!null
-        de.DS100: HHOZ
-    -   date: c1970
-        category: de.Anst
     -   date: c2000
         status: closed
+records:
+    -   date: 1914-07
+        name: Holzhausen b Vechta
+        document: src.de.Kb.1914
+
+    -   date: 1933-03-01
+        name: Holzhausen b Vechta
+        category: de.Hp
+        staff: agent
+        de.lknr: 23 121
+        document: src.de.Bfv.1933
+    -   date: 1935-01-01
+        name: Holzhausen (b Vechta)
+        category: de.Hp
+        staff: agent
+        de.lknr: 21 610
+        document: src.de.Bfv.1944
+
+    -   date: 1946-02
+        name: Holzhausen (b Vechta)
+        location:
+            line.de.1560: 43,57 # links
+        document: src.de.DRG.Mst.1946
+
+    -   date: 1983-11
+        name: Holzhausen b Vechta
+        location:
+            line.de.1560: 43,57 # links
+        document: src.de.DB.Han.1983
 
 
 ---
@@ -600,23 +659,6 @@ type: point
 events:
     -   date: c1970
         status: open
-    -   date: !!null
-        name: Vechta-Stoppelmarkt
-        category: de.Hp
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.DS100: HVCS
-        de.dstnr: !!str 393389
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Vechta-Stoppelm
-        PLC: DE20564
-        source: src.de.DBAG.BSV.2017
-
-    -   date: c2000
-        location:
-            line.de.1560: 45,120
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
 records:
     -   date: 1983-11
         name: Vechta-Stoppelmarkt
@@ -625,83 +667,96 @@ records:
             line.de.1560: 45,12 # left
         document: src.de.DB.Han.1983
 
+    -   date: 2017-01
+        name: Vechta-Stoppelmarkt
+        category: de.Hp
+        de.DS100: HVCS
+        de.dstnr: !!str 393389
+        de.name16: Vechta-Stoppelm
+        PLC: DE20564
+        document: src.de.DBAG.BSV.2017
+    -   date: 2017-01
+        location:
+            line.de.1560: 45,120
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
+
 
 ---
 key: point.de.Vechta-Falkenrott
 type: point
 events:
-    -   date: !!null
-        location:
-            line.de.1560: 47,29
-        source: src.de.DRG.Mst.1946
-    -   date: !!null
+    -   date: c1970
+        status: closed
+records:
+    -   date: 1914-07
         name: Falkenrott
-        source: src.de.Kb.1914
-    -   date: c1925
+        document: src.de.Kb.1914
+
+    -   date: 1933-03-01
         name: Vechta-Falkenrott
-        source: src.de.Bfv.1933
-    -   date: !!null
         category: de.Hp
         de.lknr: 23 122
         staff: agent
         note:
-            deu: Gütertarifbahnhof für Vechta
-        source: src.de.Bfv.1933
-    -   date: 1935-01-01
-        de.lknr: 21 611
-        source: src.de.Bfv.1944
-    -   date: c1940
+            deu: Gütertarifbahnhof für [Vechta][point.de.Vechta]
+            eng: Goods tariff station for [Vechta][point.de.Vechta]
+        document: src.de.Bfv.1933
+    -   date: 1944-06-01
+        name: Vechta-Falkenrott
         category: de.Hst
+        de.lknr: 21 611
+        staff: full
         note:
             deu: im Personenverkehr Agentur
-        source: src.de.Bfv.1944
-    -   date: c1970
-        status: closed
+            eng: agency for passenger service
+        document: src.de.Bfv.1944
+    -   date: 1946-02
+        name: Vechta-Falkenrott
+        location:
+            line.de.1560: 47,29 # links
+        document: src.de.DRG.Mst.1946
 
 
 ---
 key: point.de.Vechta
 type: point
-events:
-    -   date: !!null
+records:
+    -   date: 1914-07
         name: Vechta
-        source: src.de.Kb.1914
+        document: src.de.Kb.1914
 
-    -   date: !!null
+    -   date: 1933-03-01
+        name: Vechta
         category: de.Bf
         de.rang: III
         de.lknr: 23 123
-        source: src.de.Bfv.1933
+        document: src.de.Bfv.1933
     -   date: c1940
+        name: Vechta
+        category: de.Bf
         de.rang: I
+        de.lknr: 21 612
         note:
             deu: >
-                im Güterverkehr Ahst des Tarifbahnhofs Vechta-Falkenrott für
-                den Übergang zur Kleinbahn und der Ldst Hagen (Oldb)
-        source: src.de.Bfv.1944
-
-    -   date: 1935-01-01
-        de.lknr: 21 612
-        source: src.de.Bfv.1944
-    -   date: !!null
-        de.DS100: HVCH
-        de.dstnr: !!str 216127
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Vechta
-        PLC: DE20563
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
+                im Güterverkehr Ahst des Tarifbahnhofs
+                [Vechta-Falkenrott][point.de.Vechta-Falkenrott] für
+                den Übergang zur Kleinbahn und der
+                [Ldst Hagen (Oldb)][point.de.Hagen-Oldb]
+            eng: >
+                for goods service ‘Ahst’ of tariff station
+                [Vechta-Falkenrott][point.de.Vechta-Falkenrott] for
+                transfer to tertiary railway and
+                [Ldst Hagen (Oldb)][point.de.Hagen-Oldb]
+        document: src.de.Bfv.1944
+    -   date: 1946-02
+        name: Vechta
+        category: de.Bf
+        de.rang: I
         location:
-            line.de.1560: 48,13
+            line.de.1560: 48,13 # links
             line.de.1561: 20,31
-        source: src.de.DRG.Mst.1946
-    -   date: c2000
-        location:
-            line.de.1560: 47,856
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
-records:
+        document: src.de.DRG.Mst.1946
+
     -   date: 1983-11
         name: Vechta
         category: de.Bf
@@ -710,103 +765,117 @@ records:
             line.de.1561: 20,02
         document: src.de.DB.Han.1983
 
+    -   date: 2017-01
+        name: Vechta
+        category: de.Bf
+        de.DS100: HVCH
+        de.dstnr: !!str 216127
+        de.name16: Vechta
+        PLC: DE20563
+        document: src.de.DBAG.BSV.2017
+    -   date: 2017-01
+        location:
+            line.de.1560: 47,856
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
+
 
 ---
 key: point.de.Hagen-Oldb
 type: point
 events:
-    -   date: !!null
-        location:
-            line.de.1560: 48,85
-        source: src.de.DRG.Mst.1946
-    -   date: !!null
-        name: Hagen (Oldbg)
-        source: src.de.Kb.1914
-    -   date: !!null
-        category: de.Hp
-    -   date: c1925
-        category: de.Ldst
-        de.lknr: 23 026
-        staff: none
-        master: point.de.Vechta
-        source: src.de.Bfv.1933
-    -   date: 1935-01-01
-        de.lknr: 21 616
-        source: src.de.Bfv.1944
-    -   date: c1940
-        name: Hagen (Oldb)
-        master: point.de.Vechta-Falkenrott
-        source: src.de.Bfv.1944
     -   date: c1970
         status: closed
+records:
+    -   date: 1914-07
+        name: Hagen (Oldbg)
+        document: src.de.Kb.1914
+
+    -   date: 1933-03-01
+        name: Hagen (Oldbg)
+        category: de.Ldst
+        staff: none
+        master: point.de.Vechta
+        de.lknr: 23 026
+        document: src.de.Bfv.1933
+    -   date: 1944-06-01
+        name: Hagen (Oldb)
+        category: de.Ldst
+        staff: none
+        master: point.de.Vechta-Falkenrott
+        de.lknr: 21 616
+        document: src.de.Bfv.1944
+
+    -   date: 1946-02
+        name: Hagen (Oldb)
+        category: de.Ldst
+        location:
+            line.de.1560: 48,85 # links
+        document: src.de.DRG.Mst.1946
+
 
 
 ---
 key: point.de.Krimpenfort
 type: point
 events:
-    -   date: !!null
-        location:
-            line.de.1560: 52,84
-        source: src.de.DRG.Mst.1946
-    -   date: !!null
+    -   date: c1970
+        status: closed
+records:
+    -   date: 1914-07
         name: Krimpenfort
-        source: src.de.Kb.1914
-    -   date: !!null
+        document: src.de.Kb.1914
+
+    -   date: 1933-03-01
+        name: Krimpenfort
         category: de.Hp
         de.lknr: 23 128
         staff: none
         master: point.de.Lohne-Oldb
-        source: src.de.Bfv.1933
-    -   date: 1935-01-01
-        de.lknr: 21 617
-        source: src.de.Bfv.1944
-    -   date: c1940
+        document: src.de.Bfv.1933
+    -   date: 1944-06-01
+        name: Krimpenfort
         category: de.Hst
         staff: full
-        source: src.de.Bfv.1944
-    -   date: c1970
-        status: closed
+        de.lknr: 21 617
+        document: src.de.Bfv.1944
+
+    -   date: !!null
+        name: Krimpenfort
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.1560: 52,84 # links
+        document: src.de.DRG.Mst.1946
 
 
 ---
 key: point.de.Lohne-Oldb
 type: point
-events:
-    -   date: !!null
+records:
+    -   date: 1914-07
         name: Lohne (Oldbg)
-        source: src.de.Kb.1914
-    -   date: c1940
-        name: Lohne (Oldb)
-        source: src.de.Bfv.1944
+        document: src.de.Kb.1914
 
-    -   date: !!null
+    -   date: 1933-03-01
+        name: Lohne (Oldbg)
         category: de.Bf
         de.rang: II
         de.lknr: 23 129
-        source: src.de.Bfv.1933
-
-    -   date: 1935-01-01
+        document: src.de.Bfv.1933
+    -   date: 1944-06-01
+        name: Lohne (Oldb)
+        category: de.Bf
+        de.rang: II
         de.lknr: 21 618
-        source: src.de.Bfv.1944
-    -   date: !!null
-        de.DS100: HLON
-        de.dstnr: !!str 216184
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Lohne (Oldb)
-        PLC: DE16448
-        source: src.de.DBAG.BSV.2017
+        document: src.de.Bfv.1944
+    -   date: 1946-02
+        name: Lohne (Oldb)
+        category: de.Bf
+        de.rang: II
+        location:
+            line.de.1560: 55,91 # links
+        document: src.de.DRG.Mst.1946
 
-    -   date: !!null
-        location:
-            line.de.1560: 55,91
-        source: src.de.DRG.Mst.1946
-    -   date: c2000
-        location:
-            line.de.1560: 55,913
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
-records:
     -   date: 1983-11
         name: Lohne (Oldb)
         category: de.Bf
@@ -815,52 +884,48 @@ records:
             line.de.1564:  0,00
         document: src.de.DB.Han.1983
 
+    -   date: 2017-01
+        name: Lohne (Oldb)
+        category: de.Bf
+        de.DS100: HLON
+        de.dstnr: !!str 216184
+        de.name16: Lohne (Oldb)
+        PLC: DE16448
+        document: src.de.DBAG.BSV.2017
+    -   date: 2017-01
+        location:
+            line.de.1560: 55,913
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
+
 
 ---
 key: point.de.Mühlen-Oldb
 type: point
-events:
-    -   date: !!null
+records:
+    -   date: 1914-07
         name: Mühlen (Oldbg)
-        source: src.de.Kb.1914
-    -   date: c1940
-        name: Mühlen (Oldb)
-        source: src.de.Bfv.1944
+        document: src.de.Kb.1914
 
-    -   date: !!null
+    -   date: 1933-03-01
+        name: Mühlen (Oldbg)
         category: de.Bf
         de.rang: IV
         de.lknr: 23 131
-        source: src.de.Bfv.1933
-    -   date: c1975
-        category: de.Hst
-        staff: none
-        source: src.de.DS100.1984
-    -   date: c2000
-        category: de.Hp
-        source: src.de.DBAG.BSV.2017
-
-    -   date: 1935-01-01
+        document: src.de.Bfv.1933
+    -   date: 1944-06-01
+        name: Mühlen (Oldb)
+        category: de.Bf
+        de.rang: IV
         de.lknr: 21 620
-        source: src.de.Bfv.1944
-    -   date: !!null
-        de.DS100: HMLN
-        de.dstnr: !!str 216200
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Mühlen (Oldb)
-        PLC: DE17174
-        source: src.de.DBAG.BSV.2017
+        document: src.de.Bfv.1944
+    -   date: 1946-02
+        name: Mühlen (Oldb)
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.1560: 61,19 # links
+        document: src.de.DRG.Mst.1946
 
-    -   date: !!null
-        location:
-            line.de.1560: 61,19
-        source: src.de.DRG.Mst.1946
-    -   date: c2000
-        location:
-            line.de.1560: 61,286
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
-records:
     -   date: 1983-11
         name: Mühlen (Oldb)
         category: de.Hst
@@ -868,49 +933,56 @@ records:
         location:
             line.de.1560: 61,22 # left
         document: src.de.DB.Han.1983
+    -   date: 1984-06-03
+        name: Mühlen (Oldb)
+        category: de.Hst
+        staff: none
+        de.DS100: HMLN
+        de.dstnr: !!str 216200
+        document: src.de.DS100.1984
+
+    -   date: 2017-01
+        name: Mühlen (Oldb)
+        category: de.Hp
+        de.DS100: HMLN
+        de.dstnr: !!str 216200
+        de.name16: Mühlen (Oldb)
+        PLC: DE17174
+        document: src.de.DBAG.BSV.2017
+    -   date: 2017-01
+        location:
+            line.de.1560: 61,286
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Steinfeld-Oldb
 type: point
-events:
-    -   date: !!null
+records:
+    -   date: 1914-07
         name: Steinfeld (Oldbg)
-        source: src.de.Kb.1914
-    -   date: c1940
-        name: Steinfeld (Oldb)
-        source: src.de.Bfv.1944
+        document: src.de.Kb.1914
 
-    -   date: !!null
+    -   date: 1933-03-01
+        name: Steinfeld (Oldbg)
         category: de.Bf
         de.rang: III
         de.lknr: 23 132
-        source: src.de.Bfv.1933
-    -   date: c2000
-        category: de.Hp
-        source: src.de.DBAG.BSV.2017
-
-    -   date: 1935-01-01
+        document: src.de.Bfv.1933
+    -   date: 1944-06-01
+        name: Steinfeld (Oldb)
+        category: de.Bf
+        de.rang: III
         de.lknr: 21 621
-        source: src.de.Bfv.1944
-    -   date: !!null
-        de.DS100: HSFD
-        de.dstnr: !!str 216218
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Steinfeld (Oldb)
-        PLC: DE19955
-        source: src.de.DBAG.BSV.2017
+        document: src.de.Bfv.1944
+    -   date: 1946-02
+        name: Steinfeld (Oldb)
+        category: de.Bf
+        de.rang: III
+        location:
+            line.de.1560: 64,30 # links
+        document: src.de.DRG.Mst.1946
 
-    -   date: !!null
-        location:
-            line.de.1560: 64,30
-        source: src.de.DRG.Mst.1946
-    -   date: c2000
-        location:
-            line.de.1560: 64,285
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
-records:
     -   date: 1983-11
         name: Steinfeld (Oldb)
         category: de.Bf
@@ -918,86 +990,100 @@ records:
             line.de.1560: 64,30 # left
         document: src.de.DB.Han.1983
 
+    -   date: 2017-01
+        name: Steinfeld (Oldb)
+        category: de.Hp
+        de.DS100: HSFD
+        de.dstnr: !!str 216218
+        de.name16: Steinfeld (Oldb)
+        PLC: DE19955
+        document: src.de.DBAG.BSV.2017
+    -   date: 2017-01
+        location:
+            line.de.1560: 64,285
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
+
 
 ---
 key: point.de.Holdorf-Oldb
 type: point
-events:
-    -   date: !!null
+records:
+    -   date: 1914-07
         name: Holdorf (Oldbg)
-        source: src.de.Kb.1914
-    -   date: c1940
-        name: Holdorf (Oldb)
-        source: src.de.Bfv.1944
+        document: src.de.Kb.1914
 
-    -   date: !!null
+    -   date: 1933-03-01
+        name: Holdorf (Oldbg)
         category: de.Bf
         de.rang: III
         de.lknr: 23 133
-        source: src.de.Bfv.1933
-    -   date: c2000
-        category: de.Hp
-        source: src.de.DBAG.BSV.2017
-
-    -   date: 1935-01-01
+        document: src.de.Bfv.1933
+    -   date: 1944-06-01
+        name: Holdorf (Oldb)
+        category: de.Bf
+        de.rang: III
         de.lknr: 21 622
-        source: src.de.Bfv.1944
-    -   date: !!null
-        de.DS100: HHDF
-        de.dstnr: !!str 216226
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Holdorf (Oldb)
-        PLC: DE15040
-        source: src.de.DBAG.BSV.2017
+        document: src.de.Bfv.1944
+    -   date: 1946-02
+        name: Holdorf (Oldb)
+        category: de.Bf
+        de.rang: III
+        location:
+            line.de.1560: 68,88 # Insel links
+        document: src.de.DRG.Mst.1946
 
-    -   date: !!null
-        location:
-            line.de.1560: 68,88
-        source: src.de.DRG.Mst.1946
-    -   date: c2000
-        location:
-            line.de.1560: 68,657
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
-records:
     -   date: 1983-11
         name: Holdorf (Oldb)
         category: de.Bf
         location:
-            line.de.1560: 68,68 # left
+            line.de.1560: 68,68 # Insel links
             line.de.1562:  0,00
         document: src.de.DB.Han.1983
+
+    -   date: 2017-01
+        name: Holdorf (Oldb)
+        category: de.Hp
+        de.DS100: HHDF
+        de.dstnr: !!str 216226
+        de.name16: Holdorf (Oldb)
+        PLC: DE15040
+        document: src.de.DBAG.BSV.2017
+    -   date: 2017-01
+        location:
+            line.de.1560: 68,657
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Nellinghof
 type: point
 events:
-    -   date: !!null
-        location:
-            line.de.1560: 73,85
-        source: src.de.DRG.Mst.1946
-    -   date: !!null
-        name: Nellinghof
-        source: src.de.Kb.1914
-    -   date: !!null
-        category: de.Hp
-        de.lknr: 23 136
-        source: src.de.Bfv.1933
-    -   date: 1935-01-01
-        de.lknr: 21 625
-        source: src.de.Bfv.1944
-    -   date: c1940
-        category: de.Bf
-        de.rang: IV
-        source: src.de.Bfv.1944
-    -   date: !!null
-        de.DS100: HNEL
-    -   date: c1970
-        category: [ de.Hp, de.Anst ]
     -   date: c2000
         status: closed
 records:
+    -   date: 1914-07
+        name: Nellinghof
+        document: src.de.Kb.1914
+
+    -   date: 1933-03-01
+        name: Nellinghof
+        category: de.Hp
+        de.lknr: 23 136
+        document: src.de.Bfv.1933
+    -   date: 1944-06-01
+        name: Nellinghof
+        category: de.Bf
+        de.rang: IV
+        de.lknr: 21 625
+        document: src.de.Bfv.1944
+    -   date: 1946-02
+        name: Nellinghof
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.1560: 73,85 # links
+        document: src.de.DRG.Mst.1946
+
     -   date: 1983-11
         name: Nellinghof
         category: de.Hst
@@ -1009,41 +1095,31 @@ records:
 ---
 key: point.de.Neuenkirchen-Oldb
 type: point
-events:
-    -   date: !!null
+records:
+    -   date: 1914-07
         name: Neuenkirchen (Oldbg)
-        source: src.de.Kb.1914
-    -   date: c1940
-        name: Neuenkirchen (Oldb)
-        source: src.de.Bfv.1944
+        document: src.de.Kb.1914
 
-    -   date: !!null
+    -   date: 1933-03-01
+        name: Neuenkirchen (Oldbg)
         category: de.Bf
         de.rang: III
         de.lknr: 23 137
-        source: src.de.Bfv.1933
-
-    -   date: 1935-01-01
+        document: src.de.Bfv.1933
+    -   date: 1944-06-01
+        name: Neuenkirchen (Oldb)
+        category: de.Bf
+        de.rang: III
         de.lknr: 21 626
-        source: src.de.Bfv.1944
-    -   date: !!null
-        de.DS100: HNKO
-        de.dstnr: !!str 216267
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Neuenkirchen/Old
-        PLC: DE17517
-        source: src.de.DBAG.BSV.2017
+        document: src.de.Bfv.1944
+    -   date: 1946-02
+        name: Neuenkirchen (Oldb)
+        category: de.Bf
+        de.rang: III
+        location:
+            line.de.1560: 78,23 # links
+        document: src.de.DRG.Mst.1946
 
-    -   date: !!null
-        location:
-            line.de.1560: 78,23
-        source: src.de.DRG.Mst.1946
-    -   date: c2000
-        location:
-            line.de.1560: 78,230
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
-records:
     -   date: 1983-11
         name: Neuenkirchen (Oldb)
         category: de.Bf
@@ -1051,54 +1127,76 @@ records:
             line.de.1560: 78,23 # left
         document: src.de.DB.Han.1983
 
+    -   date: 2017-01
+        name: Neuenkirchen (Oldb)
+        category: de.Bf
+        de.DS100: HNKO
+        de.dstnr: !!str 216267
+        de.name16: Neuenkirchen/Old
+        PLC: DE17517
+        document: src.de.DBAG.BSV.2017
+    -   date: 2017-01
+        location:
+            line.de.1560: 78,230
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Neuenkirchen-Oldb-LGr
+type: point
+subtype: border
+events:
+    -   date: !!null
+        designation: Neuenkirchen (Oldb) Old/Pre
+
 
 ---
 key: point.de.Rieste-Bersenbrück
 type: point
-events:
-    -   date: !!null
+records:
+    -   date: 1914-07
         name: Rieste
-        source: src.de.Kb.1914
-    -   date: c1925
-        name: Rieste (Kr Bersenbrück)
-        source: src.de.Bfv.1933
+        document: src.de.Kb.1914
 
-    -   date: !!null
+    -   date: 1933-03-01
+        name: Rieste (Kr Bersenbrück)
         category: de.Bf
         de.rang: IV
         de.lknr: 23 138
-        source: src.de.Bfv.1933
-    -   date: c2000
-        category: de.Hp
-        source: src.de.DBAG.BSV.2017
-
-    -   date: 1935-01-01
+        document: src.de.Bfv.1933
+    -   date: 1944-06-01
+        name: Rieste (Kr Bersenbrück)
+        category: de.Bf
+        de.rang: IV
         de.lknr: 21 627
-        source: src.de.Bfv.1944
-    -   date: !!null
-        de.DS100: HRIE
-        de.dstnr: !!str 216275
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Rieste/Bersenbr
-        PLC: DE18894
-        source: src.de.DBAG.BSV.2017
+        document: src.de.Bfv.1944
+    -   date: 1946-02
+        name: Rieste (Kr Bersenbrück)
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.1560: 82,43 # links
+        document: src.de.DRG.Mst.1946
 
-    -   date: !!null
-        location:
-            line.de.1560: 82,43
-        source: src.de.DRG.Mst.1946
-    -   date: c2000
-        location:
-            line.de.1560: 82,440
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
-records:
     -   date: 1983-11
         name: Rieste (Kr Bersenbrück)
         category: de.Bf
         location:
             line.de.1560: 82,43 # left
         document: src.de.DB.Han.1983
+
+    -   date: 2017-01
+        name: Rieste (Kr Bersenbrück)
+        category: de.Hp
+        de.DS100: HRIE
+        de.dstnr: !!str 216275
+        de.name16: Rieste/Bersenbr
+        PLC: DE18894
+        document: src.de.DBAG.BSV.2017
+    -   date: 2017-01
+        location:
+            line.de.1560: 82,440
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 #    point.de.Hesepe                             de.1502

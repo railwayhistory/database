@@ -9,10 +9,8 @@ events:
             - org.de
             - org.de.l.ni
 
-    -   date: !!null
-        de.VzG: !!str 9150
-        source: src.de.SuW.2005
-
+    #   Genehmigungen, Eigentümer, Betriebsführer
+    #
     -   date: 1911-01-02
         start: point.de.Annenheide-LGr
         expropriation:
@@ -21,6 +19,15 @@ events:
         category: de.Kleinbahn
         document: src.de.l.pre.han.1911.3.23
 
+    -   date: 1922
+        start: point.de.Delmenhorst-Süd
+        operator: org.de.Niedersächsisches-Landeseisenbahnamt
+        source: src.de.WP.Delmenhorst-Harpstedter-Eisenbahn
+    -   date: 1959
+        start: point.de.Delmenhorst-Süd
+        operator: org.de.Delmenhorst-Harpstedter-Eisenbahn
+        source: src.de.WP.Delmenhorst-Harpstedter-Eisenbahn
+
     -   date: 1995-10-26
         concession:
             by: org.de.l.ni
@@ -28,42 +35,40 @@ events:
             until: 2025-10-25
         source: src.de.web.EBA.EIU
 
-
-    -   date: !!null
-        category: de.Kleinbahn
-        owner: org.de.Delmenhorst-Harpstedter-Eisenbahn
-        source: src.de.WP.Delmenhorst-Harpstedter-Eisenbahn
+    #   Eröffnung und Einstellung
+    #
     -   date: 1912-06-06
         start: point.de.Delmenhorst-Süd
         status: open
         source: src.de.WP.Delmenhorst-Harpstedter-Eisenbahn
-    -   date: 1922
-        start: point.de.Delmenhorst-Süd
-        operator: org.de.Niedersächsisches-Landeseisenbahnamt
-        source: src.de.WP.Delmenhorst-Harpstedter-Eisenbahn
-    -   date: c1950
-        start: point.de.Delmenhorst-Süd
-        category: de.Nebenbahn
-    -   date: 1959
-        start: point.de.Delmenhorst-Süd
-        operator: org.de.Delmenhorst-Harpstedter-Eisenbahn
-        source: src.de.WP.Delmenhorst-Harpstedter-Eisenbahn
+
     -   date: 1967-09-23
         start: point.de.Delmenhorst-Süd
         passenger: none
         source: src.de.WP.Delmenhorst-Harpstedter-Eisenbahn
 
-    -   date: !!null
-        end: point.de.Delmenhorst-Süd
-        category: de.Nebenbahn
-        owner: org.de.Delmenhorst-Harpstedter-Eisenbahn
-        operator: org.de.Delmenhorst-Harpstedter-Eisenbahn
-        source: src.de.WP.Delmenhorst-Harpstedter-Eisenbahn
     -   date: 1971
         end: point.de.Delmenhorst-Süd
         status: open
         passenger: none
+records:
+    -   date: 1946-02
+        category: de.Kleinbahn
+        tracks: 1
+        gauge: 1435mm
+        document: src.de.DRG.Mst.1946
 
+    -   date: 1983-11
+        category: de.Nebenbahn
+        tracks: 1
+        gauge: 1435mm
+        de.VzG: !!str 9150
+        document: src.de.DB.Han.1983
+
+    -   date: 2017-01
+        de.VzG: !!str 9150
+        note: km 0,0+0 – 22,5+70
+        document: src.de.DBAG.Geo-Strecke.2017
 points:
     -   point.de.Delmenhorst-Df                     # de.1500
     -   point.de.Delmenhorst-Gr
@@ -72,7 +77,7 @@ points:
     -   point.de.Annenheide
     -   point.de.Annenheide-LGr
     -   point.de.Stelle-Groß-Mackenstedt
-    -   point.de.Gross-Mackenstedt
+    -   point.de.Groß-Mackenstedt
     -   point.de.Heiligenrode
     -   point.de.Kirchseelte
     -   point.de.Groß-Ippener
@@ -88,104 +93,106 @@ points:
 ---
 key: point.de.Delmenhorst-Gr
 type: point
-events:
-    -   date: !!null
+subtype: reference
+records:
+    -   date: 2017-01
         name: Delmenhorst DB-Grenze
         category: de.Gp
-        source: src.de.DBAG.BSV.2017
-    -   date: de.ds100.dr
         de.DS100: HDG
         de.dstnr: !!str 109207
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.name16: Delmenhorst DBGr
         PLC: DE21597
-        source: src.de.DBAG.BSV.2017
+        document: src.de.DBAG.BSV.2017
 
 
 ---
 key: point.de.Delmenhorst-Süd
 type: point
-events:
-    -   date: !!null
+records:
+    -   date: 1933-03-01
         name: Delmenhorst Süd
-        source: src.de.Bfv.1933
-
-    -   date: !!null
-        service: goods
-        source: src.de.Kb.W1937
-    -   date: !!null
-        category: de.Bft
-        source: src.de.DBAG.BSV.2017
-
-    -   date: de.lknr.kb
+        document: src.de.Bfv.1933
+    -   date: 1944-06-01
+        name: Delmenhorst Süd
         de.lknr: 40 696
-        source: src.de.Bfv.1944
-    -   date: !!null
+        document: src.de.Bfv.1944
+
+    -   date: 1983-11
+        name: Delmenhorst Süd
+        category: de.Bf
+        service: goods
+        location:
+            line.de.9150: 2,1 # rechts
+        document: src.de.DB.Han.1983
+
+    -   date: 2017-01
         de.DS100: HDSU
-        de.dstnr: !!str 432021
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
+        name: Delmenhorst Süd
         de.name16: Delmenhorst Süd
-        source: src.de.DBAG.BSV.2017
+        category: de.Bft
+        de.dstnr: !!str 432021
+        document: src.de.DBAG.BSV.2017
 
 
 ---
 key: point.de.Delmenhorst-Hasporter-Damm
 type: point
-events:
-    -   date: !!null
+records:
+    -   date: 1937-10-03
         name: Hasporterdamm
-        source: src.de.Kb.W1937
-    -   date: c2000
-        name: Delmenhorst Hasporter Damm
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        category: de.Hp
-        source: src.de.DBAG.BSV.2017
-
-    -   date: de.lknr.kb
+        document: src.de.Kb.W1937
+    -   date: 1944-06-01
+        name: Hasporterdamm
         de.lknr: 40 697
-        source: src.de.Bfv.1944
-    -   date: !!null
+        document: src.de.Bfv.1944
+
+    -   date: 1983-11
+        name: Hasporterdamm
+        location:
+            line.de.9150: 3,3 # rechts
+        document: src.de.DB.Han.1983
+
+    -   date: 2017-01
+        name: Delmenhorst Hasporter Damm
+        category: de.Hp
         de.DS100: HHPD
         de.dstnr: !!str 432013
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.name16: Hasporter Damm
-        source: src.de.DBAG.BSV.2017
+        document: src.de.DBAG.BSV.2017
 
 
 ---
 key: point.de.Annenheide
 type: point
-events:
-    -   date: !!null
+records:
+    -   date: 1933-03-01
         name: Annenheide
-        source: src.de.Bfv.1933
-
-    -   date: !!null
-        category: de.Bf
-        source: src.de.DBAG.BSV.2017
-
-    -   date: de.lknr.kb
+        document: src.de.Bfv.1933
+    -   date: 1944-06-01
+        name: Annenheide
         de.lknr: 40 698
-        source: src.de.Bfv.1944
-    -   date: !!null
+        document: src.de.Bfv.1944
+
+    -   date: 1983-11
+        name: Annenheide
+        location:
+            line.de.9150: 4,9 # rechts
+            line.de.9157: 0,0
+        document: src.de.DB.Han.1983
+
+    -   date: 2017-01
+        name: Annenheide
+        category: de.Bf
         de.DS100: HAHD
         de.dstnr: !!str 432047
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.name16: Annenheide
-        source: src.de.DBAG.BSV.2017
+        document: src.de.DBAG.BSV.2017
 
 
 ---
 key: point.de.Annenheide-LGr
 type: point
 subtype: border
-progress: stub
 events:
     -   date: !!null
         designation: Annenheide Old/Pre
@@ -194,167 +201,184 @@ events:
 ---
 key: point.de.Stelle-Groß-Mackenstedt
 type: point
-events:
-    -   date: !!null
+records:
+    -   date: 1937-10-03
         name: Stelle
-        source: src.de.Kb.W1937
-    -   date: c1990
+        document: src.de.Kb.W1937
+
+    -   date: 2017-01
         name: Stelle (b Groß Mackenstedt)
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
         category: de.Hp
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
         de.DS100: HSTE
         de.dstnr: !!str 912558
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.name16: Stelle(Gr Macke)
-        source: src.de.DBAG.BSV.2017
+        document: src.de.DBAG.BSV.2017
 
 
 ---
-key: point.de.Gross-Mackenstedt
+key: point.de.Groß-Mackenstedt
 type: point
-events:
-    -   date: !!null
+records:
+    -   date: 1914-07
         name: Groß Mackenstedt
-        source: src.de.Kb.1914
+        document: src.de.Kb.1914
 
-    -   date: !!null
-        category: de.Bf
-        source: src.de.DBAG.BSV.2017
-
-    -   date: de.lknr.kb
+    -   date: 1944-06-01
+        name: Groß Mackenstedt
         de.lknr: 41 001
-        source: src.de.Bfv.1944
-    -   date: !!null
+        document: src.de.Bfv.1944
+
+    -   date: 1983-11
+        name: Groß Mackenstedt
+        location:
+            line.de.9150: 9,6 # links
+        document: src.de.DB.Han.1983
+
+    -   date: 2017-01
+        name: Groß Mackenstedt
+        category: de.Bf
         de.DS100: HGMK
         de.dstnr: !!str 432062
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.name16: Groß Mackenstedt
-        source: src.de.DBAG.BSV.2017
+        document: src.de.DBAG.BSV.2017
 
 
 ---
 key: point.de.Heiligenrode
 type: point
-events:
-    -   date: !!null
+records:
+    -   date: 1914-07
         name: Heiligenrode
-        source: src.de.Kb.1914
+        document: src.de.Kb.1914
 
-    -   date: !!null
-        category: de.Bf
-        source: src.de.DBAG.BSV.2017
-
-    -   date: de.lknr.kb
+    -   date: 1944-06-01
+        name: Heiligenrode
         de.lknr: 41 002
-        source: src.de.Bfv.1944
-    -   date: !!null
+        document: src.de.Bfv.1944
+
+    -   date: 1983-11
+        name: Heiligenrode
+        location:
+            line.de.9150: 11,5 # rechts
+        document: src.de.DB.Han.1983
+
+    -   date: 2017-01
+        name: Heiligenrode
+        category: de.Bf
         de.DS100: HHLR
         de.dstnr: !!str 432070
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.name16: Heiligenrode
-        source: src.de.DBAG.BSV.2017
+        document: src.de.DBAG.BSV.2017
 
 
 ---
 key: point.de.Kirchseelte
 type: point
-events:
-    -   date: !!null
+records:
+    -   date: 1914-07
         name: Kirchseelte
-        source: src.de.Kb.1914
+        document: src.de.Kb.1914
 
-    -   date: !!null
-        category: de.Bf
-        source: src.de.DBAG.BSV.2017
-
-    -   date: de.lknr.kb
+    -   date: 1944-06-01
+        name: Kirchseelte
         de.lknr: 41 003
-        source: src.de.Bfv.1944
-    -   date: !!null
+        document: src.de.Bfv.1944
+
+    -   date: 1983-11
+        name: Kirchseelte
+        location:
+            line.de.9150: 15,0 # links
+        document: src.de.DB.Han.1983
+
+    -   date: 2017-01
+        name: Kirchseelte
+        category: de.Bf
         de.DS100: HKSE
         de.dstnr: !!str 432088
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.name16: Kirchseelte
-        source: src.de.DBAG.BSV.2017
+        document: src.de.DBAG.BSV.2017
 
 
 ---
 key: point.de.Groß-Ippener
 type: point
-events:
-    -   date: !!null
+records:
+    -   date: 1914-07
         name: Groß Ippener
-        source: src.de.Kb.1914
+        document: src.de.Kb.1914
 
-    -   date: !!null
-        category: de.Hp
-        source: src.de.DBAG.BSV.2017
-
-    -   date: de.lknr.kb
+    -   date: 1944-06-01
+        name: Groß Ippener
         de.lknr: 41 004
-        source: src.de.Bfv.1944
-    -   date: !!null
+        document: src.de.Bfv.1944
+
+    -   date: 1983-11
+        name: Groß Ippener
+        location:
+            line.de.9150: 18,4 # rechts
+        document: src.de.DB.Han.1983
+
+    -   date: 2017-01
+        name: Groß Ippener
+        category: de.Hp
         de.DS100: HGIP
         de.dstnr: !!str 432096
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.name16: Groß Ippener
-        source: src.de.DBAG.BSV.2017
+        document: src.de.DBAG.BSV.2017
 
 
 ---
 key: point.de.Dünsen
 type: point
-events:
-    -   date: !!null
+records:
+    -   date: 1914-07
         name: Dünsen
-        source: src.de.Kb.1914
+        document: src.de.Kb.1914
 
-    -   date: !!null
-        category: de.Hp
-        source: src.de.DBAG.BSV.2017
-
-    -   date: de.lknr.kb
+    -   date: 1944-06-01
+        name: Dünsen
         de.lknr: 41 005
-        source: src.de.Bfv.1944
-    -   date: !!null
+        document: src.de.Bfv.1944
+
+    -   date: 1983-11
+        name: Dünsen
+        location:
+            line.de.9150: 21,1 # links
+        document: src.de.DB.Han.1983
+
+    -   date: 2017-01
+        name: Dünsen
+        category: de.Hp
         de.DS100: HDUS
         de.dstnr: !!str 432005
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.name16: Dünsen
-        source: src.de.DBAG.BSV.2017
+        document: src.de.DBAG.BSV.2017
 
 
 ---
 key: point.de.Harpstedt
 type: point
-events:
-    -   date: !!null
+records:
+    -   date: 1914-07
         name: Harpstedt
-        source: src.de.Kb.1914
+        document: src.de.Kb.1914
 
-    -   date: !!null
-        category: de.Bf
-        source: src.de.DBAG.BSV.2017
-
-    -   date: de.lknr.kb
+    -   date: 1944-06-01
+        name: Harpstedt
         de.lknr: 41 006
-        source: src.de.Bfv.1944
-    -   date: !!null
+        document: src.de.Bfv.1944
+
+    -   date: 1983-11
+        name: Harpstedt
+        location:
+            line.de.9150: 23,6 # rechts
+        document: src.de.DB.Han.1983
+
+    -   date: 2017-01
+        name: Harpstedt
+        category: de.Bf
         de.DS100: HHPS
         de.dstnr: !!str 432112
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.name16: Harpstedt
-        source: src.de.DBAG.BSV.2017
+        document: src.de.DBAG.BSV.2017
 

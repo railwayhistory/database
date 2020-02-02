@@ -9,10 +9,6 @@ events:
             - org.de
             - org.de.l.ni
 
-    -   date: !!null
-        de.VzG: !!str 1574
-        source: src.de.DBAG.Geo-Strecke.2017
-
     -   date: 1890-05-10
         concession:
             by: org.de.l.pre
@@ -31,20 +27,45 @@ events:
         status: open
         source: src.de.DRG.1935 # 1892/23
 
-    -   date: !!null
-        category: de.Nebenbahn
-        source: src.de.DRG.1927
 
     #   2. Gl. genehmigt src.de.l.pre.1914.17.97
 
     -   date: 1980-09-28
         electrified: de
         source: src.ch.Schwach.1989
+records:
+    -   date: 1927-03
+        category: de.Nebenbahn
+        tracks: 1
+        gauge: 1435mm
+        operator: org.de.e.mst
+        document: src.de.DRG.1927
 
+    -   date: 1946-02
+        category: de.Nebenbahn
+        tracks: 1
+        gauge: 1435mm
+        operator: org.de.e.mst
+        document: src.de.DRG.Mst.1946
+
+    -   date: 1983-11
+        category: de.Nebenbahn
+        tracks: 1
+        gauge: 1435mm
+        electrified: de
+        operator: org.de.e.han
+        document: src.de.DB.Han.1983
+
+    -   date: 2017-01
+        de.VzG: !!str 1574
+        note: >
+            Norden, W 35 – Norddeich Mole;
+            km 30,9+41 – 36,6+49
+        document: src.de.DBAG.Geo-Strecke.2017
 points:
     -   point.de.Norden                             # de.1570
     -   point.de.Norden-Stadt
-    -   point.de.Norden-Fehlstelle
+    -   point.de.Norden-Fehlstelle-Nord
     -   point.de.Norddeich
     -   point.de.Norddeich-Mole
 
@@ -61,42 +82,47 @@ events:
     -   date: 1895-03-01
         status: open
         source: src.de.web.Feldmann
-
-    -   date: !!null
+    -   date: 1983-05-28
+        status: closed
+        source: src.de.web.Feldmann
+records:
+    -   date: 1914-07
         name: Norden Osterstraße
-        source: src.de.Kb.1914
-    -   date: c1935
-        name: Norden Adolf-Hitler-Straße
-        source: src.de.Kb.W1937
-    -   date: 1945
-        name: Norden Osterstraße
-        source: src.de.DRG.Mst.1946
-    -   date: c1950
-        name: Norden Stadt
+        document: src.de.Kb.1914
 
-    -   date: !!null
+    -   date: 1933-03-01
+        name: Norden Osterstraße
         category: de.Bf
         de.rang: IV
         service: passenger
         staff: agent
         de.lknr: 21 452
-        source: src.de.Bfv.1933
-    -   date: c1940
+        document: src.de.Bfv.1933
+    -   date: 1937-10-03
+        name: Norden Adolf-Hitler-Straße
+        document: src.de.Kb.W1937
+    -   date: 1944-06-01
+        name: Norden Adolf-Hitler-Straße
+        category: de.Bf
+        de.rang: IV
         service: full
         staff: full
-        source: src.de.Bfv.1944
-    -   date: 1983-05-28
-        status: closed
-        source: src.de.web.Feldmann
-
-    -   date: !!null
+        de.lknr: 21 452
+        document: src.de.Bfv.1944
+    -   date: 1946-02
+        name: Norden Osterstraße
+        category: de.Bf
+        de.rang: IV
         location:
-            line.de.1574: 0,76
-        source: src.de.DRG.Mst.1946
+            line.de.1574: 0,76 # links
+        note:
+            deu: Name handschriftlich geändert in „Norden Stadt“.
+            eng: Handwritten correction for name to ‘Norden Stadt.’
+        document: src.de.DRG.Mst.1946
 
 
 ---
-key: point.de.Norden-Fehlstelle
+key: point.de.Norden-Fehlstelle-Nord
 type: point
 subtype: reference
 events:
@@ -112,41 +138,44 @@ records:
 ---
 key: point.de.Norddeich
 type: point
-events:
-    -   date: !!null
+records:
+    -   date: 1914-07
         name: Norddeich
-        source: src.de.Kb.1914
+        document: src.de.Kb.1914
 
-    -   date: !!null
+    -   date: 1933-03-01
+        name: Norddeich
         category: de.Bf
         de.rang: III
         de.lknr: 21 453
-        source: src.de.Bfv.1933
-
-    -   date: !!null
-        de.DS100: HND
-        de.dstnr: !!str 214536
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Norddeich
-        PLC: DE17799
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
+        document: src.de.Bfv.1933
+    -   date: 1946-02
+        name: Norddeich
+        category: de.Bf
+        de.rang: III
         location:
-            line.de.1574: 5,07
-        source: src.de.DRG.Mst.1946
-    -   date: c2000
-        location:
-            line.de.1574: 36,166
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
-records:
+            line.de.1574: 5,07 # rechts
+        document: src.de.DRG.Mst.1946
+
     -   date: 1983-11
         name: Norddeich
         category: de.Bf
         location:
             line.de.1574: 36,17 # left
         document: src.de.DB.Han.1983
+
+    -   date: 2017-01
+        name: Norddeich
+        category: de.Bf
+        de.DS100: HND
+        de.dstnr: !!str 214536
+        de.name16: Norddeich
+        PLC: DE17799
+        document: src.de.DBAG.BSV.2017
+    -   date: 2017-01
+        location:
+            line.de.1574: 36,166
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
@@ -156,48 +185,36 @@ events:
     -   date: c1940
         status: open
         source: src.de.Bfv.1944
-
-    -   date: !!null
+records:
+    -   date: 1944-06-01
         name: Norddeich Mole
-        source: src.de.Bfv.1944
-
-    -   date: !!null
         category: de.Ldst
         staff: none
         master: point.de.Norddeich
-        source: src.de.Bfv.1944
-    -   date: c1975
-        category: de.Hp
-        source: src.de.DS100.1984
-    -   date: c2000
-        category: de.Bft
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
         de.lknr: 21 681
-        source: src.de.Bfv.1944
-    -   date: !!null
-        de.DS100: HNDM
-        de.dstnr: !!str 217067
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Norddeich Mole
-        PLC: DE17800
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
+        document: src.de.Bfv.1944
+    -   date: 1946-02
         location:
             line.de.1574: 5,62
-        source: src.de.DRG.Mst.1946
-    -   date: c2000
-        location:
-            line.de.1574: 36,508
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
-records:
+        document: src.de.DRG.Mst.1946
+
     -   date: 1983-11
         name: Norddeich Mole
         category: de.Hp
         location:
             line.de.1574: 36,49 # right
         document: src.de.DB.Han.1983
+
+    -   date: 2017-01
+        category: de.Bft
+        de.DS100: HNDM
+        de.dstnr: !!str 217067
+        name: Norddeich Mole
+        de.name16: Norddeich Mole
+        PLC: DE17800
+        document: src.de.DBAG.BSV.2017
+    -   date: 2017-01
+        location:
+            line.de.1574: 36,508
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
 

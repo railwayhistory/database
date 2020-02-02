@@ -13,10 +13,7 @@ events:
         start: point.de.Delmenhorst-LGr
         region: org.de.l.hb
 
-    -   date: !!null
-        de.VzG: !!str 1500
-        source: src.de.DBAG.Geo-Strecke.2017
-
+    #   Genehmigungen, Eigentümer, Betriebsführer
     -   date: 1864-03-08
         end: point.de.Bremen-Neustadt
         treaty:
@@ -51,15 +48,14 @@ events:
             deu: ab „Südwestseite des Stephanitorübergangs“.
         document: src.de.l.pre.1884.16.148
 
-
+    #   Eröffnung und Einstellung
+    #
     -   date: 1867-07-15
         status: open
         source: src.de.DRG.1935 # 1867/13, 1867/14, 1867/15, 1867/16
 
-
-    -   date: !!null
-        category: de.Hauptbahn
-        source: src.de.DRG.Mst.1946
+    #   Eigenschaften
+    #
     -   date: c1900
         tracks: 2
 
@@ -77,11 +73,37 @@ events:
         electrified: de
         source: src.ch.Schwach.1989
 
+records:
+    -   date: 1946-02
+        category: de.Hauptbahn
+        tracks: 2
+        gauge: 1435mm
+        document: src.de.DRG.Mst.1946
+    -   date: 1946-02
+        end: point.de.Hude-Gr
+        operator: org.de.e.mst
+        document: src.de.DRG.Mst.1946
+
+    -   date: 1983-11
+        category: de.Hauptbahn
+        tracks: 2
+        gauge: 1435mm
+        electrified: de
+        operator: org.de.e.han
+        document: src.de.DB.Han.1983
+
+    -   date: 2017-01
+        de.VzG: !!str 1500
+        note: km 0,0+0 – 45,1+87
+        document: src.de.DBAG.Geo-Strecke.2017
+
 points:
     -   point.de.Oldenburg-Oldb-Hbf
     -   point.de.Oldenburg-Hemmelsberg
     -   point.de.Neuenwege
     -   point.de.Wüsting
+    -   point.de.Reiherholz
+    -   point.de.Hude-Gr
     -   point.de.Hude
     -   point.de.Hude-Langenberg
     -   point.de.Bookholzberg
@@ -105,50 +127,40 @@ key: point.de.Oldenburg-Oldb-Hbf
 type: point
 events:
     -   date: !!null
+        site:
+            path.de.1500: old
+records:
+    -   date: 1914-07
         name: Oldenburg (Großh)
-        source: src.de.Kb.1914
-    -   date: c1925
-        name: Oldenburg (Oldbg)
-        source: src.de.Bfv.1933
-    -   date: c1935
-        name: Oldenburg (Oldb) Hbf
-        source: src.de.Kb.W1937
+        document: src.de.Kb.1914
 
-    -   date: !!null
+    -   date: 1933-03-01
+        name: Oldenburg (Oldbg)
         category: de.Bf
         de.rang: I
         de.lknr: 23 016
-        source: src.de.Bfv.1933
-    -   date: 1935-01-01
+        document: src.de.Bfv.1933
+    -   date: 1937-10-03
+        name: Oldenburg (Oldb) Hbf
+        document: src.de.Kb.W1937
+    -   date: 1944-06-01
+        name: Oldenburg (Oldb) Hbf
+        category: de.Bf
+        de.rang: I
         de.lknr: 21 204
-        source: src.de.Bfv.1944
-    -   date: !!null
-        de.DS100: HOLD
-        de.dstnr: !!str 212043
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Oldb (Oldb) Hbf
-        PLC: DE18116
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
+        document: src.de.Bfv.1944
+    -   date: 1946-02
+        name: Oldenburg (Oldb) Hbf
+        category: de.Bf
+        de.rang: I
         location:
-            line.de.1500: 0,00
+            line.de.1500: 0,00 # right
             line.de.1501: 0,00
             line.de.1502: 0,00
             line.de.1520: 0,00
             line.de.1522: 0,00
-        source: src.de.DRG.Mst.1946
-    -   date: c2000
-        location:
-            line.de.1500: 0,000
-            line.de.1522: 0,000
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
+        document: src.de.DRG.Mst.1946
 
-    -   date: !!null
-        site:
-            path.de.1500: old
-records:
     -   date: 1983-11
         name: Oldenburg (Oldb) Hbf
         category: de.Bf
@@ -160,6 +172,20 @@ records:
             line.de.1522: 0,00
         document: src.de.DB.Han.1983
 
+    -   date: 2017-01
+        de.DS100: HOLD
+        name: Oldenburg (Oldb) Hbf
+        de.name16: Oldb (Oldb) Hbf
+        category: de.Bf
+        de.dstnr: !!str 212043
+        PLC: DE18116
+        document: src.de.DBAG.BSV.2017
+    -   date: 2017-01
+        location:
+            line.de.1500: 0,000
+            line.de.1522: 0,000
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
+
 
 # 1,30 Baubezirksgrenze src.de.DB.Han.1983
 
@@ -169,34 +195,13 @@ key: point.de.Oldenburg-Hemmelsberg
 type: point
 events:
     -   date: !!null
-        name: Oldenburg (Oldb) Vbf Stw 8
-        source: src.de.DRG.Mst.1946
-    -   date: c1960
-        name: Oldenburg-Hemmelsberg
-        source: src.de.DS100.1984
-        
-    -   date: !!null
-        category: de.Abzw
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        de.DS100: HHMG
-        de.dstnr: !!str 139311
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Old-Hemmelsberg
-        PLC: DE18120
-        source: src.de.DBAG.BSV.2017
-
-    -   date: c2000
-        location:
-            line.de.1500: 2,280
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
-
-    -   date: !!null
         site:
             path.de.1500: hem
 records:
+    -   date: 1946-02
+        name: Oldenburg (Oldb) Vbf Stw 8
+        document: src.de.DRG.Mst.1946
+
     -   date: 1983-11
         name: Oldenburg-Hemmelsberg
         category: de.Abzw
@@ -204,35 +209,58 @@ records:
             line.de.1500: 2,28 # right
             line.de.1510: 0,02
         document: src.de.DB.Han.1983
+    -   date: 1984-06-03
+        name: Oldenburg-Hemmelsberg
+        category: de.Abzw
+        document: src.de.DS100.1984
+
+    -   date: 2017-01
+        de.DS100: HHMG
+        name: Oldenburg-Hemmelsberg
+        de.name16: Old-Hemmelsberg
+        category: de.Abzw
+        de.dstnr: !!str 139311
+        PLC: DE18120
+        document: src.de.DBAG.BSV.2017
+    -   date: 2017-01
+        location:
+            line.de.1500: 2,280
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Neuenwege
 type: point
 events:
-    -   date: !!null
-        location:
-            line.de.1500: 4,53
-        source: src.de.DRG.Mst.1946
-    -   date: !!null
-        name: Neuenwege
-        source: src.de.Kb.1914
-    -   date: !!null
-        staff: agent
-        de.lknr: 23 015
-        source: src.de.Bfv.1933
-    -   date: !!null
-        category: de.Hst
-        source: src.de.Bfv.1944
-    -   date: 1935-01-01
-        de.lknr: 21 203
-        source: src.de.Bfv.1944
     -   date: c1975
         status: closed
 
     -   date: !!null
         site:
             path.de.1500: nwe
+records:
+    -   date: 1914-07
+        name: Neuenwege
+        document: src.de.Kb.1914
+
+    -   date: 1933-03-01
+        name: Neuenwege
+        staff: agent
+        de.lknr: 23 015
+        document: src.de.Bfv.1933
+    -   date: 1944-06-01
+        name: Neuenwege
+        category: de.Hst
+        staff: agent
+        de.lknr: 21 203
+        document: src.de.Bfv.1944
+    -   date: 1946-02
+        name: Neuenwege
+        category: de.Hp
+        service: passenger
+        location:
+            line.de.1500: 4,53 # right
+        document: src.de.DRG.Mst.1946
 
 
 ---
@@ -240,48 +268,33 @@ key: point.de.Wüsting
 type: point
 events:
     -   date: !!null
-        name: Wüsting
-        source: src.de.Kb.1914
-
-    -   date: !!null
-        category: de.Bf
-        de.rang: III
-        source: src.de.Bfv.1933
-    -   date: c1975
-        service: goods
-        source: src.de.DB.Han.1983
-    -   date: c2010
-        service: full
-        source: src.de.SuW.2005
-
-    -   date: !!null
-        de.lknr: 23 014
-        source: src.de.Bfv.1933
-    -   date: 1935-01-01
-        de.lknr: 21 202
-        source: src.de.Bfv.1944
-    -   date: !!null
-        de.DS100: HWUE
-        de.dstnr: !!str 212027
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Wüsting
-        PLC: DE21358
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.1500: 8,20
-        source: src.de.DRG.Mst.1946
-    -   date: c2000
-        location:
-            line.de.1500: 8,200
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
-
-    -   date: !!null
         site:
             path.de.1500: wus
 records:
+    -   date: 1914-07
+        name: Wüsting
+        document: src.de.Kb.1914
+
+    -   date: 1933-03-01
+        name: Wüsting
+        category: de.Bf
+        de.rang: III
+        de.lknr: 23 014
+        document: src.de.Bfv.1933
+    -   date: 1944-06-01
+        name: Wüsting
+        category: de.Bf
+        de.rang: III
+        de.lknr: 21 202
+        document: src.de.Bfv.1944
+    -   date: 1946-02
+        name: Wüsting
+        category: de.Bf
+        de.rang: III
+        location:
+            line.de.1500: 8,20 # left
+        document: src.de.DRG.Mst.1946
+
     -   date: 1983-11
         name: Wüsting
         category: de.Bf
@@ -289,6 +302,48 @@ records:
         location:
             line.de.1500: 8,20 # left
         document: src.de.DB.Han.1983
+
+    -   date: 2017-01
+        de.DS100: HWUE
+        name: Wüsting
+        de.name16: Wüsting
+        category: de.Bf
+        de.dstnr: !!str 212027
+        PLC: DE21358
+        document: src.de.DBAG.BSV.2017
+    -   date: 2017-01
+        location:
+            line.de.1500: 8,200
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Reiherholz
+type: point
+events:
+    -   date: c1970
+        status: closed
+records:
+    -   date: 1946-02
+        name: Reiherholz
+        category: de.Bk
+        location:
+            line.de.1500: 12,720 # left
+        document: src.de.DRG.Mst.1946
+
+
+---
+key: point.de.Hude-Gr
+type: point
+subtype: reference
+events:
+    -   date: !!null
+        designation: Hude Han/Mst
+records:
+    -   date: 1946-02
+        location:
+            line.de.1500: 15,0
+        document: src.de.DRG.Mst.1946
 
 
 # 15,00 Ba-Grenze src.de.DB.Han.1983
@@ -299,40 +354,33 @@ key: point.de.Hude
 type: point
 events:
     -   date: !!null
-        name: Hude
-        source: src.de.Kb.1914
-
-    -   date: !!null
-        category: de.Bf
-        de.rang: II
-        de.lknr: 23 012
-        source: src.de.Bfv.1933
-    -   date: 1935-01-01
-        de.lknr: 13 831
-        source: src.de.Bfv.1944
-    -   date: !!null
-        de.DS100: HHUD
-        de.dstnr: !!str 138313
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Hude
-        PLC: DE15143
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.1500: 16,70
-        source: src.de.DRG.Mst.1946
-    -   date: c2000
-        location:
-            line.de.1500: 16,724
-            line.de.1503: -0,031
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
-
-    -   date: !!null
         site:
             path.de.1500: hud
 records:
+    -   date: 1914-07
+        name: Hude
+        document: src.de.Kb.1914
+
+    -   date: 1933-03-01
+        name: Hude
+        category: de.Bf
+        de.rang: II
+        de.lknr: 23 012
+        document: src.de.Bfv.1933
+    -   date: 1944-06-01
+        name: Hude
+        category: de.Bf
+        de.rang: II
+        de.lknr: 13 831
+        document: src.de.Bfv.1944
+    -   date: !!null
+        name: Hude
+        category: de.Bf
+        de.rang: II
+        location:
+            line.de.1500: 16,70 # centre
+        document: src.de.DRG.Mst.1946
+
     -   date: 1983-11
         name: Hude
         category: de.Bf
@@ -341,32 +389,42 @@ records:
             line.de.1503: -0,03
         document: src.de.DB.Han.1983
 
+    -   date: 2017-01
+        de.DS100: HHUD
+        name: Hude
+        de.name16: Hude
+        category: de.Bf
+        de.dstnr: !!str 138313
+        PLC: DE15143
+        document: src.de.DBAG.BSV.2017
+    -   date: 2017-01
+        location:
+            line.de.1500: 16,724
+            line.de.1503: -0,031
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
 
 ---
 key: point.de.Hude-Langenberg
 type: point
 events:
     -   date: !!null
-        name: Hude-Langenberg
-        category: de.Awanst
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.DS100: HLBA
-        de.dstnr: !!str 389981
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Langenberg
-        PLC: DE15144
-        source: src.de.DBAG.BSV.2017
-
-    -   date: c2000
-        location:
-            line.de.1500: 18,577
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
-
-    -   date: !!null
         site:
             path.de.1500: lan
+records:
+    -   date: 2017-01
+        name: Hude-Langenberg
+        category: de.Awanst
+        de.DS100: HLBA
+        de.dstnr: !!str 389981
+        de.name16: Langenberg
+        PLC: DE15144
+        document: src.de.DBAG.BSV.2017
+    -   date: 2017-01
+        location:
+            line.de.1500: 18,577
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
@@ -374,37 +432,29 @@ key: point.de.Bookholzberg
 type: point
 events:
     -   date: !!null
-        name: Grüppenbühren
-        source: src.de.Kb.1914
-    -   date: c1935
-        name: Bookholzberg
-        source: src.de.Kb.W1937
-    -   date: !!null
-        category: de.Bf
-        de.rang: III
-        de.lknr: 23 011
-        source: src.de.Bfv.1933
-    -   date: 1935-01-01
-        de.lknr: 13 830
-        source: src.de.Bfv.1944
-    -   date: !!null
-        de.DS100: HBHB
-        de.dstnr: !!str 138305
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Bookholzberg
-        PLC: DE11478
-        source: src.de.DBAG.BSV.2017
-
-    -   date: c2000
-        location:
-            line.de.1500: 21,818
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
-
-    -   date: !!null
         site:
             path.de.1500: boo
 records:
+    -   date: 1914-07
+        name: Grüppenbühren
+        document: src.de.Kb.1914
+
+    -   date: 1933-03-01
+        name: Grüppenbühren
+        category: de.Bf
+        de.rang: III
+        de.lknr: 23 011
+        document: src.de.Bfv.1933
+    -   date: 1937-10-03
+        name: Bookholzberg
+        document: src.de.Kb.W1937
+    -   date: 1944-06-01
+        name: Bookholzberg
+        category: de.Bf
+        de.rang: III
+        de.lknr: 13 830
+        document: src.de.Bfv.1944
+
     -   date: 1983-11
         name: Bookholzberg
         category: de.Bf
@@ -412,45 +462,62 @@ records:
             line.de.1500: 21,71 # centre
         document: src.de.DB.Han.1983
 
+    -   date: 2017-01
+        name: Bookholzberg
+        category: de.Bf
+        de.DS100: HBHB
+        de.dstnr: !!str 138305
+        de.name16: Bookholzberg
+        PLC: DE11478
+        document: src.de.DBAG.BSV.2017
+    -   date: 2017-01
+        location:
+            line.de.1500: 21,818
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
+
 
 ---
 key: point.de.Schierbrok
 type: point
 events:
     -   date: !!null
-        name: Schierbrok
-        source: src.de.Kb.1914
-    -   date: !!null
-        category: de.Hp
-        de.lknr: 23 010
-        source: src.de.Bfv.1933
-    -   date: 1935-01-01
-        de.lknr: 13 829
-        source: src.de.Bfv.1944
-    -   date: !!null
-        de.DS100: HSCB
-        de.dstnr: !!str 138297
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Schierbrok
-        PLC: DE19333
-        source: src.de.DBAG.BSV.2017
-
-    -   date: c2000
-        location:
-            line.de.1500: 25,406
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
-
-    -   date: !!null
         site:
             path.de.1500: sie
 records:
+    -   date: 1914-07
+        name: Schierbrok
+        document: src.de.Kb.1914
+
+    -   date: 1933-03-01
+        name: Schierbrok
+        category: de.Hp
+        de.lknr: 23 010
+        document: src.de.Bfv.1933
+    -   date: 1944-06-01
+        name: Schierbrok
+        category: de.Hp
+        de.lknr: 13 829
+        document: src.de.Bfv.1944
+
     -   date: 1983-11
         name: Schierbrock
         category: de.Hp
         location:
             line.de.1500: 25,39 # right
         document: src.de.DB.Han.1983
+
+    -   date: 2017-01
+        name: Schierbrock
+        category: de.Hp
+        de.DS100: HSCB
+        de.dstnr: !!str 138297
+        de.name16: Schierbrok
+        PLC: DE19333
+        document: src.de.DBAG.BSV.2017
+    -   date: 2017-01
+        location:
+            line.de.1500: 25,406
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
@@ -459,23 +526,6 @@ type: point
 events:
     -   date: c1975
         status: open
-    -   date: !!null
-        name: Hoykenkamp
-        category: de.Hp
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.DS100: HHOY
-        de.dstnr: !!str 138602
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Hoykenkamp
-        PLC: DE15139
-        source: src.de.DBAG.BSV.2017
-
-    -   date: c2000
-        location:
-            line.de.1500: 27,546
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -488,43 +538,45 @@ records:
             line.de.1500: 27,48 # right
         document: src.de.DB.Han.1983
 
+    -   date: 2017-01
+        name: Hoykenkamp
+        category: de.Hp
+        de.DS100: HHOY
+        de.dstnr: !!str 138602
+        de.name16: Hoykenkamp
+        PLC: DE15139
+        document: src.de.DBAG.BSV.2017
+    -   date: 2017-01
+        location:
+            line.de.1500: 27,546
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
+
 
 ---
 key: point.de.Delmenhorst
 type: point
 events:
     -   date: !!null
-        name: Delmenhorst
-        source: src.de.Kb.1914
-    -   date: !!null
-        category: de.Bf
-        de.rang: I
-        de.lknr: 23 007
-        source: src.de.Bfv.1933
-    -   date: c1940
-        de.lknr: 13 826
-        source: src.de.Bfv.1944
-    -   date: !!null
-        de.DS100: HD
-        de.dstnr: !!str 138263
-        source: src.de.DS100.1984
-    -   date: c2000
-        de.dstnr: !!str 138289
-    -   date: !!null
-        de.name16: Delmenhorst
-        PLC: DE12125
-        source: src.de.DBAG.BSV.2017
-
-    -   date: c2000
-        location:
-            line.de.1500: 30,697
-            line.de.1560:  0,000
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
-
-    -   date: !!null
         site:
             path.de.1500: del
 records:
+    -   date: 1914-07
+        name: Delmenhorst
+        document: src.de.Kb.1914
+
+    -   date: 1933-03-01
+        name: Delmenhorst
+        category: de.Bf
+        de.rang: I
+        de.lknr: 23 007
+        document: src.de.Bfv.1933
+    -   date: 1944-06-01
+        name: Delmenhorst
+        category: de.Bf
+        de.rang: I
+        de.lknr: 13 826
+        document: src.de.Bfv.1944
+
     -   date: 1983-11
         name: Delmenhorst
         category: de.Bf
@@ -532,6 +584,26 @@ records:
             line.de.1500: 30,70 # right/centre
             line.de.1560:  0,00
         document: src.de.DB.Han.1983
+    -   date: 1984-06-03
+        name: Delmenhorst
+        category: de.Bf
+        de.DS100: HD
+        de.dstnr: !!str 138263
+        document: src.de.DS100.1984
+
+    -   date: 2017-01
+        de.DS100: HD
+        name: Delmenhorst
+        category: de.Bf
+        de.dstnr: !!str 138289
+        de.name16: Delmenhorst
+        PLC: DE12125
+        document: src.de.DBAG.BSV.2017
+    -   date: 2017-01
+        location:
+            line.de.1500: 30,697
+            line.de.1560:  0,000
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
@@ -539,26 +611,21 @@ key: point.de.Delmenhorst-Df
 type: point
 events:
     -   date: !!null
-        name: Delmenhorst Df
-        category: de.Bft
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.DS100: "HD  F"
-        de.dstnr: !!str 908997
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Delmenhorst Df
-        PLC: DE12126
-        source: src.de.DBAG.BSV.2017
-
-    -   date: c2000
-        location:
-            line.de.1500: 33,500
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
-
-    -   date: !!null
         site:
             path.de.1500: del.df
+records:
+    -   date: 2017-01
+        name: Delmenhorst Df
+        category: de.Bft
+        de.DS100: "HD  F"
+        de.dstnr: !!str 908997
+        de.name16: Delmenhorst Df
+        PLC: DE12126
+        document: src.de.DBAG.BSV.2017
+    -   date: 2017-01
+        location:
+            line.de.1500: 33,500
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
@@ -566,54 +633,52 @@ key: point.de.Delmenhorst-Heidkrug
 type: point
 events:
     -   date: !!null
-        name: Heidkrug
-        source: src.de.Kb.1914
-
-    -   date: !!null
-        category: de.Hp
-        staff: agent
-        source: src.de.Bfv.1933
-    -   date: c1940
-        staff: full
-        source: src.de.Bfv.1944
-    -   date: c1975
-        staff: none
-        source: src.de.DS100.1984
-    -   date: c2000
-        category: de.Bft
-        name: Delmenhorst Heidkrug
-        source: src.de.DBAG.BSV.2016
-
-    -   date: !!null
-        de.lknr: 23 005
-        source: src.de.Bfv.1933
-    -   date: 1935-01-01
-        de.lknr: 13 825
-        source: src.de.Bfv.1944
-    -   date: !!null
-        de.DS100: HHEI
-        de.dstnr: !!str 138255
-        source: src.de.DS100.1984
-    -   date: !!null
-        de.name16: Heidkrug
-        PLC: DE12127
-        source: src.de.DBAG.BSV.2017
-
-    -   date: c2000
-        location:
-            line.de.1500: 34,103
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
-
-    -   date: !!null
         site:
             path.de.1500: hei
 records:
+    -   date: 1914-07
+        name: Heidkrug
+        document: src.de.Kb.1914
+
+    -   date: 1933-03-01
+        name: Heidkrug
+        category: de.Hp
+        staff: agent
+        de.lknr: 23 005
+        document: src.de.Bfv.1933
+    -   date: 1944-06-01
+        name: Heidkrug
+        category: de.Hp
+        staff: full
+        de.lknr: 13 825
+        document: src.de.Bfv.1944
+
     -   date: 1983-11
         name: Heidkrug
         category: de.Hp
         location:
             line.de.1500: 34,02 # right
         document: src.de.DB.Han.1983
+    -   date: 1984-06-03
+        de.dstnr: !!str 138255
+        name: Heidkrug
+        de.DS100: HHEI
+        category: de.Hp
+        staff: none
+        document: src.de.DS100.1984
+
+    -   date: 2017-01
+        de.DS100: HHEI
+        name: Delmenhorst Heidkrug
+        de.name16: Heidkrug
+        category: de.Bft
+        de.dstnr: !!str 138255
+        PLC: DE12127
+        document: src.de.DBAG.BSV.2017
+    -   date: 2017-01
+        location:
+            line.de.1500: 34,103
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
@@ -621,19 +686,6 @@ key: point.de.Delmenhorst-LGr
 type: point
 subtype: border
 events:
-    -   date: !!null
-        name: Delmenhorst NI/HB
-        category: de.LGr
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.DS100: HQD
-        de.dstnr: !!str 103974
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: DelmenhorstNI/HB
-        PLC: DE12128
-        source: src.de.DBAG.BSV.2017
-
     -   date: !!null
         site:
             path.de.1500: deg
@@ -643,54 +695,20 @@ records:
             line.de.1500: 36,10
         document: src.de.DB.Han.1983
 
+    -   date: 2017-01
+        name: Delmenhorst NI/HB
+        category: de.LGr
+        de.DS100: HQD
+        de.dstnr: !!str 103974
+        de.name16: DelmenhorstNI/HB
+        PLC: DE12128
+        document: src.de.DBAG.BSV.2017
+
 
 ---
 key: point.de.Bremen-Huchting
 type: point
 events:
-    -   date: !!null
-        name: Huchting
-        source: src.de.Kb.1914
-    -   date: c1970
-        name: Bremen-Huchting
-        source: src.de.DS100.1984
-
-    -   date: !!null
-        category: de.Bf
-        de.rang: II
-        source: src.de.Bfv.1933
-    -   date: c1970
-        category: de.Awanst
-        source: src.de.DS100.1984
-
-    -   date: !!null
-        de.lknr: 23 004
-        source: src.de.Bfv.1933
-    -   date: 1935-01-01
-        de.lknr: 13 824
-        source: src.de.Bfv.1944
-    -   date: !!null
-        de.DS100: HBHU
-        de.dstnr: !!str 138248
-        source: src.de.DS100.1984
-    -   date: !!null
-        de.name16: Bremen-Huchting
-        PLC: DE11651
-        source: src.de.DBAG.BSV.2016
-
-    -   date: !!null
-        location:
-            line.de.1500: 37,95
-        source: src.de.DRG.Han.1938
-    -   date: c1970
-        location:
-            line.de.1500: 37,11
-        source: src.de.DB.Han.1983
-    -   date: c2000
-        location:
-            line.de.1500: 37,122
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
-
     -   date: !!null
         site:
             path.de.1500: huc.eg
@@ -698,12 +716,47 @@ events:
         site:
             path.de.1500: huc
 records:
+    -   date: 1914-07
+        name: Huchting
+        document: src.de.Kb.1914
+
+    -   date: 1933-03-01
+        name: Huchting
+        category: de.Bf
+        de.rang: II
+        de.lknr: 23 004
+        document: src.de.Bfv.1933
+    -   date: 1944-06-01
+        name: Huchting
+        category: de.Bf
+        de.rang: II
+        de.lknr: 13 824
+        document: src.de.Bfv.1944
+
     -   date: 1983-11
         name: Bremen-Huchting
-        category: de.Tp
         location:
             line.de.1500: 37,11 # right
         document: src.de.DB.Han.1983
+    -   date: 1984-06-03
+        name: Bremen-Huchting
+        category: de.Awanst
+        de.DS100: HBHU
+        de.dstnr: !!str 138248
+        document: src.de.DS100.1984
+
+    -   date: 2017-01
+        de.name16: Bremen-Huchting
+        PLC: DE11651
+        name: Bremen-Huchting
+        category: de.Awanst
+        de.DS100: HBHU
+        de.dstnr: !!str 138248
+        document: src.de.DBAG.BSV.2017
+    -   date: 2017-01
+        location:
+            line.de.1500: 37,122
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
@@ -726,47 +779,54 @@ key: point.de.Bremen-Neustadt
 type: point
 events:
     -   date: !!null
-        name: Bremen Neustadt
-        source: src.de.Kb.1914
-    -   date: c1990
-        name: Bremen-Neustadt
-        source: src.de.DBAG.BSV.2016
-
-    -   date: !!null
-        category: de.Bf
-        de.rang: I
-        de.lknr: 23 001
-        source: src.de.Bfv.1933
-    -   date: c1940
-        de.lknr: 13 821
-        source: src.de.Bfv.1944
-    -   date: !!null
-        de.DS100: HBN
-        de.dstnr: !!str 138214
-        source: src.de.DS100.1984
-    -   date: !!null
-        de.name16: Bremen-Neustadt
-        PLC: DE11654
-        source: src.de.DBAG.BSV.2017
-
-    -   date: c2000
-        location:
-            line.de.1500: 41,779
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
-
-    -   date: !!null
         site:
             path.de.1500: bne.eg
     -   date: c2000
         site:
             path.de.1500: bne
 records:
+    -   date: 1914-07
+        name: Bremen Neustadt
+        document: src.de.Kb.1914
+
+    -   date: 1933-03-01
+        name: Bremen Neustadt
+        category: de.Bf
+        de.rang: I
+        de.lknr: 23 001
+        document: src.de.Bfv.1933
+    -   date: 1944-06-01
+        name: Bremen Neustadt
+        category: de.Bf
+        de.rang: I
+        de.lknr: 13 821
+        document: src.de.Bfv.1944
+
     -   date: 1983-11
         name: Bremen Neustadt
         category: de.Bf
         location:
             line.de.1500: 41,71 # right
         document: src.de.DB.Han.1983
+    -   date: 1984-06-03
+        name: Bremen Neustadt
+        category: de.Bf
+        de.DS100: HBN
+        de.dstnr: !!str 138214
+        document: src.de.DS100.1984
+
+    -   date: 2017-01
+        name: Bremen-Neustadt
+        de.name16: Bremen-Neustadt
+        PLC: DE11654
+        category: de.Bf
+        de.DS100: HBN
+        de.dstnr: !!str 138214
+        document: src.de.DBAG.BSV.2017
+    -   date: 2017-01
+        location:
+            line.de.1500: 41,779
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
@@ -774,21 +834,17 @@ key: point.de.Bremen-Hbf-Bwn
 type: point
 events:
     -   date: !!null
-        name: Bremen Hbf ehem Bwn
-        category: de.Bft
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.DS100: "HB  W"
-        de.dstnr: !!str 911805
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Brm Hbf ehem Bwn
-        PLC: DE11630
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
         site:
             path.de.1500: bwn
+records:
+    -   date: 2017-01
+        name: Bremen Hbf ehem Bwn
+        category: de.Bft
+        de.DS100: "HB  W"
+        de.dstnr: !!str 911805
+        de.name16: Brm Hbf ehem Bwn
+        PLC: DE11630
+        document: src.de.DBAG.BSV.2017
 
 
 #    point.de.Bremen-Hbf                         de.1740

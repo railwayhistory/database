@@ -9,14 +9,6 @@ events:
             - org.de
             - org.de.l.ni
 
-    -   date: !!null
-        de.VzG: !!str 1561
-        source: src.de.DBAG.Geo-Strecke.2017
-
-    -   date: !!null    
-        category: de.Nebenbahn
-        source: src.de.DRG.1927
-
     -   date: 1884-10-16
         concession:
             by: org.de.l.old
@@ -34,12 +26,42 @@ events:
     -   date: 1952-05-18
         passenger: none
         source: src.de.Rogl.1983
-    -   date: c1990
-        status: closed
-    -   date: c2000
-        status: removed
-        source: src.de.SuW.2005
+records:
+    -   date: 1927-03
+        category: de.Nebenbahn
+        tracks: 1
+        gauge: 1435mm
+        operator: org.de.e.old
+        document: src.de.DRG.1927
 
+    -   date: 1946-02
+        category: de.Nebenbahn
+        tracks: 1
+        gauge: 1435mm
+        operator: org.de.e.mst
+        document: src.de.DRG.Mst.1946
+
+    -   date: 1983-11
+        end: point.de.Schneiderkrug
+        status: closed
+        document: src.de.DB.Han.1983
+    -   date: 1983-11
+        start: point.de.Schneiderkrug
+        category: de.Nebenbahn
+        tracks: 1
+        gauge: 1435mm
+        operator: org.de.e.han
+        passenger: none
+        document: src.de.DB.Han.1983
+
+    -   date: 2005
+        status: closed
+        document: src.de.SuW.2005
+
+    -   date: 2017-01
+        de.VzG: !!str 1561
+        note: km 0,0+0 – 19,4+5
+        document: src.de.DBAG.Geo-Strecke.2017
 points:
     -   point.de.Ahlhorn                            # de.1502
     -   point.de.Schneiderkrug
@@ -57,32 +79,31 @@ points:
 ---
 key: point.de.Schneiderkrug
 type: point
-events:
-    -   date: !!null
+records:
+    -   date: 1914-07
         name: Schneiderkrug
-        source: src.de.Kb.1914
-    -   date: !!null
+        document: src.de.Kb.1914
+
+    -   date: 1933-03-01
+        name: Schneiderkrug
         category: de.Bf
         de.rang: III
         de.lknr: 23 124
-        source: src.de.Bfv.1933
-    -   date: 1935-01-01
+        document: src.de.Bfv.1933
+    -   date: 1944-06-01
+        name: Schneiderkrug
+        category: de.Bf
+        de.rang: III
         de.lknr: 21 613
-        source: src.de.Bfv.1944
-    -   date: !!null
-        de.DS100: HSKG
-        de.dstnr: !!str 216135
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Schneiderkrug
-        PLC: DE19421
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
+        document: src.de.Bfv.1944
+    -   date: 1946-02
+        name: Schneiderkrug
+        category: de.Bf
+        de.rang: III
         location:
-            line.de.1561: 10,12
-        source: src.de.DRG.Mst.1946
-records:
+            line.de.1561: 10,12 # links
+        document: src.de.DRG.Mst.1946
+
     -   date: 1983-11
         name: Schneiderkrug
         category: de.Bf
@@ -91,32 +112,44 @@ records:
             line.de.1601: 10,12 # left
         document: src.de.DB.Han.1983
 
+    -   date: 2017-01
+        name: Schneiderkrug
+        category: de.Bf
+        de.DS100: HSKG
+        de.dstnr: !!str 216135
+        de.name16: Schneiderkrug
+        PLC: DE19421
+        status: closed
+        document: src.de.DBAG.BSV.2017
+
 
 ---
 key: point.de.Langförden
 type: point
-events:
-    -   date: !!null
-        location:
-            line.de.1561: 13,52
-        source: src.de.DRG.Mst.1946
-    -   date: !!null
+records:
+    -   date: 1914-07
         name: Langförden
-        source: src.de.Kb.1914
-    -   date: !!null
+        document: src.de.Kb.1914
+
+    -   date: 1933-03-01
+        name: Langförden
         category: de.Hp
         de.lknr: 23 125
-        source: src.de.Bfv.1933
-    -   date: 1935-01-01
-        de.lknr: 21 614
-        source: src.de.Bfv.1944
-    -   date: c1940
+        document: src.de.Bfv.1933
+    -   date: 1944-06-01
+        name: Langförden
         category: de.Bf
         de.rang: IV
-        source: src.de.Bfv.1944
-    -   date: !!null
-        de.DS100: HLGN
-records:
+        de.lknr: 21 614
+        document: src.de.Bfv.1944
+    -   date: 1946-02
+        name: Langförden
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.1561: 13,52 # rechts
+        document: src.de.DRG.Mst.1946
+
     -   date: 1983-11
         name: Langförden
         category: de.Bf
@@ -130,25 +163,33 @@ records:
 key: point.de.Calveslage
 type: point
 events:
-    -   date: !!null
-        location:
-            line.de.1561: 15,91
-        source: src.de.DRG.Mst.1946
-    -   date: !!null
-        name: Calveslage
-        source: src.de.Kb.1914
-    -   date: !!null
-        de.lknr: 23 126
-        staff: agent
-        source: src.de.Bfv.1933
-    -   date: !!null
-        category: de.Hst
-        source: src.de.Bfv.1944
-    -   date: 1935-01-01
-        de.lknr: 21 615
-        source: src.de.Bfv.1944
     -   date: c1970
         status: closed
+records:
+    -   date: 1914-07
+        name: Calveslage
+        document: src.de.Kb.1914
+
+    -   date: 1933-03-01
+        name: Calveslage
+        category: de.Hp
+        de.lknr: 23 126
+        staff: agent
+        document: src.de.Bfv.1933
+    -   date: 1944-06-01
+        name: Calveslage
+        category: de.Hst
+        staff: agent
+        de.lknr: 21 615
+        document: src.de.Bfv.1944
+
+    -   date: 1946-02
+        name: Calveslage
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.1561: 15,91 # rechts
+        document: src.de.DRG.Mst.1946
 
 
 #    point.de.Vechta-Falkenrott                  de.1560

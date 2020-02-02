@@ -9,11 +9,6 @@ events:
             - org.de
             - org.de.l.ni
 
-    -   date: !!null
-        de.VzG: !!str 1521
-        source: src.de.DBAG.Geo-Strecke.2017
-
-
     #   Genehmigungen, Eigentümer, Betreiber
     #
     -   date: 1903-03-27
@@ -62,10 +57,6 @@ events:
         status: removed
         source: src.de.WP.Bahnstrecke-Cloppenburg-Ocholt
 
-    -   date: !!null
-        category: de.Nebenbahn
-        source: src.de.DRG.Mst.1946
-
     -   date: 2001-04-01
         start: point.de.Sedelsberg
         owner: org.de.Emsländische-Eisenbahn
@@ -80,7 +71,40 @@ events:
         source:
             -   src.de.WP.Bahnstrecke-Cloppenburg-Ocholt
             -   src.de.web.EBA.EIU # operator approved 2009-07-08
+records:
+    -   date: 1946-02
+        category: de.Nebenbahn
+        tracks: 1
+        gauge: 1435mm
+        operator: org.de.e.mst
+        source: src.de.DRG.Mst.1946
 
+    -   date: 1983-11
+        end: point.de.Friesoythe
+        category: de.Nebenbahn
+        tracks: 1
+        gauge: 1435mm
+        operator: org.de.e.han
+        source: src.de.DB.Han.1983
+    -   date: 1983-11
+        start: point.de.Friesoythe
+        end: point.de.Sedelsberg
+        status: closed
+        source: src.de.DB.Han.1983
+    -   date: 1983-11
+        start: point.de.Sedelsberg
+        category: de.Nebenbahn
+        tracks: 1
+        gauge: 1435mm
+        operator: org.de.e.han
+        source: src.de.DB.Han.1983
+
+    -   date: 2017-01
+        de.VzG: !!str 1521
+        note: >
+            Cloppenburg, W 10 - Westerstede-Ocholt, W 1;
+            km 0,4+51 – 63,3+20
+        source: src.de.DBAG.Geo-Strecke.2017
 points:
     -   point.de.Cloppenburg                        # de.1502
     -   point.de.Cloppenburg-Gr
@@ -120,37 +144,34 @@ points:
 ---
 key: point.de.Cloppenburg-Gr
 type: point
-events:
-    -   date: !!null
+subtype: reference
+records:
+    -   date: 2017-01
         name: Cloppenburg DB-Grenze
         category: de.Gp
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.DS100: HCLG
         de.dstnr: !!str 874909
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.name16: Cloppenb DB-Gr
         PLC: DE11962
-        source: src.de.DBAG.BSV.2017
-
-    -   date: c2000
+        document: src.de.DBAG.BSV.2017
+    -   date: 2017-01
         location:
             line.de.1521: 0,500
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Cloppenburg-Anst
 type: point
 events:
-    -   date: !!null
-        location:
-            line.de.1521: 2,6
-        category: de.Anst
-        source: src.de.DRG.Mst.1946
     -   date: c1975
         status: closed
+records:
+    -   date: 1946-02
+        location:
+            line.de.1521: 2,6 # right
+        category: de.Anst
+        document: src.de.DRG.Mst.1946
 
 
 ---
@@ -162,57 +183,40 @@ events:
         source:
             - src.de.web.MFC
             - src.de.web.FEG.SNB
-    -   date: !!null
+records:
+    -   date: 2017-01
         name: Bethen
         category: de.Hp
         de.DS100: HBTA
         de.dstnr: !!str 109872
         de.name16: Bethen
-        source: src.de.DBAG.BSV.2017
+        document: src.de.DBAG.BSV.2017
 
 
 ---
 key: point.de.Varrelbusch
 type: point
-events:
-    -   date: !!null
+records:
+    -   date: 1933-03-01
         name: Varrelbusch
-        source: src.de.Bfv.1933
-
-    -   date: !!null
-        category: [ de.Hp, de.Ldst ]
+        category: de.Hst
         staff: agent
         de.lknr: 23 144
-        source: src.de.Bfv.1933
-    -   date: 1938
+        document: src.de.Bfv.1933
+    -   date: 1944-06-01
+        name: Varrelbusch
         category: de.Bf
         de.rang: IV
-        source:
-            - src.de.Bfv.1944
-            - src.de.web.MFC
-    -   date: 1958
-        category: [ de.Hp, de.Anst ]
-        source: src.de.web.MFC
-    -   date: 1967
-        category: de.Anst
-        source: src.de.web.MFC
-
-    -   date: 1935-01-01
         de.lknr: 21 633
-        source: src.de.Bfv.1944
-    -   date: !!null
-        de.DS100: HVAB
-        de.dstnr: !!str 216333
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Varrelbusch
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
+        document: src.de.Bfv.1944
+    -   date: 1946-02
+        name: Varrelbusch
+        category: de.Bf
+        de.rang: IV
         location:
-            line.de.1521: 6,14
-        source: src.de.DRG.Mst.1946
-records:
+            line.de.1521: 6,14 # left
+        document: src.de.DRG.Mst.1946
+
     -   date: 1983-11
         name: Varrelbusch
         category: de.Bf
@@ -220,6 +224,15 @@ records:
         location:
             line.de.1521: 6,30 # left
         document: src.de.DB.Han.1983
+
+    -   date: 2017-01
+        de.DS100: HVAB
+        name: Varrelbusch
+        de.name16: Varrelbusch
+        category: de.Anst
+        de.dstnr: !!str 216333
+        document: src.de.DBAG.BSV.2017
+
 
 
 ---
@@ -231,34 +244,28 @@ events:
         source:
             - src.de.web.MFC
             - src.de.web.FEG.SNB
-    -   date: !!null
+
+records:
+    -   date: 2017-01
         name: Varrelbusch-Staatsforsten
         category: de.Hp
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.DS100: HVST
         de.dstnr: !!str 109866
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.name16: Staatsforsten
-        source: src.de.DBAG.BSV.2017
+        document: src.de.DBAG.BSV.2017
 
 
 ---
 key: point.de.Varrelbusch-Aumann
 type: point
-events:
-    -   date: !!null
+records:
+    -   date: 2017-01
         name: Varrelbusch Aumann
         category: de.Hp
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.DS100: HVAU
         de.dstnr: !!str 109869
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.name16: Varrelb Aumann
-        source: src.de.DBAG.BSV.2017
+        document: src.de.DBAG.BSV.2017
 
 
 ---
@@ -267,18 +274,44 @@ type: point
 events:
     -   date: c2000
         status: open
-    -   date: !!null
+records:
+    -   date: 2017-01
         name: Garrel
         category: de.Bf
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.DS100: HGLS
         de.dstnr: !!str 109871
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.name16: Garrel
-        source: src.de.DBAG.BSV.2017
+        document: src.de.DBAG.BSV.2017
+
+
+---
+key: point.de.Garrel-Hp
+type: point
 records:
+    -   date: 1914-07
+        name: Garrel
+        document: src.de.Kb.1914
+
+    -   date: 1933-03-01
+        name: Garrel
+        category: de.Bf
+        de.rang: IV
+        de.lknr: 23 145
+        document: src.de.Bfv.1933
+    -   date: 1944-06-01
+        name: Garrel
+        category: de.Bf
+        de.rang: IV
+        de.lknr: 21 634
+        document: src.de.Bfv.1944
+    -   date: 1946-02
+        name: Garrel
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.1521: 12,51 # right
+        document: src.de.DRG.Mst.1946
+
     -   date: 1983-11
         name: Garrel
         category: de.Bf
@@ -287,79 +320,43 @@ records:
             line.de.1521: 12,56 # right
         document: src.de.DB.Han.1983
 
-
----
-key: point.de.Garrel-Hp
-type: point
-events:
-    -   date: !!null
-        name: Garrel
-        source: src.de.Kb.1914
-    -   date: c2010
+    -   date: 2017-01
         name: Garrel Hp
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        category: de.Bf
-        de.rang: IV
-        de.lknr: 23 145
-        source: src.de.Bfv.1933
-    -   date: c2010
         category: de.Hp
-        source: src.de.DBAG.BSV.2017
-
-    -   date: 1935-01-01
-        de.lknr: 21 634
-        source: src.de.Bfv.1944
-
-    -   date: !!null
         de.DS100: HGAL
         de.dstnr: !!str 216341
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.name16: Garrel Hp
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.1521: 12,51
-        source: src.de.DRG.Mst.1946
+        document: src.de.DBAG.BSV.2017
 
 
 ---
 key: point.de.Bösel
 type: point
-events:
-    -   date: !!null
+records:
+    -   date: 1914-07
         name: Bösel
-        source: src.de.Kb.1914
+        document: src.de.Kb.1914
 
-    -   date: !!null
+    -   date: 1933-03-01
+        name: Bösel
         category: de.Hp
         staff: agent
         de.lknr: 23 146
-        source: src.de.Bfv.1933
-    -   date: c1940
+        document: src.de.Bfv.1933
+    -   date: 1944-06-01
+        name: Bösel
         category: de.Bf
         de.rang: IV
-        source: src.de.Bfv.1944
-
-    -   date: 1935-01-01
         de.lknr: 21 635
-        source: src.de.Bfv.1944
-    -   date: !!null
-        de.DS100: HBSL
-        de.dstnr: !!str 216358
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Bösel
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
+        document: src.de.Bfv.1944
+    -   date: 1946-02
+        name: Bösel
+        category: de.Bf
+        de.rang: IV
         location:
-            line.de.1521: 19,91
-        source: src.de.DRG.Mst.1946
-records:
+            line.de.1521: 19,91 # right
+        document: src.de.DRG.Mst.1946
+
     -   date: 1983-11
         name: Bösel
         category: de.Bf
@@ -368,77 +365,72 @@ records:
             line.de.1521: 19,83 # right
         document: src.de.DB.Han.1983
 
+    -   date: 2017-01
+        de.DS100: HBSL
+        name: Bösel
+        de.name16: Bösel
+        category: de.Bf
+        de.dstnr: !!str 216358
+        document: src.de.DBAG.BSV.2017
+
+
+# 21,6 Anst left src.de.DRG.Mst.1946
+
 
 ---
 key: point.de.Friesoythe-Leoni
 type: point
-events:
-    -   date: !!null
+records:
+    -   date: 2017-01
         name: Friesoythe Leoni
         category: de.Anst
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.DS100: HLWF
         de.dstnr: !!str 385914
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.name16: Leoni Friesoythe
-        source: src.de.DBAG.BSV.2017
+        document: src.de.DBAG.BSV.2017
 
 
 ---
 key: point.de.Friesoythe-Bruns
 type: point
-events:
-    -   date: !!null
+records:
+    -   date: 2017-01
         name: Friesoythe Bruns
         category: de.Anst
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.DS100: HBRU
         de.dstnr: !!str 385906
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.name16: Bruns Friesoythe
-        source: src.de.DBAG.BSV.2017
-
-
-# src.de.DRG.Mst.1946: Anst in km 26,1
+        document: src.de.DBAG.BSV.2017
 
 
 ---
 key: point.de.Friesoythe
 type: point
-events:
-    -   date: !!null
+records:
+    -   date: 1914-07
         name: Friesoythe
-        source: src.de.Kb.1914
+        document: src.de.Kb.1914
 
-    -   date: !!null
+    -   date: 1933-03-01
+        name: Friesoythe
         category: de.Bf
         de.rang: II
         de.lknr: 23 147
-        source: src.de.Bfv.1933
-    -   date: c2000
-        category: de.Hp
-        source: src.de.DBAG.BSV.2017
-
-    -   date: 1935-01-01
+        document: src.de.Bfv.1933
+    -   date: 1944-06-01
+        name: Friesoythe
+        category: de.Bf
+        de.rang: II
         de.lknr: 21 636
-        source: src.de.Bfv.1944
-    -   date: !!null
-        de.DS100: HFRY
-        de.dstnr: !!str 216366
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Friesoythe
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
+        document: src.de.Bfv.1944
+    -   date: 1946-02
+        name: Friesoythe
+        category: de.Bf
+        de.rang: II
         location:
-            line.de.1521: 26,33
-        source: src.de.DRG.Mst.1946
-records:
+            line.de.1521: 26,33 # left
+        document: src.de.DRG.Mst.1946
+
     -   date: 1983-11
         name: Friesoythe
         category: de.Bf
@@ -446,53 +438,60 @@ records:
             line.de.1521: 26,33 # left
         document: src.de.DB.Han.1983
 
+    -   date: 2017-01
+        de.DS100: HFRY
+        name: Friesoythe
+        de.name16: Friesoythe
+        category: de.Hp
+        de.dstnr: !!str 216366
+        document: src.de.DBAG.BSV.2017
+
+
 
 ---
 key: point.de.Friesoythe-Kan
 type: point
-events:
-    -   date: !!null
+records:
+    -   date: 1946-02
         location:
-            line.de.1521: 28,98
+            line.de.1521: 28,98 # left
         category: de.Bf
         de.rang: IV
         name: Friesoythe Kan
-        source: src.de.DRG.Mst.1946
+        document: src.de.DRG.Mst.1946
+
+
+# 31,246 Anst right src.de.DRG.Mst.1946
 
 
 ---
 key: point.de.Sedelsberg
 type: point
-events:
-    -   date: !!null
+records:
+    -   date: 1914-07
         name: Sedelsberg
-        source: src.de.Kb.1914
+        document: src.de.Kb.1914
 
-    -   date: !!null
+    -   date: 1933-03-01
+        name: Sedelsberg
         category: de.Bf
         de.rang: IV
         de.lknr: 23 149
-        source: src.de.Bfv.1933
-    -   date: c2000
-        category: de.Anst
-        source: src.de.DBAG.BSV.2017
-
-    -   date: 1935-01-01
+        document: src.de.Bfv.1933
+    -   date: 1944-06-01
+        name: Sedelsberg
+        category: de.Bf
+        de.rang: IV
         de.lknr: 21 638
-        source: src.de.Bfv.1944
-    -   date: !!null
-        de.DS100: HSEB
-        de.dstnr: !!str 216382
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Sedelsberg
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
+        document: src.de.Bfv.1944
+    -   date: 1946-02
+        name: Sedelsberg
+        category: de.Bf
+        de.rang: IV
         location:
-            line.de.1521: 34,49
-        source: src.de.DRG.Mst.1946
-records:
+            line.de.1521: 34,49 # right
+        document: src.de.DRG.Mst.1946
+
     -   date: 1983-11
         name: Sedelsberg
         category: de.Bf
@@ -500,49 +499,71 @@ records:
             line.de.1521: 34,50 # right
         document: src.de.DB.Han.1983
 
+    -   date: 2017-01
+        de.DS100: HSEB
+        name: Sedelsberg
+        de.name16: Sedelsberg
+        category: de.Anst
+        de.dstnr: !!str 216382
+        document: src.de.DBAG.BSV.2017
+    -   date: 2019-12-15
+        name: Sedelsberg
+        category: de.Bf
+        location:
+            line.de.1521: 34,5
+        document: src.de.Emsländische-Eisenbahn.SNB-BT.2019
+
+
+# 34,7 Anst right src.de.DRG.Mst.1946
+
+# 35,4 Anst right src.de.DRG.Mst.1946
+
+# 36,7 Anst left src.de.DRG.Mst.1946
+
 
 ---
 key: point.de.Scharrel-Union
 type: point
-events:
-    -   date: !!null
+records:
+    -   date: 2017-01
         name: Scharrel Union
         category: de.Anst
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.DS100: HUA
         de.dstnr: !!str 339705
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.name16: Union
-        source: src.de.DBAG.BSV.2017
+        document: src.de.DBAG.BSV.2017
 
 
 ---
 key: point.de.Scharrel
 type: point
-events:
-    -   date: !!null
-        location:
-            line.de.1521: 38,89
-        source: src.de.DRG.Mst.1946
-    -   date: !!null
+records:
+    -   date: 1914-07
         name: Scharrel
-        source: src.de.Kb.1914
-    -   date: !!null
+        document: src.de.Kb.1914
+
+    -   date: 1933-03-01
+        name: Scharrel
         category: de.Bf
         de.rang: IV
         staff: agent
         de.lknr: 23 150
-        source: src.de.Bfv.1933
-    -   date: 1935-01-01
+        document: src.de.Bfv.1933
+    -   date: 1944-06-01
+        name: Scharrel
+        category: de.Bf
+        de.rang: IV
+        staff: agent
         de.lknr: 21 639
-        source: src.de.Bfv.1944
-    -   date: !!null
-        de.DS100: HSRL
-    -   date: c2000
-        status: closed
-records:
+        document: src.de.Bfv.1944
+    -   date: 1946-02
+        name: Scharrel
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.1521: 38,89 # left
+        document: src.de.DRG.Mst.1946
+
     -   date: 1983-11
         name: Scharrel
         category: de.Bf
@@ -551,61 +572,59 @@ records:
             line.de.1521: 38,89 # left
         document: src.de.DB.Han.1983
 
+    -   date: 2019-12-15
+        name: Scharrel
+        category: de.Bf
+        location:
+            line.de.1521: 38,9
+        document: src.de.Emsländische-Eisenbahn.SNB-BT.2019
+
 
 ---
 key: point.de.Scharrel-Ton-und-Torfwerke
 type: point
-events:
-    -   date: !!null
+records:
+    -   date: 2017-01
         name: Scharrel Ton- und Torfwerke
         category: de.Anst
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.DS100: HTBR
         de.dstnr: !!str 339697
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.name16: Ton- u Torfwerke
-        source: src.de.DBAG.BSV.2017
+        document: src.de.DBAG.BSV.2017
+
+
+# 39,97 Anst left src.de.DRG.Mst.1946
 
 
 ---
 key: point.de.Ramsloh
 type: point
-events:
-    -   date: !!null
+records:
+    -   date: 1914-07
         name: Ramsloh
-        source: src.de.Kb.1914
-    -   date: !!null
+        document: src.de.Kb.1914
+
+    -   date: 1933-03-01
+        name: Ramsloh
         category: de.Hp
         staff: agent
         de.lknr: 23 151
-        source: src.de.Bfv.1933
-    -   date: c1940
+        document: src.de.Bfv.1933
+    -   date: 1944-06-01
+        name: Ramsloh
         category: de.Bf
         de.rang: IV
         staff: full
-        source: src.de.Bfv.1944
-    -   date: c2000
-        category: de.Anst
-        source: src.de.DBAG.BSV.2017
-
-    -   date: 1935-01-01
         de.lknr: 21 640
-        source: src.de.Bfv.1944
-    -   date: !!null
-        de.DS100: HRAM
-        de.dstnr: !!str 216408
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Ramsloh
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
+        document: src.de.Bfv.1944
+    -   date: 1946-02
+        name: Ramsloh
+        category: de.Bf
+        de.rang: IV
         location:
-            line.de.1521: 42,38
-        source: src.de.DRG.Mst.1946
-records:
+            line.de.1521: 42,38 # right
+        document: src.de.DRG.Mst.1946
+
     -   date: 1983-11
         name: Ramsloh
         category: de.Bf
@@ -614,32 +633,52 @@ records:
             line.de.1521: 42,42 # right
         document: src.de.DB.Han.1983
 
+    -   date: 2017-01
+        de.DS100: HRAM
+        name: Ramsloh
+        de.name16: Ramsloh
+        category: de.Anst
+        de.dstnr: !!str 216408
+        document: src.de.DBAG.BSV.2017
+    -   date: 2019-12-15
+        name: Ramsloh
+        category: de.Bf
+        location:
+            line.de.1521: 42,2
+        document: src.de.Emsländische-Eisenbahn.SNB-BT.2019
+
+
+# 42,932 BA-Grenze Oldenburg 2/Oldenburg 1 src.de.DRG.Mst.1946
+
 
 ---
 key: point.de.Strücklingen
 type: point
-events:
-    -   date: !!null
-        location:
-            line.de.1521: 46,00
-        source: src.de.DRG.Mst.1946
-    -   date: !!null
+records:
+    -   date: 1914-07
         name: Strücklingen
-        source: src.de.Kb.1914
-    -   date: !!null
+        document: src.de.Kb.1914
+
+    -   date: 1933-03-01
+        name: Strücklingen
         category: de.Bf
         de.rang: IV
         de.lknr: 23 152
-        source: src.de.Bfv.1933
-    -   date: 1935-01-01
+        document: src.de.Bfv.1933
+    -   date: 1944-06-01
+        name: Strücklingen
+        category: de.Bf
+        de.rang: IV
         de.lknr: 21 641
-        source: src.de.Bfv.1944
-    -   date: c1975
-        status: closed
-    -   date: c2005
-        status: open
-        source: src.de.web.EEB.SNB
-records:
+        document: src.de.Bfv.1944
+    -   date: 1946-02
+        name: Strücklingen
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.1521: 46,0 # left
+        document: src.de.DRG.Mst.1946
+
     -   date: 1983-11
         name: Strücklingen
         category: de.Bf
@@ -648,43 +687,42 @@ records:
             line.de.1521: 45,94 # left
         document: src.de.DB.Han.1983
 
+    -   date: 2019-12-15
+        name: Strücklingen
+        category: de.Bf
+        location:
+            line.de.1521: 45,9
+        document: src.de.Emsländische-Eisenbahn.SNB-BT.2019
+
 
 ---
 key: point.de.Elisabethfehn
 type: point
-events:
-    -   date: !!null
+records:
+    -   date: 1914-07
         name: Elisabethfehn
-        source: src.de.Kb.1914
-    -   date: !!null
+        document: src.de.Kb.1914
+
+    -   date: 1933-03-01
+        name: Elisabethfehn
         category: de.Bf
         de.rang: III
         de.lknr: 23 153
-        source: src.de.Bfv.1933
-
-    -   date: c2000
-        category: de.Anst
-        source: src.de.DBAG.BSV.2017
-
-    -   date: 1935-01-01
+        document: src.de.Bfv.1933
+    -   date: 1944-06-01
+        name: Elisabethfehn
+        category: de.Bf
+        de.rang: III
         de.lknr: 21 642
-        source: src.de.Bfv.1944
-    -   date: !!null
-        de.DS100: HELN
-        de.dstnr: !!str 216424
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Elisabethfehn
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
+        document: src.de.Bfv.1944
+    -   date: 1946-02
+        name: Elisabethfehn
+        category: de.Bf
+        de.rang: III
         location:
-            line.de.1521: 49,35
-        source: src.de.DRG.Mst.1946
-    -   date: c1980
-        category: de.Anst
-        source: src.de.SuW.2005
-records:
+            line.de.1521: 49,35 # left
+        document: src.de.DRG.Mst.1946
+
     -   date: 1983-11
         name: Elisabethfehn
         category: de.Bf
@@ -693,6 +731,20 @@ records:
             line.de.1521: 49,36 # left
         document: src.de.DB.Han.1983
 
+    -   date: 2017-01
+        de.DS100: HELN
+        name: Elisabethfehn
+        de.name16: Elisabethfehn
+        category: de.Anst
+        de.dstnr: !!str 216424
+        document: src.de.DBAG.BSV.2017
+    -   date: 2019-12-15
+        name: Elisabethfehn
+        category: de.Bf
+        location:
+            line.de.1521: 49,4
+        document: src.de.Emsländische-Eisenbahn.SNB-BT.2019
+
 
 ---
 key: point.de.Barßel-Hafen
@@ -700,39 +752,43 @@ type: point
 events:
     -   date: c2005
         status: open
+records:
+    -   date: 2019-12-15
+        name: Barßel Hafen
+        category: de.Hp
         location:
             line.de.1521: 51,8
-        category: de.Hp
-        name: Barßel Hafen
-        source: src.de.web.EEB.SNB
+        document: src.de.Emsländische-Eisenbahn.SNB-BT.2019
 
 
 ---
 key: point.de.Barßel
 type: point
-events:
-    -   date: !!null
-        location:
-            line.de.1521: 52,33
-        source: src.de.DRG.Mst.1946
-    -   date: !!null
+records:
+    -   date: 1914-07
         name: Barßel
-        source: src.de.Kb.1914
-    -   date: !!null
+        document: src.de.Kb.1914
+
+    -   date: 1933-03-01
+        name: Barßel
         category: de.Bf
         de.rang: IV
         de.lknr: 23 154
-        source: src.de.Bfv.1933
-    -   date: 1935-01-01
+        document: src.de.Bfv.1933
+    -   date: 1944-06-01
+        name: Barßel
+        category: de.Bf
+        de.rang: IV
         de.lknr: 21 643
-        source: src.de.Bfv.1944
-    -   date: !!null
-        de.DS100: HBRL
-        de.dstnr: !!str 216432
-        source: src.de.DS100.1984
-    -   date: c2000
-        status: closed
-records:
+        document: src.de.Bfv.1944
+    -   date: 1946-02
+        name: Barßel
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.1521: 52,33 # left
+        document: src.de.DRG.Mst.1946
+
     -   date: 1983-11
         name: Barßel
         category: de.Bf
@@ -740,6 +796,19 @@ records:
         location:
             line.de.1521: 52,43 # left
         document: src.de.DB.Han.1983
+    -   date: 1984-06-03
+        name: Barßel
+        category: de.Bf
+        de.DS100: HBRL
+        de.dstnr: !!str 216432
+        document: src.de.DS100.1984
+
+    -   date: 2019-12-15
+        name: Barßel
+        category: de.Bf
+        location:
+            line.de.1521: 52,4
+        document: src.de.Emsländische-Eisenbahn.SNB-BT.2019
 
 
 ---
@@ -749,42 +818,52 @@ events:
     -   date: c1920
         status: open
         source: src.de.Bfv.1933
-    -   date: !!null
-        location:
-            line.de.1521: 55,20
-        source: src.de.DRG.Mst.1946
-    -   date: !!null
+    -   date: c1980
+        status: closed
+records:
+    -   date: 1933-03-01
         name: Karolinenhof
         category: de.Hp
         staff: none
         master: point.de.Westerstede-Ocholt
         de.lknr: 23 155
-        source: src.de.Bfv.1933
-    -   date: 1935-01-01
+        document: src.de.Bfv.1933
+    -   date: 1944-06-01
+        name: Karolinenhof
+        category: de.Hp
+        staff: none
+        master: point.de.Westerstede-Ocholt
         de.lknr: 21 644
-        source: src.de.Bfv.1944
-    -   date: c1945
+        document: src.de.Bfv.1944
+    -   date: 1946-02
         name: Carolinenhof
-        source: src.de.DRG.Mst.1946
-    -   date: c1980
-        status: closed
+        category: de.Hp
+        location:
+            line.de.1521: 55,20 # right
+        document: src.de.DRG.Mst.1946
+
+    -   date: 2019-12-15
+        name: Carolinenhof
+        category: de.Hp
+        location:
+            line.de.1521: 55,1
+        document: src.de.Emsländische-Eisenbahn.SNB-BT.2019
+
+
+# 55,28 Anst right? src.de.DRG.Mst.1946
 
 
 ---
 key: point.de.Godensholt-Westfalen-AG
 type: point
-events:
-    -   date: !!null
+records:
+    -   date: 2017-01
         name: Godensholt Westfalen AG
         category: de.Anst
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.DS100: HGDW
         de.dstnr: !!str 628602
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.name16: Westf AG
-        source: src.de.DBAG.BSV.2017
+        document: src.de.DBAG.BSV.2017
     
 
 ---
@@ -794,29 +873,19 @@ events:
     -   date: c1940
         status: open
         source: src.de.Bfv.1944
-
-    -   date: !!null
+records:
+    -   date: 1944-06-01
         name: Godensholt
         category: de.Hp
         de.lknr: 21 646
-        source: src.de.Bfv.1944
-    -   date: c2000
-        category: de.Anst
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        de.DS100: HGDH
-        de.dstnr: !!str 216465
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Godensholt
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
+        document: src.de.Bfv.1944
+    -   date: 1946-02
+        name: Godensholt
+        category: de.Hp
         location:
-            line.de.1521: 57,45
-        source: src.de.DRG.Mst.1946
-records:
+            line.de.1521: 57,45 # right
+        document: src.de.DRG.Mst.1946
+
     -   date: 1983-11
         name: Godensholt
         category: de.Bf
@@ -825,23 +894,34 @@ records:
             line.de.1521: 57,52 # right
         document: src.de.DB.Han.1983
 
+    -   date: 2017-01
+        category: de.Anst
+        de.DS100: HGDH
+        de.dstnr: !!str 216465
+        de.name16: Godensholt
+        document: src.de.DBAG.BSV.2017
+
+
+# 58,? Anst right src.de.DRG.Mst.1946
+
+# 60,38 Anst right src.de.DRG.Mst.1946
+
+# 60,9 Anst right src.de.DRG.Mst.1946
+
 
 ---
 key: point.de.Westerstede-Ocholt-Gr
 type: point
-events:
-    -   date: !!null
+subtype: reference
+records:
+    -   date: 2017-01
         name: Westerstede-Ocholt DB-Grenze
         category: de.Gp
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.DS100: HOCG
         de.dstnr: !!str 108560
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.name16: Ocholt DB-Gr
         PLC: DE21058
-        source: src.de.DBAG.BSV.2017
+        document: src.de.DBAG.BSV.2017
 
 
 #    point.de.Westerstede-Ocholt                 de.1520

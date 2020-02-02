@@ -9,18 +9,6 @@ events:
             - org.de
             - org.de.l.ni
 
-    -   date: !!null
-        de.VzG: !!str 1534
-        note:
-            deu: >
-                Quelle nennt als Ausgangspunkt „Westerstede (Ocholt)“ aber
-                km 0,0+0.
-        source: src.de.DBAG.Geo-Strecke.2017
-
-    -   date: !!null
-        category: de.Nebenbahn
-        source: src.de.DRG.1927
-
     #   Schmalspurbahn Westerstede - Ocholt
     #   
     -   date: 1874-12-22
@@ -104,7 +92,39 @@ events:
         start: point.de.Westerstede-Oldb
         status: closed
         source: src.de.web.EBA.Still # Nr. 400
+records:
+    -   date: 1927-03
+        category: de.Nebenbahn
+        tracks: 1
+        gauge: 1435mm
+        operator: org.de.e.old
+        document: src.de.DRG.1927
 
+    -   date: 1946-02
+        category: de.Nebenbahn
+        tracks: 1
+        gauge: 1435mm
+        operator: org.de.e.mst
+        document: src.de.DRG.Mst.1946
+
+    -   date: 1983-11
+        end: point.de.Westerstede-Oldb
+        status: closed
+        document: src.de.DB.Han.1983
+    -   date: 1983-11
+        category: de.Nebenbahn
+        tracks: 1
+        gauge: 1435mm
+        passenger: none
+        operator: org.de.e.han
+        document: src.de.DB.Han.1983
+
+    -   date: 2017-01
+        de.VzG: !!str 1534
+        note: > 
+            Westerstede (Oldb) - Westerstede-Ocholt, W 22;
+            km 0,0+0 – 30,1+78
+        document: src.de.DBAG.Geo-Strecke.2017
 points:
     -   point.de.Ellenserdamm                       # de.1522
     -   point.de.Steinhausen-Oldb
@@ -121,32 +141,41 @@ points:
 
 #-----------------------------------------------------------------------------
 
-# point.de.Ellenserdamm                       de.1522
+#    point.de.Ellenserdamm                       de.1522
+
 
 ---
 key: point.de.Steinhausen-Oldb
 type: point
-events:
-    -   date: !!null
-        location:
-            line.de.1534: 2,6
-        source: src.de.DRG.Mst.1946
-    -   date: !!null
+records:
+    -   date: 1914-07
         name: Steinhausen (Oldbg)
-        source: src.de.Kb.1914
-    -   date: !!null
+        document: src.de.Kb.1914
+
+    -   date: 1933-03-01
+        name: Steinhausen (Oldbg)
+        category: de.Hp
         staff: agent
         de.lknr: 23 163
-        source: src.de.Bfv.1933
-    -   date: !!null
-        category: de.Hst
-        source: src.de.Bfv.1944
-    -   date: 1935-01-01
-        de.lknr: 21 652
-        source: src.de.Bfv.1944
-    -   date: c1935
+        document: src.de.Bfv.1933
+    -   date: 1937-10-03
         name: Steinhausen (Oldb)
-        source: src.de.Kb.W1937
+        document: src.de.Kb.W1937
+    -   date: 1944-06-01
+        name: Steinhausen (Oldb)
+        category: de.Hst
+        staff: agent
+        de.lknr: 21 652
+        document: src.de.Bfv.1944
+    -   date: !!null
+        name: Steinhausen (Oldb)
+        category: de.Hst
+        location:
+            line.de.1534: 2,6 # links
+        document: src.de.DRG.Mst.1946
+
+
+# 3,68 Anst rechts src.de.DRG.Mst.1946
 
 
 # point.de.Bockhorn                           de.1532
@@ -155,175 +184,211 @@ events:
 ---
 key: point.de.Grabstede
 type: point
-events:
-    -   date: !!null
-        location:
-            line.de.1534: 8,30
-        source: src.de.DRG.Mst.1946
-    -   date: !!null
+records:
+    -   date: 1914-07
         name: Grabstede
-        source: src.de.Kb.1914
-    -   date: !!null
+        document: src.de.Kb.1914
+
+    -   date: 1933-03-01
+        name: Grabstede
         category: de.Bf
         de.rang: IV
         de.lknr: 23 162
-        source: src.de.Bfv.1933
-    -   date: 1935-01-01
+        document: src.de.Bfv.1933
+    -   date: 1944-06-01
+        name: Grabstede
+        category: de.Bf
+        de.rang: IV
         de.lknr: 21 651
-        source: src.de.Bfv.1944
+        document: src.de.Bfv.1944
+    -   date: 1946-02
+        name: Grabstede
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.1534: 8,30 # rechts 
+        document: src.de.DRG.Mst.1946
+
+
+# 8,8 Anst rechts src.de.DRG.Mst.1946
+
 
 ---
 key: point.de.Moorwinkelsdamm
 type: point
-events:
-    -   date: !!null
-        location:
-            line.de.1534: 13,36
-        source: src.de.DRG.Mst.1946
-    -   date: !!null
+records:
+    -   date: 1914-07
         name: Moorwinkelsdamm
-        source: src.de.Kb.1914
-    -   date: !!null
+        document: src.de.Kb.1914
+
+    -   date: 1933-03-01
+        name: Moorwinkelsdamm
         category: [ de.Hp, de.Ldst ]
         staff: agent
         de.lknr: 23 161
-        source: src.de.Bfv.1933
+        document: src.de.Bfv.1933
     -   date: 1935-01-01
-        de.lknr: 21 650
-        source: src.de.Bfv.1944
-    -   date: c1940
+        name: Moorwinkelsdamm
         category: de.Hst
-        source: src.de.Bfv.1944
+        staff: agent
+        de.lknr: 23 161
+        de.lknr: 21 650
+        document: src.de.Bfv.1944
+    -   date: 1946-02
+        name: Moorwinkelsdamm
+        location:
+            line.de.1534: 13,36 # links
+        document: src.de.DRG.Mst.1946
+
 
 ---
 key: point.de.Eggeloge
 type: point
-events:
-    -   date: !!null
-        location:
-            line.de.1534: 16,34
-        source: src.de.DRG.Mst.1946
-    -   date: !!null
+records:
+    -   date: 1914-07
         name: Eggeloge
-        source: src.de.Kb.1914
-    -   date: !!null
+        document: src.de.Kb.1914
+
+    -   date: 1933-03-01
+        name: Eggeloge
+        category: de.Hp
         staff: agent
         de.lknr: 23 160
-        source: src.de.Bfv.1933
-    -   date: !!null
+        document: src.de.Bfv.1933
+    -   date: 1944-06-01
+        name: Eggeloge
         category: de.Hst
-        source: src.de.Bfv.1944
-    -   date: 1935-01-01
+        staff: agent
         de.lknr: 21 649
-        source: src.de.Bfv.1944
+        document: src.de.Bfv.1944
+    -   date: 1946-02
+        name: Eggeloge
+        location:
+            line.de.1534: 16,34 # rechts
+        document: src.de.DRG.Mst.1946
+
 
 ---
 key: point.de.Linswege
 type: point
-events:
-    -   date: !!null
-        location:
-            line.de.1534: 19,45
-        source: src.de.DRG.Mst.1946
-    -   date: !!null
+records:
+    -   date: 1914-07
         name: Linswege
-        source: src.de.Kb.1914
-    -   date: !!null
+        document: src.de.Kb.1914
+
+    -   date: 1933-03-01
+        name: Linswege
+        category: de.Hp
         staff: agent
         de.lknr: 23 159
-        source: src.de.Bfv.1933
-    -   date: !!null
+        document: src.de.Bfv.1933
+    -   date: 1944-06-01
+        name: Linswege
         category: de.Hst
-        source: src.de.Bfv.1944
-    -   date: 1935-01-01
+        staff: agent
         de.lknr: 21 648
-        source: src.de.Bfv.1944
+        document: src.de.Bfv.1944
+    -   date: 1946-02
+        name: Linswege
+        location:
+            line.de.1534: 19,45 # links
+        document: src.de.DRG.Mst.1946
 
 
 ---
 key: point.de.Westerstede-Oldb
 type: point
-events:
-    -   date: !!null
+records:
+    -   date: 1914-07
         name: Westerstede (Oldbg)
-        source: src.de.Kb.1914
-    -   date: c1935
-        name: Westerstede (Oldb)
-        source: src.de.Kb.W1937
+        document: src.de.Kb.1914
 
-    -   date: !!null
+    -   date: 1933-03-01
+        name: Westerstede (Oldbg)
         category: de.Bf
         de.rang: III
-        source: src.de.Bfv.1933
-    -   date: c2000
-        category: de.Anst
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
         de.lknr: 23 158
-        source: src.de.Bfv.1933
-    -   date: 1935-01-01
+        document: src.de.Bfv.1933
+    -   date: 1937-10-03
+        name: Westerstede (Oldb)
+        document: src.de.Kb.W1937
+    -   date: 1944-06-01
+        name: Westerstede (Oldb)
+        category: de.Bf
+        de.rang: III
         de.lknr: 21 647
-        source: src.de.Bfv.1944
-    -   date: !!null
-        de.DS100: HWSD
-        de.dstnr: !!str 216473
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Westerstede/Oldb
-        PLC: DE21055
-        source: src.de.DBAG.BSV.2017
-    -   date: 2003-05-06?
-        status: closed
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
+        document: src.de.Bfv.1944
+    -   date: 1946-02
+        name: Westerstede (Oldb)
+        category: de.Bf
+        de.rang: III
         location:
-            line.de.1534: 22,57
-        source: src.de.DRG.Mst.1946
+            line.de.1534: 22,57 # rechts
+        document: src.de.DRG.Mst.1946
+
+    -   date: 1983-11
+        name: Westerstede (Oldb)
+        category: de.Bf
+        staff: none
+        location:
+            line.de.1534: 22,57 # rechts
+        document: src.de.DB.Han.1983
+
+    -   date: 2017-01
+        de.DS100: HWSD
+        name: Westerstede (Oldb)
+        de.name16: Westerstede/Oldb
+        category: de.Anst
+        de.dstnr: !!str 216473
+        PLC: DE21055
+        status: closed
+        document: src.de.DBAG.BSV.2017
+
 
 
 ---
 key: point.de.Westerstede-Oldb-Klamperesch
 type: point
-events:
-    -   date: !!null
+records:
+    -   date: 2017-01
         name: Westerstede (Oldb) Klamperesch
         category: de.Anst
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.DS100: HKLA
         de.dstnr: !!str 339663
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.name16: Klamperesch
         PLC: DE21056
-        source: src.de.DBAG.BSV.2017
+        document: src.de.DBAG.BSV.2017
 
 
 ---
 key: point.de.Südholt
 type: point
 events:
-    -   date: !!null
-        location:
-            line.de.1534: 26,77
-        source: src.de.DRG.Mst.1946
-    -   date: !!null
-        name: Südholt
-        source: src.de.Kb.1914
-    -   date: !!null
-        staff: agent
-        de.lknr: 23 156
-        source: src.de.Bfv.1933
-    -   date: !!null
-        category: de.Hst
-        source: src.de.Bfv.1944
-    -   date: 1935-01-01
-        de.lknr: 21 645
-        source: src.de.Bfv.1944
     -   date: c1980
         status: closed
+records:
+    -   date: 1914-07
+        name: Südholt
+        document: src.de.Kb.1914
+
+    -   date: 1933-03-01
+        name: Südholt
+        category: de.Hp
+        staff: agent
+        de.lknr: 23 156
+        document: src.de.Bfv.1933
+    -   date: 1944-06-01
+        name: Südholt
+        category: de.Hst
+        staff: agent
+        de.lknr: 21 645
+        document: src.de.Bfv.1944
+
+    -   date: 1946-02
+        name: Südholt
+        location:
+            line.de.1534: 26,77 # rechts
+        document: src.de.DRG.Mst.1946
 
 
 #    point.de.Westerstede-Ocholt                 de.1520

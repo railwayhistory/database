@@ -9,14 +9,6 @@ events:
             - org.de
             - org.de.l.ni
 
-    -   date: !!null
-        de.VzG: !!str 1575
-        source: src.de.DBAG.Geo-Strecke.2017
-
-    -   date: !!null
-        category: de.Hauptbahn
-        source: src.de.DRG.Mst.1946
-
     -   date: 1874-03-17
         treaty:
             parties:
@@ -40,9 +32,45 @@ events:
     -   date: 1876-11-26
         status: open
         source: src.de.DRG.1935 # 1876/51
+records:
+    -   date: 1927-03
+        start: point.de.Ihrhove-Gr
+        category: de.Hauptbahn
+        tracks: 1
+        gauge: 1435mm
+        operator: org.de.e.old
+        note:
+            deu:
+                Unter Verwaltung der RBD Oldenburg weiter bis km 18,34 vor
+                Bf Neuschanz, Unterhaltungsgrenze in km 18,03.
+            eng:
+                Operated by RBD Oldenburg further to km 18,34 before Neuschanz
+                station. Maintainance boundary in km 18,03.
+        document: src.de.DRG.1927
 
+    -   date: !!null
+        category: de.Hauptbahn
+        tracks: 1
+        gauge: 1435mm
+        operator: org.de.e.mst
+        document: src.de.DRG.Mst.1946
+
+    -   date: 1983-11
+        category: de.Nebenbahn
+        tracks: 1
+        gauge: 1435mm
+        operator: org.de.e.han
+        document: src.de.DB.Han.1983
+
+    -   date: 2017-01
+        de.VzG: !!str 1575
+        note: >
+            Ihrhove, W 13 – Weener (DB-Grenze);
+            km −0,1−15 – 17,4+90
+        document: src.de.DBAG.Geo-Strecke.2017
 points:
     -   point.de.Ihrhove                            # de.2931
+    -   point.de.Ihrhove-Gr
     -   point.de.Hilkenborg
     -   point.de.Weener-Friesenbrücke
     -   point.de.Weener
@@ -57,85 +85,93 @@ points:
 
 
 ---
+key: point.de.Ihrhove-Gr
+type: point
+subtype: reference
+events:
+    -   date: !!null
+        designation: Ihrhove Mst/Old
+records:
+    -   date: 1927-03
+        location:
+            line.de.1575: 1,74
+        document: src.de.DRG.1927
+
+
+---
 key: point.de.Hilkenborg
 type: point
 events:
-    -   date: !!null
-        location:
-            line.de.1575: 5,54
-        source: src.de.DRG.Mst.1946
-    -   date: !!null
+    -   date: c1975
+        status: closed
+records:
+    -   date: 1914-07
         name: Hilkenborg
-        source: src.de.Kb.1914
-    -   date: !!null
+        document: src.de.Kb.1914
+
+    -   date: 1933-03-01
+        name: Hilkenborg
         category: de.Hp
         staff: agent
         de.lknr: 23 050
-        source: src.de.Bfv.1933
-    -   date: 1935-01-01
+        document: src.de.Bfv.1933
+    -   date: 1944-06-01
+        name: Hilkenborg
+        category: de.Hp
+        staff: agent
         de.lknr: 21 238
-        source: src.de.Bfv.1944
-    -   date: c1975
-        status: closed
+        document: src.de.Bfv.1944
+    -   date: 1946-02
+        name: Hilkenborg
+        category: de.Hp
+        service: passenger
+        location:
+            line.de.1575: 5,54 # rechts
+        document: src.de.DRG.Mst.1946
 
 
 ---
 key: point.de.Weener-Friesenbrücke
 type: point
-events:
-    -   date: !!null
+records:
+    -   date: 2017-01
         name: Weener Friesenbrücke
         category: de.Dkst
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.DS100: HFRB
         de.dstnr: !!str 103443
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.name16: Friesenbrücke
         PLC: DE21657
-        source: src.de.DBAG.BSV.2017
+        document: src.de.DBAG.BSV.2017
 
 
 ---
 key: point.de.Weener
 type: point
-events:
-    -   date: !!null
+records:
+    -   date: 1914-07
         name: Weener
-        source: src.de.Kb.1914
-    -   date: !!null
+        document: src.de.Kb.1914
+
+    -   date: 1933-03-01
+        name: Weener
         category: de.Bf
         de.rang: I
-        source: src.de.Bfv.1933
-    -   date: c2000
-        category: [ de.Hp, de.Awanst ]
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
         de.lknr: 23 051
-        source: src.de.Bfv.1933
-    -   date: 1935-01-01
+        document: src.de.Bfv.1933
+    -   date: 1946-06-01
+        name: Weener
+        category: de.Bf
+        de.rang: I
         de.lknr: 21 239
-        source: src.de.Bfv.1944
-    -   date: !!null
-        de.DS100: HWEE
-        de.dstnr: !!str 212399
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Weener
-        PLC: DE20831
-        source: src.de.DBAG.BSV.2017
+        document: src.de.Bfv.1944
+    -   date: 1946-02
+        name: Weener
+        category: de.Bf
+        de.rang: I
+        location:
+            line.de.1575: 7,98 # rechts
+        document: src.de.DRG.Mst.1946
 
-    -   date: !!null
-        location:
-            line.de.1575: 7,98
-        source: src.de.DRG.Mst.1946
-    -   date: c2000
-        location:
-            line.de.1575: 7,940
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
-records:
     -   date: 1983-11
         name: Weener
         category: de.Bf
@@ -143,67 +179,92 @@ records:
             line.de.1575: 7,98 # right
         document: src.de.DB.Han.1983
 
+    -   date: 2017-01
+        name: Weener
+        category: [ de.Hp, de.Awanst ]
+        de.DS100: HWEE
+        de.dstnr: !!str 212399
+        de.name16: Weener
+        PLC: DE20831
+        document: src.de.DBAG.BSV.2017
+    -   date: 2017-01
+        location:
+            line.de.1575: 7,940
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
+
 
 ---
 key: point.de.Möhlenwarf
 type: point
 events:
-    -   date: !!null
-        location:
-            line.de.1575: 11,21
-        source: src.de.DRG.Mst.1946
-    -   date: !!null
+    -   date: c1995
+        status: closed
+records:
+    -   date: 1914-07
         name: Möhlenwarf
-        source: src.de.Kb.1914
-    -   date: !!null
+        document: src.de.Kb.1914
+
+    -   date: 1933-03-01
+        name: Möhlenwarf
         category: de.Hp
         staff: agent
         de.lknr: 23 052
-        source: src.de.Bfv.1933
-    -   date: 1935-01-01
-        de.lknr: 21 240
-        source: src.de.Bfv.1944
-    -   date: c1940
+        document: src.de.Bfv.1933
+    -   date: 1944-06-01
+        name: Möhlenwarf
         category: de.Bf
         de.rang: IV
-        source: src.de.Bfv.1944
-    -   date: c1975
-        category: de.Anst
+        staff: agent
+        de.lknr: 21 240
+        document: src.de.Bfv.1944
     -   date: !!null
+        name: Möhlenwarf
+        category: de.Hp
+        location:
+            line.de.1575: 11,21 # rechts
+        document: src.de.DRG.Mst.1946
+
+    -   date: 1984-06-03
+        de.dstnr: !!str 212407
+        name: Möhlenwarf
         de.DS100: HMOE
-    -   date: c1995
-        status: closed
+        category: de.Anst
+        document: src.de.DS100.1984
 
 
 ---
 key: point.de.Bunde
 type: point
 events:
-    -   date: !!null
-        location:
-            line.de.1575: 13,26
-        source: src.de.DRG.Mst.1946
-    -   date: !!null
-        name: Bunde (Ostfriesl)
-        source: src.de.Kb.1914
-    -   date: !!null
-        category: de.Bf
-        de.rang: III
-        de.lknr: 23 053
-        source: src.de.Bfv.1933
-    -   date: 1935-01-01
-        de.lknr: 21 241
-        source: src.de.Bfv.1944
-    -   date: c1975
-        category: de.Anst
-    -   date: !!null
-        de.DS100: HBUD
     -   date: c1995
         status: closed
 records:
+    -   date: 1914-07
+        name: Bunde (Ostfriesl)
+        document: src.de.Kb.1914
+
+    -   date: 1933-03-01
+        name: Bunde (Ostfriesl)
+        category: de.Bf
+        de.rang: III
+        de.lknr: 23 053
+        document: src.de.Bfv.1933
+    -   date: 1944-06-01
+        name: Bunde (Ostfriesl)
+        category: de.Bf
+        de.rang: III
+        de.lknr: 21 241
+        document: src.de.Bfv.1944
+    -   date: 1946-02
+        name: Bunde (Ostfriesl)
+        category: de.Bf
+        de.rang: III
+        location:
+            line.de.1575: 13,26 # rechts
+        document: src.de.DRG.Mst.1946
+
     -   date: 1983-11
         name: Bunde (Ostfriesl)
-        category: de.Tp
         location:
             line.de.1575: 13,26 # right
         document: src.de.DB.Han.1983
@@ -213,46 +274,45 @@ records:
 key: point.int.Nieuweschans-Weener
 type: point
 subtype: border
-events:
-    -   date: !!null
-        category: de.Tp
+records:
+    -   date: 1933-03-01
         name:
             de: Weener Grenze
-        source: src.de.Bfv.1933
-    -   date: c1990
-        category: de.Gp
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
+        category: de.Tp
         de.lknr: 23 054
-        source: src.de.Bfv.1933
-    -   date: 1935-01-01
+        document: src.de.Bfv.1933
+    -   date: 1944-06-01
+        name:
+            de: Weener Grenze
+        category: de.Tp
         de.lknr: 21 242
-        source: src.de.Bfv.1933
-    -   date: !!null
-        de.DS100: HXWE
-        de.dstnr: !!str 212423
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Weener Grenze
-        PLC: DE20832
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
+        document: src.de.Bfv.1944
+    -   date: 1946-02
         location:
             line.de.1575: 17,479
-        source: src.de.DRG.Mst.1946
-    -   date: c2000
-        location:
-            line.de.1575: 17,490
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
-records:
+        document: src.de.DRG.Mst.1946
+
     -   date: 1983-11
         name: Weener Grenze
         category: de.Gp
         location:
             line.de.1575: 17,479
         document: src.de.DB.Han.1983
+
+    -   date: 2017-01
+        name:
+            de: Weener Grenze
+        category: de.Gp
+        de.DS100: HXWE
+        de.dstnr: !!str 212423
+        document: src.de.DBAG.BSV.2017
+        de.name16: Weener Grenze
+        PLC: DE20832
+        document: src.de.DBAG.BSV.2017
+    -   date: 2017-01
+        location:
+            line.de.1575: 17,490
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 # src.de.DRG.Mst.1946:
