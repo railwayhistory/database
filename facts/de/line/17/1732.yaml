@@ -14,11 +14,6 @@ events:
         start: point.de.Ihringhausen-LGr-1732
         region: org.de.l.he
 
-    -   date: !!null
-        start: point.de.Hannover-Bismarckstraße
-        de.VzG: !!str 1732
-        source: src.de.DBAG.Geo-Strecke.2017
-
     #   Genehmigungen
     #
     -   date: 1850-09-20
@@ -88,7 +83,45 @@ events:
 
     #   Verlauf
     #
+records:
+    -   date: 1983-11
+        end: point.de.Göttingen
+        category: de.Hauptbahn
+        tracks: 2
+        gauge: 1435mm
+        electrified: de
+        operator: org.de.e.han
+        document: src.de.DB.Han.1983
+    -   date: 1983-11
+        start: point.de.Göttingen
+        end: point.de.Dransfeld
+        status: closed
+        document: src.de.DB.Han.1983
+    -   date: 1983-05
+        start: point.de.Dransfeld
+        end: point.de.Hann-Münden
+        category: de.Nebenbahn
+        tracks: 1
+        gauge: 1435mm
+        passenger: none
+        operator: org.de.e.ffm
+        document: src.de.DB.Ffm.1983
+    -   date: 1983-05
+        start: point.de.Hann-Münden
+        category: de.Hauptbahn
+        tracks: 2
+        gauge: 1435mm
+        electrified: de
+        operator: org.de.e.ffm
+        document: src.de.DB.Ffm.1983
 
+    -   date: 2017-01
+        start: point.de.Hannover-Bismarckstraße
+        de.VzG: !!str 1732
+        note: >
+            Hannover Bismarckstr, W 704 – Kassel Hbf;
+            km 3,6+60 – 166,2+34
+        document: src.de.DBAG.Geo-Strecke.2017
 points:
     -   point.de.Hannover-Hbf                         # line.de.1710
     -   point.de.Hannover-Bismarckstraße              # line.de.1733
@@ -110,14 +143,25 @@ points:
     -   point.de.Edesheim-Leine-Süd
     -   point.de.Northeim-Han
     -   point.de.Northeim-Han-Gbf
+    -   point.de.Sudheim-alt
+    -   point.de.Carlshof
     -   point.de.Nörten-Hardenberg
     -   point.de.Bovenden
+    -   point.de.Weende
     -   point.de.Göttingen-Gbf-Nord
     -   point.de.Göttingen-Gbf
     -   point.de.Göttingen
+    -   point.de.Groß-Ellershausen
+    -   point.de.Rischenkrug
+    -   point.de.Dransfeld
+    -   point.de.Wellersen
     -   point.de.Oberscheden
+    -   point.de.Volkmarshausen
+    -   point.de.Volkmarshausen-Gr
     -   point.de.Hann-Münden
     -   point.de.Bonaforth
+    -   point.de.Bonaforth-Bk
+    -   point.de.Wilhelmshausen
     -   point.de.Staufenberg-Speele
     -   point.de.Spiekershausen-Kragenhof
     -   point.de.Ihringhausen-LGr-1732
@@ -536,9 +580,55 @@ records:
 
 
 ---
+key: point.de.Sudheim-alt
+type: point
+records:
+    -   date: 1944-06-01
+        name: Sudheim
+        service: full
+        goods: none
+        category: de.Hst
+        de.lknr: 05 343
+        document: src.de.Bfv.1944
+    -   date: 1945-10-01
+        name: Sudheim
+        location:
+            line.de.1732: 92,00 # links
+        document: src.de.DRG.Ksl.Karte.1945
+
+    -   date: 1983-11
+        status: closed
+        document: src.de.DB.Han.1983
+
+
+---
+key: point.de.Carlshof
+type: point
+records:
+    -   date: 1945-10-01
+        name: Carlshof
+        category: de.Bk
+        location:
+            line.de.1732: 93,42 # links
+        document: src.de.DRG.Ksl.Karte.1945
+
+    -   date: 1984-06-03
+        status: closed
+        document: src.de.DS100.1984
+
+
+---
 key: point.de.Nörten-Hardenberg
 type: point
 records:
+    -   date: 1945-10-01
+        name: Nörten-Hardenberg
+        category: de.Bf
+        de.rang: II
+        location:
+            line.de.1732: 97,86 # links
+        document: src.de.DRG.Ksl.Karte.1945
+
     -   date: 1983-11
         name: Nörten-Hardenberg
         category: de.Bf
@@ -568,6 +658,14 @@ records:
 key: point.de.Bovenden
 type: point
 records:
+    -   date: 1945-10-01
+        name: Bovenden
+        category: de.Bf
+        de.rang: III
+        location:
+            line.de.1732: 101,73 # links
+        document: src.de.DRG.Ksl.Karte.1945
+
     -   date: 1983-11
         name: Bovenden
         category: de.Bf
@@ -576,6 +674,26 @@ records:
         location:
             line.de.1732: 101,74 # left
         document: src.de.DB.Han.1983
+
+    -   date: 2017-01
+        status: closed
+        document: src.de.DBAG.BSV.2017
+
+
+---
+key: point.de.Weende
+type: point
+records:
+    -   date: 1945-10-01
+        name: Zweigstelle Weende
+        category: de.Bk
+        location:
+            line.de.1732: 105,10 # links
+        document: src.de.DRG.Ksl.Karte.1945
+
+    -   date: 1984-06-03
+        status: closed
+        document: src.de.DS100.1984
 
 
 ---
@@ -619,6 +737,17 @@ records:
 key: point.de.Göttingen
 type: point
 records:
+    -   date: 1945-10-01
+        name: Göttingen
+        category: de.Bf
+        de.rang: I
+        location:
+            line.de.1732: 108,09 # links
+            line.de.1800:   0,00
+            line.de.1801:   0,00
+            line.de.3600: 247,11
+        document: src.de.DRG.Ksl.Karte.1945
+
     -   date: 1983-11
         name: Göttingen
         category: de.Bf
@@ -650,9 +779,41 @@ events:
 
 
 ---
+key: point.de.Groß-Ellershausen
+type: point
+records:
+    -   date: 1945-10-01
+        name: Groß Ellershausen
+        category: de.Bk
+        location:
+            line.de.1732: 113,06 # links
+        document: src.de.DRG.Ksl.Karte.1945
+
+
+---
+key: point.de.Rischenkrug
+type: point
+records:
+    -   date: 1945-10-01
+        name: Rischenkrug
+        category: de.Bk
+        location:
+            line.de.1732: 119,21 # links
+        document: src.de.DRG.Ksl.Karte.1945
+
+
+---
 key: point.de.Dransfeld
 type: point
 records:
+    -   date: 1945-10-01
+        name: Dransfeld
+        category: de.Bf
+        de.rang: III
+        location:
+            line.de.1732: 123,84 # links
+        document: src.de.DRG.Ksl.Karte.1945
+
     -   date: 1983-05
         name: Dransfeld
         category: de.Bf
@@ -672,9 +833,29 @@ records:
 
 
 ---
+key: point.de.Wellersen
+type: point
+records:
+    -   date: 1945-10-01
+        name: Wellersen
+        category: de.Bk
+        location:
+            line.de.1732: 129,05 # rechts
+        document: src.de.DRG.Ksl.Karte.1945
+
+
+---
 key: point.de.Oberscheden
 type: point
 records:
+    -   date: 1945-10-01
+        name: Oberscheden
+        category: de.Bf
+        de.rang: III
+        location:
+            line.de.1732: 132,07 # rechts
+        document: src.de.DRG.Ksl.Karte.1945
+
     -   date: 1983-05
         name: Oberscheden
         category: de.Bf
@@ -693,10 +874,48 @@ records:
         document: src.de.DBAG.BSV.2017
 
 
+# Volkmarshäuser Tunnel
+
+
+---
+key: point.de.Volkmarshausen
+type: point
+records:
+    -   date: 1945-10-01
+        name: Volkmarshausen
+        category: de.Bk
+        location:
+            line.de.1732: 136,66 # links
+        document: src.de.DRG.Ksl.Karte.1945
+
+
+---
+key: point.de.Volkmarshausen-Gr
+type: point
+subtype: reference
+events:
+    -   date: !!null
+        designation: Volkmarshausen Han/Ksl 1945
+records:
+    -   date: 1945-10-01
+        location:
+            line.de.1732: 140,10
+        document: src.de.DRG.Ksl.Karte.1945
+
+
 ---
 key: point.de.Hann-Münden
 type: point
 records:
+    -   date: 1945-10-01
+        name: Hann Münden
+        category: de.Bf
+        de.rang: II
+        location:
+            line.de.1732: 142,09 # rechts
+            line.de.6343: 193,54
+        document: src.de.DRG.Ksl.Karte.1945
+
     -   date: 1983-05
         name: Hann Münden
         category: de.Bf
@@ -738,9 +957,56 @@ records:
 
 
 ---
+key: point.de.Bonaforth-Bk
+type: point
+records:
+    -   date: 1945-10-01
+        name: Bonaforth
+        category: de.Bk
+        location:
+            line.de.1732: 145,29 # rechts
+        document: src.de.DRG.Ksl.Karte.1945
+
+    -   date: 1984-06-03
+        status: closed
+        document: src.de.DS100.1984
+
+
+---
+key: point.de.Wilhelmshausen
+type: point
+records:
+    -   date: 1944-06-01
+        name: Wilhelmshausen
+        service: none
+        passenger: full
+        category: de.Hp
+        staff: full
+        de.lknr: 05 254
+        document: src.de.Bfv.1944
+    -   date: 1945-10-01
+        name: Wilhelmshausen
+        location:
+            line.de.1732: 148,61 # rechts
+        document: src.de.DRG.Ksl.Karte.1945
+
+    -   date: 1983-05
+        status: closed
+        document: src.de.DB.Ffm.1983
+
+
+---
 key: point.de.Staufenberg-Speele
 type: point
 records:
+    -   date: 1945-10-01
+        name: Speele
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.1732: 151,41 # rechts
+        document: src.de.DRG.Ksl.Karte.1945
+
     -   date: 1983-05
         name: Speele
         category: de.Bf
@@ -769,6 +1035,14 @@ records:
 key: point.de.Spiekershausen-Kragenhof
 type: point
 records:
+    -   date: 1945-10-01
+        name: Kragenhof
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.1732: 155,22 # rechts
+        document: src.de.DRG.Ksl.Karte.1945
+
     -   date: 1983-05
         name: Kragenhof
         category: de.Hst
@@ -811,6 +1085,14 @@ records:
 key: point.de.Fuldatal-Ihringshausen
 type: point
 records:
+    -   date: 1945-10-01
+        name: Ihringshausen
+        category: de.Bf
+        # rang unklar
+        location:
+            line.de.1732: 157,61 # rechts
+        document: src.de.DRG.Ksl.Karte.1945
+
     -   date: 1983-05
         name: Ihringshausen
         category: de.Bf
@@ -837,6 +1119,14 @@ records:
 key: point.de.Vellmar-Niedervellmar
 type: point
 records:
+    -   date: 1945-10-01
+        name: Nievervellmar
+        category: [de.Hp, de.Bk]
+        # rang unklar
+        location:
+            line.de.1732: 161,05 # rechts
+        document: src.de.DRG.Ksl.Karte.1945
+
     -   date: 1983-05
         name: Niedervellmar
         category: de.Hp
@@ -856,6 +1146,10 @@ records:
         location:
             line.de.1732: 161,200
         document: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+# 162,2 Bm-Grenze 1 Md/2 Ks src.de.DRG.Ksl.Karte.1945
+# 165,0 Bm-Grenze 2 Ks/3 Ks src.de.DRG.Ksl.Karte.1945
 
 
 ---

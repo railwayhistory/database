@@ -10,10 +10,6 @@ events:
             - org.de
             - org.de.l.ni
 
-    -   date: !!null
-        de.VzG: !!str 1773
-        source: src.de.DBAG.Geo-Strecke.2017
-
     #   Genehmigungen, Eigentümer- und Betreiberwechsel
     #
     -   date: 1870-06-29
@@ -72,12 +68,26 @@ events:
 
     #   Verlauf
     #
+records:
+    -   date: 1983-11
+        category: de.Hauptbahn
+        tracks: 2
+        gauge: 1435mm
+        operator: org.de.e.han
+        document: src.de.DB.Han.1983
 
+    -   date: 2017-01
+        de.VzG: !!str 1773
+        note: >
+            Hildesheim Hbf, 53W121 – Goslar, W 9;
+            km 40,2+56 – 94,0+71
+        document: src.de.DBAG.Geo-Strecke.2017
 points:
     -   point.de.Hildesheim-Hbf                     # de.1770
     -   point.de.Hildesheim-Ost
     -   point.de.Marienburg-Han
     -   point.de.Groß-Düngen
+    -   point.de.Hockeln
     -   point.de.Derneburg-Han
     -   point.de.Baddeckenstedt
     -   point.de.Salzgitter-Ringelheim              # de.1940
@@ -92,117 +102,152 @@ points:
 #    point.de.Hildesheim-Hbf                     de.1770
 
 
+# 41,33 Baubezirksgrenze src.de.DB.Han.1983
+
+
 ---
 key: point.de.Hildesheim-Ost
 type: point
-events:
-    -   date: !!null
+records:
+    -   date: 1983-11
+        name: Hildesheim Ost
+        category: de.Bf
+        location:
+            line.de.1773: 43,17 # rechts
+        document: src.de.DB.Han.1983
+
+    -   date: 2017-01
         name: Hildesheim Ost
         category: de.Hp
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.DS100: HHIO
         de.dstnr: !!str 133801
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.name16: Hildesheim Ost
         PLC: DE14894
-        source: src.de.DBAG.BSV.2017
-
-    -   date: c2000
+        document: src.de.DBAG.BSV.2017
+    -   date: 2017-01
         location:
             line.de.1773: 43,167
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Marienburg-Han
 type: point
-events:
-    -   date: !!null
+records:
+    -   date: 1983-11
+        name: Marienburg (Han)
+        category: de.Bf
+        service: goods
+        location:
+            line.de.1773: 47,39 # links
+        document: src.de.DB.Han.1983
+
+    -   date: 2017-01
         name: Marienburg (Han)
         category: de.Awanst
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.DS100: HMBR
         de.dstnr: !!str 133793
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.name16: Marienburg(Han)
         PLC: DE16793
-        source: src.de.DBAG.BSV.2017
-    -   date: 2006-02-01?
         status: closed
-        source: src.de.DBAG.BSV.2017
+        document: src.de.DBAG.BSV.2017
 
 
 ---
 key: point.de.Groß-Düngen
 type: point
-events:
-    -   date: !!null
+records:
+    -   date: 1983-11
+        name: Großdüngen
+        category: de.Bf
+        location:
+            line.de.1773: 50,69 # rechts
+            line.de.1822: 31,74
+        document: src.de.DB.Han.1983
+
+    -   date: 2017-01
         name: Groß Düngen
         category: de.Bf
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.DS100: HGDN
         de.dstnr: !!str 133785
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.name16: Groß Düngen
         PLC: DE14006
-        source: src.de.DBAG.BSV.2017
-
-    -   date: c2000
+        document: src.de.DBAG.BSV.2017
+    -   date: 2017-01
         location:
             line.de.1773: 50,694
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Hockeln
+type: point
+records:
+    -   date: 1983-11
+        name: Hockeln
+        category: de.Hp
+        location:
+            line.de.1773: 54,60 # links
+        document: src.de.DB.Han.1983
+
+    -   date: 2017-01
+        status: closed
+        document: src.de.DBAG.BSV.2017
 
 
 ---
 key: point.de.Derneburg-Han
 type: point
-events:
-    -   date: !!null
+records:
+    -   date: 1983-11
+        name: Derneburg (Han)
+        category: de.Bf
+        location:
+            line.de.1773: 59,31 # links
+            line.de.1823: 44,27
+            line.de.1923: 38,08
+        document: src.de.DB.Han.1983
+
+    -   date: 2017-01
         name: Derneburg (Han)
         category: [de.Hp, de.Awanst]
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.DS100: HDBG
         de.dstnr: !!str 133777
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.name16: Derneburg (Han)
         PLC: DE12149
-        source: src.de.DBAG.BSV.2017
-
-    -   date: c2000
+        document: src.de.DBAG.BSV.2017
+    -   date: 2017-01
         location:
             line.de.1773: 59,308
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Baddeckenstedt
 type: point
-events:
-    -   date: !!null
+records:
+    -   date: 1983-11
+        name: Baddeckenstedt
+        category: de.Bf
+        location:
+            line.de.1773: 65,54 # links
+        document: src.de.DB.Han.1983
+
+    -   date: 2017-01
         name: Baddeckenstedt
         category: de.Hp
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.DS100: HBAD
         de.dstnr: !!str 133769
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.name16: Baddeckenstedt
         PLC: DE10578
-        source: src.de.DBAG.BSV.2017
-
-    -   date: c2000
+        document: src.de.DBAG.BSV.2017
+    -   date: 2017-01
         location:
             line.de.1773: 65,544
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+# 66,65 Baubezirksgrenze src.de.DB.Han.1983
 
 
 #    point.de.Salzgitter-Ringelheim              de.1940
@@ -211,19 +256,25 @@ events:
 ---
 key: point.de.Othfresen
 type: point
-events:
-    -   date: !!null
+records:
+    -   date: 1983-11
+        name: Othfresen
+        category: de.Bf
+        location:
+            line.de.1773: 80,71 # links
+        document: src.de.DB.Han.1983
+
+    -   date: 2017-01
         name: Othfresen
         category: de.Bk
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.DS100: HOTF
         de.dstnr: !!str 133744
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.name16: Othfresen
         PLC: DE18197
-        source: src.de.DBAG.BSV.2017
+        document: src.de.DBAG.BSV.2017
+
+
+# 88,80 Baubezirksgrenze src.de.DB.Han.1983
 
 
 ---
@@ -238,10 +289,18 @@ events:
 ---
 key: point.de.Grauhof
 type: point
-progress: stub
-events:
-    -   date: !!null
+records:
+    -   date: 1983-11
         name: Grauhof
+        category: de.Bf
+        service: goods
+        location:
+            line.de.1773: 89,56 # rechts
+        document: src.de.DB.Han.1983
+
+    -   date: 2017-01
+        status: closed
+        document: src.de.DBAG.BSV.2017
 
 
 #    point.de.Goslar                             de.1932

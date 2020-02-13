@@ -9,10 +9,6 @@ events:
             - org.de
             - org.de.l.ni
 
-    -   date: !!null
-        de.VzG: !!str 1724
-        source: src.de.DBAG.Geo-Strecke.2017
-
     #   Genehmigungen und Verträge
     #
     -   date: 1906-06-15
@@ -60,18 +56,6 @@ events:
 
     #   Eigenschaften
     #
-    -   date: !!null
-        category: de.Nebenbahn
-        tracks: 1
-        gauge: 1435mm
-        source: src.de.DRG.1927
-
-    #   Eigentümer etc.
-    #
-    -   date: !!null
-        owner: org.de.l.pre
-        operator: org.de.e.han
-        source: src.de.DRG.1935
 
     #   Verlauf
     #
@@ -81,6 +65,29 @@ events:
             -   path.de.1724 a    f
             -   path.de.1720 fgif cel
 
+records:
+    -   date: 1927-03
+        category: de.Nebenbahn
+        tracks: 1
+        gauge: 1435mm
+        operator: org.de.e.han
+        source: src.de.DRG.1927
+
+    -   date: 1983-11
+        end: point.de.Müden-Dieckhorst
+        status: closed
+        document: src.de.DB.Han.1983
+    -   date: 1983-11
+        start: point.de.Müden-Dieckhorst
+        category: de.Nebenbahn
+        tracks: 1
+        gauge: 1435mm
+        passenger: none
+        document: src.de.DB.Han.1983
+
+    -   date: !!null
+        de.VzG: !!str 1724
+        document: src.de.DBAG.Geo-Strecke.2017
 points:
     -   point.de.Gifhorn-Stadt                      # de.1962
     -   point.de.Gamsen-DGr
@@ -106,10 +113,10 @@ points:
 ---
 key: point.de.Gamsen-DGr
 type: point
-subtype: border
+subtype: reference
 events:
     -   date: !!null
-        name: RBD-Grenze Mg/Han bis 1931
+        designation: Gamsen Mg/Han bis 1931
     -   date: !!null
         site:
             path.de.1724: ggam
@@ -120,32 +127,30 @@ key: point.de.Gamsen-Kästorf
 type: point
 events:
     -   date: !!null
-        name: Gamsen-Kästorf
-        source: src.de.Kb.1914
-    -   date: !!null
-        de.lknr: 13 161
-        source: src.de.Bfv.1928
-    -   date: !!null
-        category: de.Bf
-        de.rang: IV
-        source: src.de.Bfv.1933
-    -   date: de.lknr.30
-        de.lknr: 13 176
-        source: src.de.Bfv.1933
-    -   date: !!null
-        location:
-            line.de.1724: 5,66
-        source: src.de.DRG.Han.1945
-    -   date: !!null
-        de.DS100: HGAK
-        source: src.de.DS100.1984
-    -   date: 1981?
-        staff: none
-        source: src.de.DS100.1984
-
-    -   date: !!null
         site:
             path.de.1724: gam
+records:
+    -   date: 1914-07
+        name: Gamsen-Kästorf
+        document: src.de.Kb.1914
+
+    -   date: 1927-12-09
+        name: Gamsen-Kästorf
+        de.lknr: 13 161
+        document: src.de.Bfv.1928
+    -   date: 1933-03-01
+        name: Gamsen-Kästorf
+        category: de.Bf
+        de.rang: IV
+        de.lknr: 13 176
+        document: src.de.Bfv.1933
+
+    -   date: 1984-06-03
+        name: Gamsen-Kästorf
+        category: de.Bf
+        de.DS100: HGAK
+        staff: none
+        document: src.de.DS100.1984
 
 
 ---
@@ -153,30 +158,31 @@ key: point.de.Wilsche
 type: point
 events:
     -   date: !!null
+        site:
+            path.de.1724: wil
+records:
+    -   date: 1914-07
         name: Wilsche
-        source: src.de.Kb.1914
-    -   date: !!null
+        document: src.de.Kb.1914
+
+    -   date: 1927-12-09
+        name: Wilsche
         de.lknr: 13 160
-        source: src.de.Bfv.1928
-    -   date: !!null
+        document: src.de.Bfv.1928
+    -   date: 1933-03-10
+        name: Wilsche
         category: de.Bf
         de.rang: IV
         staff: agent
-        source: src.de.Bfv.1933
-    -   date: de.lknr.30
         de.lknr: 13 177
-        source: src.de.Bfv.1933
+        document: src.de.Bfv.1933
     -   date: c1935
+        name: Wilsche
+        category: de.Bf
+        de.rang: IV
+        de.lknr: 13 177
         staff: full
-        source: src.de.Bfv.1938
-    -   date: !!null
-        location:
-            line.de.1724: 10,02
-        source: src.de.DRG.Han.1945
-
-    -   date: !!null
-        site:
-            path.de.1724: wil
+        document: src.de.Bfv.1938
 
 
 ---
@@ -184,36 +190,32 @@ key: point.de.Bokelberge
 type: point
 events:
     -   date: !!null
+        site:
+            path.de.1724: bok
+records:
+    -   date: 1914-07
         name: Bokelberge
-        source: src.de.Kb.1914
-    -   date: !!null
+        document: src.de.Kb.1914
+
+    -   date: 1927-12-09
+        name: Bokelberge
         de.lknr: 13 482
         service: passenger
         staff: none
-        source: src.de.Bfv.1928
-    -   date: !!null
+        document: src.de.Bfv.1928
+    -   date: 1933-03-01
+        name: Bokelberge
         category: de.Hp
-        source: src.de.Bfv.1933
-    -   date: de.lknr.30
-        de.lknr: 13 178
-        source: src.de.Bfv.1933
-    -   date: c1930
+        service: passenger
         staff: full
-        source: src.de.Bfv.1933
-    -   date: c1935
+        de.lknr: 13 178
+        document: src.de.Bfv.1933
+    -   date: 1938-10-01
+        name: Bokelberge
         category: [de.Hp, de.Ldst]
-        service: full
         staff: none
         master: point.de.Müden-Dieckhorst
-        source: src.de.Bfv.1938
-    -   date: !!null
-        location:
-            line.de.1724: 14,95
-        source: src.de.DRG.Han.1945
-
-    -   date: !!null
-        site:
-            path.de.1724: bok
+        document: src.de.Bfv.1938
 
 
 ---
@@ -221,34 +223,24 @@ key: point.de.Müden-Dieckhorst
 type: point
 events:
     -   date: !!null
-        name: Müden-Dieckhorst
-        source: src.de.Kb.1914
-    -   date: !!null
-        de.lknr: 13 159
-        source: src.de.Bfv.1928
-    -   date: !!null
-        category: de.Bf
-        de.rang: IV
-        source: src.de.Bfv.1933
-    -   date: de.lknr.30
-        de.lknr: 13 179
-        source: src.de.Bfv.1933
-    -   date: !!null
-        location:
-            line.de.1724: 17,62
-        source: src.de.DRG.Han.1945
-    -   date: !!null
-        de.DS100: HMUD
-        de.dstnr: !!str 131797
-        source: src.de.DS100.1984
-    -   date: 1981?
-        staff: none
-        source: src.de.DS100.1984
-
-    -   date: !!null
         site:
             path.de.1724: mud
 records:
+    -   date: 1914-07
+        name: Müden-Dieckhorst
+        document: src.de.Kb.1914
+
+    -   date: 1927-12-09
+        name: Müden-Dieckhorst
+        de.lknr: 13 159
+        document: src.de.Bfv.1928
+    -   date: 1933-03-01
+        name: Müden-Dieckhorst
+        category: de.Bf
+        de.rang: IV
+        de.lknr: 13 179
+        document: src.de.Bfv.1933
+
     -   date: 1983-11
         name: Müden-Dieckhorst
         category: de.Bf
@@ -256,6 +248,13 @@ records:
         location:
             line.de.1724: 17,62 # left
         document: src.de.DB.Han.1983
+    -   date: 1984-06-03
+        name: Müden-Dieckhorst
+        category: de.Bf
+        de.DS100: HMUD
+        de.dstnr: !!str 131797
+        staff: none
+        document: src.de.DS100.1984
 
 
 ---
@@ -263,41 +262,36 @@ key: point.de.Flettmar
 type: point
 events:
     -   date: !!null
-        name: Flettmar
-        source: src.de.Kb.1914
-    -   date: !!null
-        de.lknr: 13 158
-        source: src.de.Bfv.1928
-    -   date: !!null
-        category: de.Bf
-        de.rang: IV
-        staff: agent
-        source: src.de.Bfv.1933
-    -   date: de.lknr.30
-        de.lknr: 13 180
-        source: src.de.Bfv.1933
-    -   date: !!null
-        location:
-            line.de.1724: 19,80
-        source: src.de.DRG.Han.1945
-    -   date: !!null
-        de.DS100: HFLE
-        de.dstnr: !!str 131805
-        source: src.de.DS100.1984
-    -   date: 1981
-        category: de.Anst
-        source: src.de.DS100.1984
-
-    -   date: !!null
         site:
             path.de.1724: fle
 records:
+    -   date: 1914-07
+        name: Flettmar
+        document: src.de.Kb.1914
+
+    -   date: 1927-12-09
+        name: Flettmar
+        de.lknr: 13 158
+        document: src.de.Bfv.1928
+    -   date: 1933-03-01
+        name: Flettmar
+        category: de.Bf
+        de.rang: IV
+        staff: agent
+        de.lknr: 13 180
+        document: src.de.Bfv.1933
+
     -   date: 1983-11
         name: Flettmar
-        category: de.Tp
         location:
             line.de.1724: 19,80 # right
         document: src.de.DB.Han.1983
+    -   date: 1984-06-03
+        name: Flettmar
+        de.DS100: HFLE
+        de.dstnr: !!str 131805
+        category: de.Anst
+        document: src.de.DS100.1984
 
 
 ---
@@ -305,80 +299,75 @@ key: point.de.Langlingen
 type: point
 events:
     -   date: !!null
-        name: Langelingen
-        source: src.de.Kb.1914
-    -   date: !!null
-        de.lknr: 13 157
-        source: src.de.Bfv.1928
-    -   date: !!null
-        category: de.Bf
-        de.rang: IV
-        source: src.de.Bfv.1933
-    -   date: de.lknr.30
-        de.lknr: 13 181
-        source: src.de.Bfv.1933
-    -   date: !!null
-        location:
-            line.de.1724: 24,15
-        source: src.de.DRG.Han.1945
-    -   date: !!null
-        de.DS100: HLLG
-        de.dstnr: !!str 131813
-        source: src.de.DS100.1984
-    -   date: 1981?
-        category: de.Anst
-        source: src.de.DS100.1984
-
-    -   date: !!null
         site:
             path.de.1724: lan
 records:
+    -   date: 1914-07
+        name: Langelingen
+        document: src.de.Kb.1914
+
+    -   date: 1927-12-09
+        name: Langelingen
+        de.lknr: 13 157
+        document: src.de.Bfv.1928
+    -   date: 1933-03-01
+        name: Langelingen
+        category: de.Bf
+        de.rang: IV
+        de.lknr: 13 181
+        document: src.de.Bfv.1933
+
     -   date: 1983-11
         name: Langlingen
-        category: de.Tp
         location:
             line.de.1724: 24,15 # right
         document: src.de.DB.Han.1983
+    -   date: 1984-06-03
+        name: Langlingen
+        de.DS100: HLLG
+        de.dstnr: !!str 131813
+        category: de.Anst
+        document: src.de.DS100.1984
 
 
 ---
 key: point.de.Offensen-Celle
 type: point
 events:
-    -   date: !!null
-        name: Offensen (Kr Celle)
-        source: src.de.Kb.1914
-    -   date: !!null
-        de.lknr: 13 156
-        source: src.de.Bfv.1928
-    -   date: !!null
-        category: de.Hp
-        source: src.de.Bfv.1933
-    -   date: de.lknr.30
-        de.lknr: 13 182
-        source: src.de.Bfv.1933
-    -   date: c1935
-        category: [de.Hp, de.Ldst]
-        staff: none
-        master: point.de.Wienhausen
-        source: src.de.Bfv.1938
-    -   date: !!null
-        location:
-            line.de.1724: 27,61
-        source: src.de.DRG.Han.1945
-    -   date: !!null
-        de.DS100: HOFC
-        de.dstnr: !!str 131821
-        source: src.de.DS100.1984
-    -   date: c1970
-        category: de.Hp
-        source: src.de.DS100.1984
     -   date: c1990
         status: closed
 
     -   date: !!null
         site:
             path.de.1724: off
+records:
+    -   date: 1914-07
+        name: Offensen (Kr Celle)
+        document: src.de.Kb.1914
+
+    -   date: 1927-12-09
+        name: Offensen (Kr Celle)
+        de.lknr: 13 156
+        document: src.de.Bfv.1928
+    -   date: !!null
+        name: Offensen (Kr Celle)
+        category: de.Hp
+        de.lknr: 13 182
+        document: src.de.Bfv.1933
+    -   date: 1938-10-01
+        name: Offensen (Kr Celle)
+        category: [de.Hp, de.Ldst]
+        staff: none
+        master: point.de.Wienhausen
+        de.lknr: 13 182
+        document: src.de.Bfv.1938
+
+    -   date: 1984-06-03
+        name: Offensen (Kr Celle)
+        de.DS100: HOFC
+        de.dstnr: !!str 131821
+        category: de.Hp
+        document: src.de.DS100.1984
 
 
 ---
@@ -386,113 +375,87 @@ key: point.de.Wienhausen
 type: point
 events:
     -   date: !!null
-        name: Wienhausen
-        source: src.de.Kb.1914
-    -   date: !!null
-        de.lknr: 13 155
-        source: src.de.Bfv.1928
-    -   date: !!null
-        category: de.Bf
-        de.rang: IV
-        source: src.de.Bfv.1933
-    -   date: de.lknr.30
-        de.lknr: 13 183
-        source: src.de.Bfv.1933
-    -   date: !!null
-        location:
-            line.de.1724: 31,57
-        source: src.de.DRG.Han.1945
-    -   date: !!null
-        de.DS100: HWIE
-        de.dstnr: !!str 131839
-        source: src.de.DS100.1984
-    -   date: c1980
-        category: de.Anst
-        source: src.de.DS100.1984
-
-    -   date: !!null
         site:
             path.de.1724: wie
 records:
+    -   date: 1914-07
+        name: Wienhausen
+        document: src.de.Kb.1914
+
+    -   date: 1927-12-09
+        name: Wienhausen
+        de.lknr: 13 155
+        document: src.de.Bfv.1928
+    -   date: 1933-03-01
+        name: Wienhausen
+        category: de.Bf
+        de.rang: IV
+        de.lknr: 13 183
+        document: src.de.Bfv.1933
+
     -   date: 1983-11
         name: Wienhausen
-        category: de.Tp
         location:
             line.de.1724: 31,57 # right
         document: src.de.DB.Han.1983
+    -   date: 1984-06-03
+        name: Wienhausen
+        de.DS100: HWIE
+        de.dstnr: !!str 131839
+        category: de.Anst
+        document: src.de.DS100.1984
 
 
 ---
 key: point.de.Bockelskamp
 type: point
 events:
-    -   date: !!null
-        name: Bockelskamp
-        source: src.de.Kb.1914
-    -   date: !!null
-        service: passenger
-        staff: none
-        master: point.de.Celle
-        de.lknr: 13 481
-        source: src.de.Bfv.1928
-    -   date: !!null
-        category: de.Hp
-        source: src.de.Bfv.1933
-    -   date: de.lknr.30
-        de.lknr: 13 184
-        source: src.de.Bfv.1933
-    -   date: c1930
-        staff: full
-        source: src.de.Bfv.1933
-    -   date: c1935
-        staff: none
-        master: point.de.Wienhausen
-        source: src.de.Bfv.1938
-    -   date: !!null
-        location:
-            line.de.1724: 34,22
-        source: src.de.DRG.Han.1945
-    -   date: !!null
-        de.DS100: HKBS
-        de.dstnr: !!str 131847
-        source: src.de.DS100.1984
     -   date: c1990
         status: closed
 
     -   date: !!null
         site:
             path.de.1724: boc
+records:
+    -   date: 1914-07
+        name: Bockelskamp
+        document: src.de.Kb.1914
+
+    -   date: 1927-12-09
+        name: Bockelskamp
+        service: passenger
+        staff: none
+        master: point.de.Celle
+        de.lknr: 13 481
+        document: src.de.Bfv.1928
+    -   date: !!null
+        name: Bockelskamp
+        category: de.Hp
+        staff: full
+        de.lknr: 13 184
+        service: passenger
+        document: src.de.Bfv.1933
+    -   date: 1938-10-01
+        name: Bockelskamp
+        category: de.Hp
+        staff: none
+        master: point.de.Wienhausen
+        de.lknr: 13 184
+        service: passenger
+        document: src.de.Bfv.1938
+
+    -   date: 1984-06-03
+        name: Bockelskamp
+        category: de.Hp
+        de.DS100: HKBS
+        de.dstnr: !!str 131847
+        document: src.de.DS100.1984
 
 
 ---
 key: point.de.Altencelle
 type: point
 events:
-    -   date: !!null
-        name: Altencelle
-        source: src.de.Kb.1914
-    -   date: !!null
-        de.lknr: 13 154
-        source: src.de.Bfv.1928
-    -   date: !!null
-        category: de.Bf
-        de.rang: IV
-        staff: agent
-        source: src.de.Bfv.1933
-    -   date: de.lknr.30
-        de.lknr: 13 185
-        source: src.de.Bfv.1933
-    -   date: !!null
-        location:
-            line.de.1724: 37,71
-        source: src.de.DRG.Han.1945
-    -   date: !!null
-        de.DS100: HALC
-        de.dstnr: !!str 131854
-        source: src.de.DS100.1984
-    -   date: 1981?
-        category: de.Anst
-        source: src.de.DS100.1984
     -   date: c1990
         status: closed
 
@@ -500,49 +463,70 @@ events:
         site:
             path.de.1724: alt
 records:
+    -   date: 1914-07
+        name: Altencelle
+        document: src.de.Kb.1914
+
+    -   date: 1927-12-09
+        name: Altencelle
+        de.lknr: 13 154
+        document: src.de.Bfv.1928
+    -   date: 1933-03-01
+        name: Altencelle
+        category: de.Bf
+        de.rang: IV
+        staff: agent
+        de.lknr: 13 185
+        document: src.de.Bfv.1933
+
     -   date: 1983-11
         name: Altencelle
-        category: de.Tp
         location:
             line.de.1724: 37,71 # right
         document: src.de.DB.Han.1983
+    -   date: 1984-06-03
+        name: Altencelle
+        de.DS100: HALC
+        de.dstnr: !!str 131854
+        category: de.Anst
+        document: src.de.DS100.1984
 
 
 ---
 key: point.de.Westercelle
 type: point
 events:
-    -   date: !!null
-        name: Westercelle
-        source: src.de.Kb.1914
-    -   date: !!null
-        de.lknr: 13 480
-        service: passenger
-        source: src.de.Bfv.1928
-    -   date: !!null
-        category: de.Hp
-        staff: agent
-        source: src.de.Bfv.1933
-    -   date: de.lknr.30
-        de.lknr: 13 186
-        source: src.de.Bfv.1933
-    -   date: !!null
-        location:
-            line.de.1724: 40,62
-        source: src.de.DRG.Han.1945
-    -   date: !!null
-        de.DS100: HWCE
-        de.dstnr: !!str 131862
-        source: src.de.DS100.1984
-    -   date: c1970
-        staff: none
-        source: src.de.DS100.1984
     -   date: c1990
         status: closed
 
     -   date: !!null
         site:
             path.de.1724: wes
+records:
+    -   date: 1914-07
+        name: Westercelle
+        document: src.de.Kb.1914
+
+    -   date: 1927-12-09
+        name: Westercelle
+        de.lknr: 13 480
+        service: passenger
+        document: src.de.Bfv.1928
+    -   date: 1933-03-01
+        name: Westercelle
+        category: de.Hp
+        service: passenger
+        staff: agent
+        de.lknr: 13 186
+        document: src.de.Bfv.1933
+
+    -   date: 1984-06-03
+        de.dstnr: !!str 131862
+        de.DS100: HWCE
+        name: Westercelle
+        category: de.Hp
+        staff: none
+        document: src.de.DS100.1984
 
 
 #    point.de.Celle                              de.1720

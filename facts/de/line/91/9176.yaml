@@ -14,14 +14,8 @@ events:
         start: point.de.Almena-Rickbruch-LGr
         region: org.de.l.ni
 
-    -   date: !!null
-        end: point.de.Rinteln-Süd
-        de.VzG: !!str 9176
-        source: src.de.VzG
-
     #   Genehmigungen
     #
-
     -   date: 2017-10-09
         end: point.de.Bösingfeld
         concession:
@@ -31,30 +25,40 @@ events:
 
     #   Eröffnung und Einstellung
     #
-    -   date: !!null
-        end: point.de.Bösingfeld
-        status: open
-        source: src.de.SuW.2011
-    -   date: !!null
-        end: point.de.Bösingfeld
-        status: closed
-        source: src.de.SuW.2011
 
     #   Eigenschaften
     #
 
-    #   Eigentümer etc.
-    #
-
     #   Verlauf
     #
+records:
+    -   date: 1983-11
+        end: point.de.Rinteln-Süd
+        category: de.Nebenbahn
+        tracks: 1
+        gauge: 1435mm
+        passenger: none
+        electrified: yes
+        de.VzG: !!str 9176
+        operator: org.de.Verkehr-Extertal-Extertalbahn
+        document: src.de.DB.Han.1983
+    -   date: 1983-11
+        end: point.de.Rinteln-Süd
+        status: closed
+        document: src.de.DB.Han.1983
 
+    -   date: 2017-01
+        end: point.de.Rinteln-Süd
+        de.VzG: !!str 9176
+        note: km 0,0+0 – 23,7+64
+        document: src.de.DBAG.Geo-Strecke.2017
 points:
     -   point.de.Barntrup-Extertalbahn
     -   point.de.Alverdissen
     -   point.de.Bösingfeld
     -   point.de.Almena-Rickbruch
     -   point.de.Almena-Rickbruch-LGr
+    -   point.de.Bögerhof
     -   point.de.Krankenhagen
     -   point.de.Rinteln-Süd
     -   point.de.Rinteln-Nord                       # de.9177
@@ -65,19 +69,21 @@ points:
 ---
 key: point.de.Barntrup-Extertalbahn
 type: point
-events:
-    -   date: !!null
+records:
+    -   date: 1983-11
+        name: Barntrup (Extertalbahn)
+        location:
+            line.de.9176: 0,0 # links
+        document: src.de.DB.Han.1983
+
+    -   date: 2017-01
         name: Barntrup (Extertalbahn)
         category: de.Bf
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.DS100: HBTE
         de.dstnr: !!str 520064
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.name16: Barntrup (Exter)
-        source: src.de.DBAG.BSV.2017
-
+        document: src.de.DBAG.BSV.2017
+events:
     -   date: !!null
         connection: point.de.Barntrup               # line.de.2983
 
@@ -85,91 +91,116 @@ events:
 ---
 key: point.de.Alverdissen
 type: point
-events:
-    -   date: !!null
+records:
+    -   date: 1983-11
+        name: Alverdissen
+        location:
+            line.de.9176: 5,2 # rechts
+        document: src.de.DB.Han.1983
+
+    -   date: 2017-01
         name: Alverdissen
         category: de.Bf
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.DS100: HAVD
         de.dstnr: !!str 443044
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.name16: Alverdissen
-        source: src.de.DBAG.BSV.2017
+        document: src.de.DBAG.BSV.2017
 
 
 ---
 key: point.de.Bösingfeld
 type: point
-events:
-    -   date: !!null
+records:
+    -   date: 1983-11
+        name: Bösingfeld
+        location:
+            line.de.9176: 11,2 # rechts
+        document: src.de.DB.Han.1983
+
+    -   date: 2017-01
         name: Bösingfeld
         category: de.Bf
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.DS100: HBSG
         de.dstnr: !!str 443085
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.name16: Bösingfeld
-        source: src.de.DBAG.BSV.2017
+        document: src.de.DBAG.BSV.2017
 
 
 ---
 key: point.de.Almena-Rickbruch
 type: point
-events:
-    -   date: !!null
+records:
+    -   date: 1983-11
+        name: Almena-Rickbruch
+        location:
+            line.de.9176: 16,1 # rechts
+        document: src.de.DB.Han.1983
+
+    -   date: 2017-01
         name: Almena-Rickbruch
         category: de.Bf
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.DS100: HARB
         de.dstnr: !!str 443127
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.name16: Almena-Rickbruch
-        source: src.de.DBAG.BSV.2017
+        document: src.de.DBAG.BSV.2017
 
 
 ---
 key: point.de.Almena-Rickbruch-LGr
 type: point
-progress: stub
+subtype: border
 events:
     -   date: !!null
-        name: Almena-Rickbruch NRW/NI
+        designation: Almena-Rickbruch NRW/NI
+
+
+---
+key: point.de.Bögerhof
+type: point
+records:
+    -   date: 1983-11
+        name: Bögerhof
+        location:
+            line.de.9176: 19,3 # rechts
+        document: src.de.DB.Han.1983
 
 
 ---
 key: point.de.Krankenhagen
 type: point
-events:
-    -   date: !!null
+records:
+    -   date: 1983-11
+        name: Krankenhagen
+        location:
+            line.de.9176: 21,4 # rechts
+        document: src.de.DB.Han.1983
+
+    -   date: 2017-01
         name: Krankenhagen
         category: de.Bf
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.DS100: HKHG
         de.dstnr: !!str 443150
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.name16: Krankenhagen
-        source: src.de.DBAG.BSV.2017
+        document: src.de.DBAG.BSV.2017
 
 
 ---
 key: point.de.Rinteln-Süd
 type: point
-events:
-    -   date: !!null
+records:
+    -   date: 1983-11
+        name: Rinteln Süd
+        location:
+            line.de.9176: 23,3 # rechts
+        document: src.de.DB.Han.1983
+
+    -   date: 2017-01
         category: de.Bf
         name: Rinteln Süd
         de.name16: Rinteln Süd
         de.DS100: HRNS
         de.dstnr: !!str 443168
-        source: src.de.DBAG.BSV.2017
+        document: src.de.DBAG.BSV.2017
 
 
 #    point.de.Rinteln-Nord                       de.9177

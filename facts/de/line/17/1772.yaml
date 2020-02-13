@@ -10,10 +10,6 @@ events:
             - org.de
             - org.de.l.ni
 
-    -   date: !!null
-        de.VzG: !!str 1772
-        source: src.de.DBAG.Geo-Strecke.2017
-
     #   Genehmigungen
     #
     -   date: 1885-05-07
@@ -54,9 +50,25 @@ events:
 
     #   Verlauf
     #
+records:
+    -   date: 1983-11
+        category: de.Hauptbahn
+        tracks: 1
+        gauge: 1435mm
+        electrified: de
+        operator: org.de.e.han
+        document: src.de.DB.Han.1983
 
+    -   date: 2017-01
+        de.VzG: !!str 1772
+        note: >
+            Hildesheim Hbf, W 104 – Groß Gleidingen, W 9;
+            km 40,4+89 – 74,9+34
+        document: src.de.DBAG.Geo-Strecke.2017
 points:
     -   point.de.Hildesheim-Hbf                     # de.1770
+    -   point.de.Bettmar
+    -   point.de.Garbolzum
     -   point.de.Hoheneggelsen-Hp
     -   point.de.Hoheneggelsen
     -   point.de.Woltwiesche
@@ -70,115 +82,159 @@ points:
 #    point.de.Hildesheim-Hbf                     de.1770
 
 
+# 41,45 Baubezirksgrenze src.de.DB.Han.1983
+
+
+---
+key: point.de.Bettmar
+type: point
+records:
+    -   date: 1983-11
+        name: Bettmar
+        category: de.Bf
+        service: goods
+        location:
+            line.de.1772: 46,93 # rechts
+        document: src.de.DB.Han.1983
+
+    -   date: 2017-01
+        status: closed
+        document: src.de.DBAG.BSV.2017
+
+
+---
+key: point.de.Garbolzum
+type: point
+records:
+    -   date: 1983-11
+        name: Garbolzum
+        category: de.Bf
+        service: goods
+        location:
+            line.de.1772: 52,56 # links
+        document: src.de.DB.Han.1983
+
+    -   date: 2017-01
+        status: closed
+        document: src.de.DBAG.BSV.2017
+
+
 ---
 key: point.de.Hoheneggelsen-Hp
 type: point
 events:
-    -   date: !!null
+    -   date: c2000
+        status: open
+        split_from: point.de.Hoheneggelsen
+records:
+    -   date: 2017-01
         name: Hoheneggelsen Hp
         category: de.Hp
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.DS100: HHEP
         de.dstnr: !!str 107227
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.name16: Hoheneggelsen Hp
         PLC: DE15004
-        source: src.de.DBAG.BSV.2017
-
-    -   date: c2000
+        document: src.de.DBAG.BSV.2017
+    -   date: 2017-01
         location:
             line.de.1772: 58,082
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Hoheneggelsen
 type: point
-events:
-    -   date: !!null
+records:
+    -   date: 1983-11
+        name: Hoheneggelsen
+        category: de.Bf
+        location:
+            line.de.1772: 58,10 # links
+        document: src.de.DB.Han.1983
+
+    -   date: 2017-01
         de.DS100: HHEG
         name: Hoheneggelsen
         de.name16: Hoheneggelsen
         category: de.Bf
         PLC: DE15003
         de.dstnr: !!str 132647
-        source: src.de.DBAG.BSV.2017
-
-    -   date: c2000
+        document: src.de.DBAG.BSV.2017
+    -   date: 2017-01
         location:
             line.de.1772: 59,300
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+# 62,00 Betriebsamtsgrenze src.de.DB.Han.1983
 
 
 ---
 key: point.de.Woltwiesche
 type: point
-events:
-    -   date: !!null
+records:
+    -   date: 1983-11
+        name: Woltwiesche
+        category: de.Bf
+        location:
+            line.de.1772: 63,74 # links
+        document: src.de.DB.Han.1983
+
+    -   date: 2017-01
         name: Woltwiesche
         category: de.Hp
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.DS100: HWWI
         de.dstnr: !!str 132639
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.name16: Woltwiesche
         PLC: DE21295
-        source: src.de.DBAG.BSV.2017
-
-    -   date: c2000
+        document: src.de.DBAG.BSV.2017
+    -   date: 2017-01
         location:
             line.de.1772: 63,688
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Lengede-Broistedt
 type: point
-events:
-    -   date: !!null
+records:
+    -   date: 1983-11
+        name: Broistedt
+        category: de.Bf
+        location:
+            line.de.1772: 66,70 # rechts
+        document: src.de.DB.Han.1983
+
+    -   date: 2017-01
         name: Lengede-Broistedt
         category: de.Hp
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.DS100: HBST
         de.dstnr: !!str 132621
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.name16: Lengede-Broist
         PLC: DE16294
-        source: src.de.DBAG.BSV.2017
-
-    -   date: c2000
+        document: src.de.DBAG.BSV.2017
+    -   date: 2017-01
         location:
             line.de.1772: 66,630
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Broistedt
 type: point
-events:
-    -   date: !!null
+records:
+    -   date: 2017-01
         name: Broistedt
         category: de.Awanst
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.DS100: HBVP
         de.dstnr: !!str 107229
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.name16: Broistedt
         PLC: DE11715
-        source: src.de.DBAG.BSV.2017
-
-    -   date: c2000
+        document: src.de.DBAG.BSV.2017
+    -   date: 2017-01
         location:
             line.de.1772: 67,424
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 #    point.de.Groß-Gleidingen                    de.1730

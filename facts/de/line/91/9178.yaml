@@ -9,11 +9,6 @@ events:
             - org.de
             - org.de.l.ni
 
-    -   date: !!null
-        end: point.de.Bokeloh-Wunstorf
-        de.VzG: !!str 9178
-        source: src.de.DBAG.Geo-Strecke.2017
-
     #   Genehmigungen, Eigentümer, Betreiber
     #
     -   date: 1905-04-10
@@ -62,7 +57,26 @@ events:
     -   date: 2000-03
         owner: org.de.Osthannoversche-Eisenbahnen
         source: src.de.WP.Steinhuder-Meer-Bahn
-        
+records:
+    -   date: 1983-11
+        end: point.de.Bokeloh-Wunstorf
+        category: de.Nebenbahn
+        tracks: 1
+        gauge: 1435mm
+        passenger: none
+        de.VzG: !!str 9178
+        operator: org.de.Steinhuder-Meer-Bahn
+        document: src.de.DB.Han.1983
+    -   date: 1983-11
+        start: point.de.Bokeloh-Wunstorf
+        status: closed
+        document: src.de.DB.Han.1983
+
+    -   date: 2017-01
+        end: point.de.Bokeloh-Wunstorf
+        de.VzG: !!str 9178
+        note: km 0,0+0 – 6,3+30
+        document: src.de.DBAG.Geo-Strecke.2017
 points:
     -   point.de.Wunstorf                           # de.1700
     -   point.de.Wunstorf-Gr
@@ -81,49 +95,43 @@ points:
 ---
 key: point.de.Wunstorf-Gr
 type: point
-events:
-    -   date: !!null
+subtype: reference
+records:
+    -   date: 2017-01
         name: Wunstorf DB-Grenze
         category: de.Gp
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.DS100: HWUG
         de.dstnr: !!str 874925
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.name16: Wunstorf DB-Gr
         PLC: DE21369
-        source: src.de.DBAG.BSV.2017
+        document: src.de.DBAG.BSV.2017
 
 
 ---
 key: point.de.Wunstorf-West
 type: point
-events:
-    -   date: !!null
+records:
+    -   date: 1914-07
         name: Wunstorf Bahnhof
-        source: 
-            - src.de.Kb.1914
-            - src.de.Bfv.1933
-    -   date: c1940
+        document: src.de.Kb.1914
+
+    -   date: 1944-06-01
         name: Wunstorf West
-        source: src.de.Bfv.1944
-
-    -   date: !!null
-        category: de.Bf
-        source: src.de.DBAG.BSV.2017
-
-    -   date: de.lknr.kb
         de.lknr: 47 348
-        source: src.de.Bfv.1944
-    -   date: !!null
+        document: src.de.Bfv.1944
+
+    -   date: 1983-11
+        name: Wunstorf West
+        document: src.de.DB.Han.1983
+
+    -   date: 2017-01
+        name: Wunstorf West
+        category: de.Bf
         de.DS100: HWUW
         de.dstnr: !!str 551010
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.name16: Wunstorf West
-        source: src.de.DBAG.BSV.2017
-
+        document: src.de.DBAG.BSV.2017
+events:
     -   date: !!null
         connection: point.de.Wunstorf
 
@@ -131,25 +139,29 @@ events:
 ---
 key: point.de.Wunstorf-Stadt
 type: point
-events:
-    -   date: !!null
+records:
+    -   date: 1914-07
         name: Wunstorf Stadt
-        source: src.de.Kb.1914
+        document: src.de.Kb.1914
 
-    -   date: !!null
-        category: de.Bf
-        source: src.de.DBAG.BSV.2017
-
-    -   date: de.lknr.kb
+    -   date: 1944-06-01
+        name: Wunstorf Stadt
         de.lknr: 47 349
-        source: src.de.Bfv.1944
-    -   date: !!null
+        document: src.de.Bfv.1944
+
+    -   date: 1983-11
+        name: Wunstorf Stadt
+        location:
+            line.de.9178: 2,0 # rechts
+        document: src.de.DB.Han.1983
+
+    -   date: 2017-01
+        name: Wunstorf Stadt
+        category: de.Bf
         de.DS100: HWUS
         de.dstnr: !!str 551028
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.name16: Wunstorf Stadt
-        source: src.de.DBAG.BSV.2017
+        document: src.de.DBAG.BSV.2017
 
 
 ---
@@ -170,49 +182,44 @@ events:
 ---
 key: point.de.Bokeloh-Wunstorf
 type: point
-events:
-    -   date: !!null
+records:
+    -   date: 1914-07
         name: Bokeloh
-        source: src.de.Kb.1914
-    -   date: c1940
+        document: src.de.Kb.1914
+
+    -   date: 1944-06-01
         name: Bokeloh (Kr Neustadt a Rübenbge)
-        source: src.de.Bfv.1944
+        de.lknr: 47 365
+        document: src.de.Bfv.1944
+
+    -   date: 1983-11
+        name: Bokeloh (Kr Neustadt a Rübenbge)
+        location:
+            line.de.9178: 5,9 # rechts
+        document: src.de.DB.Han.1983
+
     -   date: c2000
         name: Bokeloh (b Wunstorf)
-        source: src.de.DBAG.BSV.2017
-
-    -   date: de.lknr.kb
-        de.lknr: 47 365
-        source: src.de.Bfv.1944
-    -   date: !!null
+        category: de.Bf
         de.DS100: HBKN
         de.dstnr: !!str 886358
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.name16: Bokeloh(b Wunst)
-        source: src.de.DBAG.BSV.2017
+        document: src.de.DBAG.BSV.2017
 
 
 ---
 key: point.de.Mesmerode
 type: point
-events:
-    -   date: !!null
+records:
+    -   date: 1914-07
         name: Mesmerode
-        source: src.de.Kb.1914
+        document: src.de.Kb.1914
 
-    -   date: !!null
+    -   date: 2017-01
         category: de.Bf
-        source: src.de.DBAG.BSV.2017
-
-    -   date: de.lknr.kb
         de.lknr: 47 366
-        source: src.de.Bfv.1944
-    -   date: !!null
         de.DS100: HWUM
         de.dstnr: !!str 551176
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.name16: Mesmerode
-        source: src.de.DBAG.BSV.2017
+        document: src.de.DBAG.BSV.2017
 
