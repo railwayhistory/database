@@ -1,0 +1,276 @@
+# DE 1040.  Neumünster (ausschl) - Flensburg (einschl)
+#
+#      XXX  Derzeit nur ab Tarp.
+#
+let flefri = path("path.de.1005");
+let flwhag = path("path.de.1000");
+let flwlin = path("path.de.1001");
+let hasfle = path("path.de.1020");
+let husflw = path("path.de.12035");
+let neufle = path("path.de.1040");
+
+with detail = 1 {
+    track(:first, neufle[:neu, :fle]);
+}
+
+with detail = 2 {
+    track(:first, neufle[:neu, :fle]);
+}
+
+with detail = 3 {
+    # ... - Flensburg Weiche (ausschl)
+    #
+    track(:double :first :cat, neufle[:tar - 1ssw, :fws - 1ssw]);
+
+    marker(:de.bf :removed, neufle[:tar] >> .5dt);
+    with layer = 1 marker(:de.hp, neufle[:tar] >> .5dt);
+    slabel(:right, neufle[:tar - .5ssw] >> 0.5dt >> 2ssw, "Tarp");
+
+    marker(:de.hp :removed :left, neufle[:bar] << .5dt);
+    marker(:de.bk :removed :left, neufle[:bar] << .5dt);
+    slabel(:left :removed, neufle[:bar - .4ssw] << .5dt << 2ssw, "Barderup");
+
+    # Flensburg Weiche
+    #
+    track(:double :first :station, neufle[:fws - 1ssw, :flw + 1ssw]);
+    marker(:de.bft :right, neufle[:fws] >> 0.5dt);
+    slabel(:left, neufle[:fws - .5ssw] << 3.5dt, "F. Weiche Süd");
+    marker(:de.bf :right, neufle[:flw] >> 0.5dt);
+    slabel(
+        :bottom, neufle[:flw] >> .5dt >> 2ssw + (20pt, 0pt),
+        "Flensburg Weiche"
+    );
+
+    # Flensburg Weiche (ausschl) - Flensburg (ausschl)
+    #
+    track(:double :first :cat, neufle[:flw + 1ssw, :fle - 1ssw]);
+
+    # Flensburg
+    #
+    track(:double :first :station, neufle[:fle - 1ssw, :fle + .5ssw]);
+    track(:first :station,
+            neufle[:fle + .5ssw, :flw + 1ssw] >> 0.5dt
+        --  neufle[:flw + 1ssw + 1dl, :flw + 1ssw + 1.1dl] << 0.5dt
+    );
+    marker(:de.bf :left, neufle[:fle] << 1.5dt);
+    slabel(:top, neufle[:fle] << 1.5dt << 2ssw, "Flensburg");
+}
+
+
+with detail = 4 {
+    # ...
+
+    #--- point.de.Tarp
+    #
+    track(:double :first :station, neufle[:tar.a, :tar.f]);
+    track(:station :removed,
+           neufle[:tar.a + .9dl, :tar.a + 1dl] >> 0.5dt
+        -- neufle[:tar.a + 2dl, :tar.a + 2.1dl] << 0.5dt
+    );
+    track(:station :removed,
+           neufle[:tar.ts - .51ssw, :tar.ts - .5ssw] << 0.5dt
+        -- neufle[:tar.ts - .5ssw + 1dl, :tar.f] << 1.5dt
+        -- neufle[:tar.f + 1sw, :tar.ff] << 2.5dt
+    );
+    track(:station :removed,
+           neufle[:tar.f - 4.1dl, :tar.f - 4dl] << 1.5dt
+        -- neufle[:tar.f - 3dl, :tar.f - 2.9dl] << 0.5dt
+    );
+    track(:station :removed,
+           neufle[:tar.f - 2.1dl, :tar.f - 2dl] << .5dt
+        -- neufle[:tar.f - 1dl, :tar.f - 0.9dl] >> .5dt
+    );
+    marker(:de.bf :removed, neufle[:tar] >> .5dt);
+    with layer = 1 marker(:de.hp :open, neufle[:tar] >> .5dt);
+    station(
+        :right, neufle[:tar - 0.4sw] >> 0.5dt >> 1.6sw,
+        "Tarp", "161,97"
+    );
+
+    track(:double :first :cat, neufle[:tar.f, :bar - 1sw]);
+
+    #--- point.de.Barderup
+    #
+    track(:double :first :station, neufle[:bar - 1sw, :bar + 1sw]);
+    marker(:de.hp :removed :left, neufle[:bar] << .5dt);
+    marker(:de.bk :removed :left, neufle[:bar] << .5dt);
+    station(
+        :left :removed, neufle[:bar - .4sw] << .5dt << 1.6sw,
+        "Barderup", "162,15"
+    );
+
+    track(:double :first :cat, neufle[:bar + 1sw, :hol - 1sw]);
+    with layer = 1 line_badge(:open, neufle[:bar + 1.6km], "1040");
+
+    #--- point.de.Flensburg-Weiche
+    #
+    # point.de.Holzkrug
+    # point.de.Flensburg-Weiche-Süd
+    #
+    # Gl. 1 und 2
+    with layer = 0.1 track(:double :first :station, neufle[:hol - 1sw, :flw.f]);
+    track(:station,
+            neufle[:flw.f - 2.1dl, :flw.f - 2dl] << 0.5dt
+        --  neufle[:flw.f - 1dl, :flw.f - 0.9dl] >> 0.5dt
+    );
+
+    # Gl. 3 (Husum - Stumpf)
+    track(:second :station :removed,
+           husflw[:flw.a, :flw.a + 1dl]
+        .. neufle[:flin, :flw.f - 6dl] << 1.5dt
+    );
+
+    # Gl.4 (Lindholm - Alter Bf)
+    track(:second :station :closed,
+           flwlin[:flw.f, :flw.w130]
+        .. neufle[:flin, :flw.f - 5dl] << 2.5dt
+        -- neufle[:flw.f - 3dl, :flw.f - 2.9dl] << 0.5dt
+    );
+    track(:second :station :removed,
+           neufle[:flw.f - 4dl, :flw.f] << 1.5dt
+    );
+
+    # Gl. 6
+    track(:station :closed,
+            neufle[:flin - 2.1dl, :flin - 2dl] << 5.5dt
+        --  neufle[:flin, :apad - 2dl] << 3.5dt
+    );
+
+    # Gl. 32 - Gl. 7 (Richtungsgl. Rendsburg - Padborg)
+    track(:station, neufle[:flw.aa, :fws - .5sw - 1dl] << 1.5dt);
+    with layer = 0.9 casing(:first :station,
+           neufle[:flw.wr2 - .1dl, :flw.wr2] << 1.5dt
+        .. neufle[:flin, :flin + .1dl] << 4.5dt
+    );
+    with layer = 1 track(:first :station,
+           neufle[:fws - .5sw - 2.1dl, :fws - .5sw - 2dl] << 0.5dt
+        -- neufle[:fws - .5sw - 1dl, :flw.wr2] << 1.5dt
+        .. neufle[:flin, :apad] << 4.5dt
+        .. flwhag[:ffle - 1dl, :ffle] >> 0.5dt
+    );
+    
+    # Verbindung Gl. 7 nach Gl. 4
+    track(:station,
+            neufle[:apad - 1.1dl, :apad - 1dl] << 4.5dt
+        --  neufle[:apad + 1dl, :apad + 1.1dl] << 2.5dt
+    );
+
+    # Gl. 44 - Gl. 11 (Gegenrichtung Rendsburg - Padborg)
+    with layer = 0.9 casing(:first :station,
+           neufle[:flw.wr2 - .1dl, :flw.wr2] << 2.5dt
+        .. neufle[:flin, :flin + .1dl] << 5.5dt
+    );
+    with layer = 1 track(:first :station,
+           neufle[:fws - .5sw - .1dl, :fws - .5sw] << 1.5dt
+        -- neufle[:fws - .5sw + 1dl, :flw.wr2] << 2.5dt    
+        .. neufle[:flin, :apad] << 5.5dt
+        .. flwhag[:ffle - 1dl, :ffle] << 0.5dt
+    );
+
+    # Gl. 13 (Güterausfahrt nach Lindholm)
+    track(:station :closed,
+            flwlin[:flw.w130 + .1dl, :flw.w130]
+        ..  neufle[:flin, :apad] << 6.5dt
+    );
+
+    # Gl. 14
+    track(:station :removed,
+            neufle[:flin - .1dl, :flin] << 5.5dt
+        --  neufle[:flin + 2dl, :apad - 1dl] << 7.5dt
+        --  neufle[:apad + 2dl, :apad + 2.1dl] << 4.5dt
+    );
+
+    marker(:de.bf :removed :left, neufle[:hol] << 1.5dt);
+    station(
+        :left :removed, neufle[:hol - .4sw] << 1.5dt << 1.4sw,
+        "Holzkrug", "?"
+    );
+    marker(:de.bft :right, neufle[:fws] >> 0.5dt);
+    station(
+        :right, neufle[:fws - .4sw] >> 0.5dt >> 1.6sw,
+        "F. Weiche Süd", "165,58"
+    );
+    marker(:de.bf :right, neufle[:flw] >> 0.5dt);
+    station(
+        :bottom, neufle[:flw] >> 0.5dt >> 1.6sw + (20pt, 0pt),
+        "Flensburg Weiche",
+        #"172,92 • 45,50 • 0,00"
+	vbox(:left :small,
+	    span(:open,    "  1000: 172,92"),
+	    span(:closed,  "  1001:     0,00"),
+	    span(:open,    "  1002: 172,92"),
+	    span(:open,    "  1040: 172,92"),
+	    span(:removed, "12305:   45,50")
+	)
+    );
+
+
+    track(:double :first :cat, neufle[:flw.f, :fle.a]);
+
+
+    #--- Flensburg
+    #
+    # Gl. 1 (ex 10; aus F. Weiche)
+    track(:first :station, neufle[:fle.a, :fle + .5sw] >> 0.5dt);
+    track(:station,
+            neufle[:fle + .5sw, :fle.fo +.5sw] >> 0.5dt
+        --  neufle[:fle.fo + .5sw + 1dl, :fle.fo + .5sw + 1.1dl] << 0.5dt
+    );
+
+    # Gl. 2 (ex 9; nach F. Weiche und nach Friedensweg)
+    track(:first :station,
+            neufle[:fle.a, :afri] << 0.5dt
+        ..  flefri[:fle.f - .1dl, :fle.f]
+    );
+
+    # Verbindung Gl. 1 nach Gl. 2 vor Fw
+    track(:station,
+            neufle[:fle.a + 0.9dl, :fle.a + 3dl] >> 0.5dt
+        --  neufle[:fle.a + 4dl, :fle.a + 4.1dl] << 0.5dt
+    );
+
+    # Verbindung Gl. 2 nach Gl. 1 vor Fw
+    track(:station,
+            neufle[:fle.fw - 0.5sw - 4.1dl, :fle.fw - 0.5sw - 4dl] << 0.5dt
+        --  neufle[:fle.fw - 0.5sw - 3dl, :fle.fw - 0.5sw - 2.9dl] >> 0.5dt
+    );
+    
+
+    # Gl. 3 (ex 8)
+    track(:station :removed,
+            neufle[:fle.a, :fle.fw - .5sw - 1dl] << 1.5dt
+    );
+    track(:station,
+            neufle[:fle.fw - .5sw - 1dl, :fle.fo - .5sw - 1dl] << 1.5dt
+        --  neufle[:fle.fo - .5sw, :fle.fo - .5sw + .1dl] << 2.5dt
+    );
+
+    # Gl.4 (ex 7)
+    track(:station,
+            neufle[:fle.fw - .5sw - 2.1dl, :fle.fw - .5sw - 2dl] << 0.5dt
+        --  neufle[:fle.fw - .5sw, :fle - .5sw] << 2.5dt
+    );
+    track(:second :station, neufle[:fle - .5sw, :fle.fa] << 2.5dt);
+
+    # Abstellgleise
+    track(:station :removed,
+            neufle[:fle.fo - .5sw - 2dl, :afri] << 1.5dt
+    );
+    track(:station,
+            neufle[:afri - 1.1dl, :afri - 1dl] << 0.5dt
+        --  neufle[:afri, :fle.f] << 1.5dt
+    );
+    track(:station,
+            neufle[:fle.fa - .1dl, :fle.fa] << 1.5dt
+        --  neufle[:fle.fa + 1dl, :fle.wp1] << 0.5dt
+        --  neufle[:fle.wp1 + 1dl, :fle.wp1 + 1.1dl] << 1.5dt
+    );
+
+    marker(:de.bf :left, neufle[:fle] << 2.5dt);
+    station(
+        :open :top :left_align, neufle[:fle] << 2.5dt << 1.4sw,
+        "Flensburg",
+	"176,23 • 80,64 • 0,00"
+    );
+}
+

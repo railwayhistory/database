@@ -1,0 +1,25 @@
+# DE 1020.  Kiel-Hassee (ausschl) - Flensburg (ausschl)
+#
+#     XXX.  Nur ab Maasbüll.
+#
+let hasfle = path("path.de.1020");
+let neufle = path("path.de.1040");
+
+with detail = 4 {
+    track(:second, hasfle[:huh + 1sw, :maa - 1sw]);
+
+    #--- Maasbüll
+    #
+    track(:second :station, hasfle[:maa - 1sw, :maa + 1sw]);
+    marker(:de.bf :removed :left, hasfle[:maa]);
+    station(
+        :bottom :removed, hasfle[:maa] << 1.5sw - (15pt, 0pt),
+        "Maasbüll (Angeln)", "74,21"
+    );
+
+    track(:second,
+            hasfle[:maa + 1sw, :fle.aaa]
+        ..  neufle[:fle.f, :fle.fa] >> 2.5dt
+    );
+}
+

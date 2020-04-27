@@ -14,14 +14,6 @@ events:
         start: point.de.Duderstadt-LGr
         region: org.de.l.th
 
-    -   date: !!null
-        end: point.de.Duderstadt-LGr
-        de.VzG: !!str 1811
-        source: src.de.DBAG.Geo-Strecke.2017
-    -   date: de.vzg.dr
-        de.VzG: !!str 1811
-        source: src.de.DBAG.Geo-Strecke.2017
-
     #   Genehmigungen
     #
     -   date: 1886-04-19
@@ -66,9 +58,65 @@ events:
 
     #   Verlauf
     #
+records:
+    -   date: 1953-07
+        start: point.de.Duderstadt-LGr
+        end: point.de.Teistungen
+        status: closed
+        document: src.dd.DR.Erf.1953
+    -   date: 1953-07
+        start: point.de.Teistungen
+        category: de.Nebenbahn
+        tracks: 1
+        gauge: 1435mm
+        operator: org.de.e.erf
+        document: src.dd.DR.Erf.1953
 
+    -   date: 1967-08
+        start: point.de.Duderstadt
+        end: point.de.Teistungen
+        status: removed
+        document: src.dd.DR.Erf.1967
+
+    -   date: 1983-11
+        end: point.de.Duderstadt
+        category: de.Nebenbahn
+        tracks: 1
+        gauge: 1435mm
+        passenger: none
+        operator: org.de.e.han
+        document: src.de.DB.Han.1983
+    -   date: 1983-11
+        start: point.de.Duderstadt
+        end: point.de.Teistungen
+        status: closed
+        document: src.de.DB.Han.1983
+
+    -   date: 1989-03
+        start: point.de.Duderstadt
+        end: point.de.Teistungen
+        status: removed
+        document: src.dd.DR.Erf.1989
+    -   date: 1989-03
+        start: point.de.Teistungen
+        category: de.Nebenbahn
+        tracks: 1
+        gauge: 1435mm
+        operator: org.de.e.erf
+        document: src.dd.DR.Erf.1989
+
+    -   date: 2017-01
+        de.VzG: !!str 1811
+        note: >
+            Wulften – Leinefelde, W 209;
+            km −0,6−89 – 40,4+44
+        document: src.de.DBAG.Geo-Strecke.2017
 points:
     -   point.de.Wulften                            # de.1810
+    -   point.de.Bilshausen
+    -   point.de.Gieboldehausen
+    -   point.de.Rollshausen
+    -   point.de.Westerode
     -   point.de.Duderstadt
     -   point.de.Duderstadt-LGr
     -   point.de.Teistungen
@@ -76,6 +124,7 @@ points:
     -   point.de.Ferna
     -   point.de.Wintzingerode
     -   point.de.Worbis
+    -   point.de.Breitenbach-Eichsfeld
     -   point.de.Leinefelde                         # de.6343
 
 
@@ -85,22 +134,78 @@ points:
 
 
 ---
+key: point.de.Bilshausen
+type: point
+records:
+    -   date: 1983-11
+        name: Bilshausen
+        category: de.Bf
+        staff: none
+        location:
+            line.de.1811: 2,95 # rechts
+        document: src.de.DB.Han.1983
+
+
+---
+key: point.de.Gieboldehausen
+type: point
+records:
+    -   date: 1983-11
+        name: Gieboldehausen
+        category: de.Bf
+        staff: none
+        location:
+            line.de.1811: 8,16 # links
+        document: src.de.DB.Han.1983
+
+
+---
+key: point.de.Rollshausen
+type: point
+records:
+    -   date: 1983-11
+        name: Rollshausen
+        category: de.Bf
+        staff: none
+        location:
+            line.de.1811: 12,60 # rechts
+        document: src.de.DB.Han.1983
+
+
+---
+key: point.de.Westerode
+type: point
+records:
+    -   date: 1983-11
+        name: Westerode
+        category: de.Bf
+        staff: none
+        location:
+            line.de.1811: 17,92 # links
+        document: src.de.DB.Han.1983
+
+
+---
 key: point.de.Duderstadt
 type: point
-events:
-    -   date: !!null
+records:
+    -   date: 1983-11
         name: Duderstadt
         category: de.Bf
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
+        staff: none
+        location:
+            line.de.1811: 20,57 # links
+        document: src.de.DB.Han.1983
+
+    -   date: 2017-01
+        name: Duderstadt
+        category: de.Bf
         de.DS100: HDUD
         de.dstnr: !!str 131250
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.name16: Duderstadt
         PLC: DE12502
-        source: src.de.DBAG.BSV.2017
-
+        document: src.de.DBAG.BSV.2017
+events:
     -   date: !!null
         name: Duderstadt
         connection: point.de.Duderstadt-Kleinbf     # line.de.8168
@@ -110,114 +215,299 @@ events:
 key: point.de.Duderstadt-LGr
 type: point
 subtype: border
-progress: stub
 events:
     -   date: !!null
-        name: Duderstadt NI/TH
+        designation: Duderstadt NI/TH
+records:
+    -   date: 1953-07
+        location:
+            line.de.1811: 23,21
+        document: src.dd.DR.Erf.1953
+
+
+# 25,15 Streckenende src.dd.DR.Erf.1989
 
 
 ---
 key: point.de.Teistungen
 type: point
-events:
-    -   date: !!null
+records:
+    -   date: 1953-07
+        name: Teistungen
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.1811: 25,47 # links
+        document: src.dd.DR.Erf.1953
+    -   date: 1960-05
+        name: Teistungen
+        category: de.Bf
+        de.rang: U
+        master: point.de.Worbis
+        de.VBL: Tg
+        location:
+            line.de.1811: 25,47 # links
+        document: src.dd.DR.Erf.1960
+    -   date: 1989-03
+        name: Teistungen
+        category: de.Bf
+        de.rang: U
+        master: point.de.Worbis
+        de.VBL: Tg
+        location:
+            line.de.1811: 25,47 # links
+        document: src.dd.DR.Erf.1989
+
+    -   date: 2017-01
         category: de.Bf
         name: Teistungen
         de.name16: Teistungen
         de.DS100: UTG
         PLC: DE20204
         de.dstnr: !!str 165514
-        source: src.de.DBAG.BSV.2017
+        document: src.de.DBAG.BSV.2017
 
 
 ---
 key: point.de.Teistungen-Thür-Ziegelwerke
 type: point
-events:
-    -   date: !!null
+records:
+    -   date: 1967-08
+        category: de.Anst
+        location:
+            line.de.1811: 26,614 # rechts
+        document: src.dd.DR.Erf.1967
+    -   date: 1989-03
+        category: de.Anst
+        location:
+            line.de.1811: 26,614 # rechts
+        document: src.dd.DR.Erf.1989
+
+    -   date: 2017-01
         name: Teistungen Thür Ziegelwerke Erfurt GmbH
         category: de.Anst
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.DS100: UTGB
         de.dstnr: !!str 165506
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.name16: Thür Ziegelw T
         PLC: DE20205
-        source: src.de.DBAG.BSV.2017
+        document: src.de.DBAG.BSV.2017
 
 
 ---
 key: point.de.Ferna
 type: point
-events:
-    -   date: !!null
+records:
+    -   date: 1953-07
+        name: Ferna
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.1811: 28,70 # links
+        document: src.dd.DR.Erf.1953
+    -   date: 1960-05
+        name: Ferna
+        category: de.Hst
+        staff: full
+        master: point.de.Worbis
+        de.VBL: Fa
+        location:
+            line.de.1811: 28,70 # links
+        document: src.dd.DR.Erf.1960
+    -   date: 1967-08
+        name: Ferna
+        category: de.Hst
+        staff: full
+        master: point.de.Worbis
+        de.VBL: Fa
+        location:
+            line.de.1811: 28,70 # links
+        document: src.dd.DR.Erf.1967
+    -   date: 1980-03
         name: Ferna
         category: de.Hp
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
+        staff: full
+        master: point.de.Worbis
+        location:
+            line.de.1811: 28,70 # links
+        document: src.dd.DR.Erf.1980
+    -   date: 1989-03
+        name: Ferna
+        category: de.Hp
+        staff: full
+        master: point.de.Worbis
+        de.VBL: Fa
+        location:
+            line.de.1811: 28,70 # links
+        document: src.dd.DR.Erf.1989
+
+    -   date: 2017-01
+        name: Ferna
+        category: de.Hp
         de.DS100: UFA
         de.dstnr: !!str 165498
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.name16: Ferna
         PLC: DE13178
-        source: src.de.DBAG.BSV.2017
+        document: src.de.DBAG.BSV.2017
 
 
 ---
 key: point.de.Wintzingerode
 type: point
-events:
-    -   date: !!null
+records:
+    -   date: 1953-07
+        name: Wintzingerode
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.1811: 31,39 # links
+        document: src.dd.DR.Erf.1953
+    -   date: 1960-05
+        name: Wintzingerode
+        category: de.Hst
+        staff: full
+        master: point.de.Worbis
+        de.VBL: Win
+        location:
+            line.de.1811: 31,39 # links
+        document: src.dd.DR.Erf.1960
+    -   date: 1967-08
+        name: Wintzingerode
+        category: de.Hst
+        staff: full
+        master: point.de.Worbis
+        de.VBL: Win
+        location:
+            line.de.1811: 31,39 # links
+        document: src.dd.DR.Erf.1967
+    -   date: 1980-03
         name: Wintzingerode
         category: de.Hp
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
+        staff: full
+        master: point.de.Worbis
+        location:
+            line.de.1811: 31,39 # links
+        document: src.dd.DR.Erf.1980
+    -   date: 1989-03
+        name: Wintzingerode
+        category: de.Hp
+        staff: full
+        master: point.de.Worbis
+        de.VBL: Win
+        location:
+            line.de.1811: 31,39 # links
+        document: src.dd.DR.Erf.1989
+
+    -   date: 2017-01
+        name: Wintzingerode
+        category: de.Hp
         de.DS100: UWIN
         de.dstnr: !!str 165480
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.name16: Wintzingerode
         PLC: DE21209
-        source: src.de.DBAG.BSV.2017
+        document: src.de.DBAG.BSV.2017
 
 
 ---
 key: point.de.Worbis
 type: point
-events:
-    -   date: !!null
+records:
+    -   date: 1953-07
         name: Worbis
         category: de.Bf
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
+        de.rang: III
+        location:
+            line.de.1811: 34,94 # links
+        document: src.dd.DR.Erf.1953
+    -   date: 1960-05
+        name: Worbis
+        category: de.Bf
+        de.rang: IIIa
+        de.VBL: Wb
+        location:
+            line.de.1811: 34,94 # links
+        document: src.dd.DR.Erf.1960
+    -   date: 1967-08
+        name: Worbis
+        category: de.Bf
+        de.rang: IV
+        de.VBL: Wb
+        location:
+            line.de.1811: 34,94 # links
+        document: src.dd.DR.Erf.1960
+    -   date: 1989-03
+        name: Worbis
+        category: de.Bf
+        de.rang: S
+        de.VBL: Wb
+        location:
+            line.de.1811: 34,94 # links
+        document: src.dd.DR.Erf.1960
+
+    -   date: 2017-01
+        name: Worbis
+        category: de.Bf
         de.DS100: UWBS
         de.dstnr: !!str 165472
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.name16: Worbis
         PLC: DE21297
-        source: src.de.DBAG.BSV.2017
+        document: src.de.DBAG.BSV.2017
 
 
 ---
 key: point.de.Breitenbach-Eichsfeld
 type: point
-events:
-    -   date: !!null
+records:
+    -   date: 1953-07
+        name: Breitenbach (Ef)
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.1811: 37,07 # rechts
+        document: src.dd.DR.Erf.1953
+    -   date: 1960-05
+        name: Breitenbach (Eichsfeld)
+        category: de.Hst
+        staff: full
+        master: point.de.Worbis
+        de.VBL: Bba
+        location:
+            line.de.1811: 37,07 # rechts
+        document: src.dd.DR.Erf.1960
+    -   date: 1967-08
+        name: Breitenbach (Eichsfeld)
+        category: de.Hst
+        staff: full
+        master: point.de.Worbis
+        de.VBL: Bba
+        location:
+            line.de.1811: 37,07 # rechts
+        document: src.dd.DR.Erf.1967
+    -   date: 1980-03
         name: Breitenbach (Eichsfeld)
         category: de.Hp
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
+        staff: full
+        master: point.de.Worbis
+        location:
+            line.de.1811: 37,07 # rechts
+        document: src.dd.DR.Erf.1980
+    -   date: 1989-03
+        name: Breitenbach (Eichsfeld)
+        category: de.Hp
+        staff: full
+        master: point.de.Worbis
+        de.VBL: Bba
+        location:
+            line.de.1811: 37,07 # rechts
+        document: src.dd.DR.Erf.1989
+
+    -   date: 2017-01
+        name: Breitenbach (Eichsfeld)
+        category: de.Hp
         de.DS100: UBBA
         de.dstnr: !!str 165464
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.name16: Breitenbach Eich
         PLC: DE11616
-        source: src.de.DBAG.BSV.2017
+        document: src.de.DBAG.BSV.2017
 
 
 #    point.de.Leinefelde                         de.6343
