@@ -8,6 +8,8 @@ let flwlin = path("path.de.1001");
 let hasfle = path("path.de.1020");
 let husflw = path("path.de.12035");
 let neufle = path("path.de.1040");
+let slefri = path("path.de.9103");
+let slesla = path("path.de.1010");
 
 with detail = 1 {
     track(:first, neufle[:neu, :fle]);
@@ -18,12 +20,30 @@ with detail = 2 {
 }
 
 with detail = 3 {
-    # ... - Flensburg Weiche (ausschl)
-    #
-    track(:double :first :cat, neufle[:tar - 1ssw, :fws - 1ssw]);
+    # ... - Jübeck (ausschl).
+    track(:double :first :cat, neufle[:sle, :jub - 1sw]);
 
-    marker(:de.bf :removed, neufle[:tar] >> .5dt);
-    with layer = 1 marker(:de.hp, neufle[:tar] >> .5dt);
+    with layer = -1 marker(:de.bf :removed :left, neufle[:sub] << 0.5dt);
+    marker(:de.awanst :left, neufle[:sub] << 0.5dt);
+    slabel(:left, neufle[:sub] << 0.5dt << 2ssw, "Schuby");
+
+    # Jübeck
+    track(:double :first :station, neufle[:jub - 1sw, :ahus + .2km]);
+    marker(:de.bf :left, neufle[:jub] << 0.5dt);
+    slabel(:left :bold, neufle[:jub] << 0.5dt << 2ssw,
+        span(:bold :small, "Jübek")
+    );
+
+    # Jübeck (aussschl) - Flensburg Weiche (ausschl)
+    #
+    track(:double :first :cat, neufle[:ahus + .2km, :fws - 1ssw]);
+
+    with layer = -2 marker(:de.hst :closed :left, neufle[:egb] << 0.5dt);
+    with layer = -1 marker(:de.bf :removed :left, neufle[:egb] << 0.5dt);
+    slabel(:left :closed, neufle[:egb - .5ssw] << 0.5dt << 2ssw, "Eggebek");
+
+    with layer = -1 marker(:de.bf :removed, neufle[:tar] >> .5dt);
+    marker(:de.hp, neufle[:tar] >> .5dt);
     slabel(:right, neufle[:tar - .5ssw] >> 0.5dt >> 2ssw, "Tarp");
 
     marker(:de.hp :removed :left, neufle[:bar] << .5dt);
@@ -52,13 +72,178 @@ with detail = 3 {
             neufle[:fle + .5ssw, :flw + 1ssw] >> 0.5dt
         --  neufle[:flw + 1ssw + 1dl, :flw + 1ssw + 1.1dl] << 0.5dt
     );
-    marker(:de.bf :left, neufle[:fle] << 1.5dt);
-    slabel(:top, neufle[:fle] << 1.5dt << 2ssw, "Flensburg");
+    marker(:de.bf :left, neufle[:fle] << .5dt);
+    with layer = 1 slabel(:top, neufle[:fle] << .5dt << 2ssw, "Flensburg");
 }
 
 
 with detail = 4 {
     # ...
+
+    #--- point.de.Schleswig
+    #
+    track(:double :first :station, neufle[:sle.a, :sle.f]);
+
+    # Gleiswechsel Südseite
+    track(:station,
+            neufle[:sle.a + .9dl, :sle.a + 1dl] >> 0.5dt
+        --  neufle[:sle.a + 2dl, :sle.a + 2.1dl] << 0.5dt
+    );
+
+    # Gl. 803
+    track(:station,
+            neufle[:sle.a + 2.9dl, :sle.a + 3dl] << 0.5dt
+        --  neufle[:sle.a + 4dl, :sle + .5sw] << 1.5dt
+        --  neufle[:sle + .5sw + 1dl, :sle + .5sw + 1.1dl] << 0.5dt
+    );
+
+    # Gl.804
+    with layer = -1 track(:station :closed,
+            neufle[:sle.a + 4dl, :sle.a + 4.1dl] << 1.5dt
+        --  neufle[:sle.a + 5.1dl, :asla - 3dl] << 2.5dt
+    );
+
+    # Gl. 856
+    with layer = -1 track(:third :station :closed,
+            slefri[:sle.ff, :sle.ff - 0.1dl]
+        ..  neufle[:sle, :asla - 4dl] << 3.5dt
+        --  neufle[:asla, :asla + .1dl] >> 0.5dt
+    );
+
+    # Ausfahrt nach Schleswig Altstadt
+    track(:station :removed, neufle[:sle + .5sw + 1dl, :asla + 1dl] >> 1.5dt);
+    with layer = -1 track(:second :station :removed,
+            neufle[:asla - .1dl, :asla] >> 0.5dt
+        --  neufle[:asla + 1dl, :asla + 2dl] >> 1.5dt
+        ..  slesla[:a - 1dl, :a]
+    );
+
+    marker(:de.bf :right, neufle[:sle] >> 0.5dt);
+    station(:left, neufle[:sle - 0.5sw] << 3.5dt - (5dt, 0dt),
+        span(:medium :bold, "Schleswig"),
+        hbox(:center :top,
+            vbox(:left :top,
+                span(:small :removed, "1010: "),
+                span(:small, "1040: "),
+                span(:small :removed, "9103: ")
+            ),
+            vbox(:right :top,
+                span(:small :removed, "132,8"),
+                span(:small, "138,3"),
+                span(:small :removed, "3,2")
+            ),
+            vbox(:left :top,
+                span(:small :removed, "2"),
+                span(:small, "9"),
+                span(:small :removed, "")
+            )
+        )
+    );
+
+
+    # Streckengleis Schleswig - Schuby
+    track(:double :first :cat, neufle[:sle.f, :sub.a]);
+
+
+    #--- point.de.Schuby
+    track(:double :first :station, neufle[:sub.a, :sub.f]);
+    track(:station, neufle[:sub.f - 3dl, :sub.f + .3km] << 1.5dt);
+    track(:station,
+            neufle[:sub.f - 2.1dl, :sub.f - 2dl] << 0.5dt
+        --  neufle[:sub.f - 1dl, :sub.f - 0.9dl] << 1.5dt
+    );
+    with layer = -1 track(:station :removed,
+            neufle[:sub.a + 0.9dl, :sub.a + 1dl] << 0.5dt
+        --  neufle[:sub.a + 2dl, :sub - .5sw - 2dl] << 1.5dt
+        --  neufle[:sub - .5sw - 1dl, :sub - .5sw - 0.9dl] << 0.5dt
+    );
+    with layer = -1 marker(:de.bf :left :removed, neufle[:sub] << 0.5dt);
+    marker(:de.awanst :left, neufle[:sub.f] << 1.5dt);
+    station(:left, neufle[:sub.f] << 1.5dt << 2sh + (10pt, 0pt),
+        hbox(:center :top,
+            span(:medium, "Schuby "), span(:medium :removed, "(Kr Schleswig)")
+        ),
+        hbox(:center :top,
+            span(:small, "142,12 "), span(:small :removed, "(137,26)")
+        )
+    );
+
+
+    # Streckengleis Schuby - Jübek
+    track(:double :first :cat, neufle[:sub.f, :jub.a]);
+
+
+    #--- point.de.Jübek
+    #
+    track(:double :first :station, neufle[:jub.a, :ahus + .2km]);
+    # Gleiswechsel Südkopf
+    track(:station,
+            neufle[:jub.a + 1.9dl, :jub.a + 2dl] << 0.5dt
+        --  neufle[:jub.a + 3dl, :jub.a + 3.1dl] >> 0.5dt
+    );
+
+    # Nebengleise Ostseite
+    track(:station,
+            neufle[:jub - .1dl, :jub] >> 0.5dt
+        --  neufle[:jub + 1dl, :ahus - 6dl] >> 1.5dt
+        --  neufle[:ahus - 5dl, :ahus - 4.9dl] >> 0.5dt
+    );
+    track(:station,
+            neufle[:jub - .15km, :ahus - 8dl] >> 2.5dt
+        --  neufle[:ahus - 7dl, :ahus - 6.9dl] >> 1.5dt
+    );
+
+    # Gleiswechsel Nordkopf
+    track(:station,
+            neufle[:ahus - 4.1dl, :ahus - 4dl] >> 0.5dt
+        --  neufle[:ahus - 3dl, :ahus - 2.9dl] << 0.5dt
+    );
+    track(:second :station,
+            neufle[:ahus - 2.1dl, :ahus - 2dl] << 0.5dt
+        --  neufle[:ahus - 1dl, :ahus] << 1.5dt
+    );
+    
+    # Nebengleise Westseite
+    track(:station :removed, neufle[:ahus - .4km, :ahus - 2dl] << 1.5dt);
+    track(:station :removed, neufle[:ahus - .4km, :ahus - 3dl] << 2.5dt);
+    track(:second :station :removed,
+            neufle[:jub - 0.5sw, :ahus - 5dl] << .5dt << 1sh
+        --  neufle[:ahus - 2dl, :ahus - 1dl] << 1.5dt
+    );
+    track(:station :removed,
+            neufle[:jub.a + .2km, :jub - .5sw - 4dl] << 1.5dt
+        --  neufle[:jub - .5sw - 1dl, :jub - .5sw] << .5dt << 1sh
+    );
+
+    with layer = 1 marker(:de.bf :left, neufle[:jub] << 0.5dt);
+    station(:open :left :right_align, neufle[:jub - .4sw] << .5dt << 2sh,
+        span(:medium :bold, "Jübek"),
+        hbox(:left :top,
+            vbox(:left :top, span(:small, "1011: "), span(:small, "1040: ")),
+            vbox(:right :top, span(:small, "0,00"), span(:small, "149,43"))
+        )
+    );
+
+    
+    # Streckengleis Jübek - Eggebek
+    track(:double :first :cat, neufle[:ahus + .2km, :egb - 1sw]);
+
+
+    #--- point.de.Eggebek
+    #
+    track(:double :first :station, neufle[:egb - 1sw, :egb + 1sw]);
+    track(:station :removed, neufle[:egb + .6sw, :egb.eg] << 1.5dt);
+    with layer = -1 track(:station :removed,
+            neufle[:egb + .6sw + 0.9dl, :egb + .6sw + 1dl] << 0.5dt
+        --  neufle[:egb + .6sw + 2dl, :egb + .6sw + 2.1dl] << 1.5dt
+    );
+    marker(:de.hst :closed :left, neufle[:egb] << 0.5dt);
+    with layer = -1 marker(:de.bf :removed :left, neufle[:egb] << 0.5dt);
+    station(:left :closed, neufle[:egb - 0.4sw] << 0.5dt << 1.6sw,
+        "Eggebek", "156,75"
+    );
+
+    track(:double :first :cat, neufle[:egb + 1sw, :tar.a]);
 
     #--- point.de.Tarp
     #
