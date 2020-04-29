@@ -1,12 +1,513 @@
 # DE 1020.  Kiel-Hassee (ausschl) - Flensburg (ausschl)
 #
-#     XXX.  Nur ab Maasbüll.
-#
 let hasfle = path("path.de.1020");
+let kieost = path("path.de.1022");
 let neufle = path("path.de.1040");
 
+
+with detail = 3 {
+    # Streckengleis Kiel-Hassee - Suchsdorf
+    track(:second,
+            kieost[:has + 1ssw, :has + 1.1ssw] >> 0.5dt
+        ..  hasfle[:has.ff, :suc - 1ssw]
+    );
+
+    # Kronshagen
+    marker(:de.hp :left, hasfle[:kro]);
+    slabel(:left, hasfle[:kro - 0.4ssw] << 1.6ssw, "Kronshagen");
+
+    # Suchsdorf
+    track(:second :station, hasfle[:suc - 1ssw, :suc + 1ssw]);
+    track(:second :station,
+            hasfle[:suc - .5ssw - 1.1dl, :suc - .5ssw - 1dl]
+        --  hasfle[:suc - .5ssw, :suc + 1ssw] >> 1dt
+    );
+    marker(:de.bf :left, hasfle[:suc]);
+    slabel(:left, hasfle[:suc - .5ssw] << 1.6ssw,
+        span(:small :bold, "Suchsdorf")
+    );
+
+    # Streckengleis Suchsdorf - Neuwittenbek
+    track(:second, hasfle[:suc + 1ssw, :nwi - 1ssw]);
+
+    # Levensau
+    marker(:de.hp :removed :left, hasfle[:lev]);
+    slabel(:right :removed, hasfle[:lev - 0.3ssw] >> 1dt, "Levensau");
+
+    # Neuwittenbek
+    track(:second :station, hasfle[:nwi - 1ssw, :nwi + 1ssw]);
+    track(:second :station,
+            hasfle[:nwi - .5ssw - 2.1dl, :nwi - .5ssw - 2dl]
+        --  hasfle[:nwi - .5ssw - 1dl, :nwi + 1ssw] >> 1dt
+    );
+    marker(:de.bf :left, hasfle[:nwi]);
+    slabel(:left, hasfle[:nwi - .3ssw] << 2ssw,
+        span(:small :bold, "Neuwittenbek")
+    );
+
+    # Streckengleis Neuwittenbek - Gettorf
+    track(:second, hasfle[:nwi + 1ssw, :get - 1ssw]);
+    with layer = 1 line_badge(:open, hasfle[:nwi + 3km], "1020");
+
+    # Gettorf
+    track(:second :station, hasfle[:get - 1ssw, :get + 1ssw]);
+    marker(:de.bf :right, hasfle[:get]);
+    with layer = -1 slabel(:right, hasfle[:get - .4ssw] >> 1.3ssw, "Gettorf");
+
+    # Streckengleis Gettorf - Altenhof
+    track(:second, hasfle[:get + 1ssw, :aho - 1ssw]);
+
+    # Neudorf
+    marker(:de.ldst :gone :left, hasfle[:ndo]);
+    slabel(:left :gone, hasfle[:ndo] << 2ssw, "Neudorf");
+
+    # Altenhof
+    #
+    track(:second :station, hasfle[:aho - 1ssw, :aho + 1ssw]);
+    with layer = -1 marker(:de.bf :gone :right, hasfle[:aho]);
+    marker(:de.hp :right, hasfle[:aho])
+    with layer = -2 slabel(:right, hasfle[:aho - .4ssw] >> 1.3ssw,
+        hbox(:left :base,
+            span(:small, "Altenhof "),
+            span(:small :light, "(Schlesw)")
+        )
+    );
+
+
+    # Streckengleis Altenhof - Eckernförde
+    track(:second, hasfle[:aho + 1ssw, :ecs - 1ssw]);
+
+    # Eckernförde
+    track(:second :station, hasfle[:ecs - 1ssw, :ecs + 2ssw]);
+    marker(:de.bf :right, hasfle[:ecs]);
+    slabel(:right, hasfle[:ecs - .8ssw] >> 1.3ssw,
+        span(:small :bold, "Eckernförde")
+    );
+
+    # Streckengleis Eckernförde - Rieseby
+    track(:second, hasfle[:ecs + 2ssw, :rie - 1ssw]);
+    with layer = 1 line_badge(:open, hasfle[:ecs + 3.2km], "1020");
+
+    # Rieseby
+    track(:second :station, hasfle[:rie - 1ssw, :rie + 1ssw]);
+    marker(:de.hp :right, hasfle[:rie]);
+    with layer = -1 marker(:de.bf :gone, hasfle[:rie]);
+    slabel(:right, hasfle[:rie - .5ssw] >> 1.6ssw, "Rieseby");
+
+    # Streckengleis Rieseby - Lindaunis
+    track(:second, hasfle[:rie + 1ssw, :lin - 1ssw]);
+
+    # Bk Schleibrücke
+    marker(:de.bk :left, hasfle[:lin - 2ssw]);
+    slabel(:left, hasfle[:lin - 2.3ssw] << 1.6ssw,
+        hbox(:right :base,
+            span(:small :light, "Boren "),
+            span(:small, "Schleibrücke")
+        )
+    );
+
+    # Lindaunis
+    track(:second :station, hasfle[:lin - 1ssw, :lin + 1ssw]);
+    with layer = -1 marker(:de.bf :removed, hasfle[:lin]);
+    slabel(:right :removed, hasfle[:lin - .6ssw] >> 1.5ssw, "Lindaunis");
+
+    # Streckengleis Lindaunis - Süderbrarup
+    track(:second, hasfle[:lin + 1ssw, :sud - 1ssw]);
+
+    # Fahrtoft
+    with layer = -1 marker(:de.hst :removed :left, hasfle[:fah]);
+    slabel(:left :removed, hasfle[:fah - 0.35ssw] << 1.6ssw, "Fahrtoft");
+
+    # Süderbrarup
+    track(:second :station, hasfle[:sud - 1ssw, :sud + 1.5ssw]);
+    with layer = -1 track(:second :station :removed,
+            hasfle[:sud - 1ssw, :sud + .5ssw] << 1dt
+        --  hasfle[:sud + .5ssw + 1dl, :sud + .5ssw + 1.1dl]
+    );
+    track(:second :station,
+            hasfle[:sud + .5ssw + 0.9dl, :sud + .5ssw + 1dl]
+        --  hasfle[:sud + .5ssw + 2dl, :sud + 1.5ssw] >> 1dt
+    );
+    marker(:de.bf :right, hasfle[:sud]);
+    slabel(:right, hasfle[:sud - .5ssw] >> 1.4ssw,
+        span(:small :bold, "Süderbrarup")
+    );
+
+    # Streckengleis Süderbrarup - Mohrkirch
+    track(:second, hasfle[:sud + 1.5ssw, :moh - 1ssw]);
+    with layer = 1 line_badge(:open, hasfle[:sud + 3km], "1020");
+
+    # Mohrkirch
+    track(:second :station, hasfle[:moh - 1ssw, :moh + 1ssw]);
+    marker(:de.bf :removed, hasfle[:moh]);
+    slabel(:right, hasfle[:moh - .6ssw] >> 1.4ssw,
+        hbox(:left :base,
+            span(:small :closed, "Mohrkirch"),
+            span(:small :gone, "osterholz")
+        )
+    );
+
+}
+
+
 with detail = 4 {
+    # Streckengleis Kiel-Hassee - Suchsdorf
+    track(:second,
+            hasfle[:has.f, :has.f + .1dl] >> 0.5dt
+        ..  hasfle[:has.ff, :suc.a]
+    );
+    with layer = 1 line_badge(:open, hasfle[:kro - 1.15km], "1020");
+
+
+    #--- point.de.Kronshagen
+    with layer = -1 marker(:de.bf :gone :left, hasfle[:kro]);
+    marker(:de.hp :left, hasfle[:kro]);
+    station(
+        :left, hasfle[:kro - 0.4sw] << 1.6sh,
+        "Kronshagen", "5,60"
+    );
+
+
+    #--- point.de.Suchsdorf
+    #
+    # Gl. 1
+    track(:station,
+            hasfle[:suc.a + 0.9dl, :suc.a + 1dl]
+        --  hasfle[:suc.a + 2.0dl, :awik - 2.0dl] << 1dt
+        --  hasfle[:awik - 1.0dl, :awik - 0.9dl]
+    );
+    # Gl. 2
+    track(:second :station, hasfle[:suc.a, :awik]);
+
+    # Gl. 3
+    track(:second :station,
+            hasfle[:suc.a + 1.9dl, :suc.a + 2dl]
+        --  hasfle[:suc.a + 3dl, :awik] >> 1dt
+    );
+
+    # Gl. 4
+    track(:station,
+            hasfle[:suc.a + 3.9dl, :suc.a + 4dl] >> 1dt
+        --  hasfle[:suc.a + 5dl, :suc - 1dl] >> 2dt
+        --  hasfle[:suc, :suc + .1dl] >> 1dt
+    );
+
+    marker(:de.bf :left, hasfle[:suc] << 1dt);
+    station(:left :right_align, hasfle[:suc - .4sw] << 1dt << 1.3sh,
+        span(:medium :bold, "Suchsdorf"),
+        hbox(:right :top,
+            vbox(:right :top,
+                span(:xsmall, "1020: "), span(:xsmall, "1021: ")
+            ),
+            vbox(:right :top,
+                span(:xsmall :closed, "7,"), span(:xsmall, "0,")
+            ),
+            vbox(:left :top,
+                span(:xsmall :closed, "82"), span(:xsmall, "0")
+            ),
+            vbox(:left :top,
+                span(:xsmall, " → 7,75")
+            )
+        )
+    );
+
+    # Streckengleis Suchsdorf - Neuwittenbek
+    #
+    track(:second, hasfle[:awik, :nwi.a]);
+
+
+    #--- point.de.Levensau
+    #
+    marker(:de.hp :removed :left, hasfle[:lev]);
+    with layer = -1 station(:left :removed, hasfle[:lev - .3sw] << 1.6sh,
+        "Levensau", "10,19"
+    );
+
+
+    #--- point.de.Neuwittenbek
+    #
+    # Gl. 1
+    track(:station,
+            hasfle[:nwi - .5sw - 2.1dl, :nwi - .5sw - 2dl]
+        --  hasfle[:nwi - .5sw - 1dl, :nwi.f - 2dl] << 1dt
+        --  hasfle[:nwi.f - 1dl, :nwi.f - 0.9dl]
+    );
+
+    # Gl. 2
+    track(:second :station, hasfle[:nwi.a, :nwi.f]);
+
+    # Gl. 3
+    track(:station, hasfle[:nwi.a + 1dl, :nwi.a + 2dl] >> 1dt);
+    track(:second :station,
+            hasfle[:nwi.a + 0.9dl, :nwi.a + 1dl]
+        --  hasfle[:nwi.a + 2dl, :nwi.f] >> 1dt
+    );
+
+    # Gl. 4
+    track(:station,
+            hasfle[:nwi - 2.1dl, :nwi - 2dl] >> 1dt
+        --  hasfle[:nwi - 1dl, :nwi.f - 4dl] >> 2dt
+        --  hasfle[:nwi.f - 3dl, :nwi.f - 2.9dl] >> 1dt
+    );
+
+    marker(:de.bf :left, hasfle[:nwi] << 1dt);
+    station(:left, hasfle[:nwi - 0.3sw] << 1dt << 1.8sh,
+        span(:medium :bold, "Neuwittenbek"),
+        hbox(:right :top,
+            vbox(:right :top,
+                span(:xsmall, "1020: "), span(:xsmall, "9104: ")
+            ),
+            vbox(:right :top,
+                span(:xsmall, "13,"), span(:xsmall, "0,")
+            ),
+            vbox(:left :top,
+                span(:xsmall, "70"), span(:xsmall, "0")
+            )
+        )
+    );
+
+    # Streckengleis Neuwittenbek - Gettorf
+    track(:second, hasfle[:nwi.f, :get.a]);
+    with layer = 1 line_badge(:open, hasfle[:nwi + 3km], "1020");
+
+
+    # point.de.Gettorf
+    #
+    track(:second :station, hasfle[:get.a, :get.f]);
+    track(:station,
+            hasfle[:get.a + 0.9dl, :get.a + 1dl]
+        --  hasfle[:get.a + 2dl, :get.f - 2dl] >> 1dt
+        --  hasfle[:get.f - 1dl, :get.f - 0.9dl]
+    );
+    marker(:de.bf :right, hasfle[:get] >> 1dt);
+    station(:right, hasfle[:get - 0.4sw] >> 1dt >> 1.2sh,
+        "Gettorf", "19,15"
+    );
+
+    # Streckengleis Gettorf - Altenhof
+    #
+    track(:second, hasfle[:get.f, :aho - 1sw]);
+
+    
+    #--- point.de.Neudorf
+    #
+    marker(:de.ldst :gone :left, hasfle[:ndo]);
+    station(:left :gone, hasfle[:ndo] << 1.8sh,
+        "Neudorf", "22,80"
+    );
+
+
+    #--- point.de.Altenhof-Schlesw
+    #
+    track(:second :station, hasfle[:aho - 1sw, :aho + 1sw]);
+    with layer = -1 marker(:de.bf :gone :right, hasfle[:aho]);
+    marker(:de.hp :right, hasfle[:aho])
+    station(:right, hasfle[:aho - .4sw] >> 1.3sh,
+        hbox(:left :base,
+            span(:medium, "Altenhof "),
+            span(:medium :light, "(Schlesw)")
+        ),
+        "27,97"
+    );
+
+    # Streckengleis Altenhof - Eckernförde
+    track(:second, hasfle[:aho + 1sw, :ecs.a]);
+
+
+    #--- point.de.Eckernförde
+    #
+    # Gl. 1
+    track(:second :station, hasfle[:ecs.a, :ecs.f]);
+
+    # Gl. 2
+    track(:station,
+            hasfle[:ecs - .5sw - 0.9dl, :ecs - .5sw - 1dl]
+        --  hasfle[:ecs - .5sw, :ecs.f - 2dl] << 1dt
+        --  hasfle[:ecs.f - 1dl, :ecs.f - 0.9dl]
+    );
+
+    # Gl. 3
+    track(:station,
+            hasfle[:ecs.a + .9dl, :ecs.a + 1dl]
+        --  hasfle[:ecs.a + 3dl, :ecs - .5sw + 2dl] << 2dt
+    );
+    with layer = -1 track(:station :removed,
+            hasfle[:ecs - .5sw + 2dl, :ecs.en + .5sw] << 2dt
+        --  hasfle[:ecs.en + .5sw + 1dl, :ecs.en + .5sw + 1.1dl] << 1dt
+    );
+
+    # Gl. 4
+    track(:station :removed,
+            hasfle[:ecs.a + 3.9dl, :ecs.a + 4dl] << 2dt
+        --  hasfle[:ecs.a + 5dl, :ecs.en - .5sw - 1dl] << 3dt
+        --  hasfle[:ecs.en - .5sw, :ecs.en - .5sw + .1dl] << 2dt
+    );
+
+    # Gl. 9
+    track(:station :removed, hasfle[:ecs + .5sw + 4dl, :ecs.en + .5sw] >> 1dt);
+
+    # Gl. 10
+    with layer = -1 track(:station :removed,
+            hasfle[:ecs + .5sw + 1dl, :ecs.en + .5sw - 1dl] >> 2dt
+        --  hasfle[:ecs.en + .5sw + 1dl, :ecs.en + .5sw + 1.1dl]
+    );
+
+    marker(:de.bf :right, hasfle[:ecs]);
+    station(:right, hasfle[:ecs - .4sw] >> 1.3sh,
+        span(:medium :bold, "Eckernförde"),
+        "1020: 31,10"
+    );
+
+    # Streckengleis Eckernförde - Rieseby
+    track(:second, hasfle[:ecs.f, :rie - 1sw]);
+    with layer = 1 line_badge(:open, hasfle[:ecs + 3.2km], "1020");
+
+
+    #--- point.de.Rieseby
+    #
+    track(:second :station, hasfle[:rie - 1.5sw, :rie.f]);
+    track(:station :removed,
+            hasfle[:rie - 1.5sw + 2dl, :rie.f - 2dl] >> 1dt
+        --  hasfle[:rie.f - 1dl, :rie.f - .9dl]
+    );
+    track(:station :removed,
+            hasfle[:rie - 1.5sw + .9dl, :rie - 1.5sw + 1dl]
+        --  hasfle[:rie - 1.5sw + 3dl, :rie - .6sw] >> 2dt
+    );
+    marker(:de.hp, hasfle[:rie] >> 1dt);
+    with layer = -1 marker(:de.bf :gone, hasfle[:rie] >> 1dt);
+    station(:right, hasfle[:rie - .35sw] >> 1dt >> 1.6sh,
+        "Rieseby", "39.74"
+    );
+
+    # Streckengleis Rieseby - Lindaunis
+    track(:second, hasfle[:rie.f, :lin - 1sw]);
+
+    #--- point.de.Boren-Schleibrücke
+    #
+    marker(:de.bk :left, hasfle[:sle]);
+    station(:left, hasfle[:sle - .3sw] << 1.6sh,
+        hbox(:right :base,
+            span(:medium :light, "Boren "),
+            span(:medium, "Schleibrücke")
+        ),
+        "??"
+    );
+
+    #--- point.de.Lindaunis
+    #
+    track(:second :station, hasfle[:lin - 1sw, :lin.f]);
+    with layer = -1 {
+        track(:station :removed,
+                hasfle[:lin - 1sw + 0.9dl, :lin - 1sw + 1dl] 
+            --  hasfle[:lin - 1sw + 2dl, :lin.f] >> 1dt
+        );
+        track(:station :removed,
+                hasfle[:lin.f - 2.1dl, :lin.f - 2dl] >> 1dt
+            --  hasfle[:lin.f - 1dl, :lin.f - 0.9dl]
+        );
+
+        marker(:de.bf :removed, hasfle[:lin] >> 1dt);
+        station(:de.bf :removed, hasfle[:lin - 0.4sw] >> 1dt >> 1.4sh,
+            "Lindaunis", "44,81"
+        );
+    }
+
+    # Streckengleis Lindaunis - Süderbrarup
+    track(:second, hasfle[:lin.f, :sud.a]);
+
+
+    #--- point.de.Fahrtoft
+    #
+    with layer = -1 marker(:de.hst :removed :left, hasfle[:fah]);
+    station(:left :removed, hasfle[:fah - 0.35sw] << 1.6sh,
+        "Fahrtoft", "47,98"
+    );
+
+    
+    #--- point.de.Süderbrarup
+    #
+    # Gl. 1
+    track(:second :station, hasfle[:sud.a, :sud.f]);
+
+    # Gl. 2
+    track(:station,
+            hasfle[:sud.a + 3.9dl, :sud.a + 4dl]
+        --  hasfle[:sud.a + 5dl, :sud.sn - 5dl] << 1dt
+        --  hasfle[:sud.sn - 4dl, :sud.sn -3.9dl]
+    );
+
+    # Gl. 3
+    track(:second :station :removed,
+            hasfle[:sud.a, :sud.a + 3dl] << 1dt
+        --  hasfle[:sud.a + 4dl, :sud.sn - 4dl] << 2dt
+        --  hasfle[:sud.sn - 2dl, :sud.sn - 1.99dl]
+    );
+    track(:second :station,
+            hasfle[:sud.sn - 2.01dl, :sud.sn - 2dl]
+        --  hasfle[:sud.sn - 1dl, :sud.sn] >> 1dt
+    );
+
+    # Gl. 4
+    track(:station :removed,
+            hasfle[:sud.a + 5dl, :sud.sn - 5dl] << 3dt
+        --  hasfle[:sud.sn - 4dl, :sud.sn - 3.99dl] << 2dt
+    );
+
+    # Gl. 7
+    with layer = -1 track(:station :removed,
+            hasfle[:sud.a + 3.99dl, :sud.a + 4dl] << 2dt
+        --  hasfle[:sud.a + 6dl, :sud.sn - 4dl] << 4dt
+        --  hasfle[:sud.sn, :sud.sn + .1dl]
+    );
+
+    # Gl. 11
+    track(:station, hasfle[:sud + .6sw, :sud.sn - 1dl] >> 1dt);
+
+    marker(:de.bf :right, hasfle[:sud]);
+    station(:right, hasfle[:sud - .3sw] >> 1.4sh,
+        span(:medium :bold, "Süderbrarup"),
+        hbox(:left :top,
+            vbox(:right :top,
+                span(:xsmall, "1020: "),
+                span(:xsmall, "9102: ")
+            ),
+            vbox(:right :top,
+                span(:xsmall, "51,"),
+                span(:xsmall, "21,")
+            ),
+            vbox(:left :top,
+                span(:xsmall, "33"),
+                span(:xsmall, "0")
+            )
+        )
+    );
+
+    # Streckengleis Süderbrarup - Mohrkirch
+    track(:second, hasfle[:sud.f, :moh - 1sw]);
+    with layer = 1 line_badge(:open, hasfle[:sud + 3km], "1020");
+
+
+    #--- point.de.Mohrkirch
+    #
+    track(:second :station, hasfle[:moh - 1sw, :moh.f]);
+    with layer = -1 track(:station :removed,
+            hasfle[:moh - 0.5sw - 2.1dl, :moh - .5sw - 2dl]
+        --  hasfle[:moh - 0.5sw - 1dl, :moh.f - 2dl] >> 1dt
+        --  hasfle[:moh.f - 1dl, :moh.f - 0.9dl]
+    );
+    marker(:de.bf :removed, hasfle[:moh] >> 1dt);
+    station(:right, hasfle[:moh - .3sw] >> 1dt >> 1.4sh,
+        hbox(:left :base,
+            span(:medium :closed, "Mohrkirch"),
+            span(:medium :gone, "osterholz")
+        ),
+        "57,08"
+    );
+
+    
     track(:second, hasfle[:huh + 1sw, :maa - 1sw]);
+
 
     #--- Maasbüll
     #
@@ -21,5 +522,6 @@ with detail = 4 {
             hasfle[:maa + 1sw, :fle.aaa]
         ..  neufle[:fle.f, :fle.fa] >> 2.5dt
     );
+
 }
 

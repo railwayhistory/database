@@ -1,0 +1,196 @@
+# DE 1220.  Altona Palmaille - Kiel Altonaer Bf
+#
+let altkie = path("path.de.1220");
+let kieost = path("path.de.1022");
+
+with detail = 1 {
+    track(:first, altkie[:alt, :kie]);
+}
+
+
+with detail = 4 {
+    #--- Kiel Hbf
+    #
+    # Gleis 1
+    track(:station,
+            altkie[:kkp - 2.1dl, :kkp - 2dl] >> 1.5dt
+        --  altkie[:kkp - 1dl, :kie] >> 2.5dt
+    );
+
+    # Gleis 2 - aus Neustadt
+    track(:first :station, altkie[:kie.a, :kie] >> 1.5dt);
+
+    # Gleis 3 & 4 - aus Altona
+    track(:double :first :station, altkie[:kie.a, :kie]);
+
+    # Gleis 5 - aus Hassee
+    with layer = -1 track(:first :station :removed,
+            kieost[:fmei, :fmei - 1dl] >> 0.5dt
+        ..  altkie[:fhas - .1dl, :fhas] << 1.5dt
+    );
+    track(:first :station, altkie[:fhas, :kie] << 1.5dt);
+    
+    track(:station, altkie[:kko + 2dl, :fhas] << 1.5dt);
+
+    # Gleis 6 - nach Hassee
+    track(:first :station,
+            kieost[:fmei, :fmei - 1dl] << 0.5dt
+        ..  altkie[:fhas - .1dl, :kie] << 2.5dt
+    );
+
+    marker(:de.bf :bottom, altkie[:kie]);
+    marker(:statdt :left, altkie[:kie] << 1.5dt);
+    marker(:statdt :left, altkie[:kie] << 0.5dt);
+    marker(:statdt :right, altkie[:kie] << 0.5dt);
+    marker(:statdt :right, altkie[:kie] >> 0.5dt);
+    marker(:statdt :right, altkie[:kie] >> 1.5dt);
+}
+
+
+with detail = 5 {
+    #--- Kiel Hbf
+    #
+
+    # Gleis 1
+    # W16 - Stumpf
+    track(:station,
+            altkie[:kkp - 5.1wl, :kkp - 5wl] >> 1.5dt
+        --  altkie[:kkp - 3wl, :kie] >> 3.5dt
+    );
+
+    # Gleis 2b
+    # W37 - Stumpf
+    track(:station,
+            altkie[:kkp - 1.1wl, :kkp - 1wl] >> 1.5dt
+        ..  altkie[:kkp, :kkp + 110m] >> 2.5dt
+    );
+
+    # Gleis 2
+    # Einfahrt - Stumpf
+    track(:first :station, altkie[:kie.a, :kie] >> 1.5dt);
+    # W7 - W3
+    track(:station,
+            altkie[:kkp - 2.1wl, :kkp - 2wl] >> 1.5dt
+        --  altkie[:kkp, :kkp + .1wl] >> 3.5dt
+    );
+
+    # Gleis 3
+    # Einfahrt - Stumpf
+    track(:first :station, altkie[:kie.a, :kie] >> 0.5dt);
+    # W22 - W25
+    track(:station,
+            altkie[:kkp - 11.1wl, :kkp - 11.0wl] >> 0.5dt
+        ..  altkie[:kkp - 10.0wl, :kkp - 9.9wl] << 0.5dt
+    );
+    # W21 - W20
+    track(:station,
+            altkie[:kkp - 10.1wl, :kkp - 10.0wl] >> 0.5dt
+        --  altkie[:kkp - 9.0wl, :kkp - 8.9wl] >> 1.5dt
+    );
+    # W13 - W8
+    track(:station,
+            altkie[:kkp - 5.1wl, :kkp - 5wl] >> 0.5dt
+        --  altkie[:kkp - 4wl, :kkp - 3.9wl] >> 1.5dt
+    );
+
+
+    # Gleis 4
+    # Einfahrt - Stumpf
+    track(:first :station,
+            altkie[:kie.a, :kkp - 2.0wl] << 0.5dt
+        --  altkie[:kkp - 1.0wl, :kie] << 1.5dt
+    );
+    # W23 - W17
+    track(:station,
+            altkie[:kkp - 8.1wl, :kkp - 8.0wl] << 0.5dt
+        --  altkie[:kkp - 7.0wl, :kkp - 6.9wl] >> 0.5dt
+    );
+    # W30 - W29
+    track(:station,
+            altkie[:kkp - 7.1wl, :kkp - 7.0wl] << 0.5dt
+        --  altkie[:kkp - 5.0wl, :kkp - 4.9wl] << 2.5dt
+    );
+    # W10 - W6
+    track(:station,
+            altkie[:kkp - 4.1wl, :kkp - 4.0wl] << 0.5dt
+        --  altkie[:kkp - 2.0wl, :kkp - 1.9wl] << 2.5dt
+    );
+
+    # Gleis 48 - 12 - 5
+    track(:station,
+            altkie[:kko + 3wl, :kie] << 2.5dt
+    );
+    # W26 - W24
+    track(:station,
+            altkie[:kkp - 11.1wl, :kkp - 11.0wl] << 2.5dt
+        --  altkie[:kkp -  9.0wl, :kkp -  8.9wl] << 0.5dt
+    );
+    # W4 - W1
+    track(:station,
+            altkie[:kkp - 0.1wl, :kkp] << 2.5dt
+        --  altkie[:kkp + 2.0wl, :kkp + 2.1wl] << 4.5dt
+    );
+
+    # Gleis 6b
+    track(:station,
+            altkie[:kkp - 1.1wl, :kkp - 1.0wl] << 4.5dt
+        --  altkie[:kkp, :kkp + 130m] << 3.5dt
+    );
+
+    # Gleis 6
+    track(:first :station,
+            kieost[:fmei, :kie.f]
+        ..  altkie[:kkp - 10wl, :kkp - 9wl] << 9.5dt
+        --  altkie[:kkp - 5wl, :kie] << 4.5dt
+    );
+    # W41 - W2
+    track(:station,
+            altkie[:kkp - 3.1wl, :kkp - 3.0wl] << 4.5dt
+        --  altkie[:kkp + 0.0wl, :kkp + 0.1wl] << 1.5dt
+    );
+
+    # Gleis 8
+    track(:station,
+            altkie[:kkp - 12.1wl, :kkp - 12.0wl] << 6.5dt
+        --  altkie[:kkp - 11.0wl, :kkp - 10.0wl] << 7.5dt
+        --  altkie[:kkp - 9.0wl, :kkp - 8.9wl] << 6.5dt
+    );
+
+    # Gleis 65 - Gleis 9
+    track(:station,
+            kieost[:kie.f, :kie.f - 1wl] >> 1.5dt
+        ..  altkie[:kkp - 13.1wl, :kkp - 8.0wl] << 6.5dt
+        --  altkie[:kkp - 4.0wl, :kkp - 3.9wl] << 2.5dt
+    );
+    # W 52 - W59
+    track(:station,
+            altkie[:kkp - 13.1wl, :kkp - 13.0wl] << 6.5dt
+        --  altkie[:kkp -  9.0wl, :kkp  - 8.9wl] << 2.5dt
+    );
+
+    # Gleis 10
+    track(:station, altkie[:kkp - 12.0wl, :kkp - 7.0wl] << 5.5dt);
+
+    # Gleis 11
+    track(:station, altkie[:kkp - 11.0wl, :kkp - 6.0wl] << 4.5dt);
+
+
+    # Gleis 19
+    # W19 - W11
+    track(:station,
+            altkie[:kkp - 9.1wl, :kkp - 9wl] >> 3.5dt
+        --  altkie[:kkp - 5wl, :kkp - 4.9wl] << 0.5dt
+    );
+
+
+    marker(:de.stw, altkie[:kko] >> 1.5dt);
+
+
+    marker(:de.bf :bottom, altkie[:kie]);
+    marker(:statdt :left, altkie[:kie] << 1.5dt);
+    marker(:statdt :left, altkie[:kie] << 0.5dt);
+    marker(:statdt :right, altkie[:kie] << 0.5dt);
+    marker(:statdt :right, altkie[:kie] >> 0.5dt);
+    marker(:statdt :right, altkie[:kie] >> 1.5dt);
+}
+

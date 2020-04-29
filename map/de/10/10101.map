@@ -1,0 +1,30 @@
+# DE 10101.  Klosterkrug (ausschl) - Schleswig Altstadt (ausschl).
+#
+let klosla = path("path.de.10101");
+let ohrklo = path("path.de.10111");
+let slesla = path("path.de.1010");
+
+with detail = 2 {
+    with layer = -1 track(:first :gone,
+            klosla[:a, :f]
+        ..  slesla[:a - .1dl, :a]
+    );
+}
+
+with detail = 3 {
+    with layer = -1 track(:first :gone,
+	        ohrklo[:fsle + .1dl, :fsle]
+        ..  klosla[:a, :f]
+        ..  slesla[:a - .1dl, :a]
+    );
+    with layer = 0 line_badge(:gone, klosla[:a + 1.5km], "10101");
+}
+
+with detail = 4 {
+    with layer = -1 track(:first :gone,
+            klosla[:a, :f]
+        ..  slesla[:a - .1dl, :a]
+    );
+    with layer = 0 line_badge(:gone, klosla[:a + 1km], "10101");
+}
+

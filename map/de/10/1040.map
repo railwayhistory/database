@@ -20,7 +20,41 @@ with detail = 2 {
 }
 
 with detail = 3 {
-    # ... - Jübeck (ausschl).
+    # Büdelsdorf
+    track(:double :first :station, neufle[:bud.a, :bud + 1ssw]);
+    with layer = -1 marker(:de.bf :closed :left, neufle[:bud] << 0.5dt);
+    slabel(:right :closed, neufle[:bud - 0.3ssw] >> 1.5dt,
+        span(:small :bold :closed, "Büdelsdorf")
+    );
+
+    # Büdelsdorf (ausschl) - Schleswig (ausschl)
+    track(:double :first :cat, neufle[:bud + 1ssw, :sle - 1sw]);
+
+    # Alt Duvenstedt
+    with layer = -1 marker(:de.hst :closed, neufle[:adu] >> 0.5dt);
+    with layer = -2 marker(:de.bf :gone, neufle[:adu] >> 0.5dt);
+    slabel(:right :closed, neufle[:adu - .6ssw] >> 0.5dt >> 1.3ssw,
+        "Alt Duvenstedt"
+    );
+
+    # Owschlag
+    marker(:de.bf, neufle[:ows] >> 0.5dt);
+    slabel(:left, neufle[:ows - 0.6ssw] << 2.5dt,
+        span(:small :bold, "Owschlag")
+    );
+
+    # Lottorf
+    with layer = -1 marker(:de.uest :closed :right, neufle[:lot] >> 0.5dt);
+    with layer = -2 marker(:de.bf :gone :right, neufle[:lot] >> 0.5dt);
+    slabel(:right :closed, neufle[:lot - .6ssw] >> 0.5dt >> 1.3ssw, "Lottorf");
+
+    # Schleswig
+    #
+    track(:double :first :station, neufle[:sle - 1sw, :asla]);
+    marker(:de.bf :right, neufle[:sle] >> .5dt);
+
+    # Schleswig (ausschl) - Jübeck (ausschl).
+    #
     track(:double :first :cat, neufle[:sle, :jub - 1sw]);
 
     with layer = -1 marker(:de.bf :removed :left, neufle[:sub] << 0.5dt);
@@ -28,6 +62,7 @@ with detail = 3 {
     slabel(:left, neufle[:sub] << 0.5dt << 2ssw, "Schuby");
 
     # Jübeck
+    #
     track(:double :first :station, neufle[:jub - 1sw, :ahus + .2km]);
     marker(:de.bf :left, neufle[:jub] << 0.5dt);
     slabel(:left :bold, neufle[:jub] << 0.5dt << 2ssw,
@@ -80,6 +115,99 @@ with detail = 3 {
 with detail = 4 {
     # ...
 
+    #--- point.de.Büdelsdorf
+    track(:double :first :station, neufle[:bud.a, :bud + 1sw]);
+
+    with layer = -1 {
+        # Gleiswechsel Südkopf
+        track(:station :removed,
+                neufle[:bud.a + 0.9dl, :bud.a + 1dl] << 0.5dt
+            --  neufle[:bud.a + 2dl, :bud.a + 2.1dl] >> 0.5dt
+        );
+
+        # Gl. 5
+        track(:station :removed,
+                neufle[:bud.a + 2.9dl, :bud.a + 3dl] >> 0.5dt
+            --  neufle[:bud.a + 4dl, :bud - .5sw] >> 1.5dt
+        );
+    }
+
+    # Strecke 1012.
+    track(:station,
+            neufle[:bud + .499sw, :bud + .5sw] << 0.5dt
+        --  neufle[:bud + .5sw + 1dl, :bud + 1sw] << 1.5dt
+    );
+
+    with layer = -1 marker(:de.bf :removed :left, neufle[:bud] << 0.5dt);
+    station(:left :closed, neufle[:bud - .2sw] << 0.5dt << 1.8sh,
+        "Büdelsdorf",
+        hbox(:center :top :closed,
+            vbox(:right :top, span(:small, "1012: "), span(:small, "1040: ")),
+            vbox(:right :top, span(:small, "0,"), span(:small, "115,")),
+            vbox(:left :top, span(:small, "42"), span(:small, "35"))
+        )
+    );
+
+    # Büdelsdorf (ausschl.) - Alt Duvenstedt (ausschl.)
+    track(:double :first :cat, neufle[:bud + 1sw, :adu - 1sw]);
+
+    #--- point.de.Alt-Duvenstedt
+    track(:double :first :station, neufle[:adu - 1sw, :adu + 2sw]);
+    with layer = -1 {
+        track(:station :removed,
+                neufle[:adu + .6sw, :adu + 2sw - 2dl] >> 1.5dt
+            --  neufle[:adu + 2sw - 1dl, :adu + 2sw - 0.9dl] >> 0.5dt
+        );
+        marker(:de.hst :closed :right, neufle[:adu] >> 0.5dt);
+    }
+    with layer = -2 marker(:de.bf :gone :right, neufle[:adu] >> 0.5dt);
+    station(:right :closed, neufle[:adu - 0.4sw] >> .5dt >> 1.3sh,
+        "Alt Duvenstedt", "120,72"
+    );
+
+    # Alt Duvenstedt (ausschl.) - Owschlag (ausschl.)
+    track(:double :first :cat, neufle[:adu + 2sw, :ows.a]);
+
+    
+    #--- point.de.Owschlag
+    #
+    track(:double :first :station, neufle[:ows.a, :ows.f]);
+    track(:station,
+            neufle[:ows.a + .9dl, :ows.a + 1dl] >> 0.5dt
+        --  neufle[:ows.a + 2dl, :ows.a + 2.1dl] << 0.5dt
+    );
+    track(:station,
+            neufle[:ows.a + 2.9dl, :ows.a + 3dl] << 0.5dt
+        --  neufle[:ows.a + 4dl, :ows.f - 4dl] << 1.5dt
+        --  neufle[:ows.f - 3dl, :ows.f - 2.9dl] << 0.5dt
+    );
+    track(:station :removed, neufle[:ows.f - 4dl, :ows.f + 2dl] << 1.5dt);
+    track(:station,
+            neufle[:ows.f - 2.1dl, :ows.f - 2dl] << 0.5dt
+        --  neufle[:ows.f - 1dl, :ows.f - 0.9dl] >> 0.5dt
+    );
+    track(:station :removed,
+            neufle[:ows - .3km - 1.1dl, :ows - .3km - 1dl] << 1.5dt
+        --  neufle[:ows - .3km, :ows + .5sw] << 2.5dt
+    );
+
+    marker(:de.bf, neufle[:ows] >> 0.5dt);
+    station(:left, neufle[:ows - 0.3sw] << 4.5dt,
+        span(:medium :bold, "Owschlag"), "125,41"
+    );
+
+    # Owschlag (ausschl) - Schleswig (ausschl)
+    track(:double :first :cat, neufle[:ows.f, :sle.a]);
+
+
+    #--- point.de.Lottorf
+    with layer = -1 marker(:de.uest :closed :right, neufle[:lot] >> 0.5dt);
+    with layer = -2 marker(:de.bf :gone :right, neufle[:lot] >> 0.5dt);
+    station(:right :closed, neufle[:lot - .4sw] >> 0.5dt >> 1.3sh,
+        "Lottorf", "126,92"
+    );
+
+
     #--- point.de.Schleswig
     #
     track(:double :first :station, neufle[:sle.a, :sle.f]);
@@ -123,19 +251,19 @@ with detail = 4 {
         span(:medium :bold, "Schleswig"),
         hbox(:center :top,
             vbox(:left :top,
-                span(:small :removed, "1010: "),
-                span(:small, "1040: "),
-                span(:small :removed, "9103: ")
+                span(:xsmall :removed, "1010: "),
+                span(:xsmall, "1040: "),
+                span(:xsmall :removed, "9103: ")
             ),
             vbox(:right :top,
-                span(:small :removed, "132,8"),
-                span(:small, "138,3"),
-                span(:small :removed, "3,2")
+                span(:xsmall :removed, "132,8"),
+                span(:xsmall, "138,3"),
+                span(:xsmall :removed, "3,2")
             ),
             vbox(:left :top,
-                span(:small :removed, "2"),
-                span(:small, "9"),
-                span(:small :removed, "")
+                span(:xsmall :removed, "2"),
+                span(:xsmall, "9"),
+                span(:xsmall :removed, "")
             )
         )
     );
@@ -164,7 +292,7 @@ with detail = 4 {
             span(:medium, "Schuby "), span(:medium :removed, "(Kr Schleswig)")
         ),
         hbox(:center :top,
-            span(:small, "142,12 "), span(:small :removed, "(137,26)")
+            span(:xsmall, "142,12 "), span(:xsmall :removed, "(137,26)")
         )
     );
 
@@ -219,8 +347,9 @@ with detail = 4 {
     station(:open :left :right_align, neufle[:jub - .4sw] << .5dt << 2sh,
         span(:medium :bold, "Jübek"),
         hbox(:left :top,
-            vbox(:left :top, span(:small, "1011: "), span(:small, "1040: ")),
-            vbox(:right :top, span(:small, "0,00"), span(:small, "149,43"))
+            vbox(:left :top, span(:xsmall, "1011: "), span(:xsmall, "1040: ")),
+            vbox(:right :top, span(:xsmall, "0,"), span(:xsmall, "149,")),
+            vbox(:left :top, span(:xsmall, "00"), span(:xsmall, "43"))
         )
     );
 
@@ -239,7 +368,7 @@ with detail = 4 {
     );
     marker(:de.hst :closed :left, neufle[:egb] << 0.5dt);
     with layer = -1 marker(:de.bf :removed :left, neufle[:egb] << 0.5dt);
-    station(:left :closed, neufle[:egb - 0.4sw] << 0.5dt << 1.6sw,
+    station(:right :closed, neufle[:egb - 0.4sw] >> 1.5dt,
         "Eggebek", "156,75"
     );
 
@@ -380,7 +509,7 @@ with detail = 4 {
         :bottom, neufle[:flw] >> 0.5dt >> 1.6sw + (20pt, 0pt),
         "Flensburg Weiche",
         #"172,92 • 45,50 • 0,00"
-	vbox(:left :small,
+	vbox(:left :xsmall,
 	    span(:open,    "  1000: 172,92"),
 	    span(:closed,  "  1001:     0,00"),
 	    span(:open,    "  1002: 172,92"),

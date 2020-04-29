@@ -1,0 +1,107 @@
+# DE 1022.  Kiel Hbf (ausschl) - Osterrönfeld (ausschl)
+#
+let hasfle = path("path.de.1020");
+let haskiw = path("path.de.1021");
+let kieost = path("path.de.1022");
+
+
+with detail = 3 {
+    # ...
+
+    # Kiel-Hassee
+    track(:first :station, kieost[:has - 1ssw, :has] >> 0.5dt);
+    track(:second :station, kieost[:has, :has + 1ssw] >> 0.5dt);
+    track(:first :station :removed,
+            kieost[:has - 1ssw, :has - 0.5ssw] << 0.5dt);
+    track(:first :station, kieost[:has -0.5ssw, :has + 1ssw] << 0.5dt);
+    track(:first :station,
+            kieost[:has - 1ssw, :has - 0.5ssw - 1dl] << 1.5dt
+        --  kieost[:has - 0.5ssw, :has - 0.5ssw + 0.1dl] << 0.5dt
+    );
+
+    marker(:de.bf :left, kieost[:has] << 0.5dt);
+    slabel(:left, kieost[:has - 0.2ssw] << 0.5dt << 2ssw,
+        span(:small :bold, "Kiel-Hassee Cittipark")
+    );
+}
+
+
+with detail = 4 {
+    # Streckengleise Kiel Hbf - Kiel-Hassee
+    #
+    track(:first, kieost[:fmei, :has.a] >> 0.5dt);
+    track(:first :removed , kieost[:fmei, :has.a] << 0.5dt);
+
+    #--- point.de.Kiel-Hg
+    #
+    marker(:de.abzw :removed :right, kieost[:khg] >> 0.5dt);
+    station(:top :removed, kieost[:khg] >> 0.5dt >> 1.3sh,
+        "Hg", "1,53"
+    );
+
+    #--- point.de.Kiel-Hassee
+    #
+    # Gleis 23 (Kiel - Flensburg)
+    track(:first :station,
+            kieost[:has.a, :has] >> 0.5dt
+    );
+    track(:second :station,
+            kieost[:has, :afle] >> 0.5dt
+        ..  hasfle[:has.f - .1dl, :has.f] >> 0.5dt
+    );
+
+    # Gleis 42 (Kiel - Osterrönfeld)
+    with layer = -1 track(:first :station :removed,
+        kieost[:has.a, :has + 1dl] << 0.5dt
+    );
+    track(:first :station ,
+            kieost[:has - .1dl, :has] >> 0.5dt
+        --  kieost[:has + 1dl, :has.f] << 0.5dt
+    );
+
+    # Gleis aus Meimersdorf
+    track(:first :station,
+            kieost[:has.a, :has.a + 1dl] << 1.5dt
+        --  kieost[:has.a + 3dl, :has.a + 3.1dl] >> 0.5dt
+    );
+
+    # Gleis nach Kiel West
+    track(:second :station :removed, kieost[:has, :afle] >> 1.5dt);
+    track(:second :station :closed,
+            kieost[:afle, :afle + .1dl] >> 1.5dt
+        ..  hasfle[:has.f - .1dl, :has.f] >> 1.5dt
+    );
+
+    # Nebengleise Westseite
+    track(:station, kieost[:has + 1sw, :has.f] << 1.5dt);
+    track(:station,
+            kieost[:afle - 1.1dl, :afle - 1dl] << 1.5dt
+        --  kieost[:afle, :afle + .1dl] << 0.5dt
+    );
+
+    marker(:de.bf :left, kieost[:has] << 0.5dt);
+    station(:left, kieost[:has - 0.3sw] << 0.5dt << 1.6sh,
+        span(:medium :bold, "Kiel-Hassee Cittipark"),
+        hbox(:right :top,
+            vbox(:right :top,
+                span(:xsmall, "1020: "),
+                span(:xsmall :closed, "1021: "),
+                span(:xsmall, "1022: "),
+                span(:xsmall, "1031: ")
+            ),
+            vbox(:right :top,
+                span(:xsmall, "2,"),
+                span(:xsmall :closed, "0,"),
+                span(:xsmall, "2,"),
+                span(:xsmall, "")
+            ),
+            vbox(:left :top,
+                span(:xsmall, "90"),
+                span(:xsmall :closed, "00"),
+                span(:xsmall, "90"),
+                span(:xsmall, "??")
+            )
+        )
+    );
+}
+
