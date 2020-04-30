@@ -4,6 +4,13 @@ let hasfle = path("path.de.1020");
 let kieost = path("path.de.1022");
 let neufle = path("path.de.1040");
 
+with detail = 2 {
+    track(:second,
+            kieost[:afle - .1dl, :afle]
+        ..  hasfle[:has.ff, :fle.aaa]
+        ..  neufle[:afri, :afri - .1dl]
+    );
+}
 
 with detail = 3 {
     # Streckengleis Kiel-Hassee - Suchsdorf
@@ -147,6 +154,51 @@ with detail = 3 {
         )
     );
 
+    # Streckengleis Mohrkirch - Süderbrarup
+    track(:second, hasfle[:moh + 1ssw, :sor - 1ssw]);
+
+    # Süderbrarup
+    track(:second :station, hasfle[:sud - 1ssw, :sor + 1ssw]);
+    marker(:de.bf :right, hasfle[:sor]);
+    slabel(:right, hasfle[:sor - .5ssw] >> 1.3ssw,
+        span(:small :bold, "Sörup")
+    );
+
+    # Streckengleis Sörup - Winderatt
+    track(:second, hasfle[:sor + 1ssw, :win - 1ssw]);
+
+    # Winderatt
+    track(:second :station, hasfle[:win - 1ssw, :win + 1ssw]);
+    with layer = -1 marker(:de.hp :closed, hasfle[:win]);
+    with layer = -2 marker(:de.bf :gone, hasfle[:win]);
+    with layer = -3 slabel(:right :removed,
+        hasfle[:win - .6ssw] >> 1.4ssw,
+        "Winderatt"
+    );
+
+    # Streckengleis Winderatt - Husby
+    track(:second, hasfle[:win + 1ssw, :hus - 1ssw]);
+
+    # Husby
+    track(:second :station, hasfle[:hus - 1ssw, :huh + 1ssw]);
+    with layer = -1 marker(:de.bf :removed :right, hasfle[:hus]);
+    marker(:de.hp :left, hasfle[:huh]);
+    slabel(:right, hasfle[:hus - .4ssw] >> 1.4ssw, "Husby");
+
+    # Streckengleis Husby - Flensburg
+    track(:second,
+            hasfle[:huh + 1ssw, :fle.aaa]
+        ..  neufle[:fle + 1.1ssw, :fle + 1ssw] >> 0.5dt
+    );
+
+    # Maasbüll
+    marker(:de.bf :removed :left, hasfle[:maa]);
+    slabel(:right, hasfle[:maa - .4ssw] >> 1dt,
+        hbox(:left :base,
+            span(:small :removed, "Maasbüll "),
+            span(:small :light :removed, "(Angeln)")
+        )
+    );
 }
 
 
@@ -505,23 +557,97 @@ with detail = 4 {
         "57,08"
     );
 
-    
-    track(:second, hasfle[:huh + 1sw, :maa - 1sw]);
+    # Streckengleis Mohrkirch - Sörup
+    track(:second, hasfle[:moh.f, :sor.a]);
 
 
-    #--- Maasbüll
+    #--- point.de.Sörup
     #
-    track(:second :station, hasfle[:maa - 1sw, :maa + 1sw]);
+    track(:second :station, hasfle[:sor.a, :sor.f]);
+    track(:station,
+            hasfle[:sor.a + .9dl, :sor.a + 1dl]
+        --  hasfle[:sor.a + 2dl, :sor.f - 4dl] >> 1dt
+        --  hasfle[:sor.f - 3dl, :sor.f - 2.9dl]
+    );
+    with layer = -1 {
+        track(:station :removed,
+                hasfle[:asat - 5dl, :sor.f - 2dl] << 1dt
+            --  hasfle[:sor.f - 1dl, :sor.f - 0.9dl]
+        );
+        track(:station :removed,
+                hasfle[:sor.a + 2.9dl, :sor.a + 3dl]
+            --  hasfle[:sor.a + 4dl, :sor.a + 4.1dl] << 1dt
+        );
+        track(:station :removed,
+                hasfle[:sor.a + 6dl, :sor + .5sw] << 2dt
+            --  hasfle[:sor + .5sw + 1dl, :sor + .5sw + 1.1dl] << 1dt
+        );
+    }
+    marker(:de.bf :right, hasfle[:sor] >> 1dt);
+    station(:top, hasfle[:sor] >> 1dt >> 1.5sw,
+        span(:medium :bold, "Sörup"),
+        "1020: 62,50"
+    );
+
+    # Streckengleis Sörup - Winderatt
+    track(:second, hasfle[:sor.f, :win - 1sw]);
+
+    
+    #--- point.de.Winderatt
+    #
+    track(:second :station, hasfle[:win - 1sw, :win + 1sw]);
+    with layer = -1 marker(:de.hp :closed, hasfle[:win]);
+    with layer = -2 marker(:de.bf :gone, hasfle[:win]);
+    station(:right :removed, hasfle[:win - .4sw] >> 1.2sw,
+        "Winderatt", "65,60"
+    );
+
+    # Streckengleis Winderatt - Husby
+    track(:second, hasfle[:win + 1sw, :hus.a]);
+
+
+    #--- point.de.Husby
+    #
+    track(:second :station, hasfle[:hus.a, :huh + 1sw]);
+    with layer = -1 {
+        track(:station :removed,
+                hasfle[:hus.a + 2dl, :huh + 1sw - 2dl] >> 1dt
+            --  hasfle[:huh + 1sw - 1dl, :huh + 1sw - .9dl]
+        );
+        track(:station :removed,
+                hasfle[:hus.a + .9dl, :hus.a + 1dl]
+            --  hasfle[:hus.a + 3dl, :hus - .6sw] >> 2dt
+        );
+    }
+    with layer = -2 marker(:de.bf :removed :right, hasfle[:hus] >> 1dt);
+    marker(:de.hp :left, hasfle[:huh]);
+    station(:top, hasfle[:hus] >> 1dt >> 1.4sw,
+        "Husby",
+        hbox(:center :top,
+            span(:xsmall, "70,64 "),
+            span(:xsmall :removed, "← 70,49")
+        )
+    );
+    
+    # Streckengleis Husby - Flensburg
+    track(:second,
+            hasfle[:huh + 1sw, :fle.aaa]
+        ..  neufle[:fle.f, :fle.fa] >> 2.5dt
+    );
+    with layer = 1 line_badge(:open, hasfle[:huh + 1.8km], "1020");
+    with layer = 1 line_badge(:open, hasfle[:mag + 1.4km], "1020");
+
+
+    #--- point.de.Maasbüll-Angeln
+    #
     marker(:de.bf :removed :left, hasfle[:maa]);
     station(
         :bottom :removed, hasfle[:maa] << 1.5sw - (15pt, 0pt),
-        "Maasbüll (Angeln)", "74,21"
+        hbox(:left :base,
+            span(:medium :removed, "Maasbüll "),
+            span(:medium :light :removed, "(Angeln)")
+        ),
+        "74,21"
     );
-
-    track(:second,
-            hasfle[:maa + 1sw, :fle.aaa]
-        ..  neufle[:fle.f, :fle.fa] >> 2.5dt
-    );
-
 }
 
