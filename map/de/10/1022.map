@@ -1,5 +1,6 @@
 # DE 1022.  Kiel Hbf (ausschl) - Osterrönfeld (ausschl)
 #
+let altkie = path("path.de.1220");
 let hasfle = path("path.de.1020");
 let haskiw = path("path.de.1021");
 let kieost = path("path.de.1022");
@@ -231,18 +232,14 @@ with detail = [4, 5] {
 
 
 with detail = 3 {
-    # ...
+    # Kiel Hbf bis Kiel-Hassee
+    track(:first :station,
+            altkie[:kie, :fhas] >> 1.5dt
+        ..  kieost[:khg, :has - 1ssw] >> 0.5dt
+    );
 
     # Kiel-Hassee
-    track(:first :station, kieost[:has - 1ssw, :has] >> 0.5dt);
-    track(:second :station, kieost[:has, :has + 1ssw] >> 0.5dt);
-    track(:first :station :removed,
-            kieost[:has - 1ssw, :has - 0.5ssw] << 0.5dt);
-    track(:first :station, kieost[:has -0.5ssw, :has + 1ssw] << 0.5dt);
-    track(:first :station,
-            kieost[:has - 1ssw, :has - 0.5ssw - 1dl] << 1.5dt
-        --  kieost[:has - 0.5ssw, :has - 0.5ssw + 0.1dl] << 0.5dt
-    );
+    track(:double :first :station, kieost[:has - 1ssw, :has + 1ssw]);
 
     marker(:de.bf :left, kieost[:has] << 0.5dt);
     slabel(:left, kieost[:has - 0.2ssw] << 0.5dt << 2ssw + (0dt, 1dt),

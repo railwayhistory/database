@@ -610,16 +610,18 @@ with detail = [4, 5] {
 
 
 with detail = 3 {
-    # Streckengleis Kiel Hbf - Kiel Hbf Ss
-    track(:first,
-            altkie[:kie.a, :fasc] << 1.5dt
-        ..  kieneu[:kss - 1.1ssw, :kss - 1ssw]
-    );
+    with layer = 1 {
+        # Streckengleis Kiel Hbf - Kiel Hbf Ss
+        track(:first,
+                altkie[:kie, :fasc] << 1.5dt
+            ..  kieneu[:kss - .1ssw, :kss]
+        );
 
-    # Kiel Hbf (Ss), Kiel Wellsee Awanst
-    track(:first :station, kieneu[:kss - 1ssw, :wel + 1ssw]);
-    marker(:de.abzw :left, kieneu[:kss] << 2dt);
-    marker(:de.anst :right, kieneu[:wel]);
+        # Kiel Hbf (Ss), Kiel Wellsee Awanst
+        track(:first :station, kieneu[:kss, :wel + 1ssw]);
+        marker(:de.abzw :left, kieneu[:kss] << 2dt);
+        marker(:de.anst :right, kieneu[:wel]);
+    }
 
     # Streckengleis Wellsee - Elmschenhagen
     track(:first, kieneu[:wel + 1ssw, :elh - 1ssw]);
@@ -831,3 +833,4 @@ with detail = 1 {
         ..  kieneu[:kss.a, :eut]
     );
 }
+
