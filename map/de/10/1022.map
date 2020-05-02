@@ -224,7 +224,11 @@ with detail = [4, 5] {
     #--- point.de.Osterrönfeld-Awanst
     #
     marker(:de.awanst :right, neufle[:ora] >> 1.5dt);
-    station(:left, neufle[:ora] << .5dt << 1sh,
+    track(:guide,
+            neufle[:ora - 1sw, :ora - 1.01sw] << 1.5dt << 1.5sh
+        --  neufle[:ora - 0.9km, :ora - 0.91km] << 5sh
+    );
+    station(:right, neufle[:ora - 1km] >> 5sh,
         "Osterrönfeld Awanst",
         "1022: 30,59"
     );

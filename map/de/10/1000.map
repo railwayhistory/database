@@ -3,54 +3,6 @@
 let flwhag = path("path.de.1000");
 let neufle = path("path.de.1040");
 
-with detail = 1 {
-    track(:first, neufle[:flw, :apad] .. flwhag[:fri, :f]);
-}
-
-with detail = 2 {
-    track(:first, neufle[:flw, :apad] .. flwhag[:fri, :f]);
-}
-
-with detail = 3 {
-    #--- Flensburg Weiche
-    # 
-    track(:first :station,
-            neufle[:fws - 2.1dl, :fws - 2dl] << 0.5dt
-        --  neufle[:fws, :fws + .1dl] << 2.5dt
-    );
-    track(:first :station, neufle[:fws - 1dl, :fws] << 1.5dt);
-    track(:double :first :station,
-            neufle[:fws, :flw.wr2] << 2dt
-        ..  neufle[:flin, :apad] << 3dt
-    );
-
-    #--- Flensburg Weiche (ausschl) - Harrislee Grenze
-    # 
-    track(:double :first :cat,
-            neufle[:apad, :apad + .1dl] << 3dt
-        ..  flwhag[:fri - .5sw, :f]
-    );
-
-    marker(:de.abzw, flwhag[:fri] >> 1.5dt);
-
-    with layer = -1 marker(:de.bf :removed, flwhag[:har] >> .5dt);
-    slabel(:left :removed, flwhag[:har - .5ssw] << 2dt, "Harrislee");
-
-    marker(:de.dirgr, flwhag[:hag] >> 0.5dt);
-    marker(:statdt, flwhag[:hag] << 0.5dt);
-    marker(:de.dirgr :left, flwhag[:hag] << 0.5dt);
-    label(
-        flwhag[:hag] << 5dt,
-        hbox(
-            :right :middle,
-            vbox(:center :middle,
-                span(:small, "DK"),
-                hbar(0.3),
-                span(:small, "DE")
-            )
-        )
-    );
-}
 
 with detail = [4, 5] {
     track(:double :first :cat, flwhag[:ffle, :fri - 1sw]);
@@ -72,7 +24,10 @@ with detail = [4, 5] {
     marker(:de.abzw, flwhag[:fri] >> 1.5dt);
     station(
         :left, flwhag[:fri - .4sw] << .5dt << 6bp,
-        "F. Friedensweg",
+        hbox(:center :base,
+            span(:medium, "F. "),
+            span(:medium :bold, "Friedensweg")
+        ),
         hbox(:right :top,
             vbox(:left :top,
                 span(:xsmall, "1000: "),
@@ -81,6 +36,9 @@ with detail = [4, 5] {
             vbox(:right :top,
                 span(:xsmall, "174,57"),
                 span(:xsmall, "5,49")
+            ),
+            vbox(:left :top,
+                span(:xsmall :removed, " (168,75)")
             )
         )
     );
@@ -102,8 +60,8 @@ with detail = [4, 5] {
     );
     marker(:de.bf :removed, flwhag[:har] >> 0.5dt);
     station(
-        :right :removed, flwhag[:har - .4sw] >> 1.3sw,
-        "Harrislee", "177,44"
+        :right :left_align :removed, flwhag[:har - .4sw] >> 1.3sw,
+        "Harrislee", "177,44 (171,87)"
     );
 
 
@@ -115,14 +73,75 @@ with detail = [4, 5] {
     marker(:de.dirgr :left, flwhag[:hag] << 0.5dt);
     label(
         flwhag[:hag] << 5dt,
-        hbox(
-            :right :middle,
-            vbox(:center :middle,
-                span(:xsmall, "DK 26: 110,6"),
+        hbox(:right :middle,
+            vbox(:right :middle,
+                span(:xsmall, "DK 26: "),
                 hbar(0.3),
-                span(:xsmall, "DE 1000: 179,784")
+                span(:xsmall, "DE 1000: ")
+            ),
+            vbox(:right :middle,
+                span(:xsmall, "110,"),
+                hbar(0.3),
+                span(:xsmall, "179,")
+            ),
+            vbox(:left :middle,
+                span(:xsmall, "6"),
+                hbar(0.3),
+                span(:xsmall, "784")
+            ),
+            vbox(:left :middle,
+                span(:xsmall, ""),
+                hbar(0.3),
+                span(:xsmall :removed, " (174,21)")
             )
         )
     );
+}
+
+
+with detail = 3 {
+    #--- Flensburg Weiche
+    # 
+    track(:first :station,
+            neufle[:fws - 2.1dl, :fws - 2dl] << 0.5dt
+        --  neufle[:fws, :fws + .1dl] << 2.5dt
+    );
+    track(:first :station, neufle[:fws - 1dl, :fws] << 1.5dt);
+    track(:double :first :station,
+            neufle[:fws, :flw.wr2] << 2dt
+        ..  neufle[:flin, :apad] << 3dt
+    );
+
+    #--- Flensburg Weiche (ausschl) - Harrislee Grenze
+    # 
+    track(:double :first :cat,
+            neufle[:apad, :apad + .1dl] << 3dt
+        ..  flwhag[:fri - .5sw, :f]
+    );
+
+    marker(:de.abzw, flwhag[:fri] >> 0.5dt);
+
+    with layer = -1 marker(:de.bf :removed, flwhag[:har] >> .5dt);
+    slabel(:left :removed, flwhag[:har - .5ssw] << 2dt, "Harrislee");
+
+    marker(:de.dirgr, flwhag[:hag] >> 0.5dt);
+    marker(:statdt, flwhag[:hag] << 0.5dt);
+    marker(:de.dirgr :left, flwhag[:hag] << 0.5dt);
+    label(
+        flwhag[:hag] << 5dt,
+        hbox(
+            :right :middle,
+            vbox(:center :middle,
+                span(:small, "DK"),
+                hbar(0.3),
+                span(:small, "DE")
+            )
+        )
+    );
+}
+
+
+with detail = [1, 2] {
+    track(:first, neufle[:apad - 0.1dl, :apad] .. flwhag[:fri, :f]);
 }
 
