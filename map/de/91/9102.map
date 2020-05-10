@@ -1,0 +1,81 @@
+# DE 9102.  Schleswig Altstadt Kreisbf - Kappeln (Schlei)
+#
+let slakap = path("path.de.9102");
+let slesla = path("path.de.1010");
+
+
+with detail = [4, 5] {
+    #--- point.de.Schleswig-Altstadt-Kreisb
+    #
+    # Gl. 1
+    track(:station :removed,
+            slakap[:sak - .6sw, :sak + 1sw - 3dl] << 2dt
+        --  slakap[:sak + 1sw - 1dl, :sak + 1sw - 0.9dl]
+    );
+
+    # Gl. 2
+    track(:station :removed, slakap[:a, :sak + 1sw - 2dl] << 1dt);
+
+    # Gl. 3
+    track(:third :station :removed, slakap[:a, :sak + 1sw]);
+
+    # Gl. 5
+    track(:station :removed,
+            slakap[:a, :sak + 1sw - 3dl] >> 1dt
+        --  slakap[:sak + 1sw - 2dl, :sak + 1sw - 1.9dl]
+    );
+
+    marker(:de.bf :removed :left, slakap[:sak] << 2dt);
+    station(:bottom :left_align :removed,
+        slakap[:sak] >> 1dt,
+        span(:medium :bold :removed, "Schleswig Altstadt Kreisb"),
+        "9102: ??"
+    );
+
+    # Streckengleis Schleswig Altstadt - Abzw Klosterfeld
+    track(:third :removed, slakap[:sak + 1sw, :klo - 0.5sw]);
+
+
+    #--- point.de.Schleswig-Klosterfeld
+    #
+    track(:third :station :removed, slakap[:klo - .5sw, :klo + .5sw]);
+    marker(:de.abzw :removed :right, slakap[:klo]);
+    station(:right :removed, slakap[:klo - 0.4sw] >> 1.4sh,
+        span(:medium :bold :removed, "Klosterfeld"),
+        hbox(:center :top,
+            vbox(:right :top,
+                span(:xsmall :removed, "9101: "),
+                span(:xsmall :removed, "9103: ")
+            ),
+            vbox(:right :top,
+                span(:xsmall :removed, ""),
+                span(:xsmall :removed, "")
+            ),
+            vbox(:left :top,
+                span(:xsmall :removed, "??"),
+                span(:xsmall :removed, "??")
+            )
+        )
+    );
+
+    # Streckengleis Klosterfeld - Klensby
+    track(:third :removed, slakap[:klo + 0.5sw, :kle - 1sw]);
+}
+
+
+with detail = 3 {
+    # Schleswig Altstadt
+    track(:third :station :removed, slakap[:sla, :sla + 2.5ssw]);
+    marker(:de.bf :removed :left, slakap[:sla + 1.5ssw]);
+
+    # Streckengleis Schleswig Altstadt - Klosterfeld
+    track(:third :removed, slakap[:sla + 2.5ssw, :klo - 1ssw]);
+
+    # Klosterfeld
+    track(:third :station :removed, slakap[:klo - 1ssw, :klo + 1ssw]);
+    marker(:de.abzw :removed, slakap[:klo]);
+    slabel(:right :removed, slakap[:klo - .5ssw] >> 1.4ssw,
+        span(:small :bold :removed, "Klosterfeld")
+    );
+}
+

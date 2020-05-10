@@ -4,29 +4,28 @@ let flwfho = path("path.de.1002");
 let hasfle = path("path.de.1020");
 let maaflk = path("path.de.10021");
 
-with detail = 3 {
-    with layer = -0.1 track(:second :removed,
-           hasfle[:mag, :mag + .1dt]
-        .. maaflk[:mag.ff, :flk.aa]
-        .. flwfho[:amaa, :flk + .5ssw]
-    );
-    marker(:de.bf :removed :right, flwfho[:flk]);
-} 
-
 with detail = [4, 5] {
     with layer = -0.1 track(:second :removed,
            hasfle[:mag, :mag + .1dt]
         .. maaflk[:mag.ff, :flk.aa]
         .. flwfho[:amaa, :flk + .5sw] << 1dt
     );
-    with layer = 1 line_badge(:removed, maaflk[:mag.ff + 1.6km], "10021");
 
     # Flensburg Kieler Bf
     track(:second:station :removed, flwfho[:flk + .5sw, :flk - .5sw] << 1dt);
     marker(:de.bf :removed :right, flwfho[:flk] >> 1dt);
     station(
         :left :removed, flwfho[:flk] + (-300m, .5sw),
-        "F. Kieler Bf", "?"
+        "F. Kieler Bf", "10021: ??"
     );
 }
+
+with detail = 3 {
+    with layer = -0.1 track(:second :removed,
+           hasfle[:mag, :mag + .1dt]
+        .. maaflk[:mag.ff, :flk.aa]
+        .. flwfho[:amaa, :flk + .5ssw]
+    );
+#   marker(:de.bf :removed :right, flwfho[:flk]);
+} 
 
