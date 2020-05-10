@@ -6,7 +6,10 @@ let flerun = path("path.de.91012");
 let horwes = path("path.de.91004");
 let horwls = path("path.de.91005");
 let munwes = path("path.de.91003");
+let neufle = path("path.de.1040");
 let niedag = path("path.de.9100");
+let renren = path("path.de.91022");
+let rensen = path("path.de.91021");
 let slakap = path("path.de.9102");
 let slasat = path("path.de.9101");
 let weslis = path("path.de.91006");
@@ -57,5 +60,20 @@ with detail = 2 {
     # DE 9102.
     with layer = -1 track(:third :removed, slakap[:sla, :fhas]);
     track(:third :open, slakap[:sud.sn, :kap]);
+
+    # DE 91021.
+    track(:third :narrow :removed, rensen[:a, :hoh.r]);
+    track(:third :narrow :removed,
+            rensen[:fsen, :fsen - 0.1dl]
+        ..  rensen[:hoh.ff, :sen]
+    );
+
+    # DE 91022.
+    track(:station :removed,
+            rensen[:a + 1.5ssw, :a + 1.51ssw]
+        ..  renren[:ff - 0.1dl, :ff]
+        ..  neufle[:fgla - 0.1dl, :fgla]
+    );
+
 }
 
