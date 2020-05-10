@@ -106,8 +106,8 @@ with detail = 3 {
 
     # Bk Schleibrücke
     marker(:de.bk :left, hasfle[:lin - 2ssw]);
-    slabel(:left, hasfle[:lin - 2.3ssw] << 1.6ssw,
-        hbox(:right :base,
+    slabel(:right, hasfle[:lin - 2.5ssw] >> 1dt,
+        hbox(:left :base,
             span(:small :light, "Boren "),
             span(:small, "Schleibrücke")
         )
@@ -123,20 +123,12 @@ with detail = 3 {
 
     # Fahrtoft
     with layer = -1 marker(:de.hst :removed :left, hasfle[:fah]);
-    slabel(:left :removed, hasfle[:fah - 0.35ssw] << 1.6ssw, "Fahrtoft");
+    slabel(:right:removed, hasfle[:fah - 0.35ssw] >> 1dt, "Fahrtoft");
 
     # Süderbrarup
     track(:second :station, hasfle[:sud - 1ssw, :sud + 1.5ssw]);
-    with layer = -1 track(:second :station :removed,
-            hasfle[:sud - 1ssw, :sud + .5ssw] << 1dt
-        --  hasfle[:sud + .5ssw + 1dl, :sud + .5ssw + 1.1dl]
-    );
-    track(:second :station,
-            hasfle[:sud + .5ssw + 0.9dl, :sud + .5ssw + 1dl]
-        --  hasfle[:sud + .5ssw + 2dl, :sud + 1.5ssw] >> 1dt
-    );
     marker(:de.bf :right, hasfle[:sud]);
-    slabel(:right, hasfle[:sud - .5ssw] >> 1.4ssw,
+    slabel(:left, hasfle[:sud - .5ssw] << 1.5dt,
         span(:small :bold, "Süderbrarup")
     );
 
@@ -147,17 +139,12 @@ with detail = 3 {
     # Mohrkirch
     track(:second :station, hasfle[:moh - 1ssw, :moh + 1ssw]);
     marker(:de.bf :removed, hasfle[:moh]);
-    slabel(:right, hasfle[:moh - .6ssw] >> 1.4ssw,
-        hbox(:left :base,
-            span(:small :closed, "Mohrkirch"),
-            span(:small :gone, "osterholz")
-        )
-    );
+    slabel(:right :closed, hasfle[:moh - .6ssw] >> 1.4ssw, "Mohrkirch");
 
-    # Streckengleis Mohrkirch - Süderbrarup
+    # Streckengleis Mohrkirch - Sörup
     track(:second, hasfle[:moh + 1ssw, :sor - 1ssw]);
 
-    # Süderbrarup
+    # Sörup
     track(:second :station, hasfle[:sud - 1ssw, :sor + 1ssw]);
     marker(:de.bf :right, hasfle[:sor]);
     slabel(:right, hasfle[:sor - .5ssw] >> 1.3ssw,
