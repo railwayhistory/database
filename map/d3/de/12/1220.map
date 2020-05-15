@@ -1,0 +1,70 @@
+# DE 1220.  Altona Palmaille - Kiel Altonaer Bf
+#
+let altkie = path("path.de.1220");
+let kieneu = path("path.de.1023");
+let kieost = path("path.de.1022");
+let neuasc = path("path.de.1041");
+let neufle = path("path.de.1040");
+let neuhei = path("path.de.1042");
+
+with detail = 3 {
+
+    # Neumünster
+    track(:double :first :station, altkie[:neu.a, :neu.f]);
+    track(:first :station, altkie[:neu.a, :neu + .5ssw] >> 1.5dt);
+    track(:first :station :closed,
+            altkie[:neu + .5ssw, :neu + .51ssw] >> 1.5dt
+        ..  neuasc[:aa + .29km, :aa + .3km]
+    );
+    track(:first :station,
+            altkie[:neu - .5ssw - 2.1dl, :neu - .5ssw - 2dl] << 0.5dt
+        --  altkie[:neu - .5ssw - 1dl, :aren] << 1.5dt
+        ..  neufle[:aa - .1dl, :aa] << 0.5dt
+    );
+    track(:first :station,
+            altkie[:aren - .1dl, :aren] << 0.5dt
+        ..  neufle[:aa - .1dl, :aa] >> 0.5dt
+    );
+    track(:second :station,
+            altkie[:neu - .5ssw - 1.01dl, :neu - .5ssw - 1dl] << 1.5dt
+        --  altkie[:neu - .5ssw, :neu + .5ssw] << 2.5dt
+        ..  neuhei[:nst - .51ssw, :nst - .5ssw]
+    );
+
+    marker(:de.bf :right, altkie[:neu] >> 1.5dt);
+    slabel(:right, altkie[:neu - .5ssw] >> 1.5dt >> 1.6ssw,
+        span(:small :bold, "NEUMÜNSTER")
+    );
+
+    # Streckengleise Neumünster - Meimersdorf
+    track(:double :first :cat, altkie[:neu.f, :mei - 1ssw]);
+    with layer = 1 line_badge(:open, altkie[:ein + 3.0km], "1220");
+
+    # Einfeld
+    marker(:de.hp :left, altkie[:ein] << .5dt);
+    with layer = -1 marker(:de.bf :gone :left, altkie[:ein] << .5dt);
+    slabel(:left, altkie[:ein - .5ssw] << .5dt << 1.4ssw, "Einfeld");
+
+    # Bordesholm
+    marker(:de.bf :left, altkie[:bor] << .5dt);
+    slabel(:left, altkie[:bor - .5ssw] << .5dt << 1.4ssw, "Bordesholm");
+
+    # Techelsdorf
+    with layer = -1 marker(:de.bk :removed, altkie[:tec] >> 0.5dt);
+
+    # Flintbek
+    marker(:de.hp :left, altkie[:fli] << 0.5dt);
+    with layer = -1 marker(:de.bf :gone :left, altkie[:fli] << 0.5dt);
+    slabel(:left, altkie[:fli - .6ssw] << .5dt << 1.5ssw, "Flintbek");
+
+    # Meimersdorf und Kiel Hbf
+    track(:double :first :station, altkie[:mei - 1ssw, :kie]);
+
+    with layer = -1 marker(:de.hp :closed, altkie[:mei] >> 0.5dt);
+    marker(:de.bf :left, altkie[:meg] << 1.5dt);
+
+    marker(:de.bf :top, altkie[:kie]);
+    marker(:statdt :left, altkie[:kie] << 0.5dt);
+    marker(:statdt :right, altkie[:kie] >> 0.5dt);
+}
+

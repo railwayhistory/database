@@ -1,0 +1,26 @@
+# DE 1210.  Elmshorn (ausschl.) - Niebüll (einschl.)
+#
+let niesud = path("path.de.1201");
+let niewes = path("path.de.1200");
+let elmnie = path("path.de.1210");
+
+with detail = 3 {
+    # Niebüll
+    track(:double :first :station, elmnie[:nie - 1ssw, :nie + 1ssw]);
+    marker(:de.bf :open :left, elmnie[:nie] << 0.5dt);
+
+    track(:third :station :open,
+            elmnie[:nie - 1ssw, :nie] << 3dt
+        --  elmnie[:nie, :nie + .5ssw] << 3dt
+    );
+    track(:station :open,
+            elmnie[:nie + .49ssw, :nie +.5ssw] << 3dt
+        --  elmnie[:nie + .5ssw + 2.5dl, :nie + .5ssw + 2.6dl] << 0.5dt
+    );
+    marker(:de.bf :open :left, elmnie[:nie] << 3dt);
+
+    slabel(:left :open, elmnie[:nie - 0.6ssw] << 3dt << 1.4ssw,
+        span(:small :bold, "Niebüll")
+    );
+}
+
