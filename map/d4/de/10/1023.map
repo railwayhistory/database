@@ -13,8 +13,29 @@ with detail = [4, 5] {
             altkie[:kie.a, :fasc] << 1.5dt
         ..  kieneu[:kss.a - .1dl, :kss.a]
     );
+}
 
+with detail = 4 {
+    with link = "point.de.Kiel-Hbf-Ss" {
+        track(:first :station, kieneu[:kss.a, :kss.f]);
 
+        # aus Meimersdorf
+        track(:first :station,
+                kieneu[:agaa - 2dl, :kss - 4dl] >> 1dt
+            --  kieneu[:kss, :kss + .1dl] << 3dt
+        );
+
+        # Segeberger Kleinbahn
+        track(:third :station :removed, kieneu[:fkis, :kss + 1dl] << 2dt);
+
+        # Schönberger Kleinbahn
+        track(:third :station, kieneu[:fkis, :kss + 1dl] << 3dt);
+
+        marker(:de.abzw :left, kieneu[:kss] << 3dt);
+    }
+}
+
+with detail = 5 {
     #--- point.de.Kiel-Hbf-Ss
     #
     track(:first :station, kieneu[:kss.a, :kss.f]);
@@ -56,8 +77,9 @@ with detail = [4, 5] {
     }
 
     marker(:de.abzw :left, kieneu[:kss] << 3dt);
+}
 
-
+with detail = [4, 5] {
     #--- point.de.Kiel-Wellsee-Awanst
     #
     track(:station,
@@ -144,19 +166,20 @@ with detail = [4, 5] {
     );
 
     # Streckengleis Raisdorf - Preetz
-    track(:first, kieneu[:rai.f, :pre.a]);
-    with layer = 1 line_badge(:open, kieneu[:rai + 2.5km], "1023");
+    with layer = 2 track(:first, kieneu[:rai.f, :pre.a]);
+    with layer = 3 line_badge(:open, kieneu[:rai + 2.5km], "1023");
+    with layer = 1 casing(:first, kieneu[:pre.x - 1dt, :pre.x + 1dt]);
 
     #--- point.de.Preetz
     #
     # Gl. 1
-    track(:station,
+    with layer = 2 track(:station,
             kieneu[:pre.a + .9dl, :pre.a + 1dl]
         --  kieneu[:pre.a + 2dl, :pre.f - 4dl] << 1dt
         --  kieneu[:pre.f - 3dl, :pre.f - 2.9dl]
     );
     # Gl. 2
-    track(:first :station, kieneu[:pre.a, :pre.f]);
+    with layer = 2 track(:first :station, kieneu[:pre.a, :pre.f]);
 
     with layer = -1 {
         # Gl. 3
@@ -181,8 +204,8 @@ with detail = [4, 5] {
     }
 
     marker(:de.bf :left, kieneu[:pre] << 1dt);
-    station(:right :left_align, kieneu[:pre + .5sw] << 1dt << 1.4sh,
-        span(:medium :bold, "Preetz"),
+    station(:right :left_align, kieneu[:pre + 1sw] << 1dt << 1.4sh,
+        "Preetz",
         hbox(:left :base,
             span(:xsmall, "15,38"),
             span(:xsmall :removed, " (111,43)")
