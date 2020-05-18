@@ -9,10 +9,18 @@ with detail = [4, 5] {
     track(:third :station :narrow :removed, flekap[:a + .5sw, :a + 2sw]);
     track(:third :station :narrow :removed, flekap[:a + .5sw, :a + 2sw] >> 1dt);
     marker(:de.kbf :removed :right, flekap[:a + 1sw] >> 1dt);
-    station(:left :right_align :removed, flekap[:a] + (-390m, 0m),
-        span(:medium :bold :removed, "F. Kreisb"),
-        "91011: ?? • 91012: ??"
-    );
+    with detail = 4 {
+        station(:left :right_align :removed, flekap[:a] + (-390m, 0m),
+            span(:medium :bold :removed, "F. Kreisb"),
+            "91011: ?? • 91012: ??"
+        );
+    }
+    with detail = 5 {
+        station(:right :left_align :removed, flekap[:a] >> 1dt >> 1.8sh,
+            span(:medium :bold :removed, "F. Kreisb"),
+            "91011: ?? • 91012: ??"
+        );
+    }
 
     # Streckengleis Flensburg - Engelsby
     with layer = 1 track(:third :narrow :cat :removed,

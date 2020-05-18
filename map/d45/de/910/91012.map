@@ -215,29 +215,72 @@ with detail = [4, 5] {
     track(:third :narrow :removed, flerun[:muh + 1sw, :sor.x - 1sw]);
 
 
-    #--- point.de.Sörup-Kleinb
-    #
-    with layer = 2 track(:third :station :removed,
-            flerun[:sor.x - 1sw, :sor.x + .5sw]
-        ..  hasfle[:asat, :frun] >> 2dt
-        ..  flerun[:sor.ff - 0.1dl, :sor.ff]
-    );
-    with layer = 1 casing(:third :station :removed,
-            hasfle[:frun + .1dl, :frun] >> 2dt
-        ..  flerun[:sor.ff - 0.1dl, :sor.ff]
-    );
-    track(:station :removed, hasfle[:asat + 5dl, :asat] >> 2dt);
-    marker(:de.kbf :removed :left, flerun[:sor.x]);
-    station(:left :removed, flerun[:sor.x - 0.3sw] << 1.2sh,
-        hbox(:right :base,
-            span(:bold, "Sörup "),
-            span(:regular, "Kleinb")
-        ),
-        "??"
-    );
+    with link = "point.de.Sörup-Kleinb", detail = 4 {
+        with layer = 2 track(:third :station :removed,
+                flerun[:sor.x - 1sw, :sor.x + .5sw]
+            ..  hasfle[:asat, :frun] >> 2dt
+            ..  flerun[:sor.ff - 0.1dl, :sor.ff]
+        );
+        with layer = 1 casing(:third :station :removed,
+                hasfle[:frun + .1dl, :frun] >> 2dt
+            ..  flerun[:sor.ff - 0.1dl, :sor.ff]
+        );
+        track(:station :removed, hasfle[:asat + 5dl, :asat] >> 2dt);
+        marker(:de.kbf :removed :left, flerun[:sor.x]);
+        station(:left :removed, flerun[:sor.x - 0.3sw] << 1.2sh,
+            hbox(:right :base,
+                span(:bold, "Sörup "),
+                span(:regular, "Kleinb")
+            ),
+            "??"
+        );
+    }
 
-    # Streckengleis Sörup - Schauby
-    track(:third :narrow :removed, flerun[:sor.ff, :sau - 1sw]);
+    with link = "point.de.Sörup-Kleinb", detail = 5 {
+        # Hauptgleis
+        track(:third :station :narrow :removed,
+                flerun[:sor.x - 1sw, :sor - 2wl]
+            ..  hasfle[:asat, :frun] >> 3dt
+        );
+
+        # Bahnsteiggleis >> 1dt
+        track(:station :narrow :removed,
+                flerun[:sor.x, :sor - 2wl] >> 1dt
+            ..  hasfle[:asat, :asat - 1wl] >> 4dt
+            --  hasfle[:asat - 2wl, :asat - 2.1wl] >> 3dt
+        );
+            track(:station :narrow :removed,
+                    flerun[:sor.x + 0.9wl, :sor.x + 1.0wl]
+                --  flerun[:sor.x + 2.0wl, :sor.x + 2.1wl] >> 1dt
+            );
+
+        # Rechtes Umladegleis
+        track(:station :narrow :removed, hasfle[:sor.so - 1wl, :asat] >> 3dt);
+
+        # Linkes Umladegleis
+        track(:station :narrow :removed,
+                hasfle[:sor.so - 2.4wl, :sor.so - 2.5wl] >> 3dt
+            --  hasfle[:sor.so - 3.4wl, :sok.r] >> 2dt
+            --  hasfle[:sok.r  - 1.0wl, :sok.r - 1.1wl] >> 3dt
+        );
+
+        marker(:de.kbf :removed :left, flerun[:sor - 2sw]);
+        station(:left :removed, flerun[:sor - 2.4sw] << 1.2sh,
+            span(:bold, "Sörup Kleinb"),
+            "91012: ??"
+        );
+    }
+
+    with link = "line.de.91012", detail = 4 {
+        track(:third :narrow :removed, flerun[:sor.ff, :sau - 1sw]);
+    }
+    with link = "line.de.91012", detail = 5 {
+        with layer = 2 track(:third :narrow :removed,
+                hasfle[:frun, :frun - 1wl] >> 3dt
+            ..  flerun[:sor.f, :sau - 1sw]
+        );
+        with layer = 1 casing(:third :narrow, flerun[:sor.f, :sor.ff]);
+    }
 
 
     #--- point.de.Schauby-Flensburg
