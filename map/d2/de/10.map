@@ -132,13 +132,14 @@ with detail = 2 {
         ..  ororen[:fkie, :fkie + .1dl]
     );
 
-    # DE 1023.
-    track(:first,
-            altkie[:fasc + 0.1dl, :fasc]
-        ..  kieneu[:kss.a, :eut]
-    );
-    track(:second :removed, kieneu[:eut, :neg]);
-    track(:first, kieneu[:neg, :nst]);
+    with link = "line.de.1023" {
+        track(:first,
+                altkie[:fasc + 0.1dl, :fasc]
+            ..  kieneu[:kss.a, :eut]
+        );
+        with layer = -1 track(:second :removed, kieneu[:eut, :neg]);
+        track(:first, kieneu[:neg, :nst]);
+    }
 
     # DE 1040.
     track(:first, 

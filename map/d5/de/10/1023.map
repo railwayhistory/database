@@ -1,0 +1,113 @@
+# DE 1023.  Kiel Hbf (ausschl.) - Neustadt (Holst)
+#
+let kieneu = path("path.de.1023");
+let lubput = path("path.de.1100");
+
+with detail = 5 {
+    with link = "line.de.1023" {
+        track(:second :removed, kieneu[:neg.aa, :neg.a]);
+    }
+
+
+    with link = "point.de.Neustadt-Holst-Gbf" {
+        # Einfahrt aus Eutin
+        with layer = -1 track(:second :station :removed,
+                kieneu[:neg.a, :neg.ns - 40m]
+        );
+
+        # Gl. 7
+        track(:first :station,
+                lubput[:neg.a, :neg.a + 10m]
+            ..  kieneu[:neg.ns - 40m, :neg.nn]
+            ..  lubput[:neg.f - 60m, :neg.f]
+        );
+
+        # Gl. 8 (>> 1dt)
+        track(:second :station,
+                kieneu[:neg.ns, :neg.ns + 5m]
+            ..  kieneu[:neg.ns +  90m, :neg.nn + 90m] >> 1dt
+            ..  kieneu[:nst.a  -  10m, :nst.a]
+        );
+            # W45 - W47
+            track(:station,
+                    kieneu[:neg.nn + 90m, :neg.nn + 91m] >> 1dt
+                ..  lubput[:neg.f  - 60m, :neg.f  - 59m]
+            );
+
+        # Gl. 9 (>> 2dt)
+        with layer = -1 track(:station :removed,
+                lubput[:neg.a, :neg.a + 10m] >> 1dt
+           ..   kieneu[:neg.ns - 40m, :neg.ns -  39m] >> 1dt
+           ..   kieneu[:neg.ns + 90m, :neg.ns + 140m] >> 2dt
+        );
+        track(:station,
+                kieneu[:neg.ns + 140m, :neg.nn + 10m] >> 2dt
+           ..   kieneu[:neg.nn +  80m, :neg.nn + 81m] >> 1dt
+        );
+
+        # Gl. 10 (>> 3dt)
+        track(:station,
+                kieneu[:neg.ns + 160m, :neg.nn - 10m] >> 3dt
+           ..   kieneu[:neg.nn +  80m, :neg.nn + 81m] >> 1dt
+        );
+
+        # Gl. 11 (>> 4dt)
+        with layer = -1 track(:station :removed,
+                kieneu[:neg.ns + 50m, :neg.ns + 180m] >> 4dt
+        );
+        track(:station,
+                kieneu[:neg.ns + 180m, :neg.ns + 300m] >> 4dt
+        );
+        with layer = -1 track(:station :removed,
+                kieneu[:neg.ns + 300m, :neg.nn - 30m] >> 4dt
+           ..   kieneu[:neg.nn +  80m, :neg.nn + 81m] >> 1dt
+        );
+
+        # Gl. 12 (>> 5dt)
+        with layer = -1 track(:station :removed,
+                kieneu[:neg.ns + 50m, :neg.ns + 230m] >> 5dt
+        );
+        track(:station,
+                kieneu[:neg.ns + 89m, :neg.ns + 90m] >> 1dt
+            ..  kieneu[:neg.ns + 230m, :neg.ns + 300m] >> 5dt
+        );
+        with layer = -1 track(:station :removed,
+                kieneu[:neg.ns + 300m, :neg.nn - 160m] >> 5dt
+        );
+        track(:station,
+                kieneu[:neg.nn - 160m, :neg.nn - 60m] >> 5dt
+            ..  kieneu[:neg.nn +  80m, :neg.nn + 81m] >> 1dt
+        );
+
+        marker(:de.gbf :right, kieneu[:neg] >> 5dt);
+        station(:right, kieneu[:neg - .3sw] >> 5dt >> 1.6sh,
+            hbox(:left :base,
+                span(:medium :bold, "Neustadt "),
+                span(:medium, "(Holst) "),
+                span(:medium :bold, "Gbf")
+            ),
+            hbox(:center :base,
+                vbox(:right :top,
+                    span(:xsmall, "1023: "),
+                    span(:xsmall, "1100: ")
+                ),
+                vbox(:right :top,
+                    span(:xsmall, "62,"),
+                    span(:xsmall, "29,")
+                ),
+                vbox(:left :top,
+                    span(:xsmall, "02"),
+                    span(:xsmall, "07")
+                )
+            )
+        );
+
+        marker(:de.stw :left, kieneu[:neg.ns]);
+        slabel(:left, kieneu[:neg.ns - 1dt] << 3dt, "Ns");
+        marker(:de.stw :left, kieneu[:neg.nn]);
+        slabel(:left, kieneu[:neg.nn - 1dt] << 3dt, "Nn");
+
+        marker(:de.est :removed :bottom, kieneu[:neg.ns + 50m] >> 4.5dt);
+    }
+}
+

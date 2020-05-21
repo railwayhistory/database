@@ -516,8 +516,9 @@ with detail = [4, 5] {
     # Streckengleis Ovelgönne - Neustadt
     track(:second :removed, kieneu[:ove + 1sw, :neg.aa]);
     with layer = 1 line_badge(:removed, kieneu[:neg - 2.0km], "1023");
+}
 
-
+with detail = 4 {
     #--- point.de.Neustadt-Holst-Gbf
     #
     track(:second :station :removed,
@@ -531,7 +532,8 @@ with detail = [4, 5] {
     );
 
     track(:first :station,
-            kieneu[:neg.ns, :aold] >> 0.5dt
+            lubpat[:neg.aa, :neg.aa + 0.1dl]
+        ..  kieneu[:neg.ns, :aold] >> 0.5dt
         ..  kieneu[:nst.a - .1dl, :nst.a]
     );
     track(:station,
@@ -555,7 +557,7 @@ with detail = [4, 5] {
         --  kieneu[:neg.ns + 5dl, :neg.nn - 2dl] >> 3.5dt
         --  kieneu[:neg.nn - 1dl, :neg.nn - 0.9dl] >> 2.5dt
     );
-    marker(:de.bf :right, kieneu[:neg] >> 3.5dt);
+    marker(:de.gbf :right, kieneu[:neg] >> 3.5dt);
     station(:right, kieneu[:neg - .3sw] >> 3.5dt >> 1.6sh,
         hbox(:left :base,
             span(:medium :bold, "Neustadt "),
@@ -577,8 +579,9 @@ with detail = [4, 5] {
             )
         )
     );
+}
 
-
+with detail = [4, 5] {
     #--- point.de.Neustadt-Holst
     #
     track(:first :station, kieneu[:nst.a, :nst - .6sw]);

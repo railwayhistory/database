@@ -1,0 +1,223 @@
+# DE 1040.  Neumünster (ausschl) - Flensburg (einschl)
+#
+let neufle = path("path.de.1040");
+
+with detail = 5 {
+
+    with link = "point.de.Flensburg" {
+        # s. research/map/de/point.de.Flensburg.svg
+
+        # Gl. 1
+        with layer = -1 track(:station :removed,
+                neufle[:fle.fw -  81m, :fle.fw -  80m] << 1.5dt
+            ..  neufle[:fle.fw + 200m, :fle.fw + 300m] << 10.5dt
+        );
+
+        # Gl. 2
+        with layer = -1 track(:station :removed,
+                neufle[:fle.fw + 200m, :fle.fw + 201m] << 8.5dt
+            ..  neufle[:fle.fw + 270m, :fle.fw + 300m] << 9.5dt
+        );
+
+        # Gl. 3
+        with layer = -1 track(:station :removed,
+            #    neufle[:fle.fw +  80m, :fle.fw +  81m] << 7.0dt
+            #--
+                neufle[:fle.fw + 110m, :fle.fw + 300m] << 8.5dt
+        );
+
+        # Gl. 4
+        with layer = -1 track(:station :removed,
+                neufle[:fle.fw - 390m, :fle.fw -  40m] << 2.5dt
+            ..  neufle[:fle.fw + 190m, :fle.fw + 300m] << 7.5dt
+        );
+
+        # Gl. 5
+        track(:station :open,
+                neufle[:fle.fw - 181m, :fle.fw - 180m] << 0.5dt # W4
+            ..  neufle[:fle.fw -  80m, :fle.fw -  40m] << 1.5dt
+            ..  neufle[:fle.fw + 200m, :fle.fw + 300m] << 6.5dt
+        );
+
+        # Gl. 6
+        track(:station :open,
+                neufle[:fle.fw -  41m, :fle.fw -  40m] << 1.5dt
+            ..  neufle[:fle.fw + 140m, :fle.fw + 300m] << 4.5dt
+        );
+
+        # Gl. 7
+        track(:station :open,
+                neufle[:fle.fw -  41m, :fle.fw -  40m] << 1.5dt
+            ..  neufle[:fle.fw + 140m, :fle.fw + 300m] << 3.5dt
+        );
+
+        # Gl. 8
+        with layer = -1 {
+            track(:station :removed,
+                    neufle[:fle.fw - 390m, :fle.fw +  80m] << 1.5dt
+            );
+            track(:station :removed,
+                    neufle[:fle.fw -  40m, :fle.fw + 300m] << 1.5dt
+            );
+        }
+
+        # Gl. 9
+        track(:first :station :open,
+                neufle[:fle.fw - 390m, :fle.fw + 300m] << 0.5dt
+        );
+
+        # Gl. 10
+        track(:first :station :open,
+                neufle[:fle.fw - 390m, :fle.fw - 120m] >> 0.5dt
+            ..  neufle[:fle.fw +  90m, :fle.fw + 300m] >> 1.5dt
+        );
+
+        # Verbindungen Fw
+        # W1 - W2
+        track(:station :open,
+                neufle[:fle.fw - 331m, :fle.fw - 330m] >> 0.5dt
+            ..  neufle[:fle.fw - 240m, :fle.fw - 239m] << 0.5dt
+        );
+        # W3 - W5
+        track(:station :open,
+                neufle[:fle.fw - 221m, :fle.fw - 220m] << 0.5dt
+            ..  neufle[:fle.fw - 120m, :fle.fw - 119m] >> 0.5dt
+        );
+    }
+}
+
+
+with detail = 10 {
+
+    with link = "point.de.Flensburg" {
+        # s. research/map/de/point.de.flensburg.svg
+
+        # Gl. 1
+        track(:station :removed,
+                neufle[:fle.fw - 3.01wl, :fle.fw - 3wl] << 1.5dt
+            --  neufle[:fle.fw + 0.99wl, :fle.fw + 1wl] << 3.5dt
+            --  neufle[:fle.fw + 8wl, :fle.fo - 8wl] << 10.5dt
+            --  neufle[:fle.fo - 5wl, :fle.fo - 4.9wl] << 7.5dt
+        );
+            # Verbd. aus Gl 10
+            with layer = -1 track(:station :removed,
+                    neufle[:fle.fw - 7.01wl, :fle.fw - 7wl] >> 0.5dt
+                --  neufle[:fle.fw - 5wl, :fle.fw - 4.99wl] << 0.5dt
+            );
+
+        # Gl. 2
+        track(:station :removed,
+                neufle[:fle.fw + 7.09wl, :fle.fw + 7.1wl] << 8.5dt
+            --  neufle[:fle.fw + 8.1wl, :fle.fo - 8.1wl] << 9.5dt
+            --  neufle[:fle.fo - 6.1wl, :fle.fo - 6.09wl] << 7.5dt
+        );
+
+        # Gl. 3
+        track(:station :removed,
+                neufle[:fle.fw + 6wl, :fle.fo - 8.2wl] << 8.5dt
+            --  neufle[:fle.fo - 7.2wl, :fle.fo - 7.19wl] << 7.5dt
+        );
+
+        # Gl. 4
+        with layer = -1 track(:station :removed,
+                neufle[:fle.fw - 13wl, :fle.fw + 1.1wl] << 2.5dt
+            --  neufle[:fle.fw + 6.1wl, :fle.fo - 4.1wl] << 7.5dt
+            --  neufle[:fle.fo + 2.1wl, :fle.fo + 2.11wl] << 4.5dt
+        );
+
+        # Gl. 5
+        track(:station,
+                neufle[:fle.fw - 5.01wl, :fle.fw - 5wl] << 0.5dt
+            --  neufle[:fle.fw - 3wl, :fle.fw + 1.2wl] << 1.5dt
+            --  neufle[:fle.fw + 6.2wl, :fle.fo - 4wl] << 6.5dt
+            --  neufle[:fle.fo , :fle.fo + 0.01wl] << 4.5dt
+            --  neufle[:fle.fo + 3wl, :fle.fo + 3.01wl] << 0.5dt
+        );
+
+        # Gl. 6
+        track(:second :station,
+                neufle[:fle.fw + 4.2wl, :fle.fa] << 4.5dt
+        );
+
+        # Gl. 7
+        track(:station,
+                neufle[:fle.fw + 3.2wl, :fle.fo - 3wl] << 3.5dt
+            --  neufle[:fle.fo - 2wl, :fle.fo - 1.9wl] << 4.5dt
+        );
+
+        # Gl. 8
+        with layer = -1 track(:station :removed,
+                neufle[:fle.fw - 13wl, :fle.fw - 3wl] << 1.5dt
+        );
+        with layer = -1 track(:station :removed,
+                neufle[:fle.fw - 1.2wl, :fle.fo + 11wl] << 1.5dt
+        );
+
+        # Gl. 8a
+        track(:station :removed,
+                neufle[:fle.fw + 2.29wl, :fle.fw + 2.3wl] << 1.5dt
+            --  neufle[:fle.fw + 3.3wl, :fle.fw + 4wl] << 2.5dt
+        );
+
+        # Gl. 8b
+        track(:station :removed,
+                neufle[:fle.fo - 2wl, :fle.fo + 4wl] << 2.5dt
+        );
+
+        # Gl. 9
+        track(:first :station :open,
+                neufle[:fle.fw - 13wl, :fle.fo + 11wl] << 0.5dt
+        );
+            # Verbindung aus Gl. 10
+            track(:station,
+                    neufle[:fle.fw - 10.01wl, :fle.fw - 10wl] >> 0.5dt
+                --  neufle[:fle.fw - 8wl, :fle.fw - 7.99wl] << 0.5dt
+            );
+
+        # Gl. 10
+        track(:first :station :open,
+                neufle[:fle.fw - 13wl, :fle.fw - 5wl] >> 0.5dt
+            ..  neufle[:fle.fw, :fle + 120m] >> 1.5dt
+        );
+        track(:first :station :removed,
+                neufle[:fle + 120m, :fle.fo + 7wl] >> 1.5dt
+            --  neufle[:fle.fo + 8wl, :fle.fo + 8.1wl] >> 0.5dt
+        );
+            # Verbinung aus Gl. 4
+            with layer = -1 track(:station :removed,
+                    neufle[:fle.fw - 11.01wl, :fle.fw - 11wl] << 2.5dt
+                --  neufle[:fle.fw - 7wl, :fle.fw - 6.99wl] << 0.5dt
+            );
+            track(:station,
+                    neufle[:fle.fw - 7.01wl, :fle.fw - 7wl] << 0.5dt
+                --  neufle[:fle.fw - 5wl, :fle.fw - 4.99wl] >> 0.5dt
+            );
+
+        # Gl. 10a
+        track(:station :open,
+                neufle[:fle + 119m, :fle + 120m] >> 1.5dt
+            --  neufle[:fle + 120m + 1wl, :fle.fo + 8wl] >> 0.5dt
+            --  neufle[:fle.fo + 9wl, :fle.fo + 9.1wl] << 0.5dt
+        );
+
+        with layer = 2 {
+            marker(:de.bf :left, neufle[:fle] << 10.5dt);
+            marker(:de.hpext :left, neufle[:fle] << 9.5dt);
+            marker(:de.hpext :left, neufle[:fle] << 8.5dt);
+            marker(:de.hpext :left, neufle[:fle] << 7.5dt);
+            marker(:de.hpext :left, neufle[:fle] << 6.5dt);
+            marker(:de.hpext :left, neufle[:fle] << 5.5dt);
+            marker(:de.hpext :left, neufle[:fle] << 4.5dt);
+            marker(:de.hpext :left, neufle[:fle] << 3.5dt);
+            marker(:de.hpext :left, neufle[:fle] << 2.5dt);
+            marker(:de.hpext :left, neufle[:fle] << 1.5dt);
+            marker(:de.hpext :left, neufle[:fle] << 0.5dt);
+            marker(:de.hpext :left, neufle[:fle] >> 0.5dt);
+            marker(:de.hpext :left, neufle[:fle] >> 1.5dt);
+        }
+
+        marker(:de.stw :closed :left, neufle[:fle.fw] << 3dt);
+        slabel(:top :closed, neufle[:fle.fw] << 5dt, "Fw");
+    }
+}
+
