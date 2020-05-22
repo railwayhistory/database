@@ -973,30 +973,426 @@ with detail = 5 {
     with link = "point.de.Puttgarden" {
         let putput = path("path.de.1100.put");
 
-        # XXX TODO
+        # Gl. 1
+        with layer = -1 track(:station :closed,
+                putput[:put.pf + 88m] << 7.9dt  # W49?
+            --  putput[:put.pf + 90m] << 8.0dt
+            ..  putput[:put.pf + 270m, :put + 60m] << 11dt
+        );
+
+        # Gl. 2
+        track(:station,
+                putput[:put.pf + 46m] << 6.4dt   # W47
+            --  putput[:put.pf + 54m] << 6.6dt
+            ..  putput[:put.pf + 88m] << 7.9dt  # W49?
+            --  putput[:put.pf + 90m] << 8.0dt
+            ..  putput[:put.pf + 270m, :put + 60m] << 10dt
+        );
+        track(:staition:closed,
+                putput[:put + 60m, :put + 80m] << 10dt
+            ..  putput[:put + 130m] << 10.5dt
+            --  putput[:put + 200m] << 11.0dt
+        );
+            # W101 - W102?
+            with layer = -1 track(:station :closed,
+                    putput[:put - 261m, :put - 260m] << 10dt
+                ..  putput[:put - 210m, :put - 209m] << 11dt
+            );
 
         # Gl. 3
         track(:station,
                 putput[:put.pf + 9m, :put.pf + 10m] << 6dt
-            ..  putput[:put.pf + 190m, :put + 60m] << 8dt
+            ..  putput[:put.pf + 46m] << 6.4dt   # W47
+            --  putput[:put.pf + 54m] << 6.6dt
+            ..  putput[:put.pf + 130m, :put + 60m] << 8dt
         );
         with layer = -1 track(:station :removed,
                 putput[:put + 60m, :put + 61m] << 8dt
             ..  putput[:f - 20m, :f] << 5dt
         );
+            # W113 - W114?
+            with layer = -1 track(:station:closed,
+                    putput[:put.pf + 229m, :put.pf + 230m] << 8dt
+                ..  putput[:put.pf + 330m, :put.pf + 331m] << 6dt
+            );
+            # W119 - W110
+            track(:station,
+                    putput[:put + 10m] << 8dt -- putput[:put + 15m] << 8.1dt
+                ..  putput[:put + 60m, :put + 61m] << 9dt
+            );
+
+        # Gl. 4
+        with layer = -1 track(:station :closed,
+                putput[:put.pf + 59m, :put.pf + 60m] << 6dt
+            ..  putput[:put.pf + 120m, :put - 40m] << 7dt
+            ..  putput[:put + 10m, :put + 11m] << 6dt
+        );
+            # W115? - W112
+            with layer = -1 track(:station :closed,
+                    putput[:put - 211m, :put - 210m] << 7dt
+                ..  putput[:put - 150m, :put - 149m] << 8dt
+            );
+            # W118? - W119
+            with layer = -1 track(:station :closed,
+                    putput[:put - 41m, :put - 40m] << 7dt
+                ..  putput[:put +  5m] << 7.9dt -- putput[:put + 10m] << 8dt
+            );
 
         # Gl. 5
         track(:first :station, putput[:put.pf, :put + 60m] << 6dt);
+            # W116? - W117?
+            with layer = -1 track(:station :closed,
+                    putput[:put - 121m, :put - 120m] << 6dt
+                ..  putput[:put -  60m, :put -  59m] << 7dt
+            );
 
         # Gl. 6
         track(:first :station, lubput[:put.pf, :put + 60m] << 5dt);
+            # WX5 - WX6
+            with layer = -1 track(:station:closed,
+                    lubput[:put - 121m, :put - 120m] << 5dt
+                ..  lubput[:put -  60m, :put -  59m] << 4dt
+            );
+
+        # Gl. 7 - Fährbett II
+        with layer = -1 track(:station :closed,
+                lubput[:put.pf +  59m, :put.pf +  60m] << 5dt
+            ..  lubput[:put.pf + 120m, :put    -  40m] << 4dt
+            ..  lubput[:put    +  60m, :put    + 150m] << 2dt
+        );
+            # WX3 - WX4
+            with layer = -1 track(:station :closed,
+                    lubput[:put - 211m, :put - 210m] << 4dt
+                ..  lubput[:put - 150m, :put - 149m] << 3dt
+            );
+            # WX7 - WX8
+            with layer = -1 track(:station :closed,
+                    lubput[:put - 41m, :put - 40m] << 4dt
+                ..  lubput[:put + 10m, :put + 11m] << 5dt
+            );
+
+        # Gl. 8
+        track(:station,
+                lubput[:put.pf + 9m, :put.pf + 10m] << 5dt
+            ..  lubput[:put.pf + 46m] << 4.6dt             # W74
+            --  lubput[:put.pf + 54m] << 4.4dt
+            ..  lubput[:put.pf + 130m, :put + 60m] << 3dt
+        );
+        with layer = -1 track(:station :removed,
+                lubput[:put + 60m, :put + 61m] << 3dt
+            ..  lubput[:f - 20m, :f] << 6dt
+        );
+            # WX1 - WX2
+            with layer = -1 track(:station :closed,
+                    lubput[:put.pf + 229m, :put.pf + 230m] << 3dt
+                ..  lubput[:put.pf + 330m, :put.pf + 331m] << 5dt
+            );
+
+        # Gl. 9
+        track(:station,
+                lubput[:put.pf + 46m] << 4.6dt             # W74
+            --  lubput[:put.pf + 54m] << 4.4dt
+            ..  lubput[:put.pf + 88m] << 3.1dt             # W75?
+            --  lubput[:put.pf + 92m] << 2.9dt
+            ..  lubput[:put.pf + 220m, :put + 60m] << 1dt
+        );
+        track(:station:closed,
+                lubput[:put + 60m, :put + 80m] << 1dt
+            ..  lubput[:put + 130m] << 0.5dt
+            --  lubput[:put + 200m]
+        );
+            # W75? - W76?
+            with layer = -1 track(:station :closed,
+                    lubput[:put.pf + 88m] << 3.1dt             # W75?
+                --  lubput[:put.pf + 92m] << 2.9dt
+                ..  lubput[:put.pf + 220m, :put.pf + 221m]
+            );
+            # WX11 - WX12
+            with layer = -1 track(:station :closed,
+                    lubput[:put - 261m, :put - 260m] << 1dt
+                ..  lubput[:put - 200m, :put - 199m]
+            );
+
+        # Gl. 10
+        with layer = -1 track(:station :closed,
+                lubput[:put.pf +  59m, :put.pf + 60m] >> 1dt
+            ..  lubput[:put.pf + 120m, :put    - 70m]
+            ..  lubput[:put] << 0.75dt -- lubput[:put + 10m] << 1dt
+        );
+            # W77? - W78?
+            with layer = -1 track(:station :closed,
+                    lubput[:put.pf + 279m, :put.pf + 280m]
+                ..  lubput[:put.pf + 320m, :put.pf + 321m] >> 1dt
+            );
+
+        # Gl. 11
+        track(:station,
+                lubput[:put.pf - 120m, :put - 110m] >> 1dt
+        );
+        with layer = -1 track(:station :closed,
+                lubput[:put - 111m, :put - 110m] >> 1dt
+            ..  lubput[:put - 40m] >> 0.25dt -- lubput[:put - 30m]
+        );
+            # WY3 - WY5
+            with layer = -1 track(:station :closed,
+                    lubput[:put.pf - 70m] >> 1dt
+                --  lubput[:put.pf + 10m] >> 3dt
+            );
+
+        # Gl. 12
+        track(:station,
+                lubput[:put.pf - 120m, :put - 150m] >> 2dt
+        );
+        with layer = -1 track(:station :closed,
+                lubput[:put - 151m, :put - 150m] >> 2dt
+            ..  lubput[:put - 80m] >> 1.25dt -- lubput[:put - 70m] >> 1dt
+        );
+            # WY6 - WY7
+            with layer = -1 track(:station :closed,
+                    lubput[:put.pf] >> 2dt
+                --  lubput[:put.pf + 40m] >> 1dt
+            );
+
+        # Gl. 13
+        track (:station,
+                lubput[:put.pf - 120m, :put - 190m] >> 3dt
+        );
+        with layer = -1 track(:station :closed,
+                lubput[:put - 191m, :put - 190m] >> 3dt
+            ..  lubput[:put - 120m] >> 2.25dt -- lubput[:put + 10m] << 1dt
+            --  lubput[:put + 60m, :put + 61m] << 2dt
+        );
+            # WY1 - WY2
+            with layer = -1 track(:station :closed,
+                    lubput[:put.pf - 100m] >> 3dt
+                --  lubput[:put.pf -  60m] >> 2dt
+            );
+
+        # Gl. 14
+        with layer = -1 track(:station :closed,
+                lubput[:put.pf + 175m] >> 3.25dt
+            --  lubput[:put.pf + 185m] >> 3.5dt
+            ..  lubput[:put.pf + 240m, :put.pf + 320m] >> 4dt
+        );
+
+        # Gl. 15
+        with layer = -1 track(:station :closed,
+                lubput[:put.pf + 215m] >> 4.25dt
+            --  lubput[:put.pf + 225m] >> 4.5dt
+            ..  lubput[:put.pf + 280m, :put - 190m] >> 5dt
+        );
+        with layer = -2 track(:station :removed,
+                lubput[:put - 251m, :put - 250m] >> 5dt
+            ..  lubput[:put - 170m] >> 3.5dt -- lubput[:put - 120m] >> 2.25dt
+        );
+
+        # Gl. 16
+        with layer = -1 track(:station :closed,
+                lubput[:put.pf + 165m] >> 3dt
+            --  lubput[:put.pf + 265m] >> 5.5dt
+            ..  lubput[:put.pf + 320m, :put - 190m] >> 6dt
+        );
+        with layer = -2 track(:station :removed,
+                lubput[:put - 241m, :put - 240m] >> 6dt
+            ..  lubput[:put - 160m] >> 3.25dt -- lubput[:put - 150m] >> 3dt
+        );
+
+        # Gl. 17
+        with layer = -1 track(:station :closed,
+                lubput[:put.pf + 120m] >> 3dt
+            --  lubput[:put.pf + 600m] >> 15dt
+        );
+
+        # Gl. 18
+        with layer = -1 track(:station :closed,
+                lubput[:put.pf + 75m] >> 3dt
+            --  lubput[:put.pf + 595m] >> 16dt
+        );
+
+        # Gl. 19
+        with layer = -1 track(:station :closed,
+                lubput[:put.pf + 30m] >> 3dt
+            --  lubput[:put.pf + 590m] >> 17dt
+        );
+
+        # Gl. 20
+        with layer = -1 track(:station :closed,
+                lubput[:put.pf + 75m] >> 4.5dt
+            --  lubput[:put.pf + 80m] >> 5dt
+            ..  lubput[:put.pf + 125m] >> 6.5dt
+            --  lubput[:put.pf + 585m] >> 18dt
+        );
+
+        # Gl. 21
+        with layer = -1 track(:station :closed,
+                lubput[:put.pf + 50m] >> 3.5dt
+            --  lubput[:put.pf + 60m] >> 3.75dt
+            ..  lubput[:put.pf + 75m] >> 4.5dt
+            --  lubput[:put.pf + 85m] >> 5.5dt
+            ..  lubput[:put.pf + 110m] >> 7.25dt
+            --  lubput[:put.pf + 320m] >> 12.5dt
+        );
+
+        # Gl. 29
+        track(:station :closed,
+                putput[:put.pf, :put.pf + 10m] << 7dt
+            ..  putput[:put.pf + 68m] << 8.2dt
+            --  putput[:put.pf + 70m] << 8.3dt
+            ..  putput[:put.pf + 240m, :put - 100m] << 12dt
+            ..  putput[:put - 55m] << 11.5dt -- putput[:put - 50m] << 11.4dt
+        );
+
+        # Gl. 30 - Fährbrücke I
+        with layer = -1 track(:station:closed,
+                putput[:put.pf + 88m] << 7.9dt  # W48?
+            --  putput[:put.pf + 90m] << 8.0dt
+            ..  putput[:put.pf + 240m, :put - 120m] << 13dt
+            ..  putput[:put - 5m] << 10.1dt -- putput[:put] << 10dt
+        );
+        track(:station,
+                putput[:put] << 10dt -- putput[:put + 5m] << 9.9dt
+            ..  putput[:put + 60m, :put + 150m] << 9dt
+        );
 
         # Gl. 50
         track(:first :station,
                 lubput[:put.a + 59m, :put.a + 60m]
             ..  lubput[:put.a + 380m, :put.r] << 2dt
-            ..  lubput[:put.r + 500m, :put.pf - 340m] << 18dt
+            ..  lubput[:put.r + 170m] << 5.5dt
+            --  lubput[:put.r + 390m] << 16.5dt
+            ..  lubput[:put.r + 450m, :put.pf - 380m] << 18dt
             ..  lubput[:put.pf - 10m, :put.pf] << 6dt
+        );
+
+        # Gl. 51
+        with layer = -1 track(:station :closed,
+                lubput[:put.pf - 381m, :put.pf - 380m] << 18dt
+            ..  lubput[:put.pf - 330m] << 17dt
+            --  lubput[:put.pf - 130m] << 7dt
+        );
+
+        # Gl. 52
+        track(:station :closed,
+                lubput[:put.r + 300m] << 10.5dt
+            --  lubput[:put.r + 410m] << 16dt
+            ..  lubput[:put.r + 450m, :put.pf - 380m] << 17dt
+            ..  lubput[:put.pf - 340m] << 16dt
+            --  lubput[:put.pf - 320m] << 15dt
+            ..  lubput[:put.pf - 300m] << 13dt
+            --  lubput[:put.pf - 300m] << 12.5dt
+        );
+
+        # Gl. 53
+        track(:station :closed,
+                lubput[:put.r + 410m, :put.pf - 390m] << 16dt
+            ..  lubput[:put.pf - 350m] << 15dt
+            --  lubput[:put.pf - 280m] << 11.5dt
+        );
+
+        # Gl. 54
+        track(:station :closed,
+                lubput[:put.pf - 410m, :put.pf - 400m] << 15dt
+            ..  lubput[:put.pf - 360m] << 14dt
+            --  lubput[:put.pf - 310m] << 11.5dt
+        );
+
+        # Gl. 55
+        track(:station :closed,
+                lubput[:put.pf - 430m] << 16dt
+            --  lubput[:put.pf - 340m] << 11.5dt
+        );
+
+        # Gl. 56
+        track(:station :closed,
+                lubput[:put.r + 230m] << 7dt
+            --  lubput[:put.r + 300m] << 10.5dt
+            ..  lubput[:put.r + 375m, :put.pf - 430m] << 12dt
+            ..  lubput[:put.pf - 400m, :put.pf - 399m] << 11.5dt
+        );
+
+        # Gl. 57
+        track(:station :closed,
+                lubput[:put.r + 280m] << 9.5dt
+            --  lubput[:put.r + 330m] << 10.5dt
+            ..  lubput[:put.r + 380m, :put.pf - 430m] << 11dt
+            ..  lubput[:put.pf - 400m, :put.pf - 220m] << 11.5dt
+        );
+
+        # Gl. 58
+        track(:station :closed,
+                lubput[:put.r + 170m] << 4dt
+            --  lubput[:put.r + 230m] << 7dt
+            ..  lubput[:put.r + 260m] << 8dt
+            --  lubput[:put.r + 335m] << 9.5dt
+            ..  lubput[:put.r + 385m, :put.pf - 305m] << 10dt
+            ..  lubput[:put.pf - 255m] << 9.5dt
+            --  lubput[:put.pf - 30m] << 5dt
+        );
+
+        # Gl.59
+        track(:station :closed,
+                lubput[:put.r + 270m] << 6dt
+            --  lubput[:put.r + 290m] << 7dt
+            ..  lubput[:put.r + 330m] << 8.25dt
+            --  lubput[:put.r + 340m] << 8.5dt
+            ..  lubput[:put.r + 390m, :put.pf - 315m] << 9dt
+            ..  lubput[:put.pf - 265m] << 8.5dt
+            --  lubput[:put.pf - 140m] << 6dt
+        );
+
+        # Gl. 60
+        with layer = -1 track(:station :closed,
+                lubput[:put.r + 20m] << 1dt
+            --  lubput[:put.r + 345m] << 7.5dt
+            ..  lubput[:put.r + 395m, :put.pf - 240m] << 8dt
+        );
+
+        # Gl. 61
+        with layer = -1 track(:station :closed,
+                lubput[:put.r + 75m] << 1dt
+            --  lubput[:put.r + 350m] << 6.5dt
+            ..  lubput[:put.r + 400m, :put.pf - 270m] << 7dt
+            ..  lubput[:put.pf - 220m] << 6.5dt
+            --  lubput[:put.pf - 195m] << 6dt
+        );
+
+        # Gl. 62
+        with layer = -1 track(:station :closed,
+                lubput[:put.r + 440m] << 7dt
+            --  lubput[:put.r + 470m] << 6.5dt
+            ..  lubput[:put.r + 510m, :put.pf - 10m] << 6dt
+        );
+
+        # Gl. 63
+        with layer = -1 track(:station :closed,
+                lubput[:put.r + 325m, :put.r + 430m] << 6dt
+            ..  lubput[:put.r + 470m] << 6.5dt
+            --  lubput[:put.r + 500m] << 7dt
+        );
+
+        # Gl.64
+        with layer = -1 track(:station :closed,
+                lubput[:put.r + 275m, :put.pf - 240m] << 5dt
+            ..  lubput[:put.pf - 195m] << 5.5dt
+            --  lubput[:put.pf - 170m] << 6dt
+        );
+
+        # Gl. 65
+        track(:station:closed, lubput[:put.r + 225m, :put.pf - 250m] << 4dt);
+
+        # Gl. 66
+        track(:station:closed, lubput[:put.r + 175m, :put.pf - 280m] << 3dt);
+
+        # Gl. 67
+        track(:station:closed, lubput[:put.r + 125m, :put.pf - 310m] << 2dt);
+
+        # Gl. 68
+        with layer = -1 track(:station :closed,
+                lubput[:put.r, :put.pf - 380m] << 1dt
+            ..  lubput[:put.pf - 310m] << 2dt
+            --  lubput[:put.pf - 235m] << 4.5dt
+            ..  lubput[:put.pf - 195m] << 5.5dt
+            --  lubput[:put.pf - 170m] << 6dt
         );
 
         # Gl. 69
@@ -1015,21 +1411,79 @@ with detail = 5 {
             ..  lubput[:put.pf - 100m, :put.pf] << 5dt
         );
             # W4 - W5
-            with layer = -1 track(:station :closed,
+            track(:station,
                     lubput[:put.r + 119m, :put.r + 120m]
                 ..  lubput[:put.r + 190m, :put.r + 191m] >> 1dt
             );
 
         # Gl. 71
-        track(:station :closed, lubput[:put.r - 160m, :put.r + 200m] >> 1dt);
+        with layer = -1 track(:station :closed,
+                lubput[:put.r - 160m, :put.r + 190m] >> 1dt
+        );
+
+        # Gl. 72
+        track(:station,
+                lubput[:put.r + 190m, :put.pf - 120m] >> 1dt
+        );
+            # W6 - W7
+            with layer = -1 track(:station :closed,
+                    lubput[:put.r + 199m, :put.r + 200m] >> 1dt
+                ..  lubput[:put.r + 260m, :put.r + 261m]
+            );
+
+        # Gl. 73
+        track(:station,
+                lubput[:put.r + 240m] >> 1.25dt
+            --  lubput[:put.r + 250m] >> 1.5dt
+            ..  lubput[:put.r + 300m, :put.pf - 120m] >> 2dt
+        );
+
+        # Gl. 74
+        track(:station,
+                lubput[:put.r + 219m, :put.r + 220m] >> 1dt
+            ..  lubput[:put.r + 240m] >> 1.25dt
+            --  lubput[:put.r + 330m] >> 3.5dt
+            ..  lubput[:put.r + 380m, :put.r + 390m] >> 4dt
+            ..  lubput[:put.r + 470m, :put.pf - 120m] >> 3dt
+        );
+
+        # Gl. 75?
+        with layer = -1 track(:station :closed,
+                lubput[:put.r + 330m] >> 3.5dt
+            --  lubput[:put.r + 370m] >> 4.5dt
+            ..  lubput[:put.r + 420m, :put.pf] >> 5dt
+        );
+
+        # Gl. 76?
+        with layer = -1 track(:station :closed,
+                lubput[:put.r + 280m] >> 2.25dt
+            --  lubput[:put.r + 290m] >> 2.5dt
+            ..  lubput[:put.r + 330m] >> 4dt
+            --  lubput[:put.r + 350m] >> 5dt
+            ..  lubput[:put.r + 400m, :put.pf] >> 6dt
+        );
+
+        # Gl. 77?
+        with layer = -1 track(:station :closed,
+                lubput[:put.r + 350m] >> 5dt
+            --  lubput[:put.r + 370m] >> 6dt
+            ..  lubput[:put.r + 420m, :put.pf] >> 7dt
+        );
+
+        # Gl. 78?
+        with layer = -1 track(:station :closed,
+                lubput[:put.r + 370m] >> 6dt
+            --  lubput[:put.r + 390m] >> 7dt
+            ..  lubput[:put.r + 440m, :put.pf] >> 8dt
+        );
 
         with layer = -1 marker(:de.bft :closed :left, lubput[:pus] << 18dt);
         station(:left :closed, lubput[:pus - 0.4sw] << 18dt << 1.4sh,
             "Puttgarden (Ps)", "??"
         );
 
-        marker(:de.bf :left, putput[:put] << 13dt);
-        station(:left, putput[:put - 0.4sw] << 13dt << 1.4sh,
+        marker(:de.bf :left, putput[:put] << 11dt);
+        station(:left, putput[:put - 0.4sw] << 11dt << 1.4sh,
             span(:bold, "Puttgarden"),
             "1100: 88,59"
         );
