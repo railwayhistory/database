@@ -69,8 +69,104 @@ with detail = 5 {
 
 
     with link = "point.de.Bad-Schwartau" {
-        # XXX TODO
-        track(:first :double, lubput[:swr.sf - 60m, :swr.sn - 60m]);
+        # Gl. 1
+        track(:first :station, lubput[:swr.sf - 60m, :swr.sn - 30m] << 0.5dt);
+            # W38 - W37
+            with layer = -1 track(:station :removed,
+                    lubput[:swr.sf + 90m] << 0.5dt
+                --  lubput[:swr.sf + 130m] >> 0.5dt
+            );
+            # W35 - W27
+            with layer = -1 track(:station :removed,
+                    lubput[:swr.sf + 160m] << 0.5dt
+                --  lubput[:swr.sf + 190m] << 1.5dt
+            );
+
+        # Gl. 2
+        track(:first :station, lubput[:swr.sf - 60m, :swr.sn - 30m] >> 0.5dt);
+            # W40 - W39
+            with layer = -1 track(:station :removed,
+                    lubput[:swr.sf + 10m] >> 0.5dt
+                --  lubput[:swr.sf + 50m] << 0.5dt
+            );
+            # W8 - W7
+            with layer = -1 track(:station :removed,
+                    lubput[:swr.sn - 120m] >> 0.5dt
+                --  lubput[:swr.sn - 60m] << 0.5dt
+            );
+
+        # Gl. 3
+        with layer = -1 track(:station :removed,
+                lubput[:swr.sf + 170m] >> 0.5dt
+            --  lubput[:swr.sf + 185m] >> 1.0dt
+            ..  lubput[:swr.sf + 220m, :swr.sn - 90m] >> 1.5dt
+        );
+
+        # Gl. 4
+        track(:station :removed,
+                lubput[:swr.sf + 260m, :swr.sn - 170m] >> 3.5dt
+            ..  lubput[:swr.sn - 135m] >> 3dt
+            --  lubput[:swr.sn -  60m] >> 0.5dt
+        );
+
+        # Gl. „4a”
+        track(:station :removed,
+                lubput[:swr.sf + 200m, :swr.sf + 210m] >> 2.5dt
+            ..  lubput[:swr.sf + 245m] >> 3dt
+            --  lubput[:swr.sf + 260m] >> 3.5dt
+        );
+
+        # Gl. 5
+        track(:station :removed,
+                lubput[:swr.sf + 185m] >> 1.0dt
+            --  lubput[:swr.sf + 260m] >> 3.5dt
+            ..  lubput[:swr.sf + 320m, :swr + 20m] >> 4.5dt
+            ..  lubput[:swr    +  55m] >> 4dt
+            --  lubput[:swr    +  70m] >> 3.5dt
+        );
+
+        # Gl. 5a
+        track(:station :removed,
+                lubput[:swr.sf + 190m, :swr.sf + 320m] >> 4.5dt
+        );
+
+        # Gl. 6
+        with layer = -1 track(:station :removed,
+                lubput[:swr    +  60m] << 0.5dt
+            --  lubput[:swr    +  75m] << 1.0dt
+            ..  lubput[:swr    + 110m, :swr.sn +40m] << 1.5dt
+            ..  lubput[:swr.sn +  75m] << 1.0dt
+            --  lubput[:swr.sn +  90m] << 0.5dt
+        );
+
+        # Gl. 7
+        track(:station :removed,
+                lubput[:swr.sf +  40m, :swr - 0.6sw] << 1.5dt
+        );
+
+        # Gl. „7a“
+        track(:station :removed,
+                lubput[:swr.sf +  40m, :swr.sf + 210m] << 2.5dt
+        );
+            # W28 - W26
+            with layer = -1 track(:station :removed,
+                    lubput[:swr.sf + 190m] << 2.5dt
+                --  lubput[:swr.sf + 220m] << 1.5dt
+            );
+
+        # Gl. 11
+        track(:station :removed,
+                lubput[:swr    + 100m] >> 3.5dt
+            --  lubput[:swr    + 115m] >> 3.0dt
+            ..  lubput[:swr    + 150m, :swr.sn - 120m] >> 2.5dt
+        );
+
+        # Gl. 13
+        track(:station :removed,
+                lubput[:swr    + 130m] >> 3.5dt
+            --  lubput[:swr    + 145m] >> 4.0dt
+            ..  lubput[:swr    + 180m, :swr.sn - 150m] >> 4.5dt
+        );
 
         marker(:de.hp :left, lubput[:swr] << 0.5dt);
         with layer = -1 marker(:de.bf :gone :left, lubput[:swr] << 0.5dt);
@@ -100,7 +196,7 @@ with detail = 5 {
     }
 
     with link = "point.de.Bad-Schwartau-Abzw" {
-        track(:first :double, lubput[:swr.sn - 60m, :swr.sn + 450m]);
+        track(:first :double, lubput[:swr.sn - 30m, :swr.sn + 450m]);
         
         # W31 - W32
         track(:station,
@@ -113,8 +209,9 @@ with detail = 5 {
             ..  lubput[:swr.sn + 385m, :swr.sn + 386m] << 0.5dt
         );
 
-        marker(:de.abzw :left, lubput[:swa] << 0.5dt);
-        label(lubput[:swa - 0.8sw] << 0.5dt << 1.8sw,
+        marker(:de.abzw :left, lubput[:swa] << 1.5dt);
+        marker(:statdt :left, lubput[:swa] << 0.5dt);
+        label(lubput[:swa - 0.8sw] << 0.5dt << 2.3sw,
             hbox(:right:bottom,
                 vbox(:center:bottom,
                     hbox(:center:top :xsmall,
@@ -136,7 +233,7 @@ with detail = 5 {
             )
         );
 
-        marker(:de.stw :closed :left, lubput[:swa] << 0.5dt << 1sw);
+        marker(:de.stw :closed :left, lubput[:swa] << 1.5dt << 1sw);
         slabel(:right :closed, lubput[:swa - 2pt] >> 2.5dt, "Sn");
     }
 
