@@ -1,4 +1,4 @@
-# DE 1103.  Fehmarn-Burg - Orth (Fehmarn)
+# DE 1103.  Fehmarnsund - Orth (Fehmarn)
 #
 ---
 key: line.de.1103
@@ -12,7 +12,6 @@ events:
     #   Genehmigungen, Eigentümer, Betreiber
     #
     -   date: 1902-03-26
-        start: point.de.Landkirchen-Gabelung
         concession:
             by: org.de.l.pre
             for: org.de.Kreis-Oldenburger-Eisenbahn
@@ -100,10 +99,10 @@ events:
     #   Verlauf
     #
     -   date: !!null
-        course: path.de.1103 bur ort
+        course: path.de.1103 feh ort
+
 records:
     -   date: 1931-04-01
-        start: point.de.Landkirchen-Gabelung
         status: open
         category: de.Kleinbahn
         gauge: 1435mm
@@ -111,14 +110,17 @@ records:
         document: src.de.DRG.Alt.Karte.1931
 
     -   date: 1956-09
-        start: point.de.Landkirchen-Gabelung
         status: open
         category: de.Nebenbahn
         gauge: 1435mm
         tracks: 1
         document: src.de.DB.Hmb.Karte.1956
     -   date: 1984-11
-        start: point.de.Burg-Fehmarn-West
+        end: point.de.Burg-Fehmarn
+        status: closed
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: 1984-11
+        start: point.de.Burg-Fehmarn
         end: point.de.Petersdorf-Fehmarn
         status: open
         category: de.Nebenbahn
@@ -137,6 +139,9 @@ records:
         source: src.de.DBAG.Geo-Strecke.2017
 
 points:
+    -   point.de.Fehmarnsund
+    -   point.de.Wulfen-Fehmarn
+    -   point.de.Burgstaaken
     -   point.de.Burg-Fehmarn
     -   point.de.Burg-Fehmarn-DB-Grenze
     -   point.de.Burg-Fehmarn-Abzw
@@ -152,49 +157,110 @@ points:
 #-----------------------------------------------------------------------------
 
 ---
-key: point.de.Burg-Fehmarn
+key: point.de.Fehmarnsund
 type: point
-events:
+records:
+    -   document: src.de.Kb.1914
+        name: Fehmarnsund
 
-    -   date: !!null
+    -   document: src.de.Bfv.1938
+        name: Fehmarnsund
+        de.lknr: 44 179
+    -   document: src.de.Bfv.1944
+        name: Fehmarnsund
+        category: de.Bf
+        de.rang: IV
+        de.lknr: 27 401
+
+    -   document: src.de.DB.Hmb.Karte.1956
+        name: Fehmarnsund
+        category: de.Hst
+        staff: agent
         location:
-            line.de.1103: 7,33
-        source: src.de.DRG.Alt.Karte.1949
-
+            line.de.1103: 0,05 # right
+events:
     -   date: !!null
         site:
-            path.de.11031: bur
-            path.de.1103: bur
-records:
-    -   date: 1914-07
-        name: Burg (Fehmarn)
-        document: src.de.Kb.1914
+            path.de.1103: feh
 
-    -   date: 1938-10-01
+
+---
+key: point.de.Wulfen-Fehmarn
+type: point
+records:
+    -   document: src.de.Kb.1914
+        name: Wulfen (Fehmarn)
+
+    -   document: src.de.Bfv.1944
+        name: Wulfen (Fehmarn)
+        category: de.Hp
+        de.lknr: 27 402
+
+    -   document: src.de.DB.Hmb.Karte.1956
+        name: Wulfen (Fehmarn)
+        category: de.Hp
+        staff: none
+        location:
+            line.de.1103: 2,57 # left
+events:
+    -   date: !!null
+        site:
+            path.de.1103: wul
+
+
+
+---
+key: point.de.Burgstaaken
+type: point
+records:
+    -   document: src.de.Kb.1914
+        name: Burgstaaken
+
+    -   document: src.de.Bfv.1944
+        name: Burgstaaken
+        category: de.Hp
+        de.lknr: 27 403
+
+    -   document: src.de.DB.Hmb.Karte.1956
+        name: Burgstaaken
+        category: de.Hp
+        staff: none
+        location:
+            line.de.1103: 5,30 # right
+events:
+    -   date: !!null
+        site:
+            path.de.1103: bus
+
+
+---
+key: point.de.Burg-Fehmarn
+type: point
+records:
+    -   document: src.de.Kb.1914
+        name: Burg (Fehmarn)
+
+    -   document: src.de.Bfv.1938
         name: Burg (Fehmarn)
         de.lknr: 44 182
-        document: src.de.Bfv.1938
-    -   date: 1944-06-01
+    -   document: src.de.Bfv.1944
         name: Burg (Fehmarn)
         category: de.Bf
         de.rang: III
         de.lknr: 27 404
-        document: src.de.Bfv.1944
 
-    -   date: 1956-09
+    -   document: src.de.DB.Hmb.Karte.1956
         name: Burg (Fehmarn)
         category: de.Bf
         de.rang: II
         location:
-            line.de.11031: 7,33
-        document: src.de.DB.Hmb.Karte.1956
-    -   date: 1984-06-03
+            line.de.1103: 7,33
+    -   document: src.de.DS100.1984
         name: Burg (Fehmarn)
         category: de.Bf
         de.DS100: ABUF
         de.dstnr: !!str 016626
-        document: src.de.DS100.1984
-    -   date: 1984-11
+    -   document: src.de.DB.Hmb.Karte.1984
         name: Burg (Fehmarn)
         category: de.Bf
         staff: none
@@ -202,38 +268,40 @@ records:
             # 82,15
             # 18,40
             line.de.1103: 7,33
-        document: src.de.DB.Hmb.Karte.1984
 
-    -   date: 2017-01
+    -   document: src.de.DBAG.BSV.2017
         de.DS100: ABUF
         name: Fehmarn-Burg
         de.name16: Fehmarn-Burg
         category: de.Bft
         de.dstnr: !!str 016626
-        document: src.de.DBAG.BSV.2017
+        
+events:
+    -   date: !!null
+        site:
+            path.de.1103: bur
 
 
 ---
 key: point.de.Burg-Fehmarn-DB-Grenze
 type: point
-subtype: border
-events:
-    -   date: !!null
-        site:
-            path.de.1103: bug
+subtype: reference
 records:
-    -   date: 2017-01
+    -   document: src.de.DBAG.BSV.2017
         category: de.Gp
         name: Burg (Fehmarn) DB-Grenze
         de.name16: Burg (F) DB-Gr
         de.DS100: ABUG
         PLC: DE11836
         de.dstnr: !!str 106922
-        document: src.de.DBAG.BSV.2017
-    -   date: 2017-01
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
         location:
             line.de.1103: 7,980
-        document: src.de.DBAG.Geo-Betriebsstelle.2017
+        
+events:
+    -   date: !!null
+        site:
+            path.de.1103: bug
 
 
 ---
@@ -270,51 +338,40 @@ events:
         designation: Landkirchen Gabelung
         site:
             path.de.1103: lag
-            path.de.11031: lag
 
 
 ---
 key: point.de.Landkirchen
 type: point
-events:
-    -   date: !!null
-        site:
-            path.de.1103: lan
 records:
-    -   date: 1914-07
+    -   document: src.de.Kb.1914
         name: Landkirchen
-        document: src.de.Kb.1914
 
-    -   date: 1938-10-01
+    -   document: src.de.Bfv.1938
         name: Landkirchen
         de.lknr: 44 183
-        document: src.de.Bfv.1938
-    -   date: 1944-06-01
+    -   document: src.de.Bfv.1944
         name: Landkirchen
         category: de.Bf
         de.rang: IV
         de.lknr: 27 405
-        document: src.de.Bfv.1944
 
-    -   date: 1956-09
+    -   document: src.de.DB.Hmb.Karte.1956
         name: Landkirchen
         category: de.Hst
         location:
             line.de.1103: 10,68 # left
-        document: src.de.DB.Hmb.Karte.1956
-    -   date: 1984-06-03
+    -   document: src.de.DS100.1984
         name: Landkirchen
         de.DS100: APUL
         de.dstnr: !!str 016634
         category: de.Anst
-        document: src.de.DS100.1984
-    -   date: 1984-11
+    -   document: src.de.DB.Hmb.Karte.1984
         name: Landkirchen
         location:
             line.de.1103: 10,68 # left
-        document: src.de.DB.Hmb.Karte.1984
 
-    -   date: !!null
+    -   document: src.de.DBAG.BSV.2017
         name: Landkirchen
         de.DS100: APUL
         de.dstnr: !!str 016634
@@ -322,12 +379,30 @@ records:
         de.name16: Landkirchen
         PLC: DE16011
         status: closed
-        document: src.de.DBAG.BSV.2017
+events:
+    -   date: !!null
+        site:
+            path.de.1103: lan
 
 
 ---
 key: point.de.Alt-Jellingsdorf
 type: point
+records:
+    -   document: src.de.Kb.1914
+        name: Alt Jellingsdorf
+
+    -   document: src.de.Bfv.1944
+        name: Alt Jellingsdorf
+        category: de.Hp
+        de.lknr: 27 406
+
+    -   document: src.de.DB.Hmb.Karte.1956
+        name: Alt Jellingsdorf
+        category: de.Hp
+        staff: none
+        location:
+            line.de.1103: 12,78 # left
 events:
     -   date: c1970
         status: closed
@@ -335,29 +410,30 @@ events:
     -   date: !!null
         site:
             path.de.1103: aje
-records:
-    -   date: 1914-07
-        name: Alt Jellingsdorf
-        document: src.de.Kb.1914
-
-    -   date: 1944-07
-        name: Alt Jellingsdorf
-        category: de.Hp
-        de.lknr: 27 406
-        document: src.de.Bfv.1944
-
-    -   date: 1956-09
-        name: Alt Jellingsdorf
-        category: de.Hp
-        staff: none
-        location:
-            line.de.1103: 12,78 # left
-        document: src.de.DB.Hmb.Karte.1956
 
 
 ---
 key: point.de.Lemkendorf
 type: point
+records:
+    -   document: src.de.Kb.1914
+        name: Lemkendorf
+
+    -   document: src.de.Bfv.1938
+        name: Lemkendorf
+        de.lknr: 44 185
+    -   document: src.de.Bfv.1944
+        name: Lemkendorf
+        category: de.Bf
+        de.rang: IV
+        de.lknr: 27 407
+
+    -   document: src.de.DB.Hmb.Karte.1956
+        name: Lemkendorf
+        category: de.Hst
+        staff: agent
+        location:
+            line.de.1103: 14,80 # right
 events:
     -   date: c1970
         status: closed
@@ -365,104 +441,71 @@ events:
     -   date: !!null
         site:
             path.de.1103: lem
-records:
-    -   date: 1914-07
-        name: Lemkendorf
-        document: src.de.Kb.1914
-
-    -   date: 1938-10-01
-        name: Lemkendorf
-        de.lknr: 44 185
-        document: src.de.Bfv.1938
-    -   date: 1944-06-01
-        name: Lemkendorf
-        category: de.Bf
-        de.rang: IV
-        de.lknr: 27 407
-        document: src.de.Bfv.1944
-
-    -   date: 1956-09
-        name: Lemkendorf
-        category: de.Hst
-        staff: agent
-        location:
-            line.de.1103: 14,80 # right
-        document: src.de.DB.Hmb.Karte.1956
 
 
 ---
 key: point.de.Petersdorf-Fehmarn
 type: point
-events:
-    -   date: !!null
-        site:
-            path.de.1103: pet
 records:
-    -   date: 1914-07
+    -   document: src.de.Kb.1914
         name: Petersdorf (Fehmarn)
-        document: src.de.Kb.1914
 
-    -   date: 1938-10-01
+    -   document: src.de.Bfv.1938
         name: Petersdorf (Fehmarn)
         de.lknr: 44 186
-        document: src.de.Bfv.1938
-    -   date: 1944-06-01
+    -   document: src.de.Bfv.1944
         name: Petersdorf (Fehmarn)
         category: de.Bf
         de.rang: IV
         de.lknr: 27 408
-        document: src.de.Bfv.1944
 
-    -   date: 1956-09
+    -   document: src.de.DB.Hmb.Karte.1956
         name: Petersdorf (Fehmarn)
         category: de.Hst
         staff: full
         location:
             line.de.1103: 16,89 # right
-        document: src.de.DB.Hmb.Karte.1956
-    -   date: 2017-01
+    -   document: src.de.DS100.1984
         name: Petersdorf (Fehmarn)
         category: de.Bf
         de.DS100: APT
         de.dstnr: !!str 016667
-        document: src.de.DS100.1984
-    -   date: 1984-11
+    -   document: src.de.DB.Hmb.Karte.1984
         name: Petersdorf (Fehmarn)
         category: de.Bf
         staff: none
         location:
             line.de.1103: 16,89 # right
-        document: src.de.DB.Hmb.Karte.1984
+events:
+    -   date: !!null
+        site:
+            path.de.1103: pet
 
 
 ---
 key: point.de.Orth-Fehmarn
 type: point
-events:
-    -   date: !!null
-        site:
-            path.de.1103: ort
 records:
-    -   date: 1914-07
+    -   document: src.de.Kb.1914
         name: Orth (Fehmarn)
-        document: src.de.Kb.1914
 
-    -   date: 1938-10-01
+    -   document: src.de.Bfv.1938
         name: Orth (Fehmarn)
         de.lknr: 44 187
-        document: src.de.Bfv.1938
-    -   date: 1944-06-01
+    -   document: src.de.Bfv.1944
         name: Orth (Fehmarn)
         category: de.Bf
         de.rang: IV
         de.lknr: 27 409
-        document: src.de.Bfv.1944
 
-    -   date: 1956-09
+    -   document: src.de.DB.Hmb.Karte.1956
         name: Orth (Fehmarn)
         category: de.Hst
         staff: agent
         location:
             line.de.1103: 20,73 # top
-        document: src.de.DB.Hmb.Karte.1956
+events:
+    -   date: !!null
+        site:
+            path.de.1103: ort
 

@@ -427,12 +427,18 @@ with detail = 5 {
     # point.de.Neustadt-Holst-Gbf: 1023.
 
     with link = "line.de.1100" {
-        track(:first, lubput[:neg.f, :ssl - 0.5sw]);
+        track(:first, lubput[:neg.f, :ssl - 120m]);
+        with layer = -1 casing(:first, lubput[:neg.x - 2dt, :neg.x + 2dt]);
     }
 
 
     with link = "point.de.Südschleuse" {
-        track(:first :station, lubput[:ssl - 0.5sw, :ssl + 0.5sw]);
+        track(:first :station, lubput[:ssl - 120m, :ssl + 0.5sw]);
+        with layer = -1 track(:second :station :removed,
+                lubput[:ssl - 120m, :ssl - 60m] << 1dt
+            --  lubput[:ssl, :ssl + 1m]
+        );
+
         with layer = -1 marker(:de.abzw :removed :left, lubput[:ssl]);
         station(:left :removed, lubput[:ssl - 0.4sw] << 1.4sh,
             "Südschleuse", "??"
@@ -862,7 +868,12 @@ with detail = 5 {
 
 
     with link = "point.de.Lütjenbrode-Süd" {
-        track(:first :station, lubput[:lus - 0.5sw, :lus + 0.5sw]);
+        track(:first :station, lubput[:lus - 0.5sw, :lus + 120m]);
+        with layer = -1 track(:second:station :removed,
+                lubput[:lus - 1m, :lus]
+            ..  lubput[:lus + 60m, :lus + 120m] << 1dt
+        );
+
         with layer = -1 marker(:de.abzw :removed :right, lubput[:lus]);
         station(:right :removed, lubput[:lus - 0.4sw] >> 1.4sh,
             "Lütjenbrode Süd",
@@ -881,13 +892,18 @@ with detail = 5 {
 
 
     with link = "line.de.1100" {
-        track(:first, lubput[:lus + 0.5sw, :luo - 0.5sw]);
+        track(:first, lubput[:lus + 120m, :luo - 120m]);
         with layer = 1 line_badge(:open, lubput[:lus + 0.7km], "1100");
     }
 
 
     with link = "point.de.Lütjenbrode-Ost" {
-        track(:first :station, lubput[:luo - 0.5sw, :luo + 0.5sw]);
+        track(:first :station, lubput[:luo - 120m, :luo + 60m]);
+        with layer = -1 track(:second:station :removed,
+                lubput[:luo - 120m, :luo - 60m] << 1dt
+            ..  lubput[:luo, :luo + 1m]
+        );
+
         with layer = -1 marker(:de.anst :removed :left, lubput[:luo]);
         with layer = -2 marker(:de.abzw :gone :left, lubput[:luo]);
         station(:top :removed, lubput[:luo] << 1.4sh,
@@ -907,7 +923,7 @@ with detail = 5 {
 
 
     with link = "line.de.1100" {
-        track(:first, lubput[:luo + 0.5sw, :gbr.a]);
+        track(:first, lubput[:luo + 60m, :gbr.a]);
         with layer = 1 badge(lubput[:luo + 0.65km],
             hbox(:center:middle,
                 span(:small, "1100 "),
@@ -918,33 +934,65 @@ with detail = 5 {
 
 
     with link = "point.de.Großenbrode" {
+        # Gl. nach Großenbrode Kai
+        with layer = -1 track(:first :station :removed,
+                lubput[:gbr.a + 60m]
+            --  lubput[:gbr.a + 90m] >> 0.5dt
+            ..  path("path.de.11022")[:gba + 299m, :gba + 300m]
+        );
+
         # Gl. 1 - Gl. 7 (<< 1dt)
         track(:station,
-                lubput[:gbr.a +  59m, :gbr.a +  60m]
-            ..  lubput[:gbr.a + 150m, :gbr.f - 150m] << 1dt
-            ..  lubput[:gbr.f -  60m, :gbr.f -  59m]
+                lubput[:gbr.a +  90m] -- lubput[:gbr.a + 120m] << 0.5dt
+            ..  lubput[:gbr.a + 170m, :gbr.f - 140m] << 1dt
+            ..  lubput[:gbr.f - 90m] << 0.5dt -- lubput[:gbr.f -  60m]
         );
             # W10 - W11
             track(:station,
-                    lubput[:gbr.w10 - 1m, :gbr.w10] << 1dt
-                ..  lubput[:gbr.w10 + 80m, :gbr.w10 + 81m]
+                    lubput[:gbr.w10] << 1dt
+                --  lubput[:gbr.w10 + 60m]
             );
 
         # Gl. 2 - Gl. 8 (Hauptgleis)
         track(:first :station, lubput[:gbr.a, :gbr.f]);
 
-        # Gl. 3? (>> 1dt
-        track(:station :closed, lubput[:gbr.a + 400m, :gbr.w10 + 50m] >> 1dt);
-            # Von Gl. 4? vor W10
-            track(:station :closed,
-                    lubput[:gbr.w10 - 131m, :gbr.w10 - 130m] >> 2dt
-                ..  lubput[:gbr.w10 -  70m, :gbr.w10 -  69m] >> 1dt
-            );
-            # Nach Gl. 2 vor W10
-            track(:station :closed,
-                    lubput[:gbr.w10 - 61m, :gbr.w10 - 60m] >> 1dt
-                ..  lubput[:gbr.w10, :gbr.w10 + 1m]
-            );
+        # Gl. 3 - Gl. 6 (>> 1dt)
+        track(:station :removed,
+                path("path.de.1100.gbr")[:f, :a]
+            ..  lubput[:gbr.a + 50m, :gbr.a + 400m] >> 1dt
+        );
+        track(:station :closed, lubput[:gbr.a + 400m, :gbr.w10 + 80m] >> 1dt);
+
+        # Gl. 4 (>> 2dt)
+        with layer = -1 track(:station :removed,
+                lubput[:gbr.w10 - 290m]
+            --  lubput[:gbr.w10 - 245m] >> 1.5dt
+            ..  lubput[:gbr.w10 - 220m, :gbr.w10 - 120m] >> 2dt
+            ..  lubput[:gbr.w10 - 95m] >> 1.5dt
+            --  lubput[:gbr.w10 - 80m] >> 1dt
+        );
+
+        # Gl. 5 (<< 2dt)
+        with layer = -1 track(:station :removed,
+                lubput[:gbr.w10 - 290m] << 1dt
+            --  lubput[:gbr.w10 - 275m] << 1.5dt
+            ..  lubput[:gbr.w10 - 250m, :gbr.w10 - 220m] << 2dt
+            ..  lubput[:gbr.w10 - 195m] << 1.5dt
+            --  lubput[:gbr.w10 - 180m] << 1dt
+        );
+
+        # Gl. von Großenbrode Kai
+        with layer = -1 track(:first:station :removed,
+                path("path.de.11023")[:gbr.f, :gbr.f - 1m]
+            ..  lubput[:gbr.w10 - 60m] >> 1.5dt
+            --  lubput[:gbr.w10]
+        );
+
+        # Gl. nach Großenbroder Fähre
+        with layer = -1 track(:third :station :removed,
+                lubput[:agbf, :agbf + 1m]
+            ..  path("path.de.11021")[:aput + 159m, :aput + 160m]
+        );
 
         marker(:de.bf :left, lubput[:gbr] << 1dt);
         station(:left, lubput[:gbr - 0.4sw] << 1dt << 1.4sw,
@@ -1030,16 +1078,16 @@ with detail = 5 {
 
         # Abzw aus Richtung Orth
         with layer = -1 track(:second :station :closed,
-                burort[:buw.ff, :buw.ff - 1m]
+                burort[:lag, :lag - 1m]
             ..  lubput[:buw.a + 140m, :buw.a + 141m]
         );
 
         marker(:de.bbf :right, lubput[:buw] >> 1dt);
         station(:left, lubput[:buw - 0.4sw] << 3dt,
             hbox(:right:base,
-                span(:regular, "Burg "),
-                span(:light, "(Fehmarn) "),
-                span(:regular, "West")
+                span(:bold, "Burg "),
+                span(:regular, "(Fehmarn) "),
+                span(:bold, "West")
             ),
             hbox(:center:top,
                 vbox(:right:top,

@@ -2,6 +2,7 @@
 #
 let burort = path("path.de.1103");
 let lubput = path("path.de.1100");
+let lutgro = path("path.de.11021");
 let waltra = path("path.de.1113");
 
 with detail = 4 {
@@ -280,12 +281,18 @@ with detail = 4 {
 
     with link = "line.de.1100" {
         track(:first, lubput[:neg.f, :ssl - 0.5sw]);
+	with layer = -1 casing(:first, lubput[:neg.x - 2dt, :neg.x + 2dt]);
     }
 
 
     with link = "point.de.Südschleuse" {
         track(:first :station, lubput[:ssl - 0.5sw, :ssl + 0.5sw]);
-        with layer = -1 marker(:de.abzw :removed :left, lubput[:ssl]);
+        with layer = -1 track(:second :station :removed,
+                lubput[:ssl - 0.5sw, :ssl] << 1dt
+            --  lubput[:ssl + 1dl, :ssl + 1.1dl]
+        );
+
+        marker(:de.abzw :removed :left, lubput[:ssl] << 1dt);
         station(:left :removed, lubput[:ssl - 0.4sw] << 1.4sh,
             "Südschleuse", "??"
         );
@@ -655,7 +662,12 @@ with detail = 4 {
 
 
     with link = "point.de.Lütjenbrode-Süd" {
-        track(:first :station, lubput[:lus - 0.5sw, :lus + 0.5sw]);
+        track(:first :station, lubput[:lus - 0.5sw, :ahei]);
+        with layer = -1 track(:second:station :removed,
+                lubput[:lus - 1m, :lus]
+            ..  lubput[:lus + 1dt, :ahei] << 1dt
+        );
+
         with layer = -1 marker(:de.abzw :removed :right, lubput[:lus]);
         station(:right :removed, lubput[:lus - 0.4sw] >> 1.4sh,
             "Lütjenbrode Süd",
@@ -674,15 +686,20 @@ with detail = 4 {
 
 
     with link = "line.de.1100" {
-        track(:first, lubput[:lus + 0.5sw, :luo - 0.5sw]);
+        track(:first, lubput[:ahei, :luo - 0.5sw]);
     }
 
 
     with link = "point.de.Lütjenbrode-Ost" {
         track(:first :station, lubput[:luo - 0.5sw, :luo + 0.5sw]);
-        with layer = -1 marker(:de.anst :removed :left, lubput[:luo]);
-        with layer = -2 marker(:de.abzw :gone :left, lubput[:luo]);
-        station(:top :removed, lubput[:luo] << 1.4sh,
+        track(:third :station :removed,
+                lutgro[:luo - 0.5sw, :luo] << 1dt
+            --  lubput[:luo + 1dl, :luo + 1.1dl]
+        );
+
+        with layer = -1 marker(:de.anst :removed :left, lubput[:luo] << 1dt);
+        with layer = -2 marker(:de.abzw :gone :left, lubput[:luo] << 1dt);
+        station(:top :removed, lubput[:luo] << 1dt << 1.4sh,
             "Lütjenbrode Ost",
             hbox(:center:base,
                 vbox(:right:top,
@@ -706,7 +723,7 @@ with detail = 4 {
     with link = "point.de.Großenbrode" {
         # Gl. 1 - Gl. 7 (<< 1dt)
         track(:station,
-                lubput[:gbr.a + 0.9dl, :gbr.a + 1dl]
+                lubput[:gbr.a + 1.9dl, :gbr.a + 2dl]
             --  lubput[:gbr.a + 2dl, :gbr.f - 2dl] << 1dt
             --  lubput[:gbr.f - 1dl, :gbr.f - 0.9dl]
         );
@@ -718,6 +735,18 @@ with detail = 4 {
 
         # Gl. 2 - Gl. 8 (Hauptgleis)
         track(:first :station, lubput[:gbr.a, :gbr.f]);
+
+        # Gl. nach Großenbrode Kai
+        with layer = -1 track(:first:station :removed,
+                lubput[:gbr.a + 0.9dl, :gbr.a + 1dl]
+            --  lubput[:gbr.a + 2dl, :gbr.a + 2.1dl] >> 1dt
+        );
+
+        # Gl. aus Großenbrode Kai
+        with layer = -1 track(:first:station :removed,
+                lubput[:gbr.w10 - 2dl, :gbr.w10 - 1dl] >> 1dt
+            --  lubput[:gbr.w10, :gbr.w10 + 0.1dl]
+        );
 
         marker(:de.bf :left, lubput[:gbr] << 1dt);
         label(lubput[:gbr - 0.6sw] << 1dt << 1.0sw,
@@ -752,7 +781,7 @@ with detail = 4 {
 
     with link = "struct.de.Fehmarnsundbrücke" {
         track(:first, lubput[:bfea, :bfef]);
-        slabel(:right, lubput[:bfea + 450m] >> 2dt, "Fehmarnsundbrücke");
+        slabel(:left, lubput[:bfea + 450m] << 2dt, "Fehmarnsundbrücke");
     }
 
 
@@ -804,38 +833,42 @@ with detail = 4 {
         track(:first :station, lubput[:buw.a, :buw.f]);
 
         # Abzw aus Richtung Orth
-        with layer = -1 track(:second :station :closed,
-                burort[:buw.ff, :buw.ff - 0.1dl]
+        with layer = -1 track(:second :station :removed,
+                burort[:lag, :lag - 0.1dl]
             ..  lubput[:buw.a + 0.9dl, :buw.a + 2.0dl] << 1dt
             --  lubput[:buw.a + 3.0dl, :buw.a + 3.1dl]
         );
 
         with layer = 1 marker(:statcase :right, lubput[:buw] >> 1dt);
         with layer = 2 marker(:de.bbf :right, lubput[:buw] >> 1dt);
-        station(:left, lubput[:buw - 0.4sw] << 3dt,
-            hbox(:right:base,
-                span(:regular, "Burg "),
-                span(:light, "(Fehmarn) "),
-                span(:regular, "West")
-            ),
-            hbox(:center:top,
-                vbox(:right:top,
-                    span(:open, "1100: "),
-                    span(:open, "1103: "),
-                    span(:open, "1104: ")
-                ),
-                vbox(:right:top,
-                    span(:open, "82,"),
-                    span(:open, ""),
-                    span(:open, "0,")
-                ),
-                vbox(:left:top,
-                    span(:open, "15"),
-                    span(:open, "??"),
-                    span(:open, "37")
+        label(lubput[:buw + 0.4sw] << 0.5dt,
+            hbox(:right:bottom,
+                vbox(:right:bottom,
+                    hbox(:center:bottom:medium,
+                        span(:bold, "Burg "),
+                        span(:regular, "(Fehmarn) "),
+                        span(:bold, "West")
+                    ),
+                    hbox(:center:bottom:xsmall,
+                        vbox(:right:top,
+                            span(:open, "1100: "),
+                            span(:open, "1103: "),
+                            span(:open, "1104: ")
+                        ),
+                        vbox(:right:top,
+                            span(:open, "82,"),
+                            span(:open, ""),
+                            span(:open, "0,")
+                        ),
+                        vbox(:left:top,
+                            span(:open, "15"),
+                            span(:open, "??"),
+                            span(:open, "37")
+                        )
+                    )
                 )
-             )
-         );
+            )
+        );
     }
 
 

@@ -6,6 +6,7 @@ let kieneu.wel = path("path.de.1023.wel");
 let lubpat = path("path.de.1100");
 let mallut = path("path.de.1112");
 let neuasc = path("path.de.1041");
+let neuhei = path("path.de.11011.neu");
 
 with detail = [4, 5] {
     # Streckengleis Kiel Hbf - Kiel Hbf Ss
@@ -579,12 +580,17 @@ with detail = 4 {
             )
         )
     );
-}
 
-with detail = [4, 5] {
     #--- point.de.Neustadt-Holst
     #
     track(:first :station, kieneu[:nst.a, :nst - .6sw]);
+
+        # Streckengl. aus Oldenburg
+        with layer = -1 track(:second :station :removed,
+                neuhei[:nst.f + 100m, :nst.f + 99m]
+            ..  kieneu[:fold - 1.1dl, :fold - 1dl] << 1dt
+            --  kieneu[:fold, :fold + 0.1dl]
+        );
 
     track(:station,
             kieneu[:fold + .9dl, :fold + 1dl]
