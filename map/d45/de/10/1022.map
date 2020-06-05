@@ -6,7 +6,7 @@ let haskiw = path("path.de.1021");
 let kieost = path("path.de.1022");
 let neufle = path("path.de.1040");
 
-with detail = [4, 5] {
+with detail = 4 {
     # Streckengleise Kiel Hbf - Kiel-Hassee
     #
     track(:first, kieost[:fmei, :has.a] >> 0.5dt);
@@ -46,10 +46,9 @@ with detail = [4, 5] {
     );
 
     # Gleis nach Kiel West
-    track(:second :station :removed, kieost[:has, :afle] >> 1.5dt);
-    track(:second :station :closed,
-            kieost[:afle, :afle + .1dl] >> 1.5dt
-        ..  hasfle[:has.f - .1dl, :has.f] >> 1.5dt
+    track(:second :station :removed,
+            kieost[:has, :afle] >> 1.5dt
+        ..  haskiw[:has.hn, :has.hn + 40m] >> 1.5dt
     );
 
     # Nebengleise Westseite
@@ -83,7 +82,9 @@ with detail = [4, 5] {
             )
         )
     );
+}
 
+with detail = [4, 5] {
     # Streckengleise Kiel-Hassee - Melsdorf
     track(:first,
             kieost[:has.f, :has.f + .1dl] << 0.5dt
