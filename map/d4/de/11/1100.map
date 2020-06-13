@@ -67,26 +67,53 @@ with detail = 4 {
         track(:first :double, lubput[:swr - 1sw, :swa - 0.5sw]);
         marker(:de.hp :left, lubput[:swr] << 0.5dt);
         with layer = -1 marker(:de.bf :gone :left, lubput[:swr] << 0.5dt);
-        station(:left, lubput[:swr - 0.5sw] << 0.5dt << 1.3sw,
-            span(:bold, "Bad Schwartau"),
-            hbox(:center:top,
-                vbox(:right:top,
-                    span(:open, "1100: "),
-                    span(:removed, "11001: "),
-                    span(:closed, "1110: ")
-                ),
-                vbox(:right:top,
-                    span(:open, "6,"),
-                    span(:removed, "0,"),
-                    span(:closed, "26,")
-                ),
-                vbox(:left:top,
-                    span(:open, "00"),
-                    span(:removed, "00"),
-                    span(:closed, "93")
+        label(lubput[:swr - 0.8sw] << 0.5dt << 1.2sw,
+            hbox(:right:bottom,
+                vbox(:center:bottom,
+                    hbox(:center:top :xsmall,
+                        vbox(:right:top,
+                            span(:open, "1100: "),
+                            span(:removed, "11001: "),
+                            span(:closed, "1110: ")
+                        ),
+                        vbox(:right:top,
+                            span(:open, "6,"),
+                            span(:removed, "0,"),
+                            span(:closed, "26,")
+                        ),
+                        vbox(:left:top,
+                            span(:open, "00"),
+                            span(:removed, "00"),
+                            span(:closed, "93")
+                        )
+                    ),
+                    span(:medium:bold, "Bad Schwartau")
                 )
             )
-        )
+        );
+            
+        with detail = 6 {
+            station(:left, lubput[:swr - 0.5sw] << 0.5dt << 1.3sw,
+                span(:bold, "Bad Schwartau"),
+                hbox(:center:top,
+                    vbox(:right:top,
+                        span(:open, "1100: "),
+                        span(:removed, "11001: "),
+                        span(:closed, "1110: ")
+                    ),
+                    vbox(:right:top,
+                        span(:open, "6,"),
+                        span(:removed, "0,"),
+                        span(:closed, "26,")
+                    ),
+                    vbox(:left:top,
+                        span(:open, "00"),
+                        span(:removed, "00"),
+                        span(:closed, "93")
+                    )
+                )
+            )
+        }
     }
 
     with link = "point.de.Bad-Schwartau-Abzw" {
@@ -98,8 +125,8 @@ with detail = 4 {
             --  lubput[:swa + 3dl, :swa + 3.1dl] << 0.5dt
         );
         marker(:de.abzw :left, lubput[:swa] << 0.5dt);
-        label(lubput[:swa - 0.8sw] << 0.5dt << 1.3sw,
-            hbox(:right:bottom,
+        label(lubput[:swa] >> 3.5dt,
+            hbox(:left:bottom,
                 vbox(:center:bottom,
                     hbox(:center:top :xsmall,
                         vbox(:right:top,
@@ -118,7 +145,7 @@ with detail = 4 {
                     span(:medium :bold, "Bad Schwartau Abzw")
                 )
             )
-        )
+        );
     }
 
     with link = "line.de.1100" {
