@@ -285,6 +285,7 @@ with detail = [4, 5] {
     with layer = -1 track(:first :removed,
             neuold[:wak + 1sw, :frh - 1sw] >> 0.5dt
     );
+    with layer = 2 line_badge(:open, neuold[:fre - 2.0km], "1043");
 
 
     #--- point.de.Fresenburg
@@ -303,12 +304,21 @@ with detail = [4, 5] {
             span(:xsmall :closed, " ← 115,35")
         )
     );
-    # Streckengleise Fresenburg - Bad Oldesloe
-    track(:first :open, neuold[:fre + 1sw, :f] << 0.5dt);
-    with layer = -1 track(:first :removed,
-            neuold[:fre + 1sw, :f] >> 0.5dt
-    );
-    with layer = 2 line_badge(:open, neuold[:fre - 2.0km], "1043");
+
+
+    with link = "line.de.1043" {
+        let oldold = path("path.de.1120.old");
+
+        # Streckengleise Fresenburg - Bad Oldesloe
+        track(:first :open,
+                neuold[:fre + 1sw, :ff] << 0.5dt
+            ..  oldold[:old.a - 1m, :old.a] >> 1.5dt
+        );
+        with layer = -1 track(:first :removed,
+                neuold[:fre + 1sw, :ff] >> 0.5dt
+            ..  oldold[:old.a - 1m, :old.a] >> 2.5dt
+        );
+    }
 
 
     #--- point.de.Poggensee

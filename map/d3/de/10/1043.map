@@ -2,6 +2,7 @@
 #
 let altkie = path("path.de.1220");
 let neuold = path("path.de.1043");
+let lubham = path("path.de.1120.old");
 
 with detail = 3 {
     # Streckengleis Neumünster - Neumünster Süd
@@ -150,14 +151,13 @@ with detail = 3 {
     );
 
     # Streckengleise Fresenburg - Bad Oldesloe
-    track(:first :open, neuold[:fre + 1ssw, :f] << 0.5dt);
-    with layer = -1 track(:first :removed,
-            neuold[:fre + 1ssw, :f] >> 0.5dt
+    track(:first :open, neuold[:fre + 1ssw, :ff] << 0.5dt
     );
+    with layer = -1 track(:first :removed, neuold[:fre + 1ssw, :ff] >> 0.5dt);
 
     # Poggensee
     with layer = -2 marker(:de.hp :removed :left, neuold[:pog] << 0.5dt);
-    slabel(:left :removed, neuold[:pog + .6ssw] >> 2.0dt,
+    slabel(:left :removed, neuold[:pog + .6ssw] >> 1.0dt,
         "Poggensee"
     );
 }
