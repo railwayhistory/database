@@ -6,8 +6,10 @@ let luabuc = path("path.de.11201");
 
 with detail = 3 {
     with link = "point.de.Lübeck-alter-Bf" {
-        track(:first:station :gone, luabuc[:lua - 1ssw, :lua + 1ssw]);
-        marker(:de.bf :gone :left, luabuc[:lua]);
+        with layer = -1 {
+            track(:first:station :gone, luabuc[:lua - 1ssw, :lua + 1ssw]);
+            marker(:de.bf :gone :left, luabuc[:lua]);
+        }
     }
 
     with link = "path.de.11201" {
@@ -23,7 +25,7 @@ with detail = 3 {
 
     with link = "line.de.11203" {
         with layer = -1 track(:first :gone,
-                luabuc[:lua - 1sw, :lua - 2sw]
+                luabuc[:lua - 1ssw, :lua - 2ssw]
             ..  luabuc[:lun + 1m, :lun] >> 0.5dt
         );
     }
