@@ -371,7 +371,6 @@ points:
     -   point.de.Berlin-Spandau-Bk-27
     -   point.de.Berlin-Albrechtshof-Gr
     -   point.de.Berlin-Albrechtshof
-    -   point.de.Berlin-Albrechtshof-Bk-30
     -   point.de.Berlin-Albrechtshof-LGr
     -   point.de.Seegefeld
     -   point.de.Falkensee
@@ -430,6 +429,7 @@ points:
     -   point.de.Melkof
     -   point.de.Brahlstorf
     -   point.de.Kuhlenfeld
+    -   point.de.Neu-Gülze
     -   point.de.Boizenburg
     -   point.de.Metlitzhof
     -   point.de.Schwanheide
@@ -488,14 +488,14 @@ type: point
 events:
     -   date: c1995
         status: open
-    -   date: !!null
+records:
+    -   document: src.de.DBAG.BSV.2017
         de.DS100: BSPDM
         name: Berlin-Spandau Mitte
         de.name16: Bln-Spandau Mit
         category: de.Bft
         PLC: DE11123
         de.dstnr: !!str 910821
-        source: src.de.DBAG.BSV.2017
 
 
 #    point.de.Berlin-Spandau                     de.6107
@@ -508,35 +508,42 @@ events:
     -   date: c2005
         status: open
     -   date: !!null
+        site:
+            path.de.6107: sdw
+records:
+    -   document: src.de.DBAG.BSV.2017
         de.DS100: BSPDW
         name: Berlin-Spandau West
         de.name16: Bln-Spandau West
         category: de.Bft
         PLC: DE11125
         de.dstnr: !!str 30981
-        source: src.de.DBAG.BSV.2017
 
-    -   date: !!null
-        site:
-            path.de.6107: sdw
 
 ---
 key: point.de.Berlin-Spandau-Bk-27
 type: point
 events:
-    -   date: !!null
-        location:
-            line.de.6100: 14,80
-        category: de.Bk
-        name: Bk 27
-        source: src.de.DRG.Bln.1932
+    -   date: c1930
+        status: open
+        source:
+            -   src.de.DRG.Bln.1927
+            -   src.de.DRG.Bln.1932
     -   date: c1940
         status: closed
-        source: src.de.DRG.Bln.1943
+        source:
+            -   src.de.DRG.Bln.1932
+            -   src.de.DRG.Bln.1943
 
     -   date: !!null
         site:
             path.de.6100: szw
+records:
+    -   document: src.de.DRG.Bln.1932
+        location:
+            line.de.6100: 14,80
+        category: de.Bk
+        name: Bk 27
 
 
 ---
@@ -545,88 +552,86 @@ type: point
 subtype: border
 events:
     -   date: !!null
-        name: Albrechtshof Grenze
-    -   date: !!null
-        location:
-            line.de.6100: 16,350
-        source: src.dd.DR.Bln.1953
+        designation: Albrechtshof Grenze
 
     -   date: !!null
         site:
             path.de.6100: gahs
+records:
+    -   document: src.dd.DR.Bln.1953
+        location:
+            line.de.6100: 16,350
+    -   document: src.dd.DR.Bln.1978
+        location:
+            line.de.6100: 16,350
 
 
 ---
 key: point.de.Berlin-Albrechtshof
 type: point
 events:
-    -   date: 1943-04-01
-        status: open
-        source: src.de.Kuhlmann.2000
-    -   date: !!null
-        category: de.Hp
-        name: Albrechtshof
-        source: src.de.DRG.Bln.1943
-    -   date: !!null
-        de.lknr: 03 374
-        service: passenger
-        source: src.de.Bfv.1944
-    -   date: !!null
-        de.VBL: As
-        source: src.de.DRG.Bln.1946
-    -   date: c1950
-        category: de.Bf
-        de.rang: U
-        source: src.dd.DR.Bln.1953
-    -   date: c1950
-        master: point.de.Falkensee
-        source: src.dd.DR.Bln.1959
-    -   date: de.ds100.dr
-        de.DS100: BAS
-        de.dstnr: !!str 035378
-        source: src.de.DBAG.BSV.2017
-    -   date: c2000
-        category: de.Hp
-        source: src.de.DBAG.BSV.2017
-    -   date: c2000
-        name: Berlin-Albrechtshof
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Bln-Albrechtshof
-        PLC: DE10978
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.6100: 17,24
-        source: src.de.DRG.Bln.1943
-    -   date: c2000
-        location:
-            line.de.6100: 17,422
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
+#   -   date: 1943-04-01
+#       status: open
+#       source: src.de.Kuhlmann.2000
 
     -   date: !!null
         site:
-            path.de.6100: alh
-
-
----
-key: point.de.Berlin-Albrechtshof-Bk-30
-type: point
-events:
+            path.de.6100: alb
+records:
     -   date: !!null
         location:
             line.de.6100: 17,39
         category: de.Bk
         name: Bk 30
-        source: src.de.DRG.Bln.1932
-    -   date: c1940
-        status: closed
-        source: src.de.DRG.Bln.1943
+        document: src.de.DRG.Bln.1932
+    -   document: src.de.DRG.Bln.1943
+        name: Albrechtshof
+        category: de.Hp
+        location:
+            line.de.6100: 17,24
+    -   document: src.de.Bfv.1944
+        name: Albrechtshof
+        category: de.Hp
+        service: passenger
+        de.lknr: 03 374
+    -   document: src.de.DRG.Bln.1946
+        name: Albrechtshof
+        category: de.Hp
+        location:
+            line.de.6100: 17,24
+        de.VBL: As
 
-    -   date: !!null
-        site:
-            path.de.6100: adr
+    -   document: src.dd.DR.Bln.1953
+        name: Albrechtshof
+        category: de.Bf
+        de.rang: U
+    -   document: src.dd.DR.Bln.1959
+        name: Albrechtshof
+        category: de.Bf
+        de.rang: U
+        location:
+            line.de.6100: 17,24
+        master: point.de.Falkensee
+    -   document: src.dd.DR.Bln.1991
+        name: Albrechtshof
+        category: de.Bf
+        de.rang: U
+        location:
+            line.de.6100: 17,24
+        master: point.de.Falkensee
+
+    -   document: src.de.DBAG.BSV.2017
+        de.DS100: BAS
+        de.dstnr: !!str 035378
+        category: de.Hp
+        name: Berlin-Albrechtshof
+        de.name16: Bln-Albrechtshof
+        PLC: DE10978
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        category: de.Hp
+        name: Berlin-Albrechtshof
+        location:
+            line.de.6100: 17,422
 
 
 ---
@@ -635,22 +640,16 @@ type: point
 subtype: border
 events:
     -   date: !!null
+        site:
+            path.de.6100: gahl
+records:
+    -   document: src.de.DBAG.BSV.2017
         de.DS100: BQAS
         name: Berlin-Albrechtshof BE/BB
         de.name16: Bln-Albrhof LGr
         category: de.LGr
         PLC: DE10979
         de.dstnr: !!str 104026
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.6100: 17,54
-        source: src.dd.DR.Bln.1953
-
-    -   date: !!null
-        site:
-            path.de.6100: gahl
 
 
 ---
@@ -660,23 +659,24 @@ events:
     -   date: 1996
         status: open
         source: src.de.Kuhlmann.2000
+
     -   date: !!null
+        site:
+            path.de.6100: see
+records:
+    -   document: src.de.DBAG.BSV.2017
         de.DS100: BSFD
         name: Seegefeld
         de.name16: Seegefeld
         category: de.Hp
         PLC: DE19652
         de.dstnr: !!str 259366
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        de.name16: Seegefeld
+        category: de.Hp
         location:
             line.de.6100: 18,320
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
-    -   date: !!null
-        site:
-            path.de.6100: sfd
 
 ---
 key: point.de.Falkensee
@@ -684,50 +684,61 @@ type: point
 events:
     -   date: 1848
         status: open
+        name: Seegefeld
         source: src.de.Kuhlmann.2000
+    -   date: 1927-12-01
+        name: Falkensee
+        source: src.de.Kuhlmann.2000
+
     -   date: !!null
+        site:
+            path.de.6100: fal
+records:
+    -   document: src.de.DRG.Bln.1927
         location:
             line.de.6100: 20,41
         category: de.Bf
         de.rang: III
         name: Seegefeld
-        source: src.de.DRG.Bln.1927
-    -   date: 1927-12-01
+    -   document: src.de.Bfv.1928
         name: Falkensee
-        source: src.de.Kuhlmann.2000
-    -   date: !!null
         de.lknr: 03 002
-        source: src.de.Bfv.1928
-    -   date: de.lknr.30
-        de.lknr: 03 367
-        source: src.de.Bfv.1933
-    -   date: c1944
-        de.rang: II
-        source: src.de.Bfv.1944
-    -   date: !!null
-        de.VBL: Fks
-        source: src.de.DRG.Bln.1946
-    -   date: c1965
+    -   document: src.de.Bfv.1933
+        name: Falkensee
+        category: de.Bf
         de.rang: III
-        source: src.dd.DR.Bln.1968
+        de.lknr: 03 367
+    -   document: src.de.Bfv.1944
+        name: Falkensee
+        category: de.Bf
+        de.rang: II
+        de.lknr: 03 367
+    -   document: src.de.DRG.Bln.1946
+        name: Falkensee
+        category: de.Bf
+        de.rang: II
+        de.VBL: Fks
 
-    -   date: de.ds100.dr
+    -   document: src.dd.DR.Bln.1963
+        name: Falkensee
+        category: de.Bf
+        de.rang: III
+        de.VBL: Fks
+        location:
+            line.de.6100: 20,41
+
+    -   document: src.de.DBAG.BSV.2017
+        name: Falkensee
+        category: de.Bf
         de.DS100: BFKS
         de.dstnr: !!str 035360
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.name16: Falkensee
         PLC: DE13148
-        source: src.de.DBAG.BSV.2017
-
-    -   date: c2000
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        name: Falkensee
+        category: de.Bf
         location:
             line.de.6100: 20,373
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
-
-    -   date: !!null
-        site:
-            path.de.6100: fks
 
 
 ---
@@ -737,94 +748,93 @@ events:
     -   date: c1850
         status: open
         source: src.de.Kuhlmann.2000
-    -   date: !!null
-        name: Finkenkrug
-        source: src.de.Kb.1914
-    -   date: !!null
-        location:
-            line.de.6100: 23,03
-        category: de.Bf
-        de.rang: IV
-        name: Finkenkrug
-        source: src.de.DRG.Bln.1927
-    -   date: !!null
-        de.lknr: 03 201
-        service: passenger
-        source: src.de.Bfv.1928
-    -   date: c1930
-        de.rang: III
-        source: src.de.DRG.Bln.1932
-    -   date: de.lknr.30
-        de.lknr: 03 366
-        source: src.de.Bfv.1933
-    -   date: !!null
-        de.VBL: Fin
-        source: src.de.DRG.Bln.1946
-    -   date: c1950
-        de.rang: U
-        source: src.dd.DR.Bln.1953
-    -   date: c1950
-        master: point.de.Falkensee
-        source: src.dd.DR.Bln.1959
-
-    -   date: de.ds100.dr
-        de.DS100: BFIN
-        de.dstnr: !!str 035352
-        source: src.de.DBAG.BSV.2017
-    -   date: c1995
-        category: [de.Hp, de.Bk]
-    -   date: c2000
-        category: de.Hp
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Finkenkrug
-        PLC: DE13192
-        source: src.de.DBAG.BSV.2017
-
-    -   date: c2000
-        location:
-            line.de.6100: 23,195
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
             path.de.6100: fin
+records:
+    -   document: src.de.Kb.1914
+        name: Finkenkrug
+
+    -   document: src.de.DRG.Bln.1927
+        category: de.Bf
+        de.rang: IV
+        name: Finkenkrug
+        location:
+            line.de.6100: 23,03
+    -   document: src.de.Bfv.1928
+        name: Finkenkrug
+        de.lknr: 03 201
+        service: passenger
+        
+    -   document: src.de.DRG.Bln.1932
+        name: Finkenkrug
+        category: de.Bf
+        de.rang: III
+        location:
+            line.de.6100: 23,03
+    -   document: src.de.Bfv1933
+        name: Finkenkrug
+        category: de.Bf
+        de.lknr: 03 366
+    -   document: src.de.DRG.Bln.1946
+        name: Finkenkrug
+        category: de.Bf
+        de.rang: III
+        location:
+            line.de.6100: 23,03
+        de.VBL: Fin
+        
+    -   document: src.dd.DR.Bln.1959
+        name: Finkenkrug
+        category: de.Bf
+        de.rang: U
+        master: point.de.Falkensee
+        location:
+            line.de.6100: 23,03
+        de.VBL: Fin
+
+    -   document: src.de.DBAG.BSV.2017
+        de.DS100: BFIN
+        name: Finkenkrug
+        category: de.Hp
+        de.name16: Finkenkrug
+        de.dstnr: !!str 035352
+        PLC: DE13192
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        category: de.Hp
+        de.name16: Finkenkrug
+        location:
+            line.de.6100: 23,195
+        
 
 
 ---
 key: point.de.Finkenkrug-Afi
 type: point
 events:
-    -   date: 1954-05-23
-        status: open
-    -   date: !!null
-        category: de.Abzw
-        de.VBL: Afi
-        source: src.dd.DR.1989
-    -   date: !!null
-        name: Finkenkrug (Afi)
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.DS100: BAFI
-        de.dstnr: !!str 035675
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Finkenkrug (Afi)
-        PLC: DE13193
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.6100: 24,79
-        source: src.dd.DR.1989
-    -   date: c2000
-        location:
-            line.de.6100: 24,596
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
-
     -   date: !!null
         site:
             path.de.6100: afi
+records:
+    -   document: src.dd.DR.1989
+        category: de.Abzw
+        de.VBL: Afi
+        location:
+            line.de.6100: 24,79
+
+    -   document: src.de.DBAG.BSV.2017
+        name: Finkenkrug (Afi)
+        category: de.Abzw
+        de.DS100: BAFI
+        de.dstnr: !!str 035675
+        de.name16: Finkenkrug (Afi)
+        PLC: DE13193
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        name: Finkenkrug (Afi)
+        category: de.Abzw
+        location:
+            line.de.6100: 24,596
 
 
 ---
@@ -834,136 +844,186 @@ events:
     -   date: 1920-10-25
         status: open
         source: src.de.Kuhlmann.2000
-    -   date: !!null
-        category: de.Bf
-        de.rang: IV
-        name: Brieselang
-        source: src.de.DRG.Bln.1927
-    -   date: !!null
-        de.lknr: 03 200
-        service: passenger
-        source: src.de.Bfv.1928
-    -   date: c1930
-        de.rang: III
-        source: src.de.DRG.Bln.1932
-    -   date: c1930
-        service: goods
-        source: src.de.Bfv.1933
-    -   date: de.lknr.30
-        de.lknr: 03 365
-        source: src.de.Bfv.1933
-    -   date: !!null
-        de.VBL: Bri
-        source: src.de.DRG.Bln.1946
-    -   date: c1965
-        de.rang: IV
-        source: src.dd.DR.Bln.1968
-    -   date: c1970
-        de.rang: U
-        master: point.de.Falkenhagen-Nauen
-
-    -   date: de.ds100.dr
-        de.DS100: BBRI
-        de.dstnr: !!str 035337
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Brieselang
-        PLC: DE11699
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.6100: 26,68
-        source: src.de.DRG.Bln.1927
-    -   date: c2000
-        location:
-            line.de.6100: 26,950
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
             path.de.6100: bri
+records:
+    -   document: src.de.DRG.Bln.1927
+        category: de.Bf
+        de.rang: IV
+        name: Brieselang
+        location:
+            line.de.6100: 26,68
+    -   document: src.de.Bfv1928
+        category: de.Bf
+        de.rang: IV
+        name: Brieselang
+        de.lknr: 03 200
+        service: passenger
+    -   document: src.de.DRG.Bln.1932
+        name: Brieselang
+        category: de.Bf
+        de.rang: III
+        location:
+            line.de.6100: 26,68
+    -   document: src.de.Bfv1933
+        category: de.Bf
+        de.rang: IV
+        name: Brieselang
+        service: goods
+        de.lknr: 03 365
+    -   document: src.de.DRG.Bln.1946
+        name: Brieselang
+        category: de.Bf
+        de.rang: III
+        location:
+            line.de.6100: 26,68
+        de.VBL: Bri
+        
+    -   document: src.dd.DR.Bln.1968
+        de.rang: IV
+        name: Brieselang
+        category: de.Bf
+        location:
+            line.de.6100: 26,68
+        de.VBL: Bri
+        
+    -   document: src.dd.DR.Bln.1978
+        name: Brieselang
+        category: de.Bf
+        de.rang: U
+        master: point.de.Falkenhagen-Nauen
+        location:
+            line.de.6100: 26,68
+        de.VBL: Bri
+
+    -   document: src.de.DBAG.BSV.2017
+        name: Brieselang
+        category: de.Bf
+        de.DS100: BBRI
+        de.dstnr: !!str 035337
+        de.name16: Brieselang
+        PLC: DE11699
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        name: Brieselang
+        category: de.Bf
+        location:
+            line.de.6100: 26,950
 
 
 ---
 key: point.de.Graben-Nauen
 type: point
 events:
-    -   date: !!null
-        location:
-            line.de.6100: 31,20
-        category: de.Bk
-        name: Block 41
-        source: src.de.DRG.Bln.1927
-    -   date: c1940
-        location:
-            line.de.6100: 31,26
-        name: Graben
-        source: src.de.DRG.Bln.1943
-    -   date: c1940
-        de.VBL: Gb
-        source: src.de.DRG.Bln.1946
-    -   date: de.ds100.dr
-        de.DS100: BGBN
     -   date: c2000
         status: closed
 
     -   date: !!null
         site:
             path.de.6100: gbn
+records:
+    -   document: src.de.DRG.Bln.1927
+        category: de.Bk
+        name: Block 41
+        location:
+            line.de.6100: 31,20
+    -   document: src.de.DRG.Bln.1932
+        category: de.Bk
+        name: Bk 41
+        location:
+            line.de.6100: 31,20
+    -   document: src.de.DRG.Bln.1943
+        category: de.Bk
+        name: Graben
+        location:
+            line.de.6100: 31,26
+    -   document: src.de.DRG.Bln.1946
+        de.VBL: Gb
+        category: de.Bk
+        name: Graben
+        location:
+            line.de.6100: 31,26
 
+    -   document: src.dd.DR.Bln.1991
+        category: de.Bk
+        name: Graben
+        master: point.de.Nauen
+        de.VBL: Gb
+        location:
+            line.de.6100: 31,26
 
 ---
 key: point.de.Nauen
 type: point
 events:
     -   date: !!null
-        location:
-            line.de.6105: 90,06
-            line.de.6505:  0,00
-        category: de.Bf
-        de.rang: I
-        name: Nauen
-        source: src.de.DRG.Bln.1927
-    -   date: !!null
-        de.lknr: 03 001
-        source: src.de.Bfv.1928
-    -   date: c1930
-        de.rang: II
-        source: src.de.DRG.Bln.1932
-    -   date: de.lknr.30
-        de.lknr: 03 363
-        source: src.de.Bfv.1933
-    -   date: c1940
-        de.rang: I
-        source: src.de.Bfv.1944
-    -   date: !!null
-        de.VBL: Nau
-        source: src.de.DRG.Bln.1946
-    -   date: c1965
-        de.rang: II
-        source: src.dd.DR.Bln.1968
-
-    -   date: de.ds100.dr
-        de.DS100: BNAU
-        de.dstnr: !!str 035287
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Nauen
-        PLC: DE17403
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.6100: 35,370
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
-
-    -   date: !!null
         site:
             path.de.6100: nau
         connection:
             - point.de.Nauen-Osth-E             # line.de.6509
             - point.de.Nauen-Kreisb             # line.de.6998
+records:
+    -   document: src.de.DRG.Bln.1927
+        location:
+            line.de.6100: 35,37
+            line.de.6105: 90,06
+            line.de.6505:  0,00
+        category: de.Bf
+        de.rang: I
+        name: Nauen
+    -   document: src.de.Bfv1928
+        name: Nauen
+        category: de.Bf
+        de.lknr: 03 001
+    -   document: src.de.DRG.Bln.1932
+        name: Nauen
+        category: de.Bf
+        de.rang: II
+    -   document: src.de.Bfv1933
+        name: Nauen
+        category: de.Bf
+        de.rang: II
+        de.lknr: 03 363
+    -   document: src.de.Bfv1944
+        name: Nauen
+        category: de.Bf
+        de.rang: I
+        de.lknr: 03 363
+    -   document: src.de.DRG.Bln.1946
+        name: Nauen
+        category: de.Bf
+        de.rang: I
+        de.VBL: Nau
+        location:
+            line.de.6100: 35,37
+            line.de.6105: 90,06
+            line.de.6505:  0,00
+        
+    -   document: src.dd.DR.Bln.1968
+        name: Nauen
+        category: de.Bf
+        de.rang: II
+        de.VBL: Nau
+        location:
+            line.de.6100: 35,37
+            line.de.6105: 90,06
+            line.de.6505:  0,00
+
+    -   document: src.de.DBAG.BSV.2017
+        name: Nauen
+        category: de.Bf
+        de.DS100: BNAU
+        de.dstnr: !!str 035287
+        de.name16: Nauen
+        PLC: DE17403
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        name: Nauen
+        category: de.Bf
+        location:
+            line.de.6100: 35,370
+        
+
 
 
 # src.de.DRG.Alt.Karte.1931: RBD-Grenze 36,96
@@ -973,76 +1033,77 @@ events:
 key: point.de.Nauen-Lietzow
 type: point
 events:
-    -   date: !!null
-        location:
-            line.de.6100: 38,12
-        category: de.Bk
-        name: Lietzow
-        source: src.de.DRG.Alt.Karte.1931
     -   date: c1945
         status: closed
-        source: src.dd.DR.Bln.1953
+        document: src.dd.DR.Bln.1953
 
     -   date: !!null
         site:
             path.de.6100: lie
+records:
+    -   document: src.de.DRG.Alt.Karte.1931
+        location:
+            line.de.6100: 38,12
+        category: de.Bk
+        name: Lietzow
 
 
 ---
 key: point.de.Berger-Damm
 type: point
 events:
-    -   date: !!null
-        name: Berger Damm
-        source: src.de.Kb.1914
-    -   date: !!null
-        de.lknr: 01 001
-        source: src.de.Bfv.1928
-    -   date: !!null
-        location:
-            line.de.6100: 42,21
-        category: de.Bf
-        de.rang: IV
-        source: src.de.DRG.Alt.Karte.1931
-    -   date: !!null
-        de.VBL: Bd
-        source: src.dd.DR.Bln.1953
-    -   date: c1950
-        de.rang: III
-        source: src.dd.DR.Bln.1953
-    -   date: c1965
-        de.rang: U
-        master: point.de.Paulinenaue
-        source: src.dd.DR.Bln.1983
-    -   date: c1995
-        category: de.Bk
-    -   date: de.ds100.dr
-        de.DS100: WBD
     -   date: c2000
         status: closed
 
     -   date: !!null
         site:
             path.de.6100: bed
-
+records:
+    -   document: src.de.Kb.1914
+        name: Berger Damm
+        
+    -   document: src.de.Bfv1928
+        name: Berger Damm
+        de.lknr: 01 001
+    -   document: src.de.DRG.Alt.Karte.1931
+        name: Berger Damm
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.6100: 42,21
+        
+    -   document: src.dd.DR.Bln.1953
+        name: Berger Damm
+        category: de.Bf
+        de.rang: U
+        master: point.de.Paulinenaue
+        de.VBL: Bd
+    -   document: src.dd.DR.Sch.1986
+        name: Berger Damm
+        category: de.Bf
+        de.rang: U
+        master: point.de.Paulinenaue
+        de.VBL: Bd
+        location:
+            line.de.6100: 42,21
 
 ---
 key: point.de.Selbelang-Bk
 type: point
 events:
-    -   date: !!null
-        location:
-            line.de.6100: 45,38
-        category: de.Bk
-        name: Selbelang
-        source: src.de.DRG.Alt.Karte.1931
     -   date: c1945
         status: closed
-        source: src.dd.DR.Bln.1953
+        document: src.dd.DR.Bln.1953
 
     -   date: !!null
         site:
             path.de.6100: sel
+records:
+    -   document: src.de.DRG.Alt.Karte.1931
+        category: de.Bk
+        name: Selbelang
+        location:
+            line.de.6100: 45,38
 
 
 ---
@@ -1052,19 +1113,23 @@ events:
     -   date: 2013-12-15?
         status: open
         source: src.de.DBAG.BSV.2017
+
     -   date: !!null
+        site:
+            path.de.6100: pao
+records:
+    -   document: src.de.DBAG.BSV.2017
         de.DS100: WPAUO
         name: Paulinenaue Ost
         de.name16: Paulinenaue Ost
         category: de.Bft
         PLC: DE18284
         de.dstnr: !!str 108678
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        name: Paulinenaue Ost
+        category: de.Bft
         location:
             line.de.6100: 46,700
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
@@ -1072,48 +1137,49 @@ key: point.de.Paulinenaue
 type: point
 events:
     -   date: !!null
-        name: Paulinenaue Stsbf
-        source: src.de.Kb.1914
-    -   date: c1925
-        name: Paulinenaue
-        source: src.de.Bfv.1928
-    -   date: !!null
-        de.lknr: 01 002
-        source: src.de.Bfv.1928
-    -   date: !!null
-        category: de.Bf
-        de.rang: II
-        source: src.de.DRG.Alt.Karte.1931
-    -   date: !!null
-        location:
-            line.de.6948:  0,00
-        de.VBL: Pau
-        source: src.dd.DR.1976
-    -   date: c1950
-        de.rang: III
-        source: src.dd.DR.Bln.1953
-    -   date: c1965
-        de.rang: IV
-        source: src.dd.DR.1976
-
-    -   date: de.ds100.dr
-        de.DS100: WPAU
-        de.dstnr: !!str 273037
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Paulinenaue
-        PLC: DE18283
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.6100: 48,990
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
-
-    -   date: !!null
         connection: point.de.Paulinenaue-Kleinb     # line.de.8939
         site:
             path.de.6100: pau
+records:
+    -   document: src.de.Kb.1914
+        name: Paulinenaue Stsbf
+
+    -   document: src.de.Bfv1928
+        name: Paulinenaue
+        de.lknr: 01 002
+    -   document: src.de.DRG.Alt.Karte.1931
+        name: Paulinenaue
+        category: de.Bf
+        de.rang: II
+        location:
+            line.de.6100: 48,99
+
+    -   document: src.dd.DR.Bln.1953
+        de.rang: III
+        name: Paulinenaue
+        category: de.Bf
+        de.VBL: Pau
+    -   document: src.dd.DR.Sch.1986
+        name: Paulinenaue
+        category: de.Bf
+        de.rang: IV
+        de.VBL: Pau
+        location:
+            line.de.6100: 48,99
+            line.de.6948:  0,00
+
+    -   document: src.de.DBAG.BSV.2017
+        name: Paulinenaue
+        category: de.Bf
+        de.DS100: WPAU
+        de.dstnr: !!str 273037
+        de.name16: Paulinenaue
+        PLC: DE18283
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        name: Paulinenaue
+        category: de.Bf
+        location:
+            line.de.6100: 48,990
 
 
 ---
@@ -1121,18 +1187,19 @@ key: point.de.Brädikow-Bk
 type: point
 events:
     -   date: !!null
-        location:
-            line.de.6100: 53,09
-        category: de.Bk
-        name: Brädikow
-        source: src.de.DRG.Alt.Karte.1931
-    -   date: !!null
         status: closed
-        source: src.dd.DR.Bln.1953
+        document: src.dd.DR.Bln.1953
 
     -   date: !!null
         site:
             path.de.6100: bra
+records:
+    -   document: src.de.DRG.Alt.Karte.1931
+        location:
+            line.de.6100: 53,09
+        category: de.Bk
+        name: Brädikow
+        
 
 
 ---
@@ -1140,47 +1207,49 @@ key: point.de.Vietznitz
 type: point
 events:
     -   date: !!null
+        site:
+            path.de.6100: vie
+records:
+    -   document: src.de.Kb.1914
         name: Vietznitz (Kr Westhavelland)
-        source: src.de.Kb.1914
-    -   date: !!null
+        
+    -   document: src.de.Bfv1928
+        name: Vietznitz (Kr Westhavelland)
         de.lknr: 01 003
-        source: src.de.Bfv.1928
-    -   date: !!null
-        location:
-            line.de.6100: 57,15
+        
+    -   document: src.de.DRG.Alt.Karte.1931
+        name: Vietznitz (Kr Westhavelland)
         category: de.Bf
         de.rang: IV
-        source: src.de.DRG.Alt.Karte.1931
-    -   date: !!null
-        de.VBL: Vz
-        source: src.dd.DR.Bln.1953
-    -   date: c1950
+        location:
+            line.de.6100: 57,15
+
+    -   document: src.dd.DR.Bln.1953
         name: Vietznitz
+        category: de.Bf
         de.rang: III
-        source: src.dd.DR.Bln.1953
-    -   date: c1965
+        de.VBL: Vz
+    -   document: src.dd.DR.Sch.1986
+        name: Vietznitz
+        category: de.Bf
         de.rang: U
-        source: src.dd.DR.1976
+        master: point.de.Friesack-Mark
+        de.VBL: Vz
 
-    -   date: de.ds100.dr
+    -   document: src.de.DBAG.BSV.2017
         de.DS100: WVZ
-        de.dstnr: !!str 273045
-        source: src.de.DBAG.BSV.2017
-    -   date: c1995
-        status: closed
-    -   date: !!null
+        name: Vietznitz
         de.name16: Vietznitz
+        category: de.Hp
+        status: closed
         PLC: DE20605
-        source: src.de.DBAG.BSV.2017
-
-    -   date: c2000
+        de.dstnr: !!str 273045
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        name: Vietznitz
+        category: de.Hp
+        status: closed
         location:
             line.de.6100: 57,144
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
-
-    -   date: !!null
-        site:
-            path.de.6100: viz
 
 
 ---
@@ -1188,128 +1257,132 @@ key: point.de.Friesack-Mark
 type: point
 events:
     -   date: !!null
-        name: Friesack
-        source: src.de.Kb.1914
-    -   date: !!null
-        de.lknr: 01 004
-        source: src.de.Bfv.1928
-    -   date: !!null
-        category: de.Bf
-        de.rang: III
-        source: src.de.DRG.Alt.Karte.1931
-    -   date: !!null
-        de.VBL: Frk
-        source: src.dd.DR.Bln.1953
-    -   date: c1940
-        name: Friesack (Mark)
-        source: src.de.Bfv.1944
-    -   date: c1965
-        de.rang: IV
-        source: src.dd.DR.1976
-
-    -   date: de.ds100.dr
-        de.DS100: WFRK
-        de.dstnr: !!str 273052
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Friesack (Mark)
-        PLC: DE13476
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.6100: 61,670
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
-
-    -   date: !!null
         site:
             path.de.6100: frk
+records:
+    -   document: src.de.Kb.1914
+        name: Friesack
+        
+    -   document: src.de.Bfv1928
+        name: Friesack
+        de.lknr: 01 004
+        
+    -   document: src.de.DRG.Alt.Karte.1931
+        name: Friesack
+        category: de.Bf
+        de.rang: III
+        location:
+            line.de.6100: 61,67
+    -   date: c1940
+        name: Friesack (Mark)
+        category: de.Bf
+        de.rang: III
+        de.lknr: 01 004
+        document: src.de.Bfv1944
+
+    -   document: src.dd.DR.Bln.1953
+        name: Friesack (Mark)
+        category: de.Bf
+        de.rang: III
+        de.VBL: Frk
+        
+    -   document: src.dd.DR.Sch.1986
+        name: Friesack (Mark)
+        category: de.Bf
+        de.rang: IV
+        de.VBL: Frk
+        location:
+            line.de.6100: 61,67
+
+    -   document: src.de.DBAG.BSV.2017
+        de.DS100: WFRK
+        name: Friesack (Mark)
+        de.name16: Friesack (Mark)
+        category: de.Bf
+        PLC: DE13476
+        de.dstnr: !!str 273052
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        category: de.Bf
+        name: Friesack (Mark)
+        de.DS100: WFRK
+        location:
+            line.de.6100: 61,670
 
 
 ---
 key: point.de.Segeletz
 type: point
 events:
-    -   date: !!null
-        location:
-            line.de.6100: 66,58
-        category: de.Bk
-        name: Segeletz
-        source: src.de.DRG.Alt.Karte.1931
-    -   date: c1950
-        category: de.Bf
-        de.rang: U
-        de.VBL: Sgl
-        source: src.dd.DR.1976
-    -   date: !!null
-        service: none
-    -   date: c1980
-        category: de.Abzw
-        location:
-            line.de.6100: 67,383
-        source: src.dd.DR.1989
     -   date: c1995
         status: closed
 
     -   date: !!null
         site:
             path.de.6100: sgl
+records:
+    -   document: src.de.DRG.Alt.Karte.1931
+        location:
+            line.de.6100: 66,58
+        category: de.Bk
+        name: Segeletz
+        
+    -   document: src.dd.DR.Sch.1986
+        category: de.Abzw
+        master: point.de.Friesack-Mark
+        de.VBL: Sgl
+        location:
+            line.de.6100: 67,383
 
 
 ---
 key: point.de.Schäferberg
 type: point
 events:
-    -   date: !!null
-        location:
-            line.de.6100: 70,68
-        category: de.Bk
-        name: Schäferberg
-        source: src.de.DRG.Alt.Karte.1931
-    -   date: !!null
+    -   date: c1945
         status: closed
         source: src.dd.DR.Bln.1953
 
     -   date: !!null
         site:
             path.de.6100: saf
+records:
+    -   document: src.de.DRG.Alt.Karte.1931
+        location:
+            line.de.6100: 70,68
+        category: de.Bk
+        name: Schäferberg
 
 
 ---
 key: point.de.Neustadt-Dosse-Ns
 type: point
 events:
-    -   date: !!null
-        location:
-            line.de.6100: 73,9
-        category: de.Bk
-        name: Ns
-        source: src.de.DRG.Alt.Karte.1931
-    -   date: !!null
+    -   date: c1945
         status: closed
         source: src.dd.DR.Bln.1953
 
     -   date: !!null
         site:
             path.de.6100: nns
+records:
+    -   document: src.de.DRG.Alt.Karte.1931
+        location:
+            line.de.6100: 73,9
+        category: de.Bk
+        name: Ns
 
 
 ---
 key: point.de.Neustadt-Dosse-Gbf
 type: point
-events:
-    -   date: !!null
+records:
+    -   document: src.de.DBAG.BSV.2017
         name: Neustadt (Dosse) Gbf
         category: de.Bft
-        source: src.de.DBAG.BSV.2017
-    -   date: de.ds100.dr
         de.DS100: WNS G
         de.dstnr: !!str 913330
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.name16: Neustadt/D Gbf
         PLC: DE17631
-        source: src.de.DBAG.BSV.2017
 
 
 ---
@@ -1317,147 +1390,147 @@ key: point.de.Neustadt-Dosse
 type: point
 events:
     -   date: !!null
-        name: Neustadt (Dosse) Stsbf
-        source: src.de.Kb.1914
-    -   date: c1925
-        name: Neustadt (Dosse) Reichsb
-        source: src.de.Bfv.1928
-    -   date: !!null
-        de.lknr: 01 005
-        source: src.de.Bfv.1928
-    -   date: !!null
-        location:
-            line.de.6100: 75,44
-            line.de.6938:  0,00
-            line.de.6946:  0,00
-        category: de.Bf
-        de.rang: I
-        source: src.de.DRG.Alt.Karte.1931
-    -   date: !!null
-        de.VBL: Nst
-        source: src.dd.DR.Bln.1953
-    -   date: !!null
-        source: src.dd.DR.1976
-    -   date: c1965
-        de.rang: II
-        source: src.dd.DR.1976
-
-    -   date: de.ds100.dr
-        de.DS100: WNS
-        de.dstnr: !!str 273078
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Neustadt (Dosse)
-        PLC: DE17629
-        source: src.de.DBAG.BSV.2017
-
-    -   date: c2000
-        location:
-            line.de.6100: 75,432
-            line.de.6938:  0,002
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
-
-    -   date: !!null
         site:
             path.de.6100: nst
             path.de.6946: nst
+records:
+    -   document: src.de.Kb.1914
+        name: Neustadt (Dosse) Stsbf
+        
+    -   document: src.de.Bfv1928
+        name: Neustadt (Dosse) Reichsb
+        de.lknr: 01 005
+    -   document: src.de.DRG.Alt.Karte.1931
+        name: Neustadt (Dosse)
+        category: de.Bf
+        de.rang: I
+        location:
+            line.de.6100: 75,44
+            line.de.6938:  0,00
+        
+    -   document: src.dd.DR.Bln.1953
+        name: Neustadt (Dosse)
+        category: de.Bf
+        de.rang: I
+        de.VBL: Nst
+    -   document: src.dd.DR.Sch.1986
+        name: Neustadt (Dosse)
+        category: de.Bf
+        de.rang: II
+        de.VBL: Nst
+        location:
+            line.de.6100:  75,44
+            line.de.6512: 125,6
+            line.de.6938:   0,0
+            line.de.6946:   0,0
+
+    -   document: src.de.DBAG.BSV.2017
+        de.DS100: WNS
+        name: Neustadt (Dosse)
+        de.name16: Neustadt (Dosse)
+        category: de.Bf
+        de.dstnr: !!str 273078
+        PLC: DE17629
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        category: de.Bf
+        name: Neustadt (Dosse)
+        location:
+            line.de.6100: 75,432
+            line.de.6938:  0,002
+        de.DS100: WNS
 
 
 ---
 key: point.de.Plänitz
 type: point
 events:
-    -   date: !!null
-        location:
-            line.de.6100: 79,24
-        category: de.Bk
-        name: Plänitz
-        source: src.de.DRG.Alt.Karte.1931
-    -   date: !!null
-        status: closed
-        source: src.dd.DR.1976
-    -   date: c1985
-        status: open
-        source: src.dd.DR.1989
-    -   date: !!null
-        location:
-            line.de.6100: 79,246
-        note:
-            deu: Bedarfs-Bk
-        source: src.dd.DR.1989
     -   date: c1995
         status: closed
 
     -   date: !!null
         site:
             path.de.6100: plz
+records:
+    -   document: src.de.DRG.Alt.Karte.1931
+        location:
+            line.de.6100: 79,24
+        category: de.Bk
+        name: Plänitz
+
+    -   document: src.dd.DR.Sch.1986
+        category: de.Bk
+        name: Plänitz
+        location:
+            line.de.6100: 79,246
+        note:
+            deu: Bedarfs-Bk
 
 
 ---
 key: point.de.Zernitz
 type: point
 events:
-    -   date: !!null
-        name: Zernitz
-        source: src.de.Kb.1914
-    -   date: !!null
-        de.lknr: 01 006
-        source: src.de.Bfv.1928
-    -   date: !!null
-        location:
-            line.de.6100: 83,50
-        category: de.Bf
-        de.rang: III
-        source: src.de.DRG.Alt.Karte.1931
-    -   date: !!null
-        de.VBL: Zrn
-        source: src.dd.DR.1976
-    -   date: c1965
-        de.rang: IV
-        source: src.dd.DR.1976
-    -   date: de.ds100.dr
-        de.DS100: WZR
-    -   date: c1995
-        category: de.Bk
     -   date: c2000
         status: closed
 
     -   date: !!null
         site:
-            path.de.6100: zrn
+            path.de.6100: zer
+records:
+    -   document: src.de.Kb.1914
+        name: Zernitz
+        
+    -   document: src.de.Bfv1928
+        name: Zernitz
+        de.lknr: 01 006
+    -   document: src.de.DRG.Alt.Karte.1931
+        name: Zernitz
+        category: de.Bf
+        de.rang: III
+        location:
+            line.de.6100: 83,50 # right
+
+    -   document: src.dd.DR.Sch.1986
+        name: Zernitz
+        category: de.Bf
+        de.rang: IV
+        de.VBL: Zrn
+        location:
+            line.de.6100: 83,5 # right
 
 
 ---
 key: point.de.Stüdenitz
 type: point
 events:
-    -   date: !!null
-        name: Stüdenitz
-        source: src.de.Kb.1914
-    -   date: !!null
-        de.lknr: 01 007
-        source: src.de.Bfv.1928
-    -   date: !!null
-        location:
-            line.de.6100: 88,83
-        category: de.Bf
-        de.rang: IV
-        source: src.de.DRG.Alt.Karte.1931
-    -   date: !!null
-        de.VBL: Stü
-        source: src.dd.DR.1976
-    -   date: c1960
-        category: de.Hp
-        source: src.dd.DR.1976
-    -   date: c1980
-        de.VBL: Sti
-        source: src.dd.DR.1989
     -   date: c1995
         status: closed
 
     -   date: !!null
         site:
-            path.de.6100: stn
+            path.de.6100: stu
+removed:
+    -   document: src.de.Kb.1914
+        name: Stüdenitz
+        
+    -   document: src.de.Bfv1928
+        name: Stüdenitz
+        de.lknr: 01 007
+    -   document: src.de.DRG.Alt.Karte.1931
+        name: Stüdenitz
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.6100: 88,83
+
+    -   document: src.dd.DR.Sch.1986
+        name: Stüdenitz
+        category: de.Hp
+        staff: full
+        master: point.de.Zernitz
+        de.VBL: Sti
+        location:
+            line.de.6100: 88,83 # left
 
 
 ---
@@ -1465,72 +1538,72 @@ key: point.de.Breddin
 type: point
 events:
     -   date: !!null
-        name: Breddin Stsbf
-        source: src.de.Kb.1914
-    -   date: !!null
-        de.lknr: 01 008
-        source: src.de.Bfv.1928
-    -   date: !!null
-        category: de.Bf
-        de.rang: III
-        source: src.de.DRG.Alt.Karte.1931
-    -   date: !!null
-        de.VBL: Bi
-        source: src.dd.DR.1976
-    -   date: c1925
-        name: Breddin
-        source: src.de.Bfv.1933
-    -   date: c1965
-        de.rang: IV
-        source: src.dd.DR.1976
-
-    -   date: de.ds100.dr
-        de.DS100: WBDN
-        de.dstnr: !!str 273128
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Breddin
-        PLC: DE11605
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.6100: 92,120
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
-
-    -   date: !!null
         site:
             path.de.6100: bre
         connection: point.de.Breddin-Kleinb
+records:
+    -   document: src.de.Kb.1914
+        name: Breddin Stsbf
+        
+    -   document: src.de.Bfv1928
+        name: Breddin
+        de.lknr: 01 008
+    -   document: src.de.DRG.Alt.Karte.1931
+        name: Breddin
+        category: de.Bf
+        de.rang: III
+        location:
+            line.de.6100: 92,12
+
+    -   document: src.dd.DR.Sch.1986
+        name: Breddin
+        category: de.Bf
+        de.rang: IV
+        de.VBL: Bi
+        location:
+            line.de.6100: 92,12 # left
+        
+    -   document: src.de.DBAG.BSV.2017
+        de.DS100: WBDN
+        name: Breddin
+        de.name16: Breddin
+        category: de.Bf
+        PLC: DE11605
+        de.dstnr: !!str 273128
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        de.DS100: WBDN
+        name: Breddin
+        category: de.Bf
+        location:
+            line.de.6100: 92,120
+        
 
 
 ---
 key: point.de.Damelak
 type: point
 events:
-    -   date: !!null
-        location:
-            line.de.6100: 97,12
-        category: de.Bk
-        name: Damelak
-        source: src.de.DRG.Alt.Karte.1931
-    -   date: !!null
-        status: closed
-        source: src.dd.DR.1976
-    -   date: c1985
-        status: open
-        location:
-            line.de.6100: 97,125
-        note:
-            deu: Bedarfs-Bk
-        de.VBL: Dak
-        source: src.dd.DR.1989
     -   date: c1995
         status: closed
 
     -   date: !!null
         site:
             path.de.6100: dak
+records:
+    -   document: src.de.DRG.Alt.Karte.1931
+        name: Damelak
+        category: de.Bk
+        location:
+            line.de.6100: 97,12 # right
+
+    -   document: src.dd.DR.Sch.1986
+        name: Damelak
+        category: de.Bk
+        de.VBL: Dak
+        location:
+            line.de.6100: 97,125
+        note:
+            deu: Bedarfs-Bk
 
 
 ---
@@ -1538,74 +1611,73 @@ key: point.de.Glöwen
 type: point
 events: 
     -   date: !!null
-        name: Glöwen Stsbf
-        source: src.de.Kb.1914
-    -   date: !!null
-        de.lknr: 01 009
-        source: src.de.Bfv.1928
-    -   date: !!null
-        location:
-            line.de.8984:   0,00
-        category: de.Bf
-        de.rang: II
-        source: src.de.DRG.Alt.Karte.1931
-    -   date: c1925
-        name: Glöwen
-        source: src.de.Bfv.1933
-    -   date: !!null    
-        de.VBL: Gl
-        source: src.dd.DR.1976
-    -   date: c1965
-        de.rang: III
-        source: src.dd.DR.1976
-
-    -   date: de.ds100.dr
-        de.DS100: WGF
-        de.dstnr: !!str 273136
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Glöwen
-        PLC: DE13795
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.6100: 101,810
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
-
-    -   date: !!null
         site:
             path.de.6100: glo
         connection: point.de.Glöwen-Kleinb
+records:
+    -   document: src.de.Kb.1914
+        name: Glöwen Stsbf
+        
+    -   document: src.de.Bfv1928
+        name: Glöwen
+        de.lknr: 01 009
+    -   document: src.de.DRG.Alt.Karte.1931
+        name: Glöwen
+        category: de.Bf
+        de.rang: II
+        location:
+            line.de.6100: 101,81
+            line.de.8984:   0,00
+
+    -   document: src.dd.DR.Sch.1986
+        name: Glöwen
+        category: de.Bf
+        de.rang: III
+        de.VBL: Gf
+        location:
+            line.de.6100: 101,81 # left
+        
+    -   document: src.de.DBAG.BSV.2017
+        de.DS100: WGF
+        name: Glöwen
+        de.name16: Glöwen
+        category: de.Bf
+        PLC: DE13795
+        de.dstnr: !!str 273136
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        category: de.Bf
+        name: Glöwen
+        location:
+            line.de.6100: 101,810
+        de.DS100: WGF
+        
 
 
 ---
 key: point.de.Roddan
 type: point
 events:
-    -   date: !!null
-        location:
-            line.de.6100: 107,55
-        category: de.Bk
-        name: Roddan
-        source: src.de.DRG.Alt.Karte.1931
-    -   date: !!null
-        status: closed
-        source: src.dd.DR.1976
-    -   date: c1985
-        status: open
-        location:
-            line.de.6100: 107,526
-        note:
-            deu: Bedarfs-Bk
-        de.VBL: Ron
-        source: src.dd.DR.1989
     -   date: c1995
         status: closed
 
     -   date: !!null
         site:
             path.de.6100: ron
+records:
+    -   document: src.de.DRG.Alt.Karte.1931
+        category: de.Bk
+        name: Roddan
+        location:
+            line.de.6100: 107,55
+        
+    -   document: src.dd.DR.Sch.1986
+        category: de.Bk
+        name: Roddan
+        location:
+            line.de.6100: 107,526 # lef5
+        note:
+            deu: Bedarfs-Bk
+        de.VBL: Ron
 
 
 ---
@@ -1613,57 +1685,55 @@ key: point.de.Bad-Wilsnack
 type: point
 events:
     -   date: !!null
-        name: Wilsnack
-        source: src.de.Kb.1914
-    -   date: !!null
-        de.lknr: 01 012
-        source: src.de.Bfv.1928
-    -   date: !!null
-        category: de.Bf
-        de.rang: III
-        source: src.de.DRG.Alt.Karte.1931
-    -   date: de.lknr.30
-        de.lknr: 01 011
-        source: src.de.Bfv.1933
-    -   date: !!null
-        de.VBL: Wil
-        source: src.dd.DR.1976
-    -   date: c1925
-        name: Bad Wilsnack
-        source: src.de.Bfv.1933
-    -   date: c1965
-        de.rang: IV
-        source: src.dd.DR.1976
-
-    -   date: de.ds100.dr
-        de.DS100: WWIL
-        de.dstnr: !!str 273144
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Bad Wilsnack
-        PLC: DE10569
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.6100: 112,800
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
-
-    -   date: !!null
         site:
             path.de.6100: wil
+records:
+    -   document: src.de.Kb.1914
+        name: Wilsnack
+        
+    -   document: src.de.Bfv1928
+        name: Wilsnack
+        de.lknr: 01 012
+    -   document: src.de.DRG.Alt.Karte.1931
+        name: Bad Wilsnack
+        category: de.Bf
+        de.rang: III
+        location:
+            line.de.6100: 112,80
+    -   document: src.de.Bfv1933
+        name: Bad Wilsnack
+        category: de.Bf
+        de.rang: III
+        de.lknr: 01 011
+        
+    -   document: src.dd.DR.Sch.1986
+        name: Bad Wilsnack
+        category: de.Bf
+        de.rang: IV
+        de.VBL: Wil
+        location:
+            line.de.6100: 112,80 # left
+
+    -   document: src.de.DBAG.BSV.2017
+        de.DS100: WWIL
+        name: Bad Wilsnack
+        de.name16: Bad Wilsnack
+        category: de.Bf
+        PLC: DE10569
+        de.dstnr: !!str 273144
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        category: de.Bf
+        name: Bad Wilsnack
+        location:
+            line.de.6100: 112,800
+        de.DS100: WWIL
+        
 
 
 ---
 key: point.de.Lüben
 type: point
 events:
-    -   date: !!null
-        location:
-            line.de.6100: 116,63
-        category: de.Bk
-        name: Lüben
-        source: src.de.DRG.Alt.Karte.1931
     -   date: c1950
         status: closed
         source: src.dd.DR.1976
@@ -1671,6 +1741,12 @@ events:
     -   date: !!null
         site:
             path.de.6100: lun
+records:
+    -   document: src.de.DRG.Alt.Karte.1931
+        category: de.Bk
+        name: Lüben
+        location:
+            line.de.6100: 116,63 # right
 
 
 ---
@@ -1678,53 +1754,52 @@ key: point.de.Kuhblank
 type: point
 events:
     -   date: !!null
+        site:
+            path.de.6100: kuh
+records:
+    -   document: src.de.Kb.1914
         name: Kuhblank
-        source: src.de.Kb.1914
-    -   date: !!null
+        
+    -   document: src.de.Bfv1928
+        name: Kuhblank
         de.lknr: 01 341
-        service: passenger
-        source: src.de.Bfv.1928
-    -   date: !!null
+        goods: none
+        
+    -   document: src.de.DRG.Alt.Karte.1931
+        name: Kuhblank
         location:
             line.de.6100: 119,96
         category: de.Bf
         de.rang: IV
-        source: src.de.DRG.Alt.Karte.1931
-    -   date: c1932
+        
+    -   document: src.de.Bfv1933
+        name: Kuhblank
         category: de.Hp
-        source: src.de.Bfv.1933
-    -   date: de.lknr.30
+        goods: none
         de.lknr: 01 010
-        source: src.de.Bfv.1933
-    -   date: !!null
-        de.VBL: Ku
-        source: src.dd.DR.1976
-    -   date: c1940
+    -   document: src.de.Bfv1944
         category: de.Bf
         de.rang: IV
-        source: src.de.Bfv.1944
-    -   date: c1965
-        de.rang: U
-        source: src.dd.DR.1976
+        de.lknr: 01 010
+        goods: none
+        
 
-    -   date: de.ds100.dr
+    -   document: src.dd.DR.Sch.1986
+        name: Kuhblank
+        category: de.Bf
+        de.rang: IV
+        de.VBL: Ku
+        location:
+            line.de.6100: 119,96 # right
+
+    -   document: src.de.DBAG.BSV.2017
         de.DS100: WKU
-        de.dstnr: !!str 273151
-        source: src.de.DBAG.BSV.2017
-    -   date: c1995
-        category: de.Üst
-        source: src.de.DBAG.BSV.2017
-    -   date: c2000
-        status: closed
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
+        name: Kuhblank
         de.name16: Kuhblank
+        category: de.Üst
+        status: closed
         PLC: DE15954
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        site:
-            path.de.6100: kuh
+        de.dstnr: !!str 273151
 
 
 # src.de.DRG.Alt.Karte.1931: 119,30 BA Wittenberge 1/Wittenberge 2
@@ -1734,12 +1809,6 @@ events:
 key: point.de.Breese
 type: point
 events:
-    -   date: !!null
-        location:
-            line.de.6100: 122,92
-        category: de.Bk
-        name: Breese
-        source: src.de.DRG.Alt.Karte.1931
     -   date: c1950
         status: closed
         source: src.dd.DR.1976
@@ -1747,37 +1816,39 @@ events:
     -   date: !!null
         site:
             path.de.6100: brs
+records:
+    -   document: src.de.DRG.Alt.Karte.1931
+        category: de.Bk
+        name: Breese
+        location:
+            line.de.6100: 122,92 # right
 
 
 ---
 key: point.de.Wittenberge-Süd
 type: point
 events:
-    -   date: c1965
-        status: open
-        location:
-            line.de.6100: 125,20
-        category: de.Hp
-        staff: none
-        name: Wittenberge Süd
-        de.VBL: Wis
-        source: src.dd.DR.1976
-
-    -   date: de.ds100.dr
-        de.DS100: WWS
-        de.dstnr: !!str 273169
-        source: src.de.DBAG.BSV.2017
-    -   date: c2000
-        status: closed
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Wittenberge Süd
-        PLC: DE21229
-        source: src.de.DBAG.BSV.2017
-
     -   date: !!null
         site:
             path.de.6100: wis
+records:
+    -   document: src.dd.DR.Sch.1986
+        name: Wittenberge Süd
+        category: de.Hp
+        staff: none
+        master: point.de.Wittenberge
+        de.VBL: Wis
+        location:
+            line.de.6100: 125,2
+
+    -   document: src.de.DBAG.BSV.2017
+        de.DS100: WWS
+        name: Wittenberge Süd
+        de.name16: Wittenberge Süd
+        category: de.Hp
+        status: closed
+        PLC: DE21229
+        de.dstnr: !!str 273169
 
 
 ---
@@ -1785,51 +1856,59 @@ key: point.de.Wittenberge
 type: point
 events:
     -   date: !!null
+        site:
+            path.de.6100: wit
+    -   date: c2000
+        site:
+            path.de.6100: wib
+records:
+    -   document: src.de.Kb.1914
         name: Wittenberge
-        source: src.de.Kb.1914
-    -   date: !!null
+        
+    -   document: src.de.Bfv1928
+        name: Wittenberge
         de.lknr: 01 013
-        source: src.de.Bfv.1928
-    -   date: !!null
+    -   document: src.de.DRG.Alt.Karte.1931
+        name: Wittenberge
         category: de.Bf
         de.rang: I
-        source: src.de.Bfv.1933
-    -   date: de.lknr.30
-        de.lknr: 01 012
-        source: src.de.Bfv.1933
-    -   date: !!null    
-        de.VBL: Wit
-        source: src.dd.DR.1976
-
-    -   date: de.ds100.dr
-        de.DS100: WW
-        de.dstnr: !!str 273177
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Wittenberge
-        PLC: DE21227
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
         location:
             line.de.1151: 126,62
             line.de.6100: 126,62
             line.de.6401:  53,64            
-        source: src.de.DRG.Alt.Karte.1931
-    -   date: !!null    
+    -   document: src.de.Bfv1933
+        name: Wittenberge
+        category: de.Bf
+        de.rang: I
+        de.lknr: 01 012
+
+    -   document: src.dd.DR.Sch.1986
+        name: Wittenberge
+        category: de.Bf
+        de.rang: I
+        de.VBL: Wit
         location:
-            line.de.6941: 0,00
-        source: src.dd.DR.1976
-    -   date: c2000
+            line.de.6100: 126,62
+            line.de.6401:  53,84
+            line.de.6941:   0,00
+
+    -   document: src.de.DBAG.BSV.2017
+        de.DS100: WW
+        name: Wittenberge
+        de.name16: Wittenberge
+        category: de.Bf
+        PLC: DE21227
+        de.dstnr: !!str 273177
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        category: de.Bf
+        name: Wittenberge
         location:
             line.de.6100: 126,794
             line.de.6401:  53,813
             line.de.6941:   0,138
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
+        de.DS100: WW
+        
 
-    -   date: !!null
-        site:
-            path.de.6100: wit
 
 
 ---
@@ -1839,40 +1918,45 @@ events:
     -   date: c1995
         status: open
         split_from: point.de.Wittenberge
+
     -   date: !!null
+        site:
+            path.de.6100: win
+records:
+    -   document: src.de.DBAG.BSV.2017
         de.DS100: "WW  N"
         name: Wittenberge Nord
         de.name16: Wittenberge Nord
         category: de.Bft
         PLC: DE21228
         de.dstnr: !!str 911128
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        site:
-            path.de.6100: win
+        
 
 
 ---
 key: point.de.Schilde
 type: point
 events:
-    -   date: !!null
-        location:
-            line.de.6100: 132,10
-        category: de.Bk
-        name: Bentwisch
-        source: src.de.DRG.Alt.Karte.1931
-    -   date: c1960
-        name: Schilde
-        de.VBL: Sld
-        source: src.dd.DR.1976
     -   date: c1995
         status: closed
 
     -   date: !!null
         site:
             path.de.6100: sld
+records:
+    -   document: src.de.DRG.Alt.Karte.1931
+        category: de.Bk
+        name: Bentwisch
+        location:
+            line.de.6100: 132,10 # right
+        
+    -   document: src.dd.DR.Sch.1986
+        category: de.Bk
+        name: Schilde
+        de.VBL: Sld
+        master: point.de.Wittenberge
+        location:
+            line.de.6100: 132,1 # right
 
 
 ---
@@ -1880,44 +1964,48 @@ key: point.de.Dergenthin
 type: point
 events:
     -   date: !!null
-        name: Dergenthin
-        source: src.de.Kb.1914
-    -   date: !!null
-        de.lknr: 01 014
-        source: src.de.Bfv.1928
-    -   date: !!null
-        location:
-            line.de.6100: 135,77
-        category: de.Bf
-        de.rang: III
-        source: src.de.DRG.Alt.Karte.1931
-    -   date: c1932
-        de.rang: IV
-        source: src.de.Bfv.1933
-    -   date: de.lknr.30
-        de.lknr: 01 039
-        source: src.de.Bfv.1933
-    -   date: !!null
-        de.VBL: Dn
-        source: src.dd.DR.1976
-
-    -   date: de.ds100.dr
-        de.DS100: WDN
-        de.dstnr: !!str 273227
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Dergenthin
-        PLC: DE12143
-        source: src.de.DBAG.BSV.2017
-
-    -   date: c2000
-        location:
-            line.de.6100: 135,780
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
-
-    -   date: !!null
         site:
             path.de.6100: der
+records:
+    -   document: src.de.Kb.1914
+        name: Dergenthin
+        
+    -   document: src.de.Bfv1928
+        name: Dergenthin
+        de.lknr: 01 014
+    -   document: src.de.DRG.Alt.Karte.1931
+        name: Dergenthin
+        category: de.Bf
+        de.rang: III
+        location:
+            line.de.6100: 135,77
+    -   document: src.de.Bfv1933
+        name: Dergenthin
+        category: de.Bf
+        de.rang: IV
+        de.lknr: 01 039
+
+    -   document: src.dd.DR.Sch.1986
+        name: Dergenthin
+        category: de.Bf
+        de.rang: IV
+        de.VBL: Dn
+        location:
+            line.de.6100: 135,78 # left
+
+    -   document: src.de.DBAG.BSV.2017
+        de.DS100: WDN
+        name: Dergenthin
+        de.name16: Dergenthin
+        category: de.Bf
+        PLC: DE12143
+        de.dstnr: !!str 273227
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        category: de.Bf
+        name: Dergenthin
+        location:
+            line.de.6100: 135,780
+        de.DS100: WDN
 
 
 # src.de.DRG.Alt.Karte.1931: 136,85 BA Wittenberge 2/Ludwigslust
@@ -1927,21 +2015,26 @@ events:
 key: point.de.Nebelin
 type: point
 events:
-    -   date: !!null
-        location:
-            line.de.6100: 139,29
-        category: de.Bk
-        name: Nebelin
-        source: src.de.DRG.Alt.Karte.1931
-    -   date: !!null
-        de.VBL: Ne
-        source: src.dd.DR.1976
     -   date: c1995
         status: closed
 
     -   date: !!null
         site:
             path.de.6100: neb
+records:
+    -   document: src.de.DRG.Alt.Karte.1931
+        name: Nebelin
+        category: de.Bk
+        location:
+            line.de.6100: 139,29
+        
+    -   document: src.dd.DR.Sch.1986
+        name: Nebelin
+        category: de.Bk
+        de.VBL: Ne
+        master: point.de.Dergenthin
+        location:
+            line.de.6100: 139,29 # right
 
 
 ---
@@ -1949,72 +2042,77 @@ key: point.de.Karstädt
 type: point
 events:
     -   date: !!null
-        name: Karstädt
-        source: src.de.Kb.1914
-    -   date: !!null
-        de.lknr: 01 015
-        source: src.de.Bfv.1928
-    -   date: !!null
-        location:
-            line.de.6100: 144,32
-        category: de.Bf
-        de.rang: III
-        source: src.de.DRG.Alt.Karte.1931
-    -   date: de.lknr.30
-        de.lknr: 01 040
-        source: src.de.Bfv.1933
-    -   date: !!null
-        de.VBL: Kt
-        source: src.dd.DR.1976
-    -   date: c1950
-        location:
-            line.de.6944: 14,78
-        source: src.dd.DR.1976
-
-    -   date: de.ds100.dr
-        de.DS100: WKT
-        de.dstnr: !!str 273235
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Karstädt
-        PLC: DE15403
-        source: src.de.DBAG.BSV.2017
-
-    -   date: c2000
-        location:
-            line.de.6100: 144,380
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
-
-    -   date: !!null
         site:
             path.de.6100: kat
         connection: point.de.Karstädt-Kleinb
+records:
+    -   document: src.de.Kb.1914
+        name: Karstädt
+        
+    -   document: src.de.Bfv1928
+        name: Karstädt
+        de.lknr: 01 015
+    -   document: src.de.DRG.Alt.Karte.1931
+        name: Karstädt
+        category: de.Bf
+        de.rang: III
+        location:
+            line.de.6100: 144,32 # right
+    -   document: src.de.Bfv1933
+        name: Karstädt
+        category: de.Bf
+        de.rang: III
+        de.lknr: 01 040
+        
+    -   document: src.dd.DR.Sch.1986
+        name: Karstädt
+        category: de.Bf
+        de.rang: III
+        de.VBL: Kt
+        location:
+            line.de.6100: 144,32 # right
+            line.de.6944: 14,78
+
+    -   document: src.de.DBAG.BSV.2017
+        de.DS100: WKT
+        name: Karstädt
+        de.name16: Karstädt
+        category: de.Bf
+        PLC: DE15403
+        de.dstnr: !!str 273235
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        category: de.Bf
+        name: Karstädt
+        location:
+            line.de.6100: 144,380
+        de.DS100: WKT
+        
 
 
 ---
 key: point.de.Streesow
 type: point
 events:
-    -   date: !!null
-        location:
-            line.de.6100: 149,92
-        category: de.Bk
-        name: Streesow
-        source: src.de.DRG.Alt.Karte.1931
-    -   date: c1960
-        location:
-            line.de.6100: 150,76
-        category: de.Üst
-        de.VBL: Ste
-        source: src.dd.DR.1976
-    -   date: de.ds100.dr
-        de.DS100: WSTE
     -   date: c1995
         status: closed
 
     -   date: !!null
         site:
             path.de.6100: stw
+records:
+    -   document: src.de.DRG.Alt.Karte.1931
+        name: Streesow
+        category: de.Bk
+        location:
+            line.de.6100: 149,92 # right
+        
+    -   document: src.dd.DR.Sch.1986
+        name: Streesow
+        category: de.Abzw
+        de.VBL: Ste
+        master: point.de.Karstädt
+        location:
+            line.de.6100: 149,94 # right
 
 
 ---
@@ -2022,45 +2120,60 @@ key: point.de.Klein-Warnow
 type: point
 events:
     -   date: !!null
-        name: Wendisch Warnow
-        source: src.de.Kb.1914
-    -   date: !!null
-        de.lknr: 01 016
-        source: src.de.Bfv.1928
-    -   date: !!null
-        category: de.Bf
-        de.rang: III
-        source: src.de.DRG.Alt.Karte.1931
-    -   date: c1932
-        de.rang: IV
-        source: src.de.Bfv.1933
-    -   date: de.lknr.30
-        de.lknr: 01 041
-        source: src.de.Bfv.1933
-    -   date: !!null
-        de.VBL: Wrn
-        source: src.dd.DR.1976
-    -   date: c1940
-        name: Klein Warnow
-        source: src.de.Bfv.1944
-
-    -   date: de.ds100.dr
-        de.DS100: WKWA
-        de.dstnr: !!str 273250
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Klein Warnow
-        PLC: DE15576
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.6100: 154,830
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
-
-    -   date: !!null
         site:
             path.de.6100: wrn
+records:
+    -   document: src.de.Kb.1914
+        name: Wendisch Warnow
+
+    -   document: src.de.Bfv1928
+        de.lknr: 01 016
+        name: Wendisch Warnow
+        
+    -   document: src.de.DRG.Alt.Karte.1931
+        name: Wendisch Warnow
+        category: de.Bf
+        de.rang: III
+        location:
+            line.de.6100: 154,83 # left
+        
+    -   document: src.de.Bfv1933
+        name: Wendisch Warnow
+        category: de.Bf
+        de.rang: IV
+        de.lknr: 01 041
+    -   document: src.de.Bfv1938
+        name: Klein Warnow
+        category: de.Bf
+        de.rang: IV
+        de.lknr: 01 041
+    -   document: src.de.Bfv1944
+        name: Klein Warnow
+        category: de.Bf
+        de.rang: IV
+        de.lknr: 01 041
+        
+    -   document: src.dd.DR.Sch.1986
+        name: Wendisch Warnow
+        category: de.Bf
+        de.rang: IV
+        de.VBL: Wrn
+        location:
+            line.de.6100: 154,83 # left
+
+    -   document: src.de.DBAG.BSV.2017
+        de.DS100: WKWA
+        name: Wendisch Warnow
+        de.name16: Klein Warnow
+        category: de.Bf
+        PLC: DE15576
+        de.dstnr: !!str 273250
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        category: de.Bf
+        name: Wendisch Warnow
+        location:
+            line.de.6100: 154,830
+        de.DS100: WKWA
 
 
 ---
@@ -2069,38 +2182,42 @@ type: point
 subtype: border
 events:
     -   date: !!null
+        site:
+            path.de.6100: gwrn
+records:
+    -   document: src.de.DBAG.BSV.2017
         de.DS100: WQKW
         name: Klein Warnow BB/MV
         de.name16: Kl Warnow LGr
         category: de.LGr
         PLC: DE15577
         de.dstnr: !!str 104027
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        site:
-            path.de.6100: gwrn
 
 
 ---
 key: point.de.Neese
 type: point
 events:
-    -   date: !!null
-        location:
-            line.de.6100: 158,56
-        category: de.Bk
-        name: Neese
-        source: src.de.DRG.Alt.Karte.1931
-    -   date: !!null
-        de.VBL: Nee
-        source: src.dd.DR.1976
     -   date: c1995
         status: closed
 
     -   date: !!null
         site:
             path.de.6100: nee
+records:
+    -   document: src.de.DRG.Alt.Karte.1931
+        name: Neese
+        category: de.Bk
+        location:
+            line.de.6100: 158,56 # right
+        
+    -   document: src.dd.DR.Sch.1986
+        name: Neese
+        category: de.Bk
+        master: point.de.Klein-Warnow
+        de.VBL: Nee
+        location:
+            line.de.6100: 158,56 # right
 
 
 ---
@@ -2108,67 +2225,74 @@ key: point.de.Grabow-Meckl
 type: point
 events:
     -   date: !!null
-        name: Grabow (Meckl)
-        source: src.de.Kb.1914
-    -   date: !!null
-        de.lknr: 01 017
-        source: src.de.Bfv.1928
-    -   date: !!null
-        category: de.Bf
-        de.rang: II
-        source: src.de.DRG.Alt.Karte.1931
-    -   date: de.lknr.30
-        de.lknr: 01 042
-        source: src.de.Bfv.1933
-    -   date: !!null
-        de.VBL: Grb
-        source: src.dd.DR.1976
-    -   date: c1965
-        de.rang: IV
-        source: src.dd.DR.1976
-
-    -   date: de.ds100.dr
-        de.DS100: WGRB
-        de.dstnr: !!str 273268
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Grabow (Meckl)
-        PLC: DE13888
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.6100: 163,210
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
-
-    -   date: !!null
         site:
             path.de.6100: grb
+records:
+    -   document: src.de.Kb.1914
+        name: Grabow (Meckl)
+        
+    -   document: src.de.Bfv1928
+        name: Grabow (Meckl)
+        de.lknr: 01 017
+    -   document: src.de.DRG.Alt.Karte.1931
+        name: Grabow (Meckl)
+        category: de.Bf
+        de.rang: II
+        location:
+            line.de.6100: 163,21 # left
+    -   document: src.de.Bfv1933
+        name: Grabow (Meckl)
+        category: de.Bf
+        de.rang: II
+        de.lknr: 01 042
+
+    -   document: src.dd.DR.Sch.1986
+        name: Grabow (Meckl)
+        category: de.Bf
+        de.rang: IV
+        de.VBL: Grb
+        location:
+            line.de.6100: 163,21 # left
+
+    -   document: src.de.DBAG.BSV.2017
+        de.DS100: WGRB
+        name: Grabow (Meckl)
+        de.name16: Grabow (Meckl)
+        category: de.Bf
+        PLC: DE13888
+        de.dstnr: !!str 273268
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        category: de.Bf
+        name: Grabow (Meckl)
+        location:
+            line.de.6100: 163,210
+        de.DS100: WGRB
 
 
 ---
 key: point.de.Grünhof
 type: point
 events:
-    -   date: !!null
-        location:
-            line.de.6100: 166,19
-        category: de.Bk
-        name: Grünhof
-        source: src.de.DRG.Alt.Karte.1931
-    -   date: !!null
-        de.VBL: Gh
-        source: src.dd.DR.1976
-    -   date: c1960
-        location:
-            line.de.6100: 166,21
-        source: src.dd.DR.1976
     -   date: c1995
         status: closed
 
     -   date: !!null
         site:
             path.de.6100: grh
+records:
+    -   document: src.de.DRG.Alt.Karte.1931
+        name: Grünhof
+        category: de.Bk
+        location:
+            line.de.6100: 166,19 # right
+        
+    -   document: src.dd.DR.Sch.1986
+        name: Grünhof
+        category: de.Bk
+        master: point.de.Grabow-Meckl
+        de.VBL: Gh
+        location:
+            line.de.6100: 166,21 # right
 
 
 ---
@@ -2176,104 +2300,114 @@ key: point.de.Ludwigslust
 type: point
 events: 
     -   date: !!null
+        site:
+            path.de.6100: lud
+records:
+    -   document: src.de.Kb.1914
         name: Ludwigslust
-        source: src.de.Kb.1914
-    -   date: !!null
+        
+    -   document: src.de.Bfv1928
+        name: Ludwigslust
         de.lknr: 01 018
-        source: src.de.Bfv.1928
-    -   date: !!null
-        location: 
-            line.de.6100: 170,76
+    -   document: src.de.DRG.Alt.Karte.1931
+        name: Ludwigslust
         category: de.Bf
         de.rang: I
-        source: src.de.DRG.Alt.Karte.1931
-    -   date: de.lknr.30
+        location: 
+            line.de.6100: 170,76
+            line.de.6441:  30,28
+            line.de.6935:   0,00
+    -   document: src.de.Bfv1933
+        name: Ludwigslust
+        category: de.Bf
+        de.rang: I
         de.lknr: 01 043
-        source: src.de.Bfv.1933
-    -   date: !!null
-        de.VBL: Lud
-        source: src.dd.DR.1976
-    -   date: c1965
+
+    -   document: src.dd.DR.Sch.1986
+        name: Ludwigslust
+        category: de.Bf
         de.rang: II
-        source: src.dd.DR.1976
+        de.VBL: Lud
+        location: 
+            line.de.6100: 170,76    # left
+            line.de.6441:  30,28
+            line.de.6935:   0,0
 
-    -   date: de.ds100.dr
+    -   document: src.de.DBAG.BSV.2017
         de.DS100: WL
-        de.dstnr: !!str 273276
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
+        name: Ludwigslust
         de.name16: Ludwigslust
+        category: de.Bf
         PLC: DE16547
-        source: src.de.DBAG.BSV.2017
-
-    -   date: c2000
+        de.dstnr: !!str 273276
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        category: de.Bf
+        name: Ludwigslust
         location:
             line.de.6100: 170,785
             line.de.6441:  30,391
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
-
-    -   date: !!null
-        site:
-            path.de.6100: lud
+        de.DS100: WL
+        
 
 
 ---
 key: point.de.Weselsdorf
 type: point
 events:
-    -   date: c1965
-        status: open
-        category: de.Hp
-        name: Weselsdorf
-        staff: none
-        de.VBL: Wdf
-        source: src.dd.DR.1976
-
-    -   date: de.ds100.dr
-        de.DS100: WWDF
-        de.dstnr: !!str 273284
-        source: src.de.DBAG.BSV.2017
-    -   date: c2000
-        status: closed
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Weselsdorf
-        PLC: DE21039
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.6100: 174,500
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
-
     -   date: !!null
         site:
             path.de.6100: wes
+records:
+    -   document: src.dd.DR.Sch.1986
+        name: Weselsdorf
+        category: de.Hp
+        staff: none
+        master: point.de.Ludwigslust
+        de.VBL: Wdf
+        location:
+            line.de.6100: 174,5 # left
+
+    -   document: src.de.DBAG.BSV.2017
+        de.DS100: WWDF
+        name: Weselsdorf
+        de.name16: Weselsdorf
+        category: de.Hp
+        status: closed
+        PLC: DE21039
+        de.dstnr: !!str 273284
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        category: de.Hp
+        status: closed
+        name: Weselsdorf
+        location:
+            line.de.6100: 174,500
+        de.DS100: WWDF
 
 
 ---
 key: point.de.Niendorf-Ludwigslust
 type: point
 events:
-    -   date: !!null
-        location:
-            line.de.6100: 175,65
-        category: de.Bk
-        name: Niendorf
-        source: src.de.DRG.Alt.Karte.1931
-    -   date: c1965
-        location:
-            line.de.6100: 175,67
-        source: src.dd.DR.1976
-    -   date: !!null
-        de.VBL: Ni
-        source: src.dd.DR.1989
     -   date: c1995
         status: closed
 
     -   date: !!null
         site:
             path.de.6100: nie
+records:
+    -   document: src.de.DRG.Alt.Karte.1931
+        name: Niendorf
+        category: de.Bk
+        location:
+            line.de.6100: 175,65 # right
+        
+    -   document: src.dd.DR.Sch.1986
+        name: Niendorf
+        category: de.Bk
+        master: point.de.Ludwigslust
+        de.VBL: Ni
+        location:
+            line.de.6100: 175,67
 
 
 ---
@@ -2281,45 +2415,48 @@ key: point.de.Jasnitz
 type: point
 events:
     -   date: !!null
-        name: Jasnitz
-        source: src.de.Kb.1914
-    -   date: !!null
-        de.lknr: 01 019
-        source: src.de.Bfv.1928
-    -   date: !!null
-        category: de.Bf
-        de.rang: III
-        source: src.de.DRG.Alt.Karte.1931
-    -   date: c1932
-        de.rang: IV
-        source: src.de.Bfv.1933
-    -   date: de.lknr.30
-        de.lknr: 01 045
-        source: src.de.Bfv.1933
-    -   date: !!null
-        de.VBL: Jas
-        source: src.dd.DR.1976
-    -   date: c1965
-        de.rang: V
-        source: src.dd.DR.1976
-
-    -   date: de.ds100.dr
-        de.DS100: WJAS
-        de.dstnr: !!str 273292
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Jasnitz
-        PLC: DE15272
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.6100: 180,630
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
-
-    -   date: !!null
         site:
             path.de.6100: jas
+records:
+    -   document: src.de.Kb.1914
+        name: Jasnitz
+        
+    -   document: src.de.Bfv1928
+        name: Jasnitz
+        de.lknr: 01 019
+    -   document: src.de.DRG.Alt.Karte.1931
+        name: Jasnitz
+        category: de.Bf
+        de.rang: III
+        location:
+            line.de.6100: 180,63
+    -   document: src.de.Bfv1933
+        name: Jasnitz
+        category: de.Bf
+        de.rang: IV
+        de.lknr: 01 045
+
+    -   document: src.dd.DR.Sch.1986
+        name: Jasnitz
+        category: de.Bf
+        de.rang: IV
+        de.VBL: Jas
+        location:
+            line.de.6100: 180,63 # right
+
+    -   document: src.de.DBAG.BSV.2017
+        de.DS100: WJAS
+        name: Jasnitz
+        de.name16: Jasnitz
+        category: de.Bf
+        PLC: DE15272
+        de.dstnr: !!str 273292
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        category: de.Bf
+        name: Jasnitz
+        location:
+            line.de.6100: 180,630
+        de.DS100: WJAS
 
 
 ---
@@ -2327,56 +2464,55 @@ key: point.de.Strohkirchen
 type: point
 events: 
     -   date: !!null
-        name: Strohkirchen
-        source: src.de.Kb.1914
-    -   date: !!null
-        de.lknr: 01 342
-        service: passenger
-        source: src.de.Bfv.1928
-    -   date: !!null
-        location:
-            line.de.6100: 184,73
-        source: src.de.DRG.Alt.Karte.1931
-    -   date: de.lknr.30
-        de.lknr: 01 046
-        source: src.de.Bfv.1933
-    -   date: !!null
-        category: [ de.Hp, de.Bk ]
-        de.VBL: Str
-        source: src.dd.DR.1976
-
-    -   date: de.ds100.dr
-        de.DS100: WSTK
-        de.dstnr: !!str 273300
-        source: src.de.DBAG.BSV.2017
-    -   date: c2000
-        category: de.Hp
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Strohkirchen
-        PLC: DE20046
-        source: src.de.DBAG.BSV.2017
-
-    -   date: c2000
-        location:
-            line.de.6100: 184,650
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
-
-    -   date: !!null
         site:
             path.de.6100: str
+records:
+    -   document: src.de.Kb.1914
+        name: Strohkirchen
+        
+    -   document: src.de.Bfv1928
+        name: Strohkirchen
+        de.lknr: 01 342
+        goods: none
+    -   document: src.de.DRG.Alt.Karte.1931
+        name: Strohkirchen
+        category: de.Hp
+        location:
+            line.de.6100: 184,73 # right
+    -   document: src.de.Bfv1933
+        name: Strohkirchen
+        category: de.Hp
+        goods: none
+        de.lknr: 01 046
+        
+    -   document: src.dd.DR.Sch.1986
+        name: Strohkirchen
+        category: [ de.Hp, de.Bk ]
+        staff: full
+        master: point.de.Jasnitz
+        de.VBL: Str
+        location:
+            line.de.6100: 184,73 # right
+
+    -   document: src.de.DBAG.BSV.2017
+        de.DS100: WSTK
+        name: Strohkirchen
+        de.name16: Strohkirchen
+        category: de.Hp
+        PLC: DE20046
+        de.dstnr: !!str 273300
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        category: de.Hp
+        de.name16: Strohkirchen
+        location:
+            line.de.6100: 184,650
+        de.DS100: WSTK
 
 
 ---
 key: point.de.Moraas
 type: point
 events:
-    -   date: !!null
-        location:
-            line.de.6100: 188,74
-        category: de.Bk
-        name: Moraas
-        source: src.de.DRG.Alt.Karte.1931
     -   date: c1945
         status: closed
         source: src.dd.DR.1976
@@ -2384,66 +2520,76 @@ events:
     -   date: !!null
         site:
             path.de.6100: mor
-
+records:
+    -   document: src.de.DRG.Alt.Karte.1931
+        name: Moraas
+        category: de.Bk
+        location:
+            line.de.6100: 188,74 # right
+        
 
 ---
 key: point.de.Hagenow-Land
 type: point
-junction: True
 events: 
-    -   date: !!null
-        name: Hagenow Land
-        source: src.de.Kb.1914
-    -   date: !!null
-        de.lknr: 01 020
-        source: src.de.Bfv.1928
-    -   date: !!null
-        category: de.Bf
-        de.rang: I
-        source: src.de.DRG.Alt.Karte.1931
-    -   date: de.lknr.30
-        de.lknr: 01 048
-        source: src.de.Bfv.1933
-    -   date: !!null
-        de.VBL: Hgn
-        source: src.dd.DR.1976
-    -   date: c1965
-        de.rang: II
-        source: src.dd.DR.1976
-    -   date: !!null
-        de.DS100: XRHL
-        source: src.de.DS100.1984
-
-    -   date: de.ds100.dr
-        de.DS100: WHL
-        de.dstnr: !!str 273318
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Hagenow Land
-        PLC: DE14266
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.6100: 191,830
-            line.de.6442:   0,204
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
-
     -   date: !!null
         site:
             path.de.6100: hgn
+records:
+    -   document: src.de.Kb.1914
+        name: Hagenow Land
+        
+    -   document: src.de.Bfv1928
+        name: Hagenow Land
+        de.lknr: 01 020
+    -   document: src.de.DRG.Alt.Karte.1931
+        name: Hagenow Land
+        category: de.Bf
+        de.rang: I
+        location:
+            line.de.6100: 191,83
+            line.de.6442:   0,00
+            line.de.6928:   0,00
+    -   document: src.de.Bfv1933
+        name: Hagenow Land
+        category: de.Bf
+        de.rang: I
+        de.lknr: 01 048
+        
+    -   document: src.dd.DR.Sch.1986
+        name: Hagenow Land
+        category: de.Bf
+        de.rang: II
+        de.VBL: Hgn
+        location:
+            line.de.6100: 191,83
+            line.de.6442:   0,0
+            line.de.6928:   0,0
+
+    -   document: src.de.DS100.1984
+        name: Hagenow Land
+        de.DS100: XRHL
+
+    -   document: src.de.DBAG.BSV.2017
+        de.DS100: WHL
+        name: Hagenow Land
+        de.name16: Hagenow Land
+        category: de.Bf
+        PLC: DE14266
+        de.dstnr: !!str 273318
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        category: de.Bf
+        name: Hagenow Land
+        location:
+            line.de.6100: 191,830
+            line.de.6442:   0,204
+        de.DS100: WHL
 
 
 ---
 key: point.de.Paetow
 type: point
 events:
-    -   date: !!null
-        location:
-            line.de.6100: 194,65
-        category: de.Bk
-        name: Paetow
-        source: src.de.DRG.Alt.Karte.1931
     -   date: c1945
         status: closed
         source: src.dd.DR.1976
@@ -2451,6 +2597,13 @@ events:
     -   date: !!null
         site:
             path.de.6100: pat
+records:
+    -   document: src.de.DRG.Alt.Karte.1931
+        name: Paetow
+        category: de.Bk
+        location:
+            line.de.6100: 194,65 # right
+        
 
 
 ---
@@ -2458,40 +2611,38 @@ key: point.de.Warlitz
 type: point
 events:
     -   date: !!null
-        location:
-            line.de.6100: 198,36
-        category: de.Bk
+        site:
+            path.de.6100: war
+records:
+    -   document: src.de.DRG.Alt.Karte.1931
         name: Warlitz
-        source: src.de.DRG.Alt.Karte.1931
-    -   date: !!null
+        category: de.Bk
+        location:
+            line.de.6100: 198,36 # left
+
+    -   document: src.dd.DR.Sch.1986
+        name: Warlitz
+        category: de.Bk
+        master: point.de.Pritzier
         de.VBL: Waz
-        source: src.dd.DR.1976
+        location:
+            line.de.6100: 198,57 # left
 
-    -   date: de.ds100.dr
+    -   document: src.de.DBAG.BSV.2017
         de.DS100: WWAZ
-        de.dstnr: !!str 273391
-        source: src.de.DBAG.BSV.2017
-    -   date: c1995
-        category: de.Hp
-        source: src.de.DBAG.BSV.2017
-    -   date: c2000
-        status: closed
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
+        name: Warlitz
         de.name16: Warlitz
+        category: de.Hp
+        status: closed
         PLC: DE20790
-        source: src.de.DBAG.BSV.2017
-
-    -   date: c1965
+        de.dstnr: !!str 273391
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        category: de.Hp
+        status: closed
+        name: Warlitz
         location:
             line.de.6100: 198,570
-        source:
-            -   src.dd.DR.1976
-            -   src.de.DBAG.Geo-Betriebsstelle.2017
-
-    -   date: !!null
-        site:
-            path.de.6100: waz
+        de.DS100: WWAZ
 
 
 ---
@@ -2499,69 +2650,74 @@ key: point.de.Pritzier
 type: point
 events:
     -   date: !!null
+        site:
+            path.de.6100: pri
+records:
+    -   document: src.de.Kb.1914
         name: Pritzier
-        source: src.de.Kb.1914
-    -   date: !!null
+        
+    -   document: src.de.Bfv1928
+        name: Pritzier
         de.lknr: 01 021
-        source: src.de.Bfv.1928
-    -   date: !!null
-        location:
-            line.de.6100: 202,60
+    -   document: src.de.DRG.Alt.Karte.1931
+        name: Pritzier
         category: de.Bf
         de.rang: III
-        source: src.de.DRG.Alt.Karte.1931
-    -   date: de.lknr.30
+        location:
+            line.de.6100: 202,60 # left
+    -   document: src.de.Bfv1933
+        name: Pritzier
+        category: de.Bf
+        de.rang: III
         de.lknr: 01 049
-        source: src.de.Bfv.1933
-    -   date: !!null
-        de.VBL: Prz
-        source: src.dd.DR.1976
-    -   date: c1965
+
+    -   document: src.dd.DR.Sch.1986
+        name: Pritzier
+        category: de.Bf
         de.rang: IV
-        source: src.dd.DR.1976
+        de.VBL: Prz
+        location:
+            line.de.6100: 202,6 # left
 
-    -   date: de.ds100.dr
+    -   document: src.de.DBAG.BSV.2017
         de.DS100: WPRZ
-        de.dstnr: !!str 273326
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
+        name: Pritzier
         de.name16: Pritzier
+        category: de.Bf
         PLC: DE18533
-        source: src.de.DBAG.BSV.2017
-
-    -   date: c2000
+        de.dstnr: !!str 273326
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        name: Pritzier
+        category: de.Bf
         location:
             line.de.6100: 202,596
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
-
-    -   date: !!null
-        site:
-            path.de.6100: prz
+        de.DS100: WPRZ
 
 
 ---
 key: point.de.Melkof
 type: point
 events:
-    -   date: !!null
-        location:
-            line.de.6100: 206,56
-        category: de.Bk
-        name: Melkof
-        source: src.de.DRG.Alt.Karte.1931
-    -   date: !!null
-        de.VBL: Mlk
-        source: src.dd.DR.1976
-    -   date: c1965
-        location:
-            line.de.6100: 206,539
-        source: src.dd.DR.1976
     -   date: c1995
         status: closed
 
     -   date: !!null
         site:
-            path.de.6100: mlk
+            path.de.6100: mel
+records:
+    -   document: src.de.DRG.Alt.Karte.1931
+        name: Melkof
+        category: de.Bk
+        location:
+            line.de.6100: 206,56 # left
+
+    -   document: src.dd.DR.Sch.1986
+        name: Melkof
+        category: de.Bk
+        master: point.de.Brahlstorf
+        de.VBL: Mlk
+        location:
+            line.de.6100: 206,539 # left
 
 
 ---
@@ -2569,90 +2725,105 @@ key: point.de.Brahlstorf
 type: point
 events:
     -   date: !!null
-        name: Brahlstorf
-        source: src.de.Kb.1914
-    -   date: !!null
-        de.lknr: 01 022
-        source: src.de.Bfv.1928
-    -   date: !!null
-        category: de.Bf
-        de.rang: III
-        source: src.de.DRG.Alt.Karte.1931
-    -   date: de.lknr.30
-        de.lknr: 01 050
-        source: src.de.Bfv.1933
-    -   date: !!null
-        de.VBL: Brh
-        source: src.dd.DR.1976
-    -   date: c1965
-        de.rang: IV
-        source: src.dd.DR.1976
-
-    -   date: de.ds100.dr
-        de.DS100: WBRH
-        de.dstnr: !!str 273342
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Brahlstorf
-        PLC: DE11546
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.6100: 211,540
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
-
-    -   date: !!null
         connection: point.de.Brahlstorf-Kleinb
         site:
             path.de.6100: brh
+records:
+    -   document: src.de.Kb.1914
+        name: Brahlstorf
+        
+    -   document: src.de.Bfv1928
+        name: Brahlstorf
+        de.lknr: 01 022
+    -   document: src.de.DRG.Alt.Karte.1931
+        name: Brahlstorf
+        category: de.Bf
+        de.rang: III
+        location:
+            line.de.6100: 211,54 # right
+    -   document: src.de.Bfv1933
+        name: Brahlstorf
+        category: de.Bf
+        de.rang: III
+        de.lknr: 01 050
+
+    -   document: src.dd.DR.Sch.1986
+        name: Brahlstorf
+        category: de.Bf
+        de.rang: IV
+        de.VBL: Brh
+        location:
+            line.de.6100: 211,54 # right
+
+    -   document: src.de.DBAG.BSV.2017
+        de.DS100: WBRH
+        name: Brahlstorf
+        de.name16: Brahlstorf
+        category: de.Bf
+        de.dstnr: !!str 273342
+        PLC: DE11546
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        category: de.Bf
+        name: Brahlstorf
+        location:
+            line.de.6100: 211,540
+        de.DS100: WBRH
 
 
 ---
 key: point.de.Kuhlenfeld
 type: point
 events:
-    -   date: !!null
-        name: Kuhlenfeld
-        source: src.de.Kb.1914
-    -   date: !!null
-        de.lknr: 01 023
-        source: src.de.Bfv.1928
-    -   date: !!null
-        location:
-            line.de.6100: 218,16
-        category: de.Bf
-        de.rang: III
-        source: src.de.DRG.Alt.Karte.1931
-    -   date: c1932
-        de.rang: IV
-        source: src.de.Bfv.1933
-    -   date: de.lknr.30
-        de.lknr: 01 051
-        source: src.de.Bfv.1933
-    -   date: !!null
-        de.VBL: Kd
-        source: src.dd.DR.1976
-    -   date: c1965
-        location:
-            line.de.6100: 218,17
-        source: src.dd.DR.1976
-    -   date: c1965
-        de.rang: III
-        source: src.dd.DR.1976
-    -   date: de.ds100.dr
-        de.DS100: WKD
-    -   date: c1990
-        category: de.Hp
     -   date: c1995
         status: closed
 
     -   date: !!null
         site:
             path.de.6100: kfd
+records:
+    -   document: src.de.Kb.1914
+        name: Kuhlenfeld
+        
+    -   document: src.de.Bfv1928
+        name: Kuhlenfeld
+        de.lknr: 01 023
+    -   document: src.de.DRG.Alt.Karte.1931
+        name: Kuhlenfeld
+        category: de.Bf
+        de.rang: III
+        location:
+            line.de.6100: 218,16 # left
+    -   document: src.de.Bfv1933
+        name: Kuhlenfeld
+        category: de.Bf
+        de.rang: IV
+        de.lknr: 01 051
+
+    -   document: src.dd.DR.Sch.1986
+        name: Kuhlenfeld
+        category: de.Bf
+        de.rang: III
+        de.VBL: Kd
+        location:
+            line.de.6100: 218,17 # left
 
 
-# src.de.DRG.Alt.Karte.1931: unbenannter Bk links
+---
+key: point.de.Neu-Gülze
+type: point
+events:
+    -   date: c1950
+        status: closed
+
+    -   date: !!null
+        site:
+            path.de.6100: mel
+records:
+    -   document: src.de.DRG.Alt.Karte.1935
+        name: Neu Gülze
+        category: de.Bk
+        location:
+            line.de.6100: 221,21 # left
 
 
 ---
@@ -2660,66 +2831,60 @@ key: point.de.Boizenburg
 type: point
 events:
     -   date: !!null
-        name: Boizenburg Stsbf
-        source: src.de.Kb.1914
-    -   date: !!null
-        de.lknr: 01 024
-        source: src.de.Bfv.1928
-    -   date: !!null
-        location:
-            line.de.6100: 224,93
-        category: de.Bf
-        de.rang: II
-        source: src.de.DRG.Alt.Karte.1931
-    -   date: de.lknr.30
-        de.lknr: 01 052
-        source: src.de.Bfv.1933
-    -   date: !!null
-        de.VBL: Bzb
-        source: src.dd.DR.1976
-    -   date: c1925
-        name: Boizenburg
-        source: src.de.Bfv.1933
-    -   date: c1940
-        name: Boizenburg (Elbe)
-        source: src.de.Bfv.1944
-    -   date: c1950
-        location:
-            line.de.6959: "?"
-    -   date: c1965
-        de.rang: III
-        source: src.dd.DR.1976
-
-    -   date: de.ds100.dr
-        de.DS100: WBZ
-        de.dstnr: !!str 273367
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Boizenburg(Elbe)
-        PLC: DE11448
-        source: src.de.DBAG.BSV.2017
-
-    -   date: c2000
-        location:
-            line.de.6100: 224,954
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
-
-    -   date: !!null
         connection: point.de.Boizenburg-Kleinb
         site:
-            path.de.6100: bzb
+            path.de.6100: boi
+records:
+    -   document: src.de.Kb.1914
+        name: Boizenburg Stsbf
+        
+    -   document: src.de.Bfv1928
+        name: Boizenburg
+        de.lknr: 01 024
+    -   document: src.de.DRG.Alt.Karte.1931
+        name: Boizenburg
+        category: de.Bf
+        de.rang: II
+        location:
+            line.de.6100: 224,93 # left
+    -   document: src.de.Bfv1933
+        name: Boizenburg
+        category: de.Bf
+        de.rang: II
+        de.lknr: 01 052
+    -   document: src.de.Bfv1944
+        name: Boizenburg (Elbe)
+        category: de.Bf
+        de.rang: II
+        de.lknr: 01 052
 
+    -   document: src.dd.DR.Sch.1986
+        name: Boizenburg (Elbe)
+        category: de.Bf
+        de.rang: III
+        de.VBL: Bzb
+        location:
+            line.de.6100: 224,93 # left
+        
+    -   document: src.de.DBAG.BSV.2017
+        de.DS100: WBZ
+        name: Boizenburg (Elbe)
+        de.name16: Boizenburg(Elbe)
+        category: de.Bf
+        PLC: DE11448
+        de.dstnr: !!str 273367
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        category: de.Bf
+        name: Boizenburg (Elbe)
+        location:
+            line.de.6100: 224,954
+        de.DS100: WBZ
+        
 
 ---
 key: point.de.Metlitzhof
 type: point
 events:
-    -   date: !!null
-        location:
-            line.de.6100: 228,27
-        category: de.Bk
-        name: Metlitzhof
-        source: src.de.DRG.Alt.Karte.1931
     -   date: c1945
         status: closed
         source: src.dd.DR.1976
@@ -2727,6 +2892,13 @@ events:
     -   date: !!null
         site:
             path.de.6100: met
+records:
+    -   document: src.de.DRG.Alt.Karte.1931
+        name: Metlitzhof
+        category: de.Bk
+        location:
+            line.de.6100: 228,27 # right
+        
 
 
 ---
@@ -2734,69 +2906,70 @@ key: point.de.Schwanheide
 type: point
 events:
     -   date: !!null
-        name: Schwanheide
-        source: src.de.Kb.1914
-    -   date: !!null
-        de.lknr: 01 025
-        source: src.de.Bfv.1928
-    -   date: !!null
-        location:
-            line.de.6100: 232,52
-        category: de.Bf
-        de.rang: III
-        source: src.de.DRG.Alt.Karte.1931
-    -   date: c1932
-        de.rang: IV
-        source: src.de.Bfv.1933
-    -   date: de.lknr.30
-        de.lknr: 01 053
-        source: src.de.Bfv.1933
-    -   date: !!null
-        de.VBL: Sa
-        source: src.dd.DR.1976
-    -   date: c1965
-        location:
-            line.de.6100: 232,02
-        source: src.dd.DR.1976
-    -   date: c1965
-        de.rang: III
-        source: src.dd.DR.1976
-    -   date: !!null
-        de.DS100: XRSH
-        source: src.de.DS100.1984
-
-    -   date: de.ds100.dr
-        de.DS100: WSAH
-        de.dstnr: !!str 273383
-        source: src.de.DBAG.BSV.2017
-    -   date: c2005
-        category: [de.Hp, de.Üst]
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Schwanheide
-        PLC: DE19543
-        source: src.de.DBAG.BSV.2017
-
-    -   date: c2000
-        location:
-            line.de.6100: 232,008
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
-
-    -   date: !!null
         site:
             path.de.6100: sah
+records:
+    -   document: src.de.Kb.1914
+        name: Schwanheide
+        
+    -   document: src.de.Bfv1928
+        name: Schwanheide
+        de.lknr: 01 025
+    -   document: src.de.DRG.Alt.Karte.1931
+        name: Schwanheide
+        category: de.Bf
+        de.rang: III
+        location:
+            line.de.6100: 232,52 # right
+    -   document: src.de.Bfv1933
+        name: Schwanheide
+        category: de.Bf
+        de.rang: IV
+        de.lknr: 01 053
+    -   document: src.de.DRG.Alt.Karte.1931
+        name: Schwanheide
+        category: de.Hst
+        staff: full
+        location:
+            line.de.6100: 232,52 # right
+    -   document: src.de.Bfv1938
+        name: Schwanheide
+        category: de.Bf
+        de.rang: IV
+        de.lknr: 01 053
+
+    -   document: src.dd.DR.Sch.1986
+        name: Schwanheide
+        category: de.Bf
+        de.rang: III
+        de.VBL: Sa
+        location:
+            line.de.6100: 232,02 # right
+
+    -   date: !!null
+        de.DS100: XRSH
+        document: src.de.DS100.1984
+
+    -   document: src.de.DBAG.BSV.2017
+        de.DS100: WSAH
+        name: Schwanheide
+        de.name16: Schwanheide
+        category: [de.Hp, de.Üst]
+        PLC: DE19543
+        de.dstnr: !!str 273383
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        category: [de.Hp, de.Üst]
+        name: Schwanheide
+        location:
+            line.de.6100: 232,008
+        de.DS100: WSAH
+        
 
 
 ---
 key: point.de.Zweedorf
 type: point
 events:
-    -   date: !!null
-        location:
-            line.de.6100: 234,92
-        category: de.Bk
-        name: Zweedorf
-        source: src.de.DRG.Alt.Karte.1931
     -   date: c1945
         status: closed
         source: src.dd.DR.1976
@@ -2804,6 +2977,13 @@ events:
     -   date: !!null
         site:
             path.de.6100: zwe
+records:
+    -   document: src.de.DRG.Alt.Karte.1931
+        name: Zweedorf
+        category: de.Bk
+        location:
+            line.de.6100: 234,92 # left
+        
 
 
 ---
@@ -2812,28 +2992,25 @@ type: point
 subtype: border
 events:
     -   date: !!null
+        site:
+            path.de.6100: gsah
+records:
+    -   document: src.de.DS100.1984
         name: Büchen Grenze
         de.DS100: AGRS
         de.dstnr: !!str 010553
         category: de.Tp
-        source: src.de.DS100.1984
-    -   date: c1995
+    -   document: src.dd.DR.Sch.1986
+        location:
+            line.de.6100: 236,475
+
+    -   document: src.de.DBAG.BSV.2017
         de.DS100: WQSA
         name: Schwanheide MV/SH
         de.name16: Schwanhde LGr
         category: de.LGr
         PLC: DE19545
         de.dstnr: !!str 104028
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.6100: 236,475
-        source: src.dd.DR.1989
-
-    -   date: !!null
-        site:
-            path.de.6100: gsah
 
 
 ---
@@ -2841,48 +3018,68 @@ key: point.de.Büchen
 type: point
 events:
     -   date: !!null
-        name: Büchen
-        source: src.de.Kb.1914
-    -   date: !!null
-        de.lknr: 01 026
-        source: src.de.Bfv.1928
-    -   date: !!null
-        category: de.Bf
-        de.rang: I
-        source: src.de.Bfv.1933
-    -   date: de.lknr.30
-        de.lknr: 01 054
-        source: src.de.Bfv.1933
-    -   date: !!null
-        de.DS100: ABCH
-        de.dstnr: !!str 010546
-        source: src.de.DS100.1984
-    -   date: !!null
-        de.name16: Büchen
-        PLC: DE11785
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.1121:  47,61
-            line.de.1150: 161,31
-            line.de.6100: 238,90
-        source: src.de.DRG.Alt.Karte.1949
-    -   date: c1980
-        location:
-            line.de.1121:  47,59
-        source: src.de.DB.Hmb.Karte.1984
-    -   date: c1980
-        location:
-            line.de.1150: 161,338
-            line.de.6100: 238,916
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
-
-    -   date: !!null
         site:
             path.de.6100: buc
             path.de.1121: buc
             path.de.1150: buc
+records:
+    -   document: src.de.Kb.1914
+        name: Büchen
+        
+    -   document: src.de.Bfv1928
+        name: Büchen
+        de.lknr: 01 026
+    -   document: src.de.DRG.Alt.Karte.1931
+        name: Büchen
+        category: de.Bf
+        de.rang: I
+        location:
+            line.de.1150: 161,31 # right
+            line.de.6100: 238,90 # left
+    -   document: src.de.Bfv1933
+        name: Büchen
+        category: de.Bf
+        de.rang: I
+        de.lknr: 01 054
+
+    -   document: src.de.DB.Hmb.Karte.1956
+        name: Büchen
+        category: de.Bf
+        de.rang: I
+        location:
+            line.de.1121:  47,61
+            line.de.1150: 161,31 # right
+            line.de.6100: 238,90 # left
+    
+    -   document: src.de.DS100.1984
+        name: Büchen
+        category: de.Bf
+        de.DS100: ABCH
+        de.dstnr: !!str 010546
+    -   document: src.de.DB.Hmb.Karte.1984
+        name: Büchen
+        category: de.Bf
+        location:
+            line.de.1121:  47,59
+            line.de.1150: 161,34
+            line.de.6100: 238,92
+        
+    -   document: src.de.DBAG.BSV.2017
+        de.DS100: ABCH
+        name: Büchen
+        de.name16: Büchen
+        category: de.Bf
+        PLC: DE11785
+        de.dstnr: !!str 010546
+        source: src.de.DRG.Alt.Karte.1949
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        category: de.Bf
+        name: Büchen
+        location:
+            line.de.1150: 161,338
+            line.de.6100: 238,916
+        de.DS100: ABCH
+        
 
 
 ---
@@ -2893,18 +3090,18 @@ events:
         status: open
         split_from: point.de.Büchen
         master: point.de.Büchen
+
     -   date: !!null
+        site:
+            path.de.6100: bcb
+records:
+    -   document: src.de.DBAG.BSV.2017
         category: de.Bft
         name: Büchen Bbf
         de.name16: Büchen Bbf
         de.DS100: ABCHG
         PLC: DE11786
         de.dstnr: !!str 908649
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        site:
-            path.de.6100: bcb
 
 
 ---
@@ -2912,18 +3109,23 @@ key: point.de.Büchen-Steinautal
 type: point
 events:
     -   date: !!null
+        site:
+            path.de.6100: stt
+records:
+    -   document: src.de.DBAG.BSV.2017
         de.DS100: ASTT
         name: Büchen Steinautal
         de.name16: Steinautal
         category: de.Üst
         PLC: DE11787
         de.dstnr: !!str 808543
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        category: de.Üst
+        name: Büchen Steinautal
         location:
             line.de.6100: 241,640
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
+        de.DS100: ASTT
+        
 
 
 ---
@@ -2931,46 +3133,58 @@ key: point.de.Müssen
 type: point
 events:
     -   date: !!null
-        name: Müssen
-        source: src.de.Kb.1914
-    -   date: !!null
-        de.lknr: 01 027
-        source: src.de.Bfv.1928
-    -   date: !!null
-        category: de.Bf
-        de.rang: IV
-        source: src.de.DRG.Alt.Karte.1931
-    -   date: de.lknr.30
-        de.lknr: 01 056
-        source: src.de.Bfv.1933
-    -   date: !!null
-        de.DS100: AMUE
-        de.dstnr: !!str 010561
-        source: src.de.DS100.1984
-    -   date: c1990
-        category: de.Hp
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Müssen
-        PLC: DE17354
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.6100: 244,07
-        source: src.de.DRG.Alt.Karte.1931
-    -   date: c1940
-        location:
-            line.de.6100: 244,02
-        source: src.de.DRG.Alt.Karte.1949
-    -   date: c2000
-        location:
-            line.de.6100: 244,017
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
-
-    -   date: !!null
         site:
             path.de.6100: mus
+records:
+    -   document: src.de.Kb.1914
+        name: Müssen
+        
+    -   document: src.de.Bfv1928
+        name: Müssen
+        de.lknr: 01 027
+    -   document: src.de.DRG.Alt.Karte.1931
+        name: Müssen
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.6100: 244,07
+    -   document: src.de.Bfv1933
+        name: Müssen
+        category: de.Bf
+        de.rang: IV
+        de.lknr: 01 056
+
+    -   document: src.de.DB.Hmb.Karte.1956
+        name: Müssen
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.6100: 244,02 # left
+    -   document: src.de.DS100.1984
+        name: Müssen
+        category: de.Bf
+        de.DS100: AMUE
+        de.dstnr: !!str 010561
+    -   document: src.de.DB.Hmb.Karte.1984
+        name: Müssen
+        category: de.Bf
+        location:
+            line.de.6100: 244,02 # left
+
+    -   document: src.de.DBAG.BSV.2017
+        de.DS100: AMUE
+        name: Müssen
+        de.name16: Müssen
+        category: de.Hp
+        PLC: DE17354
+        de.dstnr: !!str 010561
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        category: de.Hp
+        name: Müssen
+        location:
+            line.de.6100: 244,017
+        de.DS100: AMUE
+        
 
 # src.de.DRG.Alt.Karte.1931: 248,65 BA Ludwigslust/Hamburg
 
@@ -2980,82 +3194,116 @@ key: point.de.Schwarzenbek
 type: point
 events:
     -   date: !!null
-        name: Schwarzenbek
-        source: src.de.Kb.1914
-    -   date: !!null
-        de.lknr: 01 028
-        source: src.de.Bfv.1928
-    -   date: !!null
-        category: de.Bf
-        de.rang: II
-        source: src.de.Bfv.1933
-    -   date: de.lknr.30
-        de.lknr: 01 057
-        source: src.de.Bfv.1933
-    -   date: !!null
-        de.DS100: ASWA
-        de.dstnr: !!str 010579
-        source: src.de.DS100.1984
-    -   date: !!null
-        de.name16: Schwarzenbek
-        PLC: DE19557
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.1141: 249,26
-            line.de.6100: 249,26
-        source: src.de.DRG.Alt.Karte.1931
-    -   date: c2000
-        location:
-            line.de.6100: 249,229
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
-
-    -   date: !!null
         site:
             path.de.6100: swa
             path.de.1141: swa
+records:
+    -   document: src.de.Kb.1914
+        name: Schwarzenbek
+        
+    -   document: src.de.Bfv1928
+        name: Schwarzenbek
+        de.lknr: 01 028
+    -   document: src.de.DRG.Alt.Karte.1931
+        name: Schwarzenbek
+        category: de.Bf
+        de.rang: II
+        location:
+            line.de.1141: 249,26
+            line.de.6100: 249,26
+    -   document: src.de.Bfv1933
+        name: Schwarzenbek
+        category: de.Bf
+        de.rang: II
+        de.lknr: 01 057
+
+    -   document: src.de.DB.Hmb.Karte.1956
+        name: Schwarzenbek
+        category: de.Bf
+        de.rang: II
+        location:
+            line.de.1141: 249,26
+            line.de.6100: 249,26
+    -   document: src.de.DS100.1984
+        name: Schwarzenbek
+        category: de.Bf
+        de.DS100: ASWA
+        de.dstnr: !!str 010579
+    -   document: src.de.DB.Hmb.Karte.1984
+        name: Schwarzenbek
+        category: de.Bf
+        location:
+            line.de.6100: 249,23 # left
+        
+    -   document: src.de.DBAG.BSV.2017
+        de.DS100: ASWA
+        name: Schwarzenbek
+        de.name16: Schwarzenbek
+        category: de.Bf
+        PLC: DE19557
+        de.dstnr: !!str 010579
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        category: de.Bf
+        name: Schwarzenbek
+        location:
+            line.de.6100: 249,229
+        de.DS100: ASWA
 
 
 ---
 key: point.de.Radekamp
 type: point
 events:
-    -   date: !!null
-        location:
-            line.de.6100: 251,86
-        category: [de.Bk, de.Anst]
-        name: Radekamp
-        source: src.de.DRG.Alt.Karte.1931
-    -   date: !!null
-        de.DS100: ARAP
     -   date: c1990
         status: closed
 
     -   date: !!null
         site:
             path.de.6100: rap
+records:
+    -   document: src.de.DRG.Alt.Karte.1931
+        location:
+            line.de.6100: 251,86
+        category: [de.Bk, de.Anst]
+        name: Radekamp
+
+    -   document: src.de.DB.Hmb.Karte.1956
+        location:
+            line.de.6100: 251,86 # right
+        category: de.Bk
+        name: Radekamp
+    -   document: src.de.DS100.1984
+        de.DS100: ARAP
+        category: de.Bk
+        name: Radekamp
 
 
 ---
 key: point.de.Sachsenwald
 type: point
 events:
-    -   date: !!null
-        location:
-            line.de.6100: 255,20
-        category: [de.Bk, de.Anst]
-        name: Sachsenwald
-        source: src.de.DRG.Alt.Karte.1931
-    -   date: !!null
-        de.DS100: ASAD
-        source: src.de.DS100.1984
     -   date: c1990
         status: closed
 
     -   date: !!null
         site:
             path.de.6100: sad
+records:
+    -   document: src.de.DRG.Alt.Karte.1931
+        location:
+            line.de.6100: 255,20
+        category: [de.Bk, de.Anst]
+        name: Sachsenwald
+        
+    -   document: src.de.DB.Hmb.Karte.1956
+        location:
+            line.de.6100: 255,20 # right
+        category: de.Bk
+        name: Sachsenwald
+    -   document: src.de.DS100.1984
+        de.DS100: ASAD
+        category: de.Bk
+        name: Sachsenwald
 
 
 ---
@@ -3063,75 +3311,76 @@ key: point.de.Friedrichsruh
 type: point
 events:
     -   date: !!null
-        name: Friedrichsruh
-        source: src.de.Kb.1914
-    -   date: !!null
-        de.lknr: 01 029
-        source: src.de.Bfv.1928
-    -   date: !!null
-        category: de.Bf
-        de.rang: III
-        source: src.de.DRG.Alt.Karte.1931
-    -   date: de.lknr.30
-        de.lknr: 01 058
-        source: src.de.Bfv.1933
-    -   date: !!null
-        de.DS100: AFRD
-        de.dstnr: !!str 010587
-        source: src.de.DS100.1984
-    -   date: c1970
-        category: de.Hp
-        source: src.de.DS100.1984
-    -   date: !!null
-        de.name16: Friedrichsruh
-        PLC: DE13464
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.6100: 259,57
-        source: src.de.DRG.Alt.Karte.1931
-    -   date: c1995
-        location:
-            line.de.6100: 259,4+166
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
-
-    -   date: !!null
         site:
             path.de.6100: frr
+records:
+    -   document: src.de.Kb.1914
+        name: Friedrichsruh
+        
+    -   document: src.de.Bfv1928
+        name: Friedrichsruh
+        de.lknr: 01 029
+    -   document: src.de.DRG.Alt.Karte.1931
+        name: Friedrichsruh
+        category: de.Bf
+        de.rang: III
+        location:
+            line.de.6100: 259,57 # right
+    -   document: src.de.Bfv1933
+        name: Friedrichsruh
+        category: de.Bf
+        de.rang: III
+        de.lknr: 01 058
+
+    -   document: src.de.DB.Hmb.Karte.1956
+        name: Friedrichsruh
+        category: de.Bf
+        de.rang: III
+        location:
+            line.de.6100: 259,57 # right
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 010587
+        name: Friedrichsruh
+        de.DS100: AFRD
+        category: de.Hp
+    -   document: src.de.DB.Hmb.Karte.1984
+        name: Friedrichsruh
+        category: de.Hp
+        location:
+            line.de.6100: 259,57 # right
+        
+    -   document: src.de.DBAG.BSV.2017
+        de.DS100: AFRD
+        name: Friedrichsruh
+        de.name16: Friedrichsruh
+        category: de.Hp
+        PLC: DE13464
+        de.dstnr: !!str 010587
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        category: de.Hp
+        name: Friedrichsruh
+        location:
+            line.de.6100: 259,4+166
+        de.DS100: AFRD
 
 
 ---
 key: point.de.Aumühle-Abzw
 type: point
 events:
-    -   date: c2002
-        status: open
-        split_from: point.de.Aumühle
-    -   date: !!null
-        location:
-            line.de.6100: 260,9
-        source: src.de.SuW.2005
-    -   date: !!null
-        category: de.Üst
-    -   date: !!null
-        name: Aumühle
-        de.DS100: AAH
-    -   date: c2012
-        name: Aumühle Abzw
-        de.DS100: AAH A
-        source: src.de.TPP.2012
-    -   date: c2012
-        category: [ de.Bft, de.Abzw ]
-        de.name16: Aumühle Abzw
-        PLC: DE10371
-        de.dstnr: !!str 010595
-        source: src.de.DBAG.BSV.2017
-
     -   date: !!null
         site:
             path.de.6100: aua
             path.de.1285: aua
+records:
+    -   document: src.de.DBAG.BSV.2017
+        de.DS100: AAH A
+        name: Aumühle Abzw
+        de.name16: Aumühle Abzw
+        category: [ de.Bft, de.Abzw ]
+        PLC: DE10371
+        de.dstnr: !!str 010595
+
 
 ---
 key: point.de.Aumühle
@@ -3139,32 +3388,32 @@ type: point
 events:
     -   date: !!null
         name: Aumühle
-        source: src.de.Kb.1914
+        document: src.de.Kb.1914
     -   date: !!null
         de.lknr: 01 343
         service: passenger
-        source: src.de.Bfv.1928
+        document: src.de.Bfv1928
     -   date: c1920
         name: Aumühle b Friedrichsruh
-        source: src.de.Bfv.1928
+        document: src.de.Bfv1928
     -   date: !!null
         location:
             line.de.6100: 261,34
         category: de.Bf
         de.rang: III
-        source: src.de.DRG.Alt.Karte.1931
+        document: src.de.DRG.Alt.Karte.1931
     -   date: c1930
         name: Aumühle
-        source: src.de.Bfv.1933
+        document: src.de.Bfv1933
     -   date: de.lknr.30
         de.lknr: 01 059
-        source: src.de.Bfv.1933
+        document: src.de.Bfv1933
     -   date: !!null
         source: src.de.DRG.Alt.Karte.1949
     -   date: !!null    
         de.DS100: AAH
         de.dstnr: !!str 010595
-        source: src.de.DS100.1984
+        document: src.de.DS100.1984
     -   date: c2002
         status: closed
         source: src.de.TPP.2006
@@ -3175,12 +3424,12 @@ events:
         de.name16: Aumühle
         PLC: DE10369
         de.dstnr: !!str 685172
-        source: src.de.DBAG.BSV.2017
+        document: src.de.DBAG.BSV.2017
     -   date: c2012
         location:
             line.de.1244: 25,093
             line.de.6100: !!null
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -3217,38 +3466,38 @@ type: point
 events:
     -   date: !!null
         name: Wohltorf
-        source: src.de.Kb.1914
+        document: src.de.Kb.1914
     -   date: !!null
         de.lknr: 01 344
-        source: src.de.Bfv.1928
+        document: src.de.Bfv1928
     -   date: !!null
         category: [de.Hp, de.Bk]
-        source: src.de.DRG.Alt.Karte.1931
+        document: src.de.DRG.Alt.Karte.1931
     -   date: de.lknr.30
         de.lknr: 01 060
-        source: src.de.Bfv.1933
+        document: src.de.Bfv1933
     -   date: !!null
         de.DS100: AWLF
         de.dstnr: !!str 010603
-        source: src.de.DS100.1984
+        document: src.de.DS100.1984
     -   date: c1970
         category: de.Hp
-        source: src.de.DS100.1984
+        document: src.de.DS100.1984
     -   date: 2002-05-26?
         category: [de.Hp, de.Üst]
         source: src.de.SuW.2005
     -   date: c2006
         category: de.Bf
-        source: src.de.DBAG.BSV.2017
+        document: src.de.DBAG.BSV.2017
     -   date: !!null
         de.name16: Wohltorf
         PLC: DE21252
-        source: src.de.DBAG.BSV.2017
+        document: src.de.DBAG.BSV.2017
 
     -   date: !!null
         location:
             line.de.6100: 264,08
-        source: src.de.DRG.Alt.Karte.1931
+        document: src.de.DRG.Alt.Karte.1931
     -   date: c1940
         location:
             line.de.6100: 264,07
@@ -3257,7 +3506,7 @@ events:
         location:
             line.de.1244: 22,407
             line.de.6100: !!null
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -3270,42 +3519,42 @@ type: point
 events:
     -   date: !!null
         name: Reinbek
-        source: src.de.Kb.1914
+        document: src.de.Kb.1914
     -   date: !!null
         de.lknr: 01 030
-        source: src.de.Bfv.1928
+        document: src.de.Bfv1928
     -   date: !!null
         category: de.Bf
         de.rang: III
-        source: src.de.DRG.Alt.Karte.1931
+        document: src.de.DRG.Alt.Karte.1931
     -   date: de.lknr.30
         de.lknr: 01 061
-        source: src.de.Bfv.1933
+        document: src.de.Bfv1933
     -   date: !!null
         de.DS100: ARBK
         de.dstnr: !!str 010611
-        source: src.de.DS100.1984
+        document: src.de.DS100.1984
     -   date: c2010
         category: de.Hp
-        source: src.de.DBAG.BSV.2017
+        document: src.de.DBAG.BSV.2017
     -   date: !!null
         de.name16: Reinbek
         PLC: DE18752
-        source: src.de.DBAG.BSV.2017
+        document: src.de.DBAG.BSV.2017
 
     -   date: !!null
         location:
             line.de.6100: 266,34
-        source: src.de.DRG.Alt.Karte.1931
+        document: src.de.DRG.Alt.Karte.1931
     -   date: c1970
         location:
             line.de.6100: 266,33
-        source: src.de.DB.Hmb.Karte.1984
+        document: src.de.DB.Hmb.Karte.1984
     -   date: c2002
         location:
             line.de.1244: 20,090
             line.de.6100: !!null
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -3325,7 +3574,7 @@ events:
         category: de.LGr
         PLC: DE18754
         de.dstnr: !!str 104029
-        source: src.de.DBAG.BSV.2017
+        document: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
@@ -3347,10 +3596,10 @@ events:
         source: src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.DS100: AMG
-        source: src.de.DS100.1984
+        document: src.de.DS100.1984
     -   date: c1950
         name: Mörkenweg
-        source: src.de.DS100.1984
+        document: src.de.DS100.1984
     -   date: c1990
         status: closed
 
@@ -3365,17 +3614,17 @@ type: point
 events:
     -   date: !!null
         name: Bergedorf
-        source: src.de.Kb.1914
+        document: src.de.Kb.1914
     -   date: !!null
         de.lknr: 01 031
-        source: src.de.Bfv.1928
+        document: src.de.Bfv1928
     -   date: !!null
         category: de.Bf
         de.rang: II
-        source: src.de.DRG.Alt.Karte.1931
+        document: src.de.DRG.Alt.Karte.1931
     -   date: de.lknr.30
         de.lknr: 01 062
-        source: src.de.Bfv.1933
+        document: src.de.Bfv1933
     -   date: 1938-05-15
         name: Hamburg-Bergedorf
         source: src.de.web.Nosske
@@ -3384,16 +3633,16 @@ events:
         de.dstnr: !!str 010637
     -   date: c1990
         de.DS100: ABG
-        source: src.de.DBAG.BSV.2017
+        document: src.de.DBAG.BSV.2017
     -   date: !!null
         de.name16: Hmb-Bergedorf
         PLC: DE14429
-        source: src.de.DBAG.BSV.2017
+        document: src.de.DBAG.BSV.2017
 
     -   date: !!null
         location:
             line.de.6100: 270,01
-        source: src.de.DRG.Alt.Karte.1931
+        document: src.de.DRG.Alt.Karte.1931
     -   date: c1940
         location:
             line.de.6100: 270,08
@@ -3401,7 +3650,7 @@ events:
     -   date: c2000
         location:
             line.de.6100: 207,072
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -3417,7 +3666,7 @@ events:
         location:
             line.de.6100: 271,17
         name: Ba
-        source: src.de.DRG.Alt.Karte.1931
+        document: src.de.DRG.Alt.Karte.1931
     -   date: c1940
         location:
             line.de.6100: 271,18
@@ -3455,7 +3704,7 @@ events:
         de.DS100: ABG G
         PLC: DE14431
         de.dstnr: !!str 908663
-        source: src.de.DBAG.BSV.2017
+        document: src.de.DBAG.BSV.2017
     -   date: !!null
         master: point.de.Hamburg-Bergedorf
 
@@ -3478,24 +3727,24 @@ events:
         name: Nettelnburg
         de.DS100: ANTB
         category: de.Hp
-        source: src.de.DS100.1984
+        document: src.de.DS100.1984
     -   date: c2000
         name: Hamburg-Nettelnburg
-        source: src.de.DBAG.BSV.2017
+        document: src.de.DBAG.BSV.2017
     -   date: !!null
         de.name16: Nettelnburg
         PLC: DE14463
-        source: src.de.DBAG.BSV.2017
+        document: src.de.DBAG.BSV.2017
 
     -   date: !!null
         location:
             line.de.6100: 271,83
-        source: src.de.DB.Hmb.Karte.1984
+        document: src.de.DB.Hmb.Karte.1984
     -   date: c2002
         location:
             line.de.6100: !!null
             line.de.1244: 14,590
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -3520,7 +3769,7 @@ events:
     -   date: !!null
         de.DS100: ABGFA
         master: point.de.Hamburg-Bergedorf
-        source: src.de.DS100.1984
+        document: src.de.DS100.1984
     -   date: c1990
         category: de.Bft
         name: Hamburg-Bergedorf Gbf Stw BA
@@ -3548,7 +3797,7 @@ events:
         de.DS100: AALH
         PLC: DE14420
         de.dstnr: !!str 399808
-        source: src.de.DBAG.BSV.2017
+        document: src.de.DBAG.BSV.2017
 
     -   date: c2002
         location:
@@ -3556,7 +3805,7 @@ events:
     -   date: !!null
         location:
             line.de.1244: 13,064
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -3572,7 +3821,7 @@ events:
         location:
             line.de.6100: 273,65
         name: Bs
-        source: src.de.DRG.Alt.Karte.1931
+        document: src.de.DRG.Alt.Karte.1931
     -   date: c1940
         status: closed
         source: src.de.DRG.Alt.Karte.1949
@@ -3593,7 +3842,7 @@ events:
         location:
             line.de.1280:  49,240
             line.de.6100: 273,706
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
     -   date: !!null
         category: de.Abzw
         name: Hamburg-Allermöhe
@@ -3601,7 +3850,7 @@ events:
         de.DS100: AALM
         PLC: DE14419
         de.dstnr: !!str 245357
-        source: src.de.DBAG.BSV.2017
+        document: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
@@ -3616,38 +3865,38 @@ type: point
 events:
     -   date: !!null
         name: Mittlerer Landweg
-        source: src.de.Kb.1914
+        document: src.de.Kb.1914
     -   date: !!null
         de.lknr: 01 345
         service: passenger
-        source: src.de.Bfv.1928
+        document: src.de.Bfv1928
     -   date: !!null
         category: de.Hp
-        source: src.de.DRG.Alt.Karte.1931
+        document: src.de.DRG.Alt.Karte.1931
     -   date: de.lknr.30
         de.lknr: 01 064
-        source: src.de.Bfv.1933
+        document: src.de.Bfv1933
     -   date: !!null
         de.DS100: AML
         de.dstnr: !!str 010645
-        source: src.de.DS100.1984
+        document: src.de.DS100.1984
     -   date: c2000
         name: Hamburg Mittlerer Landweg
-        source: src.de.DBAG.BSV.2017
+        document: src.de.DBAG.BSV.2017
     -   date: !!null
         de.name16: Mittl Landweg
         PLC: DE14406
-        source: src.de.DBAG.BSV.2017
+        document: src.de.DBAG.BSV.2017
 
     -   date: !!null
         location:
             line.de.6100: 275,38
-        source: src.de.DRG.Alt.Karte.1931
+        document: src.de.DRG.Alt.Karte.1931
     -   date: c2002
         location:
             line.de.1244: 10,967
             line.de.6100: !!null
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -3668,7 +3917,7 @@ events:
         category: [ de.Bft, de.Abzw ]
         PLC: DE14436
         de.dstnr: !!str 304360
-        source: src.de.DBAG.BSV.2017
+        document: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
@@ -3682,45 +3931,45 @@ type: point
 events:
     -   date: !!null
         name: Billwärder-Moorfleth
-        source: src.de.Kb.1914
+        document: src.de.Kb.1914
     -   date: !!null
         de.lknr: 01 346
         service: passenger
-        source: src.de.Bfv.1928
+        document: src.de.Bfv1928
     -   date: !!null
         category: de.Hp
-        source: src.de.DRG.Alt.Karte.1931
+        document: src.de.DRG.Alt.Karte.1931
     -   date: de.lknr.30
         de.lknr: 01 065
-        source: src.de.Bfv.1933
+        document: src.de.Bfv1933
     -   date: c1945
         name: Billwerder-Moorfleth
         source: src.de.DRG.Alt.Karte.1949
     -   date: !!null
         de.DS100: AMB
         de.dstnr: !!str 010652
-        source: src.de.DS100.1984
+        document: src.de.DS100.1984
     -   date: c1970
         name: Billwerder-Moorfleet
-        source: src.de.DS100.1984
+        document: src.de.DS100.1984
     -   date: c2000
         name: Hamburg-Billwerder-Moorfleet
-        source: src.de.DBAG.BSV.2017
+        document: src.de.DBAG.BSV.2017
     -   date: !!null
         de.name16: Billw-Moorfl
         PLC: DE14435
-        source: src.de.DBAG.BSV.2017
+        document: src.de.DBAG.BSV.2017
 
     -   date: !!null
         location:
             line.de.6100: 278,48
-        source: src.de.DRG.Alt.Karte.1931
+        document: src.de.DRG.Alt.Karte.1931
     -   date: c2002
         de.DS100: ABWM
         location:
             line.de.1244: 8,031
             line.de.6100: !!null
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -3741,7 +3990,7 @@ events:
         category: de.Bft
         PLC: DE14483
         de.dstnr: !!str 911757
-        source: src.de.DBAG.BSV.2017
+        document: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
@@ -3755,44 +4004,44 @@ type: point
 events:
     -   date: !!null
         name: Tiefstack
-        source: src.de.Kb.1914
+        document: src.de.Kb.1914
     -   date: !!null
         de.lknr: 01 347
         service: passenger
-        source: src.de.Bfv.1928
+        document: src.de.Bfv1928
     -   date: !!null
         category: de.Hp
-        source: src.de.Bfv.1933
+        document: src.de.Bfv1933
     -   date: de.lknr.30
         de.lknr: 01 067
-        source: src.de.Bfv.1933
+        document: src.de.Bfv1933
     -   date: !!null
         de.DS100: ATK
         de.dstnr: !!str 010678
-        source: src.de.DS100.1984
+        document: src.de.DS100.1984
     -   date: c1970
         category: de.Hst
-        source: src.de.DS100.1984
+        document: src.de.DS100.1984
     -   date: c2000
         name: Hamburg-Tiefstack
-        source: src.de.DBAG.BSV.2017
+        document: src.de.DBAG.BSV.2017
     -   date: c2002
         category: de.Hp
-        source: src.de.DBAG.BSV.2017
+        document: src.de.DBAG.BSV.2017
     -   date: !!null
         de.name16: Tiefstack
         PLC: DE14488
-        source: src.de.DBAG.BSV.2017
+        document: src.de.DBAG.BSV.2017
 
     -   date: !!null
         location:
             line.de.6100: 281,29
-        source: src.de.DRG.Alt.Karte.1931
+        document: src.de.DRG.Alt.Karte.1931
     -   date: c2002
         location:
             line.de.1244: 5,382
             line.de.6100: !!null
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -3813,7 +4062,7 @@ events:
         category: de.Bft
         PLC: DE14482
         de.dstnr: !!str 911758
-        source: src.de.DBAG.BSV.2017
+        document: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
@@ -3827,38 +4076,38 @@ type: point
 events:
     -   date: !!null
         name: Rothenburgsort
-        source: src.de.Kb.1914
+        document: src.de.Kb.1914
     -   date: !!null
         de.lknr: 01 348
         service: passenger
-        source: src.de.Bfv.1928
+        document: src.de.Bfv1928
     -   date: !!null
         category: de.Hp
-        source: src.de.DRG.Alt.Karte.1931
+        document: src.de.DRG.Alt.Karte.1931
     -   date: de.lknr.30
         de.lknr: 01 068
-        source: src.de.Bfv.1933
+        document: src.de.Bfv1933
     -   date: !!null
         de.DS100: AROP
         de.dstnr: !!str 010686
-        source: src.de.DS100.1984
+        document: src.de.DS100.1984
     -   date: c2000
         name: Hamburg-Rothenburgsort (S-Bahn)
-        source: src.de.DBAG.BSV.2017
+        document: src.de.DBAG.BSV.2017
     -   date: !!null
         de.name16: Rothenburgsort
         PLC: DE14480
-        source: src.de.DBAG.BSV.2017
+        document: src.de.DBAG.BSV.2017
 
     -   date: !!null
         location:
             line.de.6100: 283,11
-        source: src.de.DRG.Alt.Karte.1931
+        document: src.de.DRG.Alt.Karte.1931
     -   date: c2002
         location:
             line.de.1244: 3,689
             line.de.6100: !!null
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -3875,7 +4124,7 @@ events:
     -   date: !!null
         location:
             line.de.6100: 284,663
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
     -   date: !!null
         category: de.Üst
         name: Hamburg Anckelmannsplatz
@@ -3883,7 +4132,7 @@ events:
         de.DS100: AAMP
         PLC: DE14378
         de.dstnr: !!str 304303
-        source: src.de.DBAG.BSV.2017
+        document: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
@@ -3899,21 +4148,21 @@ type: point
 events:
     -   date: !!null
         name: Hamburg Hbf
-        source: src.de.Kb.1914
+        document: src.de.Kb.1914
     -   date: !!null
         category: de.Bf
         de.rang: I
         de.lknr: 01 071
         service: passenger
-        source: src.de.Bfv.1933
+        document: src.de.Bfv1933
     -   date: !!null
         de.DS100: AH
         de.dstnr: !!str 010710
-        source: src.de.DS100.1984
+        document: src.de.DS100.1984
     -   date: !!null
         de.name16: Hamburg Hbf
         PLC: DE14393
-        source: src.de.DBAG.BSV.2017
+        document: src.de.DBAG.BSV.2017
 
     -   date: !!null
         location:
@@ -3925,13 +4174,13 @@ events:
         location:
             line.de.1245:   2,734
             line.de.1250: 355,328
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
     -   date: c2000
         location:
             line.de.1120:  63,896
             line.de.2200: 355,322
             line.de.6100: 286,663
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -3950,43 +4199,43 @@ events:
         status: open
     -   date: !!null
         name: Hamburg Dammtor
-        source: src.de.Kb.1914
+        document: src.de.Kb.1914
     -   date: !!null
         de.lknr: 01 397
         service: passenger
-        source: src.de.Bfv.1928
+        document: src.de.Bfv1928
     -   date: !!null
         category: de.Bf
         de.rang: II
-        source: src.de.Bfv.1933
+        document: src.de.Bfv1933
     -   date: de.lknr.30
         de.lknr: 01 089
-        source: src.de.Bfv.1933
+        document: src.de.Bfv1933
     -   date: c1940
         de.rang: I
-        source: src.de.Bfv.1944
+        document: src.de.Bfv1944
     -   date: !!null
         location:
             line.de.1240: 288,11
-        source: src.de.DRG.Alt.Karte.1931
+        document: src.de.DRG.Alt.Karte.1931
     -   date: !!null
         location:
             line.de.6100: 288,114
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
     -   date: c1970
         category: de.Hp
-        source: src.de.DS100.1984
+        document: src.de.DS100.1984
     -   date: !!null
         de.DS100: ADF
         de.dstnr: !!str 010892
-        source: src.de.DS100.1984
+        document: src.de.DS100.1984
     -   date: c1970
         location:
             line.de.1240: !!null
     -   date: !!null
         de.name16: Hamburg Dammtor
         PLC: DE14383
-        source: src.de.DBAG.BSV.2017
+        document: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
@@ -4001,41 +4250,41 @@ events:
         status: open
     -   date: !!null
         name: Hamburg Sternschanze
-        source: src.de.Kb.1914
+        document: src.de.Kb.1914
     -   date: !!null
         de.lknr: 01 040
-        source: src.de.Bfv.1928
+        document: src.de.Bfv1928
     -   date: !!null
         category: de.Bf
         de.rang: I
-        source: src.de.Bfv.1933
+        document: src.de.Bfv1933
     -   date: de.lknr.30
         de.lknr: 01 090
-        source: src.de.Bfv.1933
+        document: src.de.Bfv1933
     -   date: !!null
         de.DS100: ASTZ
         de.dstnr: !!str 010900
-        source: src.de.DS100.1984
+        document: src.de.DS100.1984
     -   date: c1970
         location:
             line.de.1240: !!null
     -   date: c2005
         category: de.Üst
-        source: src.de.DBAG.BSV.2017
+        document: src.de.DBAG.BSV.2017
     -   date: !!null
         de.name16: Hmb Sternschanze
         PLC: DE14411
-        source: src.de.DBAG.BSV.2017
+        document: src.de.DBAG.BSV.2017
 
     -   date: !!null
         location:
             line.de.1240: 289,81
             line.de.6100: 289,81
-        source: src.de.DRG.Alt.Karte.1931
+        document: src.de.DRG.Alt.Karte.1931
     -   date: c2005
         location:
             line.de.6100: 289,101
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -4053,7 +4302,7 @@ events:
         designation: Hamburg Sternschanze Hh/Pre
         location:
             line.de.6100: 290,15
-        source: src.de.DRG.Alt.Karte.1931
+        document: src.de.DRG.Alt.Karte.1931
 
 
 ---
@@ -4089,18 +4338,18 @@ events:
         name: Rainweg
         de.DS100: AAR
         de.dstnr: !!str 017129
-        source: src.de.DS100.1984
+        document: src.de.DS100.1984
     -   date: c2000
         name: Hamburg Rainweg
         de.name16: Rainweg
         PLC: DE14409
-        source: src.de.DBAG.BSV.2017
+        document: src.de.DBAG.BSV.2017
 
     -   date: !!null
         location:
             line.de.1232:   1,481
             line.de.6100: 291,503
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
