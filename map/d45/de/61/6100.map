@@ -1065,32 +1065,28 @@ with detail = [4, 5] {
     with link = "point.de.Hagenow-Land" {
         track(:first:station :double :cat, spaalt[:hag.a, :hag.f]);
         marker(:de.bf :right, spaalt[:hag] >> 0.5dt);
-        label(spaalt[:hag + 0.5sw] >> 0.5dt >> 1.2sh,
-            hbox(:right:bottom,
-                vbox(:center:bottom,
-                    hbox(:center:top :xsmall,
-                        vbox(:right:top,
-                            span(:open, "6100: "),
-                            span(:open, "6442: "),
-                            span(:open, "6928: ")
-                        ),
-                        vbox(:right:top,
-                            span(:open, "191,"),
-                            span(:open, "0,"),
-                            span(:open, "?")
-                        ),
-                        vbox(:left:top,
-                            span(:open, "83"),
-                            span(:open, "20 "),
-                            span(:open, "?")
-                        ),
-                        vbox(:right:top,
-                            span(:removed, ""),
-                            span(:removed, "← 0,00"),
-                            span(:removed, "← 0,00")
-                        )
-                    ),
-                    span(:medium:bold, "Hagenow Land")
+        station(:right, spaalt[:hag + 0.5sw] << 0.5dt << 6pt,
+            span(:medium:bold, "Hagenow Land"),
+            hbox(:center:top :xsmall,
+                vbox(:right:top,
+                    span(:open, "6100: "),
+                    span(:open, "6442: "),
+                    span(:open, "6928: ")
+                ),
+                vbox(:right:top,
+                    span(:open, "191,"),
+                    span(:open, "0,"),
+                    span(:open, "?")
+                ),
+                vbox(:left:top,
+                    span(:open, "83"),
+                    span(:open, "20 "),
+                    span(:open, "?")
+                ),
+                vbox(:right:top,
+                    span(:removed, ""),
+                    span(:removed, "← 0,00"),
+                    span(:removed, "← 0,00")
                 )
             )
         );
@@ -1349,7 +1345,7 @@ with detail = [4, 5] {
 
 
     with link = "point.de.Schwarzenbek" {
-        track(:second:station,
+        with layer = -1 track(:second:station :removed,
                 spaalt[:swa - 281m, :swa - 280m] >> 0.5dt
             ..  spaalt[:swa - 220m, :aold] >> 1.5dt
         );
