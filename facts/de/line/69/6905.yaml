@@ -165,11 +165,43 @@ events:
     #   Verlauf
     #
     -   date: !!null
-        course:
-            -   path.de.6899 sal  fdan
-            -   path.de.6905 a    f
-            -   path.de.1151 aluc dan
+        course: path.de.6905 sal dan
+records:
+    -   document: src.de.DRG.1927
+        category: de.Nebenbahn
+        tracks: 1
+        gauge: 1435mm
+    -   document: src.de.DRG.1927
+        end: point.de.Dannenberg-West-DGr
+        operator: org.de.e.han
 
+    -   document: src.de.DRG.Alt.Karte.1935
+        category: de.Nebenbahn
+        tracks: 1
+        gauge: 1435mm
+    -   document: src.de.DRG.Alt.Karte.1935
+        start: point.de.Bürgerholz-DGr
+        operator: org.de.e.hmb
+
+    -   document: src.de.DB.Hmb.Karte.1956
+        category: de.Nebenbahn
+        tracks: 1
+        gauge: 1435mm
+    -   document: src.de.DB.Hmb.Karte.1956
+        start: point.de.Lübbow-LGr
+        operator: org.de.e.hmb
+
+    -   document: src.de.DB.Hmb.Karte.1984
+        end: point.de.Wustrow-Han
+        status: closed
+    -   document: src.de.DB.Hmb.Karte.1984
+        start: point.de.Wustrow-Han
+        category: de.Nebenbahn
+        tracks: 1
+        gauge: 1435mm
+        passenger: none
+        operator: org.de.e.hmb
+        
 points:
     -   point.de.Salzwedel                          # de.6899
     -   point.de.Bürgerholz-DGr
@@ -178,7 +210,6 @@ points:
     -   point.de.Lübbow
     -   point.de.Teplingen
     -   point.de.Wustrow-Han
-    -   point.de.Jeetzel
     -   point.de.Lüchow
     -   point.de.Tarmitz
     -   point.de.Müggenburg-Dannenberg
@@ -201,17 +232,16 @@ points:
 ---
 key: point.de.Bürgerholz-DGr
 type: point
-subtype: border
+subtype: reference
 events:
-    -   date: !!null
-        name: RBD-Grenze Han/Alt ab 1935
-        location:
-            line.de.6905: 1,40
-        source: src.de.DRG.Alt.Karte.1935
-
     -   date: !!null
         site:
             path.de.6905: gbur
+records:
+    -   document: src.de.DRG.Alt.Karte.1935
+        designation: RBD-Grenze Han/Alt ab 1935
+        location:
+            line.de.6905: 1,40
 
 
 ---
@@ -219,29 +249,31 @@ key: point.de.Bürgerholz
 type: point
 events:
     -   date: !!null
+        site:
+            path.de.6905: bur
+records:
+    -   document: src.de.Kb.1905
         name: Bürgerholz
-        source: src.de.Kb.1905
-    -   date: !!null
+        
+    -   document: src.de.Bfv.1933
+        name: Bürgerholz
         category: de.Hp
         service: passenger
         de.lknr: 13 117
-        source: src.de.Bfv.1933
-    -   date: !!null
+    -   document: src.de.DRG.Alt.Karte.1935
+        name: Bürgerholz
+        category: de.Hp
+        service: passenger
         location:
             line.de.6905: 5,00
-        source: src.de.DRG.Alt.Karte.1935
-    -   date: 1935-01-01
+        
+    -   document: src.de.Bfv.1938
+        name: Bürgerholz
         de.lknr: 01 601
-        source: src.de.Bfv.1938
-    -   date: c1935
         category: de.Hst
         staff: none
         master: point.de.Salzwedel
         source: src.de.Bfv.1938
-
-    -   date: !!null
-        site:
-            path.de.6905: bur
 
 
 ---
@@ -250,15 +282,16 @@ type: point
 subtype: border
 events:
     -   date: !!null
-        name: Lübbow ST/NI
-    -   date: !!null
-        location:
-            line.de.6905: 6,13
-        source: src.de.DRG.Alt.Karte.1949
+        designation: Lübbow ST/NI
 
     -   date: !!null
         site:
             path.de.6905: glub
+records:
+    -   document: src.de.DB.Hmb.Karte.1956
+        location:
+            line.de.6905: 6,13
+        
 
 
 ---
@@ -266,48 +299,58 @@ key: point.de.Lübbow
 type: point
 events:
     -   date: !!null
-        name: Lübbow
-        source: src.de.Kb.1905
-    -   date: !!null
-        de.lknr: 13 183
-        source: src.de.Bfv.1928
-    -   date: !!null
-        category: de.Bf
-        de.rang: IV
-        source: src.de.Bfv.1933
-    -   date: de.lknr.30
-        de.lknr: 13 116
-        source: src.de.Bfv.1933
-    -   date: !!null
-        location:
-            line.de.6905: 6,75
-        source: src.de.DRG.Alt.Karte.1935
-    -   date: 1935-01-01
-        de.lknr: 01 602
-        source: src.de.Bfv.1938
-
-    -   date: !!null
         site:
             path.de.6905: lub
+records:
+    -   document: src.de.Kb.1905
+        name: Lübbow
+        
+    -   document: src.de.Bfv.1928
+        name: Lübbow
+        de.lknr: 13 183
+    -   document: src.de.Bfv.1933
+        name: Lübbow
+        category: de.Bf
+        de.rang: IV
+        de.lknr: 13 116
+    -   document: src.de.DRG.Alt.Karte.1935
+        name: Lübbow
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.6905: 6,75
+    -   document: src.de.Bfv.1938
+        name: Lübbow
+        category: de.Bf
+        de.rang: IV
+        de.lknr: 01 602
+
+    -   document: src.de.DB.Hmb.Karte.1956
+        name: Lübbow
+        category: de.Bf
+        de.rang: IV
+        staff: agent
+        location:
+            line.de.6905: 6,75 # right
 
 
 ---
 key: point.de.Teplingen
 type: point
 events:
-    -   date: c1950
-        status: open
-        category: de.Hp
-        location:
-            line.de.6905: 8,9
-        name: Teplingen
-        source: src.de.WP.Bahnstrecke-Salzwedel-Dannenberg
     -   date: c1975
         status: closed
 
     -   date: !!null
         site:
             path.de.6905: tep
+records:
+    -   document: src.de.DB.Hmb.Karte.1956
+        name: Teplingen
+        category: de.Hp
+        staff: none
+        location:
+            line.de.6905: 8,93 # left
 
 
 ---
@@ -315,144 +358,140 @@ key: point.de.Wustrow-Han
 type: point
 events:
     -   date: !!null
-        name: Wustrow
-        source: src.de.Kb.1905
-    -   date: !!null
-        de.lknr: 13 182
-        source: src.de.Bfv.1928
-    -   date: !!null
-        category: de.Bf
-        de.rang: IV
-        source: src.de.Bfv.1933
-    -   date: de.lknr.30
-        de.lknr: 13 115
-        source: src.de.Bfv.1933
-    -   date: !!null
-        location:
-            line.de.6905: 10,66
-        source: src.de.DRG.Alt.Karte.1935
-    -   date: 1935-01-01
-        de.lknr: 01 603
-        source: src.de.Bfv.1938
-    -   date: c1938
-        name: Wustrow (Han)
-        source: src.de.Bfv.1938
-    -   date: !!null
-        de.DS100: AWW
-        de.dstnr: !!str 016030
-        source: src.de.DS100.1984
-    -   date: c1975
-        staff: none
-        source: src.de.DS100.1984
-    -   date: c1990
-        category: de.Anst
-        source: src.de.SuW.2005
-
-    -   date: !!null
         site:
             path.de.6905: wus
-
-
----
-key: point.de.Jeetzel
-type: point
-events:
-    -   date: c1950
-        status: open
-        category: de.Hp
+records:
+    -   document: src.de.Kb.1905
+        name: Wustrow
+        
+    -   document: src.de.Bfv.1928
+        name: Wustrow
+        de.lknr: 13 182
+    -   document: src.de.Bfv.1933
+        name: Wustrow
+        category: de.Bf
+        de.rang: IV
+        de.lknr: 13 115
+    -   document: src.de.DRG.Alt.Karte.1935
+        name: Wustrow (Han)
+        category: de.Bf
+        de.rang: IV
         location:
-            line.de.6905: 13,1
-        name: Jeetzel
-        source: src.de.WP.Bahnstrecke-Salzwedel-Dannenberg
-    -   date: c1975
-        status: closed
+            line.de.6905: 10,66 # left
+    -   document: src.de.Bfv.1938
+        name: Wustrow (Han)
+        category: de.Bf
+        de.rang: IV
+        de.lknr: 01 603
 
-    -   date: !!null
-        site:
-            path.de.6905: jee
+    -   document: src.de.DB.Hmb.Karte.1956
+        name: Wustrow (Han)
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.6905: 10,66 # left
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 016030
+        name: Wustrow (Han)
+        de.DS100: AWW
+        staff: none
+    -   document: src.de.DB.Hmb.Karte.1984
+        name: Wustrow (Han)
+        category: de.Bf
+        staff: none
+        location:
+            line.de.6905: 10,65 # left
 
 
 ---
 key: point.de.Lüchow
 type: point
-junction: true
 events:
-    -   date: !!null
-        name: Lüchow
-        source: src.de.Kb.1905
-    -   date: !!null
-        de.lknr: 13 181
-        source: src.de.Bfv.1928
-    -   date: !!null
-        category: de.Bf
-        de.rang: III
-        source: src.de.Bfv.1933
-    -   date: de.lknr.30
-        de.lknr: 13 114
-        source: src.de.Bfv.1933
-    -   date: 1935-01-01
-        de.lknr: 01 604
-        source: src.de.Bfv.1938
-    -   date: !!null
-        de.DS100: ALCH
-        de.dstnr: !!str 016048
-        source: src.de.DS100.1984
-    -   date: !!null
-        de.name16: Lüchow
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.6905: 15,86
-        source: src.de.DRG.Alt.Karte.1935
-    -   date: !!null
-        location:
-            line.de.9114: 0,00
-        source: src.de.DBAG.Geo-Strecke.2017
-
     -   date: !!null
         connection: point.de.Lüchow-Süd
         site:
             path.de.6905: luc
             path.de.91141: luc
+records:
+    -   document: src.de.Kb.1905
+        name: Lüchow
+        
+    -   document: src.de.Bfv.1928
+        de.lknr: 13 181
+        name: Lüchow
+        
+    -   document: src.de.Bfv.1933
+        name: Lüchow
+        category: de.Bf
+        de.rang: III
+        de.lknr: 13 114
+    -   document: src.de.DRG.Alt.Karte.1935
+        name: Lüchow
+        category: de.Bf
+        de.rang: III
+        location:
+            line.de.6905: 15,86 # links
+    -   document: src.de.Bfv.1938
+        name: Lüchow
+        category: de.Bf
+        de.rang: III
+        de.lknr: 01 604
+        
+    -   document: src.de.DB.Hmb.Karte.1956
+        name: Lüchow
+        category: de.Bf
+        de.rang: III
+        location:
+            line.de.6905: 15,86 # links
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 016048
+        name: Lüchow
+        de.DS100: ALCH
+        category: de.Bf
+    -   document: src.de.DB.Hmb.Karte.1984
+        name: Lüchow
+        category: de.Bf
+        location:
+            line.de.6905: 15,86 # links
+
+    -   document: src.de.DBAG.BSV.2017
+        de.DS100: ALCH
+        name: Lüchow
+        de.name16: Lüchow
+        category: de.Bf
+        de.dstnr: !!str 016048
 
 
 ---
 key: point.de.Tarmitz
 type: point
 events:
-    -   date: c1950
-        status: open
-        category: de.Hp
-        location:
-            line.de.6905: 16,9
-        name: Tarmitz
-        source: src.de.WP.Bahnstrecke-Salzwedel-Dannenberg
-    -   date: c1975
-        status: closed
-
     -   date: !!null
         site:
             path.de.6905: tar
+records:
+    -   document: src.de.DB.Hmb.Karte.1956
+        name: Tarmitz
+        category: de.Hp
+        staff: none
+        location:
+            line.de.6905: 16,97 # right
 
 
 ---
 key: point.de.Müggenburg-Dannenberg
 type: point
 events:
-    -   date: c1950
-        status: open
-        category: de.Hp
-        location:
-            line.de.6905: 20,3
-        name: Müggenburg
-        source: src.de.WP.Bahnstrecke-Salzwedel-Dannenberg
-    -   date: c1975
-        status: closed
-
     -   date: !!null
         site:
             path.de.6905: mug
+records:
+    -   document: src.de.DB.Hmb.Karte.1956
+        name: Müggenburg
+        category: de.Hp
+        staff: none
+        location:
+            line.de.6905: 19,13 # left
 
 
 ---
@@ -460,43 +499,57 @@ key: point.de.Gollau
 type: point
 events:
     -   date: !!null
+        site:
+            path.de.6905: gol
+records:
+    -   document: src.de.Kb.1914
         name: Gollau
-        source: src.de.Kb.1914
-    -   date: !!null
+
+    -   document: src.de.Bfv.1928
+        name: Gollau
         de.lknr: 13 180
-        source: src.de.Bfv.1928
-    -   date: !!null
+    -   document: src.de.Bfv.1933
+        name: Gollau
         category: de.Bf
         de.rang: IV
         staff: agent
-        source: src.de.Bfv.1933
-    -   date: de.lknr.30
         de.lknr: 13 113
-        source: src.de.Bfv.1933
-    -   date: 1935-01-01
+    -   document: src.de.DRG.Alt.Karte.1935
+        name: Gollau
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.6905: 20,36 # right
+    -   document: src.de.Bfv.1938
+        name: Gollau
+        category: de.Bf
+        de.rang: IV
+        staff: agent
         de.lknr: 01 605
-        source: src.de.Bfv.1938
-    -   date: !!null
-        de.DS100: AGL
+        
+    -   document: src.de.DB.Hmb.Karte.1956
+        name: Gollau
+        category: de.Hst
+        staff: agent
+        location:
+            line.de.6905: 20,36 # right
+    -   document: src.de.DS100.1984
         de.dstnr: !!str 016055
-        source: src.de.DS100.1984
-    -   date: c1975
+        name: Gollau
         category: de.Hst
         staff: none
-        source: src.de.DS100.1984
-    -   date: 2006-01-01?
+        de.DS100: AGL
+    -   document: src.de.DB.Hmb.Karte.1984
+        name: Gollau
+        location:
+            line.de.6905: 20,36 # right
+
+    -   document: src.de.DBAG.BSV.2017
+        de.DS100: AGL
+        name: Gollau
+        de.name16: Gollau
         category: de.Hp
         de.dstnr: !!str 425926
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.6905: 20,36
-        source: src.de.DRG.Alt.Karte.1935
-
-    -   date: !!null
-        site:
-            path.de.6905: gol
 
 
 ---
@@ -504,44 +557,47 @@ key: point.de.Grabow-Dannenberg
 type: point
 events:
     -   date: !!null
+        site:
+            path.de.6905: gra
+records:
+    -   document: src.de.Kb.1914
         name: Grabow (Kr Lüchow)
-        source: src.de.Kb.1914
-    -   date: !!null
+
+    -   document: src.de.Bfv.1928
+        name: Grabow (Kr Lüchow)
         de.lknr: 13 179
-        source: src.de.Bfv.1928
-    -   date: !!null
+    -   document: src.de.Bfv.1933
+        name: Grabow (Kr Dannenberg)
         category: de.Bf
         de.rang: IV
         staff: agent
-        source: src.de.Bfv.1933
-    -   date: de.lknr.30
         de.lknr: 13 112
-        source: src.de.Bfv.1933
-    -   date: c1920
+    -   document: src.de.DRG.Alt.Karte.1935
         name: Grabow (Kr Dannenberg)
-        source: src.de.Bfv.1933
-    -   date: 1935-01-01
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.6905: 22,92 # left
+    -   document: src.de.Bfv.1938
+        name: Grabow (Kr Dannenberg)
+        category: de.Bf
+        de.rang: IV
+        staff: agent
         de.lknr: 01 606
-        source: src.de.Bfv.1938
-    -   date: c1980
-        status: closed
-        source: src.de.DB.Hmb.Karte.1984
-    -   date: 2006-01-01?
-        status: open
+
+    -   document: src.de.DB.Hmb.Karte.1956
+        name: Grabow (Kr Dannenberg)
+        category: de.Hst
+        staff: agent
+        location:
+            line.de.6905: 22,92 # left
+
+    -   document: src.de.DBAG.BSV.2017
         de.DS100: AGRD
+        name: Grabow (Kr Dannenberg)
         de.name16: Grabow(Dannenbg)
         category: de.Hp
         de.dstnr: !!str 425934
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.6905: 22,92
-        source: src.de.DRG.Alt.Karte.1935
-
-    -   date: !!null
-        site:
-            path.de.6905: gra
 
 
 ---
@@ -549,63 +605,74 @@ key: point.de.Jameln-Dannenberg
 type: point
 events:
     -   date: !!null
+        site:
+            path.de.6905: jam
+records:
+    -   document: src.de.Kb.1914
         name: Jameln (Kr Dannenberg)
-        source: src.de.Kb.1914
-    -   date: !!null
+
+    -   document: src.de.Bfv.1928
+        name: Jameln (Kr Dannenberg)
         de.lknr: 13 178
-        source: src.de.Bfv.1928
-    -   date: !!null
+    -   document: src.de.Bfv.1933
+        name: Jameln (Kr Dannenberg)
         category: de.Bf
         de.rang: IV
         staff: agent
-        source: src.de.Bfv.1933
-    -   date: de.lknr.30
         de.lknr: 13 111
-        source: src.de.Bfv.1933
-    -   date: 1935-01-01
-        de.lknr: 01 607
-        source: src.de.Bfv.1938
-    -   date: !!null
-        de.DS100: AJA
-        de.dstnr: !!str 016071
-        source: src.de.DS100.1984
-    -   date: c1980
-        staff: none
-        source: src.de.DS100.1984
-    -   date: c1995
-        category: de.Hp
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Jameln
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
+    -   document: src.de.DRG.Alt.Karte.1935
+        name: Jameln (Kr Dannenberg)
+        category: de.Bf
+        de.rang: IV
         location:
-            line.de.6905: 26,73
-        source: src.de.DRG.Alt.Karte.1935
+            line.de.6905: 26,73 # left
+    -   document: src.de.Bfv.1938
+        name: Jameln (Kr Dannenberg)
+        category: de.Bf
+        de.rang: IV
+        staff: agent
+        de.lknr: 01 607
 
-    -   date: !!null
-        site:
-            path.de.6905: jam
+    -   document: src.de.DB.Hmb.Karte.1956
+        name: Jameln (Kr Dannenberg)
+        category: de.Bf
+        de.rang: IV
+        staff: agent
+        location:
+            line.de.6905: 26,73 # left
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 016071
+        name: Jameln (Kr Dannenberg)
+        de.DS100: AJA
+        category: de.Bf
+        staff: none
+    -   document: src.de.DB.Hmb.Karte.1984
+        name: Jameln (Kr Dannenberg)
+        location:
+            line.de.6905: 26,73 # left
+
+    -   document: src.de.DBAG.BSV.2017
+        de.DS100: AJA
+        name: Jameln (Kr Dannenberg)
+        de.name16: Jameln
+        category: de.Hp
+        de.dstnr: !!str 016071
 
 
 ---
 key: point.de.Tramm
 type: point
 events:
-    -   date: c1950
-        status: open
-        category: de.Hp
-        location:
-            line.de.6905: 30,0
-        name: Tramm
-        source: src.de.WP.Bahnstrecke-Salzwedel-Dannenberg
-    -   date: c1975
-        status: closed
-
     -   date: !!null
         site:
             path.de.6905: tra
+records:
+    -   document: src.de.DB.Hmb.Karte.1956
+        name: Tramm
+        category: de.Hp
+        staff: none
+        location:
+            line.de.6905: 29,90 # right
 
 
 ---
@@ -613,24 +680,29 @@ key: point.de.Schaafhausen-Dannenberg
 type: point
 events:
     -   date: !!null
+        site:
+            path.de.6905: saa
+records:
+    -   document: src.de.Kb.1914
         location:
             line.de.6905: 30,8
         name: Schaafhausen (Kr Dannenberg)
-        source: src.de.Kb.1914
-    -   date: c1925
-        status: closed
 
-    -   date: !!null
-        site:
-            path.de.6905: saa
+    -   document: src.de.DB.Hmb.Karte.1956
+        name: Schaafhausen
+        category: de.Hp
+        staff: none
+        location:
+            line.de.6905: 30,90 # left
+
 
 ---
 key: point.de.Dannenberg-West-DGr
 type: point
-subtype: border
+subtype: reference
 events:
     -   date: !!null
-        name: RBD-Grenze Han/Alt 1931–1935
+        designation: RBD-Grenze Han/Alt 1931–1935
     -   date: !!null
         location:
             line.de.6905: 32,30
@@ -644,40 +716,60 @@ events:
 ---
 key: point.de.Dannenberg-West
 type: point
-junction: true
 events:
-    -   date: !!null
-        name: Dannenberg West
-        source: src.de.Kb.1914
-    -   date: !!null
-        de.lknr: 13 177
-        source: src.de.Bfv.1928
-    -   date: !!null
-        category: de.Bf
-        de.rang: III
-        source: src.de.Bfv.1933
-    -   date: de.lknr.30
-        de.lknr: 01 162
-        source: src.de.Bfv.1933
-    -   date: !!null
-        location:
-            line.de.1963: 42,03
-            line.de.6905: 33,30
-        source: src.de.DRG.Alt.Karte.1935
-    -   date: !!null
-        de.DS100: ADW
-        de.dstnr: !!str 011627
-        source: src.de.DS100.1984
-    -   date: c2000
-        category: de.Hp
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Dannenberg West
-        source: src.de.DBAG.BSV.2017
-
     -   date: !!null
         site:
             path.de.6905: daw
+records:
+    -   document: src.de.Kb.1914
+        name: Dannenberg West
+
+    -   document: src.de.Bfv.1928
+        name: Dannenberg West
+        de.lknr: 13 177
+    -   document: src.de.Bfv.1933
+        name: Dannenberg West
+        category: de.Bf
+        de.rang: III
+        de.lknr: 01 162
+    -   document: src.de.DRG.Alt.Karte.1935
+        name: Dannenberg West
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.1963: 42,03
+            line.de.6905: 33,30 # right
+    -   document: src.de.Bfv.1938
+        name: Dannenberg West
+        category: de.Bf
+        de.rang: III
+        de.lknr: 01 162
+
+    -   document: src.de.DB.Hmb.Karte.1956
+        name: Dannenberg West
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.1963: 42,03
+            line.de.6905: 33,30 # right
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 011627
+        name: Dannenberg West
+        de.DS100: ADW
+        category: de.Bf
+    -   document: src.de.DB.Hmb.Karte.1984
+        name: Dannenberg West
+        category: de.Bf
+        location:
+            line.de.1963: 42,03
+            line.de.6905: 33,30 # right
+
+    -   document: src.de.DBAG.BSV.2017
+        de.DS100: ADW
+        name: Dannenberg West
+        de.name16: Dannenberg West
+        category: de.Hp
+        de.dstnr: !!str 011627
 
 
 ---

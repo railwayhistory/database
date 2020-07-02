@@ -727,6 +727,9 @@ with detail = [4, 5] {
                 spaalt[:fman, :wib + 470m] << 1.5dt
             ..  spaalt[:wib + 530m, :wib + 531m] << 0.5dt
         );
+        with layer = -1 track(:first:station :removed,
+                spaalt[:wib + 470m, :adom] << 1.5dt
+        );
         track(:second:station,
                 spaalt[:wib - 211m, :wib - 210m] >> 0.5dt
             ..  spaalt[:wib - 150m, :wit.u] >> 1.5dt
@@ -779,7 +782,7 @@ with detail = [4, 5] {
     with link = "point.de.Wittenberge-Nord" {
         track(:first:station :double :cat, spaalt[:wit.u, :wit.f]);
         marker(:de.bft :left, spaalt[:win] << 0.5dt);
-        station(:left, spaalt[:win - 0.3sw] << 0.5dt << 1.6sh,
+        station(:right, spaalt[:win - 0.3sw] >> 1.5dt,
             "Wittenberge Nord", "??"
         );
     }
