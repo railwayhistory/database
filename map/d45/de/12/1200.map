@@ -2,15 +2,162 @@
 #
 let niewes = path("path.de.1200");
 
-
 with detail = [4, 5] {
+    with link = "line.de.1200" {
+        track(:first,
+                path("path.de.1210")[:nie.f, :nie.f + 1m] << 0.5dt
+            ..  niewes[:aa, :leh - 1sw]
+        );
+        with layer = 1 line_badge(:open, niewes[:leh - 3.0km], "1200");
+        line_badge(:open, niewes[:leh - 3.0km] << 6pt, "(VzG: 1210)");
+    }
 
-    # ...
+
+    with link = "point.de.Lehnshallig" {
+        track(:first:station, niewes[:leh - 1sw, :leh + 1sw]);
+        marker(:de.bbf :right, niewes[:leh]);
+        station(:top, niewes[:leh - 0.2sw] >> 1.6sh,
+            "Lehnshallig",
+            hbox(:center:base,
+                span(:open, "205,06 "),
+                span(:removed, "(6,61)")
+            )
+        );
+    }
 
 
-    #--- point.de.Westerland-Sylt
-    #
-    track(:first :station :open, niewes[:wes.a, :wes]);
-    marker(:de.bf :open :top, niewes[:wes]);
+    with link = "line.de.1200" {
+        track(:first, niewes[:leh + 1sw, :emm - 1sw]);
+    }
+
+
+    with link = "point.de.Emmelsbüll" {
+        track(:first:station, niewes[:emm - 1sw, :emm + 1sw]);
+        with layer = -1 marker(:de.hst :removed :right, niewes[:emm]);
+        with layer = -2 marker(:de.bf :gone :right, niewes[:emm]);
+        station(:right :removed, niewes[:emm - 0.4sw] >> 1.3sh,
+            "Emmelsbüll",
+            hbox(:center:base,
+                span(:removed, "208,08 "),
+                span(:removed, "(9,74)")
+            )
+        );
+    }
+
+
+    with link = "line.de.1200" {
+        track(:first, niewes[:emm + 1sw, :kla.a]);
+    }
+
+
+    with link = "point.de.Klanxbüll" {
+        track(:first:station, niewes[:kla.a, :kla.f]);
+        track(:first:station,
+                niewes[:kla.a + 99m, :kla.a + 100m]
+            --  niewes[:kla.a + 160m, :kla.f] << 1dt
+        );
+
+        marker(:de.bf :right, niewes[:kla]);
+        station(:right :left_align, niewes[:kla - 0.4sw] >> 1.3sh,
+            "Klanxbüll",
+            hbox(:left:base,
+                span(:removed, " 211,69 "),
+                span(:removed, "(13,22)")
+            )
+        );
+    }
+
+
+    with link = "line.de.1200" {
+        track(:first:double, niewes[:kla.f, :hin - 0.5sw] << 0.5dt);
+        with layer = 1 line_badge(:open, niewes[:hin - 2.5km] << 0.5dt, "1200");
+        line_badge(:open, niewes[:hin - 2.5km] << 0.5dt << 6pt, "(VzG: 1210)");
+    }
+
+
+    with link = "point.de.Hindenburgdamm" {
+        track(:first:station :double,
+                niewes[:hin - 0.5sw, :hin + 0.5sw] << 0.5dt
+        );
+        with layer = -1 marker(:de.bk :removed :right, niewes[:hin]);
+        station(:top :removed, niewes[:hin] >> 1.2sh,
+            "Hindenburgdamm", "(21,65)"
+        );
+    }
+
+
+    with link = "line.de.1200" {
+        track(:first:double, niewes[:hin + 0.5sw, :mor.a] << 0.5dt);
+    }
+
+
+    with link = "point.de.Morsum-Sylt" {
+        track(:first:station, niewes[:mor.a, :mor.f]);
+        track(:first:station,
+                niewes[:mor.a, :mor.f - 160m] << 1dt
+            ..  niewes[:mor.f - 100m, :mor.f - 99m]
+        );
+
+        marker(:de.bf :left, niewes[:mor] << 1dt);
+        station(:bottom, niewes[:mor] << 1.6sh,
+            hbox(:center:base,
+                span(:regular, "Morsum "),
+                span(:light, "(Sylt)")
+            ),
+            hbox(:center:base,
+                span(:removed, "228,80 "),
+                span(:removed, "(30,32)")
+            )
+        );
+    }
+
+
+    with link = "line.de.1200" {
+        track(:first, niewes[:mor.f, :kei - 1sw]);
+        with layer = 1 line_badge(:open, niewes[:kei - 1.0km], "1200");
+        line_badge(:open, niewes[:kei - 1.0km] << 6pt, "(VzG: 1210)");
+    }
+
+
+    with link = "point.de.Keitum" {
+        track(:first:station, niewes[:kei - 1sw, :kei + 1sw]);
+        marker(:de.bf :right, niewes[:kei]);
+        station(:top, niewes[:kei] >> 1.5sh,
+            "Keitum",
+            hbox(:center:base,
+                span(:removed, "233,32 "),
+                span(:removed, "(34,85)")
+            )
+        );
+    }
+
+
+    with link = "line.de.1200" {
+        track(:first, niewes[:kei + 1sw, :wes.a]);
+    }
+
+
+    with link = "point.de.Tinnum" {
+        with layer = -1 marker(:de.hp :removed, niewes[:tin]);
+        station(:top :removed, niewes[:tin] >> 1.5sh,
+            "Tinnum", "(37,22)"
+        );
+    }
+
+
+    with link = "point.de.Westerland-Sylt" {
+        track(:first :station :open, niewes[:wes.a, :wes]);
+        marker(:de.bf :open :bottom, niewes[:wes]);
+        station(:right, niewes[:wes - 0.8sw] >> 0.9sh,
+            hbox(:center:base,
+                span(:bold, "Westerland "),
+                span(:regular, "(Sylt)")
+            ),
+            hbox(:center:base,
+                span(:open, "1200: 237,68 "),
+                span(:removed, "(39,18)")
+            )
+        );
+    }
 }
 
