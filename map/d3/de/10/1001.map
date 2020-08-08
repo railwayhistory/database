@@ -1,10 +1,14 @@
 # DE 1001.  Flensburg Weiche (ausschl) - Lindholm (ausschl)
 #
 let flwlin = path("path.de.1001");
-let neufle = path("path.de.1040");
 
 with detail = 3 {
-    track(:second :closed, flwlin[:flw.f, :han - 1ssw]);
+    with link = "line.de.1001" {
+        with layer = -1 track(:second :closed,
+                path("path.de.1040")[:flw - 0.9ssw, :flw - 1ssw] >> 0.5dt
+            ..  flwlin[:flw.f, :han - 1ssw]
+        );
+    }
 
     track(:second :closed :station, flwlin[:han - 1ssw, :han + 1ssw]);
     marker(:de.hst :closed :left, flwlin[:han]);
@@ -47,6 +51,11 @@ with detail = 3 {
     marker(:de.bf :closed :left, flwlin[:lec]);
     slabel(:bottom :closed, flwlin[:lec] << 1.3ssw, "Leck");
 
-    track(:second :closed, flwlin[:lec + 1ssw, :lin.aa]);
+    with link = "line.de.1001" {
+        with layer = -1 track(:second :closed,
+                flwlin[:lec + 1ssw, :lin.aa - 500m]
+            ..  path("path.de.1210")[:lin - 1ssw, :lin - 0.9ssw] >> 0.5dt
+        );
+    }
 }
 

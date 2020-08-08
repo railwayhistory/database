@@ -103,8 +103,11 @@ with detail = 4 {
         "Schwesing", "20,50"
     );
 
-    # Schwesing (ausschl.) - Rosendahl (ausschl.)
-    track(:second, jubhus[:swe + 1sw, :ros - 1sw]);
+
+    with link = "line.de.1011" {
+        track(:second, jubhus[:swe + 1sw, :ros - 1sw]);
+        with layer = 1 line_badge(:open, jubhus[:ros - 1.0km], "1011");
+    }
 
 
     # point.de.Rosendahl
@@ -115,8 +118,12 @@ with detail = 4 {
         "Rosendahl", "22,96"
     );
 
-    # Rosendahl (ausschl.) - Husum (ausschl.)
-    track(:second, jubhus[:ros + 1sw, :hus.a]);
-    with layer = 1 line_badge(:open, jubhus[:ros + 1.5km], "1011");
+
+    with link = "line.de.1011" {
+        track(:second,
+                jubhus[:ros + 1sw, :hus.aa]
+            ..  jubhus[:hus.a - 1m, :hus.a] >> 2.5dt
+        );
+    }
 }
 

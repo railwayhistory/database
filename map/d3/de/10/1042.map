@@ -109,7 +109,11 @@ with detail = 3 {
     with layer = -1 marker(:de.bf :gone :right, neuhei[:nha]);
     slabel(:top :open, neuhei[:nha] >> 1.4ssw + (2ssw, 0ssw), "Nordhastedt");
 
-    # Streckengleis Nordhastedt - Heide
-    track(:second :open, neuhei[:nha + 1ssw, :ff]);
+    with link = "line.de.1042" {
+        track(:second :open,
+                neuhei[:nha + 1ssw, :ff - 1000m]
+            ..  path("path.de.1210.hei")[:hei - 1.1ssw, :hei - 1ssw] >> 1.5dt
+        );
+    }
 }
 

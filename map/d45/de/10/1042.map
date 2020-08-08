@@ -172,8 +172,14 @@ with detail = [4, 5] {
         "Nordhastedt", "56,26"
     );
 
-    # Streckengleis Nordhastedt - Heide
-    track(:second :open, neuhei[:nha + 1sw, :ff]);
-    with layer = 1 line_badge(:open, neuhei[:nha + 2.0km], "1042");
+
+    with link = "line.de.1042" {
+        track(:second :open,
+                neuhei[:nha + 1sw, :ff - 200m]
+            ..  path("path.de.1210.hei")
+                    [:hei.hs - 101m, :hei.hs - 100m] >> 1.5dt
+        );
+        with layer = 1 line_badge(:open, neuhei[:nha + 2.0km], "1042");
+    }
 }
 
