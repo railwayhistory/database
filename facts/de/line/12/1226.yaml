@@ -3,16 +3,34 @@
 ---
 key: line.de.1226
 type: line
-events:
-    -   date: !!null
-        region: org.de
-    -   date: !!null
-        end: point.de.Hamburg-Rissen-LGr
-        region: org.de.l.hh
-    -   date: !!null
-        start: point.de.Hamburg-Rissen-LGr
-        region: org.de.l.sh
+label: de.S-Bahn
+current:
+    status: open
+    category: de.Hauptbahn
+    gauge: 1435mm
+    tracks:
+        point.de.Hamburg-Rissen-Üst: 1
+        point.de.Hamburg-Rissen-Ölweiche-Üst: 2
+        point.de.Wedel-Holst: 1
+    electrified: de.hmb
+    course: path.de.1226 bla wed
 
+    passenger: full
+
+    operator: org.de.DB-Netz
+    owner: org.de.DB-Netz
+
+    jurisdiction: de
+    region:
+        point.de.Hamburg-Rissen-LGr:
+            - org.de
+            - org.de.l.hh
+        point.de.Wedel-Holst:
+            - org.de
+            - org.de.l.sh
+
+    de.VzG: !!str 1226
+events:
     #   Genehmigung, Eigentümer, Betreiber
     #
     -   date: 1883-10-29
@@ -42,16 +60,6 @@ events:
         start: point.de.Hamburg-Sülldorf
         electrified: de.hmb
         source: src.de.WP.Altona-Blankeneser-Eisenbahn
-    -   date: 1960
-        start: point.de.Hamburg-Rissen
-        end: point.de.Hamburg-Rissen-Ölweiche-Üst
-        tracks: 2
-        source: src.de.SuW.2005
-
-    #   Verlauf
-    #
-    -   date: !!null
-        course: path.de.1226 bla wed
 records:
     -   date: 1927-03
         category: de.Nebenbahn
@@ -99,8 +107,8 @@ points:
     -   point.de.Hamburg-Iserbrook
     -   point.de.Hamburg-Sülldorf
     -   point.de.Hamburg-Rissen-Üst
-    -   point.de.Hamburg-Rissen-Bf
     -   point.de.Hamburg-Rissen
+    -   point.de.Hamburg-Rissen-Bf
     -   point.de.Hamburg-Rissen-LGr
     -   point.de.Hamburg-Rissen-Ölweiche
     -   point.de.Hamburg-Rissen-Ölweiche-Üst
@@ -119,6 +127,15 @@ events:
     -   date: 1950-05-14
         status: open
         source: src.de.WP.Altona-Blankeneser-Eisenbahn
+    -   date: !!null
+        name: Iserbrook
+        category: de.Hp
+        location:
+            line.de.1226: 11,26 # right
+        source: src.de.DB.Hmb.Karte.1956
+    -   date: c2000
+        name: Hamburg-Iserbrrok
+        document: src.de.DBAG.BSV.2017
     
     -   date: !!null
         site:
@@ -162,12 +179,22 @@ key: point.de.Hamburg-Sülldorf
 type: point
 events:
     -   date: !!null
+        name: Sülldorf
+        source: src.de.Kb.1914
+    -   date: !!null
+        category: de.Bf
+        location:
+            line.de.1226: 12,62 # left
+        document: src.de.DRG.Alt.Karte.1931
+
+    -   date: c2000
+        name: Hamburg-Sülldorf
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
         site:
             path.de.1226: sul
 records:
-    -   date: 1914-07
-        name: Sülldorf
-        document: src.de.Kb.1914
     -   date: 1927-12-09
         name: Sülldorf
         de.lknr: 01 047
@@ -227,23 +254,102 @@ events:
     -   date: c2000
         status: open
         split_from: point.de.Hamburg-Rissen
+    -   date: !!null
+        name: Hamburg-Rissen Üst
+        category: de.Üst
+        document: src.de.DBAG.BSV.2017
+    -   date: !!null
+        location:
+            line.de.1226: 14,919
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
             path.de.1226: riu
 records:
-    -   date: 2017-01
+    -   document: src.de.DBAG.BSV.2017
         de.DS100: ARIU
         name: Hamburg-Rissen Üst
         de.name16: Rissen Üst
         category: de.Üst
         PLC: DE14478
         de.dstnr: !!str 913376
-        document: src.de.DBAG.BSV.2017
-    -   date: 2017-01
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
         location:
             line.de.1226: 14,919
-        document: src.de.DBAG.Geo-Betriebsstelle.2017
+ 
+
+---
+key: point.de.Hamburg-Rissen
+type: point
+events:
+    -   date: !!null
+        name: Rissen
+        source: src.de.Kb.1914
+    -   date: !!null
+        category: de.Bf
+        location:
+            line.de.1226: 15,35 # left
+        source: src.de.DRG.Alt.Karte.1931
+    -   date: c1980
+        category: de.Hst
+        source: src.de.DS100.1984
+    -   date: c2000
+        name: Hamburg-Rissen Hp
+        category: de.Hp
+        location:
+            line.de.1226: 15,300
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+    -   date: !!null
+        site:
+            path.de.1226: ris
+records:
+    -   document: src.de.Bfv.1928
+        name: Rissen
+        de.lknr: 01 048
+    -   document: src.de.DRG.Alt.Karte.1931
+        name: Rissen
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.1226: 15,35 # left
+    -   document: src.de.Bfv.1933
+        name: Rissen
+        category: de.Bf
+        de.rang: IV
+        de.lknr: 01 109
+
+    -   document: src.de.DB.Hmb.Karte.1956
+        name: Rissen
+        category: de.Bf
+        de.rang: III
+        location:
+            line.de.1226: 15,25 # left
+    -   document: src.de.DS100.1984
+        name: Rissen
+        de.DS100: ARI
+        de.dstnr: !!str 011098
+        category: de.Hst
+    -   document: src.de.DB.Hmb.Karte.1984
+        name: Rissen
+        category: de.Hst
+        location:
+            line.de.1226: 15,36 # left
+
+    -   document: src.de.DBAG.BSV.2017
+        category: de.Hp
+        name: Hamburg-Rissen Hp
+        de.name16: Rissen Hp
+        PLC: DE14474
+        de.DS100: ARI
+        de.dstnr: !!str 011098
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        name: Hamburg-Rissen Hp
+        category: de.Hp
+        de.DS100: ARI
+        location:
+            line.de.1226: 15,300
 
 
 ---
@@ -252,83 +358,21 @@ type: point
 events:
     -   date: 2015-06-14?
         status: open
+        name: Hamburg-Rissen
+        category: de.Bf
         source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
             path.de.1226: rib
 records:
-    -   date: 2017-01
+    -   document: src.de.DBAG.BSV.2017
         de.DS100: ARIS
         name: Hamburg-Rissen
         de.name16: Rissen
         category: de.Bf
         PLC: DE21610
         de.dstnr: !!str 109377
-        document: src.de.DBAG.BSV.2017
- 
-
----
-key: point.de.Hamburg-Rissen
-type: point
-events:
-    -   date: !!null
-        site:
-            path.de.1226: ris
-records:
-    -   date: 1914-07
-        name: Rissen
-        document: src.de.Kb.1914
-    -   date: 1927-12-09
-        name: Rissen
-        de.lknr: 01 048
-        document: src.de.Bfv.1928
-    -   date: 1931-04-01
-        name: Rissen
-        category: de.Bf
-        de.rang: IV
-        location:
-            line.de.1226: 15,35 # left
-        document: src.de.DRG.Alt.Karte.1931
-    -   date: 1933-03-01
-        name: Rissen
-        category: de.Bf
-        de.rang: IV
-        de.lknr: 01 109
-        document: src.de.Bfv.1933
-
-    -   date: 1956-09
-        name: Rissen
-        category: de.Bf
-        de.rang: III
-        location:
-            line.de.1226: 15,25 # left
-        document: src.de.DB.Hmb.Karte.1956
-    -   date: 1984-06-03
-        name: Rissen
-        de.DS100: ARI
-        de.dstnr: !!str 011098
-        category: de.Hst
-        document: src.de.DS100.1984
-    -   date: 1984-11
-        name: Rissen
-        category: de.Hst
-        location:
-            line.de.1226: 15,36 # left
-        document: src.de.DB.Hmb.Karte.1984
-
-    -   date: 2017-01
-        category: de.Hp
-        name: Hamburg-Rissen Hp
-        de.name16: Rissen Hp
-        PLC: DE14474
-        de.DS100: ARI
-        de.dstnr: !!str 011098
-        document: src.de.DBAG.BSV.2017
-    -   date: 2017-01
-        location:
-            line.de.1226: 15,300
-        document: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
@@ -337,6 +381,7 @@ type: point
 subtype: border
 events:
     -   date: !!null
+        designation: Hamburg-Rissen HH/SH
         site:
             path.de.1226: gris
 records:
@@ -355,50 +400,62 @@ key: point.de.Hamburg-Rissen-Ölweiche
 type: point
 events:
     -   date: !!null
+        name: Rissen Ölweiche
+        category: de.Ldst
+        source: src.de.Bfv.1938
+    -   date: c1950
+        category: de.Bf
+        location:
+            line.de.1226: 17,05 # left
+        source: src.de.DB.Hmb.Karte.1956
+    -   date: c1980
+        location:
+            line.de.1226: 17,15 # left
+        source: src.de.DB.Hmb.Karte.1984
+    -   date: c2000
+        name: Hamburg-Rissen Ölweiche
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
         site:
             path.de.1226: rio
 records:
-    -   date: 1927-12-09
+    -   document: src.de.Bfv.1928
         name: Rissen Ölweiche
         de.lknr: 01 427
         category: de.Ahst
-        document: src.de.Bfv.1928
     -   document: src.de.Bfv.1933
         name: Altona-Rissen Ölweiche
         de.lknr: 01 110
         category: de.Ahst
         goods: limited
         note: „A der G Altona-Rissen“
-    -   date: 1938-10-01
+    -   document: src.de.Bfv.1938
         category: [de.Ldst, de.Ahst]
         name: Hamburg-Rissen Ölweiche
         de.lknr: 01 110
         service: goods
-        document: src.de.Bfv.1938
 
-    -   date: 1956-09
+    -   document: src.de.DB.Hmb.Karte.1956
         name: Rissen Ölweiche
         category: de.Bf
         de.rang: I
         location:
             line.de.1226: 17,05 # left
-        document: src.de.DB.Hmb.Karte.1956
-    -   date: 1984-11
+    -   document: src.de.DS100.1984
         de.dstnr: !!str 011106
         name: Rissen Ölweiche
         de.DS100: AROE
         category: de.Bf
-        document: src.de.DS100.1984
-    -   date: 1984-11
+    -   document: src.de.DB.Hmb.Karte.1984
         name: Rissen Ölweiche
         category: de.Bf
         staff: none
         service: goods
         location:
             line.de.1226: 17,15 # left
-        document: src.de.DB.Hmb.Karte.1984
 
-    -   date: 2017-01
+    -   document: src.de.DBAG.BSV.2017
         de.DS100: AROE
         name: Hamburg-Rissen Ölweiche
         de.name16: Hmb-Rissen Ölw
@@ -406,7 +463,7 @@ records:
         status: closed
         de.dstnr: !!str 011106
         PLC: DE14476
-        document: src.de.DBAG.BSV.2017
+        
 
 
 ---
@@ -415,24 +472,25 @@ type: point
 events:
     -   date: c2010
         status: open
+    -   date: !!null
+        name: Hamburg-Rissen Ölweiche (Üst)
+        category: de.Üst
+        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
             path.de.1226: rou
 records:
-    -   date: 2017-01
+    -   document: src.de.DBAG.BSV.2017
         de.DS100: AROW
         name: Hamburg-Rissen Ölweiche (Üst)
         de.name16: Hmb-Rissen Ölw Ü
         category: de.Üst
         PLC: DE14477
         de.dstnr: !!str 014514
-        document: src.de.DBAG.BSV.2017
-
-    -   date: 2017-01
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
         location:
             line.de.1226:  17,558
-        document: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
@@ -440,66 +498,70 @@ key: point.de.Wedel-Holst
 type: point
 events:
     -   date: !!null
+        name: Wedel
+        source: src.de.Kb.1914
+    -   date: !!null
+        category: de.Bf
+        location:
+            line.de.1226: 18,98 # right
+        source: src.de.DRG.Alt.Karte.1931
+    -   date: c1935
+        name: Wedel (Holst)
+        source: src.de.Bfv.1938
+    -   date: c2000
+        location:
+            line.de.1226: 18,959
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+    -   date: !!null
         site:
             path.de.1226: wed
 records:
-    -   date: 1914-07
-        name: Wedel
-        document: src.de.Kb.1914
-    -   date: 1927-12-09
+    -   document: src.de.Bfv.1928
         name: Wedel
         de.lknr: 01 049
-        document: src.de.Bfv.1928
-    -   date: 1931-04-01
+    -   document: src.de.DRG.Alt.Karte.1931
         name: Wedel
         category: de.Bf
         de.rang: III
         location:
             line.de.1226: 18,98 # right
-        document: src.de.DRG.Alt.Karte.1931
-    -   date: 1933-03-01
+    -   document: src.de.Bfv.1933
         name: Wedel
         category: de.Bf
         de.rang: III
         de.lknr: 01 111
-        document: src.de.Bfv.1933
-    -   date: 1938-10-01
+    -   document: src.de.Bfv.1938
         name: Wedel (Holst)
         category: de.Bf
         de.rang: III
         de.lknr: 01 111
-        document: src.de.Bfv.1938
 
-    -   date: 1956-09
+    -   document: src.de.DB.Hmb.Karte.1956
         name: Wedel (Holst)
         category: de.Bf
         de.rang: II
         location:
             line.de.1226: 18,98 # right
-        document: src.de.DB.Hmb.Karte.1956
-    -   date: 1984-06-03
+    -   document: src.de.DS100.1984
         name: Wedel (Holst)
         category: de.Bf
         de.DS100: AWL
         de.dstnr: !!str 011114
-        document: src.de.DS100.1984
-    -   date: 1984-11
+    -   document: src.de.DB.Hmb.Karte.1984
         name: Wedel (Holst)
         category: de.Bf
         location:
             line.de.1226: 18,99 # right
-        document: src.de.DB.Hmb.Karte.1984
 
-    -   date: 2017-01
+    -   document: src.de.DBAG.BSV.2017
         name: Wedel (Holst)
         category: de.Bf
         de.DS100: AWL
         de.dstnr: !!str 011114
         de.name16: Wedel (Holst)
         PLC: DE20830
-        document: src.de.DBAG.BSV.2017
-    -   date: 2017-01
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
         location:
             line.de.1226: 18,959
-        document: src.de.DBAG.Geo-Betriebsstelle.2017
 

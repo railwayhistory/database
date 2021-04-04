@@ -4,40 +4,49 @@
 key: line.de.1245
 type: line
 label: goods
-events:
-    -   date: !!null
-        region:
+current:
+    status: open
+    category: de.Nebenbahn
+    gauge: 1435mm
+    tracks: 1
+    electrified: !!null
+    course: path.de.1245 roo ham
+
+    goods: full
+    passenger: none
+
+    operator: org.de.DB-Netz
+    owner: org.de.DB-Netz
+
+    jurisdiction: de
+    region:
             - org.de
             - org.de.l.hh
-
-    -   date: 1895-04-01
-        operator: org.de.e.hmb
-        document: src.de.l.pre.1895.5.20
-
+events:
     -   date: 1866-07-16
         start: point.de.Hamburg-Berl
         status: open
         source: src.de.DRG.1935 # 1866/21, 1866/21a, 1866/22
 
+    -   date: 1895-04-01
+        operator: org.de.e.hmb
+        document: src.de.l.pre.1895.5.20
+
     -   date: 1906
         end: point.de.Hamburg-Berl
         status: open
-
-    #   Verlauf
-    #
-    -   date: !!null
-        course: path.de.1245 roo ham
 records:
-    -   date: 1931-04-01
+    -   document: src.de.DRG.Alt.Karte.1931
         tracks: 1
         gauge: 1435mm
         passenger: none
-        document: src.de.DRG.Alt.Karte.1931
 
-    -   date: 2017-01
+    -   document: src.de.DBAG.Geo-Strecke.2017
+        category: de.Nebenbahn
+        electrified: !!null
+        tracks: 1
         de.VzG: !!str 1245
         note: km 0,2+29 – 2,8+74
-        document: src.de.DBAG.Geo-Strecke.2017
 points:
     -   point.de.Hamburg-Rothenburgsort-Ro            # de.1280
     -   point.de.Hamburg-Berl
@@ -56,32 +65,47 @@ type: point
 events:
     -   date: c1906
         status: open
+
+    -   date: !!null
+        name: Hamburg Hgbf Berl
+        category: de.Bf
+        service: goods
+        source: src.de.Bfv.1933
+    -   date: c1940
+        name: Hamburg Berl
+        source: src.de.Bfv.1944
+
     -   date: c1970
         status: closed
 
     -   date: !!null
         site:
             path.de.1245: ber
-            path.de.12451: ber
+            path.de.A70:  ber
 records:
-    -   date: 1927-12-09
+    -   document: src.de.Bfv.1928
         name: Hamburg Hgbf (Berl)
         de.lknr: 01 032
-        document: src.de.Bfv.1928
-    -   date: 1933-03-01
+    -   document: src.de.Bfv.1933
         name: Hamburg Hgbf Berl
         category: de.Bf
         de.rang: I
         service: goods
         de.lknr: 01 072
-        document: src.de.Bfv.1933
-    -   date: 1944-06-01
+    -   document: src.de.Bfv.1938
+        name: Hamburg Hgbf Berl
+        category: de.Bf
+        de.rang: I
+        service: full
+        passenger: none
+        de.lknr: 01 072
+    -   document: src.de.Bfv.1944
         name: Hamburg Berl
         category: de.Bf
         de.rang: I
         service: goods
         de.lknr: 01 072
-        source: src.de.Bfv.1944
+        
 
 
 ---
@@ -90,10 +114,10 @@ type: point
 progress: stub
 events:
     -   date: !!null
-        name: Hamburg Klosterthor
+        designation: Hamburg Klosterthor
         site:
             path.de.1245: klo
-            path.de.12465: klo
+            path.de.A75:  klo
 
 
 # point.de.Hamburg-Hbf                          de.6100

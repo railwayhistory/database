@@ -4,16 +4,40 @@
 ---
 key: line.de.1220
 type: line
-events:
-    -   date: !!null
-        region: org.de
-    -   date: !!null
-        end: point.de.Hamburg-Eidelstedt-LGr
-        region: org.de.l.hh
-    -   date: !!null
-        start: point.de.Hamburg-Eidelstedt-LGr
-        region: org.de.l.sh
+current:
+    status:
+        point.de.Hamburg-Altona: removed
+        point.de.Kiel-Hbf: open
+        point.de.Kiel-Altonaer-Bf: removed
+    category: de.Hauptbahn
+    gauge: 1435mm
+    tracks: 2
+    electrified:
+        point.de.Hamburg-Altona: !!null
+        point.de.Kiel-Hbf: de
+        point.de.Kiel-Altonaer-Bf: !!null
+    course: path.de.1220 pal kia
 
+    goods: full
+    passenger: full
+
+    operator: org.de.DB-Netz
+    owner: org.de.DB-Netz
+
+    jurisdiction: de
+    region:
+        point.de.Hamburg-Eidelstedt-LGr:
+            - org.de
+            - org.de.l.hh
+        point.de.Kiel-Altonaer-Bf:
+            - org.de
+            - org.de.l.sh
+
+    de.VzG:
+        point.de.Hamburg-Altona: !!null
+        point.de.Kiel-Hbf: !!str 1220
+        point.de.Kiel-Altonaer-Bf: !!null
+events:
     #   Genehmigungen, Eigentümer, Betreiber
     #
     -   date: 1842-06-28
@@ -54,10 +78,6 @@ events:
         end: point.de.Kiel-Hbf
         electrified: de 
         source: src.de.WP.Bahnstrecke-Hamburg-Altona-Kiel
-
-    -   date: !!null
-        course: path.de.1220 pal kia
-
 records:
     -   date: 1927-03
         start: point.de.Hamburg-Altona
@@ -149,9 +169,32 @@ type: point
 events:
     -   date: 1895-11-16
         status: open
+    -   date: !!null
+        name: Altona Hbf
+        source: src.de.Kb.1914
+    -   date: !!null
+        category: de.Bf
+        de.rang: I
+        location:
+            line.de.1220:   0,70 # bottom
+            line.de.1224:   0,66
+            line.de.1240: 293,14
+            line.de.6100: 293,14
+        source: src.de.DRG.Alt.Karte.1931
+
     -   date: 1938-05-15
         name: Hamburg-Altona
         source: src.de.web.Nosske
+
+    -   date: !!null
+        de.DS100: AA
+        source: src.de.DS100.1984
+
+    -   date: c2000
+        location:
+            line.de.1220:   0,710
+            line.de.6100: 293,157
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -160,14 +203,10 @@ events:
             path.de.1231: alt
             path.de.1240: alt
 records:
-    -   date: 1914-07
-        name: Altona Hbf
-        document: src.de.Kb.1914
-    -   date: 1927-12-09
+    -   document: src.de.Bfv.1928
         name: Altona Hbf
         de.lknr: 01 041
-        document: src.de.Bfv.1928
-    -   date: 1931-04-01
+    -   document: src.de.DRG.Alt.Karte.1931
         name: Altona Hbf
         category: de.Bf
         de.rang: I
@@ -176,14 +215,13 @@ records:
             line.de.1224:   0,66
             line.de.1240: 293,14
             line.de.6100: 293,14
-        document: src.de.DRG.Alt.Karte.1931
     -   document: src.de.Bfv.1933
         name: Altona Hbf
         category: de.Bf
         de.rang: I
         de.lknr: 01 093
 
-    -   date: 1956-09
+    -   document: src.de.DB.Hmb.Karte.1956
         name: Hamburg-Altona
         category: de.Bf
         de.rang: I
@@ -192,41 +230,38 @@ records:
             line.de.1224:   0,66
             line.de.1240: 293,14
             line.de.6100: 293,14
-        document: src.de.DB.Hmb.Karte.1956
-    -   date: 1984-06-03
+    -   document: src.de.DS100.1984
         name: Hamburg-Altona
         category: de.Bf
         de.DS100: AA
         de.dstnr: !!str 010934
-        document: src.de.DS100.1984
-    -   date: 1984-11
+    -   document: src.de.DB.Hmb.Karte.1984
         name: Hamburg-Altona
         category: de.Bf
         location:
             line.de.1220:   0,71 # bottom
             line.de.6100: 293,17
         #            ???:   0,74
-        document: src.de.DB.Hmb.Karte.1984
 
-    -   date: 2017-01
+    -   document: src.de.DBAG.BSV.2017
         name: Hamburg-Altona
         category: de.Bf
         de.DS100: AA
         de.dstnr: !!str 010934
         de.name16: Hamburg-Altona
         PLC: DE14421
-        document: src.de.DBAG.BSV.2017
-    -   date: 2017-01
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        name: Hamburg-Altona
+        category: de.Bf
+        de.DS100: AA
         location:
             line.de.1220:   0,710
             line.de.6100: 293,157
-        document: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Hamburg-Altona-Tu
 type: point
-progress: stub
 events:
     -   date: c1990
         status: closed
@@ -248,6 +283,11 @@ type: point
 events:
     -   date: c1990
         status: closed
+
+    -   date: !!null
+        site:
+            path.de.1220: alt.ap
+            path.de.1230: alt.ap
 records:
     -   date: 1984-06-03
         name: Hamburg-Altona (Ap)
@@ -266,7 +306,7 @@ events:
 
     -   date: !!null
         site:
-            path.de.1220: aak
+            path.de.1220: alt.ak
             path.de.1231: aak
 records:
     -   date: 2017-01
@@ -287,6 +327,7 @@ events:
     -   date: !!null
         site:
             path.de.1220: alg
+            path.de.1230: alg
             path.de.1231: alg
             path.de.1232: alg
 records:
@@ -753,7 +794,6 @@ records:
         document: src.de.DRG.Alt.Karte.1931
     -   date: 1933-03-01
         name: Tornesch
-        category: de.Bf
         category: de.Bf
         de.rang: II
         de.lknr: 01 286
@@ -1533,7 +1573,7 @@ records:
         location:
             line.de.1040: 76,16
             line.de.1220: 76,16 # right
-        source: src.de.DRG.Alt.Karte.1931
+        document: src.de.DRG.Alt.Karte.1931
 
     -   date: 1956-09
         name: „Ngn“
@@ -1651,7 +1691,6 @@ records:
         document: src.de.DRG.Alt.Karte.1931
     -   date: 1933-03-01
         name: Bordesholm
-        category: de.Bf
         category: de.Bf
         de.rang: III
         de.lknr: 01 300

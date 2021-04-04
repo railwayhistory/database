@@ -3,12 +3,28 @@
 ---
 key: line.de.1239
 type: line
-events:
-    -   date: !!null
-        region:
-            - org.de
-            - org.de.l.hh
+label: de.S-Bahn
+current:
+    status: open
+    category: de.Hauptbahn
+    gauge: 1435mm
+    tracks: 2
+    electrified: de.hmb
+    course: path.de.1239 ohl air
 
+    goods: none
+    passenger: full
+
+    operator: org.de.DB-Netz
+    owner: org.de.DB-Netz
+
+    jurisdiction: de
+    region:
+        - org.de
+        - org.de.l.hh
+
+    de.VzG: !!str 1239
+events:
     #   Genehmigung und Eröffnung
     #
     -   date: 2001-04-11
@@ -18,27 +34,12 @@ events:
         status: open
         source: src.de.WP.Flughafen-S-Bahn-Hamburg
 
-    #   Eigenschaften
-    #
-    -   date: !!null
-        category: de.Hauptbahn
-        electrified: de.hmb
-        tracks: 2
-
-    #   Eigentümer und Betreiber
-    #
-    -   date: !!null
-        owner: org.de.DB-Netz
-        operator: org.de.DB-Netz
-
-    #   Verlauf
-    #
-    -   date: !!null
-        course: path.de.1239 ohl air
 records:
     -   date: 2017-01
         de.VzG: !!str 1239
         note: km 11,5+73 - 14,3+39
+        category: de.Hauptbahn
+        tracks: 2
         document: src.de.DBAG.Geo-Strecke.2017
 points:
     -   point.de.Hamburg-Ohlsdorf-S-Bahn            # de.1241
@@ -67,20 +68,29 @@ key: point.de.Hamburg-Airport
 type: point
 events:
     -   date: !!null
+        category: de.Bf
+        name: Hamburg Airport
+        de.DS100: AAI
+        location:
+            line.de.1239: 14,210
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+        
+    -   date: !!null
         site:
             path.de.1239: air
 records:
-    -   date: 2017-01
+    -   document: src.de.DBAG.BSV.2017
         category: de.Bf
         name: Hamburg Airport
         de.name16: Hamburg Airport
         de.DS100: AAI
         PLC: DE14376
         de.dstnr: !!str 854711
-        document: src.de.DBAG.BSV.2017
-    -   date: 2017-01
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        category: de.Bf
+        name: Hamburg Airport
+        de.DS100: AAI
         location:
             line.de.1239: 14,210
-        document: src.de.DBAG.Geo-Betriebsstelle.2017
-
+        
 

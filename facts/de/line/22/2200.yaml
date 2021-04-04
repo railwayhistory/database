@@ -4,44 +4,46 @@
 ---
 key: line.de.2200
 type: line
+current:
+    status: open
+    category: de.Hauptbahn
+    gauge: 1435mm
+    tracks: 2
+    electrified: de
+    course: path.de.2200 wan ham
+
+    goods: full
+    passenger: full
+
+    operator: org.de.DB-Netz
+    owner: org.de.DB-Netz
+
+    jurisdiction: de
+    region:
+        point.de.Natrup-Hagen-LGr:
+            -   org.de
+            -   org.de.l.nw
+        point.de.Bohmte-LGr:
+            -   org.de
+            -   org.de.l.ni
+        point.de.Lemförde-LGr:
+            -   org.de
+            -   org.de.l.nw
+        point.de.Dreye-LGr:
+            -   org.de
+            -   org.de.l.ni
+        point.de.Sagehorn-LGr-2200:
+            -   org.de
+            -   org.de.l.hb
+        point.de.Hittfeld-LGr:
+            -   org.de
+            -   org.de.l.ni
+        point.de.Hamburg-Hbf:
+            -   org.de
+            -   org.de.l.hh
+
+    de.VzG: !!str 2200
 events:
-    -   date: !!null
-        region: org.de
-    -   date: !!null
-        end: point.de.Natrup-Hagen-LGr
-        region: org.de.l.nw
-    -   date: !!null
-        start: point.de.Natrup-Hagen-LGr
-        end: point.de.Bohmte-LGr
-        region: org.de.l.ni
-    -   date: !!null
-        start: point.de.Bohmte-LGr
-        end: point.de.Lemförde-LGr
-        region: org.de.l.nw
-    -   date: !!null
-        start: point.de.Lemförde-LGr
-        end: point.de.Dreye-LGr
-        region: org.de.l.ni
-    -   date: !!null
-        start: point.de.Dreye-LGr
-        end: point.de.Sagehorn-LGr-2200
-        region: org.de.l.hb
-    -   date: !!null
-        start: point.de.Sagehorn-LGr-2200
-        end: point.de.Hittfeld-LGr
-        region: org.de.l.ni
-    -   date: !!null
-        start: point.de.Hittfeld-LGr
-        region: org.de.l.hh
-
-    -   date: !!null
-        de.VzG: !!str 2200
-        source: src.de.DBAG.Geo-Strecke.2017
-
-    -   date: !!null
-        category: de.Hauptbahn
-        source: src.de.DRG.1927
-
     #   Staatsverträge und Verträge
     #   
     -   date: 1868-03-18
@@ -423,10 +425,10 @@ points:
     -   point.de.Sagehorn
     -   point.de.Schaphusen
     -   point.de.Bassen
-    -       point.de.Ottersberg-Han
+    -   point.de.Ottersberg-Han
     -   point.de.Stuckenborstel
     -   point.de.Hellwege
-    -       point.de.Sottrum
+    -   point.de.Sottrum
     -   point.de.Hassendorf
     -   point.de.Kiehnmoor
     -   point.de.Rotenburg-Wümme
@@ -450,6 +452,7 @@ points:
     -   point.de.Glüsingen-Harburg
     -   point.de.Hittfeld-LGr
     -   point.de.Hamburg-Harburg-Hga
+    -   point.de.Hamburg-Harburg-Heg
     -   point.de.Hamburg-Harburg-Hst
     -   point.de.Hamburg-Harburg
     -   point.de.Hamburg-Harburg-Nordkopf
@@ -4130,7 +4133,7 @@ type: point
 events:
     -   date: !!null
         location:
-            line.de.91445: 2,5
+            line.de.HT0: 2,5
         source: src.de.WP.Kleinbahn-Bremen-Tarmstedt
     -   date: !!null
         de.lknr: 13 041
@@ -4860,29 +4863,29 @@ events:
         name: Buchholz (Kr Harburg)
         source: src.de.Kb.1914
     -   date: !!null
-        de.lknr: 21 043
-        source: src.de.Bfv.1928
-    -   date: !!null
+        name: Buchholz (Kr Harburg)
         category: de.Bf
         de.rang: I
-        source: src.de.Bfv.1933
-    -   date: c1930
-        de.lknr: 01 233
-        source: src.de.Bfv.1933
+        location:
+            line.de.2200: 323,30
+            line.de.1151: 268,31
+            line.de.1712: 133,07
+            line.de.1300: 92,94
+        source: src.de.DB.Hmb.Karte.1956
+
+    -   date: c1970
+        name: Buchholz (Nordheide)
+        source: src.de.DS100.1984
+
     -   date: !!null
         de.DS100: ABLZ
-        de.dstnr: !!str 012336
         source: src.de.DS100.1984
-    -   date: !!null
-        de.name16: Buchholz (Nordh)
-        PLC: DE11775
-        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         location:
-            line.de.1151: 268,31
-            line.de.1300:  92,94
-        source: src.de.DRG.Alt.Karte.1949
+            line.de.1280:   0,00
+        source: src.de.DB.Hmb.Karte.1984
+
     -   date: c2000
         location:
             line.de.1280:   0,001
@@ -4895,24 +4898,91 @@ events:
         site:
             path.de.2200: buc
             path.de.1280: buc
+records:
+    -   document: src.de.Bfv.1928
+        name: Buchholz (Kr Harburg)
+        de.lknr: 21 043
+    -   document: src.de.DRG.Alt.Karte.1931
+        name: Buchholz (Kr Harburg)
+        category: de.Bf
+        de.rang: I
+        location:
+            line.de.2200: 323,20
+    -   document: src.de.Bfv.1933
+        name: Buchholz (Kr Harburg)
+        category: de.Bf
+        de.rang: I
+        de.lknr: 01 233
 
+    -   document: src.de.DB.Hmb.Karte.1956
+        name: Buchholz (Kr Harburg)
+        category: de.Bf
+        de.rang: I
+        location:
+            line.de.2200: 323,30
+            line.de.1151: 268,31
+            line.de.1712: 133,07
+            line.de.1300: 92,94
+
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 012336
+        de.DS100: ABLZ
+        name: Buchholz (Nordheide)
+        category: de.Bf
+    -   document: src.de.DB.Hmb.Karte.1984
+        name: Buchholz (Nordheide)
+        category: de.Bf
+        location:
+            line.de.2200: 323,30
+            line.de.1712: 133,07
+            line.de.1280:   0,00
+
+    -   document: src.de.DBAG.BSV.2017
+        de.DS100: ABLZ
+        name: Buchholz (Nordheide)
+        de.name16: Buchholz (Nordh)
+        category: de.Bf
+        de.dstnr: !!str 012336
+        PLC: DE11775
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        de.DS100: ABLZ
+        name: Buchholz (Nordheide)
+        category: de.Bf
+        location:
+            line.de.1280:   0,001
+            line.de.1283: 323,200
+            line.de.1712: 133,062
+            line.de.2200: 323,200
+        
 
 ---
 key: point.de.Bünsen
 type: point
 events:
     -   date: !!null
-        location:
-            line.de.2200: 325,92
-        category: de.Bk
         name: Bünsen
-        source: src.de.DRG.Alt.Karte.1949
+        category: de.Bk
+        location:
+            line.de.2200: 325,92 # left
+        source: src.de.DRG.Alt.Karte.1931
     -   date: c1970
         status: closed
 
     -   date: !!null
         site:
             path.de.2200: bun
+records:
+    -   document: src.de.DRG.Alt.Karte.1931
+        location:
+            line.de.2200: 325,92 # left
+        category: de.Bk
+        name: Bünsen
+        
+    -   document: src.de.DB.Hmb.Karte.1956
+        location:
+            line.de.2200: 325,92 # left
+        category: de.Bk
+        name: Buensen
 
 
 ---
@@ -4923,37 +4993,66 @@ events:
         name: Klecken
         source: src.de.Kb.1914
     -   date: !!null
-        de.lknr: 21 044
-        source: src.de.Bfv.1928
-    -   date: !!null
         category: de.Bf
-        de.rang: III
-        source: src.de.Bfv.1933
-    -   date: c1930
-        de.lknr: 01 232
-        source: src.de.Bfv.1933
-    -   date: !!null
-        de.DS100: AKC
-        de.name16: Klecken
-        PLC: DE15569
-        de.dstnr: !!str 012328
-        source: src.de.DBAG.BSV.2017
-    -   date: c1970
-        category: de.Hp
-        source: src.de.DBAG.BSV.2017
+        location:
+            line.de.2200: 329,10 # left
+        source: src.de.DRG.Alt.Karte.1931
 
     -   date: !!null
-        location:
-            line.de.2200: 329,10
-        source: src.de.DRG.Alt.Karte.1949
-    -   date: c2000
-        location:
-            line.de.2200: 329,099
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
+        de.DS100: AKC
+        source: src.de.DS100.1984
 
     -   date: !!null
         site:
             path.de.2200: kle
+records:
+    -   document: src.de.Bfv.1928
+        name: Klecken
+        de.lknr: 21 044
+    -   document: src.de.DRG.Alt.Karte.1931
+        name: Klecken
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.2200: 329,10 # left
+    -   document: src.de.Bfv.1933
+        name: Klecken
+        category: de.Bf
+        de.rang: III
+        de.lknr: 01 232
+
+    -   document: src.de.DB.Hmb.Karte.1956
+        name: Klecken
+        category: de.Bf
+        de.rang: III
+        location:
+            line.de.2200: 329,10 # left
+        
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 012328
+        name: Klecken
+        de.DS100: AKC
+        category: de.Bf
+    -   document: src.de.DB.Hmb.Karte.1984
+        name: Klecken
+        category: de.Bf
+        location:
+            line.de.2200: 329,10 # left
+
+    -   document: src.de.DBAG.BSV.2017
+        de.DS100: AKC
+        name: Klecken
+        de.name16: Klecken
+        category: de.Hp
+        PLC: DE15569
+        de.dstnr: !!str 012328
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        de.DS100: AKC
+        name: Klecken
+        category: de.Hp
+        location:
+            line.de.2200: 329,099
+        
 
 
 ---
@@ -4961,17 +5060,29 @@ key: point.de.Eddelsen
 type: point
 events:
     -   date: !!null
-        location:
-            line.de.2200: 331,42
-        category: de.Bk
         name: Eddelsen
-        source: src.de.DRG.Alt.Karte.1949
+        category: de.Bk
+        location:
+            line.de.2200: 331,42 # left
+        source: src.de.DRG.Alt.Karte.1931
     -   date: c1970
         status: closed
 
     -   date: !!null
         site:
             path.de.2200: edd
+records:
+    -   document: src.de.DRG.Alt.Karte.1931
+        name: Eddelsen
+        category: de.Bk
+        location:
+            line.de.2200: 331,42 # left
+
+    -   document: src.de.DB.Hmb.Karte.1956
+        name: Eddelsen
+        category: de.Bk
+        location:
+            line.de.2200: 331,42 # left
 
 
 ---
@@ -4982,32 +5093,18 @@ events:
         name: Hittfeld
         source: src.de.Kb.1914
     -   date: !!null
-        de.lknr: 21 045
-        source: src.de.Bfv.1928
-    -   date: !!null
         category: de.Bf
-        de.rang: III
-        source: src.de.Bfv.1933
-    -   date: de.lknr.30
-        de.lknr: 01 231
-        source: src.de.Bfv.1933
-    -   date: !!null
-        de.DS100: AHIF
-        de.dstnr: !!str 012310
-        source: src.de.DBAG.BSV.2017
-    -   date: c1995
-        category: de.Hp
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Hittfeld
-        PLC: DE14936
-        source: src.de.DBAG.BSV.2017
+        de.rang: IV
+        location:
+            line.de.2200: 334,55 # right
+        source: src.de.DRG.Alt.Karte.1931
 
     -   date: !!null
-        location:
-            line.de.2200: 334,55
-        source: src.de.DRG.Alt.Karte.1949
+        de.DS100: AHIF
+        source: src.de.DS100.1984
+
     -   date: c2000
+        category: de.Hp
         location:
             line.de.2200: 334,518
         source: src.de.DBAG.Geo-Betriebsstelle.2017
@@ -5015,24 +5112,89 @@ events:
     -   date: !!null
         site:
             path.de.2200: hit
+records:
+    -   document: src.de.Bfv.1928
+        name: Hittfeld
+        de.lknr: 21 045
+    -   document: src.de.DRG.Alt.Karte.1931
+        name: Hittfeld
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.2200: 334,55 # right
+    -   document: src.de.Bfv.1933
+        name: Hittfeld
+        category: de.Bf
+        de.rang: III
+        de.lknr: 01 231
+
+    -   document: src.de.DB.Hmb.Karte.1956
+        name: Hittfeld
+        category: de.Bf
+        de.rang: III
+        location:
+            line.de.2200: 334,55 # right
+        
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 012310
+        name: Hittfeld
+        de.DS100: AHIF
+        category: de.Bf
+    -   document: src.de.DB.Hmb.Karte.1984
+        name: Hittfeld
+        category: de.Bf
+        location:
+            line.de.2200: 334,55 # right
+
+    -   document: src.de.DBAG.BSV.2017
+        de.DS100: AHIF
+        name: Hittfeld
+        de.name16: Hittfeld
+        category: de.Hp
+        de.dstnr: !!str 012310
+        PLC: DE14936
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        de.DS100: AHIF
+        name: Hittfeld
+        category: de.Hp
+        location:
+            line.de.2200: 334,518
+        
 
 
 ---
 key: point.de.Glüsingen-Harburg
 type: point
 events:
+    -   date: c1933
+        status: open
+        source:
+            -   src.de.DRG.Alt.Karte.1931
+            -   src.de.DRG.Alt.Karte.1935
     -   date: !!null
-        location:
-            line.de.2200: 337,58
-        category: de.Bk
         name: Glüsingen
-        source: src.de.DRG.Alt.Karte.1949
+        category: de.Bk
+        location:
+            line.de.2200: 337,60
+        source: src.de.DB.Hmb.Karte.1956
     -   date: c1970
         status: closed
 
     -   date: !!null
         site:
             path.de.2200: glu
+records:
+    -   document: src.de.DRG.Alt.Karte.1935
+        name: Glüsingen
+        category: de.Bk
+        location:
+            line.de.2200: 337,6 # left
+        
+    -   document: src.de.DB.Hmb.Karte.1956
+        name: Glüsingen
+        category: de.Bk
+        location:
+            line.de.2200: 337,60 # right
 
 
 ---
@@ -5043,15 +5205,20 @@ events:
     -   date: !!null
         de.DS100: AQHI
         name: Hittfeld NI/HH
-        de.name16: Hittfeld NI/HH
         category: de.LGr
-        PLC: DE14937
-        de.dstnr: !!str 103995
         source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
             path.de.2200: ghit
+records:
+    -   document: src.de.DBAG.BSV.2017
+        de.DS100: AQHI
+        name: Hittfeld NI/HH
+        de.name16: Hittfeld NI/HH
+        category: de.LGr
+        PLC: DE14937
+        de.dstnr: !!str 103995
 
 
 ---
@@ -5060,26 +5227,72 @@ type: point
 events:
     -   date: !!null
         name: Gabelung
+        location:
+            line.de.2200: 340,38
         source: src.de.DRG.Alt.Karte.1931
-    -   date: c1940
+    -   date: !!null
+        category: de.Abzw
+        source: src.de.DB.Hmb.Karte.1956
+
+    -   date: c1945
         name: Hga
-        source: src.de.DRG.Alt.Karte.1949
+        source: src.de.DB.Hmb.Karte.1956
+
     -   date: c1970
         category: de.Glgr
         name: Hamburg-Harburg (Hga)
-        de.DS100: AHARG
-    -   date: c1990
-        status: closed
+        source: src.de.DS100.1984
 
     -   date: !!null
-        location:
-            line.de.2200: 340,38
-        source: src.de.DRG.Alt.Karte.1949
+        de.DS100: AHARG
+        source: src.de.DS100.1984
+
+    -   date: c2000
+        status: closed
 
     -   date: !!null
         site:
             path.de.2200: hga
             path.de.2200.har: hga
+records:
+    -   document: src.de.DRG.Alt.Karte.1931
+        name: Gabelung
+        location:
+            line.de.2200: 340,38
+    -   document: src.de.DB.Hmb.Karte.1956
+        name: „Hga“
+        category: de.Abzw
+        location:
+            line.de.2200: 340,38
+            line.de.1720: 166,5
+
+    -   document: src.de.DS100.1984
+        name: Hamburg-Harburg (Hga)
+        de.DS100: AHARG
+        category: de.Glgr
+
+
+---
+key: point.de.Hamburg-Harburg-Heg
+type: point
+events:
+    -   date: !!null
+        name: Hamburg-Harburg (Heg)
+        de.DS100: AHARE
+        category: de.Glgr
+        superior: point.de.Hamburg-Harburg
+        source: src.de.DS100.1984
+
+    -   date: !!null
+        site:
+            path.de.2200: heg
+
+records:
+    -   document: src.de.DS100.1984
+        name: Hamburg-Harburg (Heg)
+        de.DS100: AHARE
+        category: de.Glgr
+        superior: point.de.Hamburg-Harburg
 
 
 ---
@@ -5414,7 +5627,6 @@ events:
             line.de.1280:  37,574
             line.de.2200: 351,331
         source: src.de.DBAG.Geo-Betriebsstelle.2017
-        source: src.de.DBAG.ISR
 
     -   date: !!null
         site:

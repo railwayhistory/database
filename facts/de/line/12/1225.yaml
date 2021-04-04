@@ -4,22 +4,31 @@
 type: line
 key: line.de.1225
 label: de.S-Bahn
+current:
+    status: open
+    category: de.Hauptbahn
+    gauge: 1435mm
+    tracks: 2
+    electrified: de.hmb
+    course: path.de.1225 hol pin
+
+    goods: none
+    passenger: full
+
+    operator: org.de.DB-Netz
+    owner: org.de.DB-Netz
+
+    jurisdiction: de
+    region:
+        point.de.Hamburg-Elbgaustrasse-LGr:
+            - org.de
+            - org.de.l.hh
+        point.de.Pinneberg-S-Bahn:
+            - org.de
+            - org.de.l.sh
+
+    de.VzG: !!str 1225
 events:
-    -   date: !!null
-        region: org.de
-    -   date: !!null
-        end: point.de.Hamburg-Elbgaustrasse-LGr
-        region: org.de.l.hh
-    -   date: !!null
-        start: point.de.Hamburg-Elbgaustrasse-LGr
-        region: org.de.l.sh
-
-    #   Genehmigungen, Eigentümer, Betreiber
-    #
-    -   date: !!null
-        owner: org.de
-        operator: org.de.DB
-
     #   Eröffnung
     #
     -   date: 1962
@@ -35,28 +44,15 @@ events:
         start: point.de.Hamburg-Elbgaustrasse
         status: open
         source: src.de.web.Matthaei
-
-    #   Eigenschaften
-    #
-    -   date: !!null
-        electrified: de.hmb
-        goods: none
-
-    #   Verlauf
-    #
-    -   date: !!null
-        course: path.de.1225 hol pin
 records:
-    -   date: 1984-11
+    -   document: src.de.DB.Hmb.Karte.1984
         category: de.Hauptbahn
         tracks: 2
         gauge: 1435mm
-        document: src.de.DB.Hmb.Karte.1984
 
-    -   date: !!null
+    -   document: src.de.DBAG.Geo-Strecke.2017
         de.VzG: !!str 1225
         note: km 0,0+58 – 15,9+4
-        source: src.de.DBAG.Geo-Strecke.2017
 points:
     -   point.de.Hamburg-Holstenstrasse             # de.1240
     -   point.de.Hamburg-Holstenstraße-D            # de.1240
@@ -91,35 +87,49 @@ key: point.de.Hamburg-Diebsteich
 type: point
 events:
     -   date: !!null
+        name: Diebsteich
+        de.DS100: ADT
+        category: de.Hst
+        location:
+            line.de.1225: 1,42
+            line.de.1270: 7,83
+        source:
+            -   src.de.DS100.1984
+            -   src.de.DB.Hmb.Karte.1984
+    -   date: c2000
+        name: Hamburg Diebsteich
+        category: de.Bf
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
+
+    -   date: !!null
         site:
             path.de.1225: die
             path.de.1270: die
 records:
-    -   date: 1984-06-03
+    -   document: src.de.DS100.1984
         name: Diebsteich
         de.DS100: ADT
         de.dstnr: !!str 012823
         category: de.Hst
-        document: src.de.DS100.1984
-    -   date: 1984-11
+    -   document: src.de.DB.Hmb.Karte.1984
         name: Diebsteich
         location:
             line.de.1225: 1,42
             line.de.1270: 7,83
-        document: src.de.DB.Hmb.Karte.1984
 
-    -   date: 2017-01
+    -   document: src.de.DBAG.BSV.2017
         de.DS100: ADT
         name: Hamburg Diebsteich
         de.name16: Diebsteich
         category: de.Bf
         de.dstnr: !!str 012823
         PLC: DE14385
-        document: src.de.DBAG.BSV.2017
-    -   date: 2017-01
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        de.DS100: ADT
+        name: Hamburg Diebsteich
+        category: de.Bf
         location:
             line.de.1225: 1,420
-        document: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
@@ -127,34 +137,48 @@ key: point.de.Hamburg-Langenfelde-S-Bahn
 type: point
 events:
     -   date: !!null
+        name: Langenfelde
+        category: de.Hp
+        de.DS100: ALST
+        location:
+            line.de.1225: 2,63
+        source:
+            -   src.de.DS100.1984
+            -   src.de.DB.Hmb.Karte.1984
+
+    -   date: c2000
+        name: Hamburg-Langenfelde (S-Bahn)
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
         site:
             path.de.1225: lan
 records:
-    -   date: 1984-06-03
+    -   document: src.de.DS100.1984
         category: de.Hp
         name: Langenfelde
         de.DS100: ALST
         de.dstnr: !!str 012898
-        document: src.de.DS100.1984
-    -   date: 1984-11
-        name: Langefelde
+    -   document: src.de.DB.Hmb.Karte.1984
+        name: Langenfelde
         category: de.Hp
         location:
             line.de.1225: 2,63
-        document: src.de.DB.Hmb.Karte.1984
 
-    -   date: 2017-01
+    -   document: src.de.DBAG.BSV.2017
         de.DS100: ALST
         name: Hamburg-Langenfelde (S-Bahn)
         de.name16: Langenfelde
         category: de.Hp
         de.dstnr: !!str 012898
         PLC: DE14459
-        document: src.de.DBAG.BSV.2017
-    -   date: 2017-01
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        de.DS100: ALST
+        name: Hamburg-Langenfelde (S-Bahn)
+        category: de.Hp
         location:
-            line.de.1225: 2,630 # centre
-        document: src.de.DBAG.Geo-Betriebsstelle.2017
+            line.de.1225: 2,630
+        
 
 
 ---
@@ -162,48 +186,67 @@ key: point.de.Hamburg-Stellingen-S-Bahn
 type: point
 events:
     -   date: !!null
+        category: de.Hp
+        name: Hamburg-Stellingen
+        de.DS100: ASTS
+        location:
+            line.de.1225: 4,05 # centre
+        source:
+            -   src.de.DS100.1984
+            -   src.de.DB.Hmb.Karte.1984
+
+    -   date: c2000
+        name: Hamburg-Stellingen (S-Bahn)
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
         site:
             path.de.1225: ste
 records:
-    -   date: 1984-06-03
+    -   document: src.de.DS100.1984
         category: de.Hp
         name: Hamburg-Stellingen
         de.DS100: ASTS
         de.dstnr: !!str 012971
-        document: src.de.DS100.1984
-    -   date: 1984-11
+    -   document: src.de.DB.Hmb.Karte.1984
         name: Hamburg-Stellingen (Volksparkstadion)
         category: de.Hp
         location:
             line.de.1225: 4,05 # centre
-        document: src.de.DB.Hmb.Karte.1984
 
-    -   date: 2017-01
+    -   document: src.de.DBAG.BSV.2017
         de.DS100: ASTS
         name: Hamburg-Stellingen (S-Bahn)
         de.name16: Stellingen
         category: de.Hp
         de.dstnr: !!str 012971
         PLC: DE14486
-        document: src.de.DBAG.BSV.2017
-    -   date: 2017-01
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        de.DS100: ASTS
+        name: Hamburg-Stellingen (S-Bahn)
+        category: de.Hp
         location:
             line.de.1225: 4,050
-        document: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Hamburg-Stellingen-Fehlstelle
 type: point
 subtype: reference
-records:
+events:
     -   date: !!null
-        designation:
-            Hamburg-Stellingen Fehlstelle
-    -   date: 1984-11
         location:
-            line.de.1224: 4,23=5,30
-        document: src.de.DB.Hmb.Karte.1984
+            line.de.1225: 4,23=5,30
+        source: src.de.DB.Hmb.Karte.1984
+    -   date: c2000
+        location:
+            line.de.1225: 4,3+83=5,4+51
+        source: src.de.DBAG.Geo-Strecke.2017
+
+    -   date: !!null
+        designation: Hamburg-Stellingen Fehlstelle
+        site:
+            path.de.1225: stx
 
 
 ---
@@ -211,65 +254,89 @@ key: point.de.Hamburg-Eidelstedt-S-Bahn
 type: point
 events:
     -   date: !!null
+        name: Eidelstedt Stsbf
+        source: src.de.Kb.1914
+
+    -   date: c1925
+        name: Eidelstedt
+        source: src.de.Bfv.1928
+
+    -   date: !!null
+        category: de.Bf
+        location:
+            line.de.1220: 6,16 # right
+        source: src.de.DRG.Alt.Karte.1931
+
+    -   date: 1965?
+        name: Eidelstedt (S-Bahn)
+        category: de.Bf
+        location:
+            line.de.1220: !!null
+            line.de.1225: 6,10 # centre
+        source:
+            -   src.de.DS100.1984
+            -   src.de.DB.Hmb.Karte.1984
+
+    -   date: !!null
+        de.DS100: AEST
+        source: src.de.DS100.1984
+
+    -   date: c2000
+        name: Hamburg-Eidelstedt (S-Bahn)
+        location:
+            line.de.1225: 6,215
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+    -   date: !!null
         site:
             path.de.1220: eis
             path.de.1225: eis
             path.de.1232: eis
             path.de.9121: eis
 records:
-    -   date: 1914-07
-        name: Eidelstedt Stsbf
-        document: src.de.Kb.1914
-    -   date: 1927-12-09
+    -   document: src.de.Bfv.1928
         de.lknr: 01 050
         name: Eidelstedt
-        document: src.de.Bfv.1928
-    -   date: 1931-04-01
+    -   document: src.de.DRG.Alt.Karte.1931
         name: Eidelstedt
         category: de.Bf
         de.rang: II
         location:
             line.de.1220: 6,16 # right
-        document: src.de.DRG.Alt.Karte.1931
-    -   date: 1933-03-01
+    -   document: src.de.Bfv.1933
         category: de.Bf
         de.rang: I
         name: Eidelstedt
         de.lknr: 01 279
-        document: src.de.Bfv.1933
 
-    -   date: 1956-09
+    -   document: src.de.DB.Hmb.Karte.1956
         name: Hamburg-Eidelstedt
         category: [de.Hp, de.Bk]
         location:
             line.de.1220: 6,16 # centre
             line.de.1232: 6,16
-        document: src.de.DB.Hmb.Karte.1956
-    -   date: 1984-06-03
+        
+    -   document: src.de.DS100.1984
         de.dstnr: !!str 012799
         name: Eidelstedt (S-Bahn)
         de.DS100: AEST
         category: de.Bf
-        document: src.de.DS100.1984
-    -   date: 1984-11
+    -   document: src.de.DB.Hmb.Karte.1984
         name: Eidelstedt
         category: de.Bf
         location:
             line.de.1225: 6,10 # centre
-        document: src.de.DB.Hmb.Karte.1984
 
-    -   date: 2017-01
+    -   document: src.de.DBAG.BSV.2017
         de.DS100: AEST
         name: Hamburg-Eidelstedt (S-Bahn)
         de.name16: Eidelst (S-Bahn)
         category: de.Bf
         de.dstnr: !!str 012799
         PLC: DE14439
-        document: src.de.DBAG.BSV.2017
-    -   date: 2017-01
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
         location:
             line.de.1225: 6,215
-        document: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
@@ -278,58 +345,73 @@ type: point
 events:
     -   date: c1935
         status: open
-
+        category: de.Hp
+        name: Elbgaustraße
+        service: passenger
+        source: src.de.Bfv.1938
     -   date: !!null
-        location:
+        location: 
             line.de.1220: 7,51
-        source: src.de.DRG.Alt.Karte.1949
-    -   date: 1970
+        source: src.de.DB.Hmb.Karte.1956
+
+    -   date: 1970?
+        category: de.Bf
         location:
             line.de.1220: !!null
+            line.de.1225: 7,23 # centre
+        source: src.de.DB.Hmb.Karte.1984
+
+    -   date: !!null
+        de.DS100: AEGS
+        source: src.de.DS100.1984
+
+    -   date: c2000
+        name: Hamburg Elbgaustraße
+        location:
+            line.de.1225: 7,360
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
             path.de.1220: elb
             path.de.1225: elb
 records:
-    -   date: 1938-10-01
+    -   document: src.de.Bfv.1938
         category: de.Hp
         name: Elbgaustraße
         de.lknr: 01 277
         service: passenger
-        document: src.de.Bfv.1938
 
-    -   date: 1956-09
+    -   document: src.de.DB.Hmb.Karte.1956
         name: Elbgaustraße
         category: de.Hp
         location:
             line.de.1220: 7,51 # centre
-        document: src.de.DB.Hmb.Karte.1956
-    -   date: 1984-06-03
+        
+    -   document: src.de.DS100.1984
         name: Elbgaustraße
         category: de.Bf
         de.DS100: AEGS
         de.dstnr: !!str 012773
-        document: src.de.DS100.1984
-    -   date: 1984-11
+    -   document: src.de.DB.Hmb.Karte.1984
         name: Elbgaustraße
         category: de.Bf
         location:
             line.de.1225: 7,23 # centre
-        document: src.de.DB.Hmb.Karte.1984
 
-    -   date: 2017-01
+    -   document: src.de.DBAG.BSV.2017
         de.DS100: AEGS
         name: Hamburg Elbgaustraße
         de.name16: Elbaustraße
         category: de.Bf
         de.dstnr: !!str 012773
         PLC: DE14386
-        document: src.de.DBAG.BSV.2017
-    -   date: 2017-01
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        de.DS100: AEGS
+        name: Hamburg Elbgaustraße
+        category: de.Bf
         location:
             line.de.1225: 7,360
-        document: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
@@ -337,6 +419,12 @@ key: point.de.Hamburg-Elbgaustrasse-LGr
 type: point
 subtype: border
 events:
+    -   date: !!null
+        name: Hamburg Elbgaustraße HH/SH
+        de.DS100: AQEG
+        category: de.LGr
+        source: src.de.DBAG.BSV.2017
+        
     -   date: !!null
         site:
             path.de.1225: elg
@@ -356,6 +444,22 @@ key: point.de.Krupunder
 type: point
 events:
     -   date: !!null
+        name: Krupunder
+        category: de.Hp
+        location:
+            line.de.1225: 9,49 # centre
+        source: src.de.DB.Hmb.Karte.1984
+    -   date: !!null
+        de.DS100: AKST
+        source: src.de.DS100.1984
+
+    -   date: c2000
+        de.DS100: AKRS
+        location:
+            line.de.1225: 9,590
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+    -   date: !!null
         site:
             path.de.1225: kru
 records:
@@ -372,18 +476,19 @@ records:
             line.de.1225: 9,49 # centre
         document: src.de.DB.Hmb.Karte.1984
 
-    -   date: 2017-01
+    -   document: src.de.DBAG.BSV.2017
         de.DS100: AKRS
         name: Krupunder
         de.name16: Krupunder
         category: de.Hp
         de.dstnr: !!str 012989
         PLC: DE15935
-        document: src.de.DBAG.BSV.2017
-    -   date: 2017-01
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        de.DS100: AKRS
+        name: Krupunder
+        category: de.Hp
         location:
             line.de.1225: 9,590
-        document: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
@@ -391,28 +496,45 @@ key: point.de.Bickbargen
 type: point
 events:
     -   date: !!null
-        site:
-            path.de.1225: bic
-records:
-    -   date: 1984-11
         name: Bickbargen
         category: de.Bk
         location:
             line.de.1225: 10,98 # right
-        document: src.de.DB.Hmb.Karte.1984
+        source: src.de.DB.Hmb.Karte.1984
 
-    -   date: 2017-01
+    -   date: !!null
+        de.DS100: ABB
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+    
+    -   date: c2000
+        category: de.Üst
+        location:
+            line.de.1225: 10,780
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+    -   date: !!null
+        site:
+            path.de.1225: bic
+records:
+    -   document: src.de.DB.Hmb.Karte.1984
+        name: Bickbargen
+        category: de.Bk
+        location:
+            line.de.1225: 10,98 # right
+
+    -   document: src.de.DBAG.BSV.2017
         category: de.Üst
         name: Bickbargen
         de.name16: Bickbargen
         de.DS100: ABB
         PLC: DE11215
         de.dstnr: !!str 102038
-        document: src.de.DBAG.BSV.2017
-    -   date: 2017-01
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        category: de.Üst
+        name: Bickbargen
+        de.DS100: ABB
         location:
             line.de.1225: 10,780
-        document: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
@@ -420,64 +542,76 @@ key: point.de.Halstenbek
 type: point
 events:
     -   date: !!null
+        name: Halstenbek
+        source: src.de.Kb.1914
+    -   date: !!null
+        category: de.Bf
+        location:
+            line.de.1220: 11,98 # right
+        source: src.de.DRG.Alt.Karte.1931
+
+    -   date: !!null
+        de.DS100: AHKS
+        source: src.de.DS100.1984
+
+    -   date: 1967?
+        category: de.Hp
+        location:
+            line.de.1220: !!null
+            line.de.1225: 11,98 # centre
+        source: src.de.DB.Hmb.Karte.1984
+
+    -   date: !!null
         site:
             path.de.1225: hal
             path.de.1220: hal
 records:
-    -   date: 1914-07
-        name: Halstenbek
-        document: src.de.Kb.1914
-    -   date: 1927-12-09
+    -   document: src.de.Bfv.1928
         name: Halstenbek
         de.lknr: 01 051
-        document: src.de.Bfv.1928
-    -   date: 1931-04-01
+    -   document: src.de.DRG.Alt.Karte.1931
         name: Halstenbek
         category: de.Bf
         de.rang: II
         location:
             line.de.1220: 11,98 # right
-        document: src.de.DRG.Alt.Karte.1931
-    -   date: 1933-03-01
+    -   document: src.de.Bfv.1933
         name: Halstenbek
         category: de.Bf
         de.rang: II
         de.lknr: 01 283
-        document: src.de.Bfv.1933
 
-    -   date: 1956-09
+    -   document: src.de.DB.Hmb.Karte.1956
         name: Halstenbek
         category: de.Bf
         de.rang: IV
         location:
             line.de.1220: 11,98 # right
-        document: src.de.DB.Hmb.Karte.1956
-    -   date: 1984-06-03
+
+    -   document: src.de.DS100.1984
         name: Halstenbek
         category: de.Hp
         de.DS100: AHKS
         de.dstnr: !!str 012831
-        document: src.de.DS100.1984
-    -   date: 1984-11
+    -   document: src.de.DB.Hmb.Karte.1984
         name: Halstenbek
         category: de.Hp
         location:
             line.de.1225: 11,98 # centre
-        document: src.de.DB.Hmb.Karte.1984
 
-    -   date: 2017-01
+    -   document: src.de.DBAG.BSV.2017
         name: Halstenbek
         category: de.Hp
         de.DS100: AHKS
-        de.dstnr: !!str 012831
         de.dstnr: !!str 010223
         de.name16: Halstenbek
         PLC: DE14372
-        document: src.de.DBAG.BSV.2017
-    -   date: 2017-01
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        name: Halstenbek
+        category: de.Hp
+        de.DS100: AHKS
         location:
             line.de.1225: 11,980
-        document: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
@@ -485,61 +619,77 @@ key: point.de.Thesdorf
 type: point
 events:
     -   date: !!null
+        category: de.Hp
+        name: Thesdorf
+        de.DS100: ATHS
+        location:
+            line.de.1225: 14,34 # centre
+        source:
+            -   src.de.DS100.1984
+            -   src.de.DB.Hmb.Karte.1984
+
+    -   date: !!null
         site:
             path.de.1225: the
 records:
-    -   date: 1984-06-03
+    -   document: src.de.DS100.1984
         category: de.Hp
         name: Thesdorf
         de.DS100: ATHS
         de.dstnr: !!str 013094
-        document: src.de.DS100.1984
-    -   date: 1984-11
+    -   document: src.de.DB.Hmb.Karte.1984
         name: Thesdorf
         category: de.Hp
         location:
             line.de.1225: 14,34 # centre
-        document: src.de.DB.Hmb.Karte.1984
 
-    -   date: 2017-01
+    -   document: src.de.DBAG.BSV.2017
         category: de.Hp
         name: Thesdorf
         de.DS100: ATHS
         de.dstnr: !!str 013094
         de.name16: Thesdorf
         PLC: DE20257
-        document: src.de.DBAG.BSV.2017
-    -   date: 2017-01
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        category: de.Hp
+        name: Thesdorf
+        de.DS100: ATHS
         location:
             line.de.1225: 14,340
-        document: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Pinneberg-S-Bahn
 type: point
 events:
+    -   date: !!null
+        de.DS100: APS
+        name: Pinneberg (S-Bahn)
+        category: de.Bf
+        location:
+            line.de.1225: 15,900
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         connection: point.de.Pinneberg
         site:
-            path.de.1220: pin
+            path.de.1225: pin
 records:
-    -   date: 1984-11
+    -   document: src.de.DB.Hmb.Karte.1984
         location:
             line.de.1225: 15,90
-        document: src.de.DB.Hmb.Karte.1984
 
-    -   date: 2017-01
+    -   document: src.de.DBAG.BSV.2017
         de.DS100: APS
         name: Pinneberg (S-Bahn)
         de.name16: Pinneberg SB
         category: de.Bf
         PLC: DE18373
         de.dstnr: !!str 010488
-        document: src.de.DBAG.BSV.2017
-    -   date: 2017-01
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        de.DS100: APS
+        name: Pinneberg (S-Bahn)
+        category: de.Bf
         location:
             line.de.1225: 15,900
-        document: src.de.DBAG.Geo-Betriebsstelle.2017
 

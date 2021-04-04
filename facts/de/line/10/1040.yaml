@@ -3,12 +3,27 @@
 ---
 key: line.de.1040
 type: line
-events:
-    -   date: !!null
-        region:
-            - org.de
-            - org.de.l.sh
+current:
+    status: open
+    category: de.Hauptbahn
+    gauge: 1435mm
+    tracks: 2
+    electrified: de
+    course: path.de.1040 neu fle
 
+    goods: full
+    passenger: full
+
+    operator: org.de.DB-Netz
+    owner: org.de.DB-Netz
+
+    jurisdiction: de
+    region:
+        - org.de
+        - org.de.l.sh
+
+    de.VzG: !!str 1040
+events:
     #   Genehmigungen
     #
     -   date: 1845-04-04
@@ -139,11 +154,6 @@ events:
     -   date: 1996-03-03
         electrified: de
         source: src.de.WP.Chronik-Streckenelektrifizierung-DBAG
-
-    #   Verlauf
-    #
-    -   date: !!null
-        course: path.de.1040 neu fle
 records:
     -   date: 1927-03
         category: de.Hauptbahn
@@ -538,7 +548,7 @@ events:
     -   date: !!null
         site:
             path.de.1040: osh
-            path.de.10221: osh
+            path.de.A20:  osh
 
 
 ---
@@ -727,8 +737,8 @@ events:
 
     -   date: !!null
         site:
-            path.de.1040:  ren
-            path.de.10221: ren
+            path.de.1040: ren
+            path.de.A20:  ren
 records:
     -   date: 1905-07
         name: Rendsburg Stsbf
@@ -1524,21 +1534,50 @@ key: point.de.Flensburg-Weiche
 type: point
 events:
     -   date: !!null
+        name: Nordschleswigsche Weiche
+        source: src.de.Kb.1905
+    -   date: !!null
+        category: de.Bf
+        location:
+            line.de.1000: 167,34
+            line.de.1001: 167,01
+            line.de.1002: 167,34
+            line.de.1040: 167,34
+            line.de.A05:   45,50
+        source: src.de.DRG.Alt.Karte.1931
+
+    -   date: c1920
+        name: Flensburg Weiche
+        source: src.de.Bfv.1928
+
+    -   date: !!null
+        de.DS100: AFW
+        source: src.de.DS100.1984
+
+    -   date: c1980
+        location:
+            line.de.1000: 172,02
+            line.de.1001:   0,00
+            line.de.1040: 172,02 # right
+        source: src.de.DB.Hmb.Karte.1984
+
+    -   date: c2000
+        location:
+            line.de.1000: 172,916
+            line.de.1040: 172,916
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+    -   date: !!null
         site:
             path.de.1040: fwe
             path.de.1000: flw
             path.de.1001: flw
             path.de.1002: flw
 records:
-    -   date: 1905-07
-        name: Nordschleswigsche Weiche
-        document: src.de.Kb.1905
-
-    -   date: 1927-12-09
+    -   document: src.de.Bfv.1928
         name: Flensburg Weiche
         de.lknr: 01 077
-        document: src.de.Bfv.1928
-    -   date: 1931-04-01
+    -   document: src.de.DRG.Alt.Karte.1931
         name: Flensburg Weiche
         category: de.Bf
         de.rang: I
@@ -1547,15 +1586,13 @@ records:
             line.de.1001: 167,01
             line.de.1002: 167,34
             line.de.1040: 167,34
-            line.de.12035:  45,50
-        document: src.de.DRG.Alt.Karte.1931
-    -   date: 1933-03-01
+            line.de.A05:   45,50
+    -   document: src.de.Bfv.1933
         name: Flensburg Weiche
         category: de.Bf
         de.rang: I
         de.lknr: 01 424
-        document: src.de.Bfv.1933
-    -   date: 1935-01-01
+    -   document: src.de.DRG.Alt.Karte.1935
         name: Flensburg Weiche
         category: de.Bf
         de.rang: I
@@ -1564,10 +1601,9 @@ records:
             line.de.1001:   0,00
             line.de.1002: 167,34
             line.de.1040: 167,34
-            line.de.12035:  45,50
-        document: src.de.DRG.Alt.Karte.1935
+            line.de.A05:   45,50
 
-    -   date: 1956-09
+    -   document: src.de.DB.Hmb.Karte.1956
         name: Flensburg Weiche
         category: de.Bf
         de.rang: I
@@ -1576,36 +1612,35 @@ records:
             line.de.1001:   0,00
             line.de.1002: 167,34
             line.de.1040: 167,34
-            line.de.12035:  45,50
-        document: src.de.DB.Hmb.Karte.1956
-    -   date: 1984-06-03
+            line.de.A05:   45,50
+    -   document: src.de.DS100.1984
         name: Flensburg Weiche
         category: de.Bf
         de.DS100: AFW
         de.dstnr: !!str 014241
-        document: src.de.DS100.1984
-    -   date: 1984-11
+    -   document: src.de.DB.Hmb.Karte.1984
         name: Flensburg Weiche
         category: de.Bf
         service: goods
         location:
             line.de.1001:   0,00
             line.de.1040: 172,02 # right
-        document: src.de.DB.Hmb.Karte.1984
 
-    -   date: 2017-01
+    -   document: src.de.DBAG.BSV.2017
         name: Flensburg Weiche
         category: de.Bf
         de.DS100: AFW
         de.dstnr: !!str 014241
         de.name16: Flensburg Weiche
         PLC: DE13219
-        document: src.de.DBAG.BSV.2017
-    -   date: 2017-01
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        name: Flensburg Weiche
+        category: de.Bf
+        de.DS100: AFW
         location:
             line.de.1000: 172,916
             line.de.1040: 172,916
-        document: src.de.DBAG.Geo-Betriebsstelle.2017
+        
 
 
 ---
@@ -1671,7 +1706,7 @@ records:
             line.de.1005:   0,00
             line.de.1020:  80,64
             line.de.1040: 170,66 # left
-            line.de.12035:  48,82
+            line.de.A05:   48,82
         document: src.de.DRG.Alt.Karte.1931
     -   date: 1933-03-01
         name: Flensburg
@@ -1688,7 +1723,7 @@ records:
             line.de.1005:   0,00
             line.de.1020:  80,64
             line.de.1040: 170,66 # left
-            line.de.12035:  48,82
+            line.de.A05:   48,82
         document: src.de.DB.Hmb.Karte.1956
     -   date: 1984-06-03
         name: Flensburg

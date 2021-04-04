@@ -3,16 +3,29 @@
 ---
 key: line.de.1120
 type: line
-events:
-    -   date: !!null
-        region: org.de
-    -   date: !!null
-        end: point.de.Ahrensburg-LGr
-        region: org.de.l.sh
-    -   date: !!null
-        start: point.de.Ahrensburg-LGr
-        region: org.de.l.hh
+current:
+    status: open
+    category: de.Hauptbahn
+    gauge: 1435mm
+    tracks: 2
+    electrified: de
+    course: path.de.1120 lub ham
 
+    goods: full
+    passenger: full
+
+    jurisdiction: de
+    region:
+        point.de.Ahrensburg-LGr:
+            - org.de
+            - org.de.l.sh
+        point.de.Hamburg-Hbf:
+            - org.de
+            - org.de.l.hh
+    operator: org.de.DB-Netz
+    owner: org.de.DB-Netz
+    de.VzG: !!str 1020
+events:
     #   Verträge und Konzessionen
     #
     -   date: 1858-06-17
@@ -66,11 +79,6 @@ events:
         source: src.de.Hecht.2001
     -   date: 2008-12-14
         electrified: de
-
-    #   Verlauf
-    #
-    -   date: !!null
-        course: path.de.1120 lub ham
 records:
     -   date: 1927-03
         category: de.Hauptbahn
@@ -110,7 +118,7 @@ points:
     -   point.de.Hamburg-Wandsbek
     -   point.de.Hamburg-Hasselbrook-S-Bahn         # de.1241
     -   point.de.Hamburg-Hasselbrook
-    -   point.de.Hamburg-Berliner-Tor
+    -   point.de.Hamburg-Berliner-Tor-Landwehr
     -   point.de.Hamburg-Lübecker-Bf
     -   point.de.Hamburg-Hbf                        # de.6100
 
@@ -530,7 +538,6 @@ records:
     -   date: 1938-10-01
         name: Kupfermühle
         category: de.Hp
-        service: full
         goods: none
         de.lknr: 01 630
         document: src.de.Bfv.1938
@@ -1091,29 +1098,40 @@ events:
     -   date: c1970
         status: open
         split_from: point.de.Hamburg-Hasselbrook-S-Bahn
+    -   date: !!null
+        name: Hasselbrook
+        category: de.Hp
+        de.DS100: AHSF
+        source: src.de.DS100.1984
+    -   date: !!null
+        location:
+            line.de.1120: 59,69
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
             path.de.1120: has
 records:
-    -   date: 1984-06-03
+    -   document: src.de.DS100.1984
         name: Hasselbrook
         category: de.Hp
         de.DS100: AHSF
         de.dstnr: !!str 011270
-        document: src.de.DS100.1984
 
-    -   date: 2017-01
+    -   document: src.de.DBAG.BSV.2017
         de.DS100: AHSF
         name: Hamburg-Hasselbrook
         de.name16: Hasselbrook
         PLC: DE14391
+        category: de.Hp
         de.dstnr: !!str 011247
-        document: src.de.DBAG.BSV.2017
-    -   date: 2017-01
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        de.DS100: AHSF
+        category: de.Hp
+        name: Hamburg-Hasselbrook
         location:
             line.de.1120: 59,689
-        document: src.de.DBAG.Geo-Betriebsstelle.2017
+        
 
 
 ---
@@ -1128,71 +1146,22 @@ events:
         site:
             path.de.1120: btu
 records:
-    -   date: 2017-01
+    -   document: src.de.DBAG.BSV.2017
         de.DS100: AHBT
         name: Hamburg Berliner Tor (Üst)
         de.name16: Hmb Bln Tor Üst
         category: de.Üst
         PLC: DE14380
         de.dstnr: !!str 108804
-        document: src.de.DBAG.BSV.2017
-    -   date: 2017-01
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        de.DS100: AHBT
+        name: Hamburg Berliner Tor (Üst)
+        category: de.Üst
         location:
             line.de.1120: 61,671
-        document: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
----
-key: point.de.Hamburg-Berliner-Tor
-type: point
-events:
-    -   date: c1995
-        status: closed
-
-    -   date: !!null
-        site:
-            path.de.1120: ber
-            path.de.6100: btb
-records:
-    -   date: 1914-07
-        name: Berliner Tor
-        document: src.de.Kb.1914
-
-    -   date: 1927-12-09
-        name: Berliner Tor
-        de.lknr: 01 387
-        service: passenger
-        document: src.de.Bfv.1928
-    -   date: 1933-03-01
-        name: Berliner Tor
-        category: de.Bf
-        de.rang: II
-        de.lknr: 01 070
-        document: src.de.Bfv.1933
-
-    -   date: 1956-09
-        name: Berliner Tor
-        category: de.Bf
-        de.rang: II
-        location:
-            line.de.1120:  62,32 # right
-            line.de.1241:   1,53
-            line.de.6100: 285,13
-        document: src.de.DB.Hmb.Karte.1956
-    -   date: 1984-06-03
-        name: Berliner Tor
-        category: de.Bf
-        de.dstnr: !!str 010264
-        de.DS100: ABTB
-        document: src.de.DS100.1984
-    -   date: 1984-11
-        name: Berliner Tor
-        location:
-            line.de.1120:  62,32
-            line.de.1241:   1,53
-            line.de.1244:   0,65
-            line.de.6100: 285,13
-        document: src.de.DB.Hmb.Karte.1984
+# point.de.Hamburg-Berliner-Tor-Landwehr        de.1241
 
 
 ---
@@ -1208,7 +1177,7 @@ events:
     -   date: !!null
         site:
             path.de.1120: hlu
-            path.de.12341: hlu
+            path.de.A70:  hlu
 
 
 #    point.de.Hamburg-Hbf                        de.6100

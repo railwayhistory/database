@@ -5,12 +5,27 @@
 key: line.de.1240
 type: line
 label: de.S-Bahn
-events:
-    -   date: !!null
-        region:
-            - org.de
-            - org.de.l.hh
+current:
+    status: open
+    category: de.Hauptbahn
+    gauge: 1435mm
+    tracks: 2
+    electrified: de.hmb
+    course: path.de.1240 ham als
 
+    goods: none
+    passenger: full
+
+    operator: org.de.DB-Netz
+    owner: org.de.DB-Netz
+
+    jurisdiction: de
+    region:
+        - org.de
+        - org.de.l.hh
+
+    de.VzG: !!str 1240
+events:
     #   Genehmigung und Eröffnung
     #
     -   date: 1898-12-30
@@ -32,32 +47,26 @@ events:
         source: src.de.WP.S-Bahn-Hamburg
     -   date: c1950
         electrified: de.hmb
-
-    #   Verlauf
-    #
-    -   date: !!null
-        course: path.de.1240 ham als
 records:
-    -   date: 1931-04-01
+    -   document: src.de.DRG.Alt.Karte.1931
         tracks: 2
         gauge: 1435mm
-        document: src.de.DRG.Alt.Karte.1931
 
-    -   date: 1956-09
+    -   document: src.de.DB.Hmb.Karte.1956
         category: de.Hauptbahn
         tracks: 2
         gauge: 1435mm
-        document: src.de.DB.Hmb.Karte.1956
-    -   date: 1984-11
+    -   document: src.de.DB.Hmb.Karte.1984
         category: de.Hauptbahn
         tracks: 2
         gauge: 1435mm
-        document: src.de.DB.Hmb.Karte.1984
 
-    -   date: 2017-01
+    -   document: src.de.DBAG.Geo-Strecke.2017
         de.VzG: !!str 1240
         note: km 286,6+49 – 292,8+66
-        document: src.de.DBAG.Geo-Strecke.2017
+        category: de.Hauptbahn
+        tracks: 2
+        
 points:
     -   point.de.Hamburg-Hbf-S-Bahn                 # de.1270
     -   point.de.Hamburg-Dammtor-S-Bahn
@@ -77,38 +86,52 @@ points:
 ---
 key: point.de.Hamburg-Dammtor-S-Bahn
 type: point
+junction: false
 events:
     -   date: c1970
         status: open
         split_from: point.de.Hamburg-Dammtor
+    -   date: !!null
+        category: de.Hp
+        name: Dammtor (S-Bahn)
+        de.DS100: ADST
+        location:
+            line.de.1240: 288,11
+        source:
+            -   src.de.DS100.1984
+            -   src.de.DB.Hmb.Karte.1984
+    -   date: c2000
+        name: Hamburg Dammtor (S-Bahn)
+        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
+        connection: point.de.Hamburg-Dammtor
         site:
             path.de.1240: dam
 records:
-    -   date: 1984-06-03
+    -   document: src.de.DS100.1984
         category: de.Hp
         name: Dammtor (S-Bahn)
         de.DS100: ADST
         de.dstnr: !!str 010299
-        document: src.de.DS100.1984
-    -   date: 1984-11
+    -   document: src.de.DB.Hmb.Karte.1984
         location:
             line.de.1240: 288,11
-        document: src.de.DB.Hmb.Karte.1984
 
-    -   date: 2017-01
+    -   document: src.de.DBAG.BSV.2017
         de.DS100: ADST
         name: Hamburg Dammtor (S-Bahn)
         de.name16: Dammtor (S-Bahn)
         category: de.Hp
         de.dstnr: !!str 010249
         PLC: DE14384
-        document: src.de.DBAG.BSV.2017
-    -   date: 2017-01
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        de.DS100: ADST
+        name: Hamburg Dammtor (S-Bahn)
+        category: de.Hp
         location:
             line.de.1240: 288,110
-        document: src.de.DBAG.Geo-Betriebsstelle.2017
+        
 
 
 ---
@@ -118,34 +141,45 @@ events:
     -   date: c1970
         status: open
         split_from: point.de.Hamburg-Sternschanze
-    
+    -   date: !!null
+        category: de.Bf
+        name: Sternschanze (S-Bahn)
+        de.DS100: ASST
+        location:
+            line.de.1240: 289,81
+        source:
+            -   src.de.DS100.1984
+            -   src.de.DB.Hmb.Karte.1984
+    -   date: c2000
+        name: Hamburg Sternschanze (S-Bahn)
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         site:
             path.de.1240: ste
 records:
-    -   date: 1984-06-03
+    -   document: src.de.DS100.1984
         category: de.Bf
         name: Sternschanze (S-Bahn)
         de.DS100: ASST
         de.dstnr: !!str 010256
-        document: src.de.DS100.1984
-    -   date: 1984-11
+    -   document: src.de.DB.Hmb.Karte.1984
         location:
             line.de.1240: 289,81
-        document: src.de.DB.Hmb.Karte.1984
 
-    -   date: 2017-01
+    -   document: src.de.DBAG.BSV.2017
         de.DS100: ASST
         name: Hamburg Sternschanze (S-Bahn)
         de.name16: Sternschanze SB
         category: de.Bf
         de.dstnr: !!str 010256
         PLC: DE14412
-        document: src.de.DBAG.BSV.2017
-    -   date: 2017-01
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        de.DS100: ASST
+        name: Hamburg Sternschanze (S-Bahn)
+        category: de.Bf
         location:
             line.de.1240: 289,817
-        document: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
@@ -154,16 +188,43 @@ type: point
 events:
     -   date: 1883
         status: open
+    -   date: !!null
+        name: Altona Holstenstraße
+        category: de.Bf
+        location:
+            line.de.1240: 291,02
+            line.de.6100: 291,02
+        source: src.de.DRG.Alt.Karte.1931
     -   date: 1938-05-15
         name: Hamburg Holstenstraße
-        source: src.de.web.Nosske
+        source:
+            -   src.de.web.Nosske
+            -   src.de.Bfv.1938
+    -   date: c1970
+        category: [de.Hp, de.Abzw]
+        location:
+            line.de.1225:   0,00
+            line.de.1240: 291,03
+            line.de.6100: !!null
+        source:
+            -   src.de.DS100.1984
+            -   src.de.DB.Hmb.Karte.1984
+    -   date: !!null
+        de.DS100: AHST
+        source: src.de.DS100.1984
+    -   date: c2010
+        category: de.Hp
+        location:
+            line.de.1225: !!null
+            line.de.1240: 290,930
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
             path.de.6100: hol
             path.de.1240: hol
             path.de.1225: hol
-    -   date: c2000
+    -   date: c2010
         site:
             path.de.1240: hos
 records:
@@ -189,6 +250,12 @@ records:
         category: de.Bf
         de.rang: III
         goods: none
+    -   document: src.de.Bfv.1938
+        name: Hamburg Holstenstraße
+        category: de.Bf
+        de.rang: III
+        goods: none
+        de.lknr: 01 092
 
     -   date: 1956-09
         name: Hamburg Holstenstraße
@@ -219,6 +286,9 @@ records:
         PLC: DE14397
         document: src.de.DBAG.BSV.2017
     -   date: 2017-01
+        de.DS100: AHST
+        name: Hamburg Holstenstraße
+        category: de.Hp
         location:
             line.de.1225: !!null
             line.de.1240: 290,930
@@ -229,8 +299,17 @@ records:
 key: point.de.Hamburg-Holstenstraße-D
 type: point
 events:
-    -   date: c2000
+    -   date: c2010
         status: open
+        split_from: point.de.Hamburg-Holstenstrasse
+    -   date: !!null
+        name: Hamburg Holstenstraße D
+        category: de.Abzw
+        de.DS100: AHSO
+        location:
+            line.de.1225:   0,058
+            line.de.1240: 291,075
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -246,6 +325,9 @@ records:
         de.dstnr: !!str 854729
         document: src.de.DBAG.BSV.2017
     -   date: 2017-01
+        de.DS100: AHSO
+        name: Hamburg Holstenstraße D
+        category: de.Abzw
         location:
             line.de.1225:   0,058
             line.de.1240: 291,075
@@ -256,8 +338,17 @@ records:
 key: point.de.Hamburg-Holstenstraße-H
 type: point
 events:
-    -   date: c2000
+    -   date: c2010
         status: open
+        split_from: point.de.Hamburg-Holstenstrasse
+    -   date: !!null
+        de.DS100: AHSH
+        name: Hamburg Holstenstraße H
+        category: de.Abzw
+        location:
+            line.de.1225:   0,548
+            line.de.1240: 291,565
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -273,6 +364,9 @@ records:
         de.dstnr: !!str 854737
         document: src.de.DBAG.BSV.2017
     -   date: 2017-01
+        de.DS100: AHSH
+        name: Hamburg Holstenstraße H
+        category: de.Abzw
         location:
             line.de.1225:   0,548
             line.de.1240: 291,565

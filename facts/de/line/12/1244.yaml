@@ -4,28 +4,29 @@
 key: line.de.1244
 type: line
 label: de.S-Bahn
+current:
+    status: open
+    category: de.Hauptbahn
+    gauge: 1435mm
+    tracks: 2
+    electrified: de.hmb
+    course: path.de.1244 ham aum
+
+    goods: none
+    passenger: full
+
+    operator: org.de.DB-Netz
+    owner: org.de.DB-Netz
+
+    jurisdiction: de
+    region:
+        point.de.Reinbek-LGr-S-Bahn:
+            -   org.de
+            -   org.de.l.hh
+        point.de.Aumühle:
+            -   org.de
+            -   org.de.l.sh
 events:
-    -   date: !!null
-        region: org.de
-    -   date: !!null
-        end: point.de.Reinbek-LGr-S-Bahn
-        region: org.de.l.hh
-    -   date: !!null
-        start: point.de.Reinbek-LGr-S-Bahn
-        region: org.de.l.sh
-
-    #   Genehmigungen, Eigentümer, Betreiber
-    #
-    -   date: !!null
-        end: point.de.Hamburg-Berliner-Tor-Bergedorf
-        owner: org.de.l.pre
-        operator: org.de.e.hmb
-
-    -   date: !!null
-        start: point.de.Hamburg-Berliner-Tor-Bergedorf
-        owner: org.de.DB-Netz
-        operator: org.de.DB-Netz
-
     #   Eröffnung
     #
     -   date: 1906-12-05?
@@ -44,39 +45,34 @@ events:
     -   date: 2002-05-26
         start: point.de.Hamburg-Berliner-Tor-Bergedorf
         electrified: de.hmb
-     
-    #   Verlauf
-    #
-    -   date: !!null
-        course: path.de.1244 ham aum
 records:
-    -   date: 1931-04-01
+    -   document: src.de.DRG.Alt.Karte.1931
         end: point.de.Hamburg-Berliner-Tor-Bergedorf
         tracks: 2
         gauge: 1435mm
-        document: src.de.DRG.Alt.Karte.1931
 
-    -   date: 2017-01
+    -   document: src.de.DBAG.Geo-Strecke.2017
+        category: de.Hauptbahn
+        tracks: 2
         de.VzG: !!str 1244
         note: km 0,0+0 – 25,6+9
-        document: src.de.DBAG.Geo-Strecke.2017
 points:
     -   point.de.Hamburg-Hbf-S-Bahn                 # de.1270
-    -   point.de.Hamburg-Berliner-Tor-S-Bahn        # de.1244
+    -   point.de.Hamburg-Berliner-Tor-S-Bahn        # de.1241
     -   point.de.Hamburg-Berliner-Tor-Bergedorf
-    -   point.de.Hamburg-Rothenburgsort-S-Bahn      # de.6100
-    -   point.de.Hamburg-Tiefstack                  # de.6100
-    -   point.de.Hamburg-Billwerder-Moorfleet       # de.6100
+    -   point.de.Hamburg-Rothenburgsort-S-Bahn
+    -   point.de.Hamburg-Tiefstack
+    -   point.de.Hamburg-Billwerder-Moorfleet
     -   point.de.Hamburg-Billwerder-Üst
-    -   point.de.Hamburg-Mittlerer-Landweg          # de.6100
-    -   point.de.Hamburg-Allermöhe-S-Bahn           # de.6100
-    -   point.de.Hamburg-Nettelnburg                # de.6100
+    -   point.de.Hamburg-Mittlerer-Landweg
+    -   point.de.Hamburg-Allermöhe-S-Bahn
+    -   point.de.Hamburg-Nettelnburg
     -   point.de.Hamburg-Bergedorf-S-Bahn
     -   point.de.Reinbek-LGr-S-Bahn
-    -   point.de.Reinbek                            # de.6100
-    -   point.de.Wohltorf                           # de.6100
+    -   point.de.Reinbek
+    -   point.de.Wohltorf
     -   point.de.Aumühle-S-Bahn
-    -   point.de.Aumühle                            # de.6100
+    -   point.de.Aumühle
 
 
 #-----------------------------------------------------------------------------
@@ -84,41 +80,319 @@ points:
 #    point.de.Hamburg-Hbf-S-Bahn                 de.1270
 
 
-#    point.de.Hamburg-Berliner-Tor-S-Bahn        de.1244
+#    point.de.Hamburg-Berliner-Tor-S-Bahn        de.1241
 
 
 ---
 key: point.de.Hamburg-Berliner-Tor-Bergedorf
 type: point
 events:
-    -   date: c1995
-        status: open
-        split_from: point.de.Hamburg-Berliner-Tor
+    -   date: !!null
+        name: Berliner Tor
+        source: src.de.Kb.1914
+    -   date: !!null
+        category: de.Bf
+        source: src.de.Bfv.1933
+    -   date: !!null
+        location:
+            line.de.1244:   0,65
+            line.de.6100: 285,13
+        source: src.de.DB.Hmb.Karte.1984
+    -   date: !!null
+        de.DS100: ABTB
+        source: src.de.DS100.1984
+
+    -   date: c2000
+        category: de.Bft
+        name: Hamburg Berliner Tor (Bergedorf)
+        de.DS100: ABTSB
+        location:
+            line.de.1244: 1,528
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
             path.de.1244: btb
+            path.de.6100: btb
 records:
-    -   date: 2017-01
+    -   document: src.de.Bfv.1928
+        name: Berliner Tor
+        de.lknr: 01 387
+        service: passenger
+    -   document: src.de.Bfv.1933
+        name: Berliner Tor
+        category: de.Bf
+        de.rang: II
+        de.lknr: 01 070
+        
+    -   document: src.de.DB.Hmb.Karte.1956
+        name: Berliner Tor
+        category: de.Bf
+        de.rang: II
+        location:
+            line.de.6100: 285,13
+    -   document: src.de.DS100.1984
+        name: Berliner Tor
+        category: de.Bf
+        de.dstnr: !!str 010264
+        de.DS100: ABTB
+    -   date: 1984-11
+        name: Berliner Tor
+        location:
+            line.de.1244:   0,65
+            line.de.6100: 285,13
+        document: src.de.DB.Hmb.Karte.1984
+
+    -   document: src.de.DBAG.BSV.2017
         de.DS100: ABTSB
         name: Hamburg Berliner Tor (Bergedorf)
         de.name16: Berliner Tor B
         category: de.Bft
         PLC: DE14382
         de.dstnr: !!str 910021
-        document: src.de.DBAG.BSV.2017
-
-    -   date: 2017-01
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        de.DS100: ABTSB
+        name: Hamburg Berliner Tor (Bergedorf)
+        category: de.Bft
         location:
             line.de.1244: 1,528
-        document: src.de.DBAG.Geo-Betriebsstelle.2017
+        
+
+---
+key: point.de.Hamburg-Rothenburgsort-S-Bahn
+type: point
+events:
+    -   date: !!null
+        name: Rothenburgsort
+        source: src.de.Kb.1914
+    -   date: !!null
+        category: de.Hp
+        location:
+            line.de.6100: 283,11
+        source:
+            -   src.de.DRG.Alt.Karte.1931
+        
+    -   date: !!null
+        de.DS100: AROP
+        source: src.de.DS100.1984
+
+    -   date: c1980
+        location:
+            line.de.6100: 282,99 # left
+        source: src.de.DB.Hmb.Karte.1984
+
+    -   date: c2000
+        name: Hamburg-Rothenburgsort (S-Bahn)
+        location:
+            line.de.1244: 3,689
+            line.de.6100: !!null
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+    -   date: !!null
+        site:
+            path.de.1244: ros
+            path.de.6100: ros
+records:
+    -   document: src.de.Bfv.1928
+        name: Rothenburgsort
+        de.lknr: 01 348
+        service: passenger
+    -   document: src.de.DRG.Alt.Karte.1931
+        name: Rothenburgsort
+        category: de.Hp
+        location:
+            line.de.6100: 283,11
+    -   document: src.de.Bfv.1933
+        name: Rothenburgsort
+        category: de.Hp
+        staff: none
+        de.lknr: 01 068
+
+    -   document: src.de.DS100.1984
+        name: Rothenburgsort
+        category: de.Hp
+        de.DS100: AROP
+        de.dstnr: !!str 010686
+    -   document: src.de.DB.Hmb.Karte.1984
+        name: Rothenburgsort
+        category: de.Hp
+        staff: none
+        location:
+            line.de.6100: 282,99 # left
+
+    -   document: src.de.DBAG.BSV.2017
+        name: Hamburg-Rothenburgsort (S-Bahn)
+        de.name16: Rothenburgsort
+        category: de.Hp
+        PLC: DE14480
+        de.DS100: AROP
+        de.dstnr: !!str 010686
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        name: Hamburg-Rothenburgsort (S-Bahn)
+        category: de.Hp
+        de.DS100: AROP
+        location:
+            line.de.1244: 3,689
+            line.de.6100: !!null
 
 
-#    point.de.Hamburg-Rothenburgsort-S-Bahn      de.6100
+---
+key: point.de.Hamburg-Tiefstack
+type: point
+events:
+    -   date: !!null
+        name: Tiefstack
+        source: src.de.Kb.1914
+    -   date: !!null
+        location:
+            line.de.6100: 281,29
+        source: src.de.DRG.Alt.Karte.1931
+    -   date: !!null
+        category: de.Hp
+        source: src.de.Bfv.1933
 
-#    point.de.Hamburg-Tiefstack                  de.6100
+    -   date: !!null
+        de.DS100: ATK
+        source: src.de.DS100.1984
+    -   date: c1980
+        category: de.Hst
+        source: src.de.DS100.1984
 
-#    point.de.Hamburg-Billwerder-Moorfleet       de.6100
+    -   date: c2000
+        name: Hamburg-Tiefstack
+        category: de.Hp
+        location:
+            line.de.1244: 5,382
+            line.de.6100: !!null
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+    -   date: !!null
+        site:
+            path.de.1244: tie
+            path.de.6100: tie
+records:
+    -   document: src.de.Bfv.1928
+        name: Tiefstack
+        de.lknr: 01 347
+        service: passenger
+    -   document: src.de.DRG.Alt.Karte.1931
+        name: Tiefstack
+        location:
+            line.de.6100: 281,29
+    -   document: src.de.Bfv.1933
+        name: Tiefstack
+        category: de.Hp
+        de.lknr: 01 067
+
+    -   document: src.de.DS100.1984
+        name: Tiefstack
+        de.DS100: ATK
+        de.dstnr: !!str 010678
+        category: de.Hst
+    -   document: src.de.DB.Hmb.Karte.1984
+        name: Tiefstack
+        location:
+            line.de.6100: 281,05
+
+    -   document: src.de.DBAG.BSV.2017
+        name: Hamburg-Tiefstack
+        category: de.Hp
+        de.name16: Tiefstack
+        PLC: DE14488
+        de.DS100: ATK
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        name: Hamburg-Tiefstack
+        category: de.Hp
+        de.DS100: ATK
+        location:
+            line.de.1244: 5,382
+            line.de.6100: !!null
+
+
+---
+key: point.de.Hamburg-Billwerder-Moorfleet
+type: point
+events:
+    -   date: !!null
+        name: Billwärder-Moorfleth
+        source: src.de.Kb.1914
+    -   date: !!null
+        category: de.Hp
+        location:
+            line.de.6100: 278,48
+        document: src.de.DRG.Alt.Karte.1931
+
+    -   date: c1950
+        name: Billwerder-Moorfleth
+        source: src.de.DB.Hmb.Karte.1956
+
+    -   date: !!null
+        de.DS100: AMB
+        source: src.de.DS100.1984
+    -   date: c1980
+        name: Billwerder-Moorfleet
+        document: src.de.DS100.1984
+
+    -   date: c2000
+        name: Hamburg-Billwerder-Moorfleet
+        de.DS100: ABWM
+        location:
+            line.de.1244: 8,031
+            line.de.6100: !!null
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+    -   date: !!null
+        site:
+            path.de.1244: bil
+            path.de.6100: bil
+records:
+    -   document: src.de.Bfv.1928
+        name: Billwärder-Moorfleth
+        de.lknr: 01 346
+        service: passenger
+    -   document: src.de.DRG.Alt.Karte.1931
+        name: Billwärder-Moorfleth
+        category: de.Hp
+        service: passenger
+        location:
+            line.de.6100: 278,48
+    -   document: src.de.Bfv.1933
+        name: Billwärder-Moorfleth
+        category: de.Hp
+        service: passenger
+        de.lknr: 01 065
+
+    -   document: src.de.DB.Hmb.Karte.1956
+        name: Billwerder-Moorfleth
+        category: [de.Hp, de.Bk]
+        location:
+            line.de.6100: 278,47
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 010652
+        name: Billwerder-Moorfleet
+        de.DS100: AMB
+        category: de.Hp
+        staff: none
+    -   document: src.de.DB.Hmb.Karte.1984
+        name: Billwerder-Moorfleet
+        category: de.Hp
+        location:
+            line.de.6100: 278,47
+        
+    -   document: src.de.DBAG.BSV.2017
+        name: Hamburg-Billwerder-Moorfleet
+        de.name16: Billw-Moorfl
+        PLC: DE14435
+        de.DS100: ABWM
+        category: de.Hp
+        de.dstnr: !!str 010652
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        name: Hamburg-Billwerder-Moorfleet
+        category: de.Hp
+        de.DS100: ABWM
+        location:
+            line.de.1244: 8,031
+            line.de.6100: !!null
 
 
 ---
@@ -126,28 +400,203 @@ key: point.de.Hamburg-Billwerder-Üst
 type: point
 events:
     -   date: !!null
+        category: de.Üst
+        name: Hamburg-Billwerder (Üst)
+        de.DS100: ABS
+        location:
+            line.de.1244: 9,437
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+    -   date: !!null
         site:
             path.de.1244: biu
 records:
-    -   date: 2017-01
+    -   document: src.de.DBAG.BSV.2017
         category: de.Üst
         name: Hamburg-Billwerder (Üst)
         de.name16: Billwerder
         de.DS100: ABS
         PLC: DE14433
         de.dstnr: !!str 192153
-        document: src.de.DBAG.BSV.2017
-    -   date: 2017-01
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        category: de.Üst
+        name: Hamburg-Billwerder (Üst)
+        de.DS100: ABS
         location:
             line.de.1244: 9,437
+
+
+---
+key: point.de.Hamburg-Mittlerer-Landweg
+type: point
+events:
+    -   date: !!null
+        name: Mittlerer Landweg
+        source: src.de.Kb.1914
+    -   date: !!null
+        category: de.Hp
+        service: passenger
+        location:
+            line.de.6100: 275,38
+        source: src.de.DRG.Alt.Karte.1931
+    -   date: !!null
+        de.DS100: AML
+        source: src.de.DS100.1984
+
+    -   date: c2000
+        name: Hamburg Mittlerer Landweg
+        location:
+            line.de.1244: 10,967
+            line.de.6100: !!null
         document: src.de.DBAG.Geo-Betriebsstelle.2017
 
+    -   date: !!null
+        site:
+            path.de.1244: mit
+            path.de.6100: mit
+records:
+    -   document: src.de.Bfv.1928
+        name: Mittlerer Landweg
+        de.lknr: 01 345
+        service: passenger
+    -   document: src.de.DRG.Alt.Karte.1931
+        name: Mittlerer Landweg
+        category: de.Hp
+        service: passenger
+        location:
+            line.de.6100: 275,38
+    -   document: src.de.Bfv.1933
+        name: Mittlerer Landweg
+        category: de.Hp
+        service: passenger
+        de.lknr: 01 064
+        
+    -   document: src.de.DB.Hmb.Karte.1956
+        name: Mittlerer Landweg
+        category: [de.Hp, de.Bk]
+        location:
+            line.de.6100: 275,38
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 010645
+        name: Mittlerer Landweg
+        de.DS100: AML
+        category: de.Hp
+    -   document: src.de.DS100.1984
+        name: Mittlerer Landweg
+        category: de.Hp
+        location:
+            line.de.6100: 275,38
 
-#    point.de.Hamburg-Mittlerer-Landweg          de.6100
+    -   document: src.de.DBAG.BSV.2017
+        name: Hamburg Mittlerer Landweg
+        de.name16: Mittl Landweg
+        PLC: DE14406
+        de.dstnr: !!str 010645
+        de.DS100: AML
+        category: de.Hp
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        name: Hamburg Mittlerer Landweg
+        de.DS100: AML
+        category: de.Hp
+        location:
+            line.de.1244: 10,967
+            line.de.6100: !!null
+        
 
-#    point.de.Hamburg-Allermöhe-S-Bahn           de.6100
+---
+key: point.de.Hamburg-Allermöhe-S-Bahn
+type: point
+events:
+    -   date: 1999-05-30
+        status: open
+        source: src.de.Heinsohn.2006
+    -   date: !!null
+        category: de.Hp
+        name: Hamburg-Allermöhe (S-Bahn)
+        de.DS100: AALH
+        location:
+            line.de.1244: 13,064
+            line.de.6100: !!null
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
-#    point.de.Hamburg-Nettelnburg                de.6100
+    -   date: !!null
+        site:
+            path.de.1244: als
+            path.de.6100: als
+records:
+    -   document: src.de.DBAG.BSV.2017
+        category: de.Hp
+        name: Hamburg-Allermöhe (S-Bahn)
+        de.name16: Allermöhe
+        de.DS100: AALH
+        PLC: DE14420
+        de.dstnr: !!str 399808
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        category: de.Hp
+        name: Hamburg-Allermöhe (S-Bahn)
+        de.DS100: AALH
+        location:
+            line.de.1244: 13,064
+
+
+---
+key: point.de.Hamburg-Nettelnburg
+type: point
+events:
+    -   date: 1970-06-01
+        status: open
+        source: src.de.Heinsohn.2006
+    -   date: !!null
+        name: Nettelnburg
+        de.DS100: ANTB
+        category: de.Hp
+        staff: none
+        source: src.de.DS100.1984
+    -   date: !!null
+        location:
+            line.de.6100: 271,83
+        document: src.de.DB.Hmb.Karte.1984
+
+    -   date: c2000
+        name: Hamburg-Nettelnburg
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2002
+        location:
+            line.de.6100: !!null
+            line.de.1244: 14,590
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+    -   date: !!null
+        site:
+            path.de.1244: net
+            path.de.6100: net
+records:
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 010629
+        name: Nettelnburg
+        de.DS100: ANTB
+        category: de.Hp
+        staff: none
+    -   document: src.de.DB.Hmb.Karte.1984
+        name: Nettelnburg
+        category: de.Hp
+        location:
+            line.de.6100: 271,83
+
+    -   document: src.de.DBAG.BSV.2017
+        name: Hamburg-Nettelnburg
+        de.name16: Nettelnburg
+        PLC: DE14463
+        de.dstnr: !!str 010629
+        de.DS100: ANTB
+        category: de.Hp
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        name: Hamburg-Nettelnburg
+        de.DS100: ANTB
+        category: de.Hp
+        location:
+            line.de.1244: 14,590
 
 
 ---
@@ -157,23 +606,31 @@ events:
     -   date: 2002-05-26?
         status: open
         split_from: point.de.Hamburg-Bergedorf
+    -   date: !!null
+        name: Hamburg-Bergedorf (S-Bahn)
+        category: de.Bft
+        de.DS100: ABG S
+        location:
+            line.de.1244: 16,345
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
             path.de.1244: ber
 records:
-    -   date: 2017-01
+    -   document: src.de.DBAG.BSV.2017
         category: de.Bft
         name: Hamburg-Bergedorf (S-Bahn)
         de.name16: Hmb-Bergedorf S
         de.DS100: ABG S
         PLC: DE14430
         de.dstnr: !!str 908662
-        document: src.de.DBAG.BSV.2017
-    -   date: 2017-01
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        name: Hamburg-Bergedorf (S-Bahn)
+        category: de.Bft
+        de.DS100: ABG S
         location:
             line.de.1244: 16,345
-        document: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
@@ -182,38 +639,210 @@ type: point
 subtype: border
 events:
     -   date: !!null
+        name: Reinbek SH/HH 1244
+        de.DS100: AQRBK
+        category: de.LGr
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
         site:
             path.de.1244: reg
 records:
-    -   date: 2017-01
+    -   document: src.de.DBAG.BSV.2017
         de.DS100: AQRBK
         name: Reinbek SH/HH 1244
         de.name16: Reinbek 1244
         category: de.LGr
         PLC: DE18753
         de.dstnr: !!str 103969
-        document: src.de.DBAG.BSV.2017
 
 
-#    point.de.Reinbek                            de.6100
+---
+key: point.de.Reinbek
+type: point
+events:
+    -   date: !!null
+        name: Reinbek
+        source: src.de.Kb.1914
+    -   date: !!null
+        category: de.Bf
+        de.rang: III
+        location:
+            line.de.6100: 266,34
+        source: src.de.DRG.Alt.Karte.1931
 
-#    point.de.Wohltorf                           de.6100
+    -   date: !!null
+        de.DS100: ARBK
+        source: src.de.DS100.1984
+
+    -   date: c1980
+        location:
+            line.de.6100: 266,33
+        source: src.de.DB.Hmb.Karte.1984
+
+    -   date: c2005
+        category: de.Hp
+        location:
+            line.de.1244: 20,090
+            line.de.6100: !!null
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+    -   date: !!null
+        site:
+            path.de.1244: rei
+            path.de.6100: rei
+records:
+    -   document: src.de.Bfv.1928
+        name: Reinbek
+        de.lknr: 01 030
+    -   document: src.de.DRG.Alt.Karte.1931
+        name: Reinbek
+        category: de.Bf
+        de.rang: III
+        location:
+            line.de.6100: 266,34
+    -   document: src.de.Bfv.1933
+        name: Reinbek
+        category: de.Bf
+        de.rang: III
+        de.lknr: 01 061
+        
+    -   document: src.de.DB.Hmb.Karte.1956
+        name: Reinbek
+        category: de.Bf
+        de.rang: III
+        location:
+            line.de.6100: 266,34
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 010611
+        name: Reinbek
+        de.DS100: ARBK
+        category: de.Bf
+    -   document: src.de.DB.Hmb.Karte.1984
+        name: Reinbek
+        category: de.Bf
+        location:
+            line.de.6100: 266,33
+
+    -   document: src.de.DBAG.BSV.2017
+        de.DS100: ARBK
+        name: Reinbek
+        de.name16: Reinbek
+        category: de.Hp
+        PLC: DE18752
+        de.dstnr: !!str 010611
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        name: Reinbek
+        category: de.Hp
+        de.DS100: ARBK
+        location:
+            line.de.1244: 20,090
+
+
+---
+key: point.de.Wohltorf
+type: point
+events:
+    -   date: !!null
+        name: Wohltorf
+        source: src.de.Kb.1914
+    -   date: !!null
+        category: [de.Hp, de.Bk]
+        location:
+            line.de.6100: 264,08
+        source: src.de.DRG.Alt.Karte.1931
+
+    -   date: c1950
+        location:
+            line.de.6100: 264,07
+        source: src.de.DB.Hmb.Karte.1956
+
+    -   date: c1980
+        category: de.Hp
+        location:
+            line.de.6100: 264,06
+        source: src.de.DB.Hmb.Karte.1984
+
+    -   date: !!null
+        de.DS100: AWLF
+        source: src.de.DS100.1984
+
+    -   date: c2005
+        category: de.Bf
+        location:
+            line.de.1244: 22,407
+            line.de.6100: !!null
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+    -   date: !!null
+        site:
+            path.de.6100: woh
+            path.de.1244: woh
+records:
+    -   document: src.de.Bfv.1928
+        name: Wohltorf
+        de.lknr: 01 344
+    -   document: src.de.DRG.Alt.Karte.1931
+        name: Wohltorf
+        category: [de.Hp, de.Bk]
+        location:
+            line.de.6100: 264,08
+    -   date: de.lknr.30
+        name: Wohltorf
+        category: de.Hp
+        de.lknr: 01 060
+        document: src.de.Bfv.1933
+
+    -   document: src.de.DB.Hmb.Karte.1956
+        name: Wohltorf
+        category: [de.Hp, de.Bk]
+        location:
+            line.de.6100: 264,07
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 010603
+        name: Wohltorf
+        de.DS100: AWLF
+        category: de.Hp
+    -   document: src.de.DB.Hmb.Karte.1984
+        name: Wohltorf
+        category: de.Hp
+        location:
+            line.de.6100: 264,06
+
+    -   document: src.de.DBAG.BSV.2017
+        de.DS100: AWLF
+        name: Wohltorf
+        de.name16: Wohltorf
+        category: de.Bf
+        de.dstnr: !!str 010603
+        PLC: DE21252
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        de.DS100: AWLF
+        name: Wohltorf
+        category: de.Bf
+        location:
+            line.de.1244: 22,407
+            line.de.6100: !!null
 
 
 ---
 key: point.de.Aumühle-S-Bahn
 type: point
 events:
-    -   date: c2002
-        status: open
-        split_from: point.de.Aumühle
-        source: src.de.TPP.2006
+    -   date: !!null
+        category: de.Bf
+        name: Aumühle (S-Bahn)
+        de.DS100: AAMS
+        source: src.de.DBAG.BSV.2017
+    -   date: c2012
+        status: closed
+        document: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
             path.de.1244: aum
 records:
-    -   date: 2017-01
+    -   document: src.de.DBAG.BSV.2017
         category: de.Bf
         name: Aumühle (S-Bahn)
         de.name16: Aumühle (S-Bahn)
@@ -221,8 +850,94 @@ records:
         PLC: DE10370
         de.dstnr: !!str 108053
         status: closed
-        document: src.de.DBAG.BSV.2017
 
 
-#    point.de.Aumühle                            de.6100
+---
+key: point.de.Aumühle
+type: point
+events:
+    -   date: !!null
+        name: Aumühle
+        source: src.de.Kb.1914
+    -   date: c1920
+        name: Aumühle b Friedrichsruh
+        source: src.de.Bfv.1928
+    -   date: !!null
+        location:
+            line.de.6100: 261,34
+        category: de.Bf
+        de.rang: III
+        source: src.de.DRG.Alt.Karte.1931
+    -   date: c1930
+        name: Aumühle
+        source: src.de.Bfv.1933
 
+    -   date: !!null    
+        de.DS100: AAH
+        source: src.de.DS100.1984
+
+    -   date: c2002
+        status: closed
+
+    -   date: c2012
+        status: open
+        source: src.de.TPP.2012
+    -   date: c2012
+        location:
+            line.de.1244: 25,093
+            line.de.6100: !!null
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+    -   date: !!null
+        site:
+            path.de.6100: aum
+            path.de.1244: aum
+            path.de.1285: aum
+records:
+    -   document: src.de.Bfv.1928
+        name: Aumühle b Friedrichsruh
+        de.lknr: 01 343
+        service: passenger
+    -   document: src.de.DRG.Alt.Karte.1931
+        name: Aumühle
+        category: de.Bf
+        de.rang: III
+        location:
+            line.de.6100: 261,34
+    -   document: src.de.Bfv.1933
+        name: Aumühle
+        de.lknr: 01 059
+        category: de.Bf
+        de.rang: III
+        
+    -   document: src.de.DB.Hmb.Karte.1956
+        name: Aumühle
+        category: de.Bf
+        de.rang: III
+        location:
+            line.de.6100: 261,34
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 010595
+        name: Aumühle
+        de.DS100: AAH
+        category: de.Bf
+    -   document: src.de.DB.Hmb.Karte.1984
+        name: Aumühle
+        category: de.Bf
+        location:
+            line.de.6100: 261,34
+
+    -   document: src.de.DBAG.BSV.2017
+        de.DS100: AAH
+        name: Aumühle
+        de.name16: Aumühle
+        category: de.Bf
+        PLC: DE10369
+        de.dstnr: !!str 685172
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        de.DS100: AAH
+        name: Aumühle
+        category: de.Bf
+        location:
+            line.de.1244: 25,093
+        

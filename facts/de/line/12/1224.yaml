@@ -3,12 +3,26 @@
 ---
 key: line.de.1224
 type: line
-events:
-    -   date: !!null
-        region:
-            - org.de
-            - org.de.l.hh
+current:
+    status: open
+    category: de.Hauptbahn
+    gauge: 1435mm
+    tracks: 2
+    electrified: de.hmb
+    course: path.de.1224 als bla
 
+    passenger: full
+
+    operator: org.de.DB-Netz
+    owner: org.de.DB-Netz
+
+    jurisdiction: de
+    region:
+        - org.de
+        - org.de.l.hh
+
+    de.VzG: !!str 1224
+events:
     #   Genehmigungen, Eigentümer, Betreiber
     #
     -   date: 1860-09-29
@@ -44,13 +58,6 @@ events:
         note:
             deu: Umstellung schrittweise zwischen 1940 und 1955
         source: src.de.WP.Altona-Blankeneser-Eisenbahn
-
-    #   Verlauf
-    #
-    -   date: !!null
-        course:
-            -   path.de.1220 als abla
-            -   path.de.1224 fala bla
 records:
     -   date: 1931-04-01
         category: de.Hauptbahn
@@ -96,28 +103,38 @@ points:
 key: point.de.Hamburg-Bahrenfeld-Abzw
 type: point
 events:
-    -   date: 2000
+    -   date: c2000
         status: open
         split_from: point.de.Hamburg-Bahrenfeld
+
+    -   date: !!null
+        category: de.Abzw
+        name: Hamburg-Bahrenfeld Abzw
+        de.DS100: ABAH
+        location:
+            line.de.1224: 2,533
+            line.de.1230: 0,348
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
     
     -   date: !!null
         site:
             path.de.1224: baa
             path.de.1230: baa
 records:
-    -   date: 2017-01
+    -   document: src.de.DBAG.BSV.2017
         category: de.Abzw
         name: Hamburg-Bahrenfeld Abzw
         de.name16: Bahrenfeld Abzw
         de.DS100: ABAH
         PLC: DE14425
         de.dstnr: !!str 722694
-        document: src.de.DBAG.BSV.2017
-    -   date: 2017-01
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        category: de.Abzw
+        name: Hamburg-Bahrenfeld Abzw
+        de.DS100: ABAH
         location:
             line.de.1224: 2,533
             line.de.1230: 0,348
-        document: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
@@ -125,65 +142,75 @@ key: point.de.Hamburg-Bahrenfeld
 type: point
 events:
     -   date: !!null
+        name: Bahrenfeld
+        source: src.de.Kb.1914
+    -   date: !!null
+        category: de.Bf
+        location:
+            line.de.1224: 2,91 # right
+        source: src.de.DRG.Alt.Karte.1931
+
+    -   date: !!null
+        de.DS100: ABAF
+        source: src.de.DS100.1984
+
+    -   date: c2000
+        name: Hamburg-Bahrenfeld
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
         site:
             path.de.1224: bah
             path.de.1230: bah
 records:
-    -   date: 1914-07
-        name: Bahrenfeld
-        document: src.de.Kb.1914
-    -   date: 1927-12-09
+    -   document: src.de.Bfv.1928
         name: Bahrenfeld
         de.lknr: 01 421
         service: passenger
-        document: src.de.Bfv.1928
-    -   date: 1931-04-01
+    -   document: src.de.DRG.Alt.Karte.1931
         name: Bahrenfeld
         category: de.Bf
         de.rang: II
         location:
             line.de.1224: 2,91 # right
-        document: src.de.DRG.Alt.Karte.1931
-    -   date: 1933-03-01
+    -   document: src.de.Bfv.1933
         name: Bahrenfeld
         category: de.Bf
         de.rang: II
         de.lknr: 01 103
         service: full
-        document: src.de.Bfv.1933
 
-    -   date: 1956-09
+    -   document: src.de.DB.Hmb.Karte.1956
         name: Bahrenfeld
         category: de.Bf
         de.rang: II
         location:
             line.de.1224: 2,91 # right
-        document: src.de.DB.Hmb.Karte.1956
-    -   date: 1984-06-03
+        
+    -   document: src.de.DS100.1984
         de.DS100: ABAF
         name: Bahrenfeld
         category: de.Bf
         de.dstnr: !!str 011031
-        document: src.de.DS100.1984
-    -   date: 1984-11
+    -   document: src.de.DB.Hmb.Karte.1984
         name: Bahrenfeld
         category: de.Bf
         location:
             line.de.1224: 2,91 # right
-        document: src.de.DB.Hmb.Karte.1984
 
-    -   date: 2017-01
+    -   document: src.de.DBAG.BSV.2017
         de.DS100: ABAF
         name: Hamburg-Bahrenfeld
         de.name16: Bahrenf (S-Bahn)
         category: de.Hp
         de.dstnr: !!str 010306
         PLC: DE14424
-        document: src.de.DBAG.BSV.2017
-    -   date: 2017-01
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        de.DS100: ABAF
+        name: Hamburg-Bahrenfeld
+        category: de.Hp
         location:
             line.de.1224: 2,910
-        document: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
@@ -191,68 +218,82 @@ key: point.de.Hamburg-Othmarschen
 type: point
 events:
     -   date: !!null
+        name: Groß Flottbek-Othmarschen
+        source: src.de.Kb.1914
+    -   date: !!null
+        category: de.Bf
+        location:
+            line.de.1224: 4,44 # left
+        source: src.de.DRG.Alt.Karte.1931
+
+    -   date: c1938
+        name: Othmarschen
+        source: src.de.Bfv.1938
+
+    -   date: !!null
+        de.DS100: AOH
+        source: src.de.DS100.1984
+
+    -   date: c2000
+        name: Hamburg-Othmarschen
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
         site:
             path.de.1224: oth
 records:
-    -   date: 1914-07
+    -   document: src.de.Bfv.1928
         name: Groß Flottbek-Othmarschen
-        document: src.de.Kb.1914
-    -   date: 1927-12-09
         de.lknr: 01 399
         service: passenger
-        document: src.de.Bfv.1928
-    -   date: 1931-04-01
+    -   document: src.de.DRG.Alt.Karte.1931
         name: Groß Flottbek-Othmarschen
         category: de.Bf
         de.rang: IV
         location:
             line.de.1224: 4,44 # left
-        document: src.de.DRG.Alt.Karte.1931
-    -   date: 1933-03-01
+    -   document: src.de.Bfv.1933
         name: Groß Flottbek-Othmarschen
         category: de.Bf
         de.rang: IV
         de.lknr: 01 104
-        document: src.de.Bfv.1933
-    -   date: 1938-10-01
+    -   document: src.de.Bfv.1938
         name: Othmarschen
         category: de.Bf
         de.rang: IV
         de.lknr: 01 104
-        document: src.de.Bfv.1938
 
-    -   date: 1956-09
+    -   document: src.de.DB.Hmb.Karte.1956
         name: Othmarschen
         category: de.Bf
         de.rang: III
         location:
             line.de.1224: 4,44 # left
-        document: src.de.DB.Hmb.Karte.1956
-    -   date: 1984-06-03
+        
+    -   document: src.de.DS100.1984
         name: Othmarschen
         category: de.Bf
         de.DS100: AOH
         de.dstnr: !!str 011049
-        document: src.de.DS100.1984
-    -   date: 1984-11
+    -   document: src.de.DB.Hmb.Karte.1984
         name: Othmarschen
         category: de.Bf
         location:
             line.de.1224: 4,44 # left
-        document: src.de.DB.Hmb.Karte.1984
 
-    -   date: 2017-01
+    -   document: src.de.DBAG.BSV.2017
         de.DS100: AOH
         name: Hamburg-Othmarschen
         de.name16: Othmarschen
         category: de.Bf
         de.dstnr: !!str 011049
         PLC: DE14470
-        document: src.de.DBAG.BSV.2017
-    -   date: 2017-01
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        de.DS100: AOH
+        name: Hamburg-Othmarschen
+        category: de.Bf
         location:
             line.de.1224: 4,441
-        document: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
@@ -260,62 +301,72 @@ key: point.de.Hamburg-Klein-Flottbek
 type: point
 events:
     -   date: !!null
+        name: Klein Flottbek
+        document: src.de.Kb.1914
+    -   date: !!null
+        category: de.Bf
+        location:
+            line.de.1224: 6,19 # left
+        source: src.de.DRG.Alt.Karte.1931
+
+    -   date: !!null
+        de.DS100: AFB
+        source: src.de.DS100.1984
+
+    -   date: c2000
+        name: Hamburg-Klein Flottbek
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
         site:
             path.de.1224: kfl
 records:
-    -   date: 1914-07
-        name: Klein Flottbek
-        document: src.de.Kb.1914
-    -   date: 1927-12-09
+    -   document: src.de.Bfv.1928
         name: Klein Flottbek
         de.lknr: 01 045
-        document: src.de.Bfv.1928
-    -   date: 1931-04-01
+    -   document: src.de.DRG.Alt.Karte.1931
         name: Klein Flottbek
         category: de.Bf
         de.rang: III
         location:
             line.de.1224: 6,19 # left
-        document: src.de.DRG.Alt.Karte.1931
-    -   date: 1933-03-01
+    -   document: src.de.Bfv.1933
         name: Klein Flottbek
         category: de.Bf
         de.rang: III
         de.lknr: 01 105
-        document: src.de.Bfv.1933
 
-    -   date: 1956-09
+    -   document: src.de.DB.Hmb.Karte.1956
         name: Klein Flottbek
         category: de.Bf
         de.rang: III
         location:
             line.de.1224: 6,19 # left
-        document: src.de.DB.Hmb.Karte.1956
-    -   date: 1984-06-03
+        
+    -   document: src.de.DS100.1984
         name: Klein Flottbek
         category: de.Bf
         de.DS100: AFB
         de.dstnr: !!str 011056
-        document: src.de.DS100.1984
-    -   date: 1984-11
+    -   document: src.de.DB.Hmb.Karte.1984
         name: Klein Flottbek
         category: de.Bf
         location:
             line.de.1224: 6,19 # left
-        document: src.de.DB.Hmb.Karte.1984
 
-    -   date: 2017-01
+    -   document: src.de.DBAG.BSV.2017
         name: Hamburg-Klein Flottbek
         de.name16: Klein Flottbek
         PLC: DE14458
         category: de.Bf
         de.DS100: AFB
         de.dstnr: !!str 011056
-        document: src.de.DBAG.BSV.2017
-    -   date: 2017-01
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        name: Hamburg-Klein Flottbek
+        category: de.Bf
+        de.DS100: AFB
         location:
             line.de.1224: 6,188
-        document: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
@@ -323,61 +374,78 @@ key: point.de.Hamburg-Hochkamp
 type: point
 events:
     -   date: !!null
+        name: Hochkamp
+        source: src.de.Kb.1914
+    -   date: !!null
+        name: Hochkamp
+        location:
+            line.de.1224: 7,52 # right
+        source: src.de.DRG.Alt.Karte.1931
+    -   date: !!null
+        category: [de.Hp, de.Bk]
+        source: src.de.DB.Hmb.Karte.1956
+
+    -   date: !!null
+        de.DS100: AHPS
+        source: src.de.DS100.1984
+
+    -   date: c1980
+        category: de.Hp
+        document: src.de.DB.Hmb.Karte.1984
+
+    -   date: c2000
+        name: Hamburg Hochkamp
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
         site:
             path.de.1224: hoc
 records:
-    -   date: 1914-07
-        name: Hochkamp
-        document: src.de.Kb.1914
-    -   date: 1927-12-09
+    -   document: src.de.Bfv.1928
         name: Hochkamp
         de.lknr: 01 400
         service: passenger
-        document: src.de.Bfv.1928
-    -   date: 1931-04-01
+    -   document: src.de.DRG.Alt.Karte.1931
         name: Hochkamp
         category: de.Hp
         location:
             line.de.1224: 7,52 # right
-        document: src.de.DRG.Alt.Karte.1931
-    -   date: 1933-03-01
+    -   document: src.de.Bfv.1933
         name: Hochkamp
         category: de.Hp
         de.lknr: 01 106
-        document: src.de.Bfv.1933
 
-    -   date: 1956-09
+    -   document: src.de.DB.Hmb.Karte.1956
         name: Hochkamp
         category: [de.Hp, de.Bk]
         staff: full
         location:
             line.de.1224: 7,52 # right
-        document: src.de.DB.Hmb.Karte.1956
-    -   date: 1984-06-03
+
+    -   document: src.de.DS100.1984
         name: Hochkamp
         category: de.Hp
         de.DS100: AHPS
         de.dstnr: !!str 011064
-        document: src.de.DS100.1984
-    -   date: 1984-11
+    -   document: src.de.DB.Hmb.Karte.1984
         name: Hochkamp
         category: de.Hp
         location:
             line.de.1224: 7,50 # right
-        document: src.de.DB.Hmb.Karte.1984
 
-    -   date: 2017-01
+    -   document: src.de.DBAG.BSV.2017
         name: Hamburg Hochkamp
         de.name16: Hochkamp
         PLC: DE14395
         category: de.Hp
         de.DS100: AHPS
         de.dstnr: !!str 011064
-        document: src.de.DBAG.BSV.2017
-    -   date: 2017-01
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        name: Hamburg Hochkamp
+        category: de.Hp
+        de.DS100: AHPS
         location:
             line.de.1224: 7,520
-        document: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
@@ -385,65 +453,76 @@ key: point.de.Hamburg-Blankenese
 type: point
 events:
     -   date: !!null
+        name: Blankenese
+        document: src.de.Kb.1914
+    -   date: !!null
+        category: de.Bf
+        location:
+            line.de.1224: 9,56 # left
+            line.de.1226: 9,56 # left
+        source: src.de.DRG.Alt.Karte.1931
+
+    -   date: !!null
+        de.DS100: AB
+        source: src.de.DS100.1984
+
+    -   date: c2000
+        name: Hamburg-Blankenese
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
         site:
             path.de.1224: bla
             path.de.1226: bla
 records:
-    -   date: 1914-07
-        name: Blankenese
-        document: src.de.Kb.1914
-    -   date: 1927-12-09
+    -   document: src.de.Bfv.1928
         name: Blankenese
         de.lknr: 01 046
-        document: src.de.Bfv.1928
-    -   date: 1931-04-01
+    -   document: src.de.DRG.Alt.Karte.1931
         name: Blankenese
         category: de.Bf
         de.rang: II
         location:
             line.de.1224: 9,56 # left
-            line.de.1226: 9,57 # left
-        document: src.de.DRG.Alt.Karte.1931
-    -   date: 1933-03-01
+            line.de.1226: 9,56 # left
+    -   document: src.de.Bfv.1933
         name: Blankenese
         category: de.Bf
         de.rang: II
         de.lknr: 01 107
-        document: src.de.Bfv.1933
 
-    -   date: 1956-09
+    -   document: src.de.DB.Hmb.Karte.1956
         name: Blankenese
         category: de.Bf
         de.rang: II
         location:
             line.de.1224: 9,57 # left
             line.de.1226: 9,57 # left
-        document: src.de.DB.Hmb.Karte.1956
-    -   date: 1984-06-03
+
+    -   document: src.de.DS100.1984
         name: Blankenese
         category: de.Bf
         de.DS100: AB
         de.dstnr: !!str 011072
-        document: src.de.DS100.1984
-    -   date: 1984-11
+    -   document: src.de.DB.Hmb.Karte.1984
         name: Blankenese
         category: de.Bf
         location:
             line.de.1224: 9,56 # left
             line.de.1226: 9,56
-        document: src.de.DB.Hmb.Karte.1984
 
-    -   date: 2017-01
+    -   document: src.de.DBAG.BSV.2017
         de.name16: Blankenese
         PLC: DE14437
         name: Hamburg-Blankenese
         category: de.Bf
         de.DS100: AB
         de.dstnr: !!str 011072
-        document: src.de.DBAG.BSV.2017
-    -   date: 2017-01
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        name: Hamburg-Blankenese
+        category: de.Bf
+        de.DS100: AB
         location:
             line.de.1224: 9,555
             line.de.1226: 9,555
-        document: src.de.DBAG.Geo-Betriebsstelle.2017
 

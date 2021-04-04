@@ -4,15 +4,29 @@
 key: line.de.1248
 type: line
 label: goods
-events:
-    -   date: !!null
-        region:
+current:
+    status:
+        point.de.Hamburg-Veddel: open
+        point.de.Hamburg-Kai-Rechts: removed
+    category: de.Nebenbahn
+    gauge: 1435mm
+    tracks: 1
+    electrified:
+        point.de.Hamburg-Veddel: de
+        point.de.Hamburg-Kai-Rechts: !!null
+    course: path.de.1248 suv kar
+
+    goods: full
+    passenger: none
+
+    operator: org.de.Hamburg-Port-Authority
+    owner: org.de.Hamburg-Port-Authority
+
+    jurisdiction: de
+    region:
             - org.de
             - org.de.l.hh
-
-    -   date: !!null
-        category: de.Nebenbahn
-
+events:
     -   date: 1876-06-14
         concession:
             by: org.de.l.hh
@@ -32,9 +46,6 @@ events:
     -   date: c1970
         end: point.de.Hamburg-Veddel
         electrified: de
-
-    -   date: !!null
-        course: path.de.1248 suv kar
 records:
     -   date: 1956-09
         category: de.Nebenbahn
@@ -75,21 +86,30 @@ type: point
 subtype: border
 events:
     -   date: !!null
+        de.DS100: AVLG
+        name: Hamburg-Veddel DB-Grenze
+        category: de.Gp
+        location:
+            line.de.1248: 30,646
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+    -   date: !!null
         site:
             path.de.1248: veg
 records:
-    -   date: 2017-01
+    -   document: src.de.DBAG.BSV.2017
         de.DS100: AVLG
         name: Hamburg-Veddel DB-Grenze
         de.name16: Veddel DB-Gr
         category: de.Gp
         PLC: DE14492
         de.dstnr: !!str 106858
-        document: src.de.DBAG.BSV.2017
-    -   date: 2017-01
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        de.DS100: AVLG
+        name: Hamburg-Veddel DB-Grenze
+        category: de.Gp
         location:
             line.de.1248: 30,646
-        document: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 #    point.de.Hamburg-Veddel                     de.2200
@@ -100,51 +120,60 @@ key: point.de.Hamburg-Kai-Rechts
 type: point
 events:
     -   date: !!null
-        name: Versmannkai
+        name: Hamburg Hgbf Kai rechts
+        service: goods
+        source: src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        source: src.de.Bfv.1933
+    -   date: c1930
+        name: Hamburg Kai rechts
+        source: src.de.Bfv.1933
+
+    -   date: !!null
+        de.DS100: ASQ
+        source: src.de.DS100.1984
+
+    -   date: c2000
+        category: de.Anst
+        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
             path.de.1248: kar
 records:
-    -   date: 1927-12-09
+    -   document: src.de.Bfv.1928
         name: Hamburg Hgbf Kai rechts
         service: goods
         de.lknr: 01 035
-        document: src.de.Bfv.1928
-    -   date: 1933-03-01
+    -   document: src.de.Bfv.1933
         name: Hamburg Kai rechts
         category: de.Bf
         de.rang: II
         service: goods
         de.lknr: 01 076
-        document: src.de.Bfv.1933
-    -   date: 1944-06-01
+    -   document: src.de.Bfv.1944
         name: Hamburg Kai rechts
         category: de.Bf
         de.rang: I
         service: goods
         de.lknr: 01 076
-        document: src.de.Bfv.1944
 
-    -   date: 1956-09
+    -   document: src.de.DB.Hmb.Karte.1956
         name: Hamburg Kai rechts
-        document: src.de.DB.Hmb.Karte.1956
-    -   date: 1984-06-03
+    -   document: src.de.DS100.1984
         name: Hamburg Kai rechts
         category: de.Bf
         de.DS100: ASQ
         de.dstnr: !!str 010769
-        document: src.de.DS100.1984
-    -   date: 1984-11
+    -   document: src.de.DB.Hmb.Karte.1984
         name: Hamburg Kai rechts
-        document: src.de.DB.Hmb.Karte.1984
 
-    -   date: 2017-01
+    -   document: src.de.DBAG.BSV.2017
         de.DS100: ASQ
         name: Hamburg Kai rechts
         de.name16: Hmb Kai Rechts
         category: de.Anst
         PLC: DE14401
         de.dstnr: !!str 336727
-        document: src.de.DBAG.BSV.2017
 

@@ -4,69 +4,57 @@
 key: line.de.1247
 type: line
 label: goods
-events:
-    -   date: !!null
-        region:
+current:
+    status: removed
+    category: de.Nebenbahn
+    gauge: 1435mm
+    tracks: 1
+    electrified: !!null
+    course: path.de.1247 ohg och
+
+    goods: full
+    passenger: none
+
+    operator: org.de.DB-Netz
+    owner: org.de.DB-Netz
+
+    jurisdiction: de
+    region:
             - org.de
             - org.de.l.hh
-
-    #   Genehmigung und Eröffnung
-    #
-    -   date: 1918-01-05
-        status: open
-        passenger: none
-        source: src.de.web.Matthaei
-
-    #   Eigenschaften
-    #
+events:
     -   date: !!null
         category: de.Kleinbahn
-        source: src.de.web.Matthaei
-    -   date: 1926
-        electrified: de.dc-6300 # XXX uncertain
-        source: src.de.web.Matthaei
-    -   date: 1935-05-01
-        category: de.Nebenbahn
+        owner: org.de.Langenhorner-Kleinbahn
+        operator: org.de.Langenhorner-Kleinbahn
+        source: src.de.Bfv.1933
+
     -   date: c1940
-        electrified: !!null
+        category: de.Nebenbahn
+        owner: org.de
+        operator: org.de.DR
+        source:
+            -   src.de.Bfv.1938
+            -   src.de.DB.Hmb.Karte.1956
 
     #   Stilllegung
     #
     -   date: 1996
         status: closed
         source: src.de.Bundestag.13.5369
-    -   date: 2008
-        status: removed
-        source: src.de.WP.Gueterumgehungsbahn-Hamburg
-
-    #   Eigentümer und Betreiber
-    #
-    -   date: !!null
-        owner: org.de.Langenhorner-Kleinbahn
-        operator: org.de.Langenhorner-Kleinbahn
-        source: src.de.Bfv.1933
-    -   date: 1938-05-01
-        owner: org.de
-        operator: org.de.DR
-
-    #   Verlauf
-    #
-    -   date: !!null
-        course: path.de.1247 ohg och
 records:
-    -   date: 1956-09
+    -   document: src.de.DB.Hmb.Karte.1956
         category: de.Nebenbahn
         tracks: 1
         gauge: 1435mm
         passenger: none
-        document: src.de.DB.Hmb.Karte.1956
-    -   date: 1984-11
+    -   document: src.de.DB.Hmb.Karte.1984
+        status: suspended
         category: de.Nebenbahn
         tracks: 1
         gauge: 1435mm
         passenger: none
         goods: none
-        document: src.de.DB.Hmb.Karte.1984
 
     -   date: 2017-01
         de.VzG: !!str 1247
@@ -87,6 +75,12 @@ points:
 key: point.de.Hamburg-Langenhorn
 type: point
 events:
+    -   date: !!null
+        name: Langenhorn
+        category: de.Ldst
+        location:
+            line.de.1247: 3,85 # right
+        source: src.de.DB.Hmb.Karte.1956
     -   date: c1970
         status: closed
 
@@ -94,12 +88,12 @@ events:
         site:
             path.de.1247: lan
 records:
-    -   date: 1959-06
+    -   document: src.de.DB.Hmb.Karte.1956
         name: Langenhorn
         category: de.Ldst
         location:
             line.de.1247: 3,85 # right
-        document: src.de.DB.Hmb.Karte.1956
+        
 
 
 ---
@@ -114,6 +108,12 @@ records:
     -   date: 1933-03-01
         name: Ochsenzoll
         document: src.de.Bfv.1933
+    -   document: src.de.Bfv.1938
+        name: Hamburg-Ochſenzoll
+        category: de.Hp
+        service: goods
+        goods: limited
+        de.lknr: 01 102
     -   date: 1944-06-01
         name: Ochsenzoll
         category: de.Hp
