@@ -4,22 +4,33 @@
 key: line.de.1251
 type: line
 label: goods
-events:
-    -   date: !!null
-        region:
+current:
+    status: removed
+    category: de.Nebenbahn
+    gauge: 1435mm
+    tracks: 1
+    electrified: !!null
+    course: path.de.1251 waw fin
+
+    goods: full
+    passenger: none
+
+    owner: org.de.l.hh
+    operator: org.de.Hamburg-Port-Authority
+
+    jurisdiction: de
+    region:
             - org.de
             - org.de.l.hh
-
+events:
     -   date: c1975
         status: open
-        passenger: none
+
+    -   date: c2013
+        statu: closed
 
     -   date: !!null
-        owner: org.de.l.hh
-        operator: org.de.Hamburg-Port-Authority
-
-    -   date: !!null
-        course: path.de.1251 waw fin
+        course: path.de.1251 wau fin
 records:
     -   document: src.de.DB.Hmb.Karte.1984
         category: de.Nebenbahn
@@ -31,13 +42,13 @@ records:
         de.VzG: !!str 1251
         note: km 0,0+0 – 5,2+0
 points:
-    -   point.de.Hamburg-Waltershof-W318            # de.1253
+    -   point.de.Hamburg-Waltershof-Umspannwerk     # de.1253
     -   point.de.Hamburg-Finkenwerder
 
 
 #-----------------------------------------------------------------------------
 
-#    point.de.Hamburg-Waltershof-W318            de.1253
+#    point.de.Hamburg-Waltershof-Umspannwerk     de.1253
 
 
 ---
@@ -45,21 +56,31 @@ key: point.de.Hamburg-Finkenwerder
 type: point
 events:
     -   date: !!null
+        name: Hamburg-Finkenwerder
+        de.DS100: AFKW
+        category: de.Bf
+        staff: none
+        location:
+            line.de.1251: 4,20
+        source:
+            -   src.de.DB.Hmb.Karte.1984
+            -   src.de.DS100.1984
+
+    -   date: !!null
         site:
             path.de.1251: fin
 records:
-    -   date: 2017-01
+    -   document: src.de.DS100.1984
         de.dstnr: !!str 010827
         name: Hamburg-Finkenwerder
         de.DS100: AFKW
         category: de.Bf
         staff: none
-        document: src.de.DS100.1984
-    -   date: 1984-11
+
+    -   document: src.de.DB.Hmb.Karte.1984
         name: Hamburg-Finkenwerder
         category: de.Bf
         staff: none
         location:
             line.de.1251: 4,20
-        document: src.de.DB.Hmb.Karte.1984
 
