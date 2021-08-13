@@ -4,12 +4,29 @@
 key: line.de.1253
 type: line
 label: goods
-events:
-    -   date: !!null
-        region:
+current:
+    status: open
+    category: de.Nebenbahn
+    gauge: 1435mm
+    tracks: 2
+    electrified: de
+    course: path.de.1253 seb dra
+
+    goods: full
+    passenger: none
+
+    operator:
+        point.de.Hamburg-Süderelbbrücke-Gr: org.de.DB-Netz
+        point.de.Hamburg-Waltershof-Dradenau: org.de.Hamburg-Port-Authority
+    owner:
+        point.de.Hamburg-Süderelbbrücke-Gr: org.de.DB-Netz
+        point.de.Hamburg-Waltershof-Dradenau: org.de.l.hh
+
+    jurisdiction: de
+    region:
             - org.de
             - org.de.l.hh
-
+events:
     -   date: 1902-06-20
         expropriation:
             by: org.de.l.pre
@@ -26,18 +43,11 @@ events:
         passenger: none
 
     -   date: !!null
-        end: point.de.Hamburg-Süderelbbrücke-Gr
-        owner: org.de
-        operator: org.de.DB
-    -   date: !!null
-        start: point.de.Hamburg-Süderelbbrücke-Gr
-        owner: org.de.l.hh
-        operator: org.de.Hamburg-Port-Authority
-        source: src.de.web.HHA
-
-    #   Verlauf
-    #
-    -   date: !!null
+        course:
+            -   path.de.1253     seb kao
+            -   path.de.1253.kat kao kaw
+            -   path.de.1254     kaw dra
+    -   date: c2020
         course: path.de.1253 seb dra
 records:
     -   date: 1984-11
@@ -57,7 +67,10 @@ points:
     -   point.de.Hamburg-Hohe-Schaar-Süd-W1
     -   point.de.Hamburg-Hohe-Schaar-Süd
     -   point.de.Hamburg-Hohe-Schaar
-    -   point.de.Kattwykbrücke
+    -   point.de.Hamburg-Kattwykbrücke-Ost
+    -   point.de.Hamburg-Hohe-Schaar-Kattwykbrücke
+    -   point.de.Hamburg-Kattwykbrücke-West
+    -   point.de.Hamburg-Hohe-Schaar-Kattwykbrücke
     -   point.de.Hamburg-Hausbruch-Mitte
     -   point.de.Hamburg-Waltershof-Alte-Süderelbe
     -   point.de.Hamburg-Waltershof-W184
@@ -75,24 +88,33 @@ points:
 ---
 key: point.de.Hamburg-Süderelbbrücke-Gr
 type: point
-subtype: border
+subtype: reference
 events:
+    -   date: !!null
+        de.DS100: ASEG
+        name: Hamburg Süderelbbrücke DB-Grenze
+        category: de.Gp
+        location:
+            line.de.1253: 0,993
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
     -   date: !!null
         site:
             path.de.1253: seg
 records:
-    -   date: 2017-01
+    -   document: src.de.DBAG.BSV.2017
         de.DS100: ASEG
         name: Hamburg Süderelbbrücke DB-Grenze
         de.name16: Süderelbbr DB-Gr
         category: de.Gp
         PLC: DE14415
         de.dstnr: !!str 106856
-        document: src.de.DBAG.BSV.2017
-    -   date: 2017-01
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        de.DS100: ASEG
+        name: Hamburg Süderelbbrücke DB-Grenze
+        category: de.Gp
         location:
             line.de.1253: 0,993
-        document: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
@@ -112,16 +134,24 @@ key: point.de.Hamburg-Hohe-Schaar-Süd
 type: point
 events:
     -   date: !!null
-        site:
-            path.de.1253: hss
-records:
-    -   date: 2017-01
         de.DS100: AHOSS
         name: Hamburg Hohe Schaar Süd
         de.name16: Hmb H Schaar Süd
         category: de.Bft
         de.dstnr: !!str 911756
-        document: src.de.DBAG.BSV.2017
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        site:
+            path.de.1253: hss
+records:
+    -   document: src.de.DBAG.BSV.2017
+        de.DS100: AHOSS
+        name: Hamburg Hohe Schaar Süd
+        de.name16: Hmb H Schaar Süd
+        category: de.Bft
+        de.dstnr: !!str 911756
+        
 
 
 ---
@@ -129,41 +159,88 @@ key: point.de.Hamburg-Hohe-Schaar
 type: point
 events:
     -   date: !!null
+        name: Hamburg Hohe Schaar
+        de.DS100: AHOS
+        category: de.Bf
+        source: src.de.DS100.1984
+    -   date: !!null
+        location:
+            line.de.1251: 3,70 # right
+        source: src.de.DB.Hmb.Karte.1984
+
+    -   date: c2000
+        category: de.Bft
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
         site:
             path.de.1253: hsc
 records:
-    -   date: 1984-11
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 011338
+        name: Hamburg Hohe Schaar
+        de.DS100: AHOS
+        category: de.Bf
+    -   document: src.de.DB.Hmb.Karte.1984
         name: Hamburg-Hohe Schaar
         category: de.Bf
         location:
             line.de.1251: 3,70 # right
-        document: src.de.DB.Hmb.Karte.1984
-    -   date: 2017-01
+
+    -   document: src.de.DBAG.BSV.2017
         de.DS100: AHOS
         name: Hamburg Hohe Schaar
         de.name16: Hmb Hohe Schaar
         category: de.Bft
         de.dstnr: !!str 011338
-        document: src.de.DBAG.BSV.2017
 
 
 ---
-key: point.de.Kattwykbrücke
+key: point.de.Hamburg-Kattwykbrücke-Ost
+type: point
+subtype: reference
+events:
+    -   date: !!null
+        designation: Hamburg Kattwykbrücke Ost
+        site:
+            path.de.1253: kao
+            path.de.1253.kat: kao
+
+
+---
+key: point.de.Hamburg-Hohe-Schaar-Kattwykbrücke
 type: point
 events:
     -   date: !!null
-        category: de.Dkst
-        location:
-            line.de.1253: 5,0
-        source: src.de.SuW.2005
-    -   date: !!null
         name: Hamburg Hohe Schaar Kattwykbrücke
-        de.DS100: AHOSB
-        source: src.de.TPP.2006
+        de.DS100: AHSOB
+        category: de.Glgr
+        source: src.de.DS100.1984
+
+    -   date: c2000
+        status: closed
 
     -   date: !!null
         site:
-            path.de.1253: kat
+            path.de.1253.kat: kat
+records:
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 011338
+        name: Hamburg Hohe Schaar Kattwykbrücke
+        de.DS100: AHSOB
+        category: de.Glgr
+
+
+---
+key: point.de.Hamburg-Kattwykbrücke-West
+type: point
+subtype: reference
+events:
+    -   date: !!null
+        designation: Hamburg Kattwykbrücke West
+        site:
+            path.de.1253: kaw
+            path.de.1253.kat: kaw
 
 
 ---
@@ -171,17 +248,22 @@ key: point.de.Hamburg-Hausbruch-Mitte
 type: point
 events:
     -   date: !!null
+        de.DS100: AHBRM
+        name: Hamburg-Hausbruch Mitte
+        category: de.Bft
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
         site:
             path.de.1253: ham
             path.de.1293: ham
 records:
-    -   date: 2017-01
+    -   document: src.de.DBAG.BSV.2017
         de.DS100: AHBRM
         name: Hamburg-Hausbruch Mitte
         de.name16: Hausbruch Mitte
         category: de.Bft
         de.dstnr: !!str 908391
-        document: src.de.DBAG.BSV.2017
 
 
 ---
@@ -189,16 +271,22 @@ key: point.de.Hamburg-Waltershof-Alte-Süderelbe
 type: point
 events:
     -   date: !!null
+        de.DS100: AWHOS
+        name: Hamburg-Waltershof Alte Süderelbe
+        category: de.Bft
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
         site:
             path.de.1253: asu
 records:
-    -   date: 2017-01
+    -   document: src.de.DBAG.BSV.2017
         de.DS100: AWHOS
         name: Hamburg-Waltershof Alte Süderelbe
         de.name16: Alte Süderelbe
         category: de.Bft
         de.dstnr: !!str 908676
-        document: src.de.DBAG.BSV.2017
+        
 
 
 ---
@@ -242,51 +330,65 @@ key: point.de.Hamburg-Waltershof
 type: point
 events:
     -   date: !!null
+        name: Hamburg-Waltershof
+        category: de.Bf
+        de.DS100: AWHO
+        source: src.de.DS100.1984
+    -   date: !!null
+        location:
+            line.de.1253: 15,79 # right
+        source: src.de.DB.Hmb.Karte.1984
+
+    -   date: c2000
+        category: de.Bft
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
         site:
             path.de.1253: wal
 records:
-    -   date: 1944-06-01
+    -   document: src.de.Bfv.1944
         name: Hamburg Waltershof
         category: de.Ahst
         de.lknr: 01 082
-        document: src.de.Bfv.1944
 
-    -   date: 1984-06-03
+    -   document: src.de.DS100.1984
         name: Hamburg-Waltershof
         de.dstnr: !!str 010819
         de.DS100: AWHO
         category: de.Bf
-        document: src.de.DS100.1984
-    -   date: 1984-11
+    -   document: src.de.DB.Hmb.Karte.1984
         name: Hamburg-Waltershof
         category: de.Bf
         location:
             line.de.1253: 15,79 # right
-        document: src.de.DB.Hmb.Karte.1984
 
-    -   date: 2017-01
+    -   document: src.de.DBAG.BSV.2017
         de.name16: Hmb-Waltershof
         name: Hamburg-Waltershof
         de.dstnr: !!str 010819
         de.DS100: AWHO
         category: de.Bft
-        document: src.de.DBAG.BSV.2017
 
 
 ---
 key: point.de.Hamburg-Waltershof-Dradenau
 type: point
-progress: stub
 events:
+    -   date: !!null
+        name: Hamburg-Waltershof Dradenau
+        category: de.Bft
+        de.DS100: AWHOD
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         site:
             path.de.1253: dra
 records:
-    -   date: 2017-01
+    -   document: src.de.DBAG.BSV.2017
         de.DS100: AWHOD
         name: Hamburg-Waltershof Dradenau
         de.name16: Dradenau
         category: de.Bft
         de.dstnr: !!str 107789
-        document: src.de.DBAG.BSV.2017
 
