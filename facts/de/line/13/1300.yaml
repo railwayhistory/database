@@ -3,6 +3,36 @@
 ---
 key: line.de.1300
 type: line
+current:
+    status:
+        point.de.Harsefeld-Abzw: open
+        point.de.Buchholz-Nordheide: closed
+    category: de.Nebenbahn
+    gauge: 1435mm
+    tracks: 1
+    electrified: !!null
+    course: path.de.1300 wul buc
+
+    goods:
+        point.de.Harsefeld-Abzw: full
+        point.de.Buchholz-Nordheide: none
+    passenger:
+        point.de.Harsefeld-Abzw: full
+        point.de.Buchholz-Nordheide: none
+
+    jurisdiction: de
+    region:
+        point.de.Sellstedt-LGr:
+            - org.de
+            - org.de.l.hb
+        point.de.Buchholz-Nordheide:
+            - org.de
+            - org.de.l.ni
+
+    operator: org.de.Eisenbahnen-und-Verkehr-Elbe-Weser
+    owner: org.de.Eisenbahnen-und-Verkehr-Elbe-Weser
+    de.VzG: !!str 1300
+
 events:
     -   date: !!null
         region: org.de
@@ -110,12 +140,6 @@ events:
         start: point.de.Harsefeld-Abzw
         end: point.de.Beckdorf
         status: closed
-
-    #   Eigenschaften
-    #
-
-    #   Verlauf
-    #
 records:
     -   date: 1927-03
         category: de.Nebenbahn
@@ -160,8 +184,8 @@ records:
 points:
     -   point.de.Bremerhaven-Wulsdorf               # de.1740
     -   point.de.Bremerhaven-Wulsdorf-BGr
-    -   point.de.Sellstedt-LGr
     -   point.de.Sellstedt-DGr
+    -   point.de.Sellstedt-LGr
     -   point.de.Apeler
     -   point.de.Sellstedt
     -   point.de.Heidekultur
@@ -170,6 +194,7 @@ points:
     -   point.de.Frelsdorf
     -   point.de.Heinschenwalde
     -   point.de.Oerel
+    -   point.de.Glinde-Bremervörde
     -   point.de.Bremervörde
     -   point.de.Hesedorf
     -   point.de.Kutenholz
@@ -195,24 +220,31 @@ points:
 key: point.de.Bremerhaven-Wulsdorf-BGr
 type: point
 subtype: reference
+events:
+    -   date: !!null
+        de.DS100: HBWG
+        name: Bremerhaven-Wulsdorf DB-Grenze
+        category: de.Gp
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        location:
+            line.de.1300: 0,326
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+    -   date: !!null
+        site:
+            path.de.1300: wug
 records:
-    -   date: 2017-01
+    -   document: src.de.DBAG.BSV.2017
         de.DS100: HBWG
         name: Bremerhaven-Wulsdorf DB-Grenze
         de.name16: Brh-Wulsdf DB-Gr
         category: de.Gp
         PLC: DE11679
         de.dstnr: !!str 719773
-        document: src.de.DBAG.BSV.2017
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        location:
+            line.de.1300: 0,326
 
-
----
-key: point.de.Sellstedt-LGr
-type: point
-subtype: border
-events:
-    -   date: !!null
-        name: Sellstedt HB/NI
 
 ---
 key: point.de.Sellstedt-DGr
@@ -221,6 +253,8 @@ subtype: reference
 events:
     -   date: !!null
         designation: Sellstedt Han/Hmb
+        site:
+            path.de.1300: sed
 records:
     -   date: 1931-05-01
         location:
@@ -238,11 +272,27 @@ records:
 
 
 ---
+key: point.de.Sellstedt-LGr
+type: point
+subtype: border
+events:
+    -   date: !!null
+        name: Sellstedt HB/NI
+        site:
+            path.de.1300: seg
+
+
+---
 key: point.de.Apeler
 type: point
 events:
     -   date: c2015
         status: open
+    -   date: !!null
+        category: de.Bf
+        name: Apeler
+        de.DS100: AAPL
+        source: src.de.DBAG.BSV.2017
 records:
     -   date: 2017-01
         category: de.Bf
@@ -256,6 +306,19 @@ records:
 ---
 key: point.de.Sellstedt
 type: point
+events:
+    -   date: !!null
+        location:
+            line.de.1300: 7,51 # left
+        source: src.de.DB.Hmb.Karte.1984
+    -   date: !!null
+        de.DS100: ASLL
+        name: Sellstedt
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        site:
+            path.de.1300: sel
 records:
     -   date: 1914-07
         name: Sellstedt
@@ -303,6 +366,14 @@ type: point
 events:
     -   date: c2015
         status: open
+    -   date: !!null
+        de.DS100: AHKU
+        name: Heidekultur
+        category: de.Bk
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        site:
+            path.de.1300: hek
 records:
     -   date: 2017-01
         de.DS100: AHKU
@@ -316,6 +387,19 @@ records:
 ---
 key: point.de.Wehdel
 type: point
+events:
+    -   date: !!null
+        location:
+            line.de.1300: 13,15
+        source: src.de.DB.Hmb.Karte.1984
+    -   date: !!null
+        de.DS100: AWHD
+        name: Wehdel
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        site:
+            path.de.1300: weh
 records:
     -   date: 1914-07
         name: Wehdel
@@ -373,6 +457,19 @@ records:
 ---
 key: point.de.Geestenseth
 type: point
+events:
+    -   date: !!null
+        location:
+            line.de.1300: 16,80 # left
+        source: src.de.DB.Hmb.Karte.1984
+    -   date: !!null
+        de.DS100: AGTH
+        name: Geestenseth
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        site:
+            path.de.1300: gee
 records:
     -   date: 1914-07
         name: Geestenseth
@@ -417,6 +514,19 @@ records:
 ---
 key: point.de.Frelsdorf
 type: point
+events:
+    -   date: !!null
+        location:
+            line.de.1300: 19,68 # right
+        source: src.de.DB.Hmb.Karte.1984
+    -   date: !!null
+        de.DS100: AFF
+        name: Frelsdorf
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null  
+        site:
+            path.de.1300: fre
 records:
     -   date: 1914-07
         name: Frelsdorf
@@ -472,6 +582,19 @@ records:
 ---
 key: point.de.Heinschenwalde
 type: point
+events:
+    -   date: !!null
+        de.DS100: AHWA
+        name: Heinschenwalde
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        location:
+            line.de.1300: 24,46 # right
+        document: src.de.DB.Hmb.Karte.1984
+    -   date: !!null
+        site:
+            path.de.1300: hei
 records:
     -   date: 1914-07
         name: Heinschenwalde
@@ -529,6 +652,19 @@ records:
 ---
 key: point.de.Oerel
 type: point
+events:
+    -   date: !!null
+        name: Oerel
+        category: de.Hp
+        location:
+            line.de.1300: 28,35 # right
+        source: src.de.DB.Hmb.Karte.1984
+    -   date: !!null
+        de.DS100: AOE
+        document: src.de.DBAG.BSV.2017
+    -   date: !!null
+        site:
+            path.de.1300: oer
 records:
     -   date: 1914-07
         name: Örel
@@ -572,13 +708,34 @@ records:
 
 
 ---
+key: point.de.Glinde-Bremervörde
+type: point
+progress: stub
+events:
+    -   date: !!null
+        name: Glinde
+        status: closed
+
+
+---
 key: point.de.Bremervörde
 type: point
 events:
     -   date: !!null
+        name: Bremervörde
+        de.DS100: ABV
+        category: de.Bf
+        source: src.de.DS100.1984
+    -   date: !!null
+        location:
+            line.de.1300:  35,11 # left
+            line.de.1304:   0,00
+            line.de.1711: 150,53
+        source: src.de.DB.Hmb.Karte.1984
+    -   date: !!null
         connection: point.de.Bremervörde-Süd
         site:
-            path.de.1300: brv
+            path.de.1300: bvo
 records:
     -   date: 1905-07
         name: Bremervörde
@@ -641,6 +798,16 @@ key: point.de.Hesedorf
 type: point
 events:
     -   date: !!null
+        name: Hesedorf
+        category: de.Bf
+        de.DS100: AHOF
+        source: src.de.DS100.1984
+    -   date: !!null
+        location:
+            line.de.1260:  0,00
+            line.de.1300: 40,01 # right
+        source: src.de.DB.Hmb.Karte.1984
+    -   date: !!null
         site:
             path.de.1300: hes
             path.de.1260: hes
@@ -697,6 +864,19 @@ records:
 ---
 key: point.de.Kutenholz
 type: point
+events:
+    -   date: !!null
+        location:
+            line.de.1300: 47,77 # left
+        source: src.de.DB.Hmb.Karte.1984
+    -   date: !!null
+        name: Kutenholz
+        category: de.Bf
+        de.DS100: AKTH
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        site:
+            path.de.1300: kut
 records:
     -   date: 1914-07
         name: Kutenholz
@@ -742,6 +922,19 @@ records:
 ---
 key: point.de.Brest-Aspe
 type: point
+events:
+    -   date: !!null
+        location:
+            line.de.1300: 52,58 # left
+        source: src.de.DB.Hmb.Karte.1984
+    -   date: !!null
+        name: Brest-Aspe
+        de.DS100: AAE
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        site:
+            path.de.1300: bre
 records:
     -   date: 1914-07
         name: Brest-Aspe
@@ -803,6 +996,19 @@ records:
 ---
 key: point.de.Bargstedt
 type: point
+events:
+    -   date: !!null
+        location:
+            line.de.1300: 56,03 # left
+        source: src.de.DB.Hmb.Karte.1984
+    -   date: !!null
+        name: Bargstedt
+        de.DS100: ABAT
+        category: [ de.Hp, de.Anst ]
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        site:
+            path.de.1300: bar
 records:
     -   date: 1914-07
         name: Bargstedt
@@ -867,7 +1073,18 @@ key: point.de.Harsefeld
 type: point
 events:
     -   date: !!null
+        location:
+            line.de.1300: 60,54 # left
+        source: src.de.DB.Hmb.Karte.1984
+    -   date: !!null
+        name: Harsefeld
+        category: de.Bf
+        de.DS100: AHFD
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
         connection: point.de.Harsefeld-Süd
+        site:
+            path.de.1300: har
 records:
     -   date: 1914-07
         name: Harsefeld
@@ -915,7 +1132,9 @@ subtype: reference
 junction: False
 events:
     -   date: !!null
-        name: Harsefeld Streckenwechsel
+        designation: Harsefeld Streckenwechsel
+        site:
+            path.de.1300: xha
     -   date: !!null
         location:
             line.de.1300: 62,2+58,667
@@ -926,6 +1145,20 @@ events:
 ---
 key: point.de.Beckdorf
 type: point
+events:
+    -   date: !!null
+        location:
+            line.de.1300: 69,76 # left
+        source: src.de.DB.Hmb.Karte.1984
+    -   date: !!null
+        de.DS100: ABEF
+        name: Beckdorf
+        category: de.Bf
+        status: closed
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        site:
+            path.de.1300: bec
 records:
     -   date: 1914-07
         name: Beckdorf
@@ -993,8 +1226,18 @@ type: point
 events:
     -   date: c1950
         status: open
+    -   date: !!null
+        name: Rahmsdorf
+        category: de.Hp
+        staff: none
+        location:
+            line.de.1300: 73,30 # left
+        source: src.de.DB.Hmb.Karte.1956
     -   date: c1980
         status: closed
+    -   date: !!null
+        site:
+            path.de.1300: rah
 records:
     -   date: 1956-09
         name: Rahmsdorf
@@ -1009,8 +1252,18 @@ records:
 key: point.de.Staersbeck-Moisburg
 type: point
 events:
+    -   date: !!null
+        name: Staersbeck-Moisburg
+        category: de.Hst
+        staff: agent
+        location:
+            line.de.1300: 74,65 # left
+        source: src.de.DB.Hmb.Karte.1956
     -   date: c1980
         status: closed
+    -   date: !!null
+        site:
+            path.de.1300: sta
 records:
     -   date: 1914-07
         name: Staersbeck-Moisburg
@@ -1054,6 +1307,20 @@ records:
 ---
 key: point.de.Hollenstedt
 type: point
+events:
+    -   date: !!null
+        location:
+            line.de.1300: 77,84 # left
+        source: src.de.DB.Hmb.Karte.1984
+    -   date: !!null
+        de.DS100: AHOL
+        name: Hollenstedt
+        category: de.Bf
+        status: closed
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        site:
+            path.de.1300: hol
 records:
     -   date: 1914-07
         name: Hollenstedt
@@ -1099,6 +1366,18 @@ records:
 ---
 key: point.de.Drestedt
 type: point
+events:
+    -   date: !!null
+        name: Drestedt
+        category: de.Bf
+        location:
+            line.de.1300: 83,05 # left
+        source: src.de.DB.Hmb.Karte.1956
+    -   date: !!null
+        status: closed
+    -   date: !!null
+        site:
+            path.de.1300: dre
 records:
     -   date: 1914-07
         name: Drestedt
@@ -1131,6 +1410,18 @@ records:
 ---
 key: point.de.Trelde
 type: point
+events:
+    -   date: !!null
+        name: Trelde
+        category: de.Hp
+        location:
+            line.de.1300: 86,79 # right
+        source: src.de.DB.Hmb.Karte.1956
+    -   date: !!null
+        status: closed
+    -   date: !!null
+        site:
+            path.de.1300: tre
 records:
     -   date: 1914-07
         name: Trelde
