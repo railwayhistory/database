@@ -3,16 +3,31 @@
 ---
 key: line.de.1310
 type: line
-events:
-    -   date: !!null
-        region: org.de
-    -   date: !!null
-        end: point.de.Wremen-LGr
-        region: org.de.l.hb
-    -   date: !!null
-        start: point.de.Wremen-LGr
-        region: org.de.l.ni
+current:
+    status: open
+    category: de.Nebenbahn
+    gauge: 1435mm
+    tracks: 1
+    electrified: !!null
+    course: path.de.1310 spe cux
 
+    goods: full
+    passenger: full
+
+    operator: org.de.DB-Netz
+    owner: org.de.DB-Netz
+
+    jurisdiction: de
+    region:
+        point.de.Wremen-LGr:
+            - org.de
+            - org.de.l.hb
+        point.de.Cuxhaven:
+            - org.de
+            - org.de.l.sh
+
+    de.VzG: !!str 1310
+events:
     #   Staatsverträge
     #
     -   date: 1890-01-24
@@ -46,37 +61,27 @@ events:
     -   date: 1896-06-01
         status: open
         source: src.de.DRG.1935 # 1896/25
-
-    -   date: 1914-07-01
-        end: point.de.Bremerhaven-Speckenbüttel
-        status: closed
-        reused: line.de.1740
 records:
     -   document: src.de.DRG.Alt.Karte.1935
-        start: point.de.Bremerhaven-Speckenbüttel
         category: de.Nebenbahn
         tracks: 1
         gauge: 1435mm
 
     -   document: src.de.DB.Hmb.Karte.1956
-        start: point.de.Bremerhaven-Speckenbüttel
         category: de.Nebenbahn
         tracks: 1
         gauge: 1435mm
     -   document: src.de.DB.Hmb.Karte.1984
-        start: point.de.Bremerhaven-Speckenbüttel
         category: de.Nebenbahn
         tracks: 1
         gauge: 1435mm
 
     -   document: src.de.DBAG.Geo-Strecke.2017
-        start: point.de.Bremerhaven-Speckenbüttel
         de.VzG: !!str 1310
         note: km 190,7+43 – 227,1+39
 points:
-    -   point.de.Bremerhaven-Geestemünde            # de.1302
-    -   point.de.Bremerhaven-Lehe                   # de.1740
     -   point.de.Bremerhaven-Speckenbüttel          # de.1740
+    -   point.de.Wremen-DGr
     -   point.de.Wremen-LGr
     -   point.de.Imsum
     -   point.de.Wremen
@@ -93,28 +98,7 @@ points:
 
 #-----------------------------------------------------------------------------
 
-#    point.de.Bremerhaven-Geestemünde            de.1302
-
-
-#    point.de.Bremerhaven-Lehe                   de.1740
-
-
 #    point.de.Bremerhaven-Speckenbüttel          de.1740
-
-
----
-key: point.de.Wremen-LGr
-type: point
-subtype: border
-records:
-    -   date: 2017-01
-        de.DS100: AQWR
-        name: Wremen NI/HB
-        de.name16: Wremen NI/HB
-        category: de.LGr
-        PLC: DE21323
-        de.dstnr: !!str 103972
-        document: src.de.DBAG.BSV.2017
 
 
 ---
@@ -124,6 +108,8 @@ subtype: reference
 events:
     -   date: !!null
         designation: Wremen Hmb/Han
+        site:
+            path.de.1310: wrd
 records:
     -   date: 1935-01-01
         location:
@@ -142,13 +128,56 @@ records:
         location:
             line.de.1310: 192,470=192,886
         document: src.de.DB.Hmb.Karte.1984
+
+
+---
+key: point.de.Wremen-LGr
+type: point
+subtype: border
+events:
+    -   date: !!null
+        de.DS100: AQWR
+        name: Wremen NI/HB
+        category: de.LGr
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        site:
+            path.de.1310: wrg
+records:
+    -   date: 2017-01
+        de.DS100: AQWR
+        name: Wremen NI/HB
+        de.name16: Wremen NI/HB
+        category: de.LGr
+        PLC: DE21323
+        de.dstnr: !!str 103972
+        document: src.de.DBAG.BSV.2017
+
  
 ---
 key: point.de.Imsum
 type: point
 events:
+    -   date: !!null
+        name: Imsum
+        category: de.Bf
+        location:
+            line.de.1310: 195,30 # left
+        source: src.de.DRG.Alt.Karte.1935
+    -   date: c1950
+        category: de.Hst
+        staff: full
+        location:
+            line.de.1310: 195,50 # left
+        source: src.de.DB.Hmb.Karte.1956
+
     -   date: c1980
         status: closed
+
+    -   date: !!null
+        site:
+            path.de.1310: ims
 records:
     -   date: 1914-07
         name: Imsum
@@ -185,6 +214,27 @@ records:
 ---
 key: point.de.Wremen
 type: point
+events:
+    -   date: !!null
+        name: Wremen
+        de.DS100: AWRE
+        category: de.Bf
+        location:
+            line.de.1310: 199,42 # left
+        source:
+            -   src.de.DS100.1984
+            -   src.de.DB.Hmb.Karte.1984
+    -   date: c2000
+        category: de.Hp
+        location:
+            line.de.1310: 199,350
+        source:
+            -   src.de.DBAG.BSV.2017
+            -   src.de.DBAG.Geo-Betriebsstelle.2017
+
+    -   date: !!null
+        site:
+            path.de.1310: wre.hp
 records:
     -   date: 1914-07
         name: Wremen
@@ -210,36 +260,60 @@ records:
         de.lknr: 01 591
         document: src.de.Bfv.1944
 
-    -   date: 1956-09
+    -   document: src.de.DB.Hmb.Karte.1956
         name: Wremen
         category: de.Bf
         de.rang: IV
         location:
             line.de.1310: 199,43 # left
-        document: src.de.DB.Hmb.Karte.1956
-    -   date: 1984-11
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 015917
+        name: Wremen
+        de.DS100: AWRE
+        category: de.Bf
+    -   document: src.de.DB.Hmb.Karte.1984
         name: Wremen
         category: de.Bf
         location:
             line.de.1310: 199,42 # left
-        document: src.de.DB.Hmb.Karte.1984
 
-    -   date: 2017-01
+    -   document: src.de.DBAG.BSV.2017
         de.DS100: AWRE
         name: Wremen
         de.name16: Wremen
         category: de.Hp
         PLC: DE21322
         de.dstnr: !!str 015917
-        document: src.de.DBAG.BSV.2017
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        category: de.Hp
+        name: Wremen
+        de.DS100: AWRE
+        location:
+            line.de.1310: 199,350
 
 
 ---
 key: point.de.Mulsum
 type: point
 events:
+    -   date: !!null
+        de.dstnr: !!str 015925
+        name: Mulsum
+        de.DS100: AMSM
+        category: de.Hp
+        staff: none
+        location:
+            line.de.1310: 202,40 # left
+        source:
+            -   src.de.DS100.1984
+            -   src.de.DB.Hmb.Karte.1984
+
     -   date: c2000
         status: closed
+
+    -   date: !!null
+        site:
+            path.de.1310: mul
 records:
     -   date: 1914-07
         name: Mulsum
@@ -265,24 +339,43 @@ records:
         master: point.de.Bremerhaven-Hbf
         document: src.de.Bfv.1944
 
-    -   date: 1956-09
+    -   document: src.de.DB.Hmb.Karte.1956
         name: Mulsum
         category: de.Hp
         staff: agent
         location:
             line.de.1310: 202,50 # left
-        document: src.de.DB.Hmb.Karte.1956
-    -   date: 1984-11
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 015925
+        name: Mulsum
+        de.DS100: AMSM
+        category: de.Hp
+        staff: none
+    -   document: src.de.DB.Hmb.Karte.1984
         name: Mulsum
         category: de.Hp
         location:
             line.de.1310: 202,40 # left
-        document: src.de.DB.Hmb.Karte.1984
+        
 
 
 ---
 key: point.de.Dorum
 type: point
+events:
+    -   date: !!null
+        name: Dorum
+        category: de.Bf
+        de.DS100: ADO
+        location:
+            line.de.1310: 205,378
+        source:
+            -   src.de.DBAG.BSV.2017
+            -   src.de.DBAG.Geo-Betriebsstelle.2017
+
+    -   date: !!null
+        site:
+            path.de.1310: dor
 records:
     -   date: 1914-07
         name: Dorum
@@ -345,8 +438,27 @@ records:
 key: point.de.Cappel-Midlum
 type: point
 events:
+    -   date: !!null
+        name: Cappel-Midlum
+        category: de.Bf
+        location:
+            line.de.1310: 209,75 # left
+        source: src.de.DB.Hmb.Karte.1956
+    -   date: !!null
+        de.DS100: ACL
+        source: src.de.DS100.1984
+
     -   date: c1980
+        category: de.Hp
+        staff: none
+        source: src.de.DS100.1984
+
+    -   date: c2000
         status: closed
+
+    -   date: !!null
+        site:
+            path.de.1310: cap
 records:
     -   date: 1914-07
         name: Cappel-Midlum
@@ -372,27 +484,51 @@ records:
         de.lknr: 01 594
         document: src.de.Bfv.1944
 
-    -   date: 1956-09
+    -   document: src.de.DB.Hmb.Karte.1956
         name: Cappel-Midlum
         category: de.Bf
         de.rang: IV
         location:
             line.de.1310: 209,75 # left
-        document: src.de.DB.Hmb.Karte.1956
-    -   date: 1984-11
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 015941
+        name: Cappel-Midlum
+        de.DS100: ACL
+        category: de.Hp
+        staff: none
+    -   document: src.de.DB.Hmb.Karte.1984
         name: Cappel Midlum
         category: de.Hp
         location:
             line.de.1310: 209,76 # left
-        document: src.de.DB.Hmb.Karte.1984
+        
 
 
 ---
 key: point.de.Spieka
 type: point
 events:
+    -   date: !!null
+        name: Spieka
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.1310: 213,31 # left
+        source: src.de.DB.Hmb.Karte.1956
+    -   date: !!null
+        de.DS100: ASKA
+        source: src.de.DS100.1984
+
+    -   date: c1980
+        category: de.Hst
+        source: src.de.DS100.1984
+
     -   date: c2000
         status: closed
+
+    -   date: !!null
+        site:
+            path.de.1310: spi
 records:
     -   date: 1914-07
         name: Spieka
@@ -418,24 +554,42 @@ records:
         de.lknr: 01 595
         document: src.de.Bfv.1944
 
-    -   date: 1956-09
+    -   document: src.de.DB.Hmb.Karte.1956
         name: Spieka
         category: de.Bf
         de.rang: IV
         location:
             line.de.1310: 213,31 # left
-        document: src.de.DB.Hmb.Karte.1956
-    -   date: 1984-11
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 015958
+        name: Spieka
+        de.DS100: ASKA
+        category: de.Hst
+    -   document: src.de.DB.Hmb.Karte.1984
         name: Spieka
         category: de.Hst
         location:
             line.de.1310: 213,30 # left
-        document: src.de.DB.Hmb.Karte.1984
+        
 
 
 ---
 key: point.de.Nordholz
 type: point
+events:
+    -   date: !!null
+        de.DS100: ANZ
+        name: Nordholz
+        category: de.Bf
+        location:
+            line.de.1310: 216,159
+        source:
+            -   src.de.DBAG.BSV.2017
+            -   src.de.DBAG.Geo-Betriebsstelle.2017
+
+    -   date: !!null
+        site:
+            path.de.1310: nho
 records:
     -   date: 1914-07
         name: Nordholz
@@ -468,6 +622,11 @@ records:
         location:
             line.de.1310: 216,10 # right
         document: src.de.DB.Hmb.Karte.1956
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 015966
+        name: Nordholz
+        de.DS100: ANZ
+        category: de.Bf
     -   date: 1984-11
         name: Nordholz
         category: de.Bf
@@ -483,11 +642,29 @@ records:
         PLC: DE17816
         de.dstnr: !!str 15966
         document: src.de.DBAG.BSV.2017
+    -   date: 2017-01
+        category: de.Bf
+        name: Nordholz
+        de.DS100: ANZ
+        location:
+            line.de.1310: 216,1+59
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
 ---
 key: point.de.Nordholz-Bundeswehr
 type: point
+events:
+    -   date: !!null
+        de.DS100: ANZA
+        name: Nordholz Bundeswehr
+        category: de.Awanst
+        status: closed
+        document: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        site:
+            path.de.1310: nbw
 records:
     -   date: 2017-01
         de.DS100: ANZA
@@ -504,8 +681,22 @@ records:
 key: point.de.Altenwalde
 type: point
 events:
+    -   date: !!null
+        name: Altenwalde
+        category: de.Bf
+        de.DS100: AALW
+        location:
+            line.de.1310: 222,29 # left
+        source:
+            -   src.de.DS100.1984
+            -   src.de.DB.Hmb.Karte.1984
+
     -   date: c2000
         status: closed
+
+    -   date: !!null
+        site:
+            path.de.1310: awa
 records:
     -   date: 1914-07
         name: Altenwalde
