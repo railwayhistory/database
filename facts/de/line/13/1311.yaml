@@ -3,20 +3,31 @@
 ---
 key: line.de.1311
 type: line
+current:
+    status: open
+    category: de.Nebenbahn
+    gauge: 1435mm
+    tracks: 1
+    electrified: !!null
+    course: path.de.1311 spe bed
+
+    goods: none
+    passenger: historic
+
+    operator: org.de.Landkreis-Cuxhaven
+#   owner: 
+
+    jurisdiction: de
+    region:
+        point.de.Langen-Han-LGr:
+            - org.de
+            - org.de.l.hb
+        point.de.Bad-Bederkesa:
+            - org.de
+            - org.de.l.ni
+
+    de.VzG: !!str 1311
 events:
-    -   date: !!null
-        region: org.de
-    -   date: !!null
-        end: point.de.Langen-Han-LGr
-        region: org.de.l.hb
-    -   date: !!null
-        start: point.de.Langen-Han-LGr
-        region: org.de.l.ni
-
-    -   date: !!null
-        category: de.Nebenbahn
-        source: src.de.DRG.1927
-
     -   date: 1890-05-10
         concession:
             by: org.de.l.pre
@@ -38,21 +49,9 @@ events:
             until: 2062-12-31
         source: src.de.web.EBA.EIU
 
-
     -   date: 1896-06-01
         status: open
         source: src.de.DRG.1935 # 1896/24
-
-    -   date: 1968-05-26
-        passenger: none
-        source: src.de.WP.Bahnstrecke-Bremerhaven-Bederkesa
-    -   date: 1993-12-31
-        goods: none
-        source: src.de.WP.Bahnstrecke-Bremerhaven-Bederkesa
-
-    -   date: 2000-10
-        passenger: historic
-        source: src.de.WP.Bahnstrecke-Bremerhaven-Bederkesa
 records:
     -   date: 1927-03
         category: de.Nebenbahn
@@ -90,6 +89,21 @@ points:
 key: point.de.Bremerhaven-Speckenbüttel-Gr
 type: point
 subtype: reference
+events:
+    -   date: !!null
+        name: Bremerhaven-Speckenbüttel DB-Grenze
+        category: de.Gp
+        de.DS100: HSPG
+    -   date: 2017-01
+        location:
+            line.de.1311: 0,318
+        source:
+            -   src.de.DBAG.Geo-Betriebsstelle.2017
+            -   src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        site:
+            path.de.1311: spg
 records:
     -   date: 2017-01
         name: Bremerhaven-Speckenbüttel DB-Grenze
@@ -112,11 +126,29 @@ subtype: border
 events:
     -   date: !!null
         designation: Langen (Han) HB/NI
+        site:
+            path.de.1311: lag
 
 
 ---
 key: point.de.Langen-Han
 type: point
+events:
+    -   date: !!null
+        name: Langen (Han)
+        category: de.Bf
+        source: src.de.Bfv.1933
+    -   date: !!null
+        location:
+            line.de.1311: 1,55 # left
+        source: src.de.DB.Han.1983
+    -   date: !!null
+        de.DS100: HLGA
+        source: src.de.DS100.1984
+
+    -   date: !!null
+        site:
+            path.de.1311: lan
 records:
     -   date: 1914-07
         name: Langen (Han)
@@ -129,11 +161,17 @@ records:
         staff: agent
         de.lknr: 13 804
         document: src.de.Bfv.1933
+
     -   date: 1983-11
         name: Langen (Han)
         location:
             line.de.1311: 1,55 # left
         document: src.de.DB.Han.1983
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 138040
+        name: Langen (Han)
+        de.DS100: HLGA
+        category: de.Awanst
 
     -   date: 2017-01
         de.DS100: HLGA
@@ -146,6 +184,22 @@ records:
 ---
 key: point.de.Debstedt
 type: point
+events:
+    -   date: !!null
+        name: Debstedt
+        category: de.Bf
+        source: src.de.Bfv.1933
+    -   date: !!null
+        location:
+            line.de.1311: 5,67 # left
+        source: src.de.DB.Han.1983
+    -   date: !!null
+        de.DS100: HDEA
+        source: src.de.DS100.1984
+
+    -   date: !!null
+        site:
+            path.de.1311: deb
 records:
     -   date: 1914-07
         name: Debstedt
@@ -164,6 +218,11 @@ records:
         location:
             line.de.1311: 5,67 # left
         document: src.de.DB.Han.1983
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 138057
+        name: Debstedt
+        de.DS100: HDEA
+        category: de.Anst
 
     -   date: 2017-01
         de.DS100: HDEA
@@ -176,6 +235,22 @@ records:
 ---
 key: point.de.Drangstedt
 type: point
+events:
+    -   date: !!null
+        name: Drangstedt
+        category: de.Bf
+        source: src.de.Bfv.1933
+    -   date: !!null
+        location:
+            line.de.1311: 11,72 # right
+        source: src.de.DB.Han.1983
+    -   date: !!null
+        de.DS100: HDSA
+        source: src.de.DS100.1984
+
+    -   date: !!null
+        site:
+            path.de.1311: dra
 records:
     -   date: 1914-07
         name: Drangstedt
@@ -194,6 +269,11 @@ records:
         location:
             line.de.1311: 11,72 # right
         document: src.de.DB.Han.1983
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 138065
+        name: Drangstedt
+        de.DS100: HDSA
+        category: de.Anst
 
     -   date: 2017-01
         de.DS100: HDSA
@@ -206,6 +286,22 @@ records:
 ---
 key: point.de.Bad-Bederkesa
 type: point
+events:
+    -   date: !!null
+        name: Bederkesa
+        category: de.Bf
+        source: src.de.Bfv.1933
+    -   date: !!null
+        location:
+            line.de.1311: 17,61 # right
+        source: src.de.DB.Han.1983
+    -   date: !!null
+        de.DS100: HBED
+        source: src.de.DS100.1984
+
+    -   date: !!null
+        site:
+            path.de.1311: bed
 records:
     -   date: 1914-07
         name: Bederkesa
@@ -225,6 +321,12 @@ records:
         location:
             line.de.1311: 17,61 # right
         document: src.de.DB.Han.1983
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 138073
+        name: Bederkesa
+        de.DS100: HBED
+        category: de.Bf
+        staff: none
 
     -   date: 2017-01
         de.DS100: HBED

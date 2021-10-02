@@ -3,16 +3,40 @@
 ---
 key: line.de.9121
 type: line
-events:
-    -   date: !!null
-        region: org.de
-    -   date: !!null
-        end: point.de.Hamburg-Burgwedel-LGr
-        region: org.de.l.hh
-    -   date: !!null
-        start: point.de.Hamburg-Burgwedel-LGr
-        region: org.de.l.sh
+current:
+    status:
+        point.de.Hamburg-Langenfelde-Gbf: removed
+        point.de.Neumünster-Süd-AKN: open
+    category: de.Nebenbahn
+    gauge: 1435mm
+    tracks:
+        point.de.Hamburg-Eidelstedt-Zentrum: 1
+        point.de.Quickborn: 2
+        point.de.Tanneneck: 1
+        point.de.Kaltenkirchen-Holst: 2
+        point.de.Neumünster-Süd-AKN: 1
+    electrified: !!null
+    course: path.de.9121 alt nes
 
+#   goods:
+    passenger:
+        point.de.Hamburg-Eidelstedt-S-Bahn: none
+        point.de.Neumünster-Süd-AKN: full
+
+    jurisdiction: de
+    region:
+        point.de.Hamburg-Burgwedel-LGr:
+            - org.de
+            - org.de.l.hh
+        point.de.Neumünster-Süd-AKN:
+            - org.de
+            - org.de.l.sh
+
+    operator: org.de.AKN-Eisenbahn
+    owner: org.de.AKN-Eisenbahn
+
+    de.VzG: !!str 9121
+events:
     #   Genehmigung
     #
     -   date: 1883-04-27
@@ -104,35 +128,10 @@ events:
         source: src.de.Riechers.2002
     -   date: 2003-11-24
         start: point.de.Hamburg-Eidelstedt-AKN
-        end: point.de.Hamburg-Schnelsen-Süd
+        end: point.de.Hamburg-Schnelsen
         tracks: 2
         note:
             deu: verlegt
-    -   date: 2007-10-28
-        start: point.de.Bönningstedt
-        end: point.de.Hasloh
-        tracks: 2
-        source: src.de.WP.Bahnstrecke-Hamburg-Altona-Neumünster
-    -   date: 2011-05
-        start: point.de.Hasloh
-        end: point.de.Quickborn-Süd
-        tracks: 2
-        source: src.de.WP.Bahnstrecke-Hamburg-Altona-Neumünster
-    -   date: 2011-10
-        start: point.de.Hamburg-Schnelsen-Süd
-        end: point.de.Hamburg-Schnelsen
-        tracks: 2
-        source: src.de.WP.Bahnstrecke-Hamburg-Altona-Neumünster
-    -   date: 2012-10
-        start: point.de.Hamburg-Schnelsen
-        end: point.de.Bönningstedt
-        tracks: 2
-        source: src.de.WP.Bahnstrecke-Hamburg-Altona-Neumünster
-
-    #   Verlauf
-    #
-    -   date: !!null
-        course: path.de.9121 alt nes
 records:
     -   date: 1927-03
         category: de.Nebenbahn
@@ -169,14 +168,15 @@ points:
     -   point.de.Hamburg-Altona-AKN
     -   point.de.Hamburg-Langenfelde-Gbf
     -   point.de.Hamburg-Stellingen
+    -   point.de.Elbgaustraße-Stellingen-AKN
     -   point.de.Hamburg-Stellingen-Gr
     -   point.de.Hamburg-Eidelstedt-S-Bahn          # de.1225
-    -   point.de.Hamburg-Eidelstedt-Zentrum
+    -   point.de.Hamburg-Eidelstedt-Zentrum-Gr
     -   point.de.Hamburg-Eidelstedt-AKN
     -   point.de.Hamburg-Eidelstedt-Zentrum
     -   point.de.Hamburg-Eidelstedt-Ost
     -   point.de.Hamburg-Hörgensweg
-    -   point.de.Hamburg-Schnelsen-Süd
+#   -   point.de.Hamburg-Schnelsen-Süd
     -   point.de.Hamburg-Schnelsen
     -   point.de.Hamburg-Burgwedel
     -   point.de.Hamburg-Burgwedel-LGr
@@ -215,6 +215,10 @@ type: point
 events:
     -   date: 1912
         status: open
+    -   date: !!null
+        name: Hamburg-Altona AKN
+        category: de.Bf
+        source: src.de.DB.Hmb.Karte.1956
     -   date: 1962
         status: closed
         source: src.de.Riechers.2002
@@ -246,6 +250,17 @@ key: point.de.Hamburg-Langenfelde-Gbf
 type: point
 events:
     -   date: !!null
+        name: Hamburg-Langenfelde Gbf
+        location:
+            line.de.9121: 0,5 # left
+        source: src.de.DB.Hmb.Karte.1984
+    -   date: !!null
+        de.DS100: ALAG
+        category: de.Bf
+        status: closed
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
         site:
             path.de.9121: lag
 records:
@@ -270,8 +285,25 @@ key: point.de.Hamburg-Stellingen
 type: point
 events:
     -   date: !!null
+        name: Hamburg-Stellingen
+        category: de.Bf
+        location:
+            line.de.9121: 2,75 # right
+        source: src.de.DB.Hmb.Karte.1956
+    -   date: !!null
+        de.DS100: ASTL
+        source: src.de.DBAG.BSV.2017
+    -   date: 2014-06-12?
+        status: closed
+        source: src.de.DBAG.BSV.2017
+    -   date: 2019-02-02?
+        name: Hamburg-Stellingen Langenfelde (AKN)
+        category: de.Bft
+        source: src.de.DBAG.BSV.2021
+
+    -   date: !!null
         site:
-            path.de.9121: ste
+            path.de.9121: stg
 records:
     -   date: 1914-07
         name: Stellingen
@@ -304,6 +336,33 @@ records:
         de.dstnr: !!str 404020
         status: closed
         document: src.de.DBAG.BSV.2017
+    -   document: src.de.DBAG.BSV.2021
+        de.DS100: ASTL
+        name: Hamburg-Stellingen Langenfelde (AKN)
+        de.name16: Stell Lgf AKN
+        category: de.Bft
+
+
+---
+key: point.de.Elbgaustraße-Stellingen-AKN
+type: point
+events:
+    -   date: 2019-01-31?
+        de.DS100: AESA
+        name: Elbgaustraße-Stellingen (AKN)
+        de.name16: Stell (AKN)
+        category: de.Bft
+        source: src.de.DBAG.BSV.2021
+
+    -   date: !!null
+        site:
+            path.de.9121: sta
+records:
+    -   document: src.de.DBAG.BSV.2021
+        de.DS100: AESA
+        name: Elbgaustraße-Stellingen (AKN)
+        de.name16: Stell (AKN)
+        category: de.Bft
 
 
 ---
@@ -323,6 +382,12 @@ records:
         PLC: DE14445
         de.dstnr: !!str 913375
         document: src.de.DBAG.BSV.2017
+    -   document: src.de.DBAG.BSV.2021
+        PLC: DE14445
+        de.DS100: AESG
+        name: Elbgaustraße-Stellingen (DB-Gr)
+        de.name16: Stelling (DB-Gr)
+        category: de.Gp
 
 
 #    point.de.Hamburg-Eidelstedt-S-Bahn          de.1225
@@ -379,6 +444,11 @@ type: point
 events:
     -   date: 2003-11-24
         status: open
+    -   date: !!null
+        de.DS100: AENZ
+        name: Hamburg-Eidelstedt Zentrum
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
@@ -397,6 +467,12 @@ records:
 key: point.de.Hamburg-Eidelstedt-Ost
 type: point
 events:
+    -   date: !!null
+        name: Eidelstedt Ost
+        category: de.Bf
+        location:
+            line.de.9121: 6,5
+        source: src.de.DB.Hmb.Karte.1956
     -   date: 2003-11-22
         status: closed
 
@@ -435,6 +511,11 @@ type: point
 events:
     -   date: 2001-05
         status: open
+    -   date: !!null
+        de.DS100: AHOW
+        name: Hamburg Hörgensweg
+        category: de.Bft
+        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
@@ -449,23 +530,39 @@ records:
         document: src.de.DBAG.BSV.2017
 
 
----
-key: point.de.Hamburg-Schnelsen-Süd
-type: point
-records:
-    -   date: 2017-01
-        de.DS100: ASLD
-        name: Hamburg-Schnelsen Süd
-        de.name16: Hmb-SchnelsenSüd
-        category: de.Hp
-        de.dstnr: !!str 108425
-        document: src.de.DBAG.BSV.2017
+#---
+#key: point.de.Hamburg-Schnelsen-Süd
+#type: point
+#records:
+#    -   date: 2017-01
+#        de.DS100: ASLD
+#        name: Hamburg-Schnelsen Süd
+#        de.name16: Hmb-SchnelsenSüd
+#        category: de.Hp
+#        de.dstnr: !!str 108425
+#        document: src.de.DBAG.BSV.2017
 
 
 ---
 key: point.de.Hamburg-Schnelsen
 type: point
 events:
+    -   date: !!null
+        name: Schnelsen
+        category: de.Bf
+        location:
+            line.de.9121: 8,9 # right
+        source: src.de.DB.Hmb.Karte.1956
+    -   date: !!null
+        de.DS100: ASLS
+        source: src.de.DS100.1984
+    -   date: c1975
+        name: Hamburg-Schnelsen
+        source: src.de.DS100.1984
+    -   date: c2010
+        category: de.Bft
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         site:
             path.de.9121: sne
@@ -512,6 +609,19 @@ records:
 key: point.de.Hamburg-Burgwedel
 type: point
 events:
+    -   date: !!null
+        name: Burgwedel
+        category: de.Hp
+        location:
+            line.de.9121: 10,5 # right
+        source: src.de.DB.Hmb.Karte.1956
+    -   date: !!null
+        de.DS100: ABWD
+        source: src.de.DS100.1984
+    -   date: c2000
+        name: Hamburg-Burgwedel
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         site:
             path.de.9121: bur
@@ -569,6 +679,19 @@ key: point.de.Bönningstedt
 type: point
 events:
     -   date: !!null
+        name: Bönningstedt
+        category: de.Bf
+        location:
+            line.de.9121: 12,4
+        source: src.de.DB.Hmb.Karte.1956
+    -   date: !!null
+        de.DS100: ABNS
+        source: src.de.DS100.1984
+    -   date: c2010
+        category: de.Bft
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
         site:
             path.de.9121: bon
 records:
@@ -611,6 +734,16 @@ key: point.de.Hasloh
 type: point
 events:
     -   date: !!null
+        location:
+            line.de.9121: 15,8 # left
+        source: src.de.DB.Hmb.Karte.1984
+    -   date: !!null
+        category: de.Bf
+        de.name16: Hasloh
+        de.DS100: AHLH
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
         site:
             path.de.9121: has
 records:
@@ -652,9 +785,14 @@ records:
 key: point.de.Elsensee
 type: point
 events:
-    -   date: 1974
+    -   date: !!null
+        name: Elsensee
+        category: de.Hp
+        location:
+            line.de.9121: 18,2
+        source: src.de.DB.Hmb.Karte.1956
+    -   date: c1970
         status: closed
-        source: src.de.WP.Bahnstrecke-Hamburg-Altona-Neumünster
 
     -   date: !!null
         site:
@@ -690,6 +828,15 @@ type: point
 events:
     -   date: c1970
         status: open
+    -   date: !!null
+        location:
+            line.de.9121: 19,2
+        source: src.de.DB.Hmb.Karte.1984
+    -   date: !!null
+        category: de.Bft
+        name: Quickborn Süd
+        de.DS100: AQBD
+        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
@@ -719,6 +866,16 @@ records:
 key: point.de.Quickborn
 type: point
 events:
+    -   date: !!null
+        location:
+            line.de.9121: 20,2 # left
+        source: src.de.DB.Hmb.Karte.1984
+    -   date: !!null
+        de.DS100: AQB
+        name: Quickborn
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         site:
             path.de.9121: qui
@@ -761,6 +918,17 @@ records:
 key: point.de.Ellerau
 type: point
 events:
+    -   date: !!null
+        name: Ellerau
+        location:
+            line.de.9121: 22,7
+        source: src.de.DB.Hmb.Karte.1984
+    -   date: !!null
+        category: de.Bf
+        name: Ellerau
+        de.DS100: AELA
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         site:
             path.de.9121: ell
@@ -805,6 +973,15 @@ type: point
 events:
     -   date: c1925
         status: open
+    -   date: !!null
+        location:
+            line.de.9121: 25,0
+        source: src.de.DB.Hmb.Karte.1984
+    -   date: !!null
+        category: de.Bft
+        name: Tanneneck
+        de.DS100: ATAK
+        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
@@ -815,7 +992,7 @@ records:
         de.lknr: 60 803
         service: passenger
         staff: none
-        master: point.de.Ellerau
+        superior: point.de.Ellerau
         document: src.de.Bfv.1928
 
     -   date: 1956-09
@@ -864,6 +1041,16 @@ type: point
 events:
     -   date: c1950
         status: open
+    -   date: !!null
+        location:
+            line.de.9121: 27,1
+            line.de.9122: 11,8
+        source: src.de.DB.Hmb.Karte.1984
+    -   date: !!null
+        category: de.Bf
+        name: Ulzburg Süd
+        de.DS100: AUBS
+        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
@@ -900,6 +1087,20 @@ records:
 key: point.de.Henstedt-Ulzburg
 type: point
 events:
+    -   date: !!null
+        name: Ulzburg
+        location:
+            line.de.9120: 24,8
+            line.de.9121: 29,6 # left
+        source: src.de.DB.Hmb.Karte.1984
+    -   date: !!null
+        category: de.Bf
+        de.DS100: AUB
+        source: src.de.DBAG.BSV.2017
+    -   date: c2010
+        name: Henstedt-Ulzburg
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         site:
             path.de.9121: ulz
@@ -948,6 +1149,11 @@ type: point
 events:
     -   date: c1990
         status: open
+    -   date: !!null
+        de.DS100: AKTKS
+        name: Kaltenkirchen Süd
+        category: de.Bft
+        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
@@ -966,6 +1172,16 @@ records:
 key: point.de.Kaltenkirchen-Holst
 type: point
 events:
+    -   date: !!null
+        location:
+            line.de.9121: 34,4 # right
+        source: src.de.DB.Hmb.Karte.1984
+    -   date: !!null
+        category: de.Bf
+        name: Kaltenkirchen (Holst)
+        de.DS100: AKTK
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         site:
             path.de.9121: kal
@@ -1015,6 +1231,10 @@ events:
         name: Holstentherme/dodenhof
     -   date: 2006-06-09
         name: Kaltenkirchen Holstentherme
+    -   date: !!null
+        de.DS100: AKTKH
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
@@ -1035,6 +1255,11 @@ type: point
 events:
     -   date: 2006-06-09
         status: open
+    -   date: !!null
+        de.DS100: AKTKD
+        name: Kaltenkirchen dodenhof
+        category: de.Bft
+        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
@@ -1053,6 +1278,19 @@ records:
 key: point.de.Nützen
 type: point
 events:
+    -   date: !!null
+        name: Nützen
+        category: de.Bf
+        location:
+            line.de.9121: 39,5 # right
+        source: src.de.DB.Hmb.Karte.1956
+    -   date: !!null
+        de.DS100: ANTZ
+        source: src.de.DS100.1984
+    -   date: c2000
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         site:
             path.de.9121: nut
@@ -1095,6 +1333,16 @@ records:
 key: point.de.Lentföhrden
 type: point
 events:
+    -   date: !!null
+        location:
+            line.de.9121: 41,9 # left
+        source: src.de.DB.Hmb.Karte.1984
+    -   date: !!null
+        name: Lentföhrden
+        de.DS100: ALFD
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         site:
             path.de.9121: len
@@ -1139,9 +1387,23 @@ type: point
 events:
     -   date: c1920
         status: open
+    -   date: !!null
+        name: Rheuma-Heilstätte
+        document: src.de.Kb.W1932
+    -   date: c1935
+        name: Neues Kurhaus
+        source: src.de.Kb.W1937
     -   date: 1952
         name: Bad Bramstedt Kurhaus
         source: src.de.Kielmann.1984
+    -   date: !!null
+        location:
+            line.de.9121: 44,9 # left
+        source: src.de.DB.Hmb.Karte.1984
+    -   date: !!null
+        de.DS100: ABSK
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
@@ -1184,9 +1446,20 @@ records:
 key: point.de.Bad-Bramstedt
 type: point
 events:
+    -   date: !!null
+        name: Bramstedt
+        document: src.de.Kb.1905
     -   date: 1911-03-01
         name: Bad Bramstedt
         source: src.de.Kielmann.1984
+    -   date: !!null
+        location:
+            line.de.9121: 47,0 # left
+        source: src.de.DB.Hmb.Karte.1984
+    -   date: !!null
+        de.DS100: ABSD
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
@@ -1252,6 +1525,16 @@ key: point.de.Wiemersdorf
 type: point
 events:
     -   date: !!null
+        location:
+            line.de.9121: 51,8 # left
+        source: src.de.DB.Hmb.Karte.1984
+    -   date: !!null
+        name: Wiemersdorf
+        de.DS100: AWMD
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
         site:
             path.de.9121: wie
 records:
@@ -1291,6 +1574,16 @@ key: point.de.Großenaspe
 type: point
 events:
     -   date: !!null
+        location:
+            line.de.9121: 56,4 # right
+        source: src.de.DB.Hmb.Karte.1984
+    -   date: !!null
+        name: Großenaspe
+        de.DS100: AGSA
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
         site:
             path.de.9121: gas
 records:
@@ -1320,6 +1613,7 @@ records:
         name: Großenaspe
         de.DS100: AGSA
         de.dstnr: !!str 404210
+        category: de.Bf
         de.name16: Großenaspe
         document: src.de.DBAG.BSV.2017
 
@@ -1347,6 +1641,16 @@ events:
 key: point.de.Boostedt
 type: point
 events:
+    -   date: !!null
+        location:
+            line.de.9121: 61,5 # right
+        source: src.de.DB.Hmb.Karte.1984
+    -   date: !!null
+        name: Boostedt
+        de.DS100: ABOS
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         site:
             path.de.9121: boo
@@ -1387,7 +1691,6 @@ key: point.de.Boostedt-Rampe
 type: point
 events:
     -   date: !!null
-        category: de.Awanst
         location:
             line.de.9121: 63,5
         name: Boostedt Rampe
@@ -1403,6 +1706,16 @@ events:
 key: point.de.Neumünster-Süd-AKN
 type: point
 events:
+    -   date: !!null
+        location:
+            line.de.9121: 66,87 # left
+        source: src.de.DB.Hmb.Karte.1956
+    -   date: !!null
+        de.DS100: ANM
+        name: Neumünster Süd AKN
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         connection: point.de.Neumünster-Süd
         site:

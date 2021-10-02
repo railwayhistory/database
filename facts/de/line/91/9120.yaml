@@ -3,12 +3,39 @@
 ---
 key: line.de.9120
 type: line
-events:
-    -   date: !!null
-        region:
-            - org.de
-            - org.de.l.sh
+current:
+    status:
+        point.de.Henstedt-Ulzburg: open
+        point.de.Blumendorf: removed
+        point.de.Bad-Oldesloe: closed
+    category: de.Nebenbahn
+    gauge: 1435mm
+    tracks: 1
+    electrified: !!null
+    course: path.de.9120 elm old
 
+    goods: none
+    passenger:
+        point.de.Henstedt-Ulzburg: full
+        point.de.Bad-Oldesloe: none
+
+    jurisdiction: de
+    region:
+        - org.de
+        - org.de.l.sh
+
+    operator:
+        point.de.Henstedt-Ulzburg: org.de.AKN-Eisenbahn
+        point.de.Bad-Oldesloe: org.de.DB-Netz
+    owner:
+        point.de.Henstedt-Ulzburg: org.de.AKN-Eisenbahn
+        point.de.Bad-Oldesloe: org.de.DB-Netz
+
+    de.VzG:
+        point.de.Henstedt-Ulzburg: !!str 9120
+        point.de.Blumendorf: !!null
+        point.de.Bad-Oldesloe: !!str 1123
+events:
     #   Genehmigung
     #
     -   date: 1895-07-31
@@ -160,6 +187,7 @@ points:
     -   point.de.Voßloch
     -   point.de.Barmstedt-Brunnenstraße
     -   point.de.Barmstedt
+    -   point.de.Langeln-Holst-Bf
     -   point.de.Langeln-Holst
     -   point.de.Hoffnung
     -   point.de.Alveslohe
@@ -187,6 +215,12 @@ type: point
 subtype: reference
 events:
     -   date: !!null
+        de.DS100: AELG
+        name: Elmshorn DB-Grenze
+        category: de.Gp
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
         site:
             path.de.9120: elg
 records:
@@ -204,12 +238,22 @@ records:
 key: point.de.Elmshorn-Langenmoor
 type: point
 events:
+    -   date: !!null
+        location:
+            line.de.9120: 2,0 # right
+        source: src.de.DB.Hmb.Karte.1984
+    -   date: !!null
+        de.DS100: ALGM
+        name: Elmshorn Langenmoor
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+
     -   date: c1935
         status: open
 
     -   date: !!null
         site:
-            path.de.9120: lam
+            path.de.9120: lmo
 records:
     -   date: 1937-10-03
         name: Langenmoor
@@ -252,6 +296,11 @@ records:
 key: point.de.Sibirien
 type: point
 events:
+    -   date: !!null
+        location:
+            line.de.9120: 2,5
+        name: Sibirien
+        source: src.de.Kb.1914
     -   date: c1920
         status: closed
 
@@ -270,6 +319,16 @@ records:
 key: point.de.Sparrieshoop
 type: point
 events:
+    -   date: !!null
+        location:
+            line.de.9120: 3,8 # left
+        source: src.de.DB.Hmb.Karte.1984
+    -   date: !!null
+        category: de.Bf
+        name: Sparrieshoop
+        de.DS100: ASPS
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         site:
             path.de.9120: spa
@@ -312,12 +371,15 @@ records:
 key: point.de.Bokholt
 type: point
 events:
-    -   date: c1910
-        status: closed
-        source: src.de.Kb.1914
-    -   date: c1935
-        status: open
-        source: src.de.Kb.W1937
+    -   date: !!null
+        location:
+            line.de.9120: 6,0 # left
+        source: src.de.DB.Hmb.Karte.1984
+    -   date: !!null
+        name: Bokholt
+        de.DS100: ABHT
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
@@ -367,6 +429,16 @@ key: point.de.Voßloch
 type: point
 events:
     -   date: !!null
+        location:
+            line.de.9120: 7,4 # right
+        source: src.de.DB.Hmb.Karte.1984
+    -   date: !!null
+        category: de.Hp
+        name: Voßloch
+        de.DS100: AVSL
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
         site:
             path.de.9120: vos
 records:
@@ -413,9 +485,15 @@ records:
 key: point.de.Barmstedt-Brunnenstraße
 type: point
 events:
-    -   date: c1935
-        status: open
-        source: src.de.Kb.W1937
+    -   date: !!null
+        location:
+            line.de.9120: 9,1 # left
+        document: src.de.DB.Hmb.Karte.1984
+    -   date: !!null
+        de.DS100: ABMB
+        name: Barmstedt Brunnenstraße
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
@@ -452,6 +530,16 @@ records:
 key: point.de.Barmstedt
 type: point
 events:
+    -   date: !!null
+        location:
+            line.de.9120: 10,0 # right
+        source: src.de.DB.Hmb.Karte.1984
+    -   date: !!null
+        category: de.Bf
+        name: Barmstedt
+        de.DS100: ABMS
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         site:
             path.de.9120: bar
@@ -491,17 +579,21 @@ records:
 
 
 ---
-key: point.de.Langeln-Holst
+key: point.de.Langeln-Holst-Bf
 type: point
 events:
+    -   date: !!null
+        name: Langeln
+        category: de.Bf
+        location:
+            line.de.9120: 15,4 # left
+        source: src.de.DB.Hmb.Karte.1956
     -   date: 1973-09-29?
         status: closed
-    -   date: 2000-05-28
-        status: open
 
     -   date: !!null
         site:
-            path.de.9120: lal
+            path.de.9120: lab
 records:
     -   date: 1914-07
         name: Langeln
@@ -518,6 +610,23 @@ records:
             line.de.9120: 15,4 # left
         document: src.de.DB.Hmb.Karte.1956
 
+
+---
+key: point.de.Langeln-Holst
+type: point
+events:
+    -   date: 2000-05-28
+        status: open
+    -   date: !!null
+        de.DS100: ALAL
+        name: Langeln (Holst)
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        site:
+            path.de.9120: lah
+records:
     -   date: 2017-01
         de.DS100: ALAL
         name: Langeln (Holst)
@@ -536,6 +645,12 @@ events:
         source:
             -   src.de.Bfv.1933
             -   src.de.Kb.W1937
+    -   date: !!null
+        name: Hoffnung
+        category: de.Hp
+        location:
+            line.de.9120: 16,7 # right
+        source: src.de.DB.Hmb.Karte.1956
     -   date: c1975
         status: closed
 
@@ -563,6 +678,19 @@ records:
 key: point.de.Alveslohe
 type: point
 events:
+    -   date: !!null
+        category: de.Bf
+        location:
+            line.de.9120: 19,4 # right
+        source: src.de.DB.Hmb.Karte.1956
+    -   date: !!null
+        de.DS100: AAV
+        name: Alveslohe
+        source: src.de.DBAG.BSV.2017
+    -   date: c2000
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         site:
             path.de.9120: alv
@@ -603,6 +731,15 @@ key: point.de.Henstedt-Kisdorf
 type: point
 events:
     -   date: !!null
+        name: Henstedt-Kisdorf
+        category: de.Hp
+        location:
+            line.de.9120: 26,6 # left
+        source: src.de.DB.Hmb.Karte.1956
+    -   date: c1975
+        status: closed
+
+    -   date: !!null
         site:
             path.de.9120: kis
 records:
@@ -630,6 +767,15 @@ events:
         status: open
         source: src.de.Kb.W1937
     -   date: !!null
+        name: Henstedt-Wohld
+        category: de.Bf
+        location:
+            line.de.9120: 29,1 # right
+        source: src.de.DB.Hmb.Karte.1956
+    -   date: c1975
+        status: closed
+
+    -   date: !!null
         site:
             path.de.9120: woh
 records:
@@ -652,6 +798,15 @@ records:
 key: point.de.Wakendorf-Götzberg
 type: point
 events:
+    -   date: !!null
+        name: Wakendorf-Götzberg
+        category: de.Bf
+        location:
+            line.de.9120: 31,4 # right
+        source: src.de.DB.Hmb.Karte.1956
+    -   date: c1975
+        status: closed
+
     -   date: !!null
         site:
             path.de.9120: wak
@@ -677,6 +832,15 @@ key: point.de.Nahe
 type: point
 events:
     -   date: !!null
+        name: Nahe
+        category: de.Bf
+        location:
+            line.de.9120: 36,4 # right
+        source: src.de.DB.Hmb.Karte.1956
+    -   date: c1975
+        status: closed
+
+    -   date: !!null
         site:
             path.de.9120: nah
 records:
@@ -701,6 +865,13 @@ key: point.de.Nahe-Torfverladestelle
 type: point
 events:
     -   date: !!null
+        name: Nahe (Torfverladestelle)
+        de.lknr: 54 823
+        source: src.de.Bfv.1933
+    -   date: !!null
+        status: closed
+
+    -   date: !!null
         site:
             path.de.9120: nat
 records:
@@ -714,6 +885,15 @@ records:
 key: point.de.Sülfeld-Oldesloe
 type: point
 events:
+    -   date: !!null
+        name: Sülfeld
+        category: de.Bf
+        location:
+            line.de.9120: 42,5 # left
+        source: src.de.DB.Hmb.Karte.1956
+    -   date: c1975
+        status: closed
+
     -   date: !!null
         site:
             path.de.9120: sul
@@ -738,6 +918,15 @@ key: point.de.Grabau
 type: point
 events:
     -   date: !!null
+        name: Grabau
+        category: de.Bf
+        location:
+            line.de.9120: 44,8 # left
+        source: src.de.DB.Hmb.Karte.1956
+    -   date: c1975
+        status: closed
+
+    -   date: !!null
         site:
             path.de.9120: gra
 records:
@@ -761,6 +950,15 @@ records:
 key: point.de.Blumendorf
 type: point
 events:
+    -   date: !!null
+        name: Blumendorf
+        category: de.Bf
+        location:
+            line.de.9120: 48,4 # right
+        source: src.de.DB.Hmb.Karte.1956
+    -   date: !!null
+        de.DS100: ABMD
+        source: src.de.DS100.1984
     -   date: 1995
         status: closed
 

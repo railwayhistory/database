@@ -14,13 +14,16 @@ current:
     course: path.de.1022 kie oro
 
     passenger: full
+    goods: full
 
     jurisdiction: de
     region:
         - org.de
         - org.de.l.sh
+
     operator: org.de.DB-Netz
     owner: org.de.DB-Netz
+
     de.VzG: !!str 1022
 events:
     #   Genehmigungen
@@ -110,6 +113,12 @@ points:
 key: point.de.Kiel-Hg
 type: point
 events:
+    -   date: !!null
+        location:
+            line.de.1031: 1,53
+        category: de.Abzw
+        name: Hg
+        source: src.de.DRG.Alt.Karte.1931
     -   date: 1981?
         status: closed
 
@@ -130,8 +139,17 @@ records:
 key: point.de.Kiel-Hassee
 type: point
 events:
-    -   date: 1981-05-31
-        service: goods
+    -   date: !!null
+        name: Kiel-Hassee
+        category: de.Bf
+        de.DS100: AHAS
+        source: src.de.DS100.1984
+    -   date: !!null
+        location:
+            line.de.1020: 2,90
+            line.de.1021: 0,00
+            line.de.1022: 2,90 # left
+        source: src.de.DB.Hmb.Karte.1984
 
     -   date: !!null
         site:
@@ -191,11 +209,25 @@ records:
 key: point.de.Russee
 type: point
 events:
+    -   date: !!null
+        name: Russee
+        category: de.Hst
+        location:
+            line.de.1022: 5,36 # right
+        source: src.de.DRG.Alt.Karte.1935
+
     -   date: c1980
         status: closed
+
     -   date: 2014-12-14?
         status: open
+        name: Kiel-Russee
+        de.DS100: AKRU
         source: src.de.DBAG.BSV.2017
+    -   date: 2014-12-14?
+        location:
+            line.de.1022: 5,337
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -264,17 +296,36 @@ events:
 key: point.de.Melsdorf
 type: point
 events:
+    -   date: !!null
+        name: Melsdorf
+        category: de.Bf
+        de.DS100: AME
+        source: src.de.DS100.1984
+    -   date: !!null
+        location:
+            line.de.1022: 8,07 # right
+        document: src.de.DB.Hmb.Karte.1984
+
     -   date: 1984-06-02
         service: goods
     -   date: c1990
         status: closed
+
     -   date: 2014-12-14?
         status: open
-        source: src.de.DBAG.BSV.2017
+        category: de.Hp
+        location:
+            line.de.1022: 7,955
+        source:
+            -   src.de.DBAG.BSV.2017
+            -   src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
             path.de.1022: mel
+    -   date: 2014-12-14?
+        site:
+            path.de.1022: meh
 records:
     -   date: 1905-07
         name: Melsdorf
@@ -337,6 +388,21 @@ records:
 key: point.de.Flemhude
 type: point
 events:
+    -   date: !!null
+        name: Flemhude
+        category: de.Hst
+        staff: agent
+        location:
+            line.de.1022: 11,59
+        source: src.de.DB.Hmb.Karte.1956
+    -   date: !!null
+        de.DS100: AFM
+        source: src.de.DS100.1984
+    -   date: c1980
+        category: de.Hp
+        staff: none
+        source: src.de.DS100.1984
+
     -   date: 1984?
         status: closed
 
@@ -395,13 +461,30 @@ type: point
 events:
     -   date: c1950
         status: open
+    -   date: !!null
+        name: Achterwehr
+        category: de.Hp
+        staff: none
+        location:
+            line.de.1022: 12,60 # left
+        source: src.de.DB.Hmb.Karte.1956
+    -   date: !!null
+        de.DS100: AAC
+        source: src.de.DS100.1984
+
     -   date: 1984-06-02
         service: none
     -   date: c1990
         status: closed
+
     -   date: 2014-12-14?
         status: open
-        source: src.de.DBAG.BSV.2017
+        de.DS100: AACW
+        location:
+            line.de.1022: 12,577
+        source:
+            -   src.de.DBAG.BSV.2017
+            -   src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -439,12 +522,32 @@ records:
 key: point.de.Felde-Brandsbek
 type: point
 events:
+    -   date: !!null
+        name: Brandsbek
+        category: de.Bf
+        location:
+            line.de.1022: 13,85
+        source: src.de.DB.Hmb.Karte.1956
+    -   date: !!null
+        de.DS100: ABRA
+        source: src.de.DS100.1984
+    -   date: c1980
+        category: de.Hp
+        source: src.de.DS100.1984
     -   date: 1984?
         status: closed
+
     -   date: 2000-11-05
         status: open
-        service: passenger
-        staff: none
+    -   date: 2000-11-05
+        name: Felde-Brandsbek
+        category: de.Bf
+        de.DS100: AFEB
+        location:
+            line.de.1022: 13,884
+        source:
+            -   src.de.DBAG.BSV.2017
+            -   src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -506,7 +609,14 @@ type: point
 events:
     -   date: 2014-12-14?
         status: open
-        source: src.de.DBAG.BSV.2017
+        category: de.Hp
+        name: Bredenbek
+        de.DS100: ABRB
+        location:
+            line.de.1022: 19,157
+        source:
+            -   src.de.DBAG.BSV.2017
+            -   src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -533,6 +643,15 @@ records:
 key: point.de.Kronsburg
 type: point
 events:
+    -   date: !!null
+        name: Kronsburg
+        category: de.Bf
+        de.DS100: AKU
+        location:
+            line.de.1022: 20,42 # right
+        document:
+            -   src.de.DB.Hmb.Karte.1984
+            -   src.de.DS100.1984
     -   date: 1984-06-02
         service: goods
     -   date: c2000
@@ -590,6 +709,13 @@ records:
 key: point.de.Ostenfeld-Rendsburg
 type: point
 events:
+    -   date: !!null
+        name: Ostenfeld (Kr Rendsburg)
+        category: de.Hst
+        location:
+            line.de.1022: 24,35
+        source: src.de.DB.Hmb.Karte.1956
+
     -   date: 1981-05-30
         service: goods
     -   date: c1982
@@ -644,13 +770,29 @@ records:
 key: point.de.Schülldorf
 type: point
 events:
-    -   date: 1981-05-30
-        service: goods
+    -   date: !!null
+        name: Schülldorf
+        category: de.Bf
+        location:
+            line.de.1022: 27,16
+        source: src.de.DB.Hmb.Karte.1956
+    -   date: !!null
+        de.DS100: ASC
+        source: src.de.DS100.1984
+    -   date: c1980
+        category: de.Anst
+        source: src.de.DS100.1984
     -   date: c1990
         status: closed
+
     -   date: 2014-12-14?
         status: open
-        source: src.de.DBAG.BSV.2017
+        category: de.Hp
+        location:
+            line.de.1022: 27,378
+        source:
+            -   src.de.DBAG.BSV.2017
+            -   src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -726,7 +868,15 @@ type: point
 events:
     -   date: c2000
         status: open
-        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        category: de.Awanst
+        name: Osterrönfeld Awanst
+        de.DS100: AONA
+        location:
+            line.de.1022: 30,588
+        source:
+            -   src.de.DBAG.BSV.2017
+            -   src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:

@@ -17,11 +17,13 @@ current:
     region:
         - org.de
         - org.de.l.sh
+
     operator:
         point.de.Neumünster-Gr: org.de.DB-Netz
         point.de.Neumünster-Süd-Gr: org.de.AKN-Eisenbahn
         point.de.Bad-Oldesloe: org.de.DB-Netz
     owner: org.de.DB-Netz
+
     de.VzG: !!str 1043
 events:
     -   date: !!null
@@ -86,6 +88,7 @@ points:
     -   point.de.Neumünster                        # de.1220
     -   point.de.Neumünster-Gr
     -   point.de.Neumünster-Süd
+    -   point.de.Neumünster-Süd-AKN                # de.9121
     -   point.de.Neumünster-Süd-Gr
     -   point.de.Kleinkummerfeld
     -   point.de.Rickling-Ölweiche
@@ -111,6 +114,16 @@ type: point
 subtype: reference
 events:
     -   date: !!null
+        de.DS100: ANMG
+        name: Neumünster DB-Grenze
+        category: de.Gp
+        location:
+            line.de.1043: 75,320
+        source:
+            -   src.de.DBAG.BSV.2017
+            -   src.de.DBAG.Geo-Betriebsstelle.2017
+
+    -   date: !!null
         site:
             path.de.1043: nmg
 records:
@@ -132,6 +145,22 @@ records:
 key: point.de.Neumünster-Süd
 type: point
 events:
+    -   date: !!null
+        name: „AK“
+        category: de.Bk
+        location:
+            line.de.1043: 76,70
+        source: src.de.DB.Hmb.Karte.1956
+    -   date: c1970
+        category: de.Bf
+        name: Neumünster Süd
+        de.DS100: ANAK
+        service: none
+        location:
+            line.de.1043: 76,70 # left
+        source:
+            -   src.de.DS100.1984
+            -   src.de.DB.Hmb.Karte.1984
     -   date: c1990
         de.DS100: ANMS
         source: src.de.TPP.2006
@@ -155,7 +184,7 @@ records:
         category: de.Bk
         location:
             line.de.1043: 76,70
-        document: src.de.DRG.Alt.Karte.1931
+        document: src.de.DB.Hmb.Karte.1956
 
     -   date: 1984-06-03
         category: de.Bf
@@ -172,11 +201,24 @@ records:
         document: src.de.DB.Hmb.Karte.1984
 
 
+#    point.de.Neumünster-Süd-AKN                de.9121
+
+
 ---
 key: point.de.Neumünster-Süd-Gr
 type: point
 subtype: reference
 events:
+    -   date: !!null
+        de.DS100: ANSG
+        name: Neumünster Süd DB-Grenze
+        category: de.Gp
+        location:
+            line.de.1043: 78,500
+        source:
+            -   src.de.DBAG.BSV.2017
+            -   src.de.DBAG.Geo-Betriebsstelle.2017
+
     -   date: !!null
         site:
             path.de.1043: nsg
@@ -202,12 +244,23 @@ records:
 key: point.de.Kleinkummerfeld
 type: point
 events:
-    -   date: 1916-01-13
+    -   date: !!null
+        name: Boostedt
+        document: src.de.Kb.1914
+    -   date: c1920
         name: Kleinkummerfeld
-        source: src.de.web.EFM
-
-    -   date: 2002-12-15
+        source: src.de.Bfv.1928
+    -   date: 2000
         status: closed
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        category: de.Bf
+        de.DS100: AKD
+        location:
+            line.de.1043: 83,244
+        source: 
+            -   src.de.DBAG.BSV.2017
+            -   src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -274,7 +327,20 @@ records:
 key: point.de.Rickling-Ölweiche
 type: point
 events:
-    -   date: 1984-09-30
+    -   date: !!null
+        name: Rickling Ölw
+        category: de.Hp
+        staff: none
+        location:
+            line.de.1043: 86,05 # left
+        source: src.de.DB.Hmb.Karte.1956
+    -   date: !!null
+        de.DS100: AROW
+        source: src.de.DS100.1984
+    -   date: c1980
+        category: de.Anst
+        source: src.de.DS100.1984
+    -   date: c1985
         status: closed
 
     -   date: !!null
@@ -300,6 +366,24 @@ records:
 key: point.de.Rickling
 type: point
 events:
+    -   date: !!null
+        name: Rickling
+        category: de.Bf
+        de.DS100: ARL
+        location:
+            line.de.1043: 91,09 # left
+        source:
+            -   src.de.DS100.1984
+            -   src.de.DB.Hmb.Karte.1984
+
+    -   date: 2002
+        category: de.Hp
+        location:
+            line.de.1043: 91,007
+        source:
+            -   src.de.DBAG.BSV.2017
+            -   src.de.DBAG.Geo-Betriebsstelle.2017
+
     -   date: !!null
         site:
             path.de.1043: ric
@@ -369,6 +453,15 @@ type: point
 events:
     -   date: 2002-12-15
         status: open
+    -   date: !!null
+        de.DS100: AWAH
+        name: Wahlstedt
+        category: de.Hp
+        location:
+            line.de.1043: 96,832
+        source:
+            -   src.de.DBAG.BSV.2017
+            -   src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -395,6 +488,25 @@ records:
 key: point.de.Fahrenkrug
 type: point
 events:
+    -   date: !!null
+        name: Fahrenkrug
+        category: de.Bf
+        de.DS100: AFK
+        location:
+            line.de.1043: 99,25 # right
+        source:
+            -   src.de.DS100.1984
+            -   src.de.DB.Hmb.Karte.1984
+
+    -   date: c2002
+        name: Fahrenkrug
+        category: de.Bft
+        location:
+            line.de.1043: 99,363
+        source:
+            -   src.de.DBAG.BSV.2017
+            -   src.de.DBAG.Geo-Betriebsstelle.2017
+
     -   date: !!null
         site:
             path.de.1043: fah
@@ -470,6 +582,20 @@ key: point.de.Bad-Segeberg
 type: point
 events:
     -   date: !!null
+        name: Bad Segeberg
+        category: de.Bf
+        de.DS100: ASB
+        location:
+            line.de.1043: 103,41 # left
+        source:
+            -   src.de.DS100.1984
+            -   src.de.DB.Hmb.Karte.1984
+    -   date: c2002
+        location:
+            line.de.1043: 103,143
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+    -   date: !!null
         site:
             path.de.1043: seg
         connection:
@@ -541,6 +667,16 @@ key: point.de.Altengörs
 type: point
 events:
     -   date: !!null
+        name: Altengörs
+        category: de.Hp
+        de.DS100: AAT
+        location:
+            line.de.1043: 108,173
+        source:
+            -   src.de.DBAG.BSV.2017
+            -   src.de.DBAG.Geo-Betriebsstelle.2017
+
+    -   date: !!null
         site:
             path.de.1043: ago
 records:
@@ -604,6 +740,22 @@ records:
 key: point.de.Wakendorf
 type: point
 events:
+    -   date: !!null
+        name: Wakendorf
+        category: de.Bf
+        de.DS100: AWK
+        staff: none
+        location:
+            line.de.1043: 111,98 # right
+        source:
+            -   src.de.DS100.1984
+            -   src.de.DB.Hmb.Karte.1984
+    -   date: c1990
+        category: de.Hp
+        location:
+            line.de.1043: 112,005
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
     -   date: !!null
         site:
             path.de.1043: wak
@@ -672,6 +824,21 @@ records:
 key: point.de.Fresenburg
 type: point
 events:
+    -   date: !!null
+        name: Fresendorf
+        de.DS100: AFN
+        category: de.Hp
+        staff: none
+        location:
+            line.de.1043: 115,32 # right
+        source:
+            -   src.de.DS100.1984
+            -   src.de.DB.Hmb.Karte.1984
+    -   date: c2000
+        location:
+            line.de.1043: 115,323
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
     -   date: !!null
         site:
             path.de.1043: fre
@@ -747,6 +914,13 @@ type: point
 events:
     -   date: c1950
         status: open
+    -   date: !!null
+        name: Poggensee
+        category: de.Hp
+        staff: none
+        location:
+            line.de.1043: 117,18 # left
+        source: src.de.DB.Hmb.Karte.1956
     -   date: c1980
         status: closed
  
