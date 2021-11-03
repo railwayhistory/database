@@ -3,16 +3,31 @@
 ---
 key: line.de.9123
 type: line
-events:
-    -   date: !!null
-        region: org.de
-    -   date: !!null
-        end: point.de.Börnsen-LGr
-        region: org.de.l.hh
-    -   date: !!null
-        start: point.de.Börnsen-LGr
-        region: org.de.l.sh
+current:
+    status: open
+    category: de.Nebenbahn
+    gauge: 1435mm
+    tracks: 1
+    electrified: !!null
+    course: path.de.9123 beg gee
 
+    goods: full
+    passenger: none
+
+    jurisdiction: de
+    region:
+        point.de.Börnsen-LGr:
+            - org.de
+            - org.de.l.hh
+        point.de.Geesthacht:
+            - org.de
+            - org.de.l.sh
+
+    operator: org.de.AKN-Eisenbahn
+#   owner: 
+
+    de.VzG: !!str 9123
+events:
     #   Genehmigung, Eigentümer und Betriebsführer
     #
     -   date: 1906-04-11
@@ -30,7 +45,6 @@ events:
         operator: org.de.Verkehrsbetriebe-Hamburg-Holstein
     -   date: 1956-01-01
         operator: org.de.AKN-Eisenbahn
-        source: src.de.web.VHH
 
     -   date: 2009-11-16
         end: point.de.Börnsen-LGr
@@ -47,35 +61,8 @@ events:
             until: 2024-12-31
         source: src.de.web.EBA.EIU
 
-    -   date: 1906-12-20
-        start: point.de.Hamburg-Bergedorf-Süd
-        status: open
-        source: src.de.web.VHH
-    -   date: 1907-05-01
-        end: point.de.Hamburg-Bergedorf-Süd
-        status: open
-        source: src.de.web.VHH
-    -   date: 1915?
-        tracks: 2
-        source: src.de.web.VHH
-    -   date: 1918
-        tracks: 1
-        source: src.de.web.VHH
-    -   date: 1940?
-        tracks: 2
-        source: src.de.web.VHH
     -   date: c1950
         category: de.Nebenbahn
-    -   date: c1950
-        tracks: 1
-    -   date: 1953-10-26
-        passenger: none
-        source: src.de.web.VHH
-
-    #   Verlauf
-    #
-    -   date: !!null
-        course: path.de.9112 beg gee
 records:
     -   date: 1931-04-01
         category: de.Kleinbahn
@@ -121,6 +108,15 @@ points:
 key: point.de.Hamburg-Bergedorf-Süd
 type: point
 events:
+    -   date: !!null
+        name: Hamburg-Bergedorf Süd
+        de.DS100: ABDS
+        source: src.de.DS100.1984
+    -   date: !!null
+        location:
+            line.de.9123: 1,5 # left
+        source: src.de.DB.Hmb.Karte.1984
+
     -   date: !!null
         site:
             path.de.9123: bes
@@ -168,6 +164,12 @@ type: point
 events:
     -   date: c1920
         status: open
+    -   date: !!null
+        category: de.Hp
+        name: Holtenklinke
+        location:
+            line.de.9123: 3,7 # left
+        source: src.de.DB.Hmb.Karte.1956
     -   date: c1970
         status: closed
 
@@ -204,6 +206,16 @@ events:
 key: point.de.Börnsen
 type: point
 events:
+    -   date: !!null
+        location:
+            line.de.9123: 6,3 # left
+        source: src.de.DB.Hmb.Karte.1984
+    -   date: !!null
+        category: de.Hp
+        name: Börnsen
+        de.DS100: ABSF
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         site:
             path.de.9123: bor
@@ -247,6 +259,16 @@ key: point.de.Escheburg
 type: point
 events:
     -   date: !!null
+        location:
+            line.de.9123: 8,9 # left
+        source: src.de.DB.Hmb.Karte.1984
+    -   date: !!null
+        name: Escheburg
+        de.DS100: AEBG
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
         site:
             path.de.9123: ese
 records:
@@ -289,6 +311,17 @@ key: point.de.Besenhorst
 type: point
 events:
     -   date: !!null
+        location:
+            line.de.9123: 11,4 # left
+        source: src.de.DB.Hmb.Karte.1984
+    -   date: !!null
+        name: Besenhorst
+        de.DS100: ABSN
+        category: de.Bf
+        status: closed
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
         site:
             path.de.9123: beh
 records:
@@ -329,6 +362,10 @@ records:
 key: point.de.Düneberg
 type: point
 events:
+    -   date: !!null
+        name: Düneberg
+        category: de.Bf # left
+        document: src.de.DB.Hmb.Karte.1956
     -   date: c1960
         status: closed
 
@@ -351,6 +388,16 @@ records:
 key: point.de.Geesthacht
 type: point
 events:
+    -   date: !!null
+        location:
+            line.de.9123: 13,9 # left
+        source: src.de.DB.Hmb.Karte.1984
+    -   date: !!null
+        name: Geesthacht
+        de.DS100: AGEH
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         site:
             path.de.9123: gee

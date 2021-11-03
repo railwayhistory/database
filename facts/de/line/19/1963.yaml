@@ -3,12 +3,27 @@
 ---
 key: line.de.1963
 type: line
-events:
-    -   date: !!null
-        region:
-            - org.de
-            - org.de.l.ni
+current:
+    status: removed
+    category: de.Nebenbahn
+    gauge: 1435mm
+    tracks: 1
+    electrified: !!null
+    course: path.de.1963 uel daw
 
+    passenger: none
+    goods: none
+
+    jurisdiction: de
+    region:
+        - org.de
+        - org.de.l.ni
+
+    operator: org.de.DB-Netz
+    owner: org.de.DB-Netz
+
+    de.VzG: !!str 1963
+events:
     -   date: !!null
         de.VzG: !!str 1963
         source: src.de.DBAG.Geo-Strecke.2017
@@ -90,7 +105,7 @@ points:
 ---
 key: point.de.Molzen-DGr
 type: point
-subtype: border
+subtype: reference
 events:
     -   date: 1931-04-01
         name: RBD-Grenze Han/Alt 1931–c1945
@@ -121,11 +136,8 @@ type: point
 events:
     -   date: !!null
         name: Molzen
-        de.lknr: 13 193
-        source: src.de.Bfv.1928
-    -   date: !!null
         location:
-            line.de.1963: 6,83
+            line.de.1963: 6,63
         category: de.Bf
         de.rang: IV
         source: src.de.DRG.Alt.Karte.1931
@@ -134,7 +146,6 @@ events:
         source: src.de.Bfv.1933
     -   date: !!null
         de.DS100: AMZ
-        de.dstnr: !!str 011692
         source: src.de.DS100.1984
     -   date: c1975
         category: de.Hst
@@ -147,6 +158,35 @@ events:
     -   date: !!null
         site:
             path.de.1963: mol
+records:
+    -   document: src.de.Bfv.1928
+        name: Molzen
+        de.lknr: 13 193
+    -   document: src.de.DRG.Alt.Karte.1931
+        name: Molzen
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.1963: 6,63
+    -   document: src.de.Bfv.1933
+        name: Molzen
+        de.lknr: 01 169
+        category: de.Bf
+        de.rang: IV
+
+    -   document: src.de.DB.Hmb.Karte.1956
+        name: Molzen
+        category: de.Bf
+        de.rang: IV
+        staff: agent
+        location:
+            line.de.1963: 6,63
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 011692
+        name: Molzen
+        de.DS100: AMZ
+        category: de.Hst
+        staff: none
 
 
 ---
@@ -155,25 +195,38 @@ type: point
 events:
     -   date: c1950
         status: open
-        location:
-            line.de.1963: 8,2
-        category: de.Hp
-        source: src.de.WP.Bahnstrecke-Uelzen-Dannenberg
     -   date: !!null
         name: Masendorf
+        category: de.Hp
+        staff: none
+        location:
+            line.de.1963: 8,20
+        source: src.de.DB.Hmb.Karte.1956
+    -   date: !!null
         de.DS100: AMAS
-        de.dstnr: !!str 010140
         source: src.de.DS100.1984
     -   date: c1975
         category: de.Anst
         source: src.de.DS100.1984
     -   date: c1984
         status: closed
-        source: src.de.DB.Hmb.Karte.1984
 
     -   date: !!null
         site:
             path.de.1963: mas
+records:
+    -   document: src.de.DB.Hmb.Karte.1956
+        name: Masendorf
+        category: de.Hp
+        staff: none
+        location:
+            line.de.1963: 8,20 # left
+    -   document: src.de.DS100.1984
+        name: Masendorf
+        de.DS100: AMAS
+        de.dstnr: !!str 010140
+        category: de.Anst
+
 
 
 ---
@@ -182,33 +235,63 @@ type: point
 events:
     -   date: !!null
         name: Oitzen
-        de.lknr: 13 194
-        source: src.de.Bfv.1928
-    -   date: !!null
+        category: de.Bf
         location:
             line.de.1963: 11,28
-        category: de.Bf
-        de.rang: IV
         source: src.de.DRG.Alt.Karte.1931
-    -   date: de.lknr.30
-        de.lknr: 01 168
-        source: src.de.Bfv.1933
     -   date: c1935
         name: Oetzen
         source: src.de.Kb.W1937
     -   date: !!null
         de.DS100: AOTZ
-        de.dstnr: !!str 011168
         source: src.de.DS100.1984
     -   date: c1975
         staff: none
         source: src.de.DS100.1984
-    -   date: c1995
-        category: de.Anst
+    -   date: 1996-06-01?
+        status: closed
 
     -   date: !!null
         site:
             path.de.1963: oet
+records:
+    -   document: src.de.Bfv.1928
+        name: Oitzen
+        de.lknr: 13 194
+    -   document: src.de.DRG.Alt.Karte.1931
+        name: Oitzen
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.1963: 11,28
+    -   document: src.de.Bfv.1933
+        name: Oitzen
+        category: de.Bf
+        de.rang: IV
+        de.lknr: 01 168
+    -   document: src.de.Bfv.1938
+        name: Oetzen
+        category: de.Bf
+        de.rang: IV
+        de.lknr: 01 168
+    -   document: src.de.Bfv.1944
+        name: Oetzen
+        category: de.Bf
+        de.rang: IV
+        de.lknr: 01 168
+
+    -   document: src.de.DB.Hmb.Karte.1956
+        name: Oitzen
+        category: de.Bf
+        de.rang: III
+        location:
+            line.de.1963: 11,28 # right
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 011168
+        name: Oetzen
+        de.DS100: AOTZ
+        category: de.Bf
+        staff: none
 
 
 ---
@@ -217,10 +300,12 @@ type: point
 events:
     -   date: c1950
         status: open
+    -   date: !!null
         location:
-            line.de.1963: 15,7
+            line.de.1963: 15,75
         category: de.Hp
-        source: src.de.WP.Bahnstrecke-Uelzen-Dannenberg
+        staff: none
+        source: src.de.DB.Hmb.Karte.1956
     -   date: !!null
         de.DS100: AWED
         name: Weste (Kr Uelzen) Dorf 
@@ -230,11 +315,22 @@ events:
         source: src.de.DS100.1984
     -   date: c1984
         status: closed
-        source: src.de.DB.Hmb.Karte.1984
 
     -   date: !!null
         site:
             path.de.1963: wed
+records:
+    -   document: src.de.DB.Hmb.Karte.1956
+        name: Weste Dorf 
+        category: de.Hp
+        staff: none
+        location:
+            line.de.1963: 15,75 # left
+    -   document: src.de.DS100.1984
+        de.dstnr: !!null
+        name: Weste (Kr Uelzen) Dorf 
+        de.DS100: AWED
+        category: de.Anst
 
 
 ---
@@ -243,31 +339,56 @@ type: point
 events:
     -   date: !!null
         name: Weste (Kr Uelzen)
-        de.lknr: 13 195
-        source: src.de.Bfv.1928
-    -   date: !!null
         location:
             line.de.1963: 16,84
         category: de.Bf
-        de.rang: IV
         source: src.de.DRG.Alt.Karte.1931
-    -   date: de.lknr.30
-        de.lknr: 01 167
-        source: src.de.Bfv.1933
     -   date: !!null
         de.DS100: AWES
-        de.dstnr: !!str 011676
         source: src.de.DS100.1984
     -   date: c1975
         staff: none
         source: src.de.DS100.1984
-    -   date: c1990
-        category: de.Anst
-        source: src.de.SuW.2005
+    -   date: 1996-06-01?
+        status: closed
 
     -   date: !!null
         site:
             path.de.1963: wes
+records:
+    -   document: src.de.Bfv.1928
+        name: Weste (Kr Uelzen)
+        de.lknr: 13 195
+    -   document: src.de.DRG.Alt.Karte.1931
+        name: Weste (Kr Uelzen)
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.1963: 16,84
+    -   document: src.de.Bfv.1933
+        name: Weste (Kr Uelzen)
+        category: de.Bf
+        de.rang: IV
+        de.lknr: 01 167
+
+    -   document: src.de.DB.Hmb.Karte.1956
+        name: Weste (Kr Uelzen)
+        category: de.Bf
+        de.rang: IV
+        staff: full
+        location:
+            line.de.1963: 16,84 # left
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 011676
+        name: Weste (Kr Uelzen)
+        de.DS100: AWES
+        category: de.Bf
+        staff: none
+    -   document: src.de.DB.Hmb.Karte.1984
+        name: Weste (Kr Uelzen)
+        category: de.Tp
+        location:
+            line.de.1963: 16,84
 
 
 ---
@@ -276,33 +397,59 @@ type: point
 events:
     -   date: !!null
         name: Stoitze
-        de.lknr: 13 196
-        source: src.de.Bfv.1928
-    -   date: !!null
+        category: de.Bf
         location:
             line.de.1963: 20,96
-        category: de.Bf
-        de.rang: IV
         source: src.de.DRG.Alt.Karte.1931
-    -   date: de.lknr.30
-        de.lknr: 01 166
-        source: src.de.Bfv.1933
     -   date: c1935
         name: Stoetze
         source: src.de.Kb.W1937
     -   date: !!null
         de.DS100: ASTO
-        de.dstnr: !!str 011168
         source: src.de.DS100.1984
     -   date: c1975
         staff: none
         source: src.de.DS100.1984
-    -   date: c1995
+    -   date: 1996-06-01?
         status: closed
 
     -   date: !!null
         site:
             path.de.1963: sto
+records:
+    -   document: src.de.Bfv.1928
+        name: Stoitze
+        de.lknr: 13 196
+    -   document: src.de.DRG.Alt.Karte.1931
+        name: Stoitze
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.1963: 20,96
+    -   document: src.de.Bfv.1933
+        name: Stoitze
+        category: de.Bf
+        de.rang: IV
+        de.lknr: 01 166
+    -   document: src.de.Bfv.1938
+        name: Stoetze
+        category: de.Bf
+        de.rang: IV
+        de.lknr: 01 166
+
+    -   document: src.de.DB.Hmb.Karte.1956
+        name: Stoetze
+        category: de.Bf
+        de.rang: IV
+        staff: agent
+        location:
+            line.de.1963: 20,96 # left
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 011168
+        name: Stoetze
+        de.DS100: ASTO
+        category: de.Bf
+        staff: none
 
 
 ---
@@ -311,30 +458,51 @@ type: point
 events:
     -   date: !!null
         name: Zernien
-        de.lknr: 13 197
-        source: src.de.Bfv.1928
-    -   date: !!null
+        category: de.Bf
         location:
             line.de.1963: 27,65
-        category: de.Bf
-        de.rang: IV
         source: src.de.DRG.Alt.Karte.1931
-    -   date: de.lknr.30
-        de.lknr: 01 165
-        source: src.de.Bfv.1933
     -   date: !!null
         de.DS100: AZR
-        de.dstnr: !!str 011650
         source: src.de.DS100.1984
     -   date: c1975
         staff: none
         source: src.de.DS100.1984
-    -   date: c1995
+    -   date: 1996-06-01?
         status: closed
 
     -   date: !!null
         site:
             path.de.1963: zer
+records:
+    -   document: src.de.Bfv.1928
+        name: Zernien
+        de.lknr: 13 197
+    -   document: src.de.DRG.Alt.Karte.1931
+        name: Zernien
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.1963: 27,65
+    -   document: src.de.Bfv.1933
+        name: Zernien
+        category: de.Bf
+        de.rang: IV
+        de.lknr: 01 165
+
+    -   document: src.de.DB.Hmb.Karte.1956
+        name: Zernien
+        category: de.Bf
+        de.rang: IV
+        staff: full
+        location:
+            line.de.1963: 27,65 # right
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 011650
+        name: Zernien
+        de.DS100: AZR
+        category: de.Bf
+        staff: none
 
 
 ---
@@ -343,30 +511,51 @@ type: point
 events:
     -   date: !!null
         name: Pudripp
-        de.lknr: 13 198
-        source: src.de.Bfv.1928
-    -   date: !!null
+        category: de.Bf
         location:
             line.de.1963: 31,67
-        category: de.Bf
-        de.rang: IV
         source: src.de.DRG.Alt.Karte.1931
-    -   date: de.lknr.30
-        de.lknr: 01 164
-        source: src.de.Bfv.1933
     -   date: !!null
         de.DS100: APDR
-        de.dstnr: !!str 011643
         source: src.de.DS100.1984
     -   date: c1975
         staff: none
         source: src.de.DS100.1984
-    -   date: c1995
+    -   date: 1996-06-01?
         status: closed
 
     -   date: !!null
         site:
             path.de.1963: pud
+records:
+    -   document: src.de.Bfv.1928
+        name: Pudripp
+        de.lknr: 13 198
+    -   document: src.de.DRG.Alt.Karte.1931
+        name: Pudripp
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.1963: 31,67
+    -   document: src.de.Bfv.1933
+        name: Pudripp
+        category: de.Bf
+        de.rang: IV
+        de.lknr: 01 164
+
+    -   document: src.de.DB.Hmb.Karte.1956
+        name: Pudripp
+        category: de.Bf
+        de.rang: IV
+        staff: agent
+        location:
+            line.de.1963: 31,67 # left
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 011643
+        name: Pudripp
+        de.DS100: APDR
+        category: de.Bf
+        staff: none
 
 
 ---
@@ -375,51 +564,81 @@ type: point
 events:
     -   date: !!null
         name: Carwitz
-        de.lknr: 13 199
-        source: src.de.Bfv.1928
-    -   date: !!null
+        category: de.Bf
         location:
             line.de.1963: 37,41
-        category: de.Bf
-        de.rang: IV
         source: src.de.DRG.Alt.Karte.1931
-    -   date: de.lknr.30
-        de.lknr: 01 163
-        source: src.de.Bfv.1933
-    -   date: c1930
-        staff: agent
-        source: src.de.Bfv.1933
     -   date: c1935
         name: Karwitz
         source: src.de.Kb.W1937
-    -   date: c1935
-        staff: full
-        source: src.de.Bfv.1938
     -   date: c1940
         name: Karwitz (Kr Dannenberg)
         source: src.de.Bfv.1944
     -   date: !!null
         de.DS100: AKAR
-        de.dstnr: !!str 011635
         source: src.de.DS100.1984
     -   date: c1975
         category: de.Hst
         staff: none
         source: src.de.DS100.1984
-    -   date: c1995
+    -   date: c1990
         category: de.Anst
         source: src.de.DBAG.BSV.2017
-    -   date: c2005
+    -   date: 1996-06-01?
         status: closed
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Karwitz/Kr Danbg
-        PLC: DE15410
-        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
             path.de.1963: kar
+records:
+    -   document: src.de.Bfv.1928
+        name: Carwitz
+        de.lknr: 13 199
+    -   document: src.de.DRG.Alt.Karte.1931
+        name: Carwitz
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.1963: 37,41
+    -   document: src.de.Bfv.1933
+        name: Carwitz
+        category: de.Bf
+        de.rang: IV
+        staff: agent
+        de.lknr: 01 163
+    -   document: src.de.Bfv.1938
+        name: Karwitz
+        category: de.Bf
+        de.rang: IV
+        de.lknr: 01 163
+    -   document: src.de.Bfv.1944
+        name: Karwitz (Kr Dannenberg)
+        category: de.Bf
+        de.rang: IV
+        de.lknr: 01 163
+
+    -   document: src.de.DB.Hmb.Karte.1956
+        name: Karwitz (Kr Dannenberg)
+        category: de.Bf
+        de.rang: IV
+        staff: agent
+        location:
+            line.de.1963: 37,41 # left
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 011635
+        name: Karwitz (Kr Dannenberg)
+        de.DS100: AKAR
+        category: de.Hst
+        staff: none
+
+    -   document: src.de.DBAG.BSV.2017
+        de.dstnr: !!str 011635
+        name: Karwitz (Kr Dannenberg)
+        de.DS100: AKAR
+        category: de.Anst
+        status: closed
+        de.name16: Karwitz/Kr Danbg
+        PLC: DE15410
 
 
 #    point.de.Dannenberg-West                    de.6905

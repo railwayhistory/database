@@ -3,16 +3,43 @@
 ---
 key: line.de.6928
 type: line
-events:
-    -   date: !!null
-        region: org.de
-    -   date: !!null
-        end: point.de.Zarrentin-LGr
-        region: org.de.l.mv
-    -   date: !!null
-        start: point.de.Zarrentin-LGr
-        region: org.de.l.sh
+current:
+    status:
+        point.de.Zarrentin: open
+        point.de.Bad-Oldesloe: removed
+    category: de.Nebenbahn
+    gauge: 1435mm
+    tracks: 1
+    electrified: !!null
+    course: path.de.6928 hag old
 
+    passenger:
+        point.de.Hagenow-Stadt: full
+        point.de.Bad-Oldesloe: none
+    goods:
+        point.de.Zarrentin: full
+        point.de.Bad-Oldesloe: none
+
+    jurisdiction: de
+    region:
+        point.de.Zarrentin-LGr:
+            -   org.de
+            -   org.de.l.mv
+        point.de.Bad-Oldesloe:
+            -   org.de
+            -   org.de.l.sh
+
+    operator:
+        point.de.Hagenow-Gr: org.de.DB-Netz
+        point.de.Zarrentin: org.de.Planungsverband-Transportgewerbegebiet-Valluhn-Gallin
+        point.de.Bad-Oldesloe: org.de.DB-Netz
+    owner:
+        point.de.Hagenow-Gr: org.de.DB-Netz
+        point.de.Zarrentin: org.de.TME-Thorsten-Meinicke-Eisenbahn
+        point.de.Bad-Oldesloe: org.de.DB-Netz
+
+    de.VzG: !!str 6928
+events:
     -   date: !!null
         start: point.de.Zarrentin-LGr
         de.VzG: !!str 1142
@@ -274,7 +301,16 @@ points:
 ---
 key: point.de.Hagenow-Gr
 type: point
+subtype: reference
 events:
+    -   date: !!null
+        category: de.Gp
+        name: Hagenow DB-Grenze
+        location:
+            line.de.6928: 0,766
+        de.DS100: WHLG
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
     -   date: !!null
         site:
             path.de.6928: ghag
@@ -301,6 +337,17 @@ records:
 key: point.de.Hagenow-Stadt
 type: point
 events:
+    -   date: !!null
+        name: Hagenow
+        category: de.Bf
+        de.VBL: Hag
+        location:
+            line.de.6928: 3,56 # right
+        source: src.dd.DR.Sch.1986
+    -   date: !!null
+        de.DS100: WH
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         site:
             path.de.6928: hag
@@ -344,6 +391,26 @@ key: point.de.Bobzin
 type: point
 events:
     -   date: !!null
+        name: Bobzin
+        category: de.Bf
+        source: src.de.Bfv.1933
+    -   date: !!null
+        de.VBL: Bzn
+        location:
+            line.de.6928: 9,869
+        source: src.dd.DR.Sch.1986
+    -   date: c1950
+        category: [de.Hp, de.Anst]
+        staff: none
+        source: src.dd.DR.Sch.1986
+    -   date: !!null
+        de.DS100: WBZN
+        source: src.de.DBAG.BSV.2017
+    -   date: c2000
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
         site:
             path.de.6928: bob
 records:
@@ -385,6 +452,12 @@ records:
 key: point.de.Wittenburg-ABK
 type: point
 events:
+    -   date: !!null
+        name: ABK
+        category: de.Awanst
+        location:
+            line.de.6928: 13,02 # left
+        source: src.dd.DR.Sch.1986
     -   date: c1995
         status: closed
 
@@ -395,7 +468,7 @@ records:
     -   document: src.dd.DR.Sch.1986
         name: ABK
         category: de.Awanst
-        master: point.de.Wittenburg-Meckl
+        superior: point.de.Wittenburg-Meckl
         location:
             line.de.6928: 13,02 # left
 
@@ -405,13 +478,29 @@ key: point.de.Wittenburg-Raiffeisen
 type: point
 events:
     -   date: !!null
+        name: ACZ
+        category: de.Awanst
+        de.VBL: Wga
+        location:
+            line.de.6928: 14,18 # left
+        source: src.dd.DR.Sch.1986
+
+    -   date: !!null
+        de.DS100: WWGR
+        source: src.de.DBAG.BSV.2017
+    -   date: c1995
+        name: Wittenburg (Meckl) Raiffeisen
+        category: de.Anst
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
         site:
             path.de.6928: wac
 records:
     -   document: src.dd.DR.Sch.1986
         name: ACZ
         category: de.Awanst
-        master: point.de.Wittenburg-Meckl
+        superior: point.de.Wittenburg-Meckl
         de.VBL: Wga
         location:
             line.de.6928: 14,18 # left
@@ -428,6 +517,17 @@ records:
 key: point.de.Wittenburg-Meckl
 type: point
 events:
+    -   date: !!null
+        name: Wittenburg (Meckl)
+        category: de.Bf
+        de.VBL: Wg
+        location:
+            line.de.6928: 15,44 # left
+        source: src.dd.DR.Sch.1986
+    -   date: !!null
+        de.DS100: WWG
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         site:
             path.de.6928: wit
@@ -473,6 +573,23 @@ key: point.de.Bantin
 type: point
 events:
     -   date: !!null
+        name: Bantin
+        category: de.Bf
+        source: src.de.Bfv.1933
+    -   date: !!null
+        de.VBL: Btn
+        location:
+            line.de.6928: 23,474
+        source: src.dd.DR.Sch.1986
+    -   date: c1970
+        category: de.Hp
+        staff: none
+        source: src.dd.DR.Sch.1986
+    -   date: !!null
+        de.DS100: WBTN
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
         site:
             path.de.6928: ban
 records:
@@ -515,6 +632,17 @@ key: point.de.Zarrentin
 type: point
 events:
     -   date: !!null
+        name: Zarrentin (Meckl)
+        category: de.Bf
+        de.VBL: Z
+        location:
+            line.de.6928: 27,45 # right
+        source: src.dd.DR.Sch.1986
+    -   date: !!null
+        de.DS100: WZA
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
         site:
             path.de.6928: zar
 records:
@@ -540,7 +668,7 @@ records:
         name: Zarrentin (Meckl)
         category: de.Bf
         de.rang: U
-        master: point.de.Wittenburg-Meckl
+        superior: point.de.Wittenburg-Meckl
         de.VBL: Z
         location:
             line.de.6928: 27,45 # right
@@ -559,6 +687,10 @@ type: point
 events:
     -   date: !!null
         designation: Zarrentin MV/SH
+    -   date: !!null
+        location:
+            line.de.6928: 31,31
+        source: src.de.DB.Hmb.Karte.1956
 
     -   date: !!null
         site:

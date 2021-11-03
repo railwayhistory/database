@@ -300,7 +300,7 @@ points:
     -   point.de.Baukau
     -   point.de.Recklinghausen-Süd
     -   point.de.Grullbad
-    -   point.de.Hernerstrasse
+    -   point.de.Hernerstraße
     -   point.de.Recklinghausen-Hbf
     -   point.de.Börste
     -   point.de.Silverbach
@@ -422,6 +422,8 @@ points:
     -   point.de.Bremen-Horn-Abzw
     -   point.de.Bremen-Oberneuland
     -   point.de.Sagehorn-LGr-2200
+    -   point.de.Klüverdamm
+    -   point.de.Sagehorn-Hp
     -   point.de.Sagehorn
     -   point.de.Schaphusen
     -   point.de.Bassen
@@ -489,39 +491,101 @@ events:
         name: Wanne-Eickel Hbf
         source: src.de.web.Joost
     -   date: !!null
-        de.lknr: 10 083
-        source: src.de.Bfv.1928
-    -   date: !!null
         category: de.Bf
-        de.rang: I
-        source: src.de.Bfv.1933
-    -   date: de.lknr.30
-        de.lknr: 10 127
         source: src.de.Bfv.1933
     -   date: !!null
         de.VBL: WAN
         source: src.de.web.Joost
     -   date: !!null
         de.DS100: EWAN
-        de.dstnr: !!str 101279
         source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Wanne-E Hbf
-        PLC: DE20769
-        source: src.de.DBAG.BSV.2017
-
     -   date: c2000
         location:
             line.de.2200:  0,259
+            line.de.2208: 94,538
             line.de.2650: 94,538
         source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
             path.de.2200: wan
+records:
+    -   document: src.de.Bfv.1928
+        name: Wanne-Eickel Hbf
+        de.lknr: 10 083
+    -   document: src.de.Bfv.1933
+        name: Wanne-Eickel Hbf
+        category: de.Bf
+        de.rang: I
+        de.lknr: 10 127
+
+    -   document: src.de.DB.Esn.1951
+        name: Wanne-Eickel Hbf
+        category: de.Bf
+        de.rang: I
+        location:
+            line.de.2650: 94,53
+            # 0,00=94,23 n. Sterkr. und G.-Bismarck (+0,30 Fehlst.)
+            # 8,40 v. Bochum N., 25,54 v. Boch. Hbf
+            # 10,17 v. G.-Wattensch, 0,26 n. Recklgh.S.
+    -   document: src.de.DB.Esn.1964
+        name: Wanne-Eickel Hbf
+        category: de.Bf
+        location:
+            line.de.2650: 94,53
+            # 8,40 v. Boch Pr,
+            # 0,00·94,23 n. O Sterkr und G Zoo (0,30 Fehlst.)
+            # 25,54 v. Boch Hbf
+            # 10,17 v. G Watt, 0,26 n. Reckl S
+    -   document: src.de.DB.Esn.1977
+        name: Wanne-Eickel Hbf
+        category: de.Bf
+        location:
+            line.de.2650: 94,54 # v Köln-Deutz (+ 0,30 F)
+            line.de.2202: 25,54 # v Essen Hbf
+            line.de.2232: 10,17 # v Gelsenkirchen Wattenscheid
+            line.de.2154:  8,40 # v Bochum-Präsident
+            line.de.2200:  0,26 # n Hamburg Hbf
+            # 0,00 n Gelsenkirchen Zoo
+            #        Oberhausen Sterkrade
+            # 0,0  n Wanne Übergabebf
+    -   document: src.de.DB.Esn.1981
+        name: Wanne-Eickel Hbf
+        category: de.Bf
+        location:
+            line.de.2650: 94,54 # v Köln-Deutz (+ 0,30 F)
+            line.de.2202: 25,54 # v Essen Hbf
+            line.de.2232: 10,17 # v Gelsenkirchen Wattenscheid
+            line.de.2154:  8,40 # v Bochum-Präsident
+            line.de.2200:  0,26 # n Hamburg Hbf
+            # 0,00 n Gelsenkirchen Zoo
+            #        Oberhausen Sterkrade
+            # 0,0  n Wanne Übergabebf
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 101279
+        name: Wanne Eickel Hbf # sic!
+        de.DS100: EWAN
+        category: de.Bf
+
+    -   document: src.de.DBAG.BSV.2017
+        de.DS100: EWAN
+        name: Wanne-Eickel Hbf
+        de.name16: Wanne-E Hbf
+        category: de.Bf
+        de.dstnr: !!str 101279
+        PLC: DE20769
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        category: de.Bf
+        name: Wanne-Eickel Hbf
+        de.DS100: EWAN
+        location:
+            line.de.2200:  0,2+59
+            line.de.2208: 94,5+38
+            line.de.2650: 94,5+38
 
 
 # 1951: BA-Grenze Essen 1 zu Recklinghausen 2,40
+
 
 ---
 key: point.de.Baukau
@@ -536,16 +600,12 @@ events:
         source: src.de.web.Joost
     -   date: !!null
         de.DS100: EBAU
-        de.dstnr: !!str 105015
         source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Baukau
-        PLC: DE10682
-        source: src.de.DBAG.BSV.2017
-
     -   date: !!null
         location:
             line.de.2200: 2,80
+            line.de.2201: 2,80
+            line.de.2207: 0,15
         source: src.de.DB.Esn.1951
     -   date: c2000
         location:
@@ -555,6 +615,50 @@ events:
     -   date: !!null
         site:
             path.de.2200: bau
+records:
+    -   document: src.de.DB.Esn.1951
+        name: Baukau
+        category: de.Abzw
+        location:
+            line.de.2200: 2,80
+            line.de.2207: 0,15
+    -   document: src.de.DB.Esn.1964
+        name: Baukau
+        category: de.Abzw
+        location:
+            line.de.2200: 2,80
+            line.de.2207: 0,15
+    -   document: src.de.DB.Esn.1977
+        name: Baukau
+        category: de.Abzw
+        location:
+            line.de.2200: 2,80
+            line.de.2207: 0,15
+    -   document: src.de.DB.Esn.1981
+        name: Baukau
+        category: de.Abzw
+        location:
+            line.de.2200: 2,80
+            line.de.2207: 0,15
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 105015
+        name: Baukau
+        de.DS100: EBAU
+        category: de.Abzw
+
+    -   document: src.de.DBAG.BSV.2017
+        name: Baukau
+        category: de.Abzw
+        de.DS100: EBAU
+        de.dstnr: !!str 105015
+        de.name16: Baukau
+        PLC: DE10682
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        name: Baukau
+        category: de.Abzw
+        de.DS100: EBAU
+        location:
+            line.de.2200: 2,8+17
 
 
 ---
@@ -568,41 +672,98 @@ events:
         name: Recklinghausen Süd
         source: src.de.web.Joost
     -   date: !!null
-        de.lknr: 10 084
-        source: src.de.Bfv.1928
-    -   date: !!null
         category: de.Bf
-        de.rang: I
-        source: src.de.Bfv.1933
-    -   date: de.lknr.30
-        de.lknr: 10 140
         source: src.de.Bfv.1933
     -   date: !!null
         de.VBL: RES
         source: src.de.web.Joost
     -   date: !!null
         de.DS100: ERES
-        de.dstnr: !!str 101402
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Recklinghsn Süd
-        PLC: DE18698
         source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         location:
             line.de.2200: 4,53
+            line.de.2222: 0,00
+            line.de.2221: 0,00
         source: src.de.DB.Esn.1951
     -   date: c2000
         location:
             line.de.2200: 4,500
-            line.de.2221: 0,000
         source: src.de.DBAG.Geo-Betriebsstelle.2017
-
 
     -   date: !!null
         site:
             path.de.2200: res
+records:
+    -   document: src.de.Bfv.1928
+        name: Recklinghausen Süd
+        de.lknr: 10 084
+    -   document: src.de.Bfv.1933
+        name: Recklinghausen Süd
+        de.lknr: 10 040
+        category: de.Bf
+        de.rang: I
+    -   document: src.de.Bfv.1938
+        name: Recklinghausen Süd
+        de.lknr: 10 040
+        category: de.Bf
+        de.rang: I
+    -   document: src.de.Bfv.1944
+        name: Recklinghausen Süd
+        de.lknr: 10 040
+        category: de.Bf
+        de.rang: I
+
+    -   document: src.de.DB.Esn.1951
+        name: Recklinghausen Süd
+        category: de.Bf
+        de.rang: I
+        location:
+            line.de.2200: 4,53
+            line.de.2222: 0,00
+            line.de.2221: 0,00
+    -   document: src.de.DB.Esn.1964
+        name: Recklinghausen Süd
+        category: de.Bf
+        location:
+            line.de.2200: 4,53
+            line.de.2222: 0,00
+            line.de.2221: 0,00
+    -   document: src.de.DB.Esn.1977
+        name: Recklinghausen Süd
+        category: de.Bf
+        location:
+            line.de.2200: 4,53
+            line.de.2222: 0,00
+            line.de.2221: 0,00
+    -   document: src.de.DB.Esn.1981
+        name: Recklinghausen Süd
+        category: de.Bf
+        location:
+            line.de.2200: 4,53
+            line.de.2222: 0,00
+            line.de.2221: 0,00
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 101402
+        name: Recklinghausen Süd
+        de.DS100: ERES
+        category: de.Bf
+
+    -   document: src.de.DBAG.BSV.2017
+        de.DS100: ERES
+        name: Recklinghausen Süd
+        de.name16: Recklinghsn Süd
+        category: de.Bf
+        de.dstnr: !!str 101402
+        PLC: DE18698
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        de.DS100: ERES
+        name: Recklinghausen Süd
+        category: de.Bf
+        location:
+            line.de.2200: 4,5+0
+            line.de.2221: 0,0+0
 
 
 ---
@@ -625,10 +786,21 @@ events:
     -   date: !!null
         site:
             path.de.2200: gru
+records:
+    -   document: src.de.DB.Esn.1951
+        location:
+            line.de.2200: 7,11
+        category: de.Bk
+        name: Grullbad
+    -   document: src.de.DB.Esn.1964
+        location:
+            line.de.2200: 7,11
+        category: de.Bk
+        name: Grullbad
 
 
 ---
-key: point.de.Hernerstrasse
+key: point.de.Hernerstraße
 type: point
 events:
     -   date: !!null
@@ -644,6 +816,17 @@ events:
     -   date: !!null
         site:
             path.de.2200: her
+records:
+    -   document: src.de.DB.Esn.1951
+        location:
+            line.de.2200: 9,00
+        category: de.Bk
+        name: Hernerstraße
+    -   document: src.de.DB.Esn.1964
+        location:
+            line.de.2200: 9,00
+        category: de.Bk
+        name: Hernerstraße
 
 
 ---
@@ -659,35 +842,30 @@ events:
 
     -   date: !!null
         category: de.Bf
-        de.rang: I
         source: src.de.Bfv.1933
     -   date: 1995-12-31
         service: passenger
         source: src.de.web.Joost
 
     -   date: !!null
-        de.lknr: 10 085
-        source: src.de.Bfv.1928
-    -   date: de.lknr.30
-        de.lknr: 10 138
-        source: src.de.Bfv.1933
-    -   date: !!null
         de.VBL: RE
         source: src.de.web.Joost
-
     -   date: !!null
         de.DS100: ERE
-        de.dstnr: !!str 101386
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Recklinghsn Hbf
-        PLC: DE18696
         source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         location:
             line.de.2200: 10,63
+            line.de.2223:  2,50
+            line.de.2224:  2,50
         source: src.de.DB.Esn.1951
+    -   date: c1970
+        location:
+            line.de.2200: 10,55
+            line.de.2223:  2,50
+            line.de.2224:  2,45
+        source: src.de.DB.Esn.1977
     -   date: c2000
         location:
             line.de.2200: 10,536
@@ -698,6 +876,73 @@ events:
     -   date: !!null
         site:
             path.de.2200: rec
+records:
+    -   document: src.de.Bfv.1928
+        name: Recklinghausen Hbf
+        de.lknr: 10 085
+    -   document: src.de.Bfv.1933
+        name: Recklinghausen Hbf
+        de.lknr: 10 138
+        category: de.Bf
+        de.rang: I
+    -   document: src.de.Bfv.1938
+        name: Recklinghausen Hbf
+        category: de.Bf
+        de.rang: I
+        de.lknr: 10 138
+    -   document: src.de.Bfv.1944
+        name: Recklinghausen Hbf
+        category: de.Bf
+        de.rang: I
+        de.lknr: 10 138
+
+    -   document: src.de.DB.Esn.1951
+        name: Recklinghausen Hbf
+        category: de.Bf
+        de.rang: I
+        location:
+            line.de.2200: 10,63
+            line.de.2223:  2,50
+            line.de.2224:  2,50
+    -   document: src.de.DB.Esn.1964
+        name: Recklinghausen Hbf
+        category: de.Bf
+        location:
+            line.de.2200: 10,55
+            line.de.2223:  2,58
+            line.de.2224:  2,45
+    -   document: src.de.DB.Esn.1977
+        name: Recklinghausen Hbf
+        category: de.Bf
+        location:
+            line.de.2200: 10,54
+            line.de.2223:  2,50
+            line.de.2224:  2,45
+    -   document: src.de.DB.Esn.1981
+        name: Recklinghausen Hbf
+        category: de.Bf
+        location:
+            line.de.2200: 10,54
+            line.de.2223:  2,50
+            line.de.2224:  2,45
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 101386
+        name: Recklinghausen Hbf
+        de.DS100: ERE
+        category: de.Bf
+
+    -   document: src.de.DBAG.BSV.2017
+        de.DS100: ERE
+        name: Recklinghausen Hbf
+        de.name16: Recklinghsn Hbf
+        category: de.Bf
+        de.dstnr: !!str 101386
+        PLC: DE18696
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        location:
+            line.de.2200: 10,5+36
+            line.de.2223:  2,5+75
+            line.de.2224:  2,4+45
 
 
 ---
@@ -710,7 +955,11 @@ events:
         category: de.Bk
         name: Börste
         source: src.de.DB.Esn.1951
-    -   date: c1965
+    -   date: c1960
+        location:
+            line.de.2200: 13,29
+        source: src.de.DB.Esn.1964
+    -   date: c1970
         category: de.Po
         source: src.de.web.Joost
     -   date: 1974
@@ -720,6 +969,17 @@ events:
     -   date: !!null
         site:
             path.de.2200: bor
+records:
+    -   document: src.de.DB.Esn.1951
+        location:
+            line.de.2200: 13,35
+        category: de.Bk
+        name: Börste
+    -   document: src.de.DB.Esn.1964
+        location:
+            line.de.2200: 13,29
+        category: de.Bk
+        name: Börste
 
 
 ---
@@ -732,13 +992,27 @@ events:
         category: de.Bk
         name: Silverbach
         source: src.de.DB.Esn.1951
-    -   date: 1965
+    -   date: c1960
+        name: Silberbach
+        source: src.de.DB.Esn.1964
+    -   date: c1965
         status: closed
         source: src.de.web.Joost
 
     -   date: !!null
         site:
             path.de.2200: sil
+records:
+    -   document: src.de.DB.Esn.1951
+        location:
+            line.de.2200: 15,00
+        category: de.Bk
+        name: Silverbach
+    -   document: src.de.DB.Esn.1964
+        location:
+            line.de.2200: 15,00
+        category: de.Bk
+        name: Silberbach
 
 
 ---
@@ -769,25 +1043,12 @@ events:
 
     -   date: !!null
         category: de.Bf
-        de.rang: II
-        source: src.de.Bfv.1933
-
-    -   date: !!null
-        de.lknr: 10 086
-        source: src.de.Bfv.1928
-    -   date: de.lknr.30
-        de.lknr: 10 136
         source: src.de.Bfv.1933
     -   date: !!null
         de.VBL: Si
         source: src.de.web.Joost
     -   date: !!null
         de.DS100: EMSI
-        de.dstnr: !!str 101360
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Marl-Sinsen
-        PLC: DE16839
         source: src.de.DBAG.BSV.2017
 
     -   date: !!null
@@ -806,6 +1067,67 @@ events:
     -   date: !!null
         site:
             path.de.2200: sin
+records:
+    -   document: src.de.Bfv.1928
+        name: Sinsen
+        de.lknr: 10 086
+    -   document: src.de.Bfv.1933
+        name: Sinsen
+        de.lknr: 10 136
+        category: de.Bf
+        de.rang: II
+    -   document: src.de.Bfv.1938
+        name: Sinsen
+        de.lknr: 10 136
+        category: de.Bf
+        de.rang: II
+    -   document: src.de.Bfv.1944
+        name: Sinsen
+        de.lknr: 10 136
+        category: de.Bf
+        de.rang: I
+
+    -   document: src.de.DB.Esn.1951
+        name: Marl-Sinsen
+        category: de.Bf
+        de.rang: I
+        location:
+            line.de.2200: 17,05
+    -   document: src.de.DB.Esn.1964
+        name: Marl-Sinsen
+        category: de.Bf
+        location:
+            line.de.2200: 17,05
+    -   document: src.de.DB.Esn.1977
+        name: Marl-Sinsen
+        category: de.Bf
+        location:
+            line.de.2200: 17,06
+    -   document: src.de.DB.Esn.1981
+        name: Marl-Sinsen
+        category: de.Bf
+        location:
+            line.de.2200: 17,06
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 101360
+        name: Marl-Sinsen
+        de.DS100: EMSI
+        category: de.Bf
+
+    -   document: src.de.DBAG.BSV.2017 
+        de.DS100: EMSI
+        name: Marl-Sinsen
+        de.name16: Marl-Sinsen
+        category: de.Bf
+        de.dstnr: !!str 101360
+        PLC: DE16839
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        de.DS100: EMSI
+        name: Marl-Sinsen
+        category: de.Bf
+        location:
+            line.de.2200: 16,8+256
+
 
 
 ---
@@ -837,12 +1159,6 @@ events:
         de.VBL: Lk
         de.DS100: ELKB
         source: src.de.web.Joost
-    -   date: c1960
-        status: open
-    -   date: c1980
-        location:
-            line.de.2200: 19,6
-        source: src.de.web.Joost
     -   date: 1986-02-02
         status: closed
         source: src.de.web.Joost
@@ -850,6 +1166,24 @@ events:
     -   date: !!null
         site:
             path.de.2200: lek
+records:
+    -   document: src.de.DRG.Mst.1946
+        location:
+            line.de.2200: 20,46
+        category: de.Kr
+        name: Lenkerbeck
+    -   document: src.de.DB.Esn.1977
+        name: Lenkerbeck
+        category: de.Bf
+        service: none
+        location:
+          line.de.2200: 20,51·19,60
+    -   document: src.de.DB.Esn.1981
+        name: Lenkerbeck
+        category: de.Bf
+        service: none
+        location:
+          line.de.2200: 20,51·19,60
 
 
 ---
@@ -864,32 +1198,64 @@ events:
         source: src.de.DRG.Mst.1946
     -   date: 1968-09-27
         location:
-            line.de.2200: 22,392
+            line.de.2200: 22,48
+            line.de.2252: 17,06
         category: de.Abzw
         de.VBL: Lp
         source:
             -   src.de.web.Joost
-            -   src.de.DBAG.Geo-Betriebsstelle.2017
+            -   src.de.DB.Esn.1977
     -   date: !!null
         de.DS100: ELPE
-        de.dstnr: !!str 211995
         source: src.de.DBAG.BSV.2017
     -   date: c2000
         name: Marl Lippe
-        source: src.de.TPP.2006
-    -   date: !!null
-        de.name16: Lippe
-        PLC: DE16833
-        source: src.de.DBAG.BSV.2017
-
-    -   date: c2000
         location:
+            line.de.2200: 22,392
             line.de.2252: 16,884
         source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
             path.de.2200: lip
+records:
+    -   document: src.de.DRG.Mst.1946
+        location:
+            line.de.2200: 22,42
+        category: de.Bk
+        name: Lippe
+
+    -   document: src.de.DB.Esn.1977
+        name: Lippe
+        category: de.Abzw
+        location:
+            line.de.2200: 22,48
+            line.de.2252: 17,06
+    -   document: src.de.DB.Esn.1981
+        name: Lippe
+        category: de.Abzw
+        location:
+            line.de.2200: 22,48
+            line.de.2252: 17,06
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 211995
+        name: Lippe
+        de.DS100: ELPE
+        category: de.Abzw
+
+    -   document: src.de.DBAG.BSV.2017
+        de.DS100: ELPE
+        name: Marl Lippe
+        de.name16: Lippe
+        category: de.Abzw
+        PLC: DE16833
+        de.dstnr: !!str 211995
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        name: Marl Lippe
+        category: de.Abzw
+        de.DS100: ELPE
+        location:
+            line.de.2200: 22,392
 
 
 ---
@@ -925,28 +1291,16 @@ events:
 
     -   date: !!null
         category: de.Bf
-        de.rang: I
-        source: src.de.Bfv.1933
-
-    -   date: !!null
-        de.lknr: 21 001
-        source: src.de.Bfv.1928
+        location:
+            line.de.2200: 25,98
+            line.de.2002:  0,00
+        source: src.de.DRG.Mst.1946
     -   date: !!null
         de.VBL: Ha
         source: src.de.web.Joost
     -   date: !!null
         de.DS100: EHLT
-        de.dstnr: !!str 210021
         source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Haltern am See
-        PLC: DE14373
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.2200: 25,98
-        source: src.de.DRG.Mst.1946
     -   date: c2000
         location:
             line.de.2200: 25,963
@@ -955,6 +1309,59 @@ events:
     -   date: !!null
         site:
             path.de.2200: hal
+records:
+    -   document: src.de.Bfv.1928
+        name: Haltern (Westf)
+        de.lknr: 21 001
+    -   document:
+            -   src.de.Bfv.1933
+            -   src.de.Bfv.1938
+            -   src.de.Bfv.1944
+        name: Haltern (Westf)
+        category: de.Bf
+        de.rang: I
+        de.lknr: 21 001
+    -   document: src.de.DRG.Mst.1946
+        name: Haltern (Westf)
+        category: de.Bf
+        de.rang: I
+        location:
+            line.de.2200: 25,98
+            line.de.2002:  0,00
+
+    -   document:
+            -   src.de.DB.Esn.1964
+            -   src.de.DB.Esn.1977
+        name: Haltern (Westf)
+        category: de.Bf
+        location:
+            line.de.2200: 25,98
+            line.de.2002:  0,00
+    -   document: src.de.DB.Esn.1981
+        name: Haltern (Westf)
+        category: de.Bf
+        location:
+            line.de.2200: 25,98
+            line.de.2002:  0,01
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 210021
+        name: Haltern (Westf)
+        de.DS100: EHLT
+        category: de.Bf
+
+    -   document: src.de.DBAG.BSV.2017
+        de.DS100: EHLT
+        name: Haltern (Westf)
+        de.name16: Haltern am See
+        category: de.Bf
+        de.dstnr: !!str 210021
+        PLC: DE14373
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        de.DS100: EHLT
+        name: Haltern (Westf)
+        category: de.Bf
+        location:
+            line.de.2200: 25,963
 
 
 ---
@@ -978,6 +1385,12 @@ events:
     -   date: !!null
         site:
             path.de.2200: ste
+records:
+    -   document: src.de.DRG.Mst.1946
+        location:
+            line.de.2200: 27,78
+        category: de.Bk
+        name: Stever
 
 
 ---
@@ -1001,6 +1414,12 @@ events:
     -   date: !!null
         site:
             path.de.2200: uph
+records:
+    -   document: src.de.DRG.Mst.1946
+        location:
+            line.de.2200: 30,11
+        category: de.Bk
+        name: Uphusen
 
 
 ---
@@ -1013,33 +1432,71 @@ events:
     -   date: !!null
         category: de.Hp
         name: Sythen
-        staff: agent
-        de.lknr: 21 004
         source: src.de.Bfv.1933
     -   date: !!null
         de.VBL: Syt
         source: src.de.web.Joost
     -   date: !!null
         de.DS100: ESYH
-        de.dstnr: !!str 210047
         source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Sythen
-        PLC: DE20165
-        source: src.de.DBAG.BSV.2017
-
     -   date: !!null
         location:
             line.de.2200: 30,85
         source: src.de.DRG.Mst.1946
-    -   date: c2000
+    -   date: c1960
         location:
             line.de.2200: 30,777
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
+        source:
+            -   src.de.DB.Esn.1964
+            -   src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
             path.de.2200: syt
+records:
+    -   document: src.de.Bfv.1933
+        name: Sythen
+        superior: point.de.Haltern-am-See
+        de.lknr: 21 004
+        category: de.Hp
+        staff: agent
+        goods: none
+    -   document:
+            -   src.de.Bfv.1938
+            -   src.de.Bfv.1944
+        name: Sythen
+        category: de.Hp
+        staff: agent
+        goods: none
+        de.lknr: 21 004
+    -   document: src.de.DRG.Mst.1946
+        name: Sythen
+        category: de.Hp
+        goods: none
+        location:
+            line.de.2200: 30,85
+
+    -   document:
+            -   src.de.DB.Esn.1964
+            -   src.de.DB.Esn.1977
+            -   src.de.DB.Esn.1981
+        name: Sythen
+        category: de.Hp
+        staff: agent
+        location:
+            line.de.2200: 30,77
+    -   document: src.de.DS100.1984
+        name: Sythen
+        de.DS100: ESYH
+        category: de.Hp
+
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        de.DS100: ESYH
+        name: Sythen
+        de.name16: Sythen
+        category: de.Hp
+        de.dstnr: !!str 210047
+        PLC: DE20165
 
 
 ---
@@ -1047,31 +1504,25 @@ key: point.de.Sythen-Bbf
 type: point
 events:
     -   date: !!null
-        name: Sythen Bbf
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
         category: de.Bk
         source: src.de.web.Joost
     -   date: 1902
         category: de.Kr
         source: src.de.web.Joost
+    -   date: !!null
+        name: Sythen
     -   date: c1950
         category: de.Bf
         service: none
-
     -   date: !!null
         de.VBL: Sm
         source: src.de.web.Joost
     -   date: !!null
         de.DS100: ESYB
-        de.dstnr: !!str 212001
         source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Sythen Bbf
-        PLC: DE20166
+    -   date: c2000
+        name: Sythen Bbf
         source: src.de.DBAG.BSV.2017
-
     -   date: !!null
         location:
             line.de.2200: 32,973
@@ -1080,6 +1531,45 @@ events:
     -   date: !!null
         site:
             path.de.2200: syb
+records:
+    -   document: src.de.DRG.Mst.1946
+        name: Sythen
+        category: de.Kr
+        location:
+            line.de.2200: 32,97
+
+    -   document: src.de.DB.Esn.1964
+        name: Sythen
+        category: de.Bf
+        location:
+            line.de.2200: 31,94·34,64
+    -   document:
+            -   src.de.DB.Esn.1977
+            -   src.de.DB.Esn.1981
+        name: Sythen
+        category: de.Bf
+        service: none
+        location:
+            line.de.2200: 31,94·34,64
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 210047
+        name: Sythen
+        de.DS100: ESYB
+        category: de.Bf
+
+    -   document: src.de.DBAG.BSV.2017
+        de.DS100: ESYB
+        name: Sythen Bbf
+        de.name16: Sythen Bbf
+        category: de.Bf
+        de.dstnr: !!str 212001
+        PLC: DE20166
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        de.DS100: ESYB
+        name: Sythen Bbf
+        category: de.Bf
+        location:
+            line.de.2200: 32,973
 
 
 ---
@@ -1099,6 +1589,12 @@ events:
     -   date: !!null
         site:
             path.de.2200: muh
+records:
+    -   document: src.de.DRG.Mst.1946
+        location:
+            line.de.2200: 35,83
+        category: de.Bk
+        name: Mühlbach
 
 
 ---
@@ -1108,34 +1604,20 @@ events:
     -   date: !!null
         name: Dülmen
         source: src.de.Kb.1914
-
     -   date: !!null
         category: de.Bf
-        de.rang: II
-        source: src.de.Bfv.1933
-    -   date: c1940
-        de.rang: I
-        source: src.de.Bfv.1944
-
-    -   date: !!null
-        de.lknr: 21 002
-        source: src.de.Bfv.1928
-    -   date: de.lknr.30
-        de.lknr: 21 005
         source: src.de.Bfv.1933
     -   date: !!null
         de.VBL: Dü
         source: src.de.web.Joost
-
     -   date: !!null
         de.DS100: EDUL
-        de.dstnr: !!str 210054
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Dülmen
-        PLC: DE12505
         source: src.de.DBAG.BSV.2017
 
+    -   date: !!null
+        location:
+            line.de.2200: 38,32
+        source: src.de.DB.Esn.1964
     -   date: c2000
         location:
             line.de.2200: 38,640
@@ -1144,6 +1626,63 @@ events:
     -   date: !!null
         site:
             path.de.2200: dul
+records:
+    -   document: src.de.Bfv.1928
+        name: Dülmen
+        de.lknr: 21 002
+    -   document:
+            -   src.de.Bfv.1933
+            -   src.de.Bfv.1938
+        name: Dülmen
+        category: de.Bf
+        de.rang: II
+        de.lknr: 21 005
+    -   document: src.de.Bfv.1944
+        name: Dülmen
+        category: de.Bf
+        de.rang: I
+        de.lknr: 21 005
+    -   document: src.de.DRG.Mst.1946
+        name: Dülmen
+        category: de.Bf
+        de.rang: I
+        location:
+            line.de.2100: 44,63
+
+    -   document: src.de.DB.Esn.1964
+        name: Dülmen
+        category: de.Bf
+        location:
+            line.de.2100: 44,63
+            line.de.2200: 38,32
+    -   document:
+            -   src.de.DB.Esn.1977
+            -   src.de.DB.Esn.1981
+        name: Dülmen
+        category: de.Bf
+        location:
+            line.de.2100: 44,65
+            line.de.2200: 38,32
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 210054
+        name: Dülmen
+        de.DS100: EDUL
+        category: de.Bf
+
+    -   document: src.de.DBAG.BSV.2017
+        de.DS100: EDUL
+        name: Dülmen
+        de.name16: Dülmen
+        category: de.Bf
+        de.dstnr: !!str 210054
+        PLC: DE12505
+
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        de.DS100: EDUL
+        name: Dülmen
+        category: de.Bf
+        location:
+            line.de.2200: 38,640
 
 
 ---
@@ -1163,10 +1702,8 @@ events:
         location:
             line.de.2200: 40,00
         category: de.Bk
-        source: src.de.DRG.Mst.1946
-    -   date: !!null
         name: Wynheck
-        source: src.de.web.Joost
+        source: src.de.DRG.Mst.1946
     -   date: c1965
         status: closed
         source: src.de.web.Joost
@@ -1174,6 +1711,14 @@ events:
     -   date: !!null
         site:
             path.de.2200: wyn
+records:
+    -   document:
+            -   src.de.DRG.Mst.1946
+            -   src.de.DB.Esn.1964
+        location:
+            line.de.2200: 40,00
+        category: de.Bk
+        name: Wynheck
 
 
 ---
@@ -1199,6 +1744,14 @@ events:
     -   date: !!null
         site:
             path.de.2200: mit
+records:
+    -   document:
+            -   src.de.DRG.Mst.1946
+            -   src.de.DB.Esn.1964
+        location:
+            line.de.2200: 41,13
+        category: de.Bk
+        name: Mitwick
 
 
 ---
@@ -1222,6 +1775,14 @@ events:
     -   date: !!null
         site:
             path.de.2200: rho
+records:
+    -   document:
+            -   src.de.DRG.Mst.1946
+            -   src.de.DB.Esn.1964
+        location:
+            line.de.2200: 43,13
+        category: de.Bk
+        name: Rhoder
 
 
 ---
@@ -1231,34 +1792,19 @@ events:
     -   date: !!null
         name: Buldern
         source: src.de.Kb.1914
-
     -   date: !!null
         category: de.Bf
-        de.rang: III
-        source: src.de.Bfv.1933
-    -   date: 1998-10-25
-        category: de.Hp
-        source: src.de.web.Joost
-
+        source: src.de.DRG.Mst.1946
     -   date: !!null
         de.VBL: B
         source: src.de.web.Joost
     -   date: !!null
-        de.lknr: 21 003
-        source: src.de.Bfv.1928
-    -   date: de.lknr.30
-        de.lknr: 21 006
-        source: src.de.Bfv.1933
-    -   date: !!null
         de.DS100: EBUD
-        de.dstnr: !!str 210062
-        source: src.de.DBAG.BSV.2017
+        source: src.de.DS100.1984
+    -   date: 1998-10-25
+        category: de.Hp
+        source: src.de.web.Joost
     -   date: !!null
-        de.name16: Buldern
-        PLC: DE11825
-        source: src.de.DBAG.BSV.2017
-
-    -   date: c2000
         location:
             line.de.2200: 45,196
         source: src.de.DBAG.Geo-Betriebsstelle.2017
@@ -1266,6 +1812,52 @@ events:
     -   date: !!null
         site:
             path.de.2200: bul
+records:
+    -   document: src.de.Bfv.1928
+        name: Buldern
+        de.lknr: 21 003
+    -   document:
+            -   src.de.Bfv.1933
+            -   src.de.Bfv.1938
+            -   src.de.Bfv.1944
+        name: Buldern
+        de.lknr: 21 006
+        category: de.Bf
+        de.rang: III
+    -   document: src.de.DRG.Mst.1946
+        name: Buldern
+        category: de.Bf
+        de.rang: III
+        location:
+            line.de.2200: 45,20
+
+    -   document:
+            -   src.de.DB.Esn.1964
+            -   src.de.DB.Esn.1977
+            -   src.de.DB.Esn.1981
+        name: Buldern
+        category: de.Bf
+        location:
+            line.de.2200: 45,20
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 210062
+        name: Buldern
+        de.DS100: EBUD
+        category: de.Bf
+
+    -   document: src.de.DBAG.BSV.2017
+        de.DS100: EBUD
+        name: Buldern
+        de.name16: Buldern
+        category: de.Hp
+        de.dstnr: !!str 210062
+        PLC: DE11825
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        de.DS100: EBUD
+        name: Buldern
+        category: de.Hp
+        location:
+            line.de.2200: 45,196
 
 
 ---
@@ -1289,6 +1881,14 @@ events:
     -   date: !!null
         site:
             path.de.2200: han
+records:
+    -   document:
+            -   src.de.DRG.Mst.1946
+            -   src.de.DB.Esn.1964
+        location:
+            line.de.2200: 47,38
+        category: de.Bk
+        name: Hangenau
 
 
 ---
@@ -1301,31 +1901,17 @@ events:
     -   date: 2004-12-12
         name: Nottuln-Appelhülsen
         source: src.de.web.Joost
-
     -   date: !!null
         category: de.Bf
-        de.rang: III
         source: src.de.Bfv.1933
-
     -   date: !!null
         de.VBL: Ap
         source: src.de.web.Joost
     -   date: !!null
-        de.lknr: 21 004
-        source: src.de.Bfv.1928
-    -   date: de.lknr.30
-        de.lknr: 21 007
-        source: src.de.Bfv.1933
-    -   date: !!null
         de.DS100: EAPH
-        de.dstnr: !!str 210070
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: N-Appelhülsen
-        PLC: DE17838
         source: src.de.DBAG.BSV.2017
 
-    -   date: c2000
+    -   date: !!null
         location:
             line.de.2200: 50,304
         source: src.de.DBAG.Geo-Betriebsstelle.2017
@@ -1333,6 +1919,52 @@ events:
     -   date: !!null
         site:
             path.de.2200: app
+records:
+    -   document: src.de.Bfv.1928
+        name: Appelhülsen
+        de.lknr: 21 004
+    -   document:
+            -   src.de.Bfv.1933
+            -   src.de.Bfv.1938
+            -   src.de.Bfv.1944
+        name: Appelhülsen
+        category: de.Bf
+        de.rang: III
+        de.lknr: 21 007
+    -   document: src.de.DRG.Mst.1946
+        name: Appelhülsen
+        category: de.Bf
+        de.rang: III
+        location:
+            line.de.2200: 50,30
+
+    -   document:
+            -   src.de.DB.Esn.1964
+            -   src.de.DB.Esn.1977
+            -   src.de.DB.Esn.1981
+        name: Appelhülsen
+        category: de.Bf
+        location:
+            line.de.2200: 50,30
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 210070
+        name: Appelhülsen
+        de.DS100: EAPH
+        category: de.Bf
+
+    -   document: src.de.DBAG.BSV.2017
+        de.DS100: EAPH
+        name: Nottuln-Appelhülsen
+        de.name16: N-Appelhülsen
+        category: de.Bf
+        de.dstnr: !!str 210070
+        PLC: DE17838
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        de.DS100: EAPH
+        name: Nottuln-Appelhülsen
+        category: de.Bf
+        location:
+            line.de.2200: 50,304
 
 
 ---
@@ -1352,6 +1984,14 @@ events:
     -   date: !!null
         site:
             path.de.2200: kly
+records:
+    -   document:
+            -   src.de.DRG.Mst.1946
+            -   src.de.DB.Esn.1964
+        location:
+            line.de.2200: 52,58
+        category: de.Bk
+        name: Kley
 
 
 ---
@@ -1361,35 +2001,19 @@ events:
     -   date: c1900
         status: open
         source: src.de.web.Joost
-
     -   date: !!null
         name: Bösensell
         source: src.de.Kb.1914
-
     -   date: !!null
         category: de.Bf
-        de.rang: III
         source: src.de.Bfv.1933
-
     -   date: !!null
         de.VBL: Bsl
         source: src.de.web.Joost
     -   date: !!null
-        de.lknr: 21 005
-        source: src.de.Bfv.1928
-    -   date: de.lknr.30
-        de.lknr: 21 008
-        source: src.de.Bfv.1933
-    -   date: !!null
         de.DS100: EBSL
-        de.dstnr: !!str 210088
         source: src.de.DBAG.BSV.2017
     -   date: !!null
-        de.name16: Bösensell
-        PLC: DE11516
-        source: src.de.DBAG.BSV.2017
-
-    -   date: c2000
         location:
             line.de.2200: 54,814
         source: src.de.DBAG.Geo-Betriebsstelle.2017
@@ -1397,6 +2021,52 @@ events:
     -   date: !!null
         site:
             path.de.2200: bos
+records:
+    -   document: src.de.Bfv.1928
+        name: Bösensell
+        de.lknr: 21 005
+    -   document:
+            -   src.de.Bfv.1933
+            -   src.de.Bfv.1938
+            -   src.de.Bfv.1944
+        name: Bösensell
+        de.lknr: 21 008
+        category: de.Bf
+        de.rang: III
+    -   document: src.de.DRG.Mst.1946
+        name: Bösensell
+        category: de.Bf
+        de.rang: III
+    
+    -   document: src.de.DB.Esn.1964
+        name: Bösensell
+        category: de.Bf
+        location:
+            line.de.2200: 54,82
+    -   document: src.de.DB.Esn.1977
+        name: Bösensell
+        category: de.Bf
+        location:
+            line.de.2200: 54,81
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 210088
+        name: Bösensell
+        de.DS100: EBSL
+        category: de.Bf
+
+    -   document: src.de.DBAG.BSV.2017
+        de.DS100: EBSL
+        name: Bösensell
+        category: de.Bf
+        de.name16: Bösensell
+        de.dstnr: !!str 210088
+        PLC: DE11516
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        de.DS100: EBSL
+        name: Bösensell
+        category: de.Bf
+        location:
+            line.de.2200: 54,814
 
 
 ---
@@ -1406,41 +2076,29 @@ events:
     -   date: c1885
         status: open
         source: src.de.web.Joost
-
     -   date: !!null
         name: Albachten
         source: src.de.Kb.1914
     -   date: 2004-12-12
         name: Münster-Albachten
         source: src.de.web.Joost
-
     -   date: !!null
         category: de.Bf
-        de.rang: III
         source: src.de.Bfv.1933
-    -   date: c1980
+    -   date: c1970
+        category: de.Hst
+        staff: none
+        source: src.de.DB.Esn.1977
+    -   date: c1995
         category: de.Hp
         source: src.de.DBAG.BSV.2017
-
     -   date: !!null
         de.VBL: Al
         source: src.de.web.Joost
     -   date: !!null
-        de.lknr: 21 006
-        source: src.de.Bfv.1928
-    -   date: de.lknr.30
-        de.lknr: 21 009
-        source: src.de.Bfv.1933
-    -   date: !!null
         de.DS100: EABT
-        de.dstnr: !!str 210096
         source: src.de.DBAG.BSV.2017
     -   date: !!null
-        de.name16: Mst-Albachten
-        PLC: DE17344
-        source: src.de.DBAG.BSV.2017
-
-    -   date: c2000
         location:
             line.de.2200: 57,709
         source: src.de.DBAG.Geo-Betriebsstelle.2017
@@ -1449,11 +2107,57 @@ events:
         site:
             path.de.2200: alb
 records:
-    -   document: src.de.Bfv.1933
+    -   document: src.de.Bfv.1928
+        name: Albachten
+        de.lknr: 21 006
+    -   document:
+            -   src.de.Bfv.1933
+            -   src.de.Bfv.1938
+            -   src.de.Bfv.1944
         name: Albachten
         de.lknr: 21 009
         category: de.Bf
         de.rang: III
+    -   document: src.de.DRG.Mst.1946
+        name: Albachten
+        category: de.Bf
+        de.rang: III
+        location:
+            line.de.2200: 57,71
+
+    -   document: src.de.DB.Esn.1964
+        name: Albachten
+        category: de.Bf
+        location:
+            line.de.2200: 57,70
+    -   document:
+            -   src.de.DB.Esn.1977
+            -   src.de.DB.Esn.1981
+        name: Albachten
+        category: de.Hst
+        staff: none
+        location:
+            line.de.2200: 57,70
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 210096
+        name: Albachten
+        de.DS100: EABT
+        category: de.Hst
+        staff: none
+
+    -   document: src.de.DBAG.BSV.2017
+        de.DS100: EABT
+        name: Münster-Albachten
+        de.name16: Mst-Albachten
+        category: de.Hp
+        de.dstnr: !!str 210096
+        PLC: DE17344
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        de.DS100: EABT
+        name: Münster-Albachten
+        category: de.Hp
+        location:
+            line.de.2200: 57,709
 
 
 ---
@@ -1463,21 +2167,12 @@ events:
     -   date: !!null
         name: Mecklenbeck
         source: src.de.Kb.1914
-
     -   date: !!null
         category: de.Bf
-        de.rang: III
         source: src.de.Bfv.1933
     -   date: 1991-06-02
         service: goods
         source: src.de.web.Joost
-
-    -   date: !!null
-        de.lknr: 21 007
-        source: src.de.Bfv.1928
-    -   date: de.lknr.30
-        de.lknr: 21 010
-        source: src.de.Bfv.1933
     -   date: !!null
         de.VBL: Mk
         source: src.de.web.Joost
@@ -1486,25 +2181,75 @@ events:
         source: src.de.web.Joost
     -   date: !!null
         de.DS100: EMEK
-        de.dstnr: !!str 210104
         source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Mecklenbeck
-        PLC: DE16906
-        source: src.de.DBAG.BSV.2017
-
     -   date: !!null
         location:
             line.de.2200: 61,02
-        source: src.de.DRG.Mst.1946
-    -   date: c2000
+            line.de.2265: 103,85
+        source: src.de.DB.Esn.1964
+    -   date: c1970
         location:
             line.de.2200: 60,961
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
+            line.de.2265: 103,85
+        source:
+            -   src.de.DB.Esn.1977
+            -   src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
             path.de.2200: mec
+records:
+    -   document: src.de.Bfv.1928
+        name: Mecklenbeck
+        de.lknr: 21 007
+    -   document:
+            -   src.de.Bfv.1933
+            -   src.de.Bfv.1938
+            -   src.de.Bfv.1944
+        name: Mecklenbeck
+        de.lknr: 21 010
+        category: de.Bf
+        de.rang: III
+    -   document: src.de.DRG.Mst.1946
+        name: Mecklenbeck
+        category: de.Bf
+        de.rang: III
+        location:
+            line.de.2200: 61,02
+
+    -   document: src.de.DB.Esn.1964
+        name: Mecklenbeck
+        category: de.Bf
+        location:
+            line.de.2200:  61,02
+            line.de.2265: 103,85
+    -   document:
+            -   src.de.DB.Esn.1977
+            -   src.de.DB.Esn.1981
+        name: Mecklenbeck
+        category: de.Bf
+        location:
+            line.de.2265: 103,85
+            line.de.2200:  60,96
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 210104
+        name: Mecklenbeck
+        de.DS100: EMEK
+        category: de.Bf
+
+    -   document: src.de.DBAG.BSV.2017
+        de.DS100: EMEK
+        name: Mecklenbeck
+        de.name16: Mecklenbeck
+        category: de.Bf
+        de.dstnr: !!str 210104
+        PLC: DE16906
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        de.DS100: EMEK
+        name: Mecklenbeck
+        category: de.Bf
+        location:
+            line.de.2200: 60,961
 
 
 ---
@@ -1528,6 +2273,12 @@ events:
     -   date: !!null
         site:
             path.de.2200: loo
+records:
+    -   document: src.de.DRG.Mst.1946
+        location:
+            line.de.2200: 63,34
+        category: de.Bk
+        name: Looz
 
 
 ---
@@ -1548,6 +2299,12 @@ events:
     -   date: !!null
         site:
             path.de.2200: geb
+records:
+    -   document: src.de.DRG.Mst.1946
+        location:
+            line.de.2200: 63,93
+        category: de.Kr
+        name: Geist
 
 
 ---
@@ -1556,14 +2313,11 @@ type: point
 events:
     -   date: 1924-07-01
         status: open
-
     -   date: !!null
         name: Geist
         source: src.de.Bfv.1928
-
     -   date: !!null
         category: de.Bf
-        de.rang: IV
         source: src.de.Bfv.1933
     -   date: !!null
         service: passenger
@@ -1574,30 +2328,85 @@ events:
     -   date: 2014-04-01?
         category: [de.Bf, de.Abzw]
         source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        de.lknr: 21 313
-        source: src.de.Bfv.1928
-    -   date: de.lknr.30
-        de.lknr: 21 418
-        source: src.de.Bfv.1933
     -   date: !!null
         de.DS100: EGST
-        de.dstnr: !!str 211854
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Geist
-        PLC: DE13609
         source: src.de.DBAG.BSV.2017
 
+    -   date: !!null
+        location:
+            line.de.2200:  64,15
+            line.de.2265: 107,00
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
     -   date: c2000
         location:
             line.de.2200: 64,450
+            line.de.2265: !!null
         source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
             path.de.2200: gei
+records:
+    -   document: src.de.Bfv.1928
+        name: Geist
+        superior: point.de.Münster-Westf-Hbf
+        de.lknr: 21 313
+        staff: none
+    -   document: src.de.Bfv.1933
+        name: Geist
+        category: de.Bf
+        de.rang: IV
+        de.lknr: 21 418
+    -   document: src.de.Bfv.1938
+        name: Geist
+        category: de.Hp
+        goods: none
+        de.lknr: 21 418
+    -   document: src.de.Bfv.1944
+        name: Geist
+        category: de.Bf
+        de.rang: IV
+        de.lknr: 21 418
+    -   document: src.de.DRG.Mst.1946
+        name: Geist
+        category: de.Hp
+        goods: none
+        location:
+            line.de.2265: 107,0
+
+    -   document: src.de.DB.Esn.1964
+        name: Geist
+        category: de.Hp
+        goods: none
+        location:
+            line.de.2265: 107,00
+            line.de.2200:  64,15
+    -   document:
+            -   src.de.DB.Esn.1977
+            -   src.de.DB.Esn.1981
+        name: Geist
+        category: de.Bf
+        location:
+            line.de.2265: 107,00
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 211854
+        name: Geist
+        de.DS100: EGST
+        category: de.Bf
+
+    -   document: src.de.DBAG.BSV.2017
+        de.DS100: EGST
+        name: Geist
+        de.name16: Geist
+        category: [de.Bf, de.Abzw]
+        de.dstnr: !!str 211854
+        PLC: DE13609
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        de.DS100: EGST
+        name: Geist
+        category: [de.Bf, de.Abzw]
+        location:
+            line.de.2200: 64,4+50
 
 
 ---
@@ -1606,28 +2415,19 @@ type: point
 events:
     -   date: !!null
         name: Münster (Westf) Gbf
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
         category: de.Bft
+        de.DS100: EMSTG
         source: src.de.DBAG.BSV.2017
-
     -   date: !!null
         de.VBL: Msg
         source: src.de.web.Joost
     -   date: !!null
-        de.DS100: EMSTG
-        de.dstnr: !!str 910168
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Münster (W) Gbf
-        PLC: DE17336
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
         location:
-            line.de.2200: 66,8
-        source: src.de.web.Joost
+            line.de.2931: 169,60
+            line.de.2265: 109,54
+            line.de.2200:  66,80
+            line.de.2000:  44,41
+        source: src.de.DB.Esn.1977
     -   date: c2000
         location:
             line.de.2000: 44,300
@@ -1636,6 +2436,36 @@ events:
     -   date: !!null
         site:
             path.de.2200: mug
+records:
+    -   document:
+            -   src.de.DB.Esn.1977
+            -   src.de.DB.Esn.1981
+        name: Münster (Westf) Gbf
+        category: de.Bf
+        location:
+            line.de.2931: 169,60
+            line.de.2265: 109,54
+            line.de.2200:  66,80
+            line.de.2000:  44,41
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 210112
+        name: Münster (Westf) Gbf
+        de.DS100: EMSTG
+        category: de.Glgr
+
+    -   document: src.de.DBAG.BSV.2017
+        de.DS100: EMSTG
+        name: Münster (Westf) Gbf
+        de.name16: Münster (W) Gbf
+        category: de.Bft
+        de.dstnr: !!str 910168
+        PLC: DE17336
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        de.DS100: EMSTG
+        name: Münster (Westf) Gbf
+        category: de.Bft
+        location:
+            line.de.2000: 44,3+0
 
 
 ---
@@ -1650,46 +2480,95 @@ events:
         source:
             - src.de.web.Joost
             - src.de.Bfv.1933
-
     -   date: !!null
         category: de.Bf
-        de.rang: I
-        source: src.de.Bfv.1933
-
-    -   date: !!null
-        de.lknr: 21 011
         source: src.de.Bfv.1933
     -   date: !!null
         de.VBL: Mst
         source: src.de.web.Joost
     -   date: !!null
         de.DS100: EMST
-        de.dstnr: !!str 210112
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Münster (W) Hbf
-        PLC: DE17337
         source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         location:
             line.de.2014: 0,00
         source: src.de.DRG.Mst.1946
-    -   date: !!null
-        location:
-            line.de.9213: 36,100
-        source: src.de.web.WLE.SbV
     -   date: c2000
         location:
             line.de.2000:  45,245
-            line.de.2013:  -0,214
+            line.de.2013:  -0,22
+            line.de.2014:   0,00
             line.de.2200:  67,641
+            line.de.2265: 110,377
             line.de.2931: 170,343
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
+            line.de.9213:  36,105
+        source:
+            -   src.de.DRG.Mst.1946
+            -   src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
             path.de.2200: mun
+records:
+    -   document: src.de.Bfv.1928
+        name: Münster (Westf)
+        de.lknr: 21 008
+    -   document:
+            -   src.de.Bfv.1933
+            -   src.de.Bfv.1938
+            -   src.de.Bfv.1944
+        name: Münster (Westf) Hbf
+        de.lknr: 21 011
+        category: de.Bf
+        de.rang: I
+    -   document: src.de.DRG.Mst.1946
+        name: Münster (Westf) Hbf
+        category: de.Bf
+        de.rang: I
+        location:
+            line.de.2200:  67,64
+            line.de.2931: 170,34
+            line.de.2014:   0,00
+            line.de.2013:  -0,22
+            line.de.2265: 110,38
+            line.de.2000:  45,25
+
+    -   document:
+            -   src.de.DB.Esn.1977
+            -   src.de.DB.Esn.1981
+        name: Münster (Westf) Hbf
+        category: de.Bf
+        location:
+            line.de.2931: 170,37
+            line.de.2265: 110,38
+            line.de.2200:  67,64
+            line.de.2000:  45,25
+            line.de.2013:   0,22
+            line.de.2014:   0,00
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 210112
+        name: Münster (Westf) Hbf
+        de.DS100: EMST
+        category: de.Bf
+
+    -   document: src.de.DBAG.BSV.2017
+        de.DS100: EMST
+        name: Münster (Westf) Hbf
+        de.name16: Münster (W) Hbf
+        category: de.Bf
+        de.dstnr: !!str 210112
+        PLC: DE17337
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        de.DS100: EMST
+        name: Münster (Westf) Hbf
+        category: de.Bf
+        location:
+            line.de.2000:  45,2+45
+            line.de.9231:  36,1+5  # als Strecke 2004
+            line.de.2200:  67,6+41
+            line.de.2265: 110,3+77
+            line.de.2931: 170,3+43
 
 
 ---
@@ -1699,19 +2578,20 @@ events:
     -   date: !!null
         name: Münster (Westf) Pbf
         category: de.Bft
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.DS100: EMSTP
-        de.dstnr: !!str 097683
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Münster (W) Pbf
-        PLC: DE17339
         source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
             path.de.2200: mun
+records:
+    -   document: src.de.DBAG.BSV.2017
+        name: Münster (Westf) Pbf
+        category: de.Bft
+        de.DS100: EMSTP
+        de.dstnr: !!str 097683
+        de.name16: Münster (W) Pbf
+        PLC: DE17339
 
 
 ---
@@ -1739,13 +2619,20 @@ events:
         category: de.Bk
         name: Bohlweg
         source: src.de.DRG.Mst.1946
-    -   date: c1975
+    -   date: c1980
         status: closed
-        source: src.de.web.Joost
 
     -   date: !!null
         site:
             path.de.2200: bol
+records:
+    -   document:
+            -   src.de.DRG.Mst.1946
+            -   src.de.DB.Esn.1977
+        location:
+            line.de.2200: 69,52
+        category: de.Bk
+        name: Bohlweg
 
 
 ---
@@ -1754,18 +2641,14 @@ type: point
 events:
     -   date: !!null
         location:
-            line.de.2200: 71,2
+            line.de.2200: 71,20
         category: de.Bk
         name: Schleuse
-        source: src.de.DRG.Mst.1946
+        source: src.de.DB.Esn.1977
     -   date: !!null
         de.DS100: ESCE
         source: src.de.web.Joost
-    -   date: c1960
-        location:
-            line.de.2200: 70,7
-        source: src.de.web.Joost
-    -   date: c1980
+    -   date: c1984
         category: de.Po
         source: src.de.web.Joost
     -   date: 1986
@@ -1775,6 +2658,24 @@ events:
     -   date: !!null
         site:
             path.de.2200: sle
+records:
+    -   document: src.de.DRG.Mst.1946
+        location:
+            line.de.2200: 71,2
+        category: de.Bk
+        name: Schleuse
+    -   document:
+            -   src.de.DB.Esn.1977
+            -   src.de.DB.Esn.1981
+        location:
+            line.de.2200: 71,20
+        category: de.Bk
+        name: Schleuse
+    -   document: src.de.DS100.1984
+        de.dstnr: !!null
+        name: Schleuse
+        de.DS100: ESCE
+        category: de.Bk
 
 
 ---
@@ -1784,25 +2685,15 @@ events:
     -   date: c1885
         status: open
         source: src.de.web.Joost
-
     -   date: !!null
         name: Sudmühle
         source: src.de.Kb.1914
-
     -   date: !!null
         category: de.Bf
-        de.rang: III
         source: src.de.Bfv.1933
     -   date: c1975
         service: goods
         source: src.de.web.Joost
-
-    -   date: !!null
-        de.lknr: 21 010
-        source: src.de.Bfv.1928
-    -   date: de.lknr.30
-        de.lknr: 21 017
-        source: src.de.Bfv.1933
     -   date: !!null
         de.VBL: Sud
         source: src.de.web.Joost
@@ -1814,18 +2705,8 @@ events:
         source: src.de.web.Joost
     -   date: !!null
         de.DS100: ESDM
-        de.dstnr: !!str 210179
         source: src.de.DBAG.BSV.2017
     -   date: !!null
-        de.name16: Sudmühle
-        PLC: DE20124
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.2200: 73,79
-        source: src.de.DRG.Mst.1946
-    -   date: c2000
         location:
             line.de.2010: 12,266
             line.de.2200: 72,175
@@ -1834,6 +2715,52 @@ events:
     -   date: !!null
         site:
             path.de.2200: sud
+records:
+    -   document: src.de.Bfv.1928
+        name: Sudmühle
+        de.lknr: 21 010
+    -   document:
+            -   src.de.Bfv.1933
+            -   src.de.Bfv.1938
+            -   src.de.Bfv.1944
+        name: Sudmühle
+        category: de.Bf
+        de.rang: III
+        de.lknr: 21 017
+    -   document: src.de.DRG.Mst.1946
+        name: Sudmühle
+        category: de.Bf
+        de.rang: III
+        location:
+            line.de.2200: 73,79
+            line.de.2010: 12,6
+
+    -   document: src.de.DB.Esn.1977
+        name: Sudmühle
+        category: de.Bf
+    -   document: src.de.DB.Esn.1981
+        name: Sudmühle
+        category: de.Bf
+        de.rang: III
+        location:
+            line.de.2200: 73,15
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 210179
+        name: Sudmühle
+        de.DS100: ESDM
+        category: de.Bf
+
+    -   document: src.de.DBAG.BSV.2017
+        de.DS100: ESDM
+        name: Sudmühle
+        de.name16: Sudmühle
+        category: de.Bf
+        de.dstnr: !!str 210179
+        PLC: DE20124
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        location:
+            line.de.2010: 12,2+66
+            line.de.2200: 72,1+75
 
 
 ---
@@ -1850,51 +2777,44 @@ events:
             deu: ehemals Stw Sudmühle So
         de.DS100: EWSU
         source: src.de.web.Joost
-    -   date: c1980
+    -   date: c1985
         status: closed
-        source: src.de.web.Joost
 
     -   date: !!null
         site:
-            path.de.2200: sud
+            path.de.2200: wer
+records:
+    -   document: src.de.DS100.1984
+        de.dstnr: !!null
+        name: Werse
+        de.DS100: EWSU
+        category: de.Bk
 
 
 ---
 key: point.de.Münster-Ems
 type: point
 events:
-    -   date: c1960
-        status: open
-
     -   date: !!null
         name: Ems
         source: src.de.DS100.1984
     -   date: c2000
         name: Münster Ems
-        source: src.de.TPP.2006
-
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        service: none
+        source: src.de.DRG.Mst.1946
     -   date: !!null
         category: de.Bf
+        staff: none
         source: src.de.DS100.1984
-    -   date: !!null
-        service: goods
-    -   date: 2002-01-02
-        service: none
-        source: src.de.web.Joost
-
     -   date: !!null
         de.VBL: E
         source: src.de.web.Joost
     -   date: !!null
         de.DS100: EEMS
-        de.dstnr: !!str 211847
         source: src.de.DBAG.BSV.2017
     -   date: !!null
-        de.name16: Ems
-        PLC: DE17341
-        source: src.de.DBAG.BSV.2017
-
-    -   date: c2000
         location:
             line.de.2200: 76,397
         source: src.de.DBAG.Geo-Betriebsstelle.2017
@@ -1902,6 +2822,41 @@ events:
     -   date: !!null
         site:
             path.de.2200: ems
+records:
+    -   document: src.de.DRG.Mst.1946
+        name: Ems
+        category: de.Kr
+        location:
+            line.de.2200: 76,40
+
+    -   document:
+            -   src.de.DB.Esn.1977
+            -   src.de.DB.Esn.1981
+        name: Ems
+        note:
+          deu: „Zugmeldestelle zum Überholen“ in Richtung Norden
+        location:
+            line.de.2200: 76,67·75,29
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 211847
+        name: Ems
+        de.DS100: EEMS
+        category: de.Bf
+        staff: none
+
+    -   document: src.de.DBAG.BSV.2017
+        de.DS100: EEMS
+        name: Münster Ems
+        de.name16: Ems
+        category: de.Bf
+        de.dstnr: !!str 211847
+        PLC: DE17341
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        de.DS100: EEMS
+        name: Münster Ems
+        category: de.Bf
+        location:
+            line.de.2200: 76,3+97
 
 
 ---
@@ -1911,34 +2866,23 @@ events:
     -   date: !!null
         name: Westbevern
         source: src.de.Kb.1914
-
     -   date: !!null
         category: de.Bf
-        de.rang: III
         source: src.de.Bfv.1933
-    -   date: 1990-05-27
-        service: passenger
-        source: src.de.web.Joost
-
     -   date: !!null
         de.VBL: Ws
         source: src.de.web.Joost
     -   date: !!null
-        de.lknr: 21 011
-        source: src.de.Bfv.1928
-    -   date: de.lknr.30
-        de.lknr: 21 018
-        source: src.de.Bfv.1933
-    -   date: !!null
         de.DS100: EWBV
-        de.dstnr: !!str 210187
         source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Westbevern
-        PLC: DE21046
+    -   date: 1990-05-27
+        service: passenger
+        source: src.de.web.Joost
+    -   date: c2000
+        category: de.Bf
         source: src.de.DBAG.BSV.2017
 
-    -   date: c2000
+    -   date: !!null
         location:
             line.de.2200: 78,874
         source: src.de.DBAG.Geo-Betriebsstelle.2017
@@ -1946,6 +2890,51 @@ events:
     -   date: !!null
         site:
             path.de.2200: wbe
+records:
+    -   document: src.de.Bfv.1928
+        name: Westbevern
+        de.lknr: 21 011
+    -   document:
+            -   src.de.Bfv.1933
+            -   src.de.Bfv.1938
+            -   src.de.Bfv.1944
+        name: Westbevern
+        de.lknr: 21 018
+        category: de.Bf
+        de.rang: III
+    -   document: src.de.DRG.Mst.1946
+        name: Westbevern
+        category: de.Bf
+        de.rang: III
+        location:
+            line.de.2200: 78,87
+
+    -   document:
+            -   src.de.DB.Esn.1977
+            -   src.de.DB.Esn.1981
+        name: Westbevern
+        category: de.Bf
+        location:
+            line.de.2200: 78,87
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 210187
+        name: Westbevern
+        de.DS100: EWBV
+        category: de.Bf
+
+    -   document: src.de.DBAG.BSV.2017
+        de.DS100: EWBV
+        name: Westbevern
+        de.name16: Westbevern
+        category: de.Hp
+        de.dstnr: !!str 210187
+        PLC: DE21046
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        de.DS100: EWBV
+        name: Westbevern
+        category: de.Hp
+        location:
+            line.de.2200: 78,8+74
 
 
 ---
@@ -1969,6 +2958,12 @@ events:
     -   date: !!null
         site:
             path.de.2200: hei
+records:
+    -   document: src.de.DRG.Mst.1946
+        location:
+            line.de.2200: 82,19
+        category: de.Bk
+        name: Heide
 
 
 ---
@@ -1978,48 +2973,77 @@ events:
     -   date: c1890
         status: open
         source: src.de.web.Joost
-
     -   date: !!null
         name: Brock-Ostbevern
         source: src.de.Kb.1914
+    -   date: !!null
+        category: de.Bf
+        source: src.de.Bfv.1933
+    -   date: !!null
+        de.VBL: Bv
+        source: src.de.web.Joost
+    -   date: !!null
+        de.DS100: EBRO
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        location:
+            line.de.2200: 85,134
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+    -   date: 1990-05-27
+        service: passenger
+        source: src.de.web.Joost
     -   date: 2004-12-12
         name: Ostbevern
         source: src.de.web.Joost
 
     -   date: !!null
-        category: de.Bf
-        de.rang: III
-        source: src.de.Bfv.1933
-    -   date: 1990-05-27
-        service: passenger
-        source: src.de.web.Joost
-
-    -   date: !!null
-        de.VBL: Bv
-        source: src.de.web.Joost
-    -   date: !!null
-        de.lknr: 21 012
-        source: src.de.Bfv.1928
-    -   date: de.lknr.30
-        de.lknr: 21 019
-        source: src.de.Bfv.1933
-    -   date: !!null
-        de.DS100: EBRO
-        de.dstnr: !!str 210195
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Ostbevern
-        PLC: DE18165
-        source: src.de.DBAG.BSV.2017
-
-    -   date: c2000
-        location:
-            line.de.2200: 85,134
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
-
-    -   date: !!null
         site:
             path.de.2200: bro
+records:
+    -   document: src.de.Bfv.1928
+        name: Brock-Ostbevern
+        de.lknr: 21 012
+    -   document:
+            -   src.de.Bfv.1933
+            -   src.de.Bfv.1938
+            -   src.de.Bfv.1944
+        name: Brock-Ostbevern
+        category: de.Bf
+        de.rang: III
+        de.lknr: 21 019
+    -   document: src.de.DRG.Mst.1946
+        name: Brock-Ostbevern
+        category: de.Bf
+        de.rang: III
+        location:
+            line.de.2200: 85,13
+
+    -   document:
+            -   src.de.DB.Esn.1977
+            -   src.de.DB.Esn.1981
+        name: Brock-Ostbevern
+        category: de.Bf
+        location:
+            line.de.2200: 85,31
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 210195
+        name: Brock-Ostbevern
+        de.DS100: EBRO
+        category: de.Bf
+
+    -   document: src.de.DBAG.BSV.2017
+        de.DS100: EBRO
+        name: Ostbevern
+        de.name16: Ostbevern
+        category: de.Bf
+        de.dstnr: !!str 210195
+        PLC: DE18165
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        de.DS100: EBRO
+        name: Ostbevern
+        category: de.Bf
+        location:
+            line.de.2200: 85,1+34
 
 
 ---
@@ -2043,6 +3067,12 @@ events:
     -   date: !!null
         site:
             path.de.2200: woe
+records:
+    -   document: src.de.DRG.Mst.1946
+        location:
+            line.de.2200: 87,06
+        category: de.Bk
+        name: Woeste
 
 
 ---
@@ -2052,41 +3082,71 @@ events:
     -   date: !!null
         name: Kattenvenne
         source: src.de.Kb.1914
-
     -   date: !!null
         category: de.Bf
-        de.rang: III
         source: src.de.Bfv.1933
+    -   date: !!null
+        de.VBL: Kv
+        source: src.de.web.Joost
+    -   date: !!null
+        de.DS100: EKV
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        location:
+            line.de.2200: 91,137
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
     -   date: 1993
         service: passenger
         source: src.de.web.Joost
 
     -   date: !!null
-        de.VBL: Kv
-        source: src.de.web.Joost
-    -   date: !!null
-        de.lknr: 21 013
-        source: src.de.Bfv.1928
-    -   date: de.lknr.30
-        de.lknr: 21 020
-        source: src.de.Bfv.1933
-    -   date: !!null
-        de.DS100: EKV
-        de.dstnr: !!str 210203
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Kattenvenne
-        PLC: DE15446
-        source: src.de.DBAG.BSV.2017
-
-    -   date: c2000
-        location:
-            line.de.2200: 91,137
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
-
-    -   date: !!null
         site:
             path.de.2200: kat
+records:
+    -   document: src.de.Bfv.1928
+        name: Kattenvenne
+        de.lknr: 21 013
+    -   document:
+            -   src.de.Bfv.1933
+            -   src.de.Bfv.1938
+            -   src.de.Bfv.1944
+        name: Kattenvenne
+        de.lknr: 21 020
+        category: de.Bf
+        de.rang: III
+    -   document: src.de.DRG.Mst.1946
+        name: Kattenvenne
+        category: de.Bf
+        de.rang: III
+        location:
+            line.de.2200: 91,14
+
+    -   document:
+            -   src.de.DB.Esn.1977
+            -   src.de.DB.Esn.1981
+        name: Kattenvenne
+        category: de.Bf
+        location:
+            line.de.2200: 91,15
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 210203
+        name: Kattenvenne
+        de.DS100: EKV
+        category: de.Bf
+
+    -   document: src.de.DBAG.BSV.2017
+        de.DS100: EKV
+        name: Kattenvenne
+        de.name16: Kattenvenne
+        category: de.Bf
+        de.dstnr: !!str 210203
+        PLC: DE15446
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        de.DS100: EKV
+        name: Kattenvenne
+        category: de.Bf
+        location:
+            line.de.2200: 91,1+37
 
 
 ---
@@ -2097,28 +3157,22 @@ events:
         category: de.Kr
         name: Ringel
         source: src.de.DRG.Mst.1946
-    -   date: c1960
-        category: de.Bf
-        service: none
-        de.VBL: Rl
-        source: src.de.web.Joost
-    -   date: !!null
-        de.DS100: ERIG
-        de.dstnr: !!str 211953
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Ringel
-        PLC: DE18901
-        source: src.de.DBAG.BSV.2017
-
     -   date: !!null
         location:
             line.de.2200: 93,42
         source: src.de.DRG.Mst.1946
     -   date: c1960
+        category: de.Bf
+        service: none
         location:
             line.de.2200: 93,83
-        source: src.de.DB.Esn.1981
+        source: src.de.DB.Esn.1977
+    -   date: !!null
+        de.VBL: Rl
+        source: src.de.web.Joost
+    -   date: !!null
+        de.DS100: ERIG
+        source: src.de.DBAG.BSV.2017
     -   date: c2000
         location:
             line.de.2200: 94,088
@@ -2127,8 +3181,42 @@ events:
     -   date: !!null
         site:
             path.de.2200: rin
+records:
+    -   document: src.de.DRG.Mst.1946
+        name: Ringel
+        category: de.Kr
+        location:
+            line.de.2200: 93,42
 
-    
+    -   document:
+            -   src.de.DB.Esn.1977
+            -   src.de.DB.Esn.1981
+        name: Ringel
+        category: de.Bf
+        service: none
+        location:
+            line.de.2200: 93,83
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 211953
+        name: Ringel
+        de.DS100: ERIG
+        category: de.Bf
+
+    -   document: src.de.DBAG.BSV.2017
+        de.DS100: ERIG
+        name: Ringel
+        de.name16: Ringel
+        category: de.Bf
+        de.dstnr: !!str 211953
+        PLC: DE18901
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        de.DS100: ERIG
+        name: Ringel
+        category: de.Bf
+        location:
+            line.de.2200: 94,0+88
+
+
 ---
 key: point.de.Hohne
 type: point
@@ -2146,6 +3234,12 @@ events:
     -   date: !!null
         site:
             path.de.2200: hoh
+records:
+    -   document: src.de.DRG.Mst.1946
+        location:
+            line.de.2200: 96,15
+        category: de.Bk
+        name: Hohne
 
 
 ---
@@ -2155,31 +3249,16 @@ events:
     -   date: !!null
         name: Lengerich (Westf)
         source: src.de.Kb.1914
-
     -   date: !!null
         category: de.Bf
-        de.rang: II
         source: src.de.Bfv.1933
-
     -   date: !!null
         de.VBL: Lg
         source: src.de.web.Joost
     -   date: !!null
-        de.lknr: 21 014
-        source: src.de.Bfv.1928
-    -   date: de.lknr.30
-        de.lknr: 21 021
-        source: src.de.Bfv.1933
-    -   date: !!null
         de.DS100: ELEN
-        de.dstnr: !!str 210229
         source: src.de.DBAG.BSV.2017
     -   date: !!null
-        de.name16: Lengerich/Westf
-        PLC: DE16300
-        source: src.de.DBAG.BSV.2017
-
-    -   date: c2000
         location:
             line.de.2200: 98,845
         source: src.de.DBAG.Geo-Betriebsstelle.2017
@@ -2187,6 +3266,51 @@ events:
     -   date: !!null
         site:
             path.de.2200: len
+records:
+    -   document: src.de.Bfv.1928
+        name: Lengerich (Westf)
+        de.lknr: 21 014
+    -   document:
+            -   src.de.Bfv.1933
+            -   src.de.Bfv.1938
+            -   src.de.Bfv.1944
+        name: Lengerich (Westf)
+        category: de.Bf
+        de.rang: II
+        de.lknr: 21 021
+    -   document: src.de.DRG.Mst.1946
+        name: Lengerich (Westf)
+        category: de.Bf
+        de.rang: II
+        location:
+            line.de.2200: 98,84
+
+    -   document:
+            -   src.de.DB.Esn.1977
+            -   src.de.DB.Esn.1981
+        name: Lengerich (Westf)
+        category: de.Bf
+        location:
+            line.de.2200: 98,85
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 210229
+        name: Lengerich (Westf)
+        de.DS100: ELEN
+        category: de.Bf
+
+    -   document: src.de.DBAG.BSV.2017
+        de.DS100: ELEN
+        name: Lengerich (Westf)
+        de.name16: Lengerich/Westf
+        category: de.Bf
+        de.dstnr: !!str 210229
+        PLC: DE16300
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        de.DS100: ELEN
+        name: Lengerich (Westf)
+        category: de.Bf
+        location:
+            line.de.2200: 98,8+45
 
 
 ---
@@ -2206,7 +3330,23 @@ events:
     -   date: !!null
         site:
             path.de.2200: tun
+records:
+    -   document: src.de.DRG.Mst.1946
+        location:
+            line.de.2200: 100,43
+        category: de.Bk
+        name: Tunnel
 
+
+---
+key: struct.de.Lengericher-Tunnel
+type: structure
+subtype: tunnel
+events:
+    -   date: !!null
+        length: 581.
+        name: Lengericher Tunnel
+        source: src.de.DBAG.Geo-Tunnel.2017
 
 ---
 key: point.de.Schollbruch
@@ -2218,22 +3358,42 @@ events:
         category: de.Bk
         name: Schollbruch
         source: src.de.DRG.Mst.1946
-    -   date: c1965
+    -   date: c1950
+        category: de.Bf
+        staff: none
+        location:
+            line.de.2200: 102,60
+        source: src.de.DB.Esn.1977
+    -   date: c1984
         status: closed
-        source: src.de.web.Joost
 
     -   date: !!null
         site:
             path.de.2200: sol
+records:
+    -   document: src.de.DRG.Mst.1946
+        location:
+            line.de.2200: 102,06
+        category: de.Bk
+        name: Schollbruch
+
+    -   document:
+            -   src.de.DB.Esn.1977
+            -   src.de.DB.Esn.1981
+        name: Schollbruch
+        category: de.Bf
+        staff: none
+        location:
+            line.de.2200: 102,60
 
 
 ---
 key: point.de.Natrup-Hagen-DGr
 type: point
-subtype: border
+subtype: reference
 events:
     -   date: !!null
-        name: Natrup-Hagen Esn/Han
+        designation: Natrup-Hagen Esn/Han
     -   date: !!null
         location:
             line.de.2200: 102,50
@@ -2242,6 +3402,21 @@ events:
     -   date: !!null
         site:
             path.de.2200: gnad
+records:
+    -   document:
+            -   src.de.DB.Esn.1977
+            -   src.de.DB.Esn.1981
+            -   src.de.DB.Han.1983
+        location:
+            line.de.2200: 102,50
+
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        de.DS100: YEHLH
+        name: Lengerich - Natrup-Hagen
+        de.name16: RB-Gr km 102,500
+        # category: de.RBGr
+        PLC: DE16299
+        de.dstnr: !!str 105121
 
 
 ---
@@ -2252,19 +3427,20 @@ events:
     -   date: !!null
         name: Natrup-Hagen NI/NRW
         category: de.LGr
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.DS100: HQNA
-        de.dstnr: !!str 103989
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Natrup-H NRW/NI
-        PLC: DE17402
         source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
             path.de.2200: gnal
+records:
+    -   document: src.de.DBAG.BSV.2017
+        name: Natrup-Hagen NI/NRW
+        category: de.LGr
+        de.DS100: HQNA
+        de.dstnr: !!str 103989
+        de.name16: Natrup-H NRW/NI
+        PLC: DE17402
 
 
 ---
@@ -2274,42 +3450,72 @@ events:
     -   date: !!null
         name: Natrup-Hagen
         source: src.de.Kb.1914
-
     -   date: !!null
         category: de.Bf
-        de.rang: III
         source: src.de.Bfv.1933
+    -   date: !!null
+        de.DS100: HNAH
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        location:
+            line.de.2200: 104,20
+        source: src.de.DRG.Mst.1946
+    -   date: c1975
+        location:
+            line.de.2200: 104,207
+        source:
+            -   src.de.DB.Han.1983
+            -   src.de.DBAG.Geo-Betriebsstelle.2017
     -   date: 2017-12-10?
         category: de.Hp
         source: src.de.DBAG.BSV.2017
 
     -   date: !!null
-        de.lknr: 21 015
-        source: src.de.Bfv.1928
-    -   date: de.lknr.30
-        de.lknr: 21 023
-        source: src.de.Bfv.1933
-    -   date: !!null
-        de.DS100: HNAH
-        de.dstnr: !!str 210237
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Natrup-Hagen
-        PLC: DE17401
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.2200: 104,20
-        source: src.de.DRG.Mst.1946
-    -   date: c2000
-        location:
-            line.de.2200: 104,207
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
-
-    -   date: !!null
         site:
             path.de.2200: nat
+records:
+    -   document: src.de.Bfv.1928
+        name: Natrup-Hagen
+        de.lknr: 21 015
+    -   document:
+            -   src.de.Bfv.1933
+            -   src.de.Bfv.1938
+            -   src.de.Bfv.1944
+        name: Natrup-Hagen
+        de.lknr: 21 023
+        category: de.Bf
+        de.rang: III
+    -   document: src.de.DRG.Mst.1946
+        name: Natrup-Hagen
+        category: de.Bf
+        de.rang: III
+        location:
+            line.de.2200: 104,20
+
+    -   document: src.de.DB.Han.1983
+        name: Natrup-Hagen
+        category: de.Bf
+        location:
+            line.de.2200: 104,21
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 210237
+        name: Natrup-Hagen
+        de.DS100: HNAH
+        category: de.Bf
+
+    -   document: src.de.DBAG.BSV.2017
+        de.DS100: HNAH
+        name: Natrup-Hagen
+        de.name16: Natrup-Hagen
+        category: de.Hp
+        de.dstnr: !!str 210237
+        PLC: DE17401
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        de.DS100: HNAH
+        name: Natrup-Hagen
+        category: de.Hp
+        location:
+            line.de.2200: 104,2+7
 
 
 ---
@@ -2328,6 +3534,12 @@ events:
     -   date: !!null
         site:
             path.de.2200: lee
+records:
+    -   document: src.de.DRG.Mst.1946
+        location:
+            line.de.2200: 106,62
+        category: de.Bk
+        name: Leeden
 
 
 ---
@@ -2340,35 +3552,13 @@ events:
     -   date: c1920
         name: Hasbergen (Kr Osnabrück)
         source: src.de.Bfv.1928
-
     -   date: !!null
         category: de.Bf
-        de.rang: III
         source: src.de.Bfv.1933
-
-    -   date: !!null
-        de.lknr: 21 016
-        source: src.de.Bfv.1928
-    -   date: de.lknr.30
-        de.lknr: 21 024
-        source: src.de.Bfv.1933
-    -   date: c1940
-        de.rang: II
-        source: src.de.Bfv.1944
     -   date: !!null
         de.DS100: HHSB
-        de.dstnr: !!str 210245
         source: src.de.DBAG.BSV.2017
     -   date: !!null
-        de.name16: Hasbergen/Osnabr
-        PLC: DE14605
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.2200: 109,10
-        source: src.de.DRG.Mst.1946
-    -   date: c2000
         location:
             line.de.2200: 109,103
         source: src.de.DBAG.Geo-Betriebsstelle.2017
@@ -2377,6 +3567,49 @@ events:
         connection: point.de.Hasbergen-Georgsm
         site:
             path.de.2200: has
+records:
+    -   document: src.de.Bfv.1928
+        name: Hasbergen (Kr Osnabrück)
+        de.dstnr: !!str 21 016
+    -   document: src.de.Bfv.1933
+        name: Hasbergen (Kr Osnabrück)
+        category: de.Bf
+        de.rang: III
+        de.dstnr: !!str 21 024
+    -   document:
+            -   src.de.Bfv.1938
+            -   src.de.Bfv.1944
+        name: Hasbergen (Kr Osnabrück)
+        category: de.Bf
+        de.rang: II
+        de.dstnr: !!str 21 024
+    -   document:
+            -   src.de.DRG.Mst.1946
+            -   src.de.DB.Han.1983
+        name: Hasbergen (Kr Osnabrück)
+        category: de.Bf
+        location:
+            line.de.2200: 109,10
+
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 210245
+        de.DS100: HHSB
+        name: Hasbergen (Kr Osnabrück)
+        category: de.Bf
+
+    -   document: src.de.DBAG.BSV.2017
+        de.DS100: HHSB
+        name: Hasbergen (Kr Osnabrück)
+        de.name16: Hasbergen/Osnabr
+        category: de.Bf
+        PLC: DE14605
+        de.dstnr: !!str 210245
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        de.DS100: HHSB
+        name: Hasbergen (Kr Osnabrück)
+        category: de.Bf
+        location:
+            line.de.2200: 109,1+3
 
 
 ---
@@ -2395,14 +3628,18 @@ events:
     -   date: !!null
         site:
             path.de.2200: hel
+records:
+    -   document: src.de.DRG.Mst.1946
+        location:
+            line.de.2200: 111,76
+        category: de.Bk
+        name: Hellern
 
 
 ---
 key: point.de.Hörne
 type: point
 events:
-    -   date: c1960
-        status: open
     -   date: !!null
         name: Hörne
         category: de.Bf
@@ -2410,19 +3647,8 @@ events:
         source: src.de.DB.Han.1983
     -   date: !!null
         de.DS100: HHRN
-        de.dstnr: !!str 211888
         source: src.de.DBAG.BSV.2017
     -   date: !!null
-        de.name16: Hörne
-        PLC: DE15105
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.2200: 114,29
-            line.de.2950:  49,53
-        source: src.de.DB.Han.1983
-    -   date: c2000
         location:
             line.de.2200: 114,290
             line.de.2950:  49,521
@@ -2431,6 +3657,40 @@ events:
     -   date: !!null
         site:
             path.de.2200: hor
+records:
+    -   document: src.de.DRG.Mst.1946
+        name: Hörne
+        category: de.Bf
+        service: none
+        note: Stw. Hw 114,09; Stw. Ho 115,26
+
+    -   document: src.de.DB.Han.1983
+        name: Hörne
+        category: de.Bf
+        service: none
+        location:
+            line.de.2200: 114,29
+            line.de.2950:  49,53
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 211888
+        name: Hörne
+        de.DS100: HHRN
+        category: de.Bf
+
+    -   document: src.de.DBAG.BSV.2017
+        de.DS100: HHRN
+        name: Hörne
+        de.name16: Hörne
+        category: de.Bf
+        de.dstnr: !!str 211888
+        PLC: DE15105
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        de.DS100: HHRN
+        name: Hörne
+        category: de.Bf
+        location:
+            line.de.2200: 114,2+90
+            line.de.2950:  49,5+21
 
 
 ---
@@ -2440,19 +3700,30 @@ events:
     -   date: !!null
         name: Osnabrück Hbf Po
         category: de.Bft
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.DS100: "HO  O"
-        de.dstnr: !!str 909006
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Osnabrück Hbf Po
-        PLC: DE18152
         source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
             path.de.2200: osn
+records:
+    -   document: src.de.DB.Han.1983
+        location:
+            line.de.2200: 117,71
+            line.de.2950:  52,94
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 210252
+        name: Osnabrück Hbf Po
+        de.DS100: "HO  O"
+        category: de.Glgr
+
+    -   document: src.de.DBAG.BSV.2017
+        name: Osnabrück Hbf Po
+        category: de.Bft
+        de.DS100: "HO  O"
+        de.dstnr: !!str 909006
+        de.name16: Osnabrück Hbf Po
+        PLC: DE18152
 
 
 ---
@@ -2462,34 +3733,13 @@ events:
     -   date: !!null
         name: Osnabrück Hbf
         source: src.de.Kb.1914
-
     -   date: !!null
         category: de.Bf
-        de.rang: I
-        source: src.de.Bfv.1933
-
-    -   date: !!null
-        de.lknr: 21 018
-        source: src.de.Bfv.1928
-    -   date: de.lknr.30
-        de.lknr: 21 025
         source: src.de.Bfv.1933
     -   date: !!null
         de.DS100: HO
-        de.dstnr: !!str 210252
         source: src.de.DBAG.BSV.2017
     -   date: !!null
-        de.name16: Osnabrück Hbf
-        PLC: DE18151
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.2200: 117,71
-            line.de.2950:  52,94
-            line.de.2992: 132,39
-        source: src.de.DRG.Mst.1946
-    -   date: c2000
         location:
             line.de.1600:   0,000
             line.de.2200: 117,711
@@ -2500,6 +3750,52 @@ events:
     -   date: !!null
         site:
             path.de.2200: osn
+records:
+    -   document: src.de.Bfv.1928
+        name: Osnabrück Hbf
+        de.lknr: 21 018
+    -   document:
+            -   src.de.Bfv.1933
+            -   src.de.Bfv.1938
+            -   src.de.Bfv.1944
+        name: Osnabrück Hbf
+        category: de.Bf
+        de.rang: I
+        de.lknr: 21 025
+    -   document: src.de.DRG.Mst.1946
+        name: Osnabrück Hbf
+        category: de.Bf
+        de.rang: I
+        location:
+            line.de.2200: 117,71
+            line.de.2992: 132,39
+
+    -   document: src.de.DB.Han.1983
+        name: Osnabrück Hbf
+        category: de.Bf
+        location:
+            line.de.2992: 132,39
+            line.de.2200: 117,71
+            line.de.2950:  52,94
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 210252
+        name: Osnabrück Hbf
+        de.DS100: HO
+        category: de.Bf
+
+    -   document: src.de.DBAG.BSV.2017
+        de.DS100: HO
+        name: Osnabrück Hbf
+        de.name16: Osnabrück Hbf
+        category: de.Bf
+        PLC: DE18151
+        de.dstnr: !!str 210252
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        location:
+            line.de.1600:   0,0+0
+            line.de.2200: 117,7+11
+            line.de.2950:  52,9+43
+            line.de.2992: 132,3+94
 
 
 ---
@@ -2509,20 +3805,25 @@ events:
     -   date: !!null
         name: Osnabrück Hbf Schinkel
         category: de.Bft
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.DS100: "HO  S"
-        de.dstnr: !!str 909008
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Osn Hbf Schinkel
-        PLC: DE18154
         source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
             path.de.2200: oss
-
+records:
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 210252
+        name: Osnabrück Hbf Schinkel
+        de.DS100: "HO  S"
+        category: de.Glgr
+    -   document: src.de.DBAG.BSV.2017
+        name: Osnabrück Hbf Schinkel
+        category: de.Bft
+        de.DS100: "HO  S"
+        de.dstnr: !!str 909008
+        de.name16: Osn Hbf Schinkel
+        PLC: DE18154
 
 
 ---
@@ -2530,21 +3831,23 @@ key: point.de.Osnabrück-Hbf-Klus
 type: point
 events:
     -   date: !!null
+        de.dstnr: !!str 210252
         name: Osnabrück Hbf Klus
         de.DS100: "HO  K"
-        source: src.de.TPP.2006
-    -   date: !!null
-        location:
-            line.de.2200: 118,5
-        category: de.Bft
-        master: point.de.Osnabrück-Hbf
+        category: de.Abzw
+        source: src.de.DS100.1984
     -   date: c2010
         status: closed
 
     -   date: !!null
         site:
             path.de.2200: osk
-
+records:
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 210252
+        name: Osnabrück Hbf Klus
+        de.DS100: "HO  K"
+        category: de.Abzw
 
 
 ---
@@ -2554,19 +3857,26 @@ events:
     -   date: !!null
         name: Osnabrück Hbf Vorbahnhof
         category: de.Bft
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
         de.DS100: "HO  N"
-        de.dstnr: !!str 909004
-        source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Osn Hbf Vorbf
-        PLC: DE18155
         source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
             path.de.2200: osv
+records:
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 210252
+        name: Osnabrück Vorbahnhof (Nord)
+        de.DS100: "HO  N"
+        category: de.Glgr
+
+    -   document: src.de.DBAG.BSV.2017
+        name: Osnabrück Hbf Vorbahnhof
+        category: de.Bft
+        de.DS100: "HO  N"
+        de.dstnr: !!str 909004
+        de.name16: Osn Hbf Vorbf
+        PLC: DE18155
 
 
 ---
@@ -2585,6 +3895,12 @@ events:
     -   date: !!null
         site:
             path.de.2200: sik
+records:
+    -   document: src.de.DRG.Mst.1946
+        location:
+            line.de.2200: 120,90
+        category: de.Bk
+        name: Schinkel
 
 
 ---
@@ -2603,6 +3919,12 @@ events:
     -   date: !!null
         site:
             path.de.2200: pow
+records:
+    -   document: src.de.DRG.Mst.1946
+        location:
+            line.de.2200: 122,75
+        category: de.Bk
+        name: Powe
 
 
 ---
@@ -2612,37 +3934,19 @@ events:
     -   date: !!null
         name: Belm
         source: src.de.Kb.1914
-
     -   date: !!null
-        service: passenger
+        goods: none
         source: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
-        de.rang: III
         source: src.de.Bfv.1933
     -   date: c1965
         service: none
-
-    -   date: !!null
-        de.lknr: 21 262
-        source: src.de.Bfv.1928
-    -   date: de.lknr.30
-        de.lknr: 21 035
-        source: src.de.Bfv.1933
+        source: src.de.DB.Han.1983
     -   date: !!null
         de.DS100: HBEM
-        de.dstnr: !!str 210351
         source: src.de.DBAG.BSV.2017
     -   date: !!null
-        de.name16: Belm
-        PLC: DE10759
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.2200: 124,81
-        source: src.de.DRG.Mst.1946
-    -   date: c2000
         location:
             line.de.2200: 124,811
         source: src.de.DBAG.Geo-Betriebsstelle.2017
@@ -2650,6 +3954,52 @@ events:
     -   date: !!null
         site:
             path.de.2200: bel
+records:
+    -   document: src.de.Bfv.1928
+        name: Belm
+        de.lknr: 21 262
+        goods: none
+    -   document:
+            -   src.de.Bfv.1933
+            -   src.de.Bfv.1938
+            -   src.de.Bfv.1944
+        name: Belm
+        category: de.Bf
+        de.rang: III
+        de.lknr: 21 035
+        goods: none
+    -   document: src.de.DRG.Mst.1946
+        name: Belm
+        category: de.Bf
+        de.rang: III
+        location:
+            line.de.2200: 124,81
+
+    -   document: src.de.DB.Han.1983
+        name: Belm
+        category: de.Bf
+        service: none
+        location:
+            line.de.2200: 124,81
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 210351
+        name: Belm
+        de.DS100: HBEM
+        category: de.Bf
+
+    -   document: src.de.DBAG.BSV.2017
+        de.DS100: HBEM
+        name: Belm
+        de.name16: Belm
+        category: de.Bf
+        PLC: DE10759
+        de.dstnr: !!str 210351
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        de.DS100: HBEM
+        name: Belm
+        category: de.Bf
+        location:
+            line.de.2200: 124,8+11
 
 
 ---
@@ -2668,6 +4018,12 @@ events:
     -   date: !!null
         site:
             path.de.2200: wit
+records:
+    -   document: src.de.DRG.Mst.1946
+        location:
+            line.de.2200: 127,00
+        category: de.Bk
+        name: Wittekind
 
 
 ---
@@ -2677,34 +4033,16 @@ events:
     -   date: !!null
         name: Vehrte
         source: src.de.Kb.1914
-
     -   date: !!null
         category: de.Bf
-        de.rang: III
         source: src.de.Bfv.1933
     -   date: c1965
-        service: goods
-
-    -   date: !!null
-        de.lknr: 21 020
-        source: src.de.Bfv.1928
-    -   date: de.lknr.30
-        de.lknr: 21 036
-        source: src.de.Bfv.1933
+        passenger: none
+        source: src.de.DB.Han.1983
     -   date: !!null
         de.DS100: HVEH
-        de.dstnr: !!str 210369
         source: src.de.DBAG.BSV.2017
     -   date: !!null
-        de.name16: Vehrte
-        PLC: DE20568
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.2200: 128,35
-        source: src.de.DRG.Mst.1946
-    -   date: c2000
         location:
             line.de.2200: 128,350
         source: src.de.DBAG.Geo-Betriebsstelle.2017
@@ -2712,6 +4050,50 @@ events:
     -   date: !!null
         site:
             path.de.2200: veh
+records:
+    -   document: src.de.Bfv.1928
+        name: Vehrte
+        de.lknr: 21 020
+    -   document:
+            -   src.de.Bfv.1933
+            -   src.de.Bfv.1938
+            -   src.de.Bfv.1944
+        name: Vehrte
+        de.lknr: 21 036
+        category: de.Bf
+        de.rang: III
+    -   document: src.de.DRG.Mst.1946
+        name: Vehrte
+        category: de.Bf
+        de.rang: III
+        location:
+            line.de.2200: 128,35
+
+    -   document: src.de.DB.Han.1983
+        name: Vehrte
+        category: de.Bf
+        passenger: none
+        location:
+            line.de.2200: 128,35
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 210369
+        name: Vehrte
+        de.DS100: HVEH
+        category: de.Bf
+
+    -   document: src.de.DBAG.BSV.2017
+        de.DS100: HVEH
+        name: Vehrte
+        de.name16: Vehrte
+        category: de.Bf
+        PLC: DE20568
+        de.dstnr: !!str 210369
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        de.DS100: HVEH
+        name: Vehrte
+        category: de.Bf
+        location:
+            line.de.2200: 128,3+50
 
 
 ---
@@ -2730,6 +4112,12 @@ events:
     -   date: !!null
         site:
             path.de.2200: tan
+records:
+    -   document: src.de.DRG.Mst.1946
+        location:
+            line.de.2200: 130,29
+        category: de.Bk
+        name: Tannenberg
 
 
 ---
@@ -2748,6 +4136,12 @@ events:
     -   date: !!null
         site:
             path.de.2200: kre
+records:
+    -   document: src.de.DRG.Mst.1946
+        location:
+            line.de.2200: 131,35
+        category: de.Bk
+        name: Krebsburg
 
 
 ---
@@ -2757,31 +4151,19 @@ events:
     -   date: !!null
         name: Ostercappeln
         source: src.de.Kb.1914
-
     -   date: !!null
         category: de.Bf
-        de.rang: III
         source: src.de.Bfv.1933
     -   date: c1965
         service: goods
-
-    -   date: !!null
-        de.lknr: 21 037
-        source: src.de.Bfv.1933
     -   date: !!null
         de.DS100: HOSC
-        de.dstnr: !!str 210377
         source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Ostercappeln
-        PLC: DE18169
-        source: src.de.DBAG.BSV.2017
-
     -   date: !!null
         location:
             line.de.2200: 134,42
         source: src.de.DRG.Mst.1946
-    -   date: c2000
+    -   date: c1965
         location:
             line.de.2200: 134,414
         source: src.de.DBAG.Geo-Betriebsstelle.2017
@@ -2789,6 +4171,51 @@ events:
     -   date: !!null
         site:
             path.de.2200: ost
+records:
+    -   document: src.de.Bfv.1928
+        name: Ostercappeln
+        de.lknr: 21 021
+    -   document:
+            -   src.de.Bfv.1933
+            -   src.de.Bfv.1938
+            -   src.de.Bfv.1944
+        name: Ostercappeln
+        category: de.Bf
+        de.rang: III
+        de.lknr: 21 037
+    -   document: src.de.DRG.Mst.1946
+        name: Ostercappeln
+        category: de.Bf
+        de.rang: III
+        location:
+            line.de.2200: 134,42
+
+    -   document: src.de.DB.Han.1983
+        name: Ostercappeln
+        category: de.Bf
+        de.rang: III
+        passenger: none
+        location:
+            line.de.2200: 134,41
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 210377
+        name: Ostercappeln
+        de.DS100: HOSC
+        category: de.Bf
+
+    -   document: src.de.DBAG.BSV.2017
+        de.DS100: HOSC
+        name: Ostercappeln
+        de.name16: Ostercappeln
+        category: de.Bf
+        PLC: DE18169
+        de.dstnr: !!str 210377
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        de.DS100: HOSC
+        name: Ostercappeln
+        category: de.Bf
+        location:
+            line.de.2200: 134,4+14
 
 
 ---
@@ -2807,6 +4234,12 @@ events:
     -   date: !!null
         site:
             path.de.2200: oel
+records:
+    -   document: src.de.DRG.Mst.1946
+        location:
+            line.de.2200: 137,26
+        category: de.Bk
+        name: Oelingen
 
 
 ---
@@ -2825,6 +4258,12 @@ events:
     -   date: !!null
         site:
             path.de.2200: weh
+records:
+    -   document: src.de.DRG.Mst.1946
+        location:
+            line.de.2200: 139,67
+        category: de.Bk
+        name: Wehrendorf
 
 
 ---
@@ -2837,32 +4276,13 @@ events:
     -   date: c1920
         name: Bohmte
         source: src.de.Bfv.1928
-
     -   date: !!null
         category: de.Bf
-        de.rang: II
-        source: src.de.Bfv.1933
-
-    -   date: !!null
-        de.lknr: 21 022
-        source: src.de.Bfv.1928
-    -   date: de.lknr.30
-        de.lknr: 21 038
         source: src.de.Bfv.1933
     -   date: !!null
         de.DS100: HBOM
-        de.dstnr: !!str 210385
         source: src.de.DBAG.BSV.2017
     -   date: !!null
-        de.name16: Bohmte
-        PLC: DE11440
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.2200: 142,06
-        source: src.de.DRG.Mst.1946
-    -   date: c2000
         location:
             line.de.2200: 142,056
         source: src.de.DBAG.Geo-Betriebsstelle.2017
@@ -2871,6 +4291,49 @@ events:
         connection: point.de.Bohmte-Ost
         site:
             path.de.2200: boh
+records:
+    -   document: src.de.Bfv.1928
+        name: Bohmte
+        de.lknr: 21 022
+    -   document:
+            -   src.de.Bfv.1933
+            -   src.de.Bfv.1938
+            -   src.de.Bfv.1944
+        name: Bohmte
+        de.lknr: 21 038
+        category: de.Bf
+        de.rang: II
+    -   document: src.de.DRG.Mst.1946
+        name: Bohmte
+        category: de.Bf
+        de.rang: II
+        location:
+            line.de.2200: 142,06
+
+    -   document: src.de.DB.Han.1983
+        name: Bohmte
+        category: de.Bf
+        location:
+            line.de.2200: 142,06
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 210385
+        name: Bohmte
+        de.DS100: HBOM
+        category: de.Bf
+
+    -   document: src.de.DBAG.BSV.2017
+        de.DS100: HBOM
+        name: Bohmte
+        de.name16: Bohmte
+        category: de.Bf
+        PLC: DE11440
+        de.dstnr: !!str 210385
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        de.DS100: HBOM
+        name: Bohmte
+        category: de.Bf
+        location:
+            line.de.2200: 142,0+56
 
 
 ---
@@ -2889,6 +4352,12 @@ events:
     -   date: !!null
         site:
             path.de.2200: gra
+records:
+    -   document: src.de.DRG.Mst.1946 
+        location:
+            line.de.2200: 144,78
+        category: de.Bk
+        name: Gräfte
 
 
 ---
@@ -2907,6 +4376,12 @@ events:
     -   date: !!null
         site:
             path.de.2200: mey
+records:
+    -   document: src.de.DRG.Mst.1946 
+        location:
+            line.de.2200: 146,60
+        category: de.Bk
+        name: Meyerhöfen
 
 
 ---
@@ -2917,15 +4392,20 @@ events:
     -   date: !!null
         de.DS100: HQBO
         name: Bohmte NI/NRW
-        de.name16: Bohmte NI/NRW
         category: de.LGr
-        PLC: DE11441
-        de.dstnr: !!str 103990
         source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
             path.de.2200: gboh
+records:
+    -   document: src.de.DBAG.BSV.2017
+        de.DS100: HQBO
+        name: Bohmte NI/NRW
+        de.name16: Bohmte NI/NRW
+        category: de.LGr
+        PLC: DE11441
+        de.dstnr: !!str 103990
 
 
 ---
@@ -2946,13 +4426,7 @@ events:
         service: none
     -   date: !!null
         de.DS100: HDRO
-        de.dstnr: !!str 211839
         source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Drohne
-        PLC: DE12495
-        source: src.de.DBAG.BSV.2017
-
     -   date: !!null
         location:
             line.de.2200: 149,35
@@ -2964,7 +4438,42 @@ events:
 
     -   date: !!null
         site:
+            path.de.2200: dro.alt
+    -   date: c1970
+        site:
             path.de.2200: dro
+records:
+    -   document: src.de.DRG.Mst.1946
+        name: Drohne
+        category: de.Kr
+        location:
+            line.de.2200: 149,35
+
+    -   document: src.de.DB.Han.1983
+        name: Drohne
+        category: de.Bf
+        service: none
+        location:
+            line.de.2200: 148,53
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 211839
+        name: Drohne
+        de.DS100: HDRO
+        category: de.Bf
+
+    -   document: src.de.DBAG.BSV.2017
+        de.DS100: HDRO
+        name: Drohne
+        de.name16: Drohne
+        category: de.Bf
+        PLC: DE12495
+        de.dstnr: !!str 211839
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        de.DS100: HDRO
+        name: Drohne
+        category: de.Bf
+        location:
+            line.de.2200: 148,5+27
 
 
 ---
@@ -2983,6 +4492,12 @@ events:
     -   date: !!null
         site:
             path.de.2200: dil
+records:
+    -   document: src.de.DRG.Mst.1946
+        location:
+            line.de.2200: 151,38
+        category: de.Bk
+        name: Dielingen
 
 
 ---
@@ -2993,15 +4508,20 @@ events:
     -   date: !!null
         de.DS100: HQLM
         name: Lemförde NI/NRW
-        de.name16: Lemförde NI/NRW
         category: de.LGr
-        PLC: DE16289
-        de.dstnr: !!str 103991
         source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
             path.de.2200: glem
+records:
+    -   document: src.de.DBAG.BSV.2017
+        de.DS100: HQLM
+        name: Lemförde NI/NRW
+        de.name16: Lemförde NI/NRW
+        category: de.LGr
+        PLC: DE16289
+        de.dstnr: !!str 103991
 
 
 ---
@@ -3011,35 +4531,17 @@ events:
     -   date: !!null
         name: Lemförde
         source: src.de.Kb.1914
-
     -   date: !!null
         category: de.Bf
-        de.rang: III
-        source: src.de.Bfv.1933
-    -   date: c1940
-        de.rang: II
-        source: src.de.Bfv.1944
-
-    -   date: !!null
-        de.lknr: 21 023
-        source: src.de.Bfv.1928
-    -   date: de.lknr.30
-        de.lknr: 21 039
         source: src.de.Bfv.1933
     -   date: !!null
         de.DS100: HLMF
-        de.dstnr: !!str 210393
         source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Lemförde
-        PLC: DE16288
-        source: src.de.DBAG.BSV.2017
-
     -   date: !!null
         location:
             line.de.2200: 153,85
         source: src.de.DRG.Mst.1946
-    -   date: !!null
+    -   date: c2000
         location:
             line.de.2200: 153,919
         source: src.de.DBAG.Geo-Betriebsstelle.2017
@@ -3047,6 +4549,53 @@ events:
     -   date: !!null
         site:
             path.de.2200: lem
+records:
+    -   document: src.de.Bfv.1928
+        name: Lemförde
+        de.lknr: 21 023
+    -   document:
+            -   src.de.Bfv.1933
+            -   src.de.Bfv.1938
+        name: Lemförde
+        category: de.Bf
+        de.rang: III
+        de.lknr: 21 039
+    -   document: src.de.Bfv.1944
+        name: Lemförde
+        category: de.Bf
+        de.rang: II
+        de.lknr: 21 039
+    -   document: src.de.DRG.Mst.1946
+        name: Lemförde
+        category: de.Bf
+        de.rang: II
+        location:
+            line.de.2200: 153,85
+
+    -   document: src.de.DB.Han.1983
+        name: Lemförde
+        category: de.Bf
+        location:
+            line.de.2200: 153,86
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 210393
+        name: Lemförde
+        de.DS100: HLMF
+        category: de.Bf
+
+    -   document: src.de.DBAG.BSV.2017
+        de.DS100: HLMF
+        name: Lemförde
+        de.name16: Lemförde
+        category: de.Bf
+        PLC: DE16288
+        de.dstnr: !!str 210393
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        de.DS100: HLMF
+        name: Lemförde
+        category: de.Bf
+        location:
+            line.de.2200: 153,9+19
 
 
 ---
@@ -3065,6 +4614,12 @@ events:
     -   date: !!null
         site:
             path.de.2200: mar
+records:
+    -   document: src.de.DRG.Mst.1946
+        location:
+            line.de.2200: 156,05
+        category: de.Bk
+        name: Marl
 
 
 ---
@@ -3083,6 +4638,12 @@ events:
     -   date: !!null
         site:
             path.de.2200: san
+records:
+    -   document: src.de.DRG.Mst.1946
+        location:
+            line.de.2200: 159,19
+        category: de.Bk
+        name: Sandbrink
 
 
 ---
@@ -3092,34 +4653,15 @@ events:
     -   date: !!null
         name: Lembruch
         source: src.de.Kb.1914
-
     -   date: !!null
         category: de.Bf
-        de.rang: III
         source: src.de.Bfv.1933
-    -   date: c1980
+    -   date: c1990
         service: goods
-
-    -   date: !!null
-        de.lknr: 21 024
-        source: src.de.Bfv.1928
-    -   date: de.lknr.30
-        de.lknr: 21 040
-        source: src.de.Bfv.1933
     -   date: !!null
         de.DS100: HLMB
-        de.dstnr: !!str 210401
         source: src.de.DBAG.BSV.2017
     -   date: !!null
-        de.name16: Lembruch
-        PLC: DE16287
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.2200: 160,96
-        source: src.de.DRG.Mst.1946
-    -   date: c2000
         location:
             line.de.2200: 160,956
         source: src.de.DBAG.Geo-Betriebsstelle.2017
@@ -3127,6 +4669,49 @@ events:
     -   date: !!null
         site:
             path.de.2200: leb
+records:
+    -   document: src.de.Bfv.1928
+        name: Lembruch
+        de.lknr: 21 024
+    -   document:
+            -   src.de.Bfv.1933
+            -   src.de.Bfv.1938
+            -   src.de.Bfv.1944
+        name: Lembruch
+        de.lknr: 21 040
+        category: de.Bf
+        de.rang: III
+    -   document: src.de.DRG.Mst.1946
+        name: Lembruch
+        category: de.Bf
+        de.rang: III
+        location:
+            line.de.2200: 160,96
+
+    -   document: src.de.DB.Han.1983
+        name: Lembruch
+        category: de.Bf
+        location:
+            line.de.2200: 160,96
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 210401
+        name: Lembruch
+        de.DS100: HLMB
+        category: de.Bf
+
+    -   document: src.de.DBAG.BSV.2017
+        de.DS100: HLMB
+        name: Lembruch
+        de.name16: Lembruch
+        category: de.Bf
+        PLC: DE16287
+        de.dstnr: !!str 210401
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        de.DS100: HLMB
+        name: Lembruch
+        category: de.Bf
+        location:
+            line.de.2200: 160,9+56
 
 
 ---
@@ -3145,6 +4730,12 @@ events:
     -   date: !!null
         site:
             path.de.2200: hun
+records:
+    -   document: src.de.DRG.Mst.1946
+        location:
+            line.de.2200: 163,53
+        category: de.Bk
+        name: Hunte
 
 
 ---
@@ -3153,7 +4744,7 @@ type: point
 events:
     -   date: !!null
         location:
-            line.de.2200: 165,9
+            line.de.2200: 165,90
         category: de.Bk
         name: Graftlage
         source: src.de.DRG.Mst.1946
@@ -3163,6 +4754,12 @@ events:
     -   date: !!null
         site:
             path.de.2200: grl
+records:
+    -   document: src.de.DRG.Mst.1946
+        location:
+            line.de.2200: 165,9
+        category: de.Bk
+        name: Graftlage
 
 
 ---
@@ -3172,36 +4769,13 @@ events:
     -   date: !!null
         name: Diepholz
         source: src.de.Kb.1914
-
     -   date: !!null
         category: de.Bf
-        de.rang: II
-        source: src.de.Bfv.1933
-    -   date: c1940
-        de.rang: I
-        source: src.de.Bfv.1944
-
-    -   date: !!null
-        de.lknr: 21 025
-        source: src.de.Bfv.1928
-    -   date: de.lknr.30
-        de.lknr: 21 041
         source: src.de.Bfv.1933
     -   date: !!null
         de.DS100: HDIP
-        de.dstnr: !!str 210419
         source: src.de.DBAG.BSV.2017
     -   date: !!null
-        de.name16: Diepholz
-        PLC: DE12187
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.1744: 61,45
-            line.de.2200: 170,29
-        source: src.de.DRG.Mst.1946
-    -   date: c2000
         location:
             line.de.1744:  61,450
             line.de.2200: 170,255
@@ -3210,6 +4784,56 @@ events:
     -   date: !!null
         site:
             path.de.2200: die
+records:
+    -   document: src.de.Bfv.1928
+        name: Diepholz
+        de.lknr: 21 025
+    -   document:
+            -   src.de.Bfv.1933
+            -   src.de.Bfv.1938
+        name: Diepholz
+        category: de.Bf
+        de.rang: II
+        de.lknr: 21 041
+    -   document: src.de.Bfv.1944
+        name: Diepholz
+        category: de.Bf
+        de.rang: I
+        de.lknr: 21 041
+    -   document: src.de.DRG.Mst.1946
+        name: Diepholz
+        category: de.Bf
+        de.rang: I
+        location:
+            line.de.1744: 61,45
+            line.de.2200: 170,29
+
+    -   document: src.de.DB.Han.1983
+        name: Diepholz
+        category: de.Bf
+        location:
+            line.de.1744: 61,45
+            line.de.2200: 170,26
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 210419
+        name: Diepholz
+        de.DS100: HDIP
+        category: de.Bf
+
+    -   document: src.de.DBAG.BSV.2017
+        de.DS100: HDIP
+        name: Diepholz
+        de.name16: Diepholz
+        category: de.Bf
+        PLC: DE12187
+        de.dstnr: !!str 210419
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        de.DS100: HDIP
+        name: Diepholz
+        category: de.Bf
+        location:
+            line.de.1744:  61,4+50
+            line.de.2200: 170,2+55
 
 
 ---
@@ -3228,6 +4852,12 @@ events:
     -   date: !!null
         site:
             path.de.2200: sth
+records:
+    -   document: src.de.DRG.Mst.1946
+        location:
+            line.de.2200: 172,82
+        category: de.Bk
+        name: St Hülfe
 
 
 ---
@@ -3246,6 +4876,12 @@ events:
     -   date: !!null
         site:
             path.de.2200: spe
+records:
+    -   document: src.de.DRG.Mst.1946
+        location:
+            line.de.2200: 172,82
+        category: de.Bk
+        name: St Hülfe
 
 
 ---
@@ -3255,34 +4891,15 @@ events:
     -   date: !!null
         name: Drebber
         source: src.de.Kb.1914
-
     -   date: !!null
         category: de.Bf
-        de.rang: III
         source: src.de.Bfv.1933
-    -   date: c1980
+    -   date: c1990
         service: goods
-
-    -   date: !!null
-        de.lknr: 21 026
-        source: src.de.Bfv.1928
-    -   date: de.lknr.30
-        de.lknr: 21 042
-        source: src.de.Bfv.1933
     -   date: !!null
         de.DS100: HDRB
-        de.dstnr: !!str 210427
         source: src.de.DBAG.BSV.2017
     -   date: !!null
-        de.name16: Drebber
-        PLC: DE12430
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.2200: 177,90
-        source: src.de.DRG.Mst.1946
-    -   date: c2000
         location:
             line.de.2200: 177,902
         source: src.de.DBAG.Geo-Betriebsstelle.2017
@@ -3290,6 +4907,49 @@ events:
     -   date: !!null
         site:
             path.de.2200: dre
+records:
+    -   document: src.de.Bfv.1928
+        name: Drebber
+        de.lknr: 21 026
+    -   document:
+            -   src.de.Bfv.1933
+            -   src.de.Bfv.1938
+            -   src.de.Bfv.1944
+        name: Drebber
+        de.lknr: 21 042
+        category: de.Bf
+        de.rang: III
+    -   document: src.de.DRG.Mst.1946
+        name: Drebber
+        category: de.Bf
+        de.rang: III
+        location:
+            line.de.2200: 177,90
+
+    -   document: src.de.DB.Han.1983
+        name: Drebber
+        category: de.Bf
+        location:
+            line.de.2200: 177,90
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 210427
+        name: Drebber
+        de.DS100: HDRB
+        category: de.Bf
+
+    -   document: src.de.DBAG.BSV.2017
+        de.DS100: HDRB
+        name: Drebber
+        de.name16: Drebber
+        category: de.Bf
+        PLC: DE12430
+        de.dstnr: !!str 210427
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        de.DS100: HDRB
+        name: Drebber
+        category: de.Bf
+        location:
+            line.de.2200: 177,9+2
 
 
 ---
@@ -3308,6 +4968,12 @@ events:
     -   date: !!null
         site:
             path.de.2200: drk
+records:
+    -   document: src.de.DRG.Mst.1946
+        location:
+            line.de.2200: 180,29
+        category: de.Bk
+        name: Dreeke
 
 
 ---
@@ -3326,6 +4992,12 @@ events:
     -   date: !!null
         site:
             path.de.2200: ret
+records:
+    -   document: src.de.DRG.Mst.1946
+        location:
+            line.de.2200: 181,60
+        category: de.Bk
+        name: Rechtern
 
 
 ---
@@ -3335,32 +5007,13 @@ events:
     -   date: !!null
         name: Barnstorf (Han)
         source: src.de.Kb.1914
-
     -   date: !!null
         category: de.Bf
-        de.rang: III
-        source: src.de.Bfv.1933
-
-    -   date: !!null
-        de.lknr: 21 027
-        source: src.de.Bfv.1928
-    -   date: de.lknr.30
-        de.lknr: 21 043
         source: src.de.Bfv.1933
     -   date: !!null
         de.DS100: HBNF
-        de.dstnr: !!str 210435
         source: src.de.DBAG.BSV.2017
     -   date: !!null
-        de.name16: Barnstorf (Han)
-        PLC: DE10639
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.2200: 184,71
-        source: src.de.DRG.Mst.1946
-    -   date: c2000
         location:
             line.de.2200: 184,721
         source: src.de.DBAG.Geo-Betriebsstelle.2017
@@ -3368,6 +5021,49 @@ events:
     -   date: !!null
         site:
             path.de.2200: bar
+records:
+    -   document: src.de.Bfv.1928
+        name: Barnstorf (Han)
+        de.lknr: 21 027
+    -   document:
+            -   src.de.Bfv.1933
+            -   src.de.Bfv.1938
+            -   src.de.Bfv.1944
+        name: Barnstorf (Han)
+        category: de.Bf
+        de.rang: III
+        de.lknr: 21 043
+    -   document: src.de.DRG.Mst.1946
+        name: Barnstorf (Han)
+        category: de.Bf
+        de.rang: III
+        location:
+            line.de.2200: 184,71
+
+    -   document: src.de.DB.Han.1983
+        name: Barnstorf (Han)
+        category: de.Bf
+        location:
+            line.de.2200: 184,72
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 210435
+        name: Barnstorf (Han)
+        de.DS100: HBNF
+        category: de.Bf
+
+    -   document: src.de.DBAG.BSV.2017
+        de.DS100: HBNF
+        name: Barnstorf (Han)
+        de.name16: Barnstorf (Han)
+        category: de.Bf
+        PLC: DE10639
+        de.dstnr: !!str 210435
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        de.DS100: HBNF
+        name: Barnstorf (Han)
+        category: de.Bf
+        location:
+            line.de.2200: 184,7+21
 
 
 ---
@@ -3386,6 +5082,12 @@ events:
     -   date: !!null
         site:
             path.de.2200: smo
+records:
+    -   document: src.de.DRG.Mst.1946
+        location:
+            line.de.2200: 187,78
+        category: de.Bk
+        name: Schmolle
 
 
 ---
@@ -3395,34 +5097,15 @@ events:
     -   date: !!null
         name: Drentwede
         source: src.de.Kb.1914
-
     -   date: !!null
         category: de.Bf
-        de.rang: III
         source: src.de.Bfv.1933
-    -   date: c1980
-        service: goods
-
-    -   date: !!null
-        de.lknr: 21 028
-        source: src.de.Bfv.1928
-    -   date: de.lknr.30
-        de.lknr: 21 044
-        source: src.de.Bfv.1933
+    -   date: c1900
+        passenger: none
     -   date: !!null
         de.DS100: HDRE
-        de.dstnr: !!str 210443
         source: src.de.DBAG.BSV.2017
     -   date: !!null
-        de.name16: Drentwede
-        PLC: DE12446
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.2200: 190,67
-        source: src.de.DRG.Mst.1946
-    -   date: c2000
         location:
             line.de.2200: 190,665
         source: src.de.DBAG.Geo-Betriebsstelle.2017
@@ -3430,6 +5113,49 @@ events:
     -   date: !!null
         site:
             path.de.2200: drw
+records:
+    -   document: src.de.Bfv.1928
+        name: Drentwede
+        de.lknr: 21 028
+    -   document:
+            -   src.de.Bfv.1933
+            -   src.de.Bfv.1938
+            -   src.de.Bfv.1944
+        name: Drentwede
+        category: de.Bf
+        de.rang: III
+        de.lknr: 21 044
+    -   document: src.de.DRG.Mst.1946
+        name: Drentwede
+        category: de.Bf
+        de.rang: III
+        location:
+            line.de.2200: 190,67
+
+    -   document: src.de.DB.Han.1983
+        name: Drentwede
+        category: de.Bf
+        location:
+            line.de.2200: 190,67
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 210443
+        name: Drentwede
+        de.DS100: HDRE
+        category: de.Bf
+
+    -   document: src.de.DBAG.BSV.2017
+        de.DS100: HDRE
+        name: Drentwede
+        de.name16: Drentwede
+        category: de.Bf
+        PLC: DE12446
+        de.dstnr: !!str 210443
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        de.DS100: HDRE
+        name: Drentwede
+        category: de.Bf
+        location:
+            line.de.2200: 190,6+65
 
 
 ---
@@ -3448,6 +5174,12 @@ events:
     -   date: !!null
         site:
             path.de.2200: rid
+records:
+    -   document: src.de.DRG.Mst.1946
+        location:
+            line.de.2200: 193,80
+        category: de.Bk
+        name: Ridderade
 
 
 ---
@@ -3466,6 +5198,12 @@ events:
     -   date: !!null
         site:
             path.de.2200: bow
+records:
+    -   document: src.de.DRG.Mst.1946
+        location:
+            line.de.2200: 194,95
+        category: de.Bk
+        name: Borwede
 
 
 ---
@@ -3475,32 +5213,13 @@ events:
     -   date: !!null
         name: Twistringen
         source: src.de.Kb.1914
-
     -   date: !!null
         category: de.Bf
-        de.rang: II
-        source: src.de.Bfv.1933
-
-    -   date: !!null
-        de.lknr: 21 029
-        source: src.de.Bfv.1928
-    -   date: de.lknr.30
-        de.lknr: 21 045
         source: src.de.Bfv.1933
     -   date: !!null
         de.DS100: HT
-        de.dstnr: !!str 210450
         source: src.de.DBAG.BSV.2017
     -   date: !!null
-        de.name16: Twistringen
-        PLC: DE20405
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.2200: 197,83
-        source: src.de.DRG.Mst.1946
-    -   date: c2000
         location:
             line.de.2200: 197,836
         source: src.de.DBAG.Geo-Betriebsstelle.2017
@@ -3508,6 +5227,49 @@ events:
     -   date: !!null
         site:
             path.de.2200: twi
+records:
+    -   document: src.de.Bfv.1928
+        name: Twistringen
+        de.lknr: 21 029
+    -   document:
+            -   src.de.Bfv.1933
+            -   src.de.Bfv.1938
+            -   src.de.Bfv.1944
+        name: Twistringen
+        category: de.Bf
+        de.rang: II
+        de.lknr: 21 045
+    -   document: src.de.DRG.Mst.1946
+        name: Twistringen
+        category: de.Bf
+        de.rang: II
+        location:
+            line.de.2200: 197,83
+
+    -   document: src.de.DB.Han.1983
+        name: Twistringen
+        category: de.Bf
+        location:
+            line.de.2200: 197,84
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 210450
+        name: Twistringen
+        de.DS100: HT
+        category: de.Bf
+
+    -   document: src.de.DBAG.BSV.2017
+        de.DS100: HT
+        name: Twistringen
+        de.name16: Twistringen
+        category: de.Bf
+        PLC: DE20405
+        de.dstnr: !!str 210450
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        de.DS100: HT
+        name: Twistringen
+        category: de.Bf
+        location:
+            line.de.2200: 197,8+36
 
 
 ---
@@ -3526,6 +5288,12 @@ events:
     -   date: !!null
         site:
             path.de.2200: bin
+records:
+    -   document: src.de.DRG.Mst.1946
+        location:
+            line.de.2200: 200,90
+        category: de.Bk
+        name: Binghausen
 
 
 ---
@@ -3544,6 +5312,12 @@ events:
     -   date: !!null
         site:
             path.de.2200: nie
+records:
+    -   document: src.de.DRG.Mst.1946
+        location:
+            line.de.2200: 203,75
+        category: de.Bk
+        name: Nienhaus
 
 
 ---
@@ -3553,27 +5327,12 @@ events:
     -   date: !!null
         name: Bassum
         source: src.de.Kb.1914
-
     -   date: !!null
         category: de.Bf
-        de.rang: II
-        source: src.de.Bfv.1933
-
-    -   date: !!null
-        de.lknr: 21 030
-        source: src.de.Bfv.1928
-    -   date: de.lknr.30
-        de.lknr: 21 046
         source: src.de.Bfv.1933
     -   date: !!null
         de.DS100: HBAS
-        de.dstnr: !!str 210468
         source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Bassum
-        PLC: DE10674
-        source: src.de.DBAG.BSV.2017
-
     -   date: !!null
         location:
             line.de.2200: 206,79
@@ -3586,7 +5345,55 @@ events:
 
     -   date: !!null
         site:
+            path.de.2200: bas.alt
+    -   date: c2000
+        site:
             path.de.2200: bas
+records:
+    -   document: src.de.Bfv.1928
+        name: Bassum
+        de.lknr: 21 030
+    -   document:
+            -   src.de.Bfv.1933
+            -   src.de.Bfv.1938
+            -   src.de.Bfv.1944
+        name: Bassum
+        category: de.Bf
+        de.rang: II
+        de.lknr: 21 046
+    -   document: src.de.DRG.Mst.1946
+        name: Bassum
+        category: de.Bf
+        de.rang: II
+        location:
+            line.de.2200: 206,79
+            line.de.2982: 86,82
+
+    -   document: src.de.DB.Han.1983
+        name: Bassum
+        category: de.Bf
+        location:
+            line.de.2200: 206,78
+            line.de.2982: 86,82
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 210468
+        name: Bassum
+        de.DS100: HBAS
+        category: de.Bf
+
+    -   document: src.de.DBAG.BSV.2017
+        de.DS100: HBAS
+        name: Bassum
+        de.name16: Bassum
+        category: de.Bf
+        PLC: DE10674
+        de.dstnr: !!str 210468
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        de.DS100: HBAS
+        name: Bassum
+        category: de.Bf
+        location:
+            line.de.2200: 206,8+3
 
 
 ---
@@ -3605,6 +5412,12 @@ events:
     -   date: !!null
         site:
             path.de.2200: bue
+records:
+    -   document: src.de.DRG.Mst.1946
+        location:
+            line.de.2200: 208,88
+        category: de.Bk
+        name: Buente
 
 
 ---
@@ -3619,52 +5432,100 @@ events:
         source: src.de.Bfv.1928
     -   date: c1930
         name: Bramstedt b Syke
+        source: src.de.Bfv.1933
+    -   date: c1935
+        name: Bramstedt (b Syke)
+        source: src.de.Bfv.1938
+    -   date: !!null
+        goods: none
         source: src.de.Bfv.1928
     -   date: c1940
-        name: Bramstedt (b Syke)
+        goods: limited
         source: src.de.Bfv.1944
-
-    -   date: !!null
-        service: passenger
-        source: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
-        de.rang: III
         source: src.de.Bfv.1933
-    -   date: c1940
-        service: full
-        source: src.de.Bfv.1944
-    -   date: c1980
+    -   date: c1975
+        category: de.Hst
+        staff: none
+        source: src.de.DB.Han.1983
+    -   date: c1990
         category: de.Hp
         source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        de.lknr: 21 263
-        source: src.de.Bfv.1928
-    -   date: de.lknr.30
-        de.lknr: 21 047
-        source: src.de.Bfv.1933
     -   date: !!null
         de.DS100: HBRA
-        de.dstnr: !!str 210476
         source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Bramstedt/b Syke
-        PLC: DE11554
-        source: src.de.DBAG.BSV.2017
-
     -   date: !!null
         location:
             line.de.2200: 210,91
         source: src.de.DRG.Mst.1946
-    -   date: c2000
+    -   date: c1990
         location:
             line.de.2200: 210,842
         source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
+            path.de.2200: bra.alt
+    -   date: c1990
+        site:
             path.de.2200: bra
+records:
+    -   document: src.de.Bfv.1928
+        name: Bramstedt (Kr Syke)
+        de.lknr: 21 263
+        goods: none
+    -   document: src.de.Bfv.1933
+        name: Bramstedt b Syke
+        de.lknr: 21 047
+        category: de.Bf
+        de.rang: III
+        goods: none
+    -   document: src.de.Bfv.1938
+        name: Bramstedt (b Syke)
+        category: de.Bf
+        de.rang: III
+        goods: none
+        de.lknr: 21 047
+    -   document: src.de.Bfv.1944
+        name: Bramstedt (b Syke)
+        category: de.Bf
+        de.rang: III
+        goods: limited
+        de.lknr: 21 047
+    -   document: src.de.DRG.Mst.1946
+        name: Bramstedt (b Syke)
+        category: de.Bf
+        de.rang: III
+        location:
+            line.de.2200: 210,91
+
+    -   document: src.de.DB.Han.1983
+        name: Bramstedt (b Syke)
+        category: de.Hst
+        staff: none
+        location:
+            line.de.2200: 210,91
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 210476
+        name: Bramstedt (b Syke)
+        de.DS100: HBRA
+        category: de.Hst
+        staff: none
+
+    -   document: src.de.DBAG.BSV.2017
+        de.DS100: HBRA
+        name: Bramstedt (b Syke)
+        de.name16: Bramstedt/b Syke
+        category: de.Hp
+        PLC: DE11554
+        de.dstnr: !!str 210476
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        de.DS100: HBRA
+        name: Bramstedt (b Syke)
+        category: de.Hp
+        location:
+            line.de.2200: 210,8+42
 
 
 ---
@@ -3675,15 +5536,20 @@ events:
         location:
             line.de.2200: 214,16
         category: de.Bk
-        source: src.de.DRG.Mst.1946
-    -   date: !!null
         name: Westermark
+        source: src.de.DRG.Mst.1946
     -   date: c1980
         status: closed
 
     -   date: !!null
         site:
             path.de.2200: wes
+records:
+    -   document: src.de.DRG.Mst.1946
+        location:
+            line.de.2200: 214,16
+        category: de.Bk
+        name: Westermark
 
 
 ---
@@ -3696,32 +5562,13 @@ events:
     -   date: c1920
         name: Syke
         source: src.de.Bfv.1928
-
     -   date: !!null
         category: de.Bf
-        de.rang: II
-        source: src.de.Bfv.1933
-
-    -   date: !!null
-        de.lknr: 21 031
-        source: src.de.Bfv.1928
-    -   date: de.lknr.30
-        de.lknr: 21 048
         source: src.de.Bfv.1933
     -   date: !!null
         de.DS100: HSYK
-        de.dstnr: !!str 210484
         source: src.de.DBAG.BSV.2017
     -   date: !!null
-        de.name16: Syke
-        PLC: DE20162
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.2200: 216,47
-        source: src.de.DRG.Mst.1946
-    -   date: c2000
         location:
             line.de.2200: 216,475
         source: src.de.DBAG.Geo-Betriebsstelle.2017
@@ -3730,6 +5577,49 @@ events:
         connection: point.de.Syke-Ost
         site:
             path.de.2200: syk
+records:
+    -   document: src.de.Bfv.1928
+        name: Syke
+        de.lknr: 21 031
+    -   document:
+            -   src.de.Bfv.1933
+            -   src.de.Bfv.1938
+            -   src.de.Bfv.1944
+        name: Syke
+        category: de.Bf
+        de.rang: II
+        de.lknr: 21 048
+    -   document: src.de.DRG.Mst.1946
+        name: Syke
+        category: de.Bf
+        de.rang: II
+        location:
+            line.de.2200: 216,47
+
+    -   document: src.de.DB.Han.1983
+        name: Syke
+        category: de.Bf
+        location:
+            line.de.2200: 216,48
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 210484
+        name: Syke
+        de.DS100: HSYK
+        category: de.Bf
+
+    -   document: src.de.DBAG.BSV.2017
+        de.DS100: HSYK
+        name: Syke
+        de.name16: Syke
+        category: de.Bf
+        PLC: DE20162
+        de.dstnr: !!str 210484
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        de.DS100: HSYK
+        name: Syke
+        category: de.Bf
+        location:
+            line.de.2200: 216,4+75
 
 
 ---
@@ -3748,6 +5638,12 @@ events:
     -   date: !!null
         site:
             path.de.2200: ges
+records:
+    -   document: src.de.DRG.Mst.1946
+        location:
+            line.de.2200: 219,02
+        category: de.Bk
+        name: Gessel
 
 
 ---
@@ -3757,42 +5653,74 @@ events:
     -   date: !!null
         name: Barrien
         source: src.de.Kb.1914
-
     -   date: !!null
         category: de.Bf
-        de.rang: III
         source: src.de.Bfv.1933
     -   date: c1980
         category: de.Hp
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        de.lknr: 21 032
-        source: src.de.Bfv.1928
-    -   date: de.lknr.30
-        de.lknr: 21 049
-        source: src.de.Bfv.1933
+        source: src.de.DB.Han.1983
     -   date: !!null
         de.DS100: HBAR
-        de.dstnr: !!str 210492
         source: src.de.DBAG.BSV.2017
-    -   date: !!null
-        de.name16: Barrien
-        PLC: DE10642
-        source: src.de.DBAG.BSV.2017
-
     -   date: !!null
         location:
             line.de.2200: 219,98
         source: src.de.DRG.Mst.1946
-    -   date: c2000
+    -   date: c1980
         location:
             line.de.2200: 220,046
         source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
+            path.de.2200: brr.bf
+    -   date: c1980
+        site:
             path.de.2200: brr
+records:
+    -   document: src.de.Bfv.1928
+        name: Barrien
+        de.lknr: 21 032
+    -   document:
+            -   src.de.Bfv.1933
+            -   src.de.Bfv.1938
+            -   src.de.Bfv.1944
+        name: Barrien
+        category: de.Bf
+        de.rang: III
+        de.lknr: 21 049
+    -   document: src.de.DRG.Mst.1946
+        name: Barrien
+        category: de.Bf
+        de.rang: III
+        location:
+            line.de.2200: 219,98
+
+    -   document: src.de.DB.Han.1983
+        name: Barrien
+        category: de.Hp
+        location:
+            line.de.2200: 220,05
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 210492
+        name: Barrien
+        de.DS100: HBAR
+        category: de.Hp
+        staff: none
+
+    -   document: src.de.DBAG.BSV.2017
+        de.DS100: HBAR
+        name: Barrien
+        de.name16: Barrien
+        category: de.Hp
+        PLC: DE10642
+        de.dstnr: !!str 210492
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        de.DS100: HBAR
+        name: Barrien
+        category: de.Hp
+        location:
+            line.de.2200: 220,0+46
 
 
 ---
@@ -3802,32 +5730,13 @@ events:
     -   date: !!null
         name: Kirchweyhe
         source: src.de.Kb.1914
-
     -   date: !!null
         category: de.Bf
-        de.rang: I
-        source: src.de.Bfv.1933
-
-    -   date: !!null
-        de.lknr: 21 033
-        source: src.de.Bfv.1928
-    -   date: de.lknr.30
-        de.lknr: 21 050
         source: src.de.Bfv.1933
     -   date: !!null
         de.DS100: HKI
-        de.dstnr: !!str 210500
         source: src.de.DBAG.BSV.2017
     -   date: !!null
-        de.name16: Kirchweyhe
-        PLC: DE15547
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.2200: 224,51
-        source: src.de.DRG.Mst.1946
-    -   date: c2000
         location:
             line.de.2200: 224,503
         source: src.de.DBAG.Geo-Betriebsstelle.2017
@@ -3835,6 +5744,49 @@ events:
     -   date: !!null
         site:
             path.de.2200: kir
+records:
+    -   document: src.de.Bfv.1928
+        name: Kirchweyhe
+        de.lknr: 21 033
+    -   document:
+            -   src.de.Bfv.1933
+            -   src.de.Bfv.1938
+            -   src.de.Bfv.1944
+        name: Kirchweyhe
+        category: de.Bf
+        de.rang: I
+        de.lknr: 21 050
+    -   document: src.de.DRG.Mst.1946
+        name: Kirchweyhe
+        category: de.Bf
+        de.rang: I
+        location:
+            line.de.2200: 224,51
+
+    -   document: src.de.DB.Han.1983
+        name: Kirchweyhe
+        category: de.Bf
+        location:
+            line.de.2200: 224,50
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 210500
+        name: Kirchweyhe
+        de.DS100: HKI
+        category: de.Bf
+
+    -   document: src.de.DBAG.BSV.2017
+        de.DS100: HKI
+        name: Kirchweyhe
+        de.name16: Kirchweyhe
+        category: de.Bf
+        PLC: DE15547
+        de.dstnr: !!str 210500
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        de.DS100: HKI
+        name: Kirchweyhe
+        category: de.Bf
+        location:
+            line.de.2200: 224,5+3
 
 
 ---
@@ -3844,37 +5796,22 @@ events:
     -   date: !!null
         name: Dreye
         source: src.de.Kb.1914
-
     -   date: !!null
-        service: passenger
+        goods: none
         source: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
-        de.rang: IV
         source: src.de.Bfv.1933
     -   date: c1940
-        service: full
+        goods: full
         source: src.de.Bfv.1944
     -   date: c1980
         category: de.Hp
         staff: none
         source: src.de.DS100.1984
-
-    -   date: !!null
-        de.lknr: 21 264
-        source: src.de.Bfv.1928
-    -   date: de.lknr.30
-        de.lknr: 21 052
-        source: src.de.Bfv.1933
     -   date: !!null
         de.DS100: HDRY
-        de.dstnr: !!str 210526
         source: src.de.DS100.1984
-    -   date: !!null
-        de.name16: Dreye
-        PLC: DE12491
-        source: src.de.DBAG.BSV.2016
-
     -   date: !!null
         location:
             line.de.2200: 228,71
@@ -3887,6 +5824,59 @@ events:
     -   date: !!null
         site:
             path.de.2200: dry
+records:
+    -   document: src.de.Bfv.1928
+        name: Dreye
+        de.lknr: 21 264
+        goods: none
+    -   document: src.de.Bfv.1933
+        name: Dreye
+        category: de.Bf
+        de.rang: IV
+        goods: none
+        de.lknr: 21 052
+    -   document: src.de.Bfv.1938
+        name: Dreye
+        category: de.Hp
+        goods: none
+        de.lknr: 21 052
+    -   document: src.de.Bfv.1944
+        name: Dreye
+        category: de.Bf
+        de.rang: IV
+        de.lknr: 21 052
+    -   document: src.de.DRG.Mst.1946
+        name: Dreye
+        category: de.Hp
+        goods: none
+        location:
+            line.de.2200: 228,71
+
+    -   document: src.de.DB.Han.1983
+        name: Dreye
+        category: de.Hp
+        location:
+            line.de.2200: 228,71
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 210526
+        name: Dreye
+        de.DS100: HDRY
+        category: de.Hp
+        staff: none
+
+    -   document: src.de.DBAG.BSV.2017
+        de.DS100: HDRY
+        name: Dreye
+        de.name16: Dreye
+        category: de.Hp
+        PLC: DE12491
+        de.dstnr: !!str 210526
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        de.DS100: HDRY
+        name: Dreye
+        category: de.Hp
+        location:
+            line.de.2200: 228,6+45
 
 
 ---
@@ -3910,6 +5900,14 @@ events:
     -   date: !!null
         site:
             path.de.2200: gdry
+records:
+    -   document: src.de.DBAG.BSV.2017
+        de.DS100: HQDR
+        name: Dreye NI/HB
+        de.name16: Dreye NI/HB
+        category: de.LGr
+        PLC: DE12492
+        de.dstnr: !!str 103992
 
 
 ---
@@ -3917,29 +5915,25 @@ key: point.de.Bremen-Gabelung
 type: point
 events:
     -   date: !!null
+        name: Gabelung
+        category: de.Bk
+        location:
+            line.de.1404:   5,56
+            line.de.2200: 230,15
+        source: src.de.DRG.Mst.1946
+    -   date: c1970
         category: de.Bf
         service: none
-        name: Gabelung
-        source: src.de.DB.Han.1983
-    -   date: !!null
-        de.DS100: HGA
-        de.dstnr: !!str 210518
-        source: src.de.DS100.1984
-    -   date: c2000
-        category: de.Abzw
-        name: Bremen Gabelung
-        source: src.de.DBAG.BSV.2016
-    -   date: !!null
-        de.name16: Gabelung
-        PLC: DE11626
-        source: src.de.DBAG.BSV.2016
-
-    -   date: !!null
         location:
             line.de.1404: 5,60
             line.de.2200: 230,15
         source: src.de.DB.Han.1983
+    -   date: !!null
+        de.DS100: HGA
+        source: src.de.DS100.1984
     -   date: c2000
+        category: de.Abzw
+        name: Bremen Gabelung
         location:
             line.de.2200: 229,902
         source: src.de.DBAG.Geo-Betriebsstelle.2017
@@ -3947,12 +5941,47 @@ events:
     -   date: !!null
         site:
             path.de.2200: gab
+records:
+    -   document: src.de.DRG.Mst.1946
+        name: Gabelung
+        category: de.Bk
+        location:
+            line.de.1404:   5,56
+            line.de.2200: 230,15
+
+    -   document: src.de.DB.Han.1983
+        name: Gabelung
+        category: de.Bf
+        service: none
+        staff: none
+        location:
+            line.de.1404:   5,60
+            line.de.2200: 230,15
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 210518
+        name: Gabelung
+        de.DS100: HGA
+        category: de.Bf
+
+    -   document: src.de.DBAG.BSV.2017
+        de.DS100: HGA
+        name: Bremen Gabelung
+        de.name16: Gabelung
+        category: de.Abzw
+        PLC: DE11626
+        de.dstnr: !!str 210518
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        de.DS100: HGA
+        name: Bremen Gabelung
+        category: de.Abzw
+        location:
+            line.de.2200: 229,9+2
 
 
 ---
 key: point.de.Bremen-Hemelingen-DGr-1910
 type: point
-subtype: border
+subtype: reference
 events:
     -   date: !!null
         designation: Bremen-Hemelingen Mst/Han 1910
@@ -3965,14 +5994,14 @@ events:
 ---
 key: point.de.Bremen-Hemelingen-DGr
 type: point
-subtype: border
+subtype: reference
 events:
     -   date: !!null
         designation: Bremen-Hemelingen Mst/Han
     -   date: !!null
         location:
             line.de.2200: 232,30
-        source: src.de.DRG.Han.1938
+        source: src.de.DRG.Mst.1946
 
     -   date: !!null
         site:
@@ -3989,32 +6018,13 @@ events:
     -   date: c1940
         name: Bremen-Hemelingen
         source: src.de.Bfv.1944
-
     -   date: !!null
         category: de.Bf
-        de.rang: II
-        source: src.de.Bfv.1933
-
-    -   date: !!null
-        de.lknr: 13 039
-        source: src.de.Bfv.1928
-    -   date: de.lknr.30
-        de.lknr: 13 764
         source: src.de.Bfv.1933
     -   date: !!null
         de.DS100: HBHM
-        de.dstnr: !!str 137646
         source: src.de.DS100.1984
     -   date: !!null
-        de.name16: Brm-Hemelingen
-        PLC: DE11650
-        source: src.de.DBAG.BSV.2016
-
-    -   date: !!null
-        location:
-            line.de.2200: 233,42
-        source: src.de.DB.Han.1983
-    -   date: c2000
         location:
             line.de.2200: 233,421
         source: src.de.DBAG.Geo-Betriebsstelle.2017
@@ -4022,6 +6032,47 @@ events:
     -   date: !!null
         site:
             path.de.2200: hem
+records:
+    -   document: src.de.Bfv.1928
+        name: Hemelingen
+        de.lknr: 13 039
+    -   document:
+            -   src.de.Bfv.1933
+            -   src.de.Bfv.1938
+        name: Hemelingen
+        category: de.Bf
+        de.rang: II
+        de.lknr: 13 764
+    -   document: src.de.Bfv.1944
+        name: Bremen-Hemelingen
+        category: de.Bf
+        de.rang: II
+        de.lknr: 13 764
+
+    -   document: src.de.DB.Han.1983
+        name: Bremen-Hemelingen
+        category: de.Bf
+        location:
+            line.de.2200: 233,42
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 137646
+        name: Bremen-Hemelingen
+        de.DS100: HBHM
+        category: de.Bf
+
+    -   document: src.de.DBAG.BSV.2017
+        de.DS100: HBHM
+        name: Bremen-Hemelingen
+        de.name16: Brm-Hemelingen
+        category: de.Bf
+        PLC: DE11650
+        de.dstnr: !!str 137646
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        de.DS100: HBHM
+        name: Bremen-Hemelingen
+        category: de.Bf
+        location:
+            line.de.2200: 233,4+21
 
 
 ---
@@ -4077,6 +6128,32 @@ events:
     -   date: !!null
         site:
             path.de.2200: hat
+records:
+    -   document: src.de.DB.Han.1983
+        name: Hastedt
+        category: de.Abzw
+        location:
+            line.de.2200: 234,79
+            line.de.1402:   0,18
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 139105
+        name: Hastedt
+        de.DS100: HHAT
+        category: de.Abzw
+
+    -   document: src.de.DBAG.BSV.2017
+        de.DS100: HHAT
+        name: Bremen-Hastedt
+        de.name16: Hastedt
+        category: de.Abzw
+        PLC: DE11649
+        de.dstnr: !!str 139105
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        de.DS100: HHAT
+        name: Bremen-Hastedt
+        category: de.Abzw
+        location:
+            line.de.2200: 234,858
 
 
 #    point.de.Bremen-Vahr                        de.1740
@@ -4094,19 +6171,13 @@ events:
         source: src.de.DRG.Han.1938
     -   date: !!null
         de.DS100: HUTB
-        de.dstnr: !!str 139246
         source: src.de.DS100.1984
     -   date: c1970
         name: Utbremen
         source: src.de.DS100.1984
     -   date: c2000
         name: Bremen Utbremen
-        source: src.de.DBAG.BSV.2016
-    -   date: !!null
-        de.name16: Utbremen
-        PLC: DE11644
         source: src.de.DBAG.BSV.2017
-
     -   date: !!null
         location:
             line.de.1424: 0,00
@@ -4125,6 +6196,32 @@ events:
     -   date: !!null
         site:
             path.de.2200: uta
+records:
+    -   document: src.de.DB.Han.1983
+        name: Utbremen
+        category: de.Abzw
+        location:
+            line.de.1424: -0,59
+            line.de.2200: 243,50
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 139246
+        name: Utbremen
+        de.DS100: HUTB
+        category: de.Abzw
+
+    -   document: src.de.DBAG.BSV.2017
+        de.DS100: HUTB
+        name: Bremen Utbremen
+        de.name16: Utbremen
+        category: de.Abzw
+        PLC: DE11644
+        de.dstnr: !!str 139246
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        de.DS100: HUTB
+        name: Bremen Utbremen
+        category: de.Abzw
+        location:
+            line.de.2200: 242,8+18
 
         
 ---
@@ -4132,19 +6229,12 @@ key: point.de.Bremen-Utbremen
 type: point
 events:
     -   date: !!null
-        location:
-            line.de.HT0: 2,5
-        source: src.de.WP.Kleinbahn-Bremen-Tarmstedt
-    -   date: !!null
-        de.lknr: 13 041
-        service: goods
         name: Utbremen
+        goods: limited
+        passenger: none
         source: src.de.Bfv.1928
     -   date: !!null
         category: de.Ldst
-        source: src.de.Bfv.1933
-    -   date: de.lknr.30
-        de.lknr: 13 765
         source: src.de.Bfv.1933
     -   date: !!null
         location:
@@ -4156,6 +6246,20 @@ events:
     -   date: !!null
         site:
             path.de.2200: utb
+records:
+    -   document: src.de.Bfv.1928
+        name: Utbremen
+        de.lknr: 13 041
+        goods: limited
+        passenger: none
+    -   document:
+            -   src.de.Bfv.1933
+            -   src.de.Bfv.1938
+            -   src.de.Bfv.1944
+        name: Utbremen
+        category: de.Ldst
+        goods: limited
+        de.lknr: 13 765
 
 
 ---
@@ -4186,27 +6290,12 @@ events:
     -   date: c1970
         name: Bremen-Oberneuland
         source: src.de.DS100.1984
-
     -   date: !!null
         category: de.Bf
-        de.rang: III
-        source: src.de.Bfv.1933
-
-    -   date: !!null
-        de.lknr: 13 040
-        source: src.de.Bfv.1928
-    -   date: de.lknr.30
-        de.lknr: 13 766
         source: src.de.Bfv.1933
     -   date: !!null
         de.DS100: HBON
-        de.dstnr: !!str 137661
         source: src.de.DS100.1984
-    -   date: !!null
-        de.name16: Brm-Oberneuland
-        PLC: DE11656
-        source: src.de.DBAG.BSV.2016
-
     -   date: !!null
         location:
             line.de.2200: 251,45
@@ -4218,7 +6307,47 @@ events:
 
     -   date: !!null
         site:
+            path.de.2200: obe.alt
+    -   date: c2000
+        site:
             path.de.2200: obe
+records:
+    -   document: src.de.Bfv.1928
+        name: Oberneuland
+        de.lknr: 13 040
+    -   document:
+            -   src.de.Bfv.1933
+            -   src.de.Bfv.1938
+            -   src.de.Bfv.1944
+        name: Oberneuland
+        category: de.Bf
+        de.rang: III
+        de.lknr: 13 766
+
+    -   document: src.de.DB.Han.1983
+        name: Bremen-Oberneuland
+        category: de.Bf
+        location:
+            line.de.2200: 251,45
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 137661
+        name: Bremen-Oberneuland
+        de.DS100: HBON
+        category: de.Bf
+
+    -   document: src.de.DBAG.BSV.2016
+        de.DS100: HBON
+        name: Bremen-Oberneuland
+        de.name16: Brm-Oberneuland
+        category: de.Bf
+        PLC: DE11656
+        de.dstnr: !!str 137661
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        de.DS100: HBON
+        name: Bremen-Oberneuland
+        category: de.Bf
+        location:
+            line.de.2200: 251,8+30
 
 
 ---
@@ -4235,6 +6364,8 @@ events:
         de.dstnr: !!str 103993
         source: src.de.DBAG.BSV.2017
     -   date: !!null
+        location:
+            line.de.2200: 253,500
         note:
             deu: auch Dir-Grenze Han/Alt
         source:
@@ -4247,46 +6378,132 @@ events:
 
 
 ---
+key: point.de.Klüverdamm
+type: point
+events:
+    -   date: c1950
+        status: open
+    -   date: !!null
+        location:
+            line.de.2200: 254,14
+        category: de.Bk
+        name: Klüverdamm
+        source: src.de.DB.Hmb.Karte.1956
+    -   date: c1970
+        status: closed
+
+    -   date: !!null
+        site:
+            path.de.2200: klu
+records:
+    -   document: src.de.DB.Hmb.Karte.1956
+        location:
+            line.de.2200: 254,14
+        category: de.Bk
+        name: Klüverdamm
+
+
+---
+key: point.de.Sagehorn-Hp
+type: point
+events:
+    -   date: !!null
+        status: construction
+    -   date: !!null
+        de.DS100: ASAH
+        name: Sagehorn Hp
+        category: de.Hp
+        source: src.de.DBAG.BSV.2021
+
+    -   date: !!null
+        site:
+          path.de.2200: sah
+records:
+    -   document: src.de.DBAG.BSV.2021
+        PLC: DE24957
+        de.DS100: ASAH
+        name: Sagehorn Hp
+        de.name16: Sagehorn Hp
+        category: de.Hp
+
+
+---
 key: point.de.Sagehorn
 type: point
 events:
     -   date: !!null
         name: Sagehorn
         source: src.de.Kb.1914
-
     -   date: !!null
         category: de.Bf
-        de.rang: III
-        source: src.de.Bfv.1933
-
-    -   date: !!null
-        de.lknr: 21 034
-        source: src.de.Bfv.1928
-    -   date: c1930
-        de.lknr: 01 242
         source: src.de.Bfv.1933
     -   date: !!null
         de.DS100: ASAG
-        de.dstnr: !!str 012427
         source: src.de.DS100.1984
-    -   date: !!null
-        de.name16: Sagehorn
-        PLC: DE19200
-        source: src.de.DBAG.BSV.2017
-
     -   date: !!null
         location:
             line.de.1404: 17,14
-            line.de.2200: 257,55
-        source: src.de.DRG.Alt.Karte.1949
-    -   date: c2000
-        location:
             line.de.2200: 257,548
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
+        source:
+            -   src.de.DB.Hmb.Karte.1956
+            -   src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
             path.de.2200: sag
+records:
+    -   document: src.de.Bfv.1928
+        name: Sagehorn
+        de.lknr: 21 034
+    -   document:
+            -   src.de.Bfv.1933
+            -   src.de.Bfv.1938
+            -   src.de.Bfv.1944
+        name: Sagehorn
+        category: de.Bf
+        de.rang: III
+        de.lknr: 01 242
+    -   document:
+            -   src.de.DRG.Alt.Karte.1931
+            -   src.de.DRG.Alt.Karte.1935
+        name: Sagehorn
+        category: de.Bf
+        de.rang: II
+        location:
+            line.de.2200: 257,55
+
+    -   document: src.de.DB.Hmb.Karte.1956
+        name: Sagehorn
+        category: de.Bf
+        de.rang: III
+        location:
+            line.de.1404:  17,14
+            line.de.2200: 257,55
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 012427
+        name: Sagehorn
+        de.DS100: ASAG
+        category: de.Bf
+    -   document: src.de.DB.Hmb.Karte.1984
+        name: Sagehorn
+        category: de.Bf
+        location:
+            line.de.1404:  17,14
+            line.de.2200: 257,55
+
+    -   document: src.de.DBAG.BSV.2017
+        de.DS100: ASAG
+        name: Sagehorn
+        de.name16: Sagehorn
+        category: de.Bf
+        PLC: DE19200
+        de.dstnr: !!str 012427
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        de.DS100: ASAG
+        name: Sagehorn
+        category: de.Bf
+        location:
+            line.de.2200: 257,5+48
 
 
 ---
@@ -4298,13 +6515,22 @@ events:
             line.de.2200: 260,27
         category: de.Bk
         name: Schaphusen
-        source: src.de.DRG.Alt.Karte.1949
+        source: src.de.DRG.Alt.Karte.1931
     -   date: c1970
         status: closed
 
     -   date: !!null
         site:
             path.de.2200: sap
+records:
+    -   document:
+            -   src.de.DRG.Alt.Karte.1931
+            -   src.de.DRG.Alt.Karte.1935
+            -   src.de.DB.Hmb.Karte.1956
+        location:
+            line.de.2200: 260,27
+        category: de.Bk
+        name: Schaphusen
 
 
 ---
@@ -4316,13 +6542,22 @@ events:
             line.de.2200: 262,41
         category: de.Bk
         name: Bassen
-        source: src.de.DRG.Alt.Karte.1949
+        source: src.de.DRG.Alt.Karte.1931
     -   date: c1970
         status: closed
 
     -   date: !!null
         site:
             path.de.2200: bsn
+records:
+    -   document:
+            -   src.de.DRG.Alt.Karte.1931
+            -   src.de.DRG.Alt.Karte.1935
+            -   src.de.DB.Hmb.Karte.1956
+        location:
+            line.de.2200: 262,41
+        category: de.Bk
+        name: Bassen
 
 
 ---
@@ -4333,27 +6568,12 @@ events:
         name: Ottersberg (Han)
         source: src.de.Kb.1914
     -   date: !!null
-        de.lknr: 21 035
-        source: src.de.Bfv.1928
-    -   date: !!null
         category: de.Bf
-        de.rang: III
-        source: src.de.Bfv.1933
-    -   date: c1930
-        de.lknr: 01 241
         source: src.de.Bfv.1933
     -   date: !!null
         de.DS100: AOBG
-        de.name16: Ottersberg (Han)
-        PLC: DE18214
-        de.dstnr: !!str 012419
         source: src.de.DBAG.BSV.2017
-
     -   date: !!null
-        location:
-            line.de.2200: 265,12
-        source: src.de.DRG.Alt.Karte.1949
-    -   date: c2000
         location:
             line.de.2200: 265,119
         source: src.de.DBAG.Geo-Betriebsstelle.2017
@@ -4361,6 +6581,52 @@ events:
     -   date: !!null
         site:
             path.de.2200: ott
+records:
+    -   document: src.de.Bfv.1928
+        name: Ottersberg (Han)
+        de.lknr: 21 035
+    -   document:
+            -   src.de.Bfv.1933
+            -   src.de.Bfv.1938
+            -   src.de.Bfv.1944
+        name: Ottersberg (Han)
+        category: de.Bf
+        de.rang: III
+        de.lknr: 01 241
+    -   document:
+            -   src.de.DRG.Alt.Karte.1931
+            -   src.de.DRG.Alt.Karte.1935
+            -   src.de.DB.Hmb.Karte.1956
+        name: Ottersberg (Han)
+        category: de.Bf
+        de.rang: III
+        location:
+            line.de.2200: 265,12
+
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 012419
+        name: Ottersberg (Han)
+        de.DS100: AOBG
+        category: de.Bf
+    -   document: src.de.DB.Hmb.Karte.1984
+        name: Ottersberg (Han)
+        category: de.Bf
+        location:
+            line.de.2200: 265,12
+
+    -   document: src.de.DBAG.BSV.2017
+        de.DS100: AOBG
+        name: Ottersberg (Han)
+        de.name16: Ottersberg (Han)
+        category: de.Bf
+        PLC: DE18214
+        de.dstnr: !!str 012419
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        de.DS100: AOBG
+        name: Ottersberg (Han)
+        category: de.Bf
+        location:
+            line.de.2200: 265,1+19
 
 
 ---
@@ -4369,16 +6635,25 @@ type: point
 events:
     -   date: !!null
         location:
-            line.de.2200: 267,97
+            line.de.2200: 267,91
         category: de.Bk
         name: Struckenborstel
-        source: src.de.DRG.Alt.Karte.1949
+        source: src.de.DRG.Alt.Karte.1931
     -   date: c1970
         status: closed
 
     -   date: !!null
         site:
             path.de.2200: stu
+records:
+    -   document:
+            -   src.de.DRG.Alt.Karte.1931
+            -   src.de.DRG.Alt.Karte.1935
+            -   src.de.DB.Hmb.Karte.1956
+        location:
+            line.de.2200: 267,91
+        category: de.Bk
+        name: Struckenborstel
 
 
 ---
@@ -4390,13 +6665,22 @@ events:
             line.de.2200: 270,40
         category: de.Bk
         name: Hellwege
-        source: src.de.DRG.Alt.Karte.1949
+        source: src.de.DRG.Alt.Karte.1931
     -   date: c1970
         status: closed
 
     -   date: !!null
         site:
             path.de.2200: hlw
+records:
+    -   document:
+            -   src.de.DRG.Alt.Karte.1931
+            -   src.de.DRG.Alt.Karte.1935
+            -   src.de.DB.Hmb.Karte.1956
+        location:
+            line.de.2200: 270,40
+        category: de.Bk
+        name: Hellwege
 
 
 ---
@@ -4407,27 +6691,12 @@ events:
         name: Sottrum
         source: src.de.Kb.1914
     -   date: !!null
-        de.lknr: 21 036
-        source: src.de.Bfv.1928
-    -   date: !!null
         category: de.Bf
-        de.rang: III
-        source: src.de.Bfv.1933
-    -   date: c1930
-        de.lknr: 01 240
         source: src.de.Bfv.1933
     -   date: !!null
         de.DS100: AS
-        de.name16: Sottrum
-        PLC: DE19836
-        de.dstnr: !!str 012401
         source: src.de.DBAG.BSV.2017
-
     -   date: !!null
-        location:
-            line.de.2200: 272,97
-        source: src.de.DRG.Alt.Karte.1949
-    -   date: c2000
         location:
             line.de.2200: 272,968
         source: src.de.DBAG.Geo-Betriebsstelle.2017
@@ -4435,6 +6704,62 @@ events:
     -   date: !!null
         site:
             path.de.2200: sot
+records:
+    -   document: src.de.Bfv.1928
+        name: Sottrum
+        de.lknr: 21 036
+    -   document: src.de.Bfv.1933
+        name: Sottrum
+        category: de.Bf
+        de.rang: III
+        goods: limited
+        de.lknr: 01 240
+    -   document:
+            -   src.de.Bfv.1938
+            -   src.de.Bfv.1944
+        name: Sottrum
+        category: de.Bf
+        de.rang: III
+        de.lknr: 01 240
+    -   document: src.de.DRG.Alt.Karte.1931
+        name: Sottrum
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.2200: 272,97
+    -   document:
+            -   src.de.DRG.Alt.Karte.1935
+            -   src.de.DB.Hmb.Karte.1956
+        name: Sottrum
+        category: de.Bf
+        de.rang: III
+        location:
+            line.de.2200: 272,97
+
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 012401
+        name: Sottrum
+        de.DS100: AS
+        category: de.Bf
+    -   document: src.de.DB.Hmb.Karte.1984
+        name: Sottrum
+        category: de.Bf
+        location:
+            line.de.2200: 272,97
+
+    -   document: src.de.DBAG.BSV.2017
+        de.DS100: AS
+        name: Sottrum
+        de.name16: Sottrum
+        category: de.Bf
+        PLC: DE19836
+        de.dstnr: !!str 012401
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        de.DS100: AS
+        name: Sottrum
+        category: de.Bf
+        location:
+            line.de.2200: 272,9+68
 
 
 ---
@@ -4446,13 +6771,21 @@ events:
             line.de.2200: 276,04
         category: de.Bk
         name: Hassendorf
-        source: src.de.DRG.Alt.Karte.1949
+        source: src.de.DRG.Alt.Karte.1931
     -   date: c1970
         status: closed
 
     -   date: !!null
         site:
             path.de.2200: hss
+    -   document:
+            -   src.de.DRG.Alt.Karte.1931
+            -   src.de.DRG.Alt.Karte.1935
+            -   src.de.DB.Hmb.Karte.1956
+        location:
+            line.de.2200: 276,04
+        category: de.Bk
+        name: Hassendorf
 
 
 ---
@@ -4464,13 +6797,21 @@ events:
             line.de.2200: 278,74
         category: de.Bk
         name: Kiehnmoor
-        source: src.de.DRG.Alt.Karte.1949
+        source: src.de.DRG.Alt.Karte.1931
     -   date: c1970
         status: closed
 
     -   date: !!null
         site:
             path.de.2200: kie
+    -   document:
+            -   src.de.DRG.Alt.Karte.1931
+            -   src.de.DRG.Alt.Karte.1935
+            -   src.de.DB.Hmb.Karte.1956
+        location:
+            line.de.2200: 278,74
+        category: de.Bk
+        name: Kiehnmoor
 
 
 ---
@@ -4484,42 +6825,82 @@ events:
         name: Rotenburg (Han)
         source: src.de.Kb.1914
     -   date: !!null
-        de.lknr: 21 037
-        source: src.de.Bfv.1928
-    -   date: !!null
         category: de.Bf
-        de.rang: I
-        source: src.de.Bfv.1933
-    -   date: de.lknr.30
-        de.lknr: 01 239
         source: src.de.Bfv.1933
     -   date: !!null
         de.DS100: AROG
-        de.dstnr: !!str 012393
         source: src.de.DS100.1984
     -   date: c1970
         name: Rotenburg (Wümme)
         source: src.de.DS100.1984
     -   date: !!null
-        de.name16: Rotenburg(Wümme)
-        PLC: DE19061
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
         location:
             line.de.1711: 101,10
             line.de.1745:  27,11
-            line.de.2200: 282,45
-        source: src.de.DRG.Alt.Karte.1949
-    -   date: c2000
-        location:
-            line.de.1283: 282,449
             line.de.2200: 282,449
-        source: src.de.DBAG.Geo-Betriebsstelle.2017
+        source:
+            -   src.de.DB.Hmb.Karte.1956
+            -   src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
             path.de.2200: rot
+records:
+    -   document: src.de.Bfv.1928
+        name: Rotenburg (Han)
+        de.lknr: 21 037
+    -   document:
+            -   src.de.Bfv.1933
+            -   src.de.Bfv.1938
+            -   src.de.Bfv.1944
+        name: Rotenburg (Han)
+        category: de.Bf
+        de.rang: I
+        de.lknr: 01 239
+    -   document:
+            -   src.de.DRG.Alt.Karte.1931
+            -   src.de.DRG.Alt.Karte.1935
+        name: Rotenburg (Han)
+        category: de.Bf
+        de.rang: I
+        location:
+            line.de.2200: 282,45
+
+    -   document: src.de.DB.Hmb.Karte.1956
+        name: Rotenburg (Han)
+        category: de.Bf
+        de.rang: I
+        location:
+            line.de.2200: 282,45
+            line.de.1711: 101,10
+            line.de.1745:  27,11
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 012393
+        name: Rotenburg (Wümme)
+        de.DS100: AROG
+        category: de.Bf
+    -   document: src.de.DB.Hmb.Karte.1984
+        name: Rotenburg (Han)
+        category: de.Bf
+        location:
+            line.de.2200: 282,45
+            line.de.1711: 101,10
+            line.de.1745:  27,11
+
+    -   document: src.de.DBAG.BSV.2017
+        de.DS100: AROG
+        name: Rotenburg (Wümme)
+        de.name16: Rotenburg(Wümme)
+        category: de.Bf
+        PLC: DE19061
+        de.dstnr: !!str 012393
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        de.DS100: AROG
+        name: Rotenburg (Wümme)
+        category: de.Bf
+        location:
+            line.de.1283: 282,4+49
+            line.de.2200: 282,4+49
 
 
 ---
@@ -4531,13 +6912,22 @@ events:
             line.de.2200: 285,60
         category: de.Bk
         name: Berg
-        source: src.de.DRG.Alt.Karte.1949
+        source: src.de.DRG.Alt.Karte.1931
     -   date: c1970
         status: closed
 
     -   date: !!null
         site:
             path.de.2200: ber
+records:
+    -   document:
+            -   src.de.DRG.Alt.Karte.1931
+            -   src.de.DRG.Alt.Karte.1935
+            -   src.de.DB.Hmb.Karte.1956
+        location:
+            line.de.2200: 285,60
+        category: de.Bk
+        name: Berg
 
 
 ---
@@ -4549,13 +6939,22 @@ events:
             line.de.2200: 288,58
         category: de.Bk
         name: Wohlsdorf
-        source: src.de.DRG.Alt.Karte.1949
+        source: src.de.DRG.Alt.Karte.1931
     -   date: c1970
         status: closed
 
     -   date: !!null
         site:
             path.de.2200: woh
+records:
+    -   document:
+            -   src.de.DRG.Alt.Karte.1931
+            -   src.de.DRG.Alt.Karte.1935
+            -   src.de.DB.Hmb.Karte.1956
+        location:
+            line.de.2200: 288,58
+        category: de.Bk
+        name: Wohlsdorf
 
 
 ---
@@ -4566,32 +6965,20 @@ events:
     -   date: !!null
         name: Scheessel
         source: src.de.Kb.1914
-    -   date: !!null
-        de.lknr: 21 038
-        source: src.de.Bfv.1928
     -   date: c1920
         name: Scheeßel
         source: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
-        de.rang: III
-        source: src.de.Bfv.1933
-    -   date: c1930
-        de.lknr: 01 238
         source: src.de.Bfv.1933
     -   date: !!null
-        de.dstnr: !!str 012385
         de.DS100: ASL
         source: src.de.DS100.1984
     -   date: !!null
-        de.name16: Scheeßel
-        PLC: DE19315
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
         location:
+            line.de.1283: 291,86
             line.de.2200: 291,86
-        source: src.de.DRG.Alt.Karte.1949
+        source: src.de.DB.Hmb.Karte.1984
     -   date: c2000
         location:
             line.de.1283: 291,980
@@ -4600,7 +6987,57 @@ events:
 
     -   date: !!null
         site:
+            path.de.2200: see.alt
+    -   date: c2000
+        site:
             path.de.2200: see
+records:
+    -   document: src.de.Bfv.1928
+        name: Scheeßel
+        de.lknr: 21 038
+    -   document:
+            -   src.de.Bfv.1933
+            -   src.de.Bfv.1938
+            -   src.de.Bfv.1944
+        name: Scheeßel
+        category: de.Bf
+        de.rang: III
+        de.lknr: 01 238
+    -   document:
+            -   src.de.DRG.Alt.Karte.1931
+            -   src.de.DRG.Alt.Karte.1935
+            -   src.de.DB.Hmb.Karte.1956
+        name: Scheeßel
+        category: de.Bf
+        de.rang: III
+        location:
+            line.de.2200: 291,86
+
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 012385
+        name: Scheeßel
+        de.DS100: ASL
+        category: de.Bf
+    -   document: src.de.DB.Hmb.Karte.1984
+        name: Scheeßel
+        category: de.Bf
+        location:
+            line.de.2200: 291,86
+
+    -   document: src.de.DBAG.BSV.2017
+        de.DS100: ASL
+        name: Scheeßel
+        de.name16: Scheeßel
+        category: de.Bf
+        PLC: DE19315
+        de.dstnr: !!str 012385
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        de.DS100: ASL
+        name: Scheeßel
+        category: de.Bf
+        location:
+            line.de.1283: 291,9+80
+            line.de.2200: 291,9+80
 
 
 ---
@@ -4612,13 +7049,22 @@ events:
             line.de.2200: 294,86
         category: de.Bk
         name: Büschelmoor
-        source: src.de.DRG.Alt.Karte.1949
+        source: src.de.DRG.Alt.Karte.1931
     -   date: c1970
         status: closed
 
     -   date: !!null
         site:
             path.de.2200: bus
+records:
+    -   document:
+            -   src.de.DRG.Alt.Karte.1931
+            -   src.de.DRG.Alt.Karte.1935
+            -   src.de.DB.Hmb.Karte.1956
+        location:
+            line.de.2200: 294,86
+        category: de.Bk
+        name: Büschelmoor
 
 
 ---
@@ -4630,29 +7076,12 @@ events:
         name: Lauenbrück
         source: src.de.Kb.1914
     -   date: !!null
-        de.lknr: 21 039
-        source: src.de.Bfv.1928
-    -   date: !!null
         category: de.Bf
-        de.rang: III
-        source: src.de.Bfv.1933
-    -   date: c1930
-        de.lknr: 01 237
         source: src.de.Bfv.1933
     -   date: !!null
-        de.dstnr: !!str 012377
         de.DS100: ALUB
         source: src.de.DS100.1984
     -   date: !!null
-        de.name16: Lauenbrück
-        PLC: DE16114
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.2200: 297,63
-        source: src.de.DRG.Alt.Karte.1949
-    -   date: c2000
         location:
             line.de.1283: 297,632
             line.de.2200: 297,632
@@ -4661,6 +7090,58 @@ events:
     -   date: !!null
         site:
             path.de.2200: lau
+records:
+    -   document: src.de.Bfv.1928
+        name: Lauenbrück
+        de.lknr: 21 039
+    -   document: src.de.Bfv.1933
+        name: Lauenbrück
+        category: de.Bf
+        de.rang: III
+        goods: limited
+        de.lknr: 01 237
+    -   document:
+            -   src.de.Bfv.1938
+            -   src.de.Bfv.1944
+        name: Lauenbrück
+        category: de.Bf
+        de.rang: III
+        de.lknr: 01 237
+    -   document:
+            -   src.de.DRG.Alt.Karte.1931
+            -   src.de.DRG.Alt.Karte.1935
+            -   src.de.DB.Hmb.Karte.1956
+        name: Lauenbrück
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.2200: 297,63
+
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 012377
+        name: Lauenbrück
+        de.DS100: ALUB
+        category: de.Bf
+    -   document: src.de.DB.Hmb.Karte.1984
+        name: Lauenbrück
+        category: de.Bf
+        location:
+            line.de.2200: 297,63
+
+    -   document: src.de.DBAG.BSV.2017
+        de.DS100: ALUB
+        name: Lauenbrück
+        de.name16: Lauenbrück
+        category: de.Bf
+        PLC: DE16114
+        de.dstnr: !!str 012377
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        de.DS100: ALUB
+        name: Lauenbrück
+        category: de.Bf
+        location:
+            line.de.1283: 297,6+32
+            line.de.2200: 297,6+32
 
 
 ---
@@ -4672,13 +7153,22 @@ events:
             line.de.2200: 300,25
         category: de.Bk
         name: Vaalde
-        source: src.de.DRG.Alt.Karte.1949
+        source: src.de.DRG.Alt.Karte.1931
     -   date: c1970
         status: closed
 
     -   date: !!null
         site:
             path.de.2200: vaa
+records:
+    -   document:
+            -   src.de.DRG.Alt.Karte.1931
+            -   src.de.DRG.Alt.Karte.1935
+            -   src.de.DB.Hmb.Karte.1956
+        location:
+            line.de.2200: 300,25
+        category: de.Bk
+        name: Vaalde
 
 
 ---
@@ -4690,13 +7180,22 @@ events:
             line.de.2200: 302,09
         category: de.Bk
         name: Stemmen
-        source: src.de.DRG.Alt.Karte.1949
+        source: src.de.DRG.Alt.Karte.1931
     -   date: c1970
         status: closed
 
     -   date: !!null
         site:
             path.de.2200: stm
+records:
+    -   document:
+            -   src.de.DRG.Alt.Karte.1931
+            -   src.de.DRG.Alt.Karte.1935
+            -   src.de.DB.Hmb.Karte.1956
+        location:
+            line.de.2200: 302,09
+        category: de.Bk
+        name: Stemmen
 
 
 ---
@@ -4706,26 +7205,57 @@ events:
     -   date: c1920
         status: open
     -   date: !!null
-        de.lknr: 21 040
         name: Königsmoor
         source: src.de.Bfv.1928
     -   date: !!null
         category: de.Bf
-        de.rang: III
         source: src.de.Bfv.1933
-    -   date: c1930
-        de.lknr: 01 236
-        source: src.de.Bfv.1933
+    -   date: !!null
+        de.DS100: AKIM
+        source: src.de.DS100.1984
     -   date: !!null
         location:
             line.de.2200: 305,14
-        source: src.de.DRG.Alt.Karte.1949
-    -   date: c1970
+        source: src.de.DRG.Alt.Karte.1931
+    -   date: c1984
         status: closed
 
     -   date: !!null
         site:
             path.de.2200: kon
+records:
+    -   document: src.de.Bfv.1928
+        name: Königsmoor
+        de.lknr: 21 040
+    -   document: src.de.Bfv.1933
+        name: Königsmoor
+        category: de.Bf
+        de.rang: III
+        goods: limited
+        de.lknr: 01 236
+    -   document:
+            -   src.de.Bfv.1938
+            -   src.de.Bfv.1944
+        name: Königsmoor
+        category: de.Bf
+        de.rang: III
+        de.lknr: 01 236
+    -   document:
+            -   src.de.DRG.Alt.Karte.1931
+            -   src.de.DRG.Alt.Karte.1935
+            -   src.de.DB.Hmb.Karte.1956
+        name: Königsmoor
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.2200: 305,14
+
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 012379
+        name: Königsmoor
+        de.DS100: AKIM
+        category: de.Bf
+
 
 
 ---
@@ -4737,13 +7267,22 @@ events:
             line.de.2200: 308,33
         category: de.Bk
         name: Riepshof
-        source: src.de.DRG.Alt.Karte.1949
+        source: src.de.DRG.Alt.Karte.1931
     -   date: c1970
         status: closed
 
     -   date: !!null
         site:
             path.de.2200: rie
+records:
+    -   document:
+            -   src.de.DRG.Alt.Karte.1931
+            -   src.de.DRG.Alt.Karte.1935
+            -   src.de.DB.Hmb.Karte.1956
+        location:
+            line.de.2200: 308,33
+        category: de.Bk
+        name: Riepshof
 
 
 ---
@@ -4754,32 +7293,16 @@ events:
         name: Tostedt
         source: src.de.Kb.1914
     -   date: !!null
-        de.lknr: 21 041
-        source: src.de.Bfv.1928
-    -   date: !!null
         category: de.Bf
-        de.rang: III
-        source: src.de.Bfv.1933
-    -   date: c1930
-        de.lknr: 01 235
         source: src.de.Bfv.1933
     -   date: !!null
-        de.dstnr: !!str 012351
         de.DS100: ATST
         source: src.de.DS100.1984
     -   date: !!null
-        de.name16: Tostedt
-        PLC: DE20301
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
         location:
             line.de.2200: 311,68
-        source: src.de.DRG.Alt.Karte.1949
-    -   date: !!null
-        location:
-            line.de.9127: 63,142
-        source: src.de.web.EVB.SNB
+            line.de.9127:  63,6
+        source: src.de.DB.Hmb.Karte.1984
     -   date: c2000
         location:
             line.de.1283: 311,695
@@ -4790,6 +7313,59 @@ events:
         connection: point.de.Tostedt-Kleinb
         site:
             path.de.2200: tos
+records:
+    -   document: src.de.Bfv.1928
+        name: Tostedt
+        de.lknr: 21 041
+    -   document:
+            -   src.de.Bfv.1933
+            -   src.de.Bfv.1938
+            -   src.de.Bfv.1944
+        name: Tostedt
+        category: de.Bf
+        de.rang: III
+        de.lknr: 01 235
+    -   document:
+            -   src.de.DRG.Alt.Karte.1931
+            -   src.de.DRG.Alt.Karte.1935
+        name: Tostedt
+        category: de.Bf
+        de.rang: III
+        location:
+            line.de.2200: 311,68
+
+    -   document: src.de.DB.Hmb.Karte.1956
+        name: Tostedt
+        category: de.Bf
+        de.rang: II
+        location:
+            line.de.2200: 311,68
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 012351
+        name: Tostedt
+        de.DS100: ATST
+        category: de.Bf
+    -   document: src.de.DB.Hmb.Karte.1984
+        name: Tostedt
+        category: de.Bf
+        location:
+            line.de.2200: 311,68
+            line.de.9127:  63,6
+
+    -   document: src.de.DBAG.BSV.2017
+        de.DS100: ATST
+        name: Tostedt
+        de.name16: Tostedt
+        category: de.Bf
+        PLC: DE20301
+        de.dstnr: !!str 012351
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        de.DS100: ATST
+        name: Tostedt
+        category: de.Bf
+        location:
+            line.de.1283: 311,6+95
+            line.de.2200: 311,6+95
 
     
 ---
@@ -4801,13 +7377,22 @@ events:
             line.de.2200: 315,51
         category: de.Bk
         name: Trelde
-        source: src.de.DRG.Alt.Karte.1949
+        source: src.de.DRG.Alt.Karte.1931
     -   date: c1970
         status: closed
 
     -   date: !!null
         site:
             path.de.2200: tre
+records:
+    -   document:
+            -   src.de.DRG.Alt.Karte.1931
+            -   src.de.DRG.Alt.Karte.1935
+            -   src.de.DB.Hmb.Karte.1956
+        location:
+            line.de.2200: 315,51
+        category: de.Bk
+        name: Trelde
 
 
 ---
@@ -4819,32 +7404,15 @@ events:
         name: Sprötze
         source: src.de.Kb.1914
     -   date: !!null
-        de.lknr: 21 042
-        source: src.de.Bfv.1928
-    -   date: !!null
         category: de.Bf
-        de.rang: III
-        source: src.de.Bfv.1933
-    -   date: c1930
-        de.lknr: 01 234
         source: src.de.Bfv.1933
     -   date: !!null
-        de.dstnr: !!str 012344
         de.DS100: ASP
         source: src.de.DS100.1984
-    -   date: c1990
+    -   date: c1984
         category: de.Hp
-        source: src.de.DBAG.BSV.2017
+        source: src.de.DB.Hmb.Karte.1984
     -   date: !!null
-        de.name16: Sprötze
-        PLC: DE19868
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        location:
-            line.de.2200: 318,50
-        source: src.de.DRG.Alt.Karte.1949
-    -   date: c2000
         location:
             line.de.1283: 318,500
             line.de.2200: 318,500
@@ -4853,6 +7421,66 @@ events:
     -   date: !!null
         site:
             path.de.2200: spr
+records:
+    -   document: src.de.Bfv.1928
+        name: Sprötze
+        de.lknr: 21 042
+    -   document: src.de.Bfv.1933
+        name: Sprötze
+        category: de.Bf
+        de.rang: III
+        goods: limited
+        de.lknr: 01 234
+    -   document:
+            -   src.de.Bfv.1938
+            -   src.de.Bfv.1944
+        name: Sprötze
+        category: de.Bf
+        de.rang: III
+        de.lknr: 01 234
+    -   document: src.de.DRG.Alt.Karte.1931
+        name: Sprötze
+        category: de.Bf
+        location:
+            line.de.2200: 318,50
+    -   document: src.de.DRG.Alt.Karte.1935
+        name: Sprötze
+        category: de.Bf
+        de.rang: III
+        location:
+            line.de.2200: 318,50
+
+    -   document: src.de.DB.Hmb.Karte.1956
+        name: Sprötze
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.2200: 318,50
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str  012344
+        name: Sprötze
+        de.DS100: ASP
+        category: de.Bf
+    -   document: src.de.DB.Hmb.Karte.1984
+        name: Sprötze
+        category: de.Hp
+        location:
+            line.de.2200: 318,50
+
+    -   document: src.de.DBAG.BSV.2017
+        de.DS100: ASP
+        name: Sprötze
+        de.name16: Sprötze
+        category: de.Hp
+        PLC: DE19868
+        de.dstnr: !!str 012344
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        de.DS100: ASP
+        name: Sprötze
+        category: de.Hp
+        location:
+            line.de.1283: 318,5+0
+            line.de.2200: 318,5+0
 
 
 ---
@@ -4973,17 +7601,14 @@ events:
         site:
             path.de.2200: bun
 records:
-    -   document: src.de.DRG.Alt.Karte.1931
+    -   document:
+            -   src.de.DRG.Alt.Karte.1931
+            -   src.de.DRG.Alt.Karte.1935
+            -   src.de.DB.Hmb.Karte.1956
         location:
             line.de.2200: 325,92 # left
         category: de.Bk
         name: Bünsen
-        
-    -   document: src.de.DB.Hmb.Karte.1956
-        location:
-            line.de.2200: 325,92 # left
-        category: de.Bk
-        name: Buensen
 
 
 ---
@@ -5010,17 +7635,22 @@ records:
     -   document: src.de.Bfv.1928
         name: Klecken
         de.lknr: 21 044
-    -   document: src.de.DRG.Alt.Karte.1931
+    -   document:
+            -   src.de.Bfv.1933
+            -   src.de.Bfv.1938
+            -   src.de.Bfv.1944
+        name: Klecken
+        category: de.Bf
+        de.rang: III
+        de.lknr: 01 232
+    -   document:
+            -   src.de.DRG.Alt.Karte.1931
+            -   src.de.DRG.Alt.Karte.1935
         name: Klecken
         category: de.Bf
         de.rang: IV
         location:
             line.de.2200: 329,10 # left
-    -   document: src.de.Bfv.1933
-        name: Klecken
-        category: de.Bf
-        de.rang: III
-        de.lknr: 01 232
 
     -   document: src.de.DB.Hmb.Karte.1956
         name: Klecken
@@ -5028,7 +7658,6 @@ records:
         de.rang: III
         location:
             line.de.2200: 329,10 # left
-        
     -   document: src.de.DS100.1984
         de.dstnr: !!str 012328
         name: Klecken
@@ -5052,7 +7681,7 @@ records:
         name: Klecken
         category: de.Hp
         location:
-            line.de.2200: 329,099
+            line.de.2200: 329,0+99
         
 
 

@@ -1,4 +1,4 @@
-# DE 1130.  Lübeck Hafen - Lübeck Hgbf
+# DE 1130.  Lübeck Hbf - Lübeck Hgbf
 #
 ---
 key: line.de.1130
@@ -9,8 +9,7 @@ current:
     gauge: 1435mm
     tracks: 1
     course:
-        -   path.de.1130 luh f
-        -   path.de.1120 fluh lua
+        -   path.de.1130 lub lua
 
     goods: full
     passenger: none
@@ -19,15 +18,11 @@ current:
     region:
         - org.de
         - org.de.l.sh
-    operator:
-        point.de.Lübeck-Hafen-Gr: org.de.Lübeck-Port-Authority
-        point.de.Lübeck-Hgbf-Abzw: org.de.DB-Netz
-    owner:
-        point.de.Lübeck-Hafen-Gr: org.de.Lübeck-Port-Authority
-        point.de.Lübeck-Hgbf-Abzw: org.de.DB-Netz
-    de.VzG:
-        point.de.Lübeck-Hbf: !!null
-        point.de.Lübeck-Hgbf-Abzw: !!str 1000
+    
+    operator: org.de.DB-Netz
+    owner: org.de.DB-Netz
+
+    de.VzG: !!str 1130
 records:
     -   date: 2017-01
         start: point.de.Lübeck-Hbf
@@ -35,8 +30,6 @@ records:
         note: km 0,6+7 – 2,5+18
         document: src.de.DBAG.Geo-Strecke.2017
 points:
-    -   point.de.Lübeck-Hafen
-    -   point.de.Lübeck-Hafen-Gr
     -   point.de.Lübeck-Hbf                         # de.1100
     -   point.de.Lübeck-Hgbf-Ntm
     -   point.de.Lübeck-Hgbf-Mtm
@@ -45,39 +38,6 @@ points:
 
 
 #-----------------------------------------------------------------------------
-
----
-key: point.de.Lübeck-Hafen
-type: point
-events:
-    -   date: !!null
-        category: de.Bf
-        name: Lübeck Hafen
-        de.DS100: ALHA
-        de.dstnr: !!str 017517
-        staff: none
-        source: src.de.DS100.1984
-    -   date: !!null
-        de.name16: Lübeck Hafen
-        PLC: DE16558
-        source: src.de.DBAG.BSV.2017
-
-    -   date: !!null
-        site:
-            path.de.1130: luh
-
-
----
-key: point.de.Lübeck-Hafen-Gr
-type: point
-subtype: reference
-events:
-    -   date: !!null
-        name: Lübeck Hafen Betriebsgrenze
-
-    -   date: !!null
-        site:
-            path.de.1130: lhe
 
 
 #    point.de.Lübeck-Hbf                         de.1100
@@ -94,6 +54,11 @@ events:
         source: src.de.DS100.1984
     -   date: c2000
         status: closed
+records:
+    -   document: src.de.DS100.1984
+        name: Lübeck Hgbf (Ntm)
+        category: de.Glgr
+        de.DS100: ALR N
 
 
 ---
@@ -107,10 +72,14 @@ events:
         source: src.de.DS100.1984
     -   date: c2000
         status: closed
+records:
+    -   document: src.de.DS100.1984
+        name: Lübeck Hgbf (Mtm)
+        category: de.Glgr
+        de.DS100: ALR M
 
 
 #    point.de.Lübeck-Hgbf                        de.1120
-
 
 #    point.de.Lübeck-Hgbf-Abzw                   de.1120
 

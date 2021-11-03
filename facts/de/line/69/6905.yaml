@@ -3,16 +3,33 @@
 ---
 key: line.de.6905
 type: line
-events:
-    -   date: !!null
-        region: org.de
-    -   date: !!null
-        end: point.de.Lübbow-LGr
-        region: org.de.l.st
-    -   date: !!null
-        start: point.de.Lübbow-LGr
-        region: org.de.l.ni
+current:
+    status:
+        point.de.Lüchow: closed
+        point.de.Dannenberg-Ost: open
+    category: de.Nebenbahn
+    gauge: 1435mm
+    tracks: 1
+    electrified: !!null
+    course: path.de.6905 sal dan
 
+    passenger: none
+    goods: none
+
+    jurisdiction: de
+    region:
+        point.de.Lübbow-LGr:
+            -   org.de
+            -   org.de.l.st
+        point.de.Dannenberg-Ost:
+            -   org.de
+            -   org.de.l.ni
+
+#   owner:
+#   operator:
+
+    de.VzG: !!str 6905
+events:
     -   date: !!null
         start: point.de.Lübbow-LGr
         de.VzG: !!str 1152
@@ -81,34 +98,6 @@ events:
         end: point.de.Lübbow
         status: removed
 
-    -   date: 1955-05-22
-        start: point.de.Lübbow
-        end: point.de.Lüchow
-        passenger: none
-        source: src.de.WP.Bahnstrecke-Salzwedel-Dannenberg
-
-    -   date: 1960-07-04
-        start: point.de.Lüchow
-        passenger: none
-        source: src.de.WP.Bahnstrecke-Salzwedel-Dannenberg
-    -   date: 1965-08-21
-        start: point.de.Lüchow
-        passenger: full
-        source: src.de.WP.Bahnstrecke-Salzwedel-Dannenberg
-    -   date: 1971-05-23
-        start: point.de.Lübbow
-        end: point.de.Wustrow-Han
-        status: closed
-        source: src.de.WP.Bahnstrecke-Salzwedel-Dannenberg
-    -   date: 1975-05-31
-        start: point.de.Lüchow
-        passenger: none
-        source: src.de.WP.Bahnstrecke-Salzwedel-Dannenberg
-    -   date: c1975
-        start: point.de.Lübbow
-        end: point.de.Wustrow-Han
-        status: removed
-
     -   date: 1996-01-01
         start: point.de.Wustrow-Han
         end: point.de.Lüchow
@@ -119,16 +108,6 @@ events:
         end: point.de.Lüchow
         status: closed
         source: src.de.web.EBA.Still # Nr. 137
-
-    -   date: 1997-12-30
-        start: point.de.Lüchow
-        goods: none
-        source: src.de.WP.Bahnstrecke-Salzwedel-Dannenberg
-
-    -   date: 2006-01
-        start: point.de.Lüchow
-        status: suspended
-        source: src.de.WP.Bahnstrecke-Salzwedel-Dannenberg
 
     #   Eigenschaften
     #
@@ -148,19 +127,6 @@ events:
     -   date: 1949-10-07
         end: point.de.Lübbow-LGr
         owner: org.dd
-
-    -   date: 2001-10-03
-        start: point.de.Lüchow
-        end: point.de.Dannenberg-Ost-Gr
-        owner: org.de.Deutsche-Regionaleisenbahn
-        operator: org.de.Deutsche-Regionaleisenbahn
-        source: src.de.WP.Bahnstrecke-Salzwedel-Dannenberg
-    -   date: 2005
-        start: point.de.Wustrow-Han
-        end: point.de.Lüchow
-        owner: org.de.Deutsche-Regionaleisenbahn
-        operator: org.de.Deutsche-Regionaleisenbahn
-        source: src.de.WP.Bahnstrecke-Salzwedel-Dannenberg
 
     #   Verlauf
     #
@@ -235,6 +201,12 @@ type: point
 subtype: reference
 events:
     -   date: !!null
+        designation: RBD-Grenze Han/Alt ab 1935
+        location:
+            line.de.6905: 1,40
+        source: src.de.DRG.Alt.Karte.1935
+
+    -   date: !!null
         site:
             path.de.6905: gbur
 records:
@@ -248,6 +220,13 @@ records:
 key: point.de.Bürgerholz
 type: point
 events:
+    -   date: !!null
+        name: Bürgerholz
+        category: de.Hp
+        service: passenger
+        location:
+            line.de.6905: 5,00
+        source: src.de.DRG.Alt.Karte.1935
     -   date: !!null
         site:
             path.de.6905: bur
@@ -281,6 +260,10 @@ type: point
 subtype: border
 events:
     -   date: !!null
+        location:
+            line.de.6905: 6,13
+        source: src.de.DB.Hmb.Karte.1956
+    -   date: !!null
         designation: Lübbow ST/NI
 
     -   date: !!null
@@ -297,6 +280,15 @@ records:
 key: point.de.Lübbow
 type: point
 events:
+    -   date: !!null
+        name: Lübbow
+        category: de.Bf
+        location:
+            line.de.6905: 6,75 # right
+        source: src.de.DB.Hmb.Karte.1956
+    -   date: c1975
+        status: closed
+
     -   date: !!null
         site:
             path.de.6905: lub
@@ -337,6 +329,13 @@ records:
 key: point.de.Teplingen
 type: point
 events:
+    -   date: !!null
+        name: Teplingen
+        category: de.Hp
+        staff: none
+        location:
+            line.de.6905: 8,93 # left
+        source: src.de.DB.Hmb.Karte.1956
     -   date: c1975
         status: closed
 
@@ -356,6 +355,23 @@ records:
 key: point.de.Wustrow-Han
 type: point
 events:
+    -   date: !!null
+        name: Wustrow (Han)
+        category: de.Bf
+        location:
+            line.de.6905: 10,66 # left
+        source: src.de.DB.Hmb.Karte.1956
+    -   date: !!null
+        de.DS100: AWW
+        source: src.de.DS100.1984
+    -   date: c1975
+        staff: none
+        location:
+            line.de.6905: 10,65 # left
+        source: src.de.DB.Hmb.Karte.1984
+    -   date: 1996-09-01
+        status: closed
+
     -   date: !!null
         site:
             path.de.6905: wus
@@ -393,6 +409,7 @@ records:
         de.dstnr: !!str 016030
         name: Wustrow (Han)
         de.DS100: AWW
+        category: de.Bf
         staff: none
     -   document: src.de.DB.Hmb.Karte.1984
         name: Wustrow (Han)
@@ -406,6 +423,16 @@ records:
 key: point.de.Lüchow
 type: point
 events:
+    -   date: !!null
+        name: Lüchow
+        de.DS100: ALCH
+        category: de.Bf
+        source: src.de.DS100.1984
+    -   date: !!null
+        location:
+            line.de.6905: 15,86 # links
+        source: src.de.DB.Hmb.Karte.1984
+
     -   date: !!null
         connection: point.de.Lüchow-Süd
         site:
@@ -464,6 +491,18 @@ records:
 key: point.de.Tarmitz
 type: point
 events:
+    -   date: c1950
+        status: open
+    -   date: !!null
+        name: Tarmitz
+        category: de.Hp
+        staff: none
+        location:
+            line.de.6905: 16,97 # right
+        source: src.de.DB.Hmb.Karte.1956
+    -   date: c1980
+        status: closed
+
     -   date: !!null
         site:
             path.de.6905: tar
@@ -480,6 +519,18 @@ records:
 key: point.de.Müggenburg-Dannenberg
 type: point
 events:
+    -   date: c1950
+        status: open
+    -   date: !!null
+        name: Müggenburg
+        category: de.Hp
+        staff: none
+        location:
+            line.de.6905: 19,13 # left
+        source: src.de.DB.Hmb.Karte.1956
+    -   date: c1980
+        status: closed
+
     -   date: !!null
         site:
             path.de.6905: mug
@@ -496,6 +547,25 @@ records:
 key: point.de.Gollau
 type: point
 events:
+    -   date: !!null
+        name: Gollau
+        category: de.Bf
+        location:
+            line.de.6905: 20,36 # right
+        source: src.de.DRG.Alt.Karte.1935
+    -   date: c1950
+        category: de.Hst
+        source: src.de.DB.Hmb.Karte.1956
+    -   date: !!null
+        de.DS100: AGL
+        source: src.de.DS100.1984
+    -   date: c1980
+        staff: none
+        source: src.de.DS100.1984
+    -   date: c2000
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         site:
             path.de.6905: gol
@@ -555,6 +625,24 @@ key: point.de.Grabow-Dannenberg
 type: point
 events:
     -   date: !!null
+        name: Grabow (Kr Dannenberg)
+        category: de.Bf
+        location:
+            line.de.6905: 22,92 # left
+        source: src.de.DRG.Alt.Karte.1935
+    -   date: c1950
+        category: de.Hst
+        source: src.de.DB.Hmb.Karte.1956
+    -   date: c1980
+        status: closed
+    -   date: c2000
+        status: open
+    -   date: c2000 
+        de.DS100: AGRD
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
         site:
             path.de.6905: gra
 records:
@@ -602,6 +690,22 @@ records:
 key: point.de.Jameln-Dannenberg
 type: point
 events:
+    -   date: !!null
+        name: Jameln (Kr Dannenberg)
+        category: de.Bf
+        location:
+            line.de.6905: 26,73 # left
+        source: src.de.DB.Hmb.Karte.1956
+    -   date: !!null
+        de.DS100: AJA
+        source: src.de.DS100.1984
+    -   date: c1980
+        staff: none
+        source: src.de.DS100.1984
+    -   date: c2000
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         site:
             path.de.6905: jam
@@ -661,6 +765,18 @@ records:
 key: point.de.Tramm
 type: point
 events:
+    -   date: c1950
+        status: open
+    -   date: !!null
+        name: Tramm
+        category: de.Hp
+        staff: none
+        location:
+            line.de.6905: 29,90 # right
+        source: src.de.DB.Hmb.Karte.1956
+    -   date: c1980
+        status: closed
+
     -   date: !!null
         site:
             path.de.6905: tra
@@ -677,6 +793,16 @@ records:
 key: point.de.Schaafhausen-Dannenberg
 type: point
 events:
+    -   date: !!null
+        name: Schaafhausen
+        category: de.Hp
+        staff: none
+        location:
+            line.de.6905: 30,90 # left
+        source: src.de.DB.Hmb.Karte.1956
+    -   date: c1980
+        status: closed
+
     -   date: !!null
         site:
             path.de.6905: saa
@@ -715,6 +841,20 @@ events:
 key: point.de.Dannenberg-West
 type: point
 events:
+    -   date: !!null
+        name: Dannenberg West
+        de.DS100: ADW
+        category: de.Bf
+        source: src.de.DS100.1984
+    -   date: !!null
+        location:
+            line.de.1963: 42,03
+            line.de.6905: 33,30 # right
+        source: src.de.DB.Hmb.Karte.1984
+    -   date: c2000
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         site:
             path.de.6905: daw
@@ -777,11 +917,17 @@ events:
     -   date: !!null
         de.DS100: ADBG
         name: Dannenberg Ost DB-Grenze
+        category: de.Gp
+        source: src.de.DBAG.BSV.2017
+records:
+    -   document: src.de.DBAG.BSV.2017
+        de.DS100: ADBG
+        name: Dannenberg Ost DB-Grenze
         de.name16: Dannenb O DB-Gr
         category: de.Gp
         PLC: DE12063
         de.dstnr: !!str 108861
-        source: src.de.DBAG.BSV.2017
+        
 
 
 #    point.de.Dannenberg-Ost                     de.1151

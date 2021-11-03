@@ -4,19 +4,26 @@
 key: line.de.1122
 type: line
 current:
+    status: open
     category: de.Hauptbahn
     course: path.de.1122 lub stw
+    gauge: 1435mm
+    tracks:
+        point.de.Bad-Kleinen: 1
+        point.de.Güstrow: 2
+        point.de.Strasburg-Uckerm: 1
     electrified:
         point.de.Bad-Kleinen: !!null
         point.de.Lalendorf: de
         point.de.Strasburg-Uckerm: !!null
+
     goods: full
-    gauge: 1435mm
-    jurisdiction: de
+    passenger: full
+
     owner: org.de.DB-Netz
     operator: org.de.DB-Netz
-    passenger: full
-    rails: 2
+
+    jurisdiction: de
     region:
         point.de.Herrnburg-LGr:
             -   org.de
@@ -24,11 +31,7 @@ current:
         point.de.Strasburg-Uckerm:
             -   org.de
             -   org.de.l.mv
-    status: open
-    tracks:
-        point.de.Bad-Kleinen: 1
-        point.de.Güstrow: 2
-        point.de.Strasburg-Uckerm: 1
+
     de.VzG: !!str "1122"
 events:
     #   Staatsverträge
@@ -374,6 +377,16 @@ type: point
 events:
     -   date: c1970
         status: open
+    -   date: !!null
+        category: de.Abzw
+        name: Strecknitz
+        de.DS100: ASTR
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        location:
+            line.de.1122: 6,020
+            line.de.1131: 4,348
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -414,6 +427,15 @@ type: point
 events:
     -   date: c2000
         status: open
+    -   date: !!null
+        de.DS100: ALSJ
+        name: Lübeck St Jürgen
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        location:
+            line.de.1122: 6,436
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -438,6 +460,34 @@ key: point.de.Herrnburg-LGr
 type: point
 subtype: border
 events:
+    -   date: !!null
+        location:
+            line.de.1122: 6,912
+        source:
+            -   src.de.DB.Hmb.Karte.1956
+            -   src.de.DB.Hmb.Karte.1984
+            -   src.dd.DR.Sch.1986
+    -   date: c1975
+        location:
+            line.de.1122: 9,517=6,903
+        source:
+            -   src.de.DB.Hmb.Karte.1984
+            -   src.dd.DR.Sch.1986
+    -   date: c2000
+        location:
+            line.de.1122: 9,517
+
+    -   date: !!null
+        name: Herrnburg Grenze
+        de.DS100: AGRH
+        category: de.Tp
+        source: src.de.DS100.1984
+    -   date: !!null
+        de.DS100: WQHB
+        name: Herrnburg MV/SH
+        category: de.LGr
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         site:
             path.de.1122: heg
@@ -478,6 +528,21 @@ records:
 key: point.de.Herrnburg
 type: point
 events:
+    -   date: !!null
+        name: Herrnburg
+        category: de.Bf
+        de.VBL: Hb
+        location:
+            line.de.1122: 7,53 # right
+        source: src.dd.DR.Sch.1986
+    -   date: !!null
+        de.DS100: WHB
+        source: src.de.DBAG.BSV.2017
+    -   date: c2000
+        location:
+            line.de.1122: 10,200
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
     -   date: !!null
         site:
             path.de.1122: her
@@ -555,6 +620,22 @@ key: point.de.Lüdersdorf-Meckl
 type: point
 events:
     -   date: !!null
+        name: Lüdersdorf (Meckl)
+        category: de.Bf
+        de.VBL: Lf
+        location:
+            line.de.1122: 11,2 # right
+        source: src.dd.DR.1989
+    -   date: !!null
+        de.DS100: WLF
+        source: src.de.DBAG.BSV.2017
+    -   date: c2000
+        category: de.Hp
+        location:
+            line.de.1122: 11,280
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+    -   date: !!null
         site:
             path.de.1122: lud
 records:
@@ -586,7 +667,7 @@ records:
         de.VBL: Lf
         category: de.Bf
         de.rang: U
-        master: point.de.Herrnburg
+        superior: point.de.Herrnburg
         location:
             line.de.1122: 11,2 # right
         document: src.dd.DR.Sch.1986
@@ -617,14 +698,20 @@ records:
 key: point.de.Schönberg-Meckl
 type: point
 events:
-    -   date: de.ds100.dr
-        de.DS100: WSBG
-        de.dstnr: !!str 270041
-        source: src.de.DBAG.BSV.2017
     -   date: !!null
-        de.name16: Schönberg (M)
-        PLC: DE19437
+        name: Schönberg (Meckl)
+        de.VBL: Sg
+        category: de.Bf
+        location:
+            line.de.1122: 19,35 # right
+        source: src.dd.DR.1989
+    -   date: !!null
+        de.DS100: WSBG
         source: src.de.DBAG.BSV.2017
+    -   date: c2000
+        location:
+            line.de.1122: 19,407
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -673,6 +760,13 @@ records:
             line.de.1122: 19,35 # right
         document: src.dd.DR.1989
 
+    -   document: src.de.DBAG.BSV.2017
+        de.DS100: WSBG
+        name: Schönberg (Meckl)
+        de.name16: Schönberg (M)
+        category: de.Bf
+        de.dstnr: !!str 270041
+        PLC: DE19437
     -   date: 2017-01
         location:
             line.de.1122: 19,407
@@ -686,6 +780,20 @@ events:
     -   date: c1940
         status: open
         source: src.de.Bfv.1944
+    -   date: !!null
+        name: Menzendorf
+        de.VBL: Me
+        category: de.Bf
+        location:
+            line.de.1122: 25,25 # right
+        source: src.dd.DR.Sch.1986
+    -   date: !!null
+        de.DS100: WMEF
+        source: src.de.DBAG.BSV.2017
+    -   date: c2000
+        location:
+            line.de.1122: 25,341
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -715,7 +823,7 @@ records:
         de.VBL: Me
         category: de.Bf
         de.rang: U
-        master: point.de.Schönberg-Meckl
+        superior: point.de.Schönberg-Meckl
         location:
             line.de.1122: 25,25 # right
         document: src.dd.DR.Sch.1986
@@ -746,6 +854,21 @@ records:
 key: point.de.Grieben-Meckl
 type: point
 events:
+    -   date: !!null
+        name: Grieben (Meckl)
+        de.VBL: Gbn
+        category: de.Bf
+        location:
+            line.de.1122: 29,02 # left
+        source: src.dd.DR.Sch.1986
+    -   date: !!null
+        de.DS100: WGBN
+        source: src.de.DBAG.BSV.2017
+    -   date: c2000
+        location:
+            line.de.1122: 29,040
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
     -   date: !!null
         site:
             path.de.1122: gri
@@ -781,7 +904,7 @@ records:
         de.VBL: Gbn
         category: de.Bf
         de.rang: U
-        master: point.de.Grevesmühlen
+        superior: point.de.Grevesmühlen
         location:
             line.de.1122: 29,02 # left
         document: src.dd.DR.Sch.1986
@@ -807,6 +930,11 @@ events:
     -   date: c1940
         status: open
         source: src.de.Bfv.1944
+    -   date: !!null
+        category: de.Bf
+        service: none
+        name: Börzow
+        source: src.de.Bfv.1944
     -   date: c1950
         status: closed
 
@@ -827,6 +955,21 @@ records:
 key: point.de.Grevesmühlen
 type: point
 events:
+    -   date: !!null
+        name: Grevesmühlen
+        de.VBL: Gv
+        category: de.Bf
+        location:
+            line.de.6931:  0,0
+        source: src.dd.DR.Sch.1986
+    -   date: !!null
+        de.DS100: WGV
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        location:
+            line.de.1122: 36,700
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
     -   date: !!null
         site:
             path.de.1122: gre
@@ -884,6 +1027,22 @@ key: point.de.Plüschow
 type: point
 events:
     -   date: !!null
+        name: Plüschow
+        de.VBL: Ps
+        category: de.Bf
+        location:
+            line.de.1122: 43,97 # right
+        source: src.dd.DR.Sch.1986
+    -   date: !!null
+        de.DS100: WPSW
+        source: src.de.DBAG.BSV.2017
+    -   date: c2000
+        category: de.Hp
+        location:
+            line.de.1122: 44,152
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+    -   date: !!null
         site:
             path.de.1122: plu
     -   date: c1998
@@ -918,7 +1077,7 @@ records:
         de.VBL: Ps
         category: de.Bf
         de.rang: U
-        master: point.de.Grevesmühlen
+        superior: point.de.Grevesmühlen
         location:
             line.de.1122: 43,97 # right
         document: src.dd.DR.Sch.1986
@@ -941,6 +1100,19 @@ records:
 key: point.de.Bobitz
 type: point
 events:
+    -   date: !!null
+        name: Bobitz
+        de.VBL: Bz
+        category: de.Bf
+        source: src.dd.DR.Sch.1986
+    -   date: !!null
+        de.DS100: WBO
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        location:
+            line.de.1122: 50,570
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
     -   date: !!null
         site:
             path.de.1122: bob
@@ -995,6 +1167,17 @@ records:
 key: point.de.Rambow
 type: point
 events:
+    -   date: !!null
+        name: Wendisch Rambow
+        category: de.Bk
+        source: src.de.DRG.Sch.Karte.1937
+    -   date: !!null
+        location:
+            line.de.1122: 55,167 # left
+        source: src.dd.DR.Sch.1986
+    -   date: c1950
+        name: Rambow
+        source: src.dd.DR.Sch.1986
     -   date: c1995
         status: closed
 
@@ -1024,6 +1207,20 @@ records:
 key: point.de.Bad-Kleinen
 type: point
 events:
+    -   date: !!null
+        name: Bad Kleinen
+        de.VBL: Kl
+        category: de.Bf
+        source: src.dd.DR.Sch.1986
+    -   date: !!null
+        de.DS100: WK
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        location:
+            line.de.1122: 59,320
+            line.de.6441: 82,800
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
     -   date: !!null
         site:
             path.de.1122: kle
@@ -1081,6 +1278,12 @@ records:
 key: point.de.Hohen-Viechteln
 type: point
 events:
+    -   date: !!null
+        name: Hohen Viechteln
+        category: de.Bk
+        location:
+            line.de.1122: 63,8 # left
+        source: src.de.DRG.Sch.Karte.1937
     -   date: c1980
         status: closed
         source:
@@ -1112,6 +1315,22 @@ records:
 key: point.de.Ventschow
 type: point
 events:
+    -   date: !!null
+        name: Ventschow
+        de.VBL: Ve
+        category: de.Bf
+        source: src.dd.DR.Sch.1986
+    -   date: !!null
+        de.DS100: WVE
+        source: src.de.DBAG.BSV.2017
+    -   date: c2000
+        category: [de.Hp, de.Üst]
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        location:
+            line.de.1122: 67,600
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
     -   date: !!null
         site:
             path.de.1122: ven
@@ -1166,8 +1385,15 @@ records:
 key: point.de.Bibow
 type: point
 events:
+    -   date: !!null
+        name: Bibow
+        category: de.Bk
+        location:
+            line.de.1122: 73,0 # right
+        source: src.de.DRG.Sch.Karte.1937
     -   date: c1950
         status: closed
+
     -   date: !!null
         site:
             path.de.1122: bib
@@ -1184,6 +1410,19 @@ records:
 key: point.de.Blankenberg-Meckl
 type: point
 events:
+    -   date: !!null
+        name: Blankenberg (Meckl)
+        category: de.Bf
+        de.VBL: Bl
+        source: src.dd.DR.Sch.1986
+    -   date: !!null
+        de.DS100: WBL
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        location:
+            line.de.1122: 76,800
+            line.de.6936: 22,087
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -1242,6 +1481,21 @@ records:
 key: point.de.Friedrichswalde-Meckl
 type: point
 events:
+    -   date: !!null
+        name: Friedrichswalde (Meckl)
+        category: de.Bf
+        location:
+            line.de.1122: 81,2 # left
+        source: src.de.DRG.Sch.Karte.1937
+    -   date: !!null
+        de.VBL: Fw
+        source: src.dd.DR.Sch.1986
+    -   date: 1970
+        category: de.Hp
+        staff: none
+        location:
+            line.de.1122: 81,2 # right
+        source: src.dd.DR.Sch.1986
     -   date: c1995
         status: closed
 
@@ -1281,7 +1535,7 @@ records:
         de.VBL: Fw
         category: de.Hp
         staff: none
-        master: point.de.Blankenberg-Meckl
+        superior: point.de.Blankenberg-Meckl
         location:
             line.de.1122: 81,2 # right
         document: src.dd.DR.Sch.1986
@@ -1293,6 +1547,11 @@ type: point
 events:
     -   date: c1995
         status: open
+    -   date: !!null
+        de.DS100: WFRW
+        name: Friedrichswalde (Meckl)
+        category: de.Bk
+        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
@@ -1312,6 +1571,12 @@ records:
 key: point.de.Eickelberg
 type: point
 events:
+    -   date: !!null
+        name: Eickelberg
+        category: de.Bk
+        location:
+            line.de.1122: 85,6 # left
+        source: src.de.DRG.Sch.Karte.1937
     -   date: c1950
         status: closed
 
@@ -1331,6 +1596,19 @@ records:
 key: point.de.Warnow-Meckl
 type: point
 events:
+    -   date: !!null
+        name: Warnow (Meckl)
+        de.VBL: Ww
+        category: de.Bf
+        source: src.dd.DR.Sch.1986
+    -   date: !!null
+        de.DS100: WWRN
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        location:
+            line.de.1122: 89,660
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
     -   date: !!null
         site:
             path.de.1122: war
@@ -1396,6 +1674,14 @@ events:
         source:
             -   src.de.Kb.1905
             -   src.de.Kb.1914
+    -   date: !!null
+        name: Zernin
+        de.VBL: Zr
+        category: de.Hp
+        staff: full
+        location:
+            line.de.1122: 93,3 # right
+        source: src.dd.DR.Sch.1986
     -   date: c1995
         status: closed
 
@@ -1438,7 +1724,7 @@ records:
         de.VBL: Zr
         category: de.Hp
         staff: full
-        master: point.de.Bützow
+        superior: point.de.Bützow
         location:
             line.de.1122: 93,3 # right
         document: src.dd.DR.Sch.1986
@@ -1448,6 +1734,23 @@ records:
 key: point.de.Bützow
 type: point
 events:
+    -   date: !!null
+        name: Bützow
+        de.VBL: B
+        category: de.Bf
+        location:
+            line.de.1122: 99,79 # left
+            line.de.6446:  0,0
+        source: src.dd.DR.Sch.1986
+    -   date: !!null
+        de.DS100: WB
+        source: src.de.DBAG.BSV.2017
+    -   date: c2000
+        location:
+            line.de.1122: 99,870
+            line.de.6446: -0,254
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
     -   date: !!null
         site:
             path.de.1122: but
@@ -1519,6 +1822,29 @@ key: point.de.Schwiesower-Forst
 type: point
 events:
     -   date: !!null
+        name: Schwiesower Forst
+        category: de.Bk
+        location:
+            line.de.1122: 106,7 # left
+        source: src.de.DRG.Sch.Karte.1937
+    -   date: c1950
+        de.VBL: Swf
+        category: de.Bf
+        location:
+            line.de.1122: 106,67 # left
+        source: src.dd.DR.Sch.1986
+    -   date: !!null
+        de.DS100: WSWF
+        source: src.de.DBAG.BSV.2017
+    -   date: c2000
+        status: closed
+        source: src.de.DBAG.BSV.2017
+    -   date: c2000
+        location:
+            line.de.1122: 106,681
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+    -   date: !!null
         site:
             path.de.1122: swi
 records:
@@ -1542,7 +1868,7 @@ records:
         de.VBL: Swf
         category: de.Bf
         de.rang: U
-        master: point.de.Bützow
+        superior: point.de.Bützow
         location:
             line.de.1122: 106,67 # left
         document: src.dd.DR.Sch.1986
@@ -1576,6 +1902,24 @@ events:
 key: point.de.Güstrow-Gbf
 type: point
 events:
+    -   date: !!null
+        name: Güstrow Gbf
+        de.VBL: Gg
+        category: de.Bf
+        location:
+            line.de.1122: 112,4 # right
+        source: src.dd.DR.Sch.1986
+    -   date: !!null
+        de.DS100: "WG  G"
+        document: src.de.DBAG.BSV.2017
+    -   date: c1995
+        category: de.Bft
+        source: src.de.DBAG.BSV.2017
+    -   date: c2000
+        location:
+            line.de.1122: 112,500
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
     -   date: !!null
         site:
             path.de.1122: gug
@@ -1615,6 +1959,24 @@ records:
 key: point.de.Güstrow
 type: point
 events:
+    -   date: !!null
+        de.VBL: G
+        document: src.dd.DR.1976
+    -   date: !!null
+        name: Güstrow
+        category: de.Bf
+        de.DS100: WG
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        location:
+            line.de.1122: 113,263
+            line.de.6445:   0,000
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+    -   date: !!null
+        location:
+            line.de.6939:  59,8
+        source: src.dd.DR.Sch.1986
+
     -   date: !!null
         site:
             path.de.1122: gus
@@ -1751,6 +2113,23 @@ key: point.de.Priemerwald-Süd
 type: point
 events:
     -   date: !!null
+        name: Pws
+        category: de.Abzw
+        location:
+            line.de.1122: 118,47 # left
+            line.de.6939:  54,655
+        source: src.dd.DR.Sch.1986
+    -   date: !!null
+        de.DS100: WPWS
+        source: src.de.DBAG.BSV.2017
+    -   date: c1995
+        name: Priemerwald Süd
+        source: src.de.DBAG.BSV.2017
+    -   date: c2000
+        status: closed
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
         site:
             path.de.1122: prs
 records:
@@ -1785,6 +2164,30 @@ key: point.de.Devwinkel
 type: point
 events:
     -   date: !!null
+        name: Devwinkel
+        category: de.Bk
+        location:
+            line.de.1122: 121,6 # left
+        source: src.de.DRG.Sch.Karte.1937
+    -   date: !!null
+        de.VBL: Dv
+        source: src.dd.DR.Sch.1986
+    -   date: c1970
+        category: de.Bf
+        location:
+            line.de.1122: 121,9 # right
+        source: src.dd.DR.Sch.1986
+    -   date: !!null
+        de.DS100: WDVW
+        source: src.de.DBAG.BSV.2017
+    -   date: c1995
+        category: de.Bk
+        source: src.de.DBAG.BSV.2017
+    -   date: c2005
+        status: closed
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
         site:
             path.de.1122: dev
 records:
@@ -1808,7 +2211,7 @@ records:
         de.VBL: Dv
         category: de.Bf
         de.rang: U
-        master: point.de.Priemerburg
+        superior: point.de.Priemerburg
         location:
             line.de.1122: 121,9 # right
         document: src.dd.DR.Sch.1986
@@ -1830,6 +2233,12 @@ events:
     -   date: 1941
         status: open
         source: src.de.Kb.W1941
+    -   date: !!null
+        category: de.Hp
+        name: Nienhagen
+        service: passenger
+        staff: none
+        source: src.de.Bfv.1944
     -   date: c1950
         status: closed
 
@@ -1842,7 +2251,7 @@ records:
         name: Nienhagen
         service: passenger
         staff: none
-        master: point.de.Lalendorf
+        superior: point.de.Lalendorf
         de.lknr: 27 040
         document: src.de.Bfv.1944
 
@@ -1851,6 +2260,21 @@ records:
 key: point.de.Lalendorf
 type: point
 events:
+    -   date: !!null
+        name: Lalendorf
+        de.VBL: Ld
+        category: de.Bf
+        location:
+            line.de.6447:   2,015
+        source: src.dd.DR.Sch.1986
+    -   date: !!null
+        de.DS100: WLD
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        location:
+            line.de.1122: 129,030
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
     -   date: !!null
         site:
             path.de.1122:      lal
@@ -1921,6 +2345,22 @@ key: point.de.Neu-Wokern
 type: point
 events:
     -   date: !!null
+        name: Neu Wokern
+        de.VBL: Wo
+        category: de.Bf
+        source: src.dd.DR.Sch.1986
+    -   date: !!null
+        location:
+            line.de.1122: 136,60
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+    -   date: !!null
+        de.DS100: WNWO
+        source: src.de.DBAG.BSV.2017
+    -   date: c2000
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
         site:
             path.de.1122: nwo
 records:
@@ -1958,7 +2398,7 @@ records:
         de.VBL: Wo
         category: de.Bf
         de.rang: U
-        master: point.de.Teterow
+        superior: point.de.Teterow
         location:
             line.de.1122: 136,6 # right
         document: src.dd.DR.Sch.1986
@@ -1981,6 +2421,22 @@ records:
 key: point.de.Teterow
 type: point
 events:
+    -   date: !!null
+        name: Teterow
+        de.VBL: Te
+        category: de.Bf
+        location:
+            line.de.1122: 142,3 # left
+            line.de.6937:   0,0
+        document: src.dd.DR.Sch.1986
+    -   date: !!null
+        de.DS100: WTE
+        source: src.de.DBAG.BSV.2017
+    -   date: c2000
+        location:
+            line.de.1122: 142,289
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
     -   date: !!null
         site:
             path.de.1122: tet
@@ -2045,6 +2501,24 @@ key: point.de.Hohen-Mistorf
 type: point
 events:
     -   date: !!null
+        name: Hohen Mistorf
+        de.VBL: Mw
+        category: de.Bf
+        location:
+            line.de.1122: 148,8 # left
+        source: src.dd.DR.Sch.1986
+    -   date: !!null
+        de.DS100: WHMT
+        source: src.de.DBAG.BSV.2017
+    -   date: c2000
+        location:
+            line.de.1122: 148,779
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+    -   date: c2000
+        status: closed
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
         site:
             path.de.1122: hmi
 records:
@@ -2085,7 +2559,7 @@ records:
         de.VBL: Mw
         category: de.Bf
         de.rang: U
-        master: point.de.Teterow
+        superior: point.de.Teterow
         location:
             line.de.1122: 148,8 # left
         document: src.dd.DR.Sch.1986
@@ -2112,13 +2586,28 @@ events:
     -   date: c1930
         status: open
         source: src.de.Bfv.1933
+    -   date: !!null
+        name: Remplin
+        category: de.Hp
+        service: passenger
+        location:
+            line.de.1122: 152,07 # right
+        source: src.de.DRG.Sch.Karte.1937
+    -   date: c1940
+        category: de.Bf
+        source: src.de.Bfv.1944
+    -   date: c1960
+        category: de.Bk
+        location:
+            line.de.1122: 152,03 # left
+        source: src.dd.DR.Sch.1986
     -   date: c1995
         status: closed
 
     -   date: !!null
         site:
             path.de.1122: rem
-    -   date: c1985
+    -   date: c1960
         site:
             path.de.1122: reb
 records:
@@ -2141,7 +2630,7 @@ records:
         service: passenger
         de.lknr: 27 043
         staff: none
-        master: !!null
+        superior: !!null
         document: src.de.Bfv.1938
     -   date: 1944-06-01
         category: de.Bf
@@ -2162,7 +2651,7 @@ records:
         name: Remplin
         de.VBL: Rp
         category: de.Bk
-        master: point.de.Teterow
+        superior: point.de.Teterow
         location:
             line.de.1122: 152,03 # left
         document: src.dd.DR.Gwd.1987
@@ -2174,7 +2663,13 @@ type: point
 subtype: reference
 events:
     -   date: !!null
+        location:
+            line.de.1122: 153,1
+        source: src.dd.DR.Gwd.1965
+    -   date: !!null
         designation: Malchin Sch/Gwd
+        site:
+            path.de.1122: mag
 records:
     -   date: 1965-09
         location:
@@ -2193,6 +2688,23 @@ records:
 key: point.de.Malchin
 type: point
 events:
+    -   date: !!null
+        name: Malchin
+        de.VBL: Man
+        category: de.Bf
+        location:
+            line.de.1122: 156,31 # right
+            line.de.6782:  27,6
+            line.de.6783:   0,0
+        source: src.dd.DR.Gwd.1987
+    -   date: !!null
+        de.DS100: WMA
+        source: src.de.DBAG.BSV.2017
+    -   date: c2000
+        location:
+            line.de.1122: 156,315
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
     -   date: !!null
         site:
             path.de.1122: mal
@@ -2260,7 +2772,17 @@ type: point
 events:
     -   date: c1940
         status: open
+        category: de.Bf
+        name: Leuschentin
         source: src.de.Bfv.1944
+    -   date: !!null
+        de.VBL: Leu
+        location:
+            line.de.1122: 158,950
+        source: src.dd.DR.Gwd.1987
+    -   date: c1960
+        category: de.Bk
+        source: src.dd.DR.Gwd.1987
     -   date: c2000
         status: closed
 
@@ -2285,7 +2807,7 @@ records:
         name: Leutschentin
         de.VBL: Leu
         category: de.Bk
-        master: point.de.Malchin
+        superior: point.de.Malchin
         location:
             line.de.1122: 158,950
         document: src.dd.DR.Gwd.1987
@@ -2298,6 +2820,25 @@ events:
     -   date: c1935
         status: open
         source: src.de.Bfv.1938
+    -   date: !!null
+        name: Schwarpzow
+        category: de.Kr
+        de.VBL: Sr
+        source: src.dd.DR.Gwd.1987
+    -   date: !!null
+        location:
+            line.de.1122: 162,300
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+    -   date: !!null
+        de.DS100: WSRP
+        source: src.de.DBAG.BSV.2017
+    -   date: c1995
+        category: de.Bf
+        status: closed
+        source: src.de.DBAG.BSV.2017
+    -   date: c2000
+        status: closed
+        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
@@ -2330,7 +2871,7 @@ records:
         name: Schwarpzow
         category: de.Kr
         de.VBL: Sr
-        master: point.de.Malchin
+        superior: point.de.Malchin
         location:
             line.de.1122: 162,3
         document: src.dd.DR.Gwd.1987
@@ -2355,6 +2896,19 @@ key: point.de.Reuterstadt-Stavenhagen
 type: point
 junction: True
 events:
+    -   date: !!null
+        name: Reuterstadt Stavenhagen
+        category: de.Bf
+        de.VBL: Rst
+        source: src.dd.DR.Gwd.1987
+    -   date: !!null
+        de.DS100: WRST
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        location:
+            line.de.1122: 167,507
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
     -   date: !!null
         site:
             path.de.1122: sta
@@ -2415,6 +2969,19 @@ events:
         status: open
         source: src.de.Bfv.1933
     -   date: !!null
+        name: Grischow (Meckl)
+        de.VBL: Gro
+        category: de.Bf
+        source: src.dd.DR.Gwd.1987
+    -   date: !!null
+        de.DS100: WGRO
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        location:
+            line.de.1122: 173,740
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+    -   date: !!null
         site:
             path.de.1122: grw
 records:
@@ -2445,7 +3012,7 @@ records:
         de.VBL: Gro
         category: de.Bf
         de.rang: U
-        master: point.de.Reuterstadt-Stavenhagen
+        superior: point.de.Reuterstadt-Stavenhagen
         location:
             line.de.1122: 173,74 # left
         document: src.dd.DR.Gwd.1987
@@ -2474,6 +3041,13 @@ events:
     -   date: c1935
         status: open
         source: src.de.Bfv.1938
+    -   date: !!null
+        name: Kastorf
+        de.VBL: Kf
+        category: de.Bf
+        location:
+            line.de.1122: 178,98 # right
+        source: src.dd.DR.Gwd.1987
     -   date: c2000
         status: closed
 
@@ -2508,7 +3082,7 @@ records:
         de.VBL: Kf
         category: de.Bf
         de.rang: U
-        master: point.de.Reuterstadt-Stavenhagen
+        superior: point.de.Reuterstadt-Stavenhagen
         location:
             line.de.1122: 178,98 # right
         document: src.dd.DR.Gwd.1987
@@ -2518,6 +3092,19 @@ records:
 key: point.de.Kleeth
 type: point
 events:
+    -   date: !!null
+        name: Kleeth
+        de.VBL: Kh
+        category: de.Bf
+        source: src.dd.DR.Gwd.1987
+    -   date: !!null
+        de.DS100: WKLE
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        location:
+            line.de.1122: 182,381
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
     -   date: !!null
         site:
             path.de.1122: kee
@@ -2555,7 +3142,7 @@ records:
         de.VBL: Kh
         category: de.Bf
         de.rang: U
-        master: point.de.Mölln-Meckl
+        superior: point.de.Mölln-Meckl
         location:
             line.de.1122: 182,38 # right
         document: src.dd.DR.Gwd.1987
@@ -2578,6 +3165,22 @@ records:
 key: point.de.Mölln-Meckl
 type: point
 events:
+    -   date: !!null
+        name: Mölln (Meckl)
+        de.VBL: Mö
+        category: de.Bf
+        source: src.dd.DR.Gwd.1987
+    -   date: !!null
+        de.DS100: WMOE
+        source: src.de.DBAG.BSV.2017
+    -   date: c2000
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        location:
+            line.de.1122: 186,950
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
     -   date: !!null
         site:
             path.de.1122: mol
@@ -2678,7 +3281,7 @@ records:
         de.VBL: Blh
         category: de.Bf
         de.rang: U
-        master: point.de.Mölln-Meckl
+        superior: point.de.Mölln-Meckl
         location:
             line.de.1122: 191,03 # right
         document: src.dd.DR.Gwd.1987
@@ -2703,6 +3306,19 @@ type: point
 events:
     -   date: c1935
         status: open
+    -   date: !!null
+        name: Weitin
+        de.VBL: Wtn
+        category: de.Kr
+        location:
+            line.de.1122: 196,8 # left
+        source: src.dd.DR.Gwd.1987
+    -   date: !!null
+        de.DS100: WWTN
+        source: src.de.DBAG.BSV.2017
+    -   date: c200
+        status: closed
+        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
@@ -2735,7 +3351,7 @@ records:
         name: Weitin
         de.VBL: Wtn
         category: de.Kr
-        master: point.de.Neubrandenburg
+        superior: point.de.Neubrandenburg
         location:
             line.de.1122: 196,8 # left
         document: src.dd.DR.Gwd.1987
@@ -2755,6 +3371,22 @@ records:
 key: point.de.Neubrandenburg
 type: point
 events:
+    -   date: !!null
+        name: Neubrandenburg
+        de.VBL: Ng
+        category: de.Bf
+        location:
+            line.de.6756:   0,0
+        source: src.dd.DR.Gwd.1987
+    -   date: !!null
+        location:
+            line.de.1122: 200,938
+            line.de.6088: 133,693
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+    -   date: !!null
+        de.DS100: WN
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         site:
             path.de.1122: nbr
@@ -2822,6 +3454,16 @@ key: point.de.Neubrandenburg-Gbf
 type: point
 events:
     -   date: !!null
+        name: Neubrandenburg Gbf
+        category: de.Bft
+        de.DS100: WN  G
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        location:
+            line.de.1122: 201,625
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+    -   date: !!null
         site:
             path.de.1122: nbg
 records:
@@ -2845,6 +3487,10 @@ type: point
 events:
     -   date: c1940
         status: open
+    -   date: !!null
+        category: de.Bf
+        name: Küssow
+        source: src.de.Bfv.1944
     -   date: c1950
         status: closed
     -   date: !!null
@@ -2863,6 +3509,19 @@ records:
 key: point.de.Sponholz
 type: point
 events:
+    -   date: !!null
+        name: Sponholz
+        de.VBL: Sp
+        category: de.Bf
+        source: src.dd.DR.Gwd.1987
+    -   date: !!null
+        de.DS100: WSP
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        location:
+            line.de.1122: 208,045
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
     -   date: !!null
         site:
             path.de.1122: spo
@@ -2901,7 +3560,7 @@ records:
         de.VBL: Sp
         category: de.Bf
         de.rang: U
-        master: point.de.Neubrandenburg
+        superior: point.de.Neubrandenburg
         location:
             line.de.1122: 208,05 # right
         document: src.dd.DR.Gwd.1987
@@ -2924,6 +3583,23 @@ records:
 key: point.de.Rühlow
 type: point
 events:
+    -   date: !!null
+        name: Rühlow
+        de.VBL: Rü
+        category: de.Hp
+        staff: none
+        source: src.dd.DR.Gwd.1987
+    -   date: !!null
+        location:
+            line.de.1122: 214,620
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+    -   date: !!null
+        de.DS100: WRUE
+        source: src.de.DBAG.BSV.2017
+    -   date: c2000
+        status: closed
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         site:
             path.de.1122: ruh
@@ -2948,7 +3624,7 @@ records:
         de.VBL: Rü
         category: de.Hp
         staff: none
-        master: point.de.Neetzka
+        superior: point.de.Neetzka
         location:
             line.de.1122: 214,62 # left
         document: src.dd.DR.Gwd.1987
@@ -2975,6 +3651,22 @@ records:
 key: point.de.Neetzka
 type: point
 events:
+    -   date: !!null
+        name: Neetzka
+        de.VBL: Na
+        category: de.Bf
+        source: src.dd.DR.Gwd.1987
+    -   date: !!null
+        de.DS100: WNA
+        source: src.de.DBAG.BSV.2017
+    -   date: c2000
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        location:
+            line.de.1122: 217,866
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
     -   date: !!null
         site:
             path.de.1122: nee
@@ -3035,6 +3727,20 @@ records:
 key: point.de.Oertzenhof
 type: point
 events:
+    -   date: !!null
+        name: Oertzenhof
+        de.VBL: Oe
+        category: de.Bf
+        source: src.dd.DR.Gwd.1987
+    -   date: !!null
+        name: Oerzenhof
+        de.DS100: WOE
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        location:
+            line.de.1122: 222,971
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
     -   date: !!null
         site:
             path.de.1122: oer
@@ -3098,6 +3804,21 @@ events:
     -   date: c1930
         status: open
         source: src.de.Bfv.1933
+    -   date: !!null
+        name: Kreckow
+        de.VBL: Kre
+        category: de.Krbf
+        source: src.dd.DR.Gwd.1987
+    -   date: !!null
+        location:
+            line.de.1122: 227,290
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+    -   date: !!null
+        de.DS100: WKRE
+        source: src.de.DBAG.BSV.2017
+    -   date: c2000
+        status: closed
+        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
@@ -3129,7 +3850,7 @@ records:
         name: Kreckow
         de.VBL: Kre
         category: de.Krbf
-        master: point.de.Oertzenhof
+        superior: point.de.Oertzenhof
         location:
             line.de.1122: 227,29 # left
         document: src.dd.DR.Gwd.1987
@@ -3155,6 +3876,16 @@ type: point
 events:
     -   date: c1995
         status: open
+    -   date: !!null
+        de.DS100: WGDW
+        name: Groß Daberkow
+        category: de.Hp
+        status: closed
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        location:
+            line.de.1122: 228,350
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -3194,6 +3925,21 @@ events:
     -   date: c1940
         status: open
         source: src.de.Bfv.1944
+    -   date: !!null
+        name: Lauenhagen
+        de.VBL: Lah
+        category: de.Krbf
+        source: src.dd.DR.Gwd.1987
+    -   date: !!null
+        location:
+            line.de.1122: 230,970
+        document: src.de.DBAG.Geo-Betriebsstelle.2017
+    -   date: !!null
+        de.DS100: WLAH
+        source: src.de.DBAG.BSV.2017
+    -   date: c2000
+        status: closed
+        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:
@@ -3218,7 +3964,7 @@ records:
         name: Lauenhagen
         de.VBL: Lah
         category: de.Krbf
-        master: point.de.Strasburg-Uckerm
+        superior: point.de.Strasburg-Uckerm
         location:
             line.de.1122: 230,97 # left
         document: src.dd.DR.Gwd.1987

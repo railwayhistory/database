@@ -18,8 +18,10 @@ current:
     region:
         - org.de
         - org.de.l.sh
+
     operator: org.de.DB-Netz
     owner: org.de.DB-Netz
+
     de.VzG: !!str 1121
 events:
     #   Staatsverträge und Genehmigung
@@ -101,6 +103,7 @@ points:
     -   point.de.Lübeck-Blankensee
     -   point.de.Sarau
     -   point.de.Pogeez
+    -   point.de.Pogeez-Bk
     -   point.de.Ratzeburg
     -   point.de.Mölln-Lauenburg
     -   point.de.Mölln-Lauenburg-Industriegleis
@@ -124,6 +127,12 @@ points:
 key: point.de.Lübeck-Jürgen-Bk
 type: point
 events:
+    -   date: !!null
+        name: Jürgen
+        category: de.Bk
+        location:
+            line.de.1121: 3,19 # left
+        source: src.de.DB.Hmb.Karte.1956
     -   date: c1980
         status: closed
 
@@ -171,7 +180,14 @@ type: point
 events:
     -   date: 2013-12-15?
         status: open
+        de.DS100: ALHS
+        name: Lübeck Hochschulstadtteil
+        category: de.Hp
         source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        location:
+            line.de.1121: 4,512
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -197,7 +213,14 @@ type: point
 events:
     -   date: 2008-12-20
         status: open
+        de.DS100: ALB
+        name: Lübeck Flughafen
+        category: de.Hp
         source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        location:
+            line.de.1121: 7,409
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -221,6 +244,21 @@ records:
 key: point.de.Lübeck-Blankensee
 type: point
 events:
+    -   date: !!null
+        name: Lübeck-Blankensee
+        category: de.Bf
+        de.rang: II
+        location:
+            line.de.1121: 7,73 # right
+        source: src.de.DB.Hmb.Karte.1956
+    -   date: !!null
+        de.DS100: ABLA
+        source: src.de.DS100.1984
+    -   date: c1980
+        service: goods
+        location:
+            line.de.1121: 7,71 # right
+        source: src.de.DB.Hmb.Karte.1984
     -   date: c2000
         status: closed
 
@@ -272,6 +310,12 @@ records:
 key: point.de.Sarau
 type: point
 events:
+    -   date: !!null
+        name: Sarau
+        category: de.Hp
+        location:
+            line.de.1121: 12,67 # left
+        source: src.de.DB.Hmb.Karte.1956
     -   date: c1960
         status: closed
 
@@ -306,20 +350,25 @@ records:
 key: point.de.Pogeez
 type: point
 events:
+    -   date: c1975
+        status: open
     -   date: !!null
-        site:
-            path.de.1121: pob
-    -   date: c1960
+        category: de.Bf
+        service: none
+        name: Pogeez
+        de.DS100: APOF
+        source:
+            -   src.de.DS100.1984
+            -   src.de.DB.Hmb.Karte.1984
+    -   date: !!null
+        location:
+            line.de.1121: 13,573
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+    -   date: !!null
         site:
             path.de.1121: pog
 records:
-    -   date: 1956-09
-        name: Pogeez
-        category: de.Bk
-        location:
-            line.de.1121: 14,06 # right
-        document: src.de.DB.Hmb.Karte.1956
-
     -   date: 1984-06-03
         category: de.Bf
         name: Pogeez
@@ -348,6 +397,31 @@ records:
         document: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
+---
+key: point.de.Pogeez-Bk
+type: point
+events:
+    -   date: !!null
+        name: Pogeez
+        category: de.Bk
+        location:
+            line.de.1121: 14,06 # right
+        document: src.de.DB.Hmb.Karte.1956
+    -   date: c1975
+        status: closed
+
+    -   date: !!null
+        site:
+            path.de.1121: pob
+records:
+    -   date: 1956-09
+        name: Pogeez
+        category: de.Bk
+        location:
+            line.de.1121: 14,06 # right
+        document: src.de.DB.Hmb.Karte.1956
+
+
 
 # 18,75 Ba-Grenze src.de.DB.Hmb.Karte.1984
 
@@ -355,6 +429,20 @@ records:
 key: point.de.Ratzeburg
 type: point
 events:
+    -   date: !!null
+        name: Ratzeburg
+        category: de.Bf
+        de.DS100: ARF
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        location:
+            line.de.1121: 19,950
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+    -   date: !!null
+        location:
+            line.de.6928: 49,16
+        source: src.de.DB.Hmb.Karte.1984
+
     -   date: !!null
         site:
             path.de.1121: rat
@@ -438,6 +526,20 @@ key: point.de.Mölln-Lauenburg
 type: point
 events:
     -   date: !!null
+        de.DS100: AMLN
+        name: Mölln (Lauenburg)
+        category: de.Bf
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        location:
+            line.de.1121: 29,230
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+    -   date: !!null
+        location:
+            line.de.A50:  11,74
+        source: src.de.DB.Hmb.Karte.1956
+
+    -   date: !!null
         site:
             path.de.1121: mol
             path.de.A50: mol
@@ -518,6 +620,12 @@ key: point.de.Mölln-Lauenburg-Industriegleis
 type: point
 events:
     -   date: !!null
+        de.DS100: AMLI
+        name: Mölln (Lauenburg) Industriegleis
+        category: de.Awanst
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
         site:
             path.de.1121: moi
 records:
@@ -543,6 +651,12 @@ type: point
 events:
     -   date: c1960
         status: open
+    -   date: !!null
+        category: de.Glgr
+        name: Güster Bahnsteig
+        superior: point.de.Güster
+        de.DS100: AGUEB
+        document: src.de.DS100.1984
     -   date: c1990
         status: closed
 
@@ -553,7 +667,7 @@ records:
     -   date: 1984-06-03
         category: de.Glgr
         name: Güster Bahnsteig
-        master: point.de.Güster
+        superior: point.de.Güster
         de.DS100: AGUEB
         document: src.de.DS100.1984
 
@@ -567,6 +681,31 @@ events:
         source:
             -   src.de.Bfv.1938
             -   src.de.Bfv.1944
+    -   date: !!null
+        name: Güster
+        category: de.Bf
+        service: passenger
+        source: src.de.Bfv.1944
+    -   date: !!null
+        location:
+            line.de.1121: 39,26 # left
+        source: src.de.DB.Hmb.Karte.1956
+    -   date: c1950
+        category: de.Hp
+        source: src.de.DB.Hmb.Karte.1956
+    -   date: !!null
+        de.DS100: AGUE
+        source: src.de.DS100.1984
+    -   date: c1975
+        category: de.Bf
+        service: none
+        location:
+            line.de.1121: 38,18 # left
+        source: src.de.DB.Hmb.Karte.1984
+    -   date: c2000
+        location:
+            line.de.1121: 39,348
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
 
     -   date: !!null
         site:
@@ -619,6 +758,18 @@ records:
 key: point.de.Roseburg
 type: point
 events:
+    -   date: !!null
+        name: Roseburg
+        category: de.Bf
+        location:
+            line.de.1121: 41,73 # right
+        source: src.de.DB.Hmb.Karte.1956
+    -   date: c1975
+        category: de.Hst
+        source: src.de.DS100.1984
+    -   date: !!null
+        de.DS100: AROS
+        source: src.de.DS100.1984
     -   date: c1984-09
         status: closed
         source:
@@ -651,7 +802,7 @@ records:
         location:
             line.de.1121: 41,73 # right
         document: src.de.DB.Hmb.Karte.1956
-    -   date: 1894-06-03
+    -   date: 1984-06-03
         name: Roseburg
         category: de.Hst
         de.DS100: AROS
@@ -665,6 +816,16 @@ type: point
 events:
     -   date: c1950
         status: open
+    -   date: !!null
+        name: Büchen-Nüssau
+        category: de.Hp
+        staff: agent
+        location:
+            line.de.1121: 45,50 # left
+        source: src.de.DB.Hmb.Karte.1956
+    -   date: !!null
+        de.DS100: ANUE
+        source: src.de.DS100.1984
     -   date: c1984-09
         status: closed
         source:
