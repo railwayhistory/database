@@ -4,6 +4,34 @@
 key: line.de.1255
 type: line
 label: goods
+current:
+    status: open
+    category: de.Hauptbahn
+    gauge: 1435mm
+    tracks: 2
+    electrified: de
+    course: path.de.1255 mec sud
+
+    goods: full
+    passenger: none
+
+    operator:
+        point.de.Hamburg-Süd-Gr: org.de.DB-Netz
+        point.de.Hamburg-Süd: org.de.Hamburg-Port-Authority
+    owner:
+        point.de.Hamburg-Süd-Gr: org.de.DB-Netz
+        point.de.Hamburg-Süd: org.de.l.hh
+
+    jurisdiction: de
+    region:
+        point.de.Maschen-LGr-1255:
+            -  org.de
+            -  org.de.l.ni
+        point.de.Hamburg-Süd:
+            -  org.de
+            -  org.de.l.hh
+
+    de.VzG: !!str 1255
 events:
     -   date: !!null
         region: org.de
@@ -93,6 +121,12 @@ type: point
 subtype: border
 events:
     -   date: !!null
+        de.DS100: AQM
+        name: Maschen NI/HH 1255
+        category: de.LGr
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
         site:
             path.de.1255: mag
 records:
@@ -122,6 +156,12 @@ key: point.de.Hamburg-Harburg-Bbf-Süd
 type: point
 events:
     -   date: !!null
+        de.DS100: AHARH
+        name: Hamburg-Harburg Betriebsbahnhof Süd
+        category: de.Bft
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
         site:
             path.de.1255: has
 records:
@@ -139,6 +179,12 @@ records:
 key: point.de.Hamburg-Harburg-Bbf
 type: point
 events:
+    -   date: !!null
+        de.DS100: AHARB
+        name: Hamburg-Harburg Bbf
+        category: de.Bft
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         site:
             path.de.1255: hab
@@ -180,8 +226,16 @@ records:
 ---
 key: point.de.Hamburg-Süd-Gr
 type: point
-subtype: border
+subtype: reference
 events:
+    -   date: 2017-01
+        de.DS100: AHDG
+        name: Hamburg Süd DB-Grenze
+        category: de.Gp
+        location:
+            line.de.1255: 11,780
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
     -   date: !!null
         site:
             path.de.1255: sug
@@ -195,8 +249,11 @@ records:
         de.dstnr: !!str 106855
         document: src.de.DBAG.BSV.2017
     -   date: 2017-01
+        de.DS100: AHDG
+        name: Hamburg Süd DB-Grenze
+        category: de.Gp
         location:
-            line.de.1255: 11,780
+            line.de.1255: 11,7+80
         document: src.de.DBAG.Geo-Betriebsstelle.2017
 
 
@@ -218,6 +275,23 @@ type: point
 events:
     -   date: !!null
         name: Niedernfelde Rbf
+    -   date: c1930
+        name: Hamburg Süd
+        source: src.de.Bfv.1933
+    -   date: !!null
+        category: de.Bf
+        passenger: none
+        source: src.de.Bfv.1933
+    -   date: !!null
+        de.DS100: AHBS
+        source: src.de.DS100.1984
+    -   date: !!null
+        location:
+            line.de.1255: 4,92 # left
+        source: src.de.DB.Hmb.Karte.1984
+    -   date: c2000
+        category: de.Bft
+        source: src.de.DBAG.BSV.2017
 
     -   date: !!null
         site:

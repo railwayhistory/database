@@ -3,12 +3,28 @@
 ---
 key: line.de.1262
 type: line
-progress: stub
-events:
-    -   date: !!null
-        region:
-            -   org.de
-            -   org.de.l.ni
+current:
+    status: open
+    category: de.Bfgleis
+    gauge: 1435mm
+    tracks: 1
+    electrified: !!null
+    course: path.de.1262 sym nwk
+
+    goods: limited
+    passenger: none
+
+    operator: org.de.DB-Netz
+    owner: org.de.DB-Netz
+
+    jurisdiction: de
+    region:
+        -   org.de
+        -   org.de.l.ni
+
+    de.VzG:
+        point.de.Stadersand-Gr: !!str 1262
+        point.de.Stadersand-NWK: !!null
 records:
     -   date: 2017-01
         end: point.de.Stadersand-Gr
@@ -17,8 +33,8 @@ records:
         document: src.de.DBAG.Geo-Strecke.2017
 points:
     -   point.de.Stade-Symphonie                    # de.1263
-    -   point.de.Stadersand-Gr
     -   point.de.Stadersand
+    -   point.de.Stadersand-Gr
     -   point.de.Stadersand-NWK
 
 
@@ -28,27 +44,19 @@ points:
 
 
 ---
-key: point.de.Stadersand-Gr
-type: point
-subtype: reference
-events:
-    -   date: !!null
-        designation: Standersand DB-Grenze
-records:
-    -   date: 2017-01
-        location:
-            line.de.1262: 1,828
-        document: src.de.DBAG.Geo-Strecke.2017
-
-
----
 key: point.de.Stadersand
 type: point
-progress: stub
 events:
+    -   date: !!null
+        de.DS100: ASSD
+        name: Stadersand
+        category: de.Anst
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         site:
             path.de.1262: sta
+            path.de.1267: sta
 records:
     -   date: 2017-01
         de.DS100: ASSD
@@ -58,6 +66,21 @@ records:
         PLC: DE19891
         de.dstnr: !!str 011841
         document: src.de.DBAG.BSV.2017
+
+
+---
+key: point.de.Stadersand-Gr
+type: point
+subtype: reference
+events:
+    -   date: !!null
+        location:
+            line.de.1262: 1,828
+        source: src.de.DBAG.Geo-Strecke.2017
+    -   date: !!null
+        designation: Standersand DB-Grenze
+        site:
+            path.de.1262: stg
 
 
 ---

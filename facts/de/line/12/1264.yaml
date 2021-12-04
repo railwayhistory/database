@@ -3,12 +3,31 @@
 ---
 key: line.de.1264
 type: line
-events:
-    -   date: !!null
-        region:
-            - org.de
-            - org.de.l.ni
+current:
+    status: open
+    category: de.Bfgleis
+    gauge: 1435mm
+    tracks: 1
+    electrified: !!null
+    course: path.de.1264 gro cua.f
 
+    goods: full
+    passenger: none
+
+    operator:
+        point.de.Cuxhaven-Gr: org.de.DB-Netz
+        point.de.Cuxhaven-Amerika-Bahnhof: org.de.Niedersachsen-Ports
+    owner:
+        point.de.Cuxhaven-Gr: org.de.DB-Netz
+        point.de.Cuxhaven-Amerika-Bahnhof: org.de.Niedersachsen-Ports
+
+    jurisdiction: de
+    region:
+        - org.de
+        - org.de.l.ni
+
+    de.VzG: !!str 1264
+events:
     -   date: !!null
         owner: org.de.l.pre
         operator: org.de.e.hmb
@@ -45,8 +64,16 @@ points:
 ---
 key: point.de.Cuxhaven-Gr
 type: point
-subtype: border
+subtype: reference
 events:
+    -   date: !!null
+        de.DS100: ACVG
+        name: Cuxhaven DB-Grenze
+        category: de.Gp
+        location:
+            line.de.1264: 0,016
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
     -   date: !!null
         site:
             path.de.1264: cug
@@ -60,6 +87,9 @@ records:
         de.dstnr: !!str 107378
         document: src.de.DBAG.BSV.2017
     -   date: 2017-01
+        de.DS100: ACVG
+        name: Cuxhaven DB-Grenze
+        category: de.Gp
         location:
             line.de.1264: 0,016
         document: src.de.DBAG.Geo-Betriebsstelle.2017
@@ -79,6 +109,35 @@ events:
 key: point.de.Cuxhaven-Amerika-Bahnhof
 type: point
 events:
+    -   date: !!null
+        category: de.Bf
+        name: Cuxhaven Hafen
+        service: passenger
+        source: src.de.Bfv.1944
+    -   date: c1950
+        location:
+            line.de.1264: 274,23
+        source: src.de.DB.Hmb.Karte.1956
+    -   date: c1950
+        name: Cuxhaven Hafen (Amerika Hafen)
+        source: src.de.DB.Hmb.Karte.1956
+    -   date: !!null
+        de.DS100: ACV A
+        source: src.de.DS100.1984
+    -   date: c1980
+        name: Cuxhaven Amerika-Bahnhof (Ca)
+        category: de.Ldst
+        source: src.de.DS100.1984
+    -   date: c1980
+        location:
+            line.de.1264: 2,99
+        source: src.de.DB.Hmb.Karte.1984
+    -   date: c2000
+        category: de.Bft
+        de.DS100: ACV M
+        name: Cuxhaven Amerika Bahnhof
+        source: src.de.DBAG.BSV.2017
+
     -   date: !!null
         site:
             path.de.1264: cua
