@@ -1,19 +1,34 @@
-# DE 6871.  Mulmke - Mattierzoll Ost
+# DE 6871.  Heudeber Ost - Mattierzoll Ost
 #
 ---
 key: line.de.6871
 type: line
 progress: stub
-events:
-    -   date: !!null
-        region: org.de
-    -   date: !!null
-        end: point.de.Veltheim-Fallstein-LGr
-        region: org.de.l.st
-    -   date: !!null
-        start: point.de.Veltheim-Fallstein-LGr
-        region: org.de.l.ni
+current:
+    status: removed
+    category:
+        point.de.Veltheim-Fallstein: de.Nebenbahn
+        point.de.Mattierzoll-Ost: de.Kleinbahn
+    gauge: 1435mm
+    tracks: 1
+    electrified: none
 
+    goods: none
+    passenger: none
+
+    jurisdiction: de
+    region:
+        point.de.Veltheim-Fallstein-LGr:
+            - org.de
+            - org.de.l.st
+        point.de.Mattierzoll-Ost:
+            - org.de
+            - org.de.l.ni
+
+    de.VzG:
+        point.de.Veltheim-Fallstein: !!str 6871
+        point.de.Mattierzoll-Ost: !!null
+events:
     -   date: de.vzg.dr
         end: point.de.Veltheim-Fallstein
         de.VzG: !!str 6871
@@ -27,27 +42,29 @@ events:
             for: org.de.Kleinbahn-Heudeber-Mattierzoll
         category: de.Kleinbahn
         document: src.de.l.pre.mag.1898.26.293
-
-    #   Eröffnung und Einstellung
-    #
-    -   date: !!null
-        status: closed
-        source: src.de.SuW.2011
-
-    #   Eigenschaften
-    #
-
-    #   Eigentümer etc.
-    #
-
-    #   Verlauf
-    #
-
 points:
+    -   point.de.Heudeber-Ost
     - point.de.Mulmke                               # line.de.6344
     - point.de.Veltheim-Fallstein
     - point.de.Veltheim-Fallstein-LGr
     - point.de.Mattierzoll-Ost                      # line.de.HN1
+
+
+#-----------------------------------------------------------------------------
+
+---
+key: point.de.Heudeber-Ost
+type: point
+events:
+    -   date: !!null
+        name: Heudeber Ost
+        source: src.de.Bfv.1944
+
+    -   date: !!null
+        connection: point.de.Heudeber-Danstedt # de.6344
+
+
+#    point.de.Mulmke                               de.6344
 
 
 ---
@@ -56,7 +73,7 @@ type: point
 progress: stub
 events:
     -   date: !!null
-        name: Veltheim (Vallstein)
+        name: Veltheim (Fallstein)
 
 
 ---
@@ -66,5 +83,5 @@ subtype: border
 progress: stub
 events:
     -   date: !!null
-        name: Veltheim (Vallstein) ST/NI
+        name: Veltheim (Fallstein) ST/NI
 
