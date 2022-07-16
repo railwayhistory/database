@@ -1,4 +1,4 @@
-# DE PS3.  Niederdollendorf RSE - Grengelsbitze
+# DE PS3.  Bonn-Beuel Rheinufer - Asbach
 #
 ---
 key: line.de.PS3
@@ -6,56 +6,129 @@ type: line
 progress: stub
 current:
     status: removed
-    gauge: 750mm
+    gauge: 785mm
     tracks: 1
-    course: path.de.PS3 ndo gre
+    course: path.de.PS3 beu asb
 
     goods: none
     passenger: none
 
     jurisdiction: de
     region:
-        -   org.de
-        -   org.de.l.nw
+        point.de.Krautscheid-LGr:
+            -   org.de
+            -   org.de.l.nw
+        point.de.Asbach:
+            -   org.de
+            -   org.de.l.rp
 events:
-    -   date: 1890-10-11
+    #   Genehmigungen, Eigentümer, Betreiber
+    #
+    -   date: 1889-10-27
         concession:
             by: org.de.l.pre
-            for: org.de.Heisterbacher-Talbahn
-        document: src.de.l.pre.köl.1890.44.373
+            for: org.de.Rhein-Sieg-Eisenbahn
+        document: 
+            -   src.de.l.pre.köl.1889.47.283
+            #   src.de.l.pre.evb.1889.28.301 ???
+        #source: src.de.DRG.1935 # 1891/37
 
-    -   date: c1900
-        owner: org.de.Rhein-Sieg-Eisenbahn
-        operator: org.de.Rhein-Sieg-Eisenbahn
-        document:
-            -   src.de.l.pre.köl.1900.39.377
-            -   src.de.l.pre.kob.1900.43-beilage.1
+    #   Eröffnung und Einstellung
+    #
+    -   date: 1891-12-01
+        end: point.de.Hennef-Sieg-RSE
+        status: open
+        source: src.de.DRG.1935 # 1891/37
+    -   date: 1892-01-20
+        start: point.de.Hennef-Sieg-RSE
+        end: point.de.Buchholz-Westerw
+        status: open
+        source: src.de.DRG.1935 # 1892/3
+    -   date: 1892-08-15
+        start: point.de.Buchholz-Westerw
+        status: open
+        source: src.de.DRG.1935 # 1892/33
 points:
-    -   point.de.Niederdollendorf-RSE
-    -   point.de.Grengelsbitze
+    -   point.de.Bonn-Beuel-Rheinufer
+    -   point.de.Niederpleis                        # de.PS2
+    -   point.de.Hennef-Sieg-RSE
+    -   point.de.Krautscheid-LGr
+    -   point.de.Buchholz-Westerw
+    -   point.de.Bennau-Tal
+    -   point.de.Asbach
 
 
 #-----------------------------------------------------------------------------
 
 ---
-key: point.de.Niederdollendorf-RSE
+key: point.de.Bonn-Beuel-Rheinufer
 type: point
 progress: stub
 events:
     -   date: !!null
-        name: Niederdollendorf RSE
-        connection: point.de.Niederdollendorf
+        name: Beuel Rheinufer
         site:
-            path.de.PS3: ndo
+            path.de.PS3: beu
+
+
+#    point.de.Niederpleis                        de.PS2
 
 
 ---
-key: point.de.Grengelsbitze
+key: point.de.Hennef-Sieg-RSE
 type: point
 progress: stub
 events:
     -   date: !!null
-        name: Grengelsbitze
+        name: Hennef (Sieg) RSE
+        connection: point.de.Hennef-Sieg
         site:
-            path.de.PS3: gre
+            path.de.PS1: hen
+            path.de.PS3: hen
+
+
+---
+key: point.de.Krautscheid-LGr
+type: point
+subtype: border
+events:
+    -   date: !!null
+        designation: Krautscheid HE/NW
+        site:
+            path.de.PS3: krg
+
+
+---
+key: point.de.Buchholz-Westerw
+type: point
+events:
+    -   date: !!null
+        name: Buchholz (Westerw)
+        de.lknr: 68 899
+        source: src.de.Bfv.1944
+        site:
+            path.de.PS3: buc
+
+
+---
+key: point.de.Bennau-Tal
+type: point
+progress: stub
+events:
+    -   date: !!null
+        name: Bennau Tal
+        site:
+            path.de.PS3: ben
+            path.de.PS5: ben
+
+
+---
+key: point.de.Asbach
+type: point
+progress: stub
+events:
+    -   date: !!null
+        name: Asbach
+        site:
+            path.de.PS3: asb
 

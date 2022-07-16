@@ -1,32 +1,36 @@
-# DE WP2.  Berge (Prign) - Putlitz
+# DE WP2.  Glöwen - Viesecke
 #
 ---
 key: line.de.WP2
 type: line
+current:
+    status: removed
+    category: de.Nebenbahn
+    gauge: 750mm
+    tracks: 1
+    electrified: none
+
+    goods: none
+    passenger: none
+
+    jurisdiction: de
+    region:
+        - org.de
+        - org.de.l.bb
 events:
-    -   date: !!null
-        region:
-            - org.de
-            - org.de.l.bb
-
-    #   Genehmigungen
-    #
-    -   date: 1911-09-07
-        expropriation:
-            by: org.de.l.pre
-            for: org.de.Kreis-Westprignitz
-        category: de.Kleinbahn
-        document: src.de.l.pre.pot.1911.39.769
-
     #   Eröffnung und Einstellung
     #
-    -   date: 1911-12-06
+    -   date: 1900-07-15
         status: open
-        source: src.de.WP.Bahnstrecke-Berge-Putlitz
-    -   date: 1968-05-26
+        source: src.de.WP.Kleinbahnen-der-Kreise-West-und-Ostprignitz
+    -   date: 1948
+        start: point.de.Kreuzweg
+        status: removed
+        source: src.de.WP.Kleinbahnen-der-Kreise-West-und-Ostprignitz
+    -   date: 1967-12-31
         status: closed
-        source: src.de.WP.Bahnstrecke-Berge-Putlitz
-    -   date: c1969
+        source: src.de.WP.Kleinbahnen-der-Kreise-West-und-Ostprignitz
+    -   date: c1968
         status: removed
 
     #   Eigenschaften
@@ -34,7 +38,8 @@ events:
     -   date: !!null
         category: de.Kleinbahn
         tracks: 1
-        gauge: 1435mm
+        gauge: 750mm
+        source: src.de.WP.Kleinbahnen-der-Kreise-West-und-Ostprignitz
     -   date: 1949-04-01
         category: de.Nebenbahn
 
@@ -51,181 +56,170 @@ events:
         owner: org.de.l.bb
     -   date: 1949-04-01
         operator: org.dd.DR
-    -   date: 1949-10-07
-        owner: org.dd
 
     #   Verlauf
     #
     -   date: !!null
         course:
-            -   path.de.6944  ber  aput
-            -   path.de.8677  a    put
+            -   path.de.6100  glo  fvie
+            -   path.de.8675  a    f
+            -   path.de.8671  fglo vie
 
 points:
-    - point.de.Berge-Prign                      # line.de.6944
-    - point.de.Grenzheim
-    - point.de.Muggerkuhl
-    - point.de.Hülsebeck
-    - point.de.Sagast
-    - point.de.Lütkendorf
-    - point.de.Putlitz-West
-    - point.de.Putlitz                          # line.de.6945
+    - point.de.Glöwen-Kleinb
+    - point.de.Glöwen-Dorf
+    - point.de.Schwanensee
+    - point.de.Klein-Leppin
+    - point.de.Kreuzweg
+    - point.de.Zernickow
+    - point.de.Kletzke
+    - point.de.Viesecke                         # line.de.WQ1
 
 
 ---
-key: point.de.Grenzheim
+key: point.de.Glöwen-Kleinb
 type: point
+junction: True
 events:
     -   date: !!null
-        name: Schweinekofen
-        source: src.de.Kb.1914
-    -   date: !!null
-        category: de.Hp
-        source: src.de.mtbl.2737.1924
-    -   date: c1920
-        name: Grenzheim
-        source: src.de.Bfv.1928
+        name: Glöwen Bf
+        source: src.de.Kb.1905
+    -   date: c1935
+        name: Glöwen Kleinb
+        source: src.de.Bfv.1938
     -   date: de.lknr.kb
-        de.lknr: 48 422
+        de.lknr: 48 388
         source: src.de.Bfv.1938
     -   date: !!null
-        location:
-            line.de.WP2: 1,9
-        source: src.de.WP.Bahnstrecke-Berge-Putlitz
+        category: de.Bf
 
     -   date: !!null
         site:
-            path.de.8677: gre
+            path.de.6100: glo
+        connection: point.de.Glöwen
 
 
 ---
-key: point.de.Muggerkuhl
+key: point.de.Glöwen-Dorf
 type: point
 events:
-    -   date: c1920
+    -   date: !!null
+        name: Glöwen Dorf
+        source: src.de.Kb.1905
+    -   date: de.lknr.kb
+        de.lknr: 48 387
+        source: src.de.Bfv.1938
+    -   date: !!null
+        category: de.Hp
+        source: src.de.mtbl.3038.1943
+
+    -   date: !!null
+        site:
+            path.de.8675: gld
+
+
+---
+key: point.de.Schwanensee
+type: point
+events:
+    -   date: c1930
+        status: open
+    -   date: !!null
+        name: Schwanensee
+        source: src.de.Kb.W1937
+    -   date: !!null
+        category: de.Hp
+        source: src.de.mtbl.3038.1943
+    -   date: !!null
+        service: passenger
+
+    -   date: !!null
+        site:
+            path.de.8675: swa
+
+
+---
+key: point.de.Klein-Leppin
+type: point
+events:
+    -   date: !!null
+        name: Klein-Leppin
+        source: src.de.Kb.1905
+    -   date: c1910
+        name: Klein Leppin
+        source: src.de.Kb.1914
+    -   date: de.lknr.kb
+        de.lknr: 46 386
+        source: src.de.Bfv.1938
+    -   date: !!null
+        category: de.Bf
+        source: src.de.mtbl.3038.1943
+
+    -   date: !!null
+        site:
+            path.de.8675: klp
+
+
+---
+key: point.de.Kreuzweg
+type: point
+junction: True
+events:
+    -   date: 1912-07-02?
         status: open
         source:
+            - src.de.Kb.1905
             - src.de.Kb.1914
-            - src.de.Bfv.1928
     -   date: !!null
-        category: de.Hp
-        source: src.de.mtbl.2737.1924
-    -   date: !!null
-        name: Muggerkuhl
-        source: src.de.Bfv.1928
-    -   date: de.lknr.kb
-        de.lknr: 48 423
-        source: src.de.Bfv.1938
-    -   date: !!null
-        location:
-            line.de.WP2: 4,0
-        source: src.de.WP.Bahnstrecke-Berge-Putlitz
-
-    -   date: !!null
-        site:
-            path.de.8677: mug
-
-
----
-key: point.de.Hülsebeck
-type: point
-events:
-    -   date: !!null
-        name: Hülsebeck
+        name: Kreuzweg
         source: src.de.Kb.1914
-    -   date: !!null
-        category: de.Hp
-        source: src.de.mtbl.2737.1924
     -   date: de.lknr.kb
-        de.lknr: 48 424
+        de.lknr: 48 385
         source: src.de.Bfv.1938
     -   date: !!null
-        location:
-            line.de.WP2: 6,4
-        source: src.de.WP.Bahnstrecke-Berge-Putlitz
+        category: de.Bf
+        source: src.de.mtbl.3038.1943
 
     -   date: !!null
         site:
-            path.de.8677: hul
+            path.de.8675: kre
 
 
 ---
-key: point.de.Sagast
+key: point.de.Zernickow
 type: point
 events:
-    -   date: c1920
-        status: open
-        source:
-            - src.de.Kb.1914
-            - src.de.Bfv.1928
     -   date: !!null
-        category: de.Hp
-        source: src.de.mtbl.2737.1924
-    -   date: !!null
-        name: Sagast
-        source: src.de.Bfv.1928
+        name: Zernikow
+        source: src.de.Kb.1905
     -   date: de.lknr.kb
-        de.lknr: 48 425
+        de.lknr: 48 384
         source: src.de.Bfv.1938
     -   date: !!null
-        location:
-            line.de.WP2: 8,1
-        source: src.de.WP.Bahnstrecke-Berge-Putlitz
+        category: de.Bf
+        source: src.de.mtbl.3038.1943
 
     -   date: !!null
         site:
-            path.de.8677: sag
+            path.de.8675: zer
 
 
 ---
-key: point.de.Lütkendorf
+key: point.de.Kletzke
 type: point
 events:
-    -   date: c1920
-        status: open
-        source:
-            - src.de.Kb.1914
-            - src.de.Bfv.1928
     -   date: !!null
-        category: de.Hp
-        source: src.de.mtbl.2737.1924
-    -   date: !!null
-        name: Lütkendorf
-        source: src.de.Bfv.1928
+        name: Kletzke
+        source: src.de.Kb.1905
     -   date: de.lknr.kb
-        de.lknr: 48 426
+        de.lknr: 48 383
         source: src.de.Bfv.1938
     -   date: !!null
-        location:
-            line.de.WP2: 10,3
-        source: src.de.WP.Bahnstrecke-Berge-Putlitz
+        category: de.Bf
+        source: src.de.mtbl.3038.1943
 
     -   date: !!null
         site:
-            path.de.8677: sag
-
-
----
-key: point.de.Putlitz-West
-type: point
-events:
-    -   date: !!null
-        name: Putlitz West
-        source: src.de.Kb.1914
-    -   date: !!null
-        category: de.Hp
-        source: src.de.mtbl.2738.1913
-    -   date: !!null
-        service: goods
-    -   date: !!null
-        location:
-            line.de.WP2: 13,4
-        source: src.de.WP.Bahnstrecke-Berge-Putlitz
-
-    -   date: !!null
-        site:
-            path.de.8677: puw
-
-
+            path.de.8675: kle
 
 
