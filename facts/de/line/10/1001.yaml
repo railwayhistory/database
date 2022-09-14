@@ -4,22 +4,24 @@
 key: line.de.1001
 type: line
 current:
-    status: closed
+    status: removed
     category: de.Nebenbahn
     gauge: 1435mm
     tracks: 1
     electrified: !!null
     course: path.de.1001 flw lin
 
+    operator: org.de.DB-Netz
+    owner: org.de.DB-Netz
+
     jurisdiction: de
     region:
         - org.de
         - org.de.l.sh
-    operator: org.de.DB-Netz
-    owner: org.de.DB-Netz
+
     de.VzG: !!str 1001
 events:
-    #   Genehmigungen
+    #   Genehmigungen und Eigentümer etc.
     #
     -   date: 1887-04-01
         concession:
@@ -27,6 +29,8 @@ events:
             for: org.de.l.pre
         document: src.de.l.pre.1887.11.97
         source: src.de.DRG.1935 # 1889/35 ref 1889/1
+    -   date: !!null
+        owner: org.de.l.pre
     -   date: 1887-04-06
         operator: org.de.l.pre.ED-Altona
         document: src.de.l.pre.1887.12.109
@@ -44,9 +48,12 @@ events:
     -   date: 1981-05-31
         passenger: none
         source: src.de.DB.Hmb.1984
+
     -   date: 1999-03-01
         status: closed
         source: src.de.web.EBA.Still # Nr. 263
+    -   date: c2010
+        status: removed
 records:
     -   date: 1927-03
         category: de.Nebenbahn
@@ -93,64 +100,93 @@ key: point.de.Handewitt
 type: point
 events:
     -   date: !!null
+        name: Handewitt
+        source: src.de.Kb.1905
+    -   date: !!null
+        category: de.Bf
+        location:
+            line.de.1001: 172,74
+        source: src.de.DRG.Alt.Karte.1931
+    -   date: !!null
+        staff: agent
+        source: src.de.Bfv.1933
+    -   date: c1935
+        category: de.Hst
+        source: src.de.DRG.Alt.Karte.1935
+    -   date: c1935
+        location:
+            line.de.1001: 5,73
+        source: src.de.DRG.Alt.Karte.1935
+
+    -   date: 1981-05-31?
+        category: de.Anst
+        source: src.de.DS100.1984
+
+    -   date: 1999-03-01
+        status: closed
+
+    -   date: !!null
+        de.lknr: 01 481
+        source: src.de.Bfv.1933
+    -   date: !!null
+        de.dstnr: !!str 014811
+        de.DS100: AHWI
+        source: src.de.DS100.1984
+
+    -   date: !!null
         site:
             path.de.1001: han
 records:
-    -   date: 1905-07
+    -   document:
+            -   src.de.Kb.1905
+            -   src.de.Kb.1914
         name: Handewitt
-        document: src.de.Kb.1905
 
-    -   date: 1927-12-09
+    -   document: src.de.Bfv.1928
         name: Handewitt
         de.lknr: 01 149
-        document: src.de.Bfv.1928
-    -   date: !!null
+    -   document: src.de.DRG.Alt.Karte.1931
         name: Handewitt
         category: de.Bf
         de.rang: IV
         location:
             line.de.1001: 172,74 # left
-        document: src.de.DRG.Alt.Karte.1931
-    -   date: 1933-03-01
+    -   document: src.de.Bfv.1933
         name: Handewitt
         category: de.Bf
         de.rang: IV
         staff: agent
         de.lknr: 01 481
-        document: src.de.Bfv.1933
-    -   date: 1935-01-01
+    -   document: src.de.DRG.Alt.Karte.1935
         name: Handewitt
         category: de.Hst
         staff: agent
         location:
-            line.de.1001:   5,73
-        document: src.de.DRG.Alt.Karte.1935
-    -   date: 1944-06-01
+            line.de.1001: 5,73
+    -   document:
+            -   src.de.Bfv.1938
+            -   src.de.Bfv.1944
         name: Handewitt
         category: de.Hst
         staff: agent
         de.lknr: 01 481
-        document: src.de.Bfv.1944
 
-    -   date: 1956-09
+    -   document: src.de.DB.Hmb.Karte.1956
         name: Handewitt
         category: de.Hst
         staff: none
         location:
             line.de.1001: 5,73
-        document: src.de.DB.Hmb.Karte.1956
-    -   date: 1984-06-03
+    -   document: src.de.DS100.1984
         de.dstnr: !!str 014811
         name: Handewitt
         de.DS100: AHWI
         category: de.Anst
-        document: src.de.DS100.1984
-    -   date: 1984-11
+    -   document: src.de.DB.Hmb.Karte.1984
         name: Handewitt
         category: de.Tp
         location:
             line.de.1001: 5,73
-        document: src.de.DB.Hmb.Karte.1984
 
 
 ---
@@ -159,56 +195,70 @@ type: point
 events:
     -   date: c1910
         status: open
+        name: Unaften
         source:
             - src.de.Kb.1905
             - src.de.Kb.1914
-    -   date: c1981
+    -   date: !!null
+        category: de.Hp
+        staff: none
+        goods: none
+        document: src.de.Bfv.1933
+    -   date: !!null
+        location:
+            line.de.1001: 174,74
+        document: src.de.DRG.Alt.Karte.1931
+    -   date: c1935
+        location:
+            line.de.1001: 7,74
+        document: src.de.DRG.Alt.Karte.1935
+    -   date: 1981-05-31?
         status: closed
         source: src.de.DB.Hmb.Karte.1984
+
+    -   date: !!null
+        de.lknr: 01 482
+        document: src.de.Bfv.1933
 
     -   date: !!null
         site:
             path.de.1001: una
 records:
-    -   date: 1914-07
+    -   document: src.de.Kb.1914
         name: Unaften
-        document: src.de.Kb.1914
 
-    -   date: 1927-12-09
+    -   document: src.de.Bfv.1928
         name: Unaften
         goods: none
         master: point.de.Flensburg
         de.lknr: 01 364
-        document: src.de.Bfv.1928
-    -   date: 1931-04-01
+    -   document: src.de.DRG.Alt.Karte.1931
         name: Unaften
         category: de.Hp
         location:
             line.de.1001: 174,74 # right
-        document: src.de.DRG.Alt.Karte.1931
-    -   date: 1933-03-01
+    -   document: src.de.Bfv.1933
         name: Unaften
         master: point.de.Flensburg
         category: de.Hp
         staff: none
         service: passenger
         de.lknr: 01 482
-        document: src.de.Bfv.1933
-    -   date: 1935-01-01
+    -   document: src.de.DRG.Alt.Karte.1935
         name: Unaften
         category: de.Hp
         staff: none
         location:
             line.de.1001: 7,74
-        document: src.de.DRG.Alt.Karte.1935
-    -   date: 1938-10-01
+    -   document:
+            -   src.de.Bfv.1938
+            -   src.de.Bfv.1944
         name: Unaften
         master: point.de.Leck
         category: de.Hp
         staff: none
         service: passenger
         de.lknr: 01 482
-        document: src.de.Bfv.1938
 
     -   date: 1956-09
         name: Unaften
@@ -223,126 +273,194 @@ records:
 key: point.de.Wallsbüll
 type: point
 events:
+    -   date: !!null
+        name: Meyn-Wallsbüll
+        source: src.de.Kb.1905
+    -   date: c1920
+        name: Wallsbüll
+        source: src.de.Bfv.1928
+    -   date: !!null
+        category: de.Bf
+        location:
+            line.de.1001: 178,44
+        source: src.de.DRG.Alt.Karte.1931
+    -   date: c1935
+        location:
+            line.de.1001:  11,44
+        source: src.de.DRG.Alt.Karte.1935
+    -   date: c1950
+        staff: agent
+        source: src.de.DB.Hmb.Karte.1956
+    -   date: c1975
+        location:
+            line.de.1001: 11,43
+        source: src.de.DB.Hmb.Karte.1984
+    -   date: c1980
+        staff: none
+        source: src.de.DS100.1984
+
+    -   date: 1999-03-01
+        status: closed
+
+    -   date: !!null
+        de.lknr: 01 483
+        source: src.de.Bfv.1933
+    -   date: !!null
+        de.dstnr: !!str 014837
+        de.DS100: AWAL
+        source: src.de.DS100.1984
 
     -   date: !!null
         site:
             path.de.1001: wal
 records:
-    -   date: 1905-07
+    -   document:
+            -   src.de.Kb.1905
+            -   src.de.Kb.1914
         name: Meyn-Wallsbüll
-        document: src.de.Kb.1905
 
-    -   date: 1927-12-09
+    -   document: src.de.Bfv.1928
         name: Wallsbüll
         de.lknr: 01 150
-        document: src.de.Bfv.1928
-    -   date: 1931-04-01
+    -   document:
+            -   src.de.Bfv.1933
+            -   src.de.Bfv.1938
+            -   src.de.Bfv.1944
+        name: Wallsbüll
+        category: de.Bf
+        de.rang: IV
+        de.lknr: 01 483
+
+    -   document: src.de.DRG.Alt.Karte.1931
         name: Wallsbüll
         category: de.Bf
         de.rang: IV
         location:
             line.de.1001: 178,44 # left
-        document: src.de.DRG.Alt.Karte.1931
-    -   date: 1933-03-01
-        name: Wallsbüll
-        category: de.Bf
-        de.rang: IV
-        de.lknr: 01 483
-        document: src.de.Bfv.1933
-    -   date: 1935-01-01
+    -   document: src.de.DRG.Alt.Karte.1935
         name: Wallsbüll
         category: de.Bf
         de.rang: IV
         location:
             line.de.1001:  11,44
-        document: src.de.DRG.Alt.Karte.1935
 
-    -   date: 1956-09
+    -   document: src.de.DB.Hmb.Karte.1956
         name: Wallsbüll
         category: de.Bf
         de.rang: IV
         staff: agent
         location:
             line.de.1001:  11,44
-        document: src.de.DB.Hmb.Karte.1956
-    -   date: 1984-06-03
-        de.dstnr: !!str 014837
-        name: Wallsbüll
-        de.DS100: AWAL
-        category: de.Bf
-        staff: none
-        document: src.de.DS100.1984
-    -   date: 1984-11
+    -   document: src.de.DB.Hmb.Karte.1984
         name: Wallsbüll
         category: de.Bf
         staff: none
         location:
             line.de.1001: 11,43
-        document: src.de.DB.Hmb.Karte.1984
+ 
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 014837
+        name: Wallsbüll
+        de.DS100: AWAL
+        category: de.Bf
+        staff: none
+        
 
 
 ---
 key: point.de.Schafflund
 type: point
 events:
+    -   date: !!null
+        name: Schafflund
+        source: src.de.Kb.1905
+    -   date: !!null
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.1001: 182,57
+        source: src.de.DRG.Alt.Karte.1931
+    -   date: c1935
+        location:
+            line.de.1001: 15,56
+        source: src.de.DRG.Alt.Karte.1935
+    -   date: c1935
+        category: de.Hst
+        source: src.de.Bfv.1938
+    -   date: c1950
+        staff: agent
+        source: src.de.DB.Hmb.Karte.1956
+    -   date: 1981-05-31?
+        category: de.Anst
+        source: src.de.DS100.1984
+
+    -   date: 1999-03-01
+        status: closed
+
+    -   date: !!null
+        de.lknr: 01 484
+        source: src.de.Bfv.1933
+    -   date: !!null
+        de.dstnr: !!str 014845
+        de.DS100: ASFD
+        source: src.de.DS100.1984
 
     -   date: !!null
         site:
             path.de.1001: saf
 records:
-    -   date: 1905-07
+    -   document:
+            -   src.de.Kb.1905
+            -   src.de.Kb.1914
         name: Schafflund
-        document: src.de.Kb.1905
 
-    -   date: 1927-12-09
+    -   document: src.de.Bfv.1928
         name: Schafflund
         de.lknr: 01 151
-        document: src.de.Bfv.1928
-    -   date: 1931-04-01
+    -   document: src.de.Bfv.1933
+        name: Schafflund
+        category: de.Bf
+        de.rang: IV
+        de.lknr: 01 484
+    -   document: src.de.Bfv.1938
+        name: Schafflund
+        category: de.Hst
+        de.lknr: 01 484
+        note: „mit vollem Güterverkehr“
+    -   document: src.de.Bfv.1944
+        name: Schafflund
+        category: de.Hst
+        de.lknr: 01 484
+ 
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 014845
+        name: Schafflund
+        de.DS100: ASFD
+        category: de.Anst
+
+    -   document: src.de.DRG.Alt.Karte.1931
         name: Schafflund
         category: de.Bf
         de.rang: IV
         location:
             line.de.1001: 182,57 # left
-        document: src.de.DRG.Alt.Karte.1931
-    -   date: 1933-03-01
-        name: Schafflund
-        category: de.Bf
-        de.rang: IV
-        de.lknr: 01 484
-        document: src.de.Bfv.1933
-    -   date: 1935-01-01
+    -   document: src.de.DRG.Alt.Karte.1935
         name: Schafflund
         category: de.Hst
         staff: full
         location:
             line.de.1001: 15,56
-        document: src.de.DRG.Alt.Karte.1935
-    -   date: 1938-10-01
-        name: Schafflund
-        category: de.Hst
-        de.lknr: 01 484
-        document: src.de.Bfv.1938
-
-    -   date: 1956-09
+    -   document: src.de.DB.Hmb.Karte.1956
         name: Schafflund
         category: de.Hst
         staff: agent
         location:
             line.de.1001: 15,56
-        document: src.de.DB.Hmb.Karte.1956
-    -   date: 1984-06-03
-        de.dstnr: !!str 014845
-        name: Schafflund
-        de.DS100: ASFD
-        category: de.Anst
-        document: src.de.DS100.1984
-    -   date: 1984-11
+    -   document: src.de.DB.Hmb.Karte.1984
         name: Schafflund
         category: de.Tp
         location:
             line.de.1001: 15,56
-        document: src.de.DB.Hmb.Karte.1984
 
 
 # 20,00 BA-Grenze src.de.DB.Hmb.Karte.1956
@@ -353,116 +471,158 @@ key: point.de.Sprakebüll
 type: point
 events:
     -   date: !!null
+        name: Sprakebüll
+        source: src.de.Kb.1905
+    -   date: !!null
+        category: de.Bf
+        location:
+            line.de.1001: 188,90
+        source: src.de.DRG.Alt.Karte.1931
+    -   date: c1935
+        location:
+            line.de.1001: 21,89
+        source: src.de.DRG.Alt.Karte.1935
+    -   date: c1950
+        category: de.Hst
+        staff: agent
+        source: src.de.DB.Hmb.Karte.1956
+    -   date: 1981-05-31?
+        category: de.Anst
+        source: src.de.DS100.1984
+    -   date: 1981-05-31?
+        location:
+            line.de.1001: 21,93
+        source: src.de.DB.Hmb.Karte.1984
+
+    -   date: 1999-03-01
+        status: closed
+    
+    -   date: !!null
+        de.lknr: 01 485
+        source: src.de.Bfv.1933
+    -   date: !!null
+        de.dstnr: !!str 014852
+        de.DS100: ASR
+        source: src.de.DS100.1984
+
+    -   date: !!null
         site:
             path.de.1001: spr
 records:
-    -   date: 1905-07
+    -   document:
+            -   src.de.Kb.1905
+            -   src.de.Kb.1914
         name: Sprakebüll
-        document: src.de.Kb.1905
 
-    -   date: 1927-12-09
+    -   document: src.de.Bfv.1928
         name: Sprakebüll
         de.lknr: 01 152
-        document: src.de.Bfv.1928
-    -   date: 1931-04-01
+    -   document:
+            -   src.de.Bfv.1933
+            -   src.de.Bfv.1938
+            -   src.de.Bfv.1944
+        name: Sprakebüll
+        category: de.Bf
+        de.rang: IV
+        de.lknr: 01 485
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 014852
+        name: Sprakebüll
+        de.DS100: ASR
+        category: de.Anst
+
+    -   document: src.de.DRG.Alt.Karte.1931
         name: Sprakebüll
         category: de.Bf
         de.rang: IV
         location:
             line.de.1001: 188,90 # right
-        document: src.de.DRG.Alt.Karte.1931
-    -   date: 1933-03-01
-        name: Sprakebüll
-        category: de.Bf
-        de.rang: IV
-        de.lknr: 01 485
-        document: src.de.Bfv.1933
-    -   date: 1935-01-01
+    -   document: src.de.DRG.Alt.Karte.1935
         name: Sprakebüll
         category: de.Bf
         de.rang: IV
         location:
             line.de.1001: 21,89
-        document: src.de.DRG.Alt.Karte.1935
-
-    -   date: 1956-09
+    -   document: src.de.DB.Hmb.Karte.1956
         name: Sprakebüll
         category: de.Hst
         staff: agent
         location:
             line.de.1001: 21,89
-        document: src.de.DB.Hmb.Karte.1956
-    -   date: 1984-06-03
-        de.dstnr: !!str 014852
-        name: Sprakebüll
-        de.DS100: ASR
-        category: de.Anst
-        document: src.de.DS100.1984
-    -   date: 1984-11
+    -   document: src.de.DB.Hmb.Karte.1984
         name: Sprakebüll
         category: de.Bf
         staff: none
         location:
             line.de.1001: 21,93
-        document: src.de.DB.Hmb.Karte.1984
-
+       
 
 ---
 key: point.de.Achtrup
 type: point
 events:
-    -   date: c1981
+    -   date: !!null
+        name: Achtrup
+        source: src.de.Kb.1905
+    -   date: !!null
+        category: de.Bf
+        location:
+            line.de.1001: 192,44 # left
+        source: src.de.DRG.Alt.Karte.1931
+    -   date: c1935
+        location:
+            line.de.1001:  25,44
+        source: src.de.DRG.Alt.Karte.1935
+
+    -   date: 1981-05-31?
         status: closed
 
     -   date: !!null
         site:
             path.de.1001: ach
 records:
-    -   date: 1905-07
+    -   document:
+            -   src.de.Kb.1905
+            -   src.de.Kb.1914
         name: Achtrup
-        document: src.de.Kb.1905
 
-    -   date: 1927-12-09
+    -   document: src.de.Bfv.1928
         name: Achtrup
         de.lknr: 01 153
-        document: src.de.Bfv.1928
-    -   date: 1931-04-01
+    -   document: src.de.Bfv.1933
+        name: Achtrup
+        de.lknr: 01 486
+        category: de.Bf
+        de.rang: IV
+        staff: agent
+        service: full
+    -   document:
+            -   src.de.Bfv.1938
+            -   src.de.Bfv.1944
+        name: Achtrup
+        category: de.Hst
+        staff: agent
+        de.lknr: 01 486
+        note: „mit vollem Güterverkehr“
+
+    -   document: src.de.DRG.Alt.Karte.1931
         name: Achtrup
         category: de.Bf
         de.rang: IV
         location:
             line.de.1001: 192,44 # left
-        document: src.de.DRG.Alt.Karte.1931
-    -   date: 1933-03-01
-        name: Achtrup
-        de.lknr: 01 486
-        category: de.Bf
-        de.rang: IV
-        staff: agent
-        service: full
-        document: src.de.Bfv.1933
-    -   date: 1935-01-01
+    -   document: src.de.DRG.Alt.Karte.1935
         name: Achtrup
         category: de.Hst
         staff: agent
         location:
             line.de.1001:  25,44
-        document: src.de.DRG.Alt.Karte.1935
-    -   date: 1938-10-01
-        name: Achtrup
-        category: de.Hst
-        staff: agent
-        de.lknr: 01 486
-        service: full
-        document: src.de.Bfv.1938
-
-    -   date: 1956-09
+    -   document: src.de.DB.Hmb.Karte.1956
         name: Achtrup
         category: de.Hst
         staff: agent
         location:
             line.de.1001: 25,44
-        document: src.de.DB.Hmb.Karte.1956
 
 
 #   Bm-Grenze 27,30 src.de.DB.Hmb.Karte.1984
@@ -472,60 +632,84 @@ records:
 key: point.de.Leck
 type: point
 events:
+    -   date: !!null
+        name: Leck
+        source: src.de.Kb.1905
+    -   date: !!null
+        category: de.Bf
+        location:
+            line.de.1001: 195,79 # left
+        source: src.de.DRG.Alt.Karte.1931
+    -   date: c1935
+        location:
+            line.de.1001: 28,79
+        source: src.de.DRG.Alt.Karte.1935
+    -   date: 1984?
+        staff: none
+        source: src.de.DB.Hmb.Karte.1984
+
+    -   date: 1999-03-01
+        status: closed
+
+    -   date: !!null
+        de.lknr: 01 487
+        source: src.de.Bfv.1933
+    -   date: !!null
+        de.dstnr: !!str 014878
+        de.DS100: ALK
+        source: src.de.DS100.1984
 
     -   date: !!null
         site:
             path.de.1001: lec
 records:
-    -   date: 1905-07
+    -   document:
+            -   src.de.Kb.1905
+            -   src.de.Kb.1914
         name: Leck
-        document: src.de.Kb.1905
 
-    -   date: 1927-12-09
+    -   document: src.de.Bfv.1928
         name: Leck
         de.lknr: 01 154
-        document: src.de.Bfv.1928
-    -   date: 1931-04-01
+    -   document:
+            -   src.de.Bfv.1933
+            -   src.de.Bfv.1938
+            -   src.de.Bfv.1944
+        name: Leck
+        category: de.Bf
+        de.rang: IV
+        de.lknr: 01 487
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 014878
+        name: Leck
+        de.DS100: ALK
+        category: de.Bf
+
+    -   document: src.de.DRG.Alt.Karte.1931
         name: Leck
         category: de.Bf
         de.rang: IV
         location:
             line.de.1001: 195,79 # left
-        document: src.de.DRG.Alt.Karte.1931
-    -   date: 1933-03-01
-        name: Leck
-        category: de.Bf
-        de.rang: IV
-        de.lknr: 01 487
-        document: src.de.Bfv.1933
-    -   date: 1935-01-01
+    -   document: src.de.DRG.Alt.Karte.1935
         name: Leck
         category: de.Bf
         de.rang: IV
         location:
             line.de.1001: 28,79
-        document: src.de.DRG.Alt.Karte.1935
-
-    -   date: 1956-09
+    -   document: src.de.DB.Hmb.Karte.1956
         name: Leck
         category: de.Bf
         de.rang: IV
         location:
             line.de.1001: 28,79
-        document: src.de.DB.Hmb.Karte.1956
-    -   date: 1984-06-03
-        de.dstnr: !!str 014878
-        name: Leck
-        de.DS100: ALK
-        category: de.Bf
-        document: src.de.DS100.1984
-    -   date: 1984-11
+    -   document: src.de.DB.Hmb.Karte.1984
         name: Leck
         category: de.Bf
         staff: none
         location:
             line.de.1001: 28,79
-        document: src.de.DB.Hmb.Karte.1984
+        
 
 
 #    BA-Grenze 202,30 [src.de.DRG.Alt.Karte.1931]
