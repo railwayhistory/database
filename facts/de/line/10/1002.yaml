@@ -7,13 +7,17 @@ current:
     status: removed
     gauge: 1435mm
     tracks: 1
-    electrified: !!null
-    course: path.de.1002 flw fho
+    electrified: none
+    course: path.de.1002 flw f
+
+    goods: full
+    passenger: full
 
     jurisdiction: de
     region:
         - org.de
         - org.de.l.sh
+
     de.VzG: !!str 1002
 events:
     #   Genehmigungen
@@ -28,12 +32,25 @@ events:
                 Die Konzession wurde am 1854-03-20 auf die
                 org.de.Südschleswigsche-Eisenbahn übertragen.
         source: src.de.DRG.1935 # 1854/12
+    -   date: 1854-03-20
+        end: point.de.Flensburg-Alter-Bf
+        concession:
+            by: org.de.l.pre
+            for: org.de.Südschleswigsche-Eisenbahn
+        source: src.de.DRG.1935
+    -   date: !!null
+        owner: org.de.Südschleswigsche-Eisenbahn
+        operator: org.de.Südschleswigsche-Eisenbahn
+        
     -   date: 1865-03-20
         end: point.de.Flensburg-Alter-Bf
         concession:
             by: org.de.l.pre
             for: org.de.Schleswigsche-Eisenbahn
         source: src.de.DRG.1935
+    -   date: 1865-03-20
+        owner: org.de.Schleswigsche-Eisenbahn
+        operator: org.de.Schleswigsche-Eisenbahn
 
     -   date: 1886-01-14
         start: point.de.Flensburg-Alter-Bf
@@ -41,6 +58,14 @@ events:
             by: org.de.l.pre
         document: src.de.l.pre.sle.1886.4
         source: src.de.DRG.1935 # 1886/9
+    -   date: !!null
+        start: point.de.Flensburg-Alter-Bf
+        category: industrial
+        owner: org.de.l.pre
+        operator: org.de.l.pre.ED-Altona
+
+    -   date: 1895-04-01
+        operator: org.de.e.hmb
 
     #   Eröffnung und Einstellung
     #
@@ -95,57 +120,90 @@ points:
 key: point.de.Flensburg-Alter-Bf
 type: point
 events:
+    -   date: !!null
+        name: Flensburg
+        source: src.de.Kb.1905
+    -   date: !!null
+        category: de.Bf
+    -   date: 1927-12-01?
+        category: de.Ldst
+        passenger: none
+        name: Flensburg Alter Bahnhof
+        source: src.de.Bfv.1938
+    -   date: c1950
+        name: Flensburg Alter Bf
+        category: de.Bf
+        source: src.de.DB.Hmb.Karte.1956
+    -   date: c2000
+        category: de.Bft
 
     -   date: !!null
-        site:
-            path.de.1002: fla
-records:
-    -   date: 1905-07
-        name: Flensburg
-        document: src.de.Kb.1905
-
-    -   date: 1931-04-01
         location:
             line.de.1002: 171,79
             line.de.1003: 171,79
-        document: src.de.DRG.Alt.Karte.1931
-    -   date: 1938-10-01
-        name: Flensburg Alter Bf
+        source: src.de.DRG.Alt.Karte.1931
+    -   date: c1975
+        location:
+            line.de.1002: 177,305
+            line.de.1003: 177,305
+        source: src.de.DB.Hmb.Karte.1984
+
+    -   date: !!null
+        site:
+            path.de.1002: fla.bf
+            path.de.1003: fla.bf
+    -   date: c1975
+        site:
+            path.de.1002: fla
+            path.de.1003: fla
+records:
+    -   document:
+            -   src.de.Kb.1905
+            -   src.de.Kb.1914
+        name: Flensburg
+
+    #   document:
+    #       -   src.de.Bfv.1927
+    #       -   src.de.Bfv.1933
+    #   nicht enthalten
+
+    -   document:
+            -   src.de.Bfv.1938
+            -   src.de.Bfv.1944
+        name: Flensburg Alter Bahnhof
         de.lknr: 01 431
         category: de.Ldst
-        document: src.de.Bfv.1938
-
-    -   date: 1956-09
-        name: Flensburg Alter Bf
-        category: de.Bf
-        de.rang: I
-        service: goods
-        location:
-            line.de.1002: 171,79
-        document: src.de.DB.Hmb.Karte.1956
-    -   date: 1984-06-03
+    -   document: src.de.DS100.1984
         de.dstnr: !!str 014316
         name: Flensburg Alter Bf
         de.DS100: AFHF
         category: de.Bf
         staff: none
-        document: src.de.DS100.1984
-    -   date: 1984-11
-        name: Flensburg Alter Bf
-        category: de.Bf
-        staff: none
-        location: 
-            line.de.1002: 177,305 # left
-        document: src.de.DB.Hmb.Karte.1984
-
-    -   date: 2017-01
+    -   document: src.de.DBAG.BSV.2017
         de.DS100: AFHF
         name: Flensburg Alter Bf
         de.name16: Flensbg Alter Bf
         category: de.Bft
         PLC: DE13215
         de.dstnr: !!str 014316
-        document: src.de.DBAG.BSV.2017
+
+    -   document: src.de.DRG.Alt.Karte.1931
+        location:
+            line.de.1002: 171,79
+            line.de.1003: 171,79
+    -   document: src.de.DB.Hmb.Karte.1956
+        name: Flensburg Alter Bf
+        category: de.Bf
+        de.rang: I
+        service: goods
+        location:
+            line.de.1002: 171,79
+    -   document: src.de.DB.Hmb.Karte.1984
+        name: Flensburg Alter Bf
+        category: de.Bf
+        staff: none
+        location: 
+            line.de.1002: 177,305 # left
 
 
 ---

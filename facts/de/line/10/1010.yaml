@@ -8,7 +8,7 @@ current:
     category: de.Nebenbahn
     gauge: 1435mm
     tracks: 1
-    electrified: !!null
+    electrified: none
     course: path.de.1010 sle sla
 
     goods: full
@@ -18,6 +18,7 @@ current:
     region:
         - org.de
         - org.de.l.sh
+
     de.VzG: !!str 1010
 events:
     #   Genehmigungen
@@ -27,6 +28,9 @@ events:
             by: org.dk
             for: org.de.Klosterkrug-Schleswiger-Eisenbahn
         source: src.de.DRG.1935 # 1880/41
+    -   date: !!null
+        owner: org.de.Klosterkrug-Schleswiger-Eisenbahn
+        operator: org.de.Klosterkrug-Schleswiger-Eisenbahn
 
     -   date: 1895-04-01
         operator: org.de.e.hmb
@@ -94,6 +98,9 @@ points:
 key: point.de.Gottorf
 type: point
 events:
+    -   date: !!null
+        name: Gottorf
+        source: src.de.Kb.1905
     -   date: c1920
         status: closed
 
@@ -101,15 +108,17 @@ events:
         site:
             path.de.1010: got
 records:
-    -   date: 1905-07
+    -   document: src.de.Kb.1905
         name: Gottorf
-        document: src.de.Kb.1905
 
 
 ---
 key: point.de.Schleihalle
 type: point
 events:
+    -   date: !!null
+        name: Schleihalle
+        source: src.de.Kb.1905
     -   date: c1920
         status: closed
 
@@ -117,15 +126,17 @@ events:
         site:
             path.de.1010: slh
 records:
-    -   date: 1905-07
+    -   document: src.de.Kb.1905
         name: Schleihalle
-        document: src.de.Kb.1905
 
 
 ---
 key: point.de.Domziegelhof
 type: point
 events:
+    -   date: !!null
+        name: Domziegelhof
+        source: src.de.Kb.1905
     -   date: c1920
         status: closed
 
@@ -133,15 +144,26 @@ events:
         site:
             path.de.1010: dom
 records:
-    -   date: 1905-07
+    -   document: src.de.Kb.1905
         name: Domziegelhof
-        document: src.de.Kb.1905
 
 
 ---
 key: point.de.Schleswig-Altstadt
 type: point
 events:
+    -   date: !!null
+        name: Schleswig Altstadt
+        source: src.de.Kb.1905
+    -   date: !!null
+        category: de.Bf
+        location:
+            line.de.1010: 136,02 # left
+        source: src.de.DRG.Alt.Karte.1931
+    -   date: c1975
+        location:
+            line.de.1010: 136,01
+        source: src.de.DB.Hmb.Karte.1984
 
     -   date: !!null
         site:
@@ -152,53 +174,38 @@ records:
         name: Schleswig Altstadt
         document: src.de.Kb.1905
 
-    -   date: 1927-12-09
+    -   document: src.de.Bfv.1928
         name: Schleswig Altstadt
         de.lknr: 01 072
         note: Umschlagstelle
-        document: src.de.Bfv.1928
-    -   date: 1931-04-01
+    -   document:
+            -   src.de.Bfv.1933
+            -   src.de.Bfv.1938
+            -   src.de.Bfv.1944
+        name: Schleswig Altstadt
+        category: de.Bf
+        de.rang: IV
+        de.lknr: 01 417
+        service: full
+    -   document: src.de.DS100.1984
+        name: Schleswig Altstadt
+        category: de.Bf
+        de.DS100: ASLW
+        de.dstnr: !!str 014175
+
+    -   document:
+            -   src.de.DRG.Alt.Karte.1931
+            -   src.de.DRG.Alt.Karte.1935
+            -   src.de.DB.Hmb.Karte.1956
         name: Schleswig Altstadt
         category: de.Bf
         de.rang: IV
         service: goods
         location:
             line.de.1010: 136,02 # left
-        document: src.de.DRG.Alt.Karte.1931
-    -   date: 1933-03-01
-        name: Schleswig Altstadt
-        category: de.Bf
-        de.rang: IV
-        de.lknr: 01 417
-        service: full
-        document: src.de.Bfv.1933
-    -   date: 1935-01-01
-        name: Schleswig Altstadt
-        category: de.Bf
-        de.rang: IV
-        service: goods
-        location:
-            line.de.1010: 136,02
-        document: src.de.DRG.Alt.Karte.1935
-
-    -   date: 1956-09
-        name: Schleswig Altstadt
-        category: de.Bf
-        de.rang: IV
-        service: goods
-        location:
-            line.de.1010: 136,02
-        document: src.de.DB.Hmb.Karte.1956
-    -   date: 1984-06-03
-        name: Schleswig Altstadt
-        category: de.Bf
-        de.DS100: ASLW
-        de.dstnr: !!str 014175
-        document: src.de.DS100.1984
-    -   date: 1984-11
+    -   document: src.de.DB.Hmb.Karte.1984
         name: Schleswig Altstadt
         category: de.Bf
         location:
             line.de.1010: 136,01
-        document: src.de.DB.Hmb.Karte.1984
 

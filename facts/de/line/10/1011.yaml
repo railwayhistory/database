@@ -8,17 +8,20 @@ current:
     category: de.Nebenbahn
     gauge: 1435mm
     tracks: 1
-    electrified: !!null
+    electrified: none
     course: path.de.1011 jub hus
 
     passenger: full
+    goods: full
 
     jurisdiction: de
     region:
         - org.de
         - org.de.l.sh
+
     operator: org.de.DB-Netz
     owner: org.de.DB-Netz
+
     de.VzG: !!str 1011
 events:
     #   Genehmigungen
@@ -32,6 +35,12 @@ events:
             deu: >
                 Die Konzession wurde am 1854-03-20 auf die
                 org.de.Südschleswigsche-Eisenbahn übertragen.
+        source: src.de.DRG.1935 # 1854/12
+    -   date: 1854-03-20
+        start: point.de.Ohrstedt
+        concession:
+            by: org.dk
+            for: org.de.Südschleswigsche-Eisenbahn
         source: src.de.DRG.1935 # 1854/12
     -   date: 1857-03-28
         end: point.de.Ohrstedt
@@ -114,58 +123,90 @@ points:
 key: point.de.Sollbrück
 type: point
 events:
+    -   date: !!null
+        name: Sollbrück
+        source: src.de.Kb.1905
+    -   date: !!null
+        category: de.Bf
+        location:
+            line.de.1011: 148,85
+        source: src.de.DRG.Alt.Karte.1931
+    -   date: c1950
+        category: de.Hst
+        location:
+            line.de.1011: 5,00
+        source: src.de.DB.Hmb.Karte.1956
+
+    -   date: c1980
+        location:
+            line.de.1011: 5,03
+        source: src.de.DB.Hmb.Karte.1984
     -   date: 1984-06-02
-        service: goods
+        category: de.Anst
+        passenger: none
     -   date: 1990
         status: closed
+
+    -   date: !!null
+        de.lknr: 01 463
+        source: src.de.Bfv.1933
+    -   date: !!null
+        de.dstnr: !!str 014639
+        de.DS100: ASK
+        source: src.de.DS100.1984
 
     -   date: !!null
         site:
             path.de.1011: sol
 records:
-    -   date: 1905-07
+    -   document:
+            -   src.de.Kb.1905
+            -   src.de.Kb.1914
         name: Sollbrück
-        document: src.de.Kb.1905
 
     -   date: 1927-12-09
         name: Sollbrück
         de.lknr: 01 155
         document: src.de.Bfv.1928
-    -   date: 1931-04-01
-        name: Sollbrück
-        category: de.Bf
-        de.rang: IV
-        location:
-            line.de.1011: 148,85 # right
-        document: src.de.DRG.Alt.Karte.1931
-    -   date: 1933-03-01
+
+    -   document:
+            -   src.de.Bfv.1933
+            -   src.de.Bfv.1938
+            -   src.de.Bfv.1944
         name: Sollbrück
         category: de.Bf
         de.rang: IV
         de.lknr: 01 463
-        document: src.de.Bfv.1933
 
-    -   date: 1956-09
-        name: Sollbrück
-        category: de.Hst
-        staff: full
-        location:
-            line.de.1011:   5,00
-        document: src.de.DB.Hmb.Karte.1956
-    -   date: 1984-06-03
+    -   document: src.de.DS100.1984
         de.dstnr: !!str 014639
         name: Sollbrück
         de.DS100: ASK
         category: de.Hst
         staff: none
-        document: src.de.DS100.1984
-    -   date: 1984-11
+
+    -   document:
+            -   src.de.DRG.Alt.Karte.1931
+            -   src.de.DRG.Alt.Karte.1935
+        name: Sollbrück
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.1011: 148,85 # right
+
+    -   document: src.de.DB.Hmb.Karte.1956
+        name: Sollbrück
+        category: de.Hst
+        staff: full
+        location:
+            line.de.1011: 5,00
+        
+    -   document: src.de.DB.Hmb.Karte.1984
         name: Sollbrück
         category: de.Tp
         service: goods
         location:
             line.de.1011: 5,03 # right
-        document: src.de.DB.Hmb.Karte.1984
 
 
 ---
@@ -183,65 +224,85 @@ events:
 key: point.de.Ahrenviöl
 type: point
 events:
+    -   date: !!null
+        name: Ahrenviöl
+        source: src.de.Kb.1905
+    -   date: !!null
+        category: de.Bf
+        location:
+            line.de.1011: 153,20
+        source: src.de.DRG.Alt.Karte.1931
+    -   date: c1938
+        category: de.Hst
+        source: src.de.Bfv.1938
+    -   date: c1950
+        location:
+            line.de.1011:   9,35
+        source: src.de.DB.Hmb.Karte.1956
     -   date: 1990
         status: closed
 
-    -   date: c1940
-        location:
-            line.de.1011:   9,35
-        source: src.de.DRG.Alt.Karte.1949
+    -   date: !!null
+        de.lknr: 01 464
+        source: src.de.Bfv.1933
+    -   date: !!null
+        de.dstnr: !!str 014647
+        de.DS100: AARL
+        source: src.de.DS100.1984
 
     -   date: !!null
         site:
             path.de.1011: ahr
 records:
-    -   date: 1905-07
+    -   document:
+            -   src.de.Kb.1905
+            -   src.de.Kb.1914
         name: Ahrenviöl
-        document: src.de.Kb.1905
 
-    -   date: 1927-12-09
+    -   document: src.de.Bfv.1928
         name: Ahrenviöl
         de.lknr: 01 156
-        document: src.de.Bfv.1928
-    -   date: 1931-04-01
+    -   document: src.de.Bfv.1933
+        name: Ahrenviöl
+        de.lknr: 01 464
+        category: de.Bf
+        de.rang: IV
+    -   document:
+            -   src.de.Bfv.1938
+            -   src.de.Bfv.1944
+        name: Ahrenviöl
+        category: de.Hst
+        de.lknr: 01 464
+        
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 014647
+        name: Ahrenviöl
+        de.DS100: AARL
+        category: de.Hst
+        staff: none
+
+    -   document:
+            -   src.de.DRG.Alt.Karte.1931
+            -   src.de.DRG.Alt.Karte.1935
         name: Ahrenviöl
         category: de.Bf
         de.rang: IV
         service: passenger
         location:
             line.de.1011: 153,20 # left
-        document: src.de.DRG.Alt.Karte.1931
-    -   document: src.de.Bfv.1933
-        name: Ahrenviöl
-        de.lknr: 01 464
-        category: de.Bf
-        de.rang: IV
-    -   date: 1938-10
-        name: Ahrenviöl
-        category: de.Hst
-        de.lknr: 01 464
-        document: src.de.Bfv.1938
 
-    -   date: 1956-09
+    -   document: src.de.DB.Hmb.Karte.1956
         name: Ahrenviöl
         category: de.Hst
         staff: agent
         location:
             line.de.1011: 9,35
-        document: src.de.DB.Hmb.Karte.1956
-    -   date: 1984-06-03
-        de.dstnr: !!str 014647
-        name: Ahrenviöl
-        de.DS100: AARL
-        category: de.Hst
-        staff: none
-        document: src.de.DS100.1984
-    -   date: 1984-11
+
+    -   document: src.de.DB.Hmb.Karte.1984
         name: Ahrenviöl
         category: de.Tp
         location:
             line.de.1011: 9,35 # left
-        document: src.de.DB.Hmb.Karte.1984
 
 
 ---
@@ -250,67 +311,108 @@ type: point
 events:
     -   date: !!null
         name: Oster Ohrstedt
+    -   date: c1900
+        name: Ohrstedt
+        source: src.de.Kb.1905
+
+    -   date: !!null
+        category: de.Bf
+        source: src.de.Bfv.1933
+    -   date: c1980
+        service: goods
+        source: src.de.DB.Hmb.Karte.1984
+    -   date: c1995
+        category: de.Awanst
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.1011: 158,00 # right
+        source: src.de.DRG.Alt.Karte.1931
+    -   date: c1950
+        location:
+            line.de.1011: 14,15
+        source: src.de.DB.Hmb.Karte.1956
+    -   date: c1980
+        location:
+            line.de.1011: 14,158
+        source:
+            -   src.de.DB.Hmb.Karte.1984
+            -   src.de.DBAG.Geo-Betriebsstelle.2017
+
+    -   date: !!null
+        de.lknr: 01 465
+        source: src.de.Bfv.1933
+    -   date: !!null
+        de.dstnr: !!str 014654
+        de.DS100: AOR
+        source: src.de.DS100.1984
 
     -   date: !!null
         site:
             path.de.1011: ohr
             path.de.A10:  ohr
 records:
-    -   date: 1905-07
+    -   document:
+            -   src.de.Kb.1905
+            -   src.de.Kb.1914
         name: Ohrstedt
-        document: src.de.Kb.1905
 
-    -   date: 1927-12-09
+    -   document: src.de.Bfv.1928
         name: Ohrstedt
         de.lknr: 01 157
-        document: src.de.Bfv.1928
-    -   date: 1931-04-01
-        name: Ohrstedt
-        category: de.Bf
-        de.rang: IV
-        location:
-            line.de.1011: 158,00 # right
-        document: src.de.DRG.Alt.Karte.1931
-    -   date: 1933-03-01
+    -   document:
+            -   src.de.Bfv.1933
+            -   src.de.Bfv.1938
+            -   src.de.Bfv.1944
         name: Ohrstedt
         category: de.Bf
         de.rang: IV
         de.lknr: 01 465
-        document: src.de.Bfv.1933
 
-    -   date: 1956-09
-        name: Ohrstedt
-        category: de.Bf
-        de.rang: IV
-        location:
-            line.de.1011: 14,15
-        document: src.de.DB.Hmb.Karte.1956
-    -   date: 1984-06-03
+    -   document: src.de.DS100.1984
         de.dstnr: !!str 014654
         name: Ohrstedt
         de.DS100: AOR
         category: de.Bf
-        document: src.de.DS100.1984
-    -   date: 1984-11
-        name: Ohrstedt
-        category: de.Bf
-        service: goods
-        location:
-            line.de.1011: 14,16 # right
-        document: src.de.DB.Hmb.Karte.1984
 
-    -   date: 2017-01
+    -   document: src.de.DBAG.BSV.2017
         de.DS100: AOR
         de.name16: Ohrstedt
         name: Ohrstedt
         category: de.Awanst
         PLC: DE18101
         de.dstnr: !!str 014654
-        document: src.de.DBAG.BSV.2017
-    -   date: 2017-01
+
+    -   document:
+            -   src.de.DRG.Alt.Karte.1931
+            -   src.de.DRG.Alt.Karte.1935
+        name: Ohrstedt
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.1011: 158,00 # right
+
+    -   document: src.de.DB.Hmb.Karte.1956
+        name: Ohrstedt
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.1011: 14,15
+    -   document: src.de.DB.Hmb.Karte.1984
+        name: Ohrstedt
+        category: de.Bf
+        service: goods
+        location:
+            line.de.1011: 14,16 # right
+
+    -   document: src.de.DBAG.Geo-Betriebsstelle.2017
+        de.DS100: AOR
+        name: Ohrstedt
+        category: de.Awanst
         location:
             line.de.1011:  14,158
-        document: src.de.DBAG.Geo-Betriebsstelle.2017
+        
 
 
 ---
@@ -319,6 +421,14 @@ type: point
 events:
     -   date: c1950
         status: open
+    -   date: !!null
+        category: de.Hp
+        service: passenger
+        staff: none
+        name: Wester-Ohrstedt
+        location:
+            line.de.1011: 15,82
+        source: src.de.DB.Hmb.Karte.1956
     -   date: c1980
         status: closed
 
@@ -326,14 +436,13 @@ events:
         site:
             path.de.1011: wes
 records:
-    -   date: 1956-09
+    -   document: src.de.DB.Hmb.Karte.1956
         location:
             line.de.1011: 15,82
         category: de.Hp
         service: passenger
         staff: none
         name: Wester-Ohrstedt
-        document: src.de.DB.Hmb.Karte.1956
 
 
 # 19,80 Bm-Grenze src.de.DB.Hmb.Karte.1984
@@ -343,42 +452,60 @@ records:
 key: point.de.Schwesing
 type: point
 events:
+    -   date: !!null
+        name: Schwesing
+        source: src.de.Kb.1905
+
+    -   date: !!null
+        category: de.Bf
+        source: src.de.Bfv.1933
     -   date: c1980
         status: closed
+
+    -   date: !!null
+        location:
+            line.de.1011: 164,35 # right
+        source: src.de.DRG.Alt.Karte.1931
+    -   date: c1950
+        location:
+            line.de.1011: 20,50
+        source: src.de.DB.Hmb.Karte.1956
 
     -   date: !!null
         site:
             path.de.1011: swe
 records:
-    -   date: 1905-07
+    -   document:
+            -   src.de.Kb.1905
+            -   src.de.Kb.1914
         name: Schwesing
-        document: src.de.Kb.1905
 
-    -   date: 1927-12-09
+    -   document: src.de.Bfv.1928
         name: Schwesing
         de.lknr: 01 158
-        document: src.de.Bfv.1928
-    -   date: 1931-04-01
+    -   document:
+            -   src.de.Bfv.1933
+            -   src.de.Bfv.1938
+            -   src.de.Bfv.1944
+        name: Schwesing
+        category: de.Bf
+        de.rang: IV
+        de.lknr: 01 466
+
+    -   document:
+            -   src.de.DRG.Alt.Karte.1931
+            -   src.de.DRG.Alt.Karte.1935
         name: Schwesing
         category: de.Bf
         de.rang: IV
         location:
             line.de.1011: 164,35 # right
-        document: src.de.DRG.Alt.Karte.1931
-    -   date: 1933-03-01
-        name: Schwesing
-        category: de.Bf
-        de.rang: IV
-        de.lknr: 01 466
-        document: src.de.Bfv.1933
-
-    -   date: 1956-09
+    -   document: src.de.DB.Hmb.Karte.1956
         name: Schwesing
         category: de.Bf
         de.rang: IV
         location:
             line.de.1011: 20,50
-        document: src.de.DB.Hmb.Karte.1956
 
 
 ---
@@ -387,20 +514,26 @@ type: point
 events:
     -   date: c1950
         status: open
-    -   date: c1981
+    -   date: !!null
+        name: Rosendahl
+        category: de.Hp
+        staff: none
+        location:
+            line.de.1011: 22,96
+        source: src.de.DB.Hmb.Karte.1956
+    -   date: c1980
         status: closed
 
     -   date: !!null
         site:
             path.de.1011: ros
 records:
-    -   date: 1956-09
+    -   document: src.de.DB.Hmb.Karte.1956
         name: Rosendahl
         category: de.Hp
         staff: none
         location:
             line.de.1011: 22,96
-        document: src.de.DB.Hmb.Karte.1956
 
 
 # 24,50 BA-Grenze src.de.DB.Hmb.Karte.1956
