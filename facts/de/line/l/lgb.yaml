@@ -1,0 +1,150 @@
+# DE LGB.  Lütjenbrode - Großenbroder Fähre
+#
+---
+key: line.de.LGB
+type: line
+current:
+    status: removed
+    category: de.Nebenbahn
+    gauge: 1435mm
+    tracks: 1
+    electrified: !!null
+    course: path.de.LGB lut grf
+
+    goods: full
+    passenger: full
+
+    jurisdiction: de
+    region:
+        - org.de
+        - org.de.l.sh
+events:
+    -   date: !!null    
+        region:
+            - org.de
+            - org.de.l.sh
+
+    #   Genehmigungen, Eigentümer, Betreiber
+    #
+    -   date: 1902-03-26
+        concession:
+            by: org.de.l.pre
+            for: org.de.Kreis-Oldenburger-Eisenbahn
+            rights: [ construction, operation, expropriation ]
+        category: de.Kleinbahn
+        document: src.de.l.pre.sle.1902.16.151
+
+    #   Eröffnung und Einstellung
+    #
+    -   date: 1903-10-23
+        status: open
+        source: src.de.web.Kuestenbahn
+
+    -   date: 1963-04-30
+        start: point.de.Lütjenbrode-Ost
+        end: point.de.Großenbrode
+        status: closed
+        reused:
+            - line.de.1100
+    -   date: 1963-04-30
+        start: point.de.Großenbrode
+        status: closed
+        source:
+            - src.de.web.Kuestenbahn
+            - src.de.DB.Hmb.1984
+
+    -   date: c1970
+        start: point.de.Großenbrode
+        status: removed
+
+    #   Eigenschaften
+    #
+    -   date: 1941-07-31
+        category: de.Nebenbahn
+records:
+    -   document: src.de.DRG.Alt.Karte.1931
+        category: de.Kleinbahn
+        tracks: 1
+        gauge: 1435mm
+
+    -   document: src.de.DB.Hmb.Karte.1956
+        end: point.de.Lütjenbrode-Ost
+        category: de.Nebenbahn
+        tracks: 1
+        gauge: 1435mm
+    -   document: src.de.DB.Hmb.Karte.1956
+        start: point.de.Lütjenbrode-Ost
+        end: point.de.Großenbrode
+        category: de.Hauptbahn
+        tracks: 1
+        gauge: 1435mm
+    -   document: src.de.DB.Hmb.Karte.1956
+        start: point.de.Großenbrode
+        category: de.Nebenbahn
+        tracks: 1
+        gauge: 1435mm
+
+    -   document: src.de.DB.Hmb.Karte.1984
+        status: closed
+    -   document: src.de.DB.Hmb.Karte.1984
+        start: point.de.Lütjenbrode-Ost
+        end: point.de.Großenbrode
+        reused: line.de.1100
+
+    -   document: src.de.DBAG.Geo-Strecke.2017
+        start: point.de.Lütjenbrode
+        end: point.de.Lütjenbrode-Ost
+        de.VzG: !!str 1101
+points:
+    -   point.de.Lütjenbrode                        # de.1101
+    -   point.de.Lütjenbrode-Ost                    # de.1100
+    -   point.de.Großenbrode-Abzw                   # de.1100
+    -   point.de.Großenbrode                        # de.1100
+    -   point.de.Großenbroder-Fähre
+
+
+#-----------------------------------------------------------------------------
+
+#    point.de.Lütjenbrode                        de.1101
+
+
+#    point.de.Lütjenbrode-Ost                    de.1100
+
+
+#    point.de.Großenbrode-Abzw                   de.1100
+
+
+#    point.de.Großenbrode                        de.1100
+
+
+---
+key: point.de.Großenbroder-Fähre
+type: point
+events:
+    -   date: !!null
+        site:
+            path.de.LGB: grf
+records:
+    -   date: 1914-07
+        name: Großenbroder Fähre
+        document: src.de.Kb.1914
+
+    -   date: 1938-10-01
+        name: Großenbroder Fähre
+        de.lknr: 44 178
+        document: src.de.Bfv.1938
+    -   date: 1944-06-01
+        name: Großenbroder Fähre
+        category: de.Bf
+        de.rang: IV
+        de.lknr: 27 386
+        document: src.de.Bfv.1944
+
+    -   date: 1956-09
+        name: Großenbroder Fähre
+        category: de.Hst
+        staff: agent
+        location:
+            line.de.LGB: 7,10 # right
+        document: src.de.DB.Hmb.Karte.1956
+

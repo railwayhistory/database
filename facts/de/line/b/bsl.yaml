@@ -1,0 +1,220 @@
+# DE BSL.  Bredstedt - Löwenstedt
+#
+---
+key: line.de.BSL
+type: line
+current:
+    status: removed
+    category: de.Nebenbahn
+    gauge: 1435mm
+    tracks: 1
+    electrified: !!null
+    course:
+        -   path.de.1210  bre flow
+        -   path.de.BSL a f
+        -   path.de.HFL   abre low
+
+    operator: org.de.e.hmb
+    owner: org.de.DB
+
+    jurisdiction: de
+    region:
+        - org.de
+        - org.de.l.sh
+events:
+    #   Genehmigungen
+    #
+    -   date: 1924-10-07
+        concession:
+            by: org.de
+            for: org.de
+        note: „Erlaß des Reichsverkehrsmin — Pr III 36. 101. 107 —“
+        source: src.de.DRG.1935 # 1928/11
+
+    #   Eröffnung und Einstellung
+    #
+    -   date: 1928-05-15
+        status: open
+        source: src.de.DRG.1935 # 1928/11
+    -   date: 1942-11-01
+        status: closed
+        source: src.deu.WP.Bahnstrecke-Bredstedt-Löwenstedt
+    -   date: 1942-12
+        status: removed
+        source: src.deu.WP.Bahnstrecke-Bredstedt-Löwenstedt
+
+records:
+    -   document: src.de.DRG.Alt.Karte.1931
+        category: de.Nebenbahn
+        tracks: 1
+        gauge: 1435mm
+    -   document: src.de.DRG.Alt.Karte.1935
+        category: de.Nebenbahn
+        tracks: 1
+        gauge: 1435mm
+
+    -   document: src.de.DB.Hmb.Karte.1956
+        status: closed
+points:
+    -   point.de.Bredstedt                      # de.1210
+    -   point.de.Drelsdorf
+    -   point.de.Kolkerheide
+    -   point.de.Kolkerheide-Dorf
+    -   point.de.Löwenstedt                     # de.HFL
+
+
+#-----------------------------------------------------------------------------
+
+#    point.de.Bredstedt                      de.1210
+
+
+---
+key: point.de.Drelsdorf
+type: point
+events:
+    -   date: !!null
+        name: Drelsdorf
+        category: de.Bf
+        staff: agent
+        location:
+            line.de.BSL: 4,81 # right
+        document:
+            -   src.de.DRG.Alt.Karte.1931
+            -   src.de.Bfv.1933
+    -   date: c1938
+        category: de.Hst
+        source: src.de.Bfv.1938
+
+    -   date: !!null
+        site:
+            path.de.BSL: dre
+records:
+    -   date: 1931-04-01
+        name: Drelsdorf
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.BSL: 4,81 # right
+        document: src.de.DRG.Alt.Karte.1931
+    -   date: 1933-03-01
+        category: de.Bf
+        de.rang: IV
+        name: Drelsdorf
+        de.lknr: 01 480
+        staff: agent
+        document: src.de.Bfv.1933
+    -   date: 1935-01-01
+        name: Drelsdorf
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.BSL: 4,81 # right
+        document: src.de.DRG.Alt.Karte.1935
+    -   date: 1938-10-01
+        name: Drelsdorf
+        category: de.Hst
+        de.lknr: 01 480
+        staff: agent
+        document: src.de.Bfv.1938
+
+
+---
+key: point.de.Kolkerheide
+type: point
+events:
+    -   date: !!null
+        name: Kolkerheide
+        category: de.Bf
+        location:
+            line.de.BSL: 8,82 # right
+        source: src.de.DRG.Alt.Karte.1931
+    -   date: c1935
+        category: de.Hst
+        source: src.de.DRG.Alt.Karte.1935
+    -   date: c1938
+        category: de.Hp
+        service: passenger
+        staff: none
+        source: src.de.Bfv.1938
+
+    -   date: !!null
+        site:
+            path.de.BSL: kol
+records:
+    -   date: 1931-04-01
+        name: Kolkerheide
+        category: de.Bf
+        de.rang: IV
+        location:
+            line.de.BSL: 8,82 # right
+        document: src.de.DRG.Alt.Karte.1931
+    -   date: 1933-03-01
+        category: de.Ldst
+        name: Kolkerheide
+        document: src.de.Bfv.1933
+    -   date: 1935-01-01
+        name: Kolkerheide
+        category: de.Hst
+        staff: full
+        location:
+            line.de.BSL: 8,82 # right
+        document: src.de.DRG.Alt.Karte.1935
+    -   date: 1938-10-01
+        name: Kolkerheide
+        category: de.Hp
+        de.lknr: 01 479
+        service: passenger
+        staff: none
+        master: point.de.Löwenstedt
+        document: src.de.Bfv.1938
+
+
+---
+key: point.de.Kolkerheide-Dorf
+type: point
+events:
+    -   date: c1935
+        status: open
+        source:
+            -   src.de.Bfv.1933
+            -   src.de.Kb.W1937
+
+    -   date: !!null
+        name: Kolkerheide Dorf
+        category: de.Hp
+        service: passenger
+        staff: none
+        document: src.de.Bfv.1938
+
+    -   date: !!null
+        site:
+            path.de.BSL: kod
+records:
+    -   date: 1937-10-03
+        name: Kolkerheide Dorf
+        document: src.de.Kb.W1937
+    -   date: 1938-10-01
+        name: Kolkerheide Dorf
+        category: de.Hp
+        service: passenger
+        staff: none
+        master: point.de.Löwenstedt
+        de.lknr: 01 478
+        document: src.de.Bfv.1938
+
+
+#    point.de.Löwenstedt                     de.HFL
+
+
+#-----------------------------------------------------------------------------
+
+---
+key: src.deu.WP.Bahnstrecke-Bredstedt-Löwenstedt
+type: source
+subtype: article
+title: Bahnstrecke Bredstedt–Löwenstedt
+collection: src.de.WP
+revision: 26. Juli 2019, 09:37 UTC
+url: https://de.wikipedia.org/w/index.php?title=Bahnstrecke_Bredstedt%E2%80%93L%C3%B6wenstedt&oldid=190766584
+
+
