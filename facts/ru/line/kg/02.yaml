@@ -4,8 +4,22 @@
 key: line.ru.kg.2
 type: line
 progress: stub
-events:
+current:
+    status: open
+    gauge: 1520mm
+    tracks: 2
+    electrified: none
 
+    passenger: full
+
+    operator: org.ru.Калининградская-железная-дорога
+
+    jurisdiction: ru
+    region:
+        -   org.ru
+
+    course: path.ru.kg.2 teg kal
+events:
     -   date: 1857-02-14
         treaty:
             parties:
@@ -36,18 +50,21 @@ events:
         status: open
         source: src.de.DRG.1935 # 1860/12
 
-    -   date: !!null
-        course: path.ru.kg.2 gr kal
-
 points:
-    -   point.int.Kybartai-Чернышевское
+    -   point.int.Kybartai-Чернышевское             # lt.KK
     -   point.ru.Чернышевское
     -   point.ru.kg.Нестеров
     -   point.ru.Дивное-Новое
     -   point.ru.kg.2.1163-км
     -   point.ru.kg.Гусев
+    -   point.ru.kg.2.1176-км
+    -   point.ru.kg.2.1180-км
     -   point.ru.Веселовка
+    -   point.ru.kg.2.1189-км
+    -   point.ru.kg.Долинино
     -   point.ru.Pendershof
+    -   point.ru.kg.2.1191-км
+    -   point.ru.kg.2.1192-км
     -   point.ru.Черняховск
     -   point.ru.Пастухово-Новое
     -   point.ru.Междуречье
@@ -57,25 +74,19 @@ points:
     -   point.ru.kg.Гвардейск
     -   point.ru.kg.2.1252-км
     -   point.ru.Озерки-Новые
+    -   point.ru.Ottenhagen
     -   point.ru.Комсомольск-Западный
     -   point.ru.kg.2.1271-км
+    -   point.ru.Friedrichstein
     -   point.ru.Луговое-Новое
     -   point.ru.Айвазовский
+    -   point.ru.kg.Пост-Восточный
     -   point.ru.Калининград-Пассажирский           # ru.kg.1
 
 
 #-----------------------------------------------------------------------------
 
----
-key: point.int.Kybartai-Чернышевское
-type: point
-subtype: border
-progress: stub
-events:
-    -   date: !!null
-        designation: Kybartai/Чернышевское
-        site:
-            path.ru.kg.2: gr
+#    point.int.Kybartai-Чернышевское             lt.KK
 
 
 ---
@@ -170,13 +181,33 @@ records:
 
 
 ---
+key: point.ru.kg.2.1176-км
+type: point
+events:
+    -   date: !!null
+        name: 1176 км
+        site:
+            path.ru.kg.2: op1176
+
+
+---
+key: point.ru.kg.2.1180-км
+type: point
+events:
+    -   date: !!null
+        name: 1180 км
+        site:
+            path.ru.kg.2: op1180
+
+
+---
 key: point.ru.Веселовка
 type: point
 events:
     -   date: !!null
-        designation: Веселовка
+        name: Веселовка
         site:
-            path.ru.kg.2: wes
+            path.ru.kg.2: ves
 records:
     -   document: src.de.Bfv.1933
         name: Judtschen
@@ -188,6 +219,24 @@ records:
         de.lknr: 16 294
         category: de.Bf
         de.rang: IV
+
+
+---
+key: point.ru.kg.2.1189-км
+type: point
+events:
+    -   date: !!null
+        name: 1189 км
+        site:
+            path.ru.kg.2: op1189
+
+
+---
+key: point.ru.kg.Долинино
+type: point
+events:
+    -   date: !!null
+        designation: «Долинино»
 
 
 ---
@@ -207,6 +256,26 @@ records:
         de.lknr: 16 293
         category: de.Hp
         goods: none
+
+
+---
+key: point.ru.kg.2.1191-км
+type: point
+events:
+    -   date: !!null
+        name: 1191 км
+        site:
+            path.ru.kg.2: op1191
+
+
+---
+key: point.ru.kg.2.1192-км
+type: point
+events:
+    -   date: !!null
+        name: 1192 км
+        site:
+            path.ru.kg.2: op1192
 
 
 ---
@@ -312,6 +381,11 @@ records:
         de.lknr: 16 099
         category: de.Bf
         de.rang: III
+    -   document: src.de.Bfv.1944
+        name: Wehlau (Ostpr)
+        de.lknr: 16 099
+        category: de.Bf
+        de.rang: II
 
 
 ---
@@ -357,6 +431,19 @@ records:
 
 
 ---
+key: point.ru.Ottenhagen
+type: point
+events:
+    -   date: !!null
+        category: de.Bk
+        name: Ottenhagen
+        site:
+            path.ru.kg.2: ott
+    -   date: c1945
+        status: closed
+
+
+---
 key: point.ru.Комсомольск-Западный
 type: point
 events:
@@ -384,6 +471,19 @@ events:
 
 
 ---
+key: point.ru.Friedrichstein
+type: point
+events:
+    -   date: !!null
+        category: de.Bk
+        name: Friedrichstein
+        site:
+            path.ru.kg.2: fri
+    -   date: c1945
+        status: closed
+
+
+---
 key: point.ru.Луговое-Новое
 type: point
 events:
@@ -406,7 +506,7 @@ events:
     -   date: !!null
         name: Айвазовский
         site:
-            path.ru.kg.2: aiw
+            path.ru.kg.2: aiv
 records:
     -   document: src.de.Bfv.1933
         name: Seligenfeld
@@ -414,6 +514,17 @@ records:
         category: de.Hp
         staff: agent
         goods: none
+
+
+---
+key: point.ru.kg.Пост-Восточный
+type: point
+events:
+    -   date: !!null
+        name: Пост-Восточный
+        site:
+            path.ru.kg.2: vos
+
 
 # point.ru.Калининград-Пассажирский           ru.kg.1
 

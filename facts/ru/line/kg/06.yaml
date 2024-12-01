@@ -1,8 +1,25 @@
-# RU KG 6.  Калининград Северный - Светлогорск 1
+# RU KG 6.  Кутузово-Новое - Светлогорск 1
 #
 ---
 key: line.ru.kg.6
 type: line
+current:
+    status: open
+    gauge: 1520mm
+    tracks: 1
+    electrified: ru
+
+    passenger: full
+
+    operator: org.ru.Калининградская-железная-дорога
+
+    jurisdiction: ru
+    region:
+        -   org.ru
+
+    course:
+        point.ru.Зеленоградск-Новый: path.ru.kg.6.1 kse zel
+        point.ru.kg.Светлогорск-1: path.ru.kg.6.2 zel swe
 events:
     -   date: 1884-07-25
         end: point.ru.Зеленоградск-Новый
@@ -49,24 +66,17 @@ events:
         status: open
         source: src.de.DRG.1935 # 1901/19
 
-    -   date: !!null
-        end: point.ru.Зеленоградск-Новый
-        course: path.ru.kg.6.1 kse sel
-    -   date: !!null
-        start: point.ru.Зеленоградск-Новый
-        course: path.ru.kg.6.2 sel swe
 points:
-    -   point.ru.Калининград-Северный               # ru.kg.21
-    -   point.ru.Königsberg-Maraunenhof             # ru.kg.21
     -   point.ru.Кутузово-Новое                     # ru.kg.21
     -   point.ru.kg.Königsberg-Quedenau
     -   point.ru.kg.Stigehnen
-    -   point.ru.kg.7-км
+    -   point.ru.kg.6.Оп-7
     -   point.ru.kg.Рябиновка
     -   point.ru.kg.Каштановка
     -   point.ru.kg.Муромское
     -   point.ru.kg.Сосновка
     -   point.ru.Зеленоградск-Новый
+    -   point.ru.kg.Приморье
     -   point.ru.kg.Малиновка
     -   point.ru.kg.Сокольники-Новые
     -   point.ru.kg.Сокольники
@@ -80,10 +90,6 @@ points:
 
 #-----------------------------------------------------------------------------
 
-#    point.ru.Калининград-Северный               ru.kg.21
-
-#    point.ru.Königsberg-Maraunenhof             ru.kg.21
-
 #    point.ru.Кутузово-Новое                     ru.kg.21
 
 
@@ -91,6 +97,15 @@ points:
 key: point.ru.kg.Königsberg-Quedenau
 type: point
 events:
+    -   date: !!null
+        name: Quedenau
+        source: src.de.Bfv.1933
+    -   date: c1940
+        name: Königsberg-Quedenau
+        source: src.de.Bfv.1944
+    -   date: c1946
+        status: closed
+
     -   date: !!null
         site:
             path.ru.kg.6.1: que
@@ -114,6 +129,12 @@ key: point.ru.kg.Stigehnen
 type: point
 events:
     -   date: !!null
+        name: Stigehnen
+        source: src.de.Bfv.1933
+    -   date: c1945
+        status: closed
+
+    -   date: !!null
         site:
             path.ru.kg.6.1: sti
 records:
@@ -124,12 +145,18 @@ records:
 
 
 ---
-key: point.ru.kg.7-км
+key: point.ru.kg.6.Оп-7
 type: point
 progress: stub
 events:
     -   date: !!null
+        name: Nesselbeck
+        source: src.de.Bfv.1933
+
+    -   date: c1945
         name: 7 км
+
+    -   date: !!null
         site:
             path.ru.kg.6.1: op7
 records:
@@ -143,10 +170,15 @@ key: point.ru.kg.Рябиновка
 type: point
 events:
     -   date: !!null
+        name: Groß Raum
+        source: src.de.Bfv.1933
+    -   date: c1945
         name: Рябиновка
+
+    -   date: !!null
         site:
-            path.ru.kg.6.1: rja
-            path.ru.kg.58:  rja
+            path.ru.kg.6.1: rya
+            path.ru.kg.58:  rya
 records:
     -   document: src.de.Bfv.1933
         name: Groß Raum
@@ -161,7 +193,12 @@ key: point.ru.kg.Каштановка
 type: point
 events:
     -   date: !!null
+        name: Mollehnen
+        source: src.de.Bfv.1933
+    -   date: c1945
         name: Каштановка
+
+    -   date: !!null
         site:
             path.ru.kg.6.1: kas
 records:
@@ -175,7 +212,12 @@ key: point.ru.kg.Муромское
 type: point
 events:
     -   date: !!null
+        name: Laptau
+        source: src.de.Bfv.1933
+    -   date: c1945
         name: Муромское
+
+    -   date: !!null
         site:
             path.ru.kg.6.1: mur
 records:
@@ -189,7 +231,12 @@ key: point.ru.kg.Сосновка
 type: point
 events:
     -   date: !!null
+        name: Bledau
+        source: src.de.Bfv.1933
+    -   date: c1945
         name: Сосновка
+
+    -   date: !!null
         site:
             path.ru.kg.6.1: sos
 records:
@@ -203,15 +250,30 @@ key: point.ru.Зеленоградск-Новый
 type: point
 events:
     -   date: !!null
+        name: Cranz
+        source: src.de.Bfv.1933
+    -   date: c1945
         name: Зеленоградск-Новый
+
+    -   date: !!null
         site:
-            path.ru.kg.6.1: sel
-            path.ru.kg.6.2: sel
-            path.ru.kg.20:  sel
+            path.ru.kg.6.1: zel
+            path.ru.kg.6.2: zel
+            path.ru.kg.20:  zel
 records:
     -   document: src.de.Bfv.1933
         name: Cranz
         de.lknr: 48 854
+
+
+---
+key: point.ru.kg.Приморье
+type: point
+events:
+    -   date: !!null
+        name: Приморье
+        site:
+            path.ru.kg.6.2: pri
 
 
 ---
@@ -239,7 +301,7 @@ records:
         goods: none
     -   document: src.de.Bfv.1944
         name: Cranz-Rosehnen
-        master: point.ru.Зеленоградск-Новый
+        superior: point.ru.Зеленоградск-Новый
         goods: none
         staff: none
         de.lknr: 49 854

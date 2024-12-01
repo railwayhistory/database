@@ -4,8 +4,29 @@
 key: line.ru.kg.5
 type: line
 progress: stub
-events:
+current:
+    status:
+        point.ru.kg.Багратионовск: open
+        point.int.Багратионовск-Głomno: suspended
+    gauge:
+        point.ru.kg.Багратионовск: 1520mm
+        point.int.Багратионовск-Głomno: [1520mm, 1435mm]
+    rails:
+        point.ru.kg.Багратионовск: 2
+        point.int.Багратионовск-Głomno: 4
+    tracks: 1
+    electrified: none
 
+    passenger:
+        point.ru.kg.Багратионовск: full
+        point.int.Багратионовск-Głomno: none
+
+    operator: org.ru.Калининградская-железная-дорога
+
+    jurisdiction: ru
+    region:
+        -   org.ru
+events:
     -   date: 1863-11-02
         concession:
             by: org.de.l.pre
@@ -18,12 +39,14 @@ events:
         source: src.de.DRG.1935 # 1866/33
 
     -   date: !!null
-        course: path.ru.kg.5 kal gr
+        course: path.ru.kg.5 kal glg
 points:
-    -   point.ru.Калининград-Пассажирский           # ru.kzd.1
+    -   point.ru.Калининград-Пассажирский           # ru.kg.1
+    -   point.ru.kg.Пост-Восточный                  # ru.kg.2
     -   point.ru.kg.5.Оп-4
     -   point.ru.Дзержинская-Новая
     -   point.ru.kg.5.Оп-6
+    -   point.ru.Schönfließ
     -   point.ru.Отважное
     -   point.ru.kg.Владимиров
     -   point.ru.kg.5.Оп-18
@@ -36,7 +59,7 @@ points:
 
 #-----------------------------------------------------------------------------
 
-# point.ru.Калининград-Пассажирский           ru.kzd.1
+# point.ru.Калининград-Пассажирский           ru.kg.1
 
 
 ---
@@ -56,7 +79,7 @@ events:
     -   date: !!null
         name: Дзержинская-Новая
         site:
-            path.ru.kg.5: dse
+            path.ru.kg.5: dze
 
 
 ---
@@ -70,13 +93,30 @@ events:
 
 
 ---
+key: point.ru.Schönfließ
+type: point
+events:
+    -   date: !!null
+        category: de.Bk
+        name: Schönfließ
+        site:
+            path.ru.kg.5: son
+    -   date: c1945
+        status: closed
+
+
+---
 key: point.ru.Отважное
 type: point
 events:
     -   date: !!null
+        name: Wickbold
+    -   date: c1945
         name: Отважное
+
+    -   date: !!null
         site:
-            path.ru.kg.5: otw
+            path.ru.kg.5: otv
 records:
     -   document: src.de.Bfv.1933
         name: Wickbold
@@ -90,9 +130,13 @@ key: point.ru.kg.Владимиров
 type: point
 events:
     -   date: !!null
+        name: Tharau
+    -   date: c1945
         name: Владимиров
+
+    -   date: !!null
         site:
-            path.ru.kg.5: wla
+            path.ru.kg.5: vla
 records:
     -   document: src.de.Bfv.1933
         name: Tharau
@@ -136,7 +180,12 @@ key: point.ru.Стрельня-Новая
 type: point
 events:
     -   date: !!null
+        name: Schrombehnen
+        source: src.de.Bfv.1933
+    -   date: c1945
         name: Стрельня-Новая
+
+    -   date: !!null
         site:
             path.ru.kg.5: str
 records:
@@ -152,7 +201,12 @@ key: point.ru.kg.Багратионовск
 type: point
 events:
     -   date: !!null
+        name: Preußisch Eylau
+        source: src.de.Bfv.1933
+    -   date: c1945
         name: Багратионовск
+
+    -   date: !!null
         site:
             path.ru.kg.5:  bag
             path.ru.kg.31: bag
@@ -173,5 +227,5 @@ events:
         name:
             pl: Granica Państwa Głomno
         site:
-            path.ru.kg.5: gr
+            path.ru.kg.5: glg
 
