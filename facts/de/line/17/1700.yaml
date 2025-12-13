@@ -136,17 +136,22 @@ points:
     -   point.de.Löhne-Westf-Pbf
     -   point.de.Löhne-Westf-Gbf
     -   point.de.Löhne-Westf-Gr
+    -   point.de.Schweicheln
     -   point.de.Herford
     -   point.de.Stedefreund
     -   point.de.Brake-Bielefeld-Hp
     -   point.de.Brake-Bielefeld
+    -   point.de.Talbrücke-Brake
     -   point.de.Bielefeld-Hbf-Vorbahnhof
     -   point.de.Bielefeld-Hbf
     -   point.de.Bielefeld-Hbf-Pbf
     -   point.de.Brackwede-Gbf
     -   point.de.Brackwede
+    -   point.de.Bockschatz-Brackwede
+    -   point.de.Ummeln
     -   point.de.Isselhorst-Avenwedde
     -   point.de.Gütersloh-Hbf
+    -   point.de.Heidkamp
     -   point.de.Rheda-Wiedenbrück
     -   point.de.Oelde
     -   point.de.Neubeckum-Pbf
@@ -975,6 +980,10 @@ subtype: reference
 events:
     -   date: !!null
         designation: Löhne (Westf) Han/Esn
+
+    -   date: !!null
+        site:
+            path.de.1700: lgr
 records:
     -   date: 1983-11
         location:
@@ -984,11 +993,57 @@ records:
 
 
 ---
+key: point.de.Schweicheln
+type: point
+events:
+    -   date: !!null
+        name: Schweicheln
+        category: de.Bf
+        source: src.de.Bfv.1933
+    -   date: !!null
+        location:
+            line.de.1700: 91,17
+            line.de.2981:  4,42
+            line.de.2990: 91,17
+        source: src.de.DB.Esn.1977
+
+    -   date: !!null
+        site:
+            path.de.1700: swe
+records:
+    -   document: src.de.Bfv.1933
+        name: Schweicheln
+        category: de.Bf
+        de.rang: III
+        de.lknr: 13 592
+
+    -   document: src.de.DB.Han.1970
+        name: Schweicheln
+        category: de.Bf
+        location:
+            de.2981: 4,34
+    -   document: src.de.DB.Esn.1977
+        name: Schweicheln
+        category: de.Hp
+        location:
+            de.1700: 91,17
+            de.2981: 4,42
+    -   document: src.de.DS100.1984
+        name: Schweicheln
+        category: de.Awanst
+        de.DS100: ESCN
+        de.dstnr: !!str 135921
+        
+
+
+---
 key: point.de.Herford
 type: point
 events:
     -   date: !!null
         connection: point.de.Herford-Kleinb         # de.EH0
+        site:
+            path.de.1700: her
 records:
     -   date: 1981-10
         name: Herford
@@ -1023,6 +1078,10 @@ type: point
 events:
     -   date: c1980
         status: closed
+
+    -   date: !!null
+        site:
+            path.de.1700: ste
 records:
     -   date: 1977-11
         name: Stedefreund
@@ -1036,6 +1095,10 @@ records:
 ---
 key: point.de.Brake-Bielefeld-Hp
 type: point
+events:
+    -   date: !!null
+        site:
+            path.de.1700: bra
 records:
     -   date: 2017-01
         name: Brake (b Bielefeld) Hp
@@ -1054,6 +1117,10 @@ records:
 ---
 key: point.de.Brake-Bielefeld
 type: point
+events:
+    -   date: !!null
+        site:
+            path.de.1700: bra
 records:
     -   date: 1981-10
         name: Brake (b Bielefeld)
@@ -1082,8 +1149,71 @@ records:
 
 
 ---
+key: point.de.Talbrücke-Brake
+type: point
+events:
+    -   date: !!null
+        name: Talbrücke
+        category: de.Bk
+        location:
+            line.de.1700: 104,94
+            line.de.2990: 104,94
+        source: src.de.DB.Han.1950
+    -   date: c1970
+        status: closed
+
+    -   date: !!null
+        site:
+            path.de.1700: tal
+records:
+    -   document: src.de.DB.Han.1950
+        name: Talbrücke
+        category: de.Bk
+        location:
+            line.de.1700: 104,94
+            line.de.2990: 104,94
+
+
+---
+key: point.de.Eissen-Bielefeld
+type: point
+events:
+    -   date: !!null
+        name: Eissen
+        category: de.Bk
+        location:
+            line.de.1700: 106,23
+            line.de.2990: 106,23
+        source: src.de.DB.Han.1950
+    -   date: c1970
+        status: closed
+
+    -   date: !!null
+        site:
+            path.de.1700: eis
+records:
+    -   document: src.de.DB.Han.1950
+        name: Eissen
+        category: de.Bk
+        location:
+            line.de.1700: 106,23
+            line.de.2990: 106,23
+        
+
+
+---
 key: point.de.Bielefeld-Hbf-Vorbahnhof
 type: point
+events:
+    -   date: !!null
+        name: Bielefeld Hbf Vorbahnhof
+        category: de.Bft
+        de.DS100: EBILG
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        site:
+            path.de.1700: biv
 records:
     -   date: 2017-01
         name: Bielefeld Hbf Vorbahnhof
@@ -1098,6 +1228,20 @@ records:
 ---
 key: point.de.Bielefeld-Hbf
 type: point
+events:
+    -   date: !!null
+        name: Bielefeld Hbf
+        category: de.Bf
+        de.DS100: EBIL
+        location:
+            line.de.1700: 109,450
+            line.de.2984:  21,771
+            line.de.2990: 109,450
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+    -   date: !!null
+        site:
+            path.de.1700: bie
 records:
     -   date: 1981-10
         name: Bielelfeld Hbf
@@ -1138,12 +1282,44 @@ records:
         document: src.de.DBAG.BSV.2017
 
 
+---
+key: point.de.Gneisenaustraße-Bielefeld
+type: point
+events:
+    -   date: !!null
+        name: Gneisenaustraße
+        category: de.Bk
+        location:
+            line.de.1700: 111,45
+            line.de.2990: 111,45
+        source: src.de.DB.Han.1950
+    -   date: c1970
+        status: closed
+
+    -   date: !!null
+        site:
+            path.de.1700: gne
+records:
+    -   document: src.de.DB.Han.1950
+        name: Eissen
+        category: de.Bk
+        location:
+            line.de.1700: 106,23
+            line.de.2990: 106,23
+
+
 # 112,00 Baubezirksgrenze src.de.DB.Esn.1981
 
 
 ---
 key: point.de.Brackwede-Gbf
 type: point
+records:
+    -   date: !!null
+        name: Brackwede Gbf
+        category: de.Bft
+        de.DS100: EBWEG
+        document: src.de.DBAG.BSV.2017
 records:
     -   date: 2017-01
         name: Brackwede Gbf
@@ -1208,16 +1384,109 @@ records:
 
 
 ---
+key: point.de.Bockschatz-Brackwede
+type: point
+events:
+    -   date: !!null
+        name: Bockschatz
+        category: de.Bk
+        location:
+            line.de.1700: 116,68
+            line.de.2990: 116,68
+        source: src.de.DB.Han.1950
+    -   date: c1970
+        status: closed
+
+    -   date: !!null
+        site:
+            path.de.1700: boc
+records:
+    -   document: src.de.DB.Han.1950
+        name: Bockschatz
+        category: de.Bk
+        location:
+            line.de.1700: 116,68
+            line.de.2990: 116,68
+
+
+---
+key: point.de.Ummeln
+type: point
+events:
+    -   date: !!null
+        name: Ummeln
+        category: [de.Hp, de.Bk]
+        location:
+            line.de.1700: 118,86
+            line.de.2990: 118,86
+        source: src.de.DB.Han.1950
+    -   date: c1970
+        status: closed
+
+    -   date: !!null
+        site:
+            path.de.1700: umm
+records:
+    -   document: src.de.Bfv.1933
+        name: Ummeln
+        de.lknr: 13 604
+        category: de.Hp
+        exoress: limited
+    -   document: src.de.DB.Han.1950
+        name: Ummeln
+        category: [de.Hp, de.Bk]
+        location:
+            line.de.1700: 118,86
+            line.de.2990: 118,86
+
+
+---
 key: point.de.Isselhorst-Avenwedde
 type: point
+events:
+    -   date: !!null
+        name: Isselhorst-Avenwedde
+        category: de.Bf
+        location:
+            line.de.1700: 121,76
+            line.de.2990: 121,76
+        source: src.de.DB.Han.1950
+    -   date: c1970
+        location:
+            line.de.1700: 121,51
+            line.de.2990: 121,51
+
+    -   date: c2000
+        category: de.Hp
+        location:
+            line.de.1700: 121,760
+            line.de.2990: !!null
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+    -   date: !!null
+        site:
+            path.de.1700: isa
 records:
+    -   document: src.de.Bfv.1933
+        name: Isselhorst-Avenwedde
+        de.lknr: 13 605
+        category: de.Bf
+        de.rang: III
+
+    -   document: src.de.DB.Han.1950
+        name: Isselhorst-Avenwedde
+        category: de.Bf
+        location:
+            line.de.1700: 121,76
+            line.de.2990: 121,76
+
     -   date: 1981-10
         name: Isselhorst-Avenwedde
         category: de.Bf
         location:
             line.de.1700: 121,51 # left
             line.de.2990: 121,51
-        document: src.de.DB.Esn.1981
+        document: src.de.DB.Esn.1977
 
     -   date: 2017-01
         name: Isselhorst-Avenwedde
@@ -1239,14 +1508,74 @@ records:
 ---
 key: point.de.Gütersloh-Hbf
 type: point
+events:
+    -   date: !!null
+        name: Gütersloh Stsbf
+        source: src.de.Kb.1905
+    -   date: !!null
+        category: de.Bf
+        source: src.de.Bfv.1928
+    -   date: !!null
+        location:
+            line.de.1700: 126,878
+            line.de.2990: 126,878
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+    -   date: c1925
+        name: Gütersloh
+        source: src.de.Bfv.1928
+    -   date: c1930
+        name: Gütersloh Reichsb
+        source: src.de.Bfv.1933
+    -   date: c1950
+        name: Gütersloh Hbf
+        source: src.de.DB.Han.1950
+
+    -   date: !!null
+        de.DS100: EGLO
+        source: src.de.DS100.1984
+
+    -   date: !!null
+        site:
+            path.de.1700: gut
 records:
-    -   date: 1981-10
+    -   document: src.de.Kb.1905
+        name: Gütersloh Stsbf
+
+    -   document: src.de.Bfv.1928
+        name: Gütersloh
+        de.lknr: 13 258
+        category: de.Bf
+    -   document: src.de.Bfv.1933
+        name: Gütersloh Reichsb
+        de.lknr: 13 606
+        category: de.Bf
+        de.rang: I
+    -   document: src.de.Bfv.1938
+        name: Gütersloh Reichsb
+        de.lknr: 13 606
+        category: de.Bf
+        de.rang: I
+
+    -   document: src.de.DB.Han.1950
+        name: Gütersloh Hbf
+        category: de.Bf
+        location:
+            line.de.1700: 126,88
+            line.de.2990: 126,88
+
+    -   document: src.de.DB.Esn.1981
         name: Gütersloh Hbf
         category: de.Bf
         location:
             line.de.1700: 126,88 # right
             line.de.2990: 126,88
-        document: src.de.DB.Esn.1981
+    -   document: src.de.DS100.1984
+        de.dstnr: !!str 136069
+        name: Gütersloh Hbf
+        de.DS100: EGLO
+        category: de.Bf
+        
 
     -   date: 2017-01
         name: Gütersloh Hbf
@@ -1261,6 +1590,76 @@ records:
             line.de.1700: 126,878
             line.de.2990: 126,878
         document: src.de.DBAG.Geo-Betriebsstelle.2017
+
+
+---
+key: point.de.Heidkamp
+type: point
+events:
+    -   date: !!null
+        name: Heidkamp
+        category: de.Bk
+        location:
+            line.de.1700: 129,73
+            line.de.2990: 129,73
+        source: src.de.DB.Han.1950
+    -   date: c1970
+        status: closed
+        source:
+            -   src.de.DB.Esn.1964
+            -   src.de.DB.Esn.1977
+
+    -   date: !!null
+        site:
+            path.de.1700: hei
+records:
+    -   document: src.de.DB.Han.1950
+        name: Heidkamp
+        category: de.Bk
+        location:
+            line.de.1700: 129,73
+            line.de.2990: 129,73
+    -   document: src.de.DB.Esn.1964
+        name: Heidkamp
+        category: de.Bk
+        location:
+            line.de.1700: 129,72
+            line.de.2990: 129,72
+
+
+---
+key: point.de.Rheda-Ems
+type: point
+events:
+    -   date: !!null
+        name: Ems
+        category: de.Bk
+        location:
+            line.de.1700: 132,34
+            line.de.2990: 132,34
+        source: src.de.DB.Han.1950
+    -   date: c1970
+        status: closed
+        source:
+            -   src.de.DB.Esn.1964
+            -   src.de.DB.Esn.1977
+
+    -   date: !!null
+        site:
+            path.de.1700: ems
+records:
+    -   document: src.de.DB.Han.1950
+        name: Heidkamp
+        category: de.Bk
+        location:
+            line.de.1700: 132,34
+            line.de.2990: 132,34
+    -   document: src.de.DB.Esn.1964
+        name: Heidkamp
+        category: de.Bk
+        location:
+            line.de.1700: 132,34
+            line.de.2990: 132,34
 
 
 ---
