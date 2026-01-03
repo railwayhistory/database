@@ -1,4 +1,4 @@
-# DE 6035.  Berlin Potsdamer Ringbf - Attilastraße - Mariendorf
+# DE 6035.  Berlin Potsdamer Ringbf - Blankenfelde (Kr Teltow-Fläming)
 #
 #           - S-Bahn -
 ---
@@ -8,38 +8,33 @@ label: de.S-Bahn
 current:
     status:
         point.de.Berlin-Yorckstrasse-Strw: removed
-        point.de.Berlin-Mariendorf-Abzw: open
+        point.de.Blankenfelde-Teltow-Fläming-S-Bahn: open
     category: de.Hauptbahn
     gauge: 1435mm
-    tracks: 2
+    tracks:
+        point.de.Berlin-Lichtenrade: 2
+        point.de.Blankenfelde-Teltow-Fläming-S-Bahn: 1
     electrified: de.bln
 
     goods: none
     passenger:
         point.de.Berlin-Yorckstrasse-Strw: none
-        point.de.Berlin-Mariendorf-Abzw: full
+        point.de.Blankenfelde-Teltow-Fläming-S-Bahn: full
 
     operator: org.de.DB-Netz
     owner: org.de.DB-Netz
 
     jurisdiction: de
     region:
-        - org.de
-        - org.de.l.be
+        point.de.Berlin-Lichtenrade-LGr:
+            - org.de
+            - org.de.l.be
+        point.de.Blankenfelde-Teltow-Fläming-S-Bahn:
+            - org.de
+            - org.de.l.bb
 
     de.VzG: !!str 6035
 events:
-    -   date: !!null
-        region:
-            - org.de
-            - org.de.l.be
-
-    -   date: de.vzg.dr
-        start: point.de.Berlin-Yorckstrasse-Strw
-        de.VzG: !!str 6035
-        source: src.de.DBAG.Geo-Strecke.2017
-
-
     #   Genehmigungen, Eigentümer, Betreiber
     #
     -   date: 1897
@@ -61,6 +56,7 @@ events:
     #   Eröffnung und Stilllegung
     #
     -   date: 1901-12-01
+        end: point.de.Berlin-Mariendorf-Abzw
         status: open
         source: src.de.DRG.1935 # 1901/82, 1901/83
 
@@ -92,6 +88,21 @@ events:
         end: point.de.Berlin-Yorckstrasse-Strw
         status: removed
 
+    # VzG
+    -   date: !!null
+        end: point.de.Berlin-Mariendorf-Abzw
+        de.VzG: "6035"
+    -   date: !!null
+        start: point.de.Berlin-Mariendorf-Abzw
+        end: point.de.Mahlow
+        de.VzG: "6135"
+    -   date: !!null
+        start: point.de.Mahlow
+        de.VzG: "6037"
+    -   date: 2025-12-14?
+        de.VzG: "6035"
+
+
     # Verlauf
     # 
     -   date: !!null
@@ -101,7 +112,7 @@ events:
             -   path.de.6171     fahu f
             -   path.de.6132     fhbf apri
             -   path.de.6035     a    f
-            -   path.de.6135     fpri mar
+            -   path.de.6135     fpri bla
             
 points:
     -   point.de.Berlin-Potsd-Ringbf                # de.6043
@@ -111,6 +122,13 @@ points:
     -   point.de.Berlin-Priesterweg
     -   point.de.Berlin-Attilastraße
     -   point.de.Berlin-Mariendorf-Abzw             # de.6135
+    -   point.de.Berlin-Marienfelde                 # de.6135
+    -   point.de.Berlin-Buckower-Chaussee
+    -   point.de.Berlin-Schichauweg
+    -   point.de.Berlin-Lichtenrade
+    -   point.de.Berlin-Lichtenrade-LGr             # de.6135
+    -   point.de.Mahlow
+    -   point.de.Blankenfelde-Teltow-Fläming-S-Bahn
 
 
 #-----------------------------------------------------------------------------
@@ -398,4 +416,224 @@ events:
 
 
 #    point.de.Berlin-Mariendorf-Abzw             de.6135
+
+#    point.de.Berlin-Marienfelde                 de.6135
+
+
+---
+key: point.de.Berlin-Buckower-Chaussee
+type: point
+events:
+    -   date: 1946-05-15
+        status: open
+        source: src.de.Kuhlmann.2000
+    -   date: !!null
+        name: Buckower Chaussee
+        de.VBL: Buc
+        source: src.de.DRG.Bln.1946
+    -   date: !!null
+        category: de.Hp
+        source: src.dd.DR.Bln.1953
+    -   date: !!null
+        master: point.de.Berlin-Marienfelde
+        source: src.dd.DR.Bln.1959
+    -   date: de.ds100.dr
+        de.DS100: BBCH
+        de.dstnr: !!str 334599
+        source: src.de.DBAG.BSV.2017
+    -   date: c2000
+        name: Berlin Buckower Chaussee
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Buckower Chauss
+        PLC: DE10843
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6135: 11,1
+        source: src.dd.DR.Bln.1959
+    -   date: c2000
+        location:
+            line.de.6135: 10,974
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+    -   date: !!null
+        site:
+            path.de.6135: buc
+
+
+---
+key: point.de.Berlin-Schichauweg
+type: point
+events:
+    -   date: 1990-12-01
+        status: open
+        source: src.de.Kuhlmann.2000
+    -   date: !!null
+        name: Berlin Schichauweg
+        category: de.Hp
+        source: src.de.DBAG.BSV.2017
+    -   date: de.ds100.dr
+        de.DS100: BSC
+        de.dstnr: !!str 334730
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Schichauweg
+        PLC: DE10937
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6135: 12,331
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+    -   date: !!null
+        site:
+            path.de.6135: sic
+
+
+---
+key: point.de.Berlin-Lichtenrade
+type: point
+events:
+    -   date: 1883-06-01
+        status: open
+        source: src.de.Kuhlmann.2000
+    -   date: !!null
+        name: Lichtenrade
+        source: src.de.Kb.1914
+    -   date: !!null
+        location:
+            line.de.6135: 13,77
+        category: de.Bf
+        de.rang: IV
+        source: src.de.DRG.Bln.1927
+    -   date: !!null
+        de.lknr: 03 273
+        service: passenger
+        source: src.de.Bfv.1928
+    -   date: c1930
+        de.rang: III
+        source: src.de.DRG.Bln.1932
+    -   date: de.lknr.30
+        de.lknr: 03 080
+        source: src.de.Bfv.1933
+    -   date: !!null
+        de.VBL: Lrd
+        source: src.de.DRG.Bln.1946
+    -   date: c1950
+        de.rang: II
+        source: src.dd.DR.Bln.1953
+    -   date: c1965
+        de.rang: U
+        master: point.de.Berlin-Marienfelde
+        source: src.dd.DR.Bln.1968
+    -   date: c1988
+        category: de.Hp
+        source: src.dd.DR.Bln.1991
+
+    -   date: c1992
+        category: de.Bf
+        source: src.de.SuW.2005
+    -   date: de.ds100.dr
+        de.DS100: BLRD
+        de.dstnr: !!str 031195
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Lichtenrade
+        PLC: DE11057
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6135: 13,757
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+    -   date: !!null
+        site:
+            path.de.6135: lic
+
+
+#    point.de.Berlin-Lichtenrade-LGr              de.6135
+
+
+---
+key: point.de.Mahlow
+type: point
+events:
+    -   date: 1875-06-17
+        status: open
+        source: src.de.Kuhlmann.2000
+    -   date: !!null
+        name: Mahlow
+        source: src.de.Kb.1914
+    -   date: !!null
+        location:
+            line.de.6037: 16,83
+            line.de.6135: 16,83
+        category: de.Bf
+        de.rang: II
+        source: src.de.DRG.Bln.1927
+    -   date: !!null
+        de.lknr: 03 107
+        source: src.de.Bfv.1928
+    -   date: c1930
+        de.rang: III
+        source: src.de.Bfv.1933
+    -   date: de.lknr.30
+        de.lknr: 03 081
+        source: src.de.Bfv.1933
+    -   date: !!null
+        de.VBL: Mah
+        source: src.de.DRG.Bln.1946
+    -   date: c1950
+        de.rang: II
+        source: src.dd.DR.Bln.1953
+    -   date: c1965
+        de.rang: III
+        source: src.dd.DR.Bln.1968
+
+    -   date: de.ds100.dr
+        de.DS100: BMAH
+        de.dstnr: !!str 033902
+        source: src.de.DBAG.BSV.2017
+    -   date: !!null
+        de.name16: Mahlow
+        PLC: DE16668
+        source: src.de.DBAG.BSV.2017
+
+    -   date: c2000
+        location:
+            line.de.6135: 16,835
+        source: src.de.DBAG.Geo-Betriebsstelle.2017
+
+    -   date: !!null
+        site:
+            path.de.6135: mah
+
+
+---
+key: point.de.Blankenfelde-Teltow-Fläming-S-Bahn
+type: point
+events:
+    -   date: 2006
+        status: open
+        split_from: point.de.Blankenfelde-Teltow-Fläming
+        source:
+            - src.de.TPP.2006
+            - src.de.TPP.2007
+    -   date: !!null
+        de.DS100: BBFD
+        name: Blankenfelde (Kr Teltow-Fläming) S-Bahn
+        de.name16: Blankenfelde S-B
+        category: de.Hp
+        PLC: DE11326
+        de.dstnr: !!str 857557
+        source: src.de.DBAG.BSV.2017
+
+    -   date: !!null
+        location:
+            line.de.6037: 19,358
+        source: src.de.DBAG.ISR
 
